@@ -1,0 +1,48 @@
+# Shortest passwordless ssh tutorial, ever
+
+  - date  
+    2013-08-23 10:13
+
+  - author  
+    nabil
+
+  - category  
+    bioinformatics
+
+  - slug  
+    shortest-passwordless-ssh-tutorial
+
+I've used this thrice in three days, so I'm just keeping a copy for
+myself.
+
+Sourced (i.e. blatant copy-paste) from:
+<http://arbib.it/tag/shortest-passwordless-ssh-tutorial/>
+
+That in turn got it from
+<http://blogs.translucentcode.org/mick/archives/000230.html>
+
+**Begin:**
+
+``` sourceCode bash
+local$ ssh-keygen -t dsa
+local$ scp ~/.ssh/id_dsa.pub remote:~/
+local$ ssh username@remote
+remote$ cat ~/id_dsa.pub >> ~/.ssh/authorized_keys
+remote$ chmod 644 ~/.ssh/authorized_keys
+remote$ exit
+local$ ssh username@remote
+```
+
+Now instead of the normal password you should be asked for the password
+you entered for your dsa key. This isn't passwordless yet but shows that
+ssh is using the key.
+
+Note: Leave Key password blank to have passwordless authentication
+
+Fixes for possible problems:
+
+``` sourceCode bash
+chmod 0600
+authorized_keys
+ln -s authorized_keys2 authorized_keys (or viceversa)
+```

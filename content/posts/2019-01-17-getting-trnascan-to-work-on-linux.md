@@ -1,0 +1,46 @@
+---
+layout: post
+published: true
+title: Getting tRNAscan to work on Linux
+date: 2011/08/21
+---
+A friend/collaborator was having problems getting
+[tRNAscan-SE](http://lowelab.ucsc.edu/tRNAscan-SE/) to work on his
+Debian machine (I think it was Debian). We came up with a fix for it
+that I'd like to share.
+
+tRNAScan-SE predicts transfer RNA genes in a nucleotide sequence. It was
+written by Todd Lowe & Sean Eddy ([The
+paper](http://nar.oxfordjournals.org/content/25/5/0955)) and it's very,
+very good at what it does but there is a glitch with compiling it on my
+Fedora 14 installation & my buddy's Debian machine. This is what happens
+when we try to compile it:
+
+```
+[nabil@tinkerbell tRNAscan-SE-1.3]$ make gcc -O -c trnascan.c gcc -O 
+-DTSCANDIR=/home/nabil/lib/tRNAscan-SE -o trnascan-1.4 trnascan.c gcc 
+-O -c align.c  
+.... blah blah blah blah blah.... 
+scorestack.c: In function 'free_hitstack': scorestack.c:247:54: 
+warning: comparison between pointer and integer 
+gcc -O -c sqio.c sqio.c:238:1: 
+error: conflicting types for 'getline' /usr/include/stdio.h:673:20: 
+note: previous declaration of 'getline' was here 
+make: *** [sqio.o] Error 1``
+```
+
+So, apparently on some linux distros, 'getline' function is an
+environment variable and creates a conflict during tRNAscan-SE
+installation. (This is basically what's written in the compile error).
+
+**BUT to fix this problem, run this command in the tRNAscan-SE
+directory**:
+
+```bash
+perl -pi -e "s/getline/getline2/g" sqio.c
+```
+
+This command will change all getline variables on the file sqio.c to
+getline2, avoiding conflicts.
+
+**Problem solved\!**
