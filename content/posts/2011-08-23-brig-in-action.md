@@ -1,0 +1,54 @@
+---
+layout: post
+title:  BRIG in action
+tags: [software]
+---
+These are some of my favourite [BRIG]() figures from recent Open Access
+publications. They are all really amazing and go far beyond what I
+thought was possible with the tool. I did not make these figures; all
+credit (and kudos) belong to the respective authors.
+
+!["Visualization of the reads selected for each strain mapped onto the
+S. pyogenes MGAS6180 reference genome. The innermost circles represent
+the GC content (black), GC skew (purple/green), and rRNA operons of
+MGAS6180 (pink boxes). BRIG (1) shows the distribution of the number of
+reads for each individual strain mapped onto the central reference using
+a window size of 500, arranged from inner to outer colored circles as
+follows: resequenced reference MGAS6180 (pink), PS001 (yellow), PS006
+(orange), PS005 (red), PS007 (maroon), and PS008 (purple). Additional
+strain-specific regions of difference (RODs) (ϕPS008 and ICESpPS008) are
+represented as insertions. The outermost circle represents previously
+reported regions of difference in MGAS6180, namely, prophage elements
+6180.1 and 6180.2, prophage remnants 6180.3 and 6180.4, and regions of
+difference 6180.RD1 and 6180.RD2 (15)
+(black)."](%7Cfilename%7C/images/BenZakouretal.jpg)
+
+From [Ben Zakour et al.]() (2012) 'Analysis of a Streptococcus pyogenes
+Puerperal Sepsis Cluster by Use of Whole-Genome Sequencing', J. Clin.
+Microbiol 50(7). doi: 10.1128/JCM.00675-12
+
+!["Distribution of CU fimbrial gene clusters among E. coli pathotypes.
+The inner ring represents the concatenated nucleotide sequences of the
+38 fimbrial operons. Each segment is labelled in the outer ring
+according to the name and clade \[3\] of the corresponding fimbrial
+usher type with the intervening 36 rings displaying the presence of
+intact CU fimbrial gene clusters in each of the strains analysed. The
+legend on the right lists the colour of each strain that we included in
+our study, grouped according to pathogenicity class. Circular comparison
+was generated using BLAST ring image generator (BRIG) \[69\]. 1CFT073
+contains two copies of the P fimbriae
+operon."](%7Cfilename%7C/images/Wurpeletal.png)
+
+From [Wurpel et al.]() (2013) 'Chaperone-Usher Fimbriae of Escherichia
+coli.', PLoS ONE 8(1): e52835. <doi:10.1371/journal.pone.0052835>
+
+!["BlastP comparison of the Janthinobacterium sp. HH01 genome compared
+against genomes of closely related species. The innermost rings indicate
+the GC content (black) and GC skew (purple/green). The outer rings
+represent the genomes of the following microbes in different colorings:
+Janthinobacterium sp. Marseille, blue; Janthinobacterium sp. PAMC 25724,
+red; Janthinobacterium sp. GC3, green; and C. violaceum ATCC 12472,
+black."](%7Cfilename%7C/images/Hornungetal.png)
+
+From [Hornung et al.]() (2013) 'The *Janthinobacterium* sp. HH01 Genome
+Encodes
