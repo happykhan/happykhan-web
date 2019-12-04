@@ -4,7 +4,8 @@ require(`dotenv`).config({
 
 module.exports = {
   siteMetadata: {
-    siteTitleAlt: `Minimal Blog - Gatsby Theme`,
+    siteTitle: `Happykhan.com`,
+    siteTitleAlt: `Personal website of Nabil-Fareed Alikhan`,
     navigation: [
       {
         title: `Blog`,
@@ -13,6 +14,24 @@ module.exports = {
       {
         title: `About`,
         slug: `/about`,
+      },
+      {
+        title: `Press-media`,
+        slug: `/media`,
+      },
+      {
+        title: `Publications`,
+        slug: `/publications`,
+      },
+    ],
+    externalLinks: [ 
+      {
+        name: `Twitter`,
+        url: `https://twitter.com/happy_khan`,
+      },
+      {
+        name: `GitHub`,
+        url: `https://github.com/happykhan`,
       },
     ],
   },
