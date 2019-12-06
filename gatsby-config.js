@@ -6,7 +6,9 @@ module.exports = {
   siteMetadata: {
     siteTitle: `Nabil-Fareed Alikhan`,
     siteTitleAlt: `Personal website of Nabil-Fareed Alikhan`,
-    siteUrl: `https://www.happykhan.com`,
+    siteHeadline: `Personal website of Nabil-Fareed Alikhan`,
+    siteDescription: `Nabil-Fareed Alikhan. Bioinformatician. Microbial genomics. Steams a good ham.`,
+    author: `@happy_khan`,
     navigation: [
       {
         title: `Blog`,
