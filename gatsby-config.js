@@ -16,7 +16,7 @@ module.exports = {
         slug: `/blog`,
       },
       {
-        title: `About`,
+        title: `About me`,
         slug: `/about`,
       },
       {
@@ -63,8 +63,8 @@ module.exports = {
         display: `standalone`,
         icons: [
           {
-            src: `/android-chrome-192x192.png`,
-            sizes: `192x192`,
+            src: `/android-chrome-128x128.png`,
+            sizes: `128x128`,
             type: `image/png`,
           },
           {
