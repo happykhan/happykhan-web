@@ -1,0 +1,29 @@
+---
+date: 2019-08-23
+title: How zip up a folder of files on HPC
+tags:
+  - tips
+---
+
+You see an error message like this:
+```
+[alikhan@NBI-HPC bactdating]$ sudo singularity build  bactdating.sif bactdating.def 
+Using container recipe deffile: bactdating.def
+Sanitizing environment
+Adding base Singularity environment to container
+Docker image path: index.docker.io/rocker/tidyverse:latest
+Cache folder set to /root/.singularity/docker
+[1/3] ||----------------------------------|   0.0% ERROR Error writing to /root/.singularity/docker/sha256:a1023bc917615cdb255c64fadbb2d8f78e8b0340fc6c11a8ea25e1020c475feb.tar.gz.LyNsUD.V1prNL: [Errno 28] No space left on device exiting
+ERROR Error writing to /root/.singularity/docker/sha256:0c48f908dc6318e7ca082c5718e4fea9ef8c49809242b823587f452f73956b3e.tar.gz.D3S0er.Y8nPFj: [Errno 28] No space left on device exiting
+ERROR Error writing to /root/.singularity/docker/sha256:a5729b5b4853988e207a18047cf059f520eea2a08a91d3bbcfc21554a5f98f0b.tar.gz.T88Q_a.UMjpkX: [Errno 28] No space left on device exiting
+```
+
+This tells you there is **not enough space for Singularity to build your container**.
+
+## What can you do?
+You can disable the Singularity cache, or get it to write somewhere else. There are two variables to play with:
+
+* SINGULARITY_DISABLE_CACHE If you want to disable the cache, this means is that the layers are written to a temporary directory. Thus, if you want to disable cache and write to a temporary folder, simply set SINGULARITY_DISABLE_CACHE to any true/yes value. By default, the cache is not disabled.
+* SINGULARITY_CACHEDIR Is the base folder for caching layers and singularity hub images. If not defined, it uses default of $HOME/.singularity. If defined, the defined location is used instead.
+
+Either of these could help avoid writing docker layers to /root/.singularity/docker.
