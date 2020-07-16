@@ -20,7 +20,7 @@ ERROR Error writing to /root/.singularity/docker/sha256:a5729b5b4853988e207a1804
 
 This tells you there is **not enough space for Singularity to build your container**.
 
-## What can you do?
+### What can you do?
 You can disable the Singularity cache, or get it to write somewhere else. There are two variables to play with:
 
 * SINGULARITY_DISABLE_CACHE If you want to disable the cache, this means is that the layers are written to a temporary directory. Thus, if you want to disable cache and write to a temporary folder, simply set SINGULARITY_DISABLE_CACHE to any true/yes value. By default, the cache is not disabled.
