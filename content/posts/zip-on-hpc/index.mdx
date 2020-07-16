@@ -1,0 +1,14 @@
+---
+date: 2020-07-16
+title: How zip up a folder of files on HPC
+tags:
+  - tips
+---
+This really applies if you are working on a computing cluster (SLURM). 
+The problem is to find all fastq files, and submit each one, one by one as a job to be gzipped.
+
+```
+ls *.fastq | xargs -I {} sbatch --wrap="gzip {}"
+```
+
+Do you have a better idea? At me on Twitter. [@happy_khan](https://twitter.com/happy_khan)
