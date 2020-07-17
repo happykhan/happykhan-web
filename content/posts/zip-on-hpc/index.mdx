@@ -11,7 +11,7 @@ The problem is to find all fastq files, and submit each one, one by one as a job
 ls *.fastq | xargs -I {} gzip {}
 ```
 
-**multicore version** 
+**Multicore version** 
 
 You will need to have `pigz` installed. 
 
@@ -26,7 +26,7 @@ This really applies if you are working on a computing cluster (SLURM).
 ls *.fastq | xargs -I {} sbatch --wrap="gzip {}"
 ```
 
-**multicore version** 
+**Multicore version** 
 
 You will need to have `pigz` installed. 
 
