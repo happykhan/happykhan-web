@@ -1,14 +1,37 @@
 ---
 date: 2020-07-16
-title: How zip up a folder of files on HPC
+title: How zip up a folder of loose FASTQ files
 tags:
   - tips
 ---
-This really applies if you are working on a computing cluster (SLURM). 
 The problem is to find all fastq files, and submit each one, one by one as a job to be gzipped.
+
+### Local machine
+```
+ls *.fastq | xargs -I {} gzip {}
+```
+
+**multicore version** 
+
+You will need to have `pigz` installed. 
+
+```
+ls *.fastq | xargs -I {} pigz {}
+```
+
+### Compute cluster - HPC
+This really applies if you are working on a computing cluster (SLURM). 
 
 ```
 ls *.fastq | xargs -I {} sbatch --wrap="gzip {}"
+```
+
+**multicore version** 
+
+You will need to have `pigz` installed. 
+
+```
+ls *.fastq | xargs -I {} sbatch --wrap="pigz {}"
 ```
 
 Do you have a better idea? At me on Twitter. [@happy_khan](https://twitter.com/happy_khan)
