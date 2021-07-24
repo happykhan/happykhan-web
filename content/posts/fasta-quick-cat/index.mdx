@@ -1,0 +1,39 @@
+---
+date: 2021-07-24
+title: Dirty python script to merge fasta files
+tags:
+  - scripts
+---
+
+## Motivation 
+Here is a Dirty python script to look in a directory, find fasta files (ext. ".fa"), and modify the header and merge them into a single fasta file. 
+This will only look one directory down. It is not recursive. It won't even check if the directory records are directories, so it is pretty fragile. 
+
+I wrote this in a HURRY. 
+
+## Requirements 
+* Python 3.7 
+* Biopython module
+
+## Code 
+``` sourceCode python
+import os
+from Bio import SeqIO, Seq 
+
+input_dir = "/home/ubuntu/output_dir"
+
+all_fasta = [] 
+for dir_name in os.listdir(input_dir):
+    if dir_name.startswith('EBRE'):
+        output_dir = os.path.join(input_dir, dir_name)
+        fasta_consensus = [os.path.join(output_dir, y) for y in os.listdir(output_dir) if y.endswith('.fa')]
+        if len(fasta_consensus) == 1: 
+            rec = SeqIO.parse(open(fasta_consensus[0]), 'fasta')
+            for fas in rec:
+                fas.id = fas.id.split('_')[1]
+                fas.decription = '' 
+                all_fasta.append(fas)
+
+with open("merged_output.fasta", "w") as output_handle:
+    SeqIO.write(all_fasta, output_handle, "fasta")
+```

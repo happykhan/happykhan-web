@@ -1,0 +1,32 @@
+---
+date: 2020-07-16
+title: Getting figures done in ggtree
+tags:
+  - analysis
+---
+
+You need to change the parts that say " < > "
+
+## Load in some data 
+``` sourceCode R
+library(ggtree)
+setwd("<YOUR WORKING DIR> ")
+tree <- read.tree("< YOUR TREE . nwk>")
+info <- read.csv("< YOUR METADATA >")
+metrics <- read.csv("table-S2.txt", row.names=1)[.c('< COL 1 >','<COL 2>')]
+
+## Collapse nodes and add shapes
+```
+p <- ggtree(tree, layout='circular') %>% ggtree::collapse(node=597) 
+p2 <- p %>% ggtree::collapse(node=681)  
+p3 <- p2 + geom_point2(mapping = aes(subset=(node == 681)), size = 5, shape = 23, fill = "steelblue") 
+         + geom_point2(mapping = aes(subset=(node == 597)), size = 5, shape = 23, fill = "red")
+```
+
+## Heatmap
+
+```
+gheatmap(p3, metrics , colnames_angle = 90, hjust =0, width =0.1)
+```
+
+Do you have a better idea? At me on Twitter. [@happy_khan](https://twitter.com/happy_khan)
