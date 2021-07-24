@@ -8,7 +8,7 @@ module.exports = {
     siteTitleAlt: `Personal website of Nabil-Fareed Alikhan`,
     siteHeadline: `Personal website of Nabil-Fareed Alikhan`,
     siteUrl: `https://happykhan.com`,
-    siteDescription: `Nabil-Fareed Alikhan. Bioinformatician. Microbial genomics. Steams a good ham.`,
+    siteDescription: `Nabil-Fareed Alikhan. Bioinformatician. Microbial genomics.`,
     author: `@happy_khan`,
     navigation: [
       {
