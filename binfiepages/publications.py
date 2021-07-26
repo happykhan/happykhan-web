@@ -35,16 +35,20 @@ if len(all_papers['preprints']) > 0:
     output_file.write('\n### Preprints\n')
     for pre in sorted(all_papers['preprints'], key=lambda k: k['Year'], reverse=True): 
         first_author = pre['Authors'].split(',')[0]
-        if pre['pdfname']:
-            title_pdf = f"[{pre['Title']}](/papers/{pre['pdfname']})"
+        doi = pre['doi']
+        if doi:
+            title_pdf = f"[{pre['Title']}]({doi})"
         else:
             title_pdf = pre['Title']
         pub = pre['Publication']
         year = pre['Year']
-        doi = pre['doi']
-        output_file.write(f'- {first_author} et al. {title_pdf}. {pub} {year}')
-        if doi:
-            output_file.write(f' {doi}')
+        pages = pre['Pages']
+
+        output_file.write(f'- {first_author} et al. {year}. {title_pdf}. {pub}')
+        if pages:
+            output_file.write(f':{pages}')
+        if pre['pdfname']:
+            output_file.write(f" [PDF](/papers/{pre['pdfname']})")
         output_file.write('\n')
 
 output_file.write('\n### Peer reviewed publications\n')
@@ -53,16 +57,28 @@ for year, yearlist in sorted(all_papers.items(), reverse=True):
         output_file.write(f'\n#### {year}\n')
         for pre in sorted(yearlist, key=lambda k: k['Year'], reverse=True): 
             first_author = pre['Authors'].split(',')[0]
-            if pre['pdfname']:
-                title_pdf = f"[{pre['Title']}](/papers/{pre['pdfname']})"
+            doi = pre['doi']
+            if doi:
+                title_pdf = f"[{pre['Title']}]({doi})"
             else:
                 title_pdf = pre['Title']
             pub = pre['Publication']
             year = pre['Year']
             doi = pre['doi']
-            output_file.write(f'- {first_author} et al. {title_pdf}. {pub} {year}')
-            if doi:
-                output_file.write(f' {doi}')
+            output_file.write(f'- {first_author} et al. {year}. {title_pdf}. {pub}')
+            vol = pre['Volume']
+            issue = pre['Number']
+            pages = pre['Pages']
+            if vol and issue:
+                output_file.write(f' {vol}({issue})')
+            elif vol:
+                output_file.write(f' {vol}')
+            elif issue:
+                output_file.write(f' ({issue})')
+            if pages:
+                output_file.write(f':{pages}')            
+            if pre['pdfname']:
+                output_file.write(f" [PDF](/papers/{pre['pdfname']})")
             output_file.write('\n')
 
 output_file.close()
