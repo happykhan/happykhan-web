@@ -16,12 +16,12 @@ module.exports = {
         slug: `/blog`,
       },
       {
-        title: `About me`,
+        title: `About me + Media`,
         slug: `/about`,
       },
       {
-        title: `Press-media`,
-        slug: `/media`,
+        title: `MicroBinfie Podcast`,
+        slug: `/microbinfie`,
       },
       {
         title: `Publications`,

@@ -6,3 +6,4 @@ Source code for http://happykhan.com
 
 Website Template: [`@lekoarts/gatsby-theme-minimal-blog`](https://github.com/LekoArts/gatsby-themes/tree/master/themes/gatsby-theme-minimal-blog).
 
+Nabil, If you're reading this: Just push to Github, it's all hooked up. 
