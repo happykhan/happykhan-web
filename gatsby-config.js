@@ -12,21 +12,25 @@ module.exports = {
     author: `@happy_khan`,
     navigation: [
       {
-        title: `Blog`,
-        slug: `/blog`,
-      },
-      {
         title: `About me`,
         slug: `/about`,
+      },
+      {
+        title: `Publications`,
+        slug: `/publications`,
+      },      
+      {
+        title: `Posts`,
+        slug: `/tags/posts`,
       },
       {
         title: `MicroBinfie Podcast`,
         slug: `/microbinfie`,
       },
       {
-        title: `Publications`,
-        slug: `/publications`,
-      },
+        title: `News`,
+        slug: `/blog`,
+      }
     ],
     externalLinks: [ 
       {
