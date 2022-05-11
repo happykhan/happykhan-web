@@ -2,7 +2,6 @@
 | --- | --- |
 |[r/2000smusic - Top this week|[Spotify playlist](https://open.spotify.com/playlist/2tCRjLHUXT1mLWGMAcK6kj)|
 |[r/70smusic - Top this week|[Spotify playlist](https://open.spotify.com/playlist/53Wl5ebYtq5z2RJ4Q2bWUY)|
-|[r/80smusic - Hot|[Spotify playlist](https://open.spotify.com/playlist/4aRVyOGmVNLR0nVMbePLCX)|
 |[r/80smusic - Top this week|[Spotify playlist](https://open.spotify.com/playlist/4mri5Siez9oHdVG3XUKPLC)|
 |[r/90smusic - Top this week|[Spotify playlist](https://open.spotify.com/playlist/3CqzsApJ60kSeSaB8CROov)|
 |[r/Cyberpunk_Music - Hot|[Spotify playlist](https://open.spotify.com/playlist/7H2VjUrMDETVz2CYPUGYlB)|

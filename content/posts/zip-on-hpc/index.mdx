@@ -4,33 +4,36 @@ title: How zip up a folder of loose FASTQ files
 tags:
   - Posts
 ---
+
 The problem is to find all fastq files, and submit each one, one by one as a job to be gzipped.
 
 ### Local machine
-```
+
+```bash
 ls *.fastq | xargs -I {} gzip {}
 ```
 
-**Multicore version** 
+**Multicore version**
 
-You will need to have `pigz` installed. 
+You will need to have `pigz` installed.
 
-```
+```bash
 ls *.fastq | xargs -I {} pigz {}
 ```
 
 ### Compute cluster - HPC
-This really applies if you are working on a computing cluster (SLURM). 
 
-```
+This really applies if you are working on a computing cluster (SLURM).
+
+```bash
 ls *.fastq | xargs -I {} sbatch --wrap="gzip {}"
 ```
 
-**Multicore version** 
+**Multicore version**
 
-You will need to have `pigz` installed. 
+You will need to have `pigz` installed.
 
-```
+```bash
 ls *.fastq | xargs -I {} sbatch --wrap="pigz {}"
 ```
 

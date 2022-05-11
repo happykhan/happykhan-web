@@ -1,86 +1,51 @@
-require(`dotenv`).config({
-  path: `.env`,
-})
+/**
+ * Configure your Gatsby site with this file.
+ *
+ * See: https://www.gatsbyjs.com/docs/gatsby-config/
+ */
 
 module.exports = {
   siteMetadata: {
-    siteTitle: `Nabil-Fareed Alikhan`,
-    siteTitleAlt: `Personal website of Nabil-Fareed Alikhan`,
-    siteHeadline: `Personal website of Nabil-Fareed Alikhan`,
-    siteUrl: `https://happykhan.com`,
-    siteDescription: `Nabil-Fareed Alikhan. Bioinformatician. Microbial genomics.`,
-    author: `@happy_khan`,
-    navigation: [
-      {
-        title: `About me`,
-        slug: `/about`,
-      },
-      {
-        title: `Publications`,
-        slug: `/publications`,
-      },      
-      {
-        title: `Posts`,
-        slug: `/tags/posts`,
-      },
-      {
-        title: `MicroBinfie Podcast`,
-        slug: `/microbinfie`,
-      },
-      {
-        title: `News`,
-        slug: `/blog`,
-      }
-    ],
-    externalLinks: [ 
-      {
-        name: `Twitter`,
-        url: `https://twitter.com/happy_khan`,
-      },
-      {
-        name: `GitHub`,
-        url: `https://github.com/happykhan`,
-      },
-    ],
+    title: `Happykhan.com - Nabil-Fareed Alikhan`,
+    short_name: `happykhan.com`,
+    description: `Personal website of Nabil-Fareed Alikhan. Bioinformatician. Microbial genomics.`,
+    url: `https://happykhan.com`,
+    twitterUsername: `@happy_khan`,
+    image: "/images/Nabil-FareedAlikhan-portSQ.jpg",
   },
   plugins: [
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
     {
-      resolve: `@lekoarts/gatsby-theme-minimal-blog`,
-      options: {},
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: "gatsby-source-filesystem",
       options: {
-        trackingId: "UA-34202032-1",
+        name: `microbinfie`,
+        path: `${__dirname}\\content\\microbinfie`,
       },
     },
-    `gatsby-plugin-sitemap`,
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: `Happykhan.com - Nabil-Fareed Alikhan`,
-        short_name: `happykhan.com`,
-        description: `Personal website of Nabil-Fareed Alikhan`,
-        start_url: `/`,
-        background_color: `#fff`,
-        theme_color: `#6B46C1`,
-        display: `standalone`,
-        icons: [
-          {
-            src: `/android-chrome-128x128.png`,
-            sizes: `128x128`,
-            type: `image/png`,
-          },
-          {
-            src: `/android-chrome-512x512.png`,
-            sizes: `512x512`,
-            type: `image/png`,
-          },
+        name: `posts`,
+        path: `${__dirname}\\content\\posts`,
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `pages`,
+        path: `${__dirname}\\content\\pages`,
+      },
+    },
+    "gatsby-plugin-mdx",
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        // You can add multiple tracking ids and a pageview event will be fired for all of them.
+        trackingIds: [
+          "UA-34202032-1", // Google Analytics / GA
         ],
       },
     },
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-netlify`,
-    // `gatsby-plugin-webpack-bundle-analyser-v2`,
   ],
 }

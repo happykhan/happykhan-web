@@ -4,6 +4,7 @@ title: Shortest passwordless ssh tutorial
 tags:
   - Posts
 ---
+
 I've used this thrice in three days, so I'm just keeping a copy for
 myself.
 
@@ -15,7 +16,7 @@ That in turn got it from
 
 **Begin:**
 
-``` sourceCode bash
+```bash
 local$ ssh-keygen -t dsa
 local$ scp ~/.ssh/id_dsa.pub remote:~/
 local$ ssh username@remote
@@ -33,7 +34,7 @@ Note: Leave Key password blank to have passwordless authentication
 
 Fixes for possible problems:
 
-``` sourceCode bash
+```bash
 chmod 0600
 authorized_keys
 ln -s authorized_keys2 authorized_keys (or viceversa)
