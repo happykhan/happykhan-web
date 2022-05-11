@@ -1,6 +1,6 @@
 ---
 created: 2022-05-11T19:18:50+01:00
-modified: 2022-05-11T19:22:46+01:00
+modified: 2022-05-11T19:24:17+01:00
 ---
 
 # Promoting a better online presence for researchers
@@ -9,7 +9,7 @@ Over the years I have attended a number of seminars and courses that talk about 
 
 We in the research community only occasionally court our peers. We are usually employed full time on a project already, and do not have time to work on many extra projects.  We work in large organisations with people in a similar field of study so we should have access to potential collaborators. We can meet like-minded people through scientific conferences. Our organisations try to actively publicise the work we do. In essence our immediate marketing requirements should already be covered by these more traditional resources. Outside of that, we are not really trying to “sell” anything. Our bread and butter is not encouraging people to constantly interact with us. This makes some of the canonical advice for developing visibility online seem extreme, even obnoxious. As a scientist, what is the value of promoting yourself online? It seems like a lot of work for very little gain. 
 
-# The value of being visible online
+## The value of being visible online
 I believe there is scope in an “Online presence” for every researcher no matter what career stage they are in but the priorities are not the same as a standard digital marketing campaign. Here is my general guidance on what one should try to achieve and some practical advice on how to achieve it. 
 
 People do look for you online! Whether you are a professor or a PhD student. Certainly if you have publications/presentations/posters then people interested in that work will look for more information about what you do. But we as scientists are special, we are presented both as an individual and as a part of a collective. People might find you through association as well, like through your lab group or institution website. In any of these cases, people’s motivation is to find out more about you professionally. What have you worked on? What can you do? When people do look for you, they will make one or two attempts but they will not go to the ends of the Earth to reach you. If the information is not forthcoming, they will likely move onto someone else. 
