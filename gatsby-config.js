@@ -3,6 +3,7 @@
  *
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
+const path = require(`path`)
 
 module.exports = {
   siteMetadata: {
@@ -20,21 +21,21 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: `microbinfie`,
-        path: `${__dirname}\\content\\microbinfie`,
+        path: path.join(__dirname, "content", "microbinfie"),
       },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: `posts`,
-        path: `${__dirname}\\content\\posts`,
+        path: path.join(__dirname, "content", "posts"),
       },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: `pages`,
-        path: `${__dirname}\\content\\pages`,
+        path: path.join(__dirname, "content", "pages"),
       },
     },
     "gatsby-plugin-mdx",
