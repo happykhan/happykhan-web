@@ -1,7 +1,7 @@
 import React from "react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../components/Layout"
-import { Container, Typography } from "@mui/material/"
+import { Container, Typography, Link } from "@mui/material/"
 import Seo from "../components/Seo"
 
 const Post = ({ pageContext }) => {
@@ -15,6 +15,10 @@ const Post = ({ pageContext }) => {
         </Typography>
         <Typography variant="subtitle-1">Posted on {date}</Typography>
         <MDXRenderer>{body}</MDXRenderer>
+        <Typography variant="h5" my={3} paragraph>
+          Questions or comments? at me on Twitter
+          <Link href="https://twitter.com/happy_khan">@happy_khan</Link>
+        </Typography>
       </Container>
     </Layout>
   )

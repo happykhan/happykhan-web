@@ -95,10 +95,9 @@ const createListPages = (
 const getBib = async () => {
   const bibtexParse = require("bibtex-parse-js")
   const fetch = require("node-fetch")
-
-  const googleScholarUrl =
-    "https://scholar.googleusercontent.com/citations?view_op=export_citations&user=BpzrleYAAAAJ&citsig=AMD79ooAAAAAYn0KAkYVENDMkUz2gK9X17r1wFv1Poiq&hl=en"
-  const response = await fetch(googleScholarUrl)
+  const citationsUrl =
+    "https://raw.githubusercontent.com/happykhan/citations/main/ME.bib"
+  const response = await fetch(citationsUrl)
   const input = await response.text()
   return bibtexParse.toJSON(input)
 }
