@@ -15,8 +15,8 @@ const Post = ({ pageContext }) => {
         </Typography>
         <Typography variant="subtitle-1">Posted on {date}</Typography>
         <MDXRenderer>{body}</MDXRenderer>
-        <Typography variant="h5" my={3} paragraph>
-          Questions or comments? at me on Twitter
+        <Typography my={3} paragraph>
+          Questions or comments? @ me on Twitter
           <Link href="https://twitter.com/happy_khan">@happy_khan</Link>
         </Typography>
       </Container>
