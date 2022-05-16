@@ -1,0 +1,50 @@
+---
+date: 2022-04-10
+title: What is Mamba
+tags:
+  - Posts
+---
+
+If you use `conda`, you should use `mamba`. What is `mamba` then? The website describes it as:
+
+> A Python-based CLI conceived as a drop-in replacement for conda, offering higher speed and more reliable environment solutions
+
+So you install `mamba` into your `conda` environment and for certain commands where you would
+use `conda` you use `mamba` instead. The parameters are effectively the same.
+
+So when you want to **Create an enviroment:**
+
+```bash
+conda create  -n myenv -c bioconda samtools
+# becomes
+mamba create -n myenv  -c bioconda  samtools
+```
+
+**Install software:**
+
+```bash
+conda install bqplot
+# becomes
+mamba install bqplot
+```
+
+**Remove software:**
+
+```bash
+conda remove bqplot
+# becomes
+mamba remove bqplot
+```
+
+As you can see, it's pretty much substitute `conda` for `mamba`. The outcome is
+exactly the same, except the install time is **much** faster.
+
+I usually keep seperate enviroments for each project, so I first create the
+enviroment with `conda` with `mamba` installed and then I switch to using mamba
+like the examples above. e.g.
+
+```bash
+conda create  -n myenv mamba
+conda activate myenv
+mamba install prokka
+```
