@@ -123,3 +123,19 @@ BTW, as a final reminder; You can save the output with `ggsave`
 ggsave(p, filename = "map.png",  width = 15, height = 5)
 ggsave(p, filename = "map.svg",  width = 15, height = 5)
 ```
+
+If you want to play around with the map projection, use `coord_map` like below.
+
+```r
+if (require("maps")) {
+newmap <- ggplot(country.maps, aes(x = long, y =lat)) +
+  geom_polygon(aes( group = group, fill = Monarch)) +
+    coord_map("orthographic") +
+
+      scale_fill_viridis_d(na.value='grey70', alpha = .9) +
+  theme_minimal_grid()
+newmap
+}
+```
+
+![Map of monarchy curved](/images/sc2map-curved.png)
