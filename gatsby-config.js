@@ -15,8 +15,6 @@ module.exports = {
     image: "/images/Nabil-FareedAlikhan-portSQ.jpg",
   },
   plugins: [
-    "gatsby-plugin-image",
-    "gatsby-plugin-sharp",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -38,7 +36,22 @@ module.exports = {
         path: path.join(__dirname, "content", "pages"),
       },
     },
-    "gatsby-plugin-mdx",
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+            },
+          },
+        ],
+        plugins: [`gatsby-remark-images`],
+      },
+    },
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {

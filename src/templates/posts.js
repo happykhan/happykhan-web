@@ -17,7 +17,7 @@ const Post = ({ pageContext }) => {
         <MDXRenderer>{body}</MDXRenderer>
         <Typography my={3} paragraph>
           Questions or comments? @ me on Twitter
-          <Link href="https://twitter.com/happy_khan">@happy_khan</Link>
+          <Link href="https://twitter.com/happy_khan"> @happy_khan</Link>
         </Typography>
       </Container>
     </Layout>
