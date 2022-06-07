@@ -27,6 +27,12 @@ If you have difficulties installing `rnaturalearth` and `sf` natively on your sy
 I have found it possible by installing `R` and the packages in a `conda` environment.
 I explain [how to do this, here](/posts/conda-install-r).
 
+This post is part of a series about making maps in R:
+
+- [Making a map in R](/posts/making-a-map-in-r)
+- [Advanced map making in R](/posts/advanced-map-making-in-r)
+- [Variations on map projections in R](/posts/map-projections-in-r)
+
 # Pulling out a specific country/region with rnaturalearth
 
 ```r
@@ -174,7 +180,7 @@ australia
 
 ![Au population in cities for each state](./au_weird_proj.png)
 
-# Custom settings and PROJ
+## Custom settings and PROJ
 
 You can fully customise the map and the projection using the "PROJ" strings. https://proj.org/index.html
 
@@ -380,7 +386,7 @@ australia
 
 ![Labels are fixed](./au_good_label.png)
 
-## Adding repl labels
+# Adding repl labels
 
 `geom_sf_label` in the example above can be tranformed by `coord_sf`, which is why the labels show up in the correct place. But the labels will not automatically adjust themselves if your figure has many crowded labels. That's why I used `geom_label_repel` at the start - but `geom_label_repel` cant be transformed by `coord_sf`!
 

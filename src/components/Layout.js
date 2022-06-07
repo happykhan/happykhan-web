@@ -12,7 +12,7 @@ import {
   Box,
 } from "@mui/material/"
 import { CssBaseline } from "@mui/material/"
-import ChevronRightIcon from "@mui/icons-material/ChevronRight"
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft"
 import MenuIcon from "@mui/icons-material/Menu"
 import { useState } from "react"
 
@@ -57,14 +57,14 @@ const Layout = ({ children }) => {
           </Toolbar>
         </Container>
         <SwipeableDrawer
-          anchor="right"
+          anchor="left"
           open={open}
           onOpen={() => setOpen(true)}
           onClose={() => setOpen(false)}
         >
           <div>
             <IconButton onClick={() => setOpen(false)}>
-              <ChevronRightIcon />
+              <ChevronLeftIcon />
             </IconButton>
           </div>
           <Divider />

@@ -66,7 +66,7 @@ const Mblist = ({ pageContext, data }) => {
       : "/microbinfie/" + (currentPage - 1).toString()
   const nextPage = "/microbinfie/" + (currentPage + 1).toString()
 
-  const [text, setText] = React.useState("Meet the hosts!")
+  const [text, setText] = React.useState("Meet the hosts! (mouse over)")
   const handleTooltipOpen = bio => {
     setText(bio)
   }
