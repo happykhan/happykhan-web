@@ -11,8 +11,8 @@ const socialItems = [
 const Social = ({ direction }) => {
   return (
     <Grid container direction={direction || "row"} spacing={1}>
-      {socialItems.map(item => (
-        <Grid item>
+      {socialItems.map((item, index) => (
+        <Grid item key={`social-grid-${index}`}>
           <Link href={item.url}>
             <IconButton>
               <item.icon />
@@ -21,14 +21,6 @@ const Social = ({ direction }) => {
         </Grid>
       ))}
     </Grid>
-
-    //       {socialItems.map(item => {
-    //         ;<Grid item>
-    //           <item.icon />
-    //         </Grid>
-    //       })}
-    //     </Grid>
-    //   )
   )
 }
 

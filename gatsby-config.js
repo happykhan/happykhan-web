@@ -38,6 +38,7 @@ module.exports = {
     },
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
@@ -58,6 +59,56 @@ module.exports = {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [
           "UA-34202032-1", // Google Analytics / GA
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                url
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.nodes.map(node => {
+                return Object.assign({}, node.frontmatter, {
+                  description: node.excerpt,
+                  date: node.frontmatter.date,
+                  url: site.siteMetadata.url + "/posts/" + node.slug,
+                  guid: site.siteMetadata.url + node.slug,
+                })
+              })
+            },
+            query: `
+              {
+                allMdx(
+                  sort: {order: DESC, fields: [frontmatter___date]}
+                  filter: {frontmatter: {tags: {in: "Posts"}}}
+                ) {
+                  nodes {
+                    frontmatter {
+                      date
+                      title
+                      tags
+                    }
+                    excerpt(pruneLength: 500)
+                    slug
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "Happykhan.com RSS Feed",
+          },
         ],
       },
     },

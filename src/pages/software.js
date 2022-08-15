@@ -10,6 +10,12 @@ import {
   Button,
 } from "@mui/material/"
 import Seo from "../components/Seo"
+import { useLocation } from "@reach/router"
+
+export const Head = () => {
+  const location = useLocation()
+  return <Seo title="My Software" pathname={location.pathname} />
+}
 
 const softwareList = [
   {
@@ -35,7 +41,6 @@ const softwareList = [
 const Software = () => {
   return (
     <Layout>
-      <Seo title="My software" />
       <Container maxWidth="md">
         <Typography variant="h3" my={3} gutterBottom>
           Software

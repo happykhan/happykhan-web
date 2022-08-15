@@ -7,7 +7,8 @@ const Hero = () => {
   return (
     <Paper sx={{ height: "90vh", position: "relative" }}>
       <StaticImage
-        src="https://images.unsplash.com/photo-1637929476734-bd7f5f78e40a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80"
+        src="../../static/images/dna-back.jpg"
+        alt="DNA helix"
         style={{
           zIndex: 1,
           height: "100%",

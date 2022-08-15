@@ -9,10 +9,13 @@ import {
 } from "@mui/material/"
 import Seo from "../components/Seo"
 
+export const Head = () => {
+  return <Seo title="Page not found" />
+}
+
 const FOF = () => {
   return (
     <Layout>
-      <Seo />
       <Container maxWidth="md">
         <Card>
           <CardContent>

@@ -26,6 +26,7 @@ const graphqlQuery = async graphql => {
             frontmatter {
               date(formatString: "MMMM D, YYYY")
               title
+              bannerDesc
             }
             slug
             body
@@ -63,6 +64,8 @@ const createPageWrapper = (postArray, postComponent, prefix, createPage) => {
         body: post.node.body,
         link: post.node.frontmatter.link,
         date: post.node.frontmatter.date,
+        bannerImage: post.node.frontmatter.bannerImage,
+        bannerDesc: post.node.frontmatter.bannerDesc,
         previous,
         next,
       },

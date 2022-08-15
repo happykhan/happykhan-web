@@ -1,75 +1,52 @@
 import React from "react"
-import PropTypes from "prop-types"
-import { Helmet } from "react-helmet"
-import { useLocation } from "@reach/router"
-import { useStaticQuery, graphql } from "gatsby"
+import { useSiteMetadata } from "../hooks/use-site-metadata"
 
-const Seo = ({ title, description, image, article }) => {
-  const { pathname } = useLocation()
-  const { site } = useStaticQuery(query)
+const Seo = ({ title, description, pathname, image, children, article }) => {
   const {
-    defaultTitle,
-    defaultDescription,
-    siteUrl,
-    defaultImage,
+    title: defaultTitle,
+    description: defaultDescription,
+    image: defaultImage,
+    url,
     twitterUsername,
-  } = site.siteMetadata
+  } = useSiteMetadata()
+
   const seo = {
     title: title ? `${title} | ${defaultTitle}` : defaultTitle,
     description: description || defaultDescription,
-    image: `${siteUrl}${image || defaultImage}`,
-    url: `${siteUrl}${pathname}`,
+    image: image ? `${url}${image}` : `${url}${defaultImage}`,
+    url: pathname ? `${url}${pathname}` : url,
   }
+  const ogType = article ? "article" : "website"
+  const cardType = seo.image ? "summary_large_image" : "summary"
   return (
-    <Helmet title={seo.title}>
+    <>
+      <title>{seo.title}</title>
       <meta name="description" content={seo.description} />
-      <meta name="image" content={seo.image} />
       {seo.url && <meta property="og:url" content={seo.url} />}
-      {(article ? true : null) && <meta property="og:type" content="article" />}
+      <meta property="og:type" content={ogType} />
       {seo.title && <meta property="og:title" content={seo.title} />}
       {seo.description && (
         <meta property="og:description" content={seo.description} />
       )}
       {seo.image && <meta property="og:image" content={seo.image} />}
-      <meta name="twitter:card" content="summary_large_image" />
+
+      <meta name="twitter:card" content={cardType} />
+      {url && <meta property="twitter:domain" content={url} />}
       {twitterUsername && (
-        <meta name="twitter:creator" content={twitterUsername} />
+        <meta name="twitter:site" content={twitterUsername} />
       )}
+      {twitterUsername && (
+        <meta property="twitter:creator" content={twitterUsername} />
+      )}
+      {seo.url && <meta property="twitter:url" content={seo.url} />}
       {seo.title && <meta name="twitter:title" content={seo.title} />}
+      {seo.image && <meta name="twitter:image" content={seo.image} />}
       {seo.description && (
         <meta name="twitter:description" content={seo.description} />
       )}
-      {seo.image && <meta name="twitter:image" content={seo.image} />}
-    </Helmet>
+      {children}
+    </>
   )
 }
 
 export default Seo
-
-Seo.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  image: PropTypes.string,
-  article: PropTypes.bool,
-}
-
-Seo.defaultProps = {
-  title: null,
-  description: null,
-  image: null,
-  article: false,
-}
-
-const query = graphql`
-  query SEO {
-    site {
-      siteMetadata {
-        defaultTitle: title
-        defaultDescription: description
-        siteUrl: url
-        defaultImage: image
-        twitterUsername
-      }
-    }
-  }
-`

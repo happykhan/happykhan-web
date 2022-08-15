@@ -15,6 +15,17 @@ import {
 import Layout from "../components/Layout"
 import HeadphonesIcon from "@mui/icons-material/Headphones"
 import Seo from "../components/Seo"
+import { useLocation } from "@reach/router"
+
+export const Head = () => {
+  const location = useLocation()
+  return (
+    <Seo
+      title="Microbial Bioinformatics Podcast"
+      pathname={location.pathname}
+    />
+  )
+}
 
 const MbItem = ({ excerpt, frontmatter, slug }) => {
   const url = `/microbinfie/${slug}`

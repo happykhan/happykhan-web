@@ -3,6 +3,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../components/Layout"
 import { Button, Container } from "@mui/material/"
 import Seo from "../components/Seo"
+import { useLocation } from "@reach/router"
 
 const makeSCiframe = (
   link,
@@ -19,7 +20,7 @@ const makeSCiframe = (
   ) {
     const soundcloudURL = link.replace(/(http|https)/, "")
     if (
-      /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/.test(
+      /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_+.~#?&//=]*)/.test(
         soundcloudURL
       )
     ) {
@@ -39,13 +40,17 @@ const makeSCiframe = (
   )
 }
 
+export const Head = ({ pageContext }) => {
+  const { title } = pageContext
+  const location = useLocation()
+  return <Seo title={title} description={title} pathname={location.pathname} />
+}
+
 const Mbpost = ({ pageContext }) => {
   const { title, body, date, link } = pageContext
-  console.log(link)
   const sFrame = makeSCiframe(link)
   return (
     <Layout>
-      <Seo title={title} description={title} />
       <Container maxWidth="md">
         <h1>{title}</h1>
         <p>Released on {date}</p>

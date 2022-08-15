@@ -16,7 +16,12 @@ import {
   Tooltip,
 } from "@mui/material/"
 import Seo from "../components/Seo"
+import { useLocation } from "@reach/router"
 
+export const Head = () => {
+  const location = useLocation()
+  return <Seo title="My Publications" pathname={location.pathname} />
+}
 const style = {
   position: "absolute",
   top: "50%",
@@ -131,7 +136,6 @@ const Publications = ({ pageContext }) => {
   }
   return (
     <Layout>
-      <Seo title="My Publications" />
       <Container maxWidth="md">
         <Typography variant="h3" my={3} gutterBottom>
           Publications ({bibJson.length})

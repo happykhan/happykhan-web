@@ -3,11 +3,17 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../components/Layout"
 import { Container, Card, CardContent, Typography } from "@mui/material/"
 import Seo from "../components/Seo"
+import { useLocation } from "@reach/router"
+
+export const Head = ({ pageContext }) => {
+  const location = useLocation()
+  return <Seo title={pageContext.title} pathname={location.pathname} />
+}
+
 const Page = ({ pageContext }) => {
   const { title, body } = pageContext
   return (
     <Layout>
-      <Seo title={title} />
       <Container maxWidth="md">
         <Card>
           <CardContent>

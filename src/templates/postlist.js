@@ -11,6 +11,19 @@ import {
 } from "@mui/material/"
 import Layout from "../components/Layout"
 import Seo from "../components/Seo"
+import { useLocation } from "@reach/router"
+
+export const Head = ({ pageContext }) => {
+  const { currentPage } = pageContext
+  const location = useLocation()
+
+  return (
+    <Seo
+      title={`Blog posts, page ${currentPage + 1}`}
+      pathname={location.pathname}
+    />
+  )
+}
 
 const PostItem = ({ excerpt, frontmatter, slug }) => {
   const url = `/posts/${slug}`
@@ -34,7 +47,6 @@ const PostItem = ({ excerpt, frontmatter, slug }) => {
 }
 
 const PostList = ({ pageContext, data }) => {
-  console.log(pageContext)
   const { currentPage, numPages } = pageContext
 
   const isFirst = currentPage === 0
@@ -45,8 +57,6 @@ const PostList = ({ pageContext, data }) => {
 
   return (
     <Layout>
-      <Seo title="Blog Posts" />
-
       <Container maxWidth="md">
         <Typography variant="h3" my={3} gutterBottom>
           Posts
