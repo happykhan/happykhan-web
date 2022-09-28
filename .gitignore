@@ -6,7 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 .venv
 package-lock.json
-
+.vscode
 # Runtime data
 pids
 *.pid
