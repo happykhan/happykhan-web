@@ -1,0 +1,71 @@
+---
+date: 2022-10-07
+title: Downloading and installing software for the rMLST comparison
+bannerImage: "./mj_bioinformatics.png"
+bannerDesc: "an AI generated picture (Midjourney) with prompt; 'bioinformatics'. You can share and adapt this image following a CC BY-SA 4.0 licence."
+tags:
+  - Posts
+---
+
+These are some notes for how to install software and fetch the data required for [the rMLST comparison in _Acintobacter_](/posts/rmlst-in-acinetobacter).
+
+## Setting up conda env (to install software)
+
+Here are steps for setting up a conda to manage your software installations.
+
+```bash
+wget https://repo.anaconda.com/miniconda/Miniconda3-py38_4.12.0-Linux-x86_64.sh
+chmod +x ./Miniconda3-py38_4.12.0-Linux-x86_64.sh
+./Miniconda3-py38_4.12.0-Linux-x86_64.sh
+~/miniconda3/bin/conda init
+source ~/.bashrc
+conda config --add channels defaults
+conda config --add channels conda-forge
+conda config --add channels bioconda
+conda create -y -c conda-forge -n rmlst mamba
+conda activate rmlst
+```
+
+## Installing software
+
+Using conda makes it easy to install bioinformatics software.
+
+```bash
+mamba install -y -c bioconda rapidnj cgmlst-dists mashtree
+mamba install -y -c conda-forge pip notebook  nb_conda_kernels  jupyter_contrib_nbextensions
+pip install grapetree
+```
+
+## Download and 'install' NCBI datasets
+
+You can fetch genome assemblies from NCBI using the `datasets` tool, which is available at https://www.ncbi.nlm.nih.gov/datasets/docs/v1/download-and-install/
+
+To use it, as I have done below, you need a text file of all the accession codes you wish to fetch (I have called it `get_ass.txt`).
+
+```bash
+wget https://ftp.ncbi.nlm.nih.gov/pub/datasets/command-line/LATEST/linux-amd64/datasets
+chmod +x ./datasets
+./datasets download genome accession --inputfile get_ass.txt   --exclude-protein --exclude-rna --include-gbff  --exclude-genomic-cds  --exclude-seq
+unzip ncbi_dataset.zip
+```
+
+For the _Acintobacter_ dataset I am using, some of the are not available ... for reasons.
+
+```bash
+Some of the assemblies provided ('GCA_000580355.1', 'GCA_000580435.1') are valid NCBI Assembly Accessions,
+but are not in scope for NCBI Datasets.
+```
+
+You can pull the assemblies out of the downloaded zip file to where ever you want. By default, it be in `ncbi_dataset/data`.
+
+```python
+from os import mkdir, path, listdir , getcwd
+import shutil
+getcwd()
+if not path.exists('gen_fasta'):
+    mkdir('gen_fasta')
+for fasta_path, name in [(path.join('ncbi_dataset/data',x), x) for x in listdir('ncbi_dataset/data') if x.startswith('GCA')]:
+    fasta_file = [path.join(fasta_path, x ) for x in listdir(fasta_path) if x.endswith('.fna')]
+    if fasta_file:
+        shutil.copy(fasta_file[0], f'gen_fasta/{name}.fasta')
+```
