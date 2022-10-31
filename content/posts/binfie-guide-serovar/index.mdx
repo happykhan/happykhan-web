@@ -36,26 +36,28 @@ In short, they are actually biological regular expressions, but at first glance 
 
 > 6,7,14:r:1,5
 
-It is a colon seperated list of 3 (maybe 4) individual lists, such that:
+It is a colon seperated list of 3 (maybe 4) individual lists, in the format of:
 
 > O antigen results : flagellar (H1) results: flagellar (H2) results : Other results (maybe)
 
 Each value in the respective sublists is a positive result for different antisera. So in the example above (for Infantis) it means:
 
-> Infantis is :  
-> Postive for O antigens 6,7, and 14
-> Postive for H1 antigens r
-> Postive for H2 antigens 1 and 5
+| Infantis is:                       |
+|------------------------------------|
+| Postive for O antigens 6,7, and 14 |
+| Postive for H1 antigens r          |
+| Postive for H2 antigens 1 and 5    |
 
 The numbers between lists are not related. So "1" being postive for O antigen has nothing to do with H2 being postive for "1". A positive in this case is observating agglutination when tested. Each value in the list refers to a pre-defined antiserum. See this video for [someone performing this process](https://www.youtube.com/watch?v=TE46eQIMVPY). See this video to observe [what agglutination looks like](https://www.youtube.com/watch?v=wK5yaMOMdxY). 
 
 There are additional symbols used as well, which makes things more complicated. For instance, the { } means that the antigens are mutually exclusive. Let's take serovar Huvudsta, which is 3,{10}{15,34}:b:1,7  as an example. 
 
-> Huvudsta is: 
-> Postive for O antigens 3,10 OR 
-> Postive for O antigens 3,15,and 34 
-> Postive for H1 antigens b
-> Postive for H2 antigens 1 and 7
+| Huvudsta is:                       |
+|------------------------------------|
+| Postive for O antigens 3,10 OR     |
+| Postive for O antigens 3,15,and 34 |
+| Postive for H1 antigens b          |
+| Postive for H2 antigens 1 and 7    |
 
 Other symbols include [ ], which means that O or H factor in question may be present or absent without relation to phage conversion. When H  factors 
 are in square brackets, this means that they are exceptionally found in wild strains. And finally () means that O or H factor in question is only weakly agglutinable. All in all it should feel quite similar to regular expressions, if you are familiar  with those. 
