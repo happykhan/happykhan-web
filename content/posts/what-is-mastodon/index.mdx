@@ -9,27 +9,29 @@ tags:
 
 (Skip ahead if you know how the internet works)
 
-When I was in high school I used to moderate a phpbb web forum that my friend had set up. It was a small instance that just had a few of us from high school. My friend had downloaded the Phpbb software and launched it on a webserver he rented. A webserver was just a computer in a data center somewhere in the world. There's nothing architecturally special about it, he could run web services from  his local computer. Although in practice it was difficult to keep his local computer "always on" and available. This is how people used to interact with the internet. The internet has and always will be a loose federation of other people's computers. 
+When I was in high school I used to moderate a [phpBB](https://www.phpbb.com/) web forum that my friend had set up. It was a small instance that just had a few of us from high school. My friend had downloaded the PhpBB software and launched it on a webserver he rented. The webserver was just a computer in a data centre somewhere in the world. There was nothing architecturally special about it. He could run the same web services from his local computer, although, in practice it was difficult to keep his local computer "always on" and available. This is how people used to interact with the internet. The internet has and always will be a loose federation of other people's computers. 
 
-Whenever you visit a website there is always someone behind the scenes running the site. You can search that directory with sites like https://whois.domaintools.com/ to find out who. As more and more people joined the internet, we collectively realized that the time and money it takes to keep websites going, lands running out own sites in the too hard basket. Thus, people started to gravitate to "free" social media platforms. It was always clear there was a comprise between your own control of  the content you put on these websites versus the effort in maintaining your own. For the most part this was acceptable. The biggest furor was over Facebook changing the layout. 
+![PHBB forum](./phpbb.png)
 
-As social media became less about posting cat pictures on caturday and more about following breaking news stories, the control we gave away for the convenience of having someone else do the dirty work has become more pointed. For me, I use social media for keeping in touch with family, friends (Facebook) and colleagues (Twitter). I find social medita platforms these days are no longer fit for purpose, with the amount advertisements and promoted content along with the poor filtering and searching features. The alternative is one that has always been there - move back to independently-managed (self-hosted) websites. 
+Whenever you visit a website there is always someone behind the scenes running the site. You can search that directory with sites, like https://whois.domaintools.com/, to find out who. As more and more people joined the internet, we collectively realized that the time and money it takes to keep websites going, puts running our own sites in the too hard basket. Thus, people started to gravitate to "free" social media platforms. It was always clear there was a comprise between your own control of the content you put on these websites versus the effort in maintaining your own. For the most part this exchange was acceptable. In those days, the biggest furor was over Facebook changing the page layout. 
+
+As social media became less about posting cat pictures on [Caturday](https://knowyourmeme.com/memes/caturday) and more about following breaking news stories, the control we gave away for the convenience of having someone else do the dirty work has become more pointed. For me, I use social media for keeping in touch with family, friends (Facebook) and colleagues (Twitter). I find social media platforms these days are no longer fit for purpose, with the amount advertisements and promoted content along with the poor filtering and searching features. The alternative is one that has always been there - move back to independently-managed (self-hosted) websites. 
 
 # What is Mastodon
-Mastodon is a free and open web application that runs on a webserver, much like (self-hosted) wordpress for blogs or phpbb for forums. Mastodon is designed for microblogging - similar to Twitter. There is an open instance that you can try out (for free) at https://mastodon.social/. 
+[Mastodon](https://github.com/mastodon/mastodon) is a free and open web application that runs on a webserver, much like (self-hosted) [Wordpress](https://wordpress.org/) for blogs or [phpBB](https://www.phpbb.com/) for forums. Mastodon is designed for microblogging - similar to Twitter. There is an open instance that you can try out (for free) at https://mastodon.social/. 
 
-Each instance is largely self-contained, although users can follow feeds and interact with users on other instances. A user's feeds are populated with people they explicitly follow (Home), people in the same instance (Local) and people in other instances (Federated). The character limit for each post is 500 by default. 
+Each instance is largely self-contained, although users can follow feeds and interact with users on other instances. A user's feeds are populated with people they explicitly follow (`Home`), people in the same instance (`Local`) and people in other instances (`Federated`). The character limit for each post is 500 by default.
 
 # How is Mastodon implemented
-It is written in Javascript and Ruby. It runs as a web application with a Postgresql database backend and a redis cache up front. 
+Mastodon is written in Javascript and Ruby. It runs as a web application with a Postgresql database backend and a Redis cache up front. 
 
-# Syncronise Twitter and a Mastodon instance
-If you are worried about the effort of posting on yet another social media platformt. You can syncronise your posts between twitter and a mastodon instance. It can be configured to be be one way (twitter -> mastodon; mastodon -> twitter), or both ways. 
+# Synchronize Twitter and a Mastodon instance
+If you are worried about the effort of posting on yet another social media platform. You can synchronize your posts between twitter and a mastodon instance. It can be configured to be be one way (twitter -> mastodon; mastodon -> twitter), or both ways. 
 
 I am using https://crossposter.masto.donte.com.br/ at the moment. There are others. 
 
-# Mobile apps for mastodon 
-There are official mobile apps that you can use https://joinmastodon.org/apps . There are also third party ones as well. I am using `Tusky` a mastodon client for android https://tusky.app/. 
+# Mobile apps for Mastodon 
+There are official mobile apps that you can use https://joinmastodon.org/apps. There are also third party ones as well. I am using `Tusky` a mastodon client for android https://tusky.app/. 
 
 # mstdn.science
 Some of us in the Microbial genomics community have setup our own instance at https://mstdn.science/. You are welcome to join. It is a place for people our field, scientists in general, and science enthusiasts to discuss research and topics surrounding our work. It is hosted on a small Digitalocean server, and I am still tweaking certain parts of it. The whole thing is in its infancy, and might just crash and burn.
