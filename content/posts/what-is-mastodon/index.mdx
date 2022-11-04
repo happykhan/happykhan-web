@@ -9,31 +9,38 @@ tags:
 
 (Skip ahead if you know how the internet works)
 
-When I was a teenager I used to moderate a [phpBB](https://www.phpbb.com/) web forum that my friend had set up. It was a small instance that just had a few of us from high school. My friend had downloaded the phpBB software and launched it on a webserver he rented. The webserver was just a computer in a data centre somewhere in the world. There was nothing architecturally special about it. He could run the same web services from his local computer, although, in practice it was difficult to keep his local computer "always on" and available. This is how people used to interact with the internet. The internet has and always will be a loose federation of other people's computers. 
+When I was a teenager I used to moderate a [phpBB](https://www.phpbb.com/) web forum that my friend had set up. It was a small instance that just had a few of us from high school. My friend had downloaded the phpBB software and launched it on a webserver he rented. The webserver was just a computer in a data centre somewhere in the world. There was nothing architecturally special about it. He could run the same web services from his local computer, although, in practice it was difficult to keep his local computer "always on" and available. This is how people used to interact with the internet. The internet has and always will be a loose federation of other people's computers.
 
 ![PHBB forum](./phpbb.png)
 
 > A fresh install of a phpBB forum. Hopefully familiar to some!
 
-Whenever you visit a website there is always someone behind the scenes running the site. You can search that directory with sites, like https://whois.domaintools.com/, to find out who. As more and more people joined the internet, we collectively realized that the time and money it takes to keep websites going puts running our own websites in the too hard basket. Thus, people started to gravitate to "free" social media platforms. It was always clear there was a comprise between your own control of the content you put on these websites versus the effort in maintaining your own. For the most part this exchange was acceptable. In those days, the biggest furor was over Facebook changing the page layout. 
+Whenever you visit a website there is always someone behind the scenes running the site. You can search that directory with sites, like https://whois.domaintools.com/, to find out who. As more and more people joined the internet, we collectively realized that the time and money it takes to keep websites going puts running our own websites in the too hard basket. Thus, people started to gravitate to "free" social media platforms. It was always clear there was a comprise between your own control of the content you put on these websites versus the effort in maintaining your own. For the most part this exchange was acceptable. In those days, the biggest furor was over Facebook changing the page layout.
 
-As social media became less about posting cat pictures on [Caturday](https://knowyourmeme.com/memes/caturday) and more about following breaking news stories, the control we gave away for the convenience of having someone else do the dirty work has become more pointed. For me, I use social media for keeping in touch with family, friends (Facebook) and colleagues (Twitter). I find social media platforms these days are no longer fit for purpose. There is too many advertisements and promoted content along with the poor filtering and searching features. The alternative is one that has always been there - move back to independently-managed (self-hosted) websites. 
+As social media became less about posting cat pictures on [Caturday](https://knowyourmeme.com/memes/caturday) and more about following breaking news stories, the control we gave away for the convenience of having someone else do the dirty work has become more pointed. For me, I use social media for keeping in touch with family, friends (Facebook) and colleagues (Twitter). I find social media platforms these days are no longer fit for purpose. There is too many advertisements and promoted content along with the poor filtering and searching features. The alternative is one that has always been there - move back to independently-managed (self-hosted) websites.
 
 # What is Mastodon
+
 [Mastodon](https://github.com/mastodon/mastodon) is a free and open web application that runs on a webserver, much like (self-hosted) [Wordpress](https://wordpress.org/) for blogs or [phpBB](https://www.phpbb.com/) for forums. Mastodon is designed for microblogging - similar to Twitter. There is an open instance that you can try out (for free) at https://mastodon.social/. What makes Mastodon different to, say, phpBB, is that the different instances can (and do) communicate with each other. Mastodon uses a standardized, open protocol to implement federation. It is called ActivityPub. Any software that likewise implements federation via ActivityPub can seamlessly communicate with Mastodon, just like Mastodon websites communicate with one another.
 
-Each instance is largely self-contained, although users can follow feeds and interact with users on other instances. A user's feeds are populated with people they explicitly follow (`Home`), people in the same instance (`Local`) and people in other instances (`Federated`). The character limit for each post is 500 by default. For more information see https://docs.joinmastodon.org/ 
+Each instance is largely self-contained, although users can follow feeds and interact with users on other instances. A user's feeds are populated with people they explicitly follow (`Home`), people in the same instance (`Local`) and people in other instances (`Federated`). The character limit for each post is 500 by default. For more information see https://docs.joinmastodon.org/
 
 ## How is Mastodon implemented?
-Mastodon is written in Javascript and Ruby. It runs as a web application with a PostgreSQL database backend and a Redis cache up front. 
+
+Mastodon is written in Javascript and Ruby. It runs as a web application with a PostgreSQL database backend and a Redis cache up front.
 
 ## Synchronize Twitter and a Mastodon instance
-If you are worried about the effort of posting on yet another social media platform. You can synchronize your posts between Twitter and a Mastodon instance. It can be configured to be be one way (twitter -> mastodon; mastodon -> twitter), or both ways. I am using https://crossposter.masto.donte.com.br/ at the moment. There are others. 
 
-## Mobile apps for Mastodon 
-There are official mobile apps that you can use https://joinmastodon.org/apps. There are also third party ones as well. I am using `Tusky` a mastodon client for android, see https://tusky.app/. 
+If you are worried about the effort of posting on yet another social media platform. You can synchronize your posts between Twitter and a Mastodon instance. It can be configured to be be one way (twitter -> mastodon; mastodon -> twitter), or both ways. I am using https://crossposter.masto.donte.com.br/ at the moment. There are others.
+
+## Mobile apps for Mastodon
+
+There are official mobile apps that you can use https://joinmastodon.org/apps. There are also third party ones as well. I am using `Tusky` a mastodon client for android, see https://tusky.app/.
 
 # mstdn.science
+
 Some of us in the Microbial genomics community have setup our own instance at https://mstdn.science/. You are welcome to join. It is a place for people our field, scientists in general, and science enthusiasts to discuss research and topics surrounding our work. It is hosted on a small Digitalocean server, and I am still tweaking certain parts of it. The whole thing is in its infancy, and might just crash and burn.
 
-If you want to chip in for running costs, you can [donate via PayPal](https://www.paypal.com/donate/?hosted_button_id=PT2Z39GS6NMA2). All moderation in a mastodon instance is community driven. So as the community grows, we may need help with moderating content.
+If you want to chip in for running costs, you can <noscript><a href="https://liberapay.com/happykhan/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a></noscript> via Liberapay. All moderation in a mastodon instance is community driven. So as the community grows, we may need help with moderating content.
+
+<img src="https://img.shields.io/liberapay/patrons/happykhan.svg?logo=liberapay">
