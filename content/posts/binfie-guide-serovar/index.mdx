@@ -7,16 +7,16 @@ tags:
   - Posts
 ---
 
-In the post I will describe the basics of *Salmonella* serovar nomenclature. This post will act as a primer for bioinformaticians starting to work with *Salmonella* genomes, who are often at a loss with the complicated nomenclature. 
+In the post I will describe the basics of *Salmonella* serovar nomenclature. This post will act as a primer for bioinformaticians starting to work with *Salmonella* genomes, who are often at a loss. 
 
-Serovar designations by the `Kauffman-White-Le Minor` scheme in *Salmonella* are the standard molecular method for describing groups within *Salmonella enterica*. Serovar designations are often consistent with sequence based typing and genome spanning phylogenies, see [Achtman 2012 et al.](https://journals.plos.org/plospathogens/article?id=10.1371/journal.ppat.1002776) & [Ashton et al. 2016](https://peerj.com/articles/1752/). Groups defined by *Salmonella* serovar are indeed meaningful and the serovar names - such as **Typhimurium** (Tie-fi-mu-ri-um) or **Chorelasuis** (Ko-re-la-su-iz) - have fanatatic mouth feel when pronounced. These designations will thus persist for the forseeable future.
+Serovar designations by the `White-Kauffman-Le Minor` scheme in *Salmonella* (also known as the `Kauffman-White` scheme) are a standard molecular method for describing groups within *Salmonella enterica*. Serovar designations are often consistent with sequence based typing and genome spanning phylogenies, [(Achtman et al., 2012](https://journals.plos.org/plospathogens/article?id=10.1371/journal.ppat.1002776); [Ashton et al., 2016)](https://peerj.com/articles/1752/). Groups defined by *Salmonella* serovar are indeed meaningful and the serovar names - such as **Typhimurium** (Tie-fi-mu-ri-um) or **Chorelasuis** (Ko-re-la-su-iz) - have fanatatic mouth feel when pronounced. These designations will thus persist for the forseeable future.
 
-Serotyping in *Salmonella* is based mainly on surface antigens with biochemical characters, pathogenicity, or habitat being used in certain edge cases. There are over 2,500 known profiles. *Salmonella enterica* that are of interest are given a human readable serovar name.  The strains with these different names can be treated as distinct groups. Serovars commonly encountered in the literature include Typhi, Typhimurium, Paratyphi A, Paratyphi B, Paratyphi C, Chorelasuis, Infantis, Dublin, Enteritidis, Heidelberg, Javiana, and Newport. 
+Serotyping in *Salmonella* is based mainly on surface antigens with pathogenicity, or niche being used in certain cases. Phenotypic characteristics that can be tested in the laboratory are also used. There are over 2,600 known serotype profiles [(Grimont and Weill, 2007](https://www.pasteur.fr/sites/default/files/veng_0.pdf); [Issenhuth-Jeanjean et al., 2014)](https://doi.org/10.1016/j.resmic.2014.07.004). Serotypes are written as a string of numbers and symbols that often break programming scripts that try to read comma delimited files. "`II 4,12:b:1,5`" is one such example.  The formulae do mean something, even though they are not immediately interpretable. For simplicity, you can treat the antigenic formulae as a unique and distinct string identifier. If the entire string is not identical, it is not the same serovar.
 
-There are other *Salmonella* mentioned in the literature that do not have a human readable name assigned. These are described with the antigenic formulae directly, which is a complicated string of numbers and symbols that often break scripts that try to read comma delimited files. "II 4,12:b:1,5" is one such example.  The formulae do mean something, even though they are not immediately interpretable. For simplicity, you can treat the antigenic formulae as a unique and distinct string identifier much like the human readable names. If the entire string is not identical, it is not the same serovar. All serovars with human readable names have an underlying antigenic formulae too, for instance, the antigenic formulae for Infantis is 6,7,14:r:1,5. 
+Many *Salmonella* serovars have a specific name as well as the serotype. This is in contrast to other organisms like *Escherichia coli* (e.g. O157:H7 is simply that). The naming system has evolved with our understanding of the organism. Each serotype of *Salmonella* was originally believed to be a seperate species and were given descriptive names, usually describing host specificity [(Ryan, O'Dywer and Adley, 2017)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5429938/). As it became clear that the given names were not always correct, the convention became to name new serovars after the country or city of isolation [(Carpenter, 1968)](https://doi.org/10.1099/00207713-18-3-191). In 1966, perhaps because there were too many serotypes to name, the International Enterobacteriaceae Subcommittee formally rescinded serovar names for serovars belonging to subspecies other than *S. enterica* subspecies *enterica* from the scheme (although at the time what we today would call subspecies *enterica* was called **subgenus** *enterica*) [(Carpenter, 1968)](https://doi.org/10.1099/00207713-18-3-191). Finally in 1987, Le Minor and Popoff noted that studies using DNA-DNA hybridisation and other methods showed that *Salmonella* was comprised of only two species, and that these and the subspecies within were not consistent with serotype. Practically speaking, the growing number of serovars (2,100 at the time) made the one-serovar-one-species concept --  "untenable" [(Le Minor and Popoff, 1987)](https://doi.org/10.1099/00207713-37-4-465). By this point, however, the names were firmly embedded in the literature and remain in use to this day. Serovars commonly encountered in the literature include Typhi, Typhimurium, Paratyphi A, Paratyphi B, Paratyphi C, Chorelasuis, Infantis, Dublin, Enteritidis, Heidelberg, Javiana, and Newport. All serovars with specifc names have an underlying antigenic formulae, for instance, the antigenic formulae for Infantis is `I 6,7,14:r:1,5`. 
 
 ## 1,4,[5],12:i:- is *Salmonella enterica* serovar Typhimurium that are monophasic 
-You can largely ignore learning the individual antigenic formulae as most *Salmonella* you will encounter have a better name assigned. The only exception to this, which you should memorise, are strains of *Salmonella enterica* serovar Typhimurium that are monophasic. This group is of great clinical interest but is described with the antigenic formulae, "1,4,[5],12:i:-", only.   When you see "1,4,[5],12:i:-" exactly just remember "Monophasic Typhimurium". 
+You can largely ignore learning the individual antigenic formulae as most *Salmonella* you will encounter have a better name assigned. The only exception to this, which you should memorise, are strains of *Salmonella enterica* serovar Typhimurium that are monophasic. This group is of great clinical interest but is described with the antigenic formulae, "I 1,4,[5],12:i:-", only.   When you see "I 1,4,[5],12:i:-" exactly just remember "Monophasic Typhimurium". 
 
 ## Phase variation in *Salmonella*
 Most *Salmonella* have two genes encoding flagella, and these are alternatively expresed (through a process called `phase variation`). The alternation is controlled by inverting a 800-base-pair sequence of DNA. This acts like a switch to turn an encoded promotor on or off. When the promoter is off, the *fliC* gene, found elsewhere in the genome, is expressed and specifies one specific flagellum. When the promotor is on, the *fljB* gene that is immediately downstream of the promoter and encodes a different flagellum is expresed instead. At the same time, there is also a  transcriptional repressor (*fljA*) expressed, which represses *fliC* and makes expression of the two flagella encoding genes mutally exclusive. See the diagram below and [Silverman, Hillmen, and Simon 1979](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC382945/). *Salmonella* are thus either 'biphasic', 'monophasic' or 'non-motile', with the capability of expressing two, one or no flagella, respectively. The typing results of both flagella are included as part of the antigenic formulae. When serotyping in the lab, specific growth conditions are used to coerce *Salmonella* to choose one phase or the other. 
@@ -26,21 +26,56 @@ Most *Salmonella* have two genes encoding flagella, and these are alternatively 
 > A schematic representation of flagellar phase variation in *S. enterica*. The promoter for the *fljBA* operon is located within an invertible DNA segment whereby inversion of the promoter is mediated by the *Hin* recombinase. In one orientation, the *fljBA* operon is expressed and *FljB* flagellin is produced along with *FljA*, repressor of the unlinked *fliC* gene that encodes *FliC* flagellin. In the opposite orientation, the *fljB* gene is not expressed, nor is the repressor *FljA*, thus allowing transcription of the *fliC* gene. From [Bonifield and Hughes, 2003](https://journals.asm.org/doi/10.1128/JB.185.12.3567-3574.2003)
 
 ## Not all serovars are defined strictly by surface antigens
-As mentioned above, serovar specification is not strictly limited to surface antigens ("O" and "H"). Other antigens (K) are also used on occasion and other unrelated features can be used as well. An example of this are the serovars Paratyphi C, Chorelasuis *sensu stricto*, Chorelasuis var. Kuzendorf, Chorelasuis var. Decatur, and Typhisuis. All of these have the same antigenic formulae (6,7:c:1,5). However, have differential abilities e.g. the ability/inability to ferment Dulcitol, H2S or Mucate. Each of these have different host ranges, and form distinct phylogenetic groups. 
+As mentioned above, serovar specification is not strictly limited to surface antigens ("O" and "H"). Other antigens (K) are also used on occasion and other unrelated features can be used as well. An example of this are the serovars Paratyphi C, Chorelasuis *sensu stricto*, Chorelasuis var. Kuzendorf, Chorelasuis var. Decatur, and Typhisuis. All of these have the same antigenic formulae (I 6,7:c:1,5). However, have differential abilities e.g. the ability/inability to ferment Dulcitol, H2S or Mucate. Each of these have different host ranges, and form distinct phylogenetic groups. 
+
+## Is it "serovar" or "serotype"?
+
+The terms “serovars” and “serotypes” are interchangeable. The World Health Organisation (WHO)/Institut Pasteur use the term “serovar” [(Grimont and Weill, 2007)](https://www.pasteur.fr/sites/default/files/veng_0.pdf). While the US Centers for Disease Control and Prevention uses the word "serotype" [(Brenner et al., 2000)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC86943/). Serovar seems to be the historic term but serotype is the term used in other organisms. 
+
+## *Salmonella* taxonomy today
+
+The `White-Kauffman-Le Minor` scheme recognises two species within the genus *Salmonella*; *enterica* and *bongori*. Within *S. enterica* subsp. *enterica*, the scheme recognises six subspecies [(Grimont and Weill, 2007)](https://www.pasteur.fr/sites/default/files/veng_0.pdf). So *Salmonella* looks like this:
+
+* *Salmonella enterica*
+  * *S. enterica* subsp. *enterica*
+  * *S. enterica* subsp. *salamae*
+  * *S. enterica* subsp. *arizonae*
+  * *S. enterica* subsp. *diarizonae*
+  * *S. enterica* subsp. *houtenae*
+  * *S. enterica* subsp. *indica*
+* *Salmonella bongori*
+
+This does make some of the names very long, for instance, serovar Heidelberg's full name would be *Salmonella enterica* subsp. *enterica* ser. Heidelberg. 
+
+There are shorthand abbreviations for each of the subspecies used in antigenic formulae, in particular.  
+
+| Salmonella subspecies             |  Abbreviation  |
+|-----------------------------------|----------------|
+| *S. enterica* subsp. *enterica*   | `I`            |
+| *S. enterica* subsp. *salamae*    | `II`           |
+| *S. enterica* subsp. *arizonae*   | `IIIa`         |
+| *S. enterica* subsp. *diarizonae* | `IIIb`         |
+| *S. enterica* subsp. *houtenae*   | `IV`           |
+| *S. enterica* subsp. *indica*     | `VI`           |
+
+*S. bongori* used to be classed as *S. enterica* subspecies *bongori* and used the abbreviation "`V`" but has been since been promoted, which is why "`V`" does not appear in the table above. There are likely other subspecies beyond what is described in the `White-Kauffman-Le Minor` scheme ([Alikhan et al. 2018](https://doi.org/10.1371/journal.pgen.1007261); [Criscuolo et al. 2019](https://doi.org/10.1099/mgen.0.000284)). 
 
 ## What do the antigenic formulae actually mean? 
 In short, they are actually biological [regular expressions](https://xkcd.com/208/), but at first glance it makes no sense:
 
-> 6,7,14:r:1,5
+> `I` 6,7,14:r:1,5
 
-It is a colon seperated list of 3 (maybe 4) individual lists, in the format of:
+First is the subpsecies abbreviation (`I, II, IIIa`...) according to the table above, and then followed by a colon seperated list of 3 (maybe 4) individual lists, in the format of:
 
 > O antigen results **:** flagellar (H1) results **:** flagellar (H2) results **:** Other results (maybe)
 
+If the subspecies abbreviation is missing, then it is implied that strain belongs to subspecies *enterica* (`I`). For instance, Infantis is sometimes written as simply "6,7,14:r:1,5". This can be misleading as the same antigenic profile can be found in multiple subspecies. The nomenclature system at the US Centers for Disease Control and Prevention includes the subspecies abbreviation in serotypes [(Brenner et al., 2000)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC86943/). 
+
 Each value in the respective sublists is a positive result for different antisera. So in the example above (for Infantis) it means:
 
-| Infantis is:   6,7,14:r:1,5        |
+| Infantis is:   `I` 6,7,14:r:1,5    |
 |------------------------------------|
+| Subspecies *enterica* (`I`)        |
 | Postive for O antigens 6,7, and 14 |
 | Postive for H1 antigens r          |
 | Postive for H2 antigens 1 and 5    |
@@ -49,8 +84,9 @@ The numbers between lists are not related. So "1" being postive for O antigen ha
 
 There are additional symbols used as well, which makes things more complicated. For instance, the { } means that the antigens are mutually exclusive. Let's take serovar Huvudsta, which is 3,{10}{15,34}:b:1,7  as an example. 
 
-| Huvudsta is: 3,{10}{15,34}:b:1,7   |
+| Huvudsta is: `I` 3,{10}{15,34}:b:1,7 |
 |------------------------------------|
+| Subspecies *enterica* (`I`)        |
 | Postive for O antigens 3,10 OR     |
 | Postive for O antigens 3,15,and 34 |
 | Postive for H1 antigens b          |
@@ -59,14 +95,14 @@ There are additional symbols used as well, which makes things more complicated. 
 Other symbols include [ ], which means that O or H factor in question may be present or absent without relation to phage conversion. When H  factors 
 are in square brackets, this means that they are exceptionally found in wild strains. And finally ( ) means that O or H factor in question is only weakly agglutinable. All in all, it should feel quite similar to regular expressions, if you are familiar with those. 
 
-When the strain is monophasic, a "-" is used to denote the absence of a second flagellum, as we saw in 1,4,[5],12:i:-. Here are some antigenic formulae for different serovars, which should now feel more friendly. 
+When the strain is monophasic, a "-" is used to denote the absence of a second flagellum, as we saw in I 1,4,[5],12:i:-. Here are some antigenic formulae for different serovars, which should now feel more friendly. 
 
 | Serovar    | Antigenic formulae   |
 |------------|----------------------|
-| Norwich    | 6,7:e,h:1,6          |
-| Brisbane   | 28:z:e,n,z15         |
-| Ipswich    | 41:z4,z24:1,5        |
-| Seattle    | 28:a:e,n,x           |
+| Norwich    | `I` 6,7:e,h:1,6      |
+| Brisbane   | `I` 28:z:e,n,z15     |
+| Ipswich    | `I` 41:z4,z24:1,5    |
+| Seattle    | `I` 28:a:e,n,x       |
 
 
 If you would like to learn more, you can read the bible of *Salmonella* serovars, Grimont and Weill's [Antigenic  Formulae  of  the Salmonella Serovars, 2007](https://www.pasteur.fr/sites/default/files/veng_0.pdf). Have a look if your hometown has a serovar named after it! 
