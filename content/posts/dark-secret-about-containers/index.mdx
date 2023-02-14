@@ -19,10 +19,10 @@ I will explain all here in this post, and reveal our deep dark secret about bioi
 To fully understand what's going on, we need to talk about trends in software development generally, and then cross back to how that applies to bioinformatics.
 
 There has been a growing trend in software development to use a rapid and iterative development cycle. It is [generally accepted](https://en.wikipedia.org/wiki/Rapid_application_development)
-that it is easier to quickly create a prototype, test it, show it to a client for feedback and revisions, and then repeat the cycle. You might have heard cute phrases like "Fail fast, suceed faster" or "aim for iteration,
+that it is easier to quickly create a prototype, test it, show it to a client for feedback and revisions, and then repeat the cycle. You might have heard cute phrases like "Fail fast, succeed faster" or "aim for iteration,
 not perfection". Agree or disagree, this is widely embraced in software engineering and any process that can help speed up this cycle of rapid deployment is considered a great boon.
 
-This where Containers come in, containerisation is a form of virtualisation where you bundle the software you are working on, the development enviroment, and all the dependancies in a singular black box. The
+This is where Containers come in. Containerisation is a form of virtualisation where you bundle the software you are working on, the development environment, and all the dependancies in a singular black box. The
 container is run on top of a runtime engine that translate the inner working of the container to a range of different environments. Where ever the runtime engine can run, my
 software can also run _regardless of the enviroment I have used for development_. For instance, if I write a piece of software on my Linux laptop and put it into a container,  
 through the container runtime engine it can be run on someone else's computer whether it be a compute cluster, a MacOSX laptop or someone's
@@ -50,7 +50,7 @@ In the meantime, containers allows us Binfies to hid all of that ugly and fragil
 
 ## Further reading
 
-If you want to learn mor about containers and how to use them there is material from a recent workshop I co-chaired, BIOINFORMATICS SKILLS
+If you want to learn more about containers and how to use them there is material from a recent workshop I co-chaired, BIOINFORMATICS SKILLS
 FOR MICROBIAL GENOMICS, about `conda`, containers and workflow languages: https://www.climb.ac.uk/bioinformatics-skills-microbial-genomics/
 
 If you want to use (docker) containers, STAPH-B has a great set of pre-built ones ready for you: https://github.com/StaPH-B/docker-builds
