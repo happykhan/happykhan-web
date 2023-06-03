@@ -11,7 +11,7 @@ In the post, I will describe the basics of _Salmonella_ serovar nomenclature. Th
 
 Serovar designations by the `White-Kauffman-Le Minor` scheme in _Salmonella_ (also known as the `Kauffman-White` scheme) are a standard method for describing groups within _Salmonella enterica_. Serovar designations are often consistent with sequence based typing and genome spanning phylogenies [(Achtman et al., 2012](https://journals.plos.org/plospathogens/article?id=10.1371/journal.ppat.1002776); [Ashton et al., 2016)](https://peerj.com/articles/1752/). Groups defined by _Salmonella_ serovar are indeed meaningful and the serovar names - such as **Typhimurium** (Tie-fi-mu-ri-um) or **Choleraesuis** (Ko-re-la-su-iz) - have fantastic mouth feel when pronounced. These designations will thus persist for the forseeable future.
 
-Serotyping in _Salmonella_ is based mainly on surface antigens with phenotypic characteristics, which can be tested in the laboratory, being used in certain cases. Information about pathogenicity or niche can also give helpful hints. There are over 2,600 known serotype profiles [(Grimont and Weill, 2007](https://www.pasteur.fr/sites/default/files/veng_0.pdf); [Issenhuth-Jeanjean et al., 2014)](https://doi.org/10.1016/j.resmic.2014.07.004). Serotypes are written as a string of numbers and symbols that often break programming scripts that try to read comma delimited files. '`II 4,12:b:1,5`' is one such example. The formulae do mean something, even though they are not immediately interpretable. For simplicity, you can treat the antigenic formulae as a unique and distinct string identifier. If the entire string is not identical, it is not the same serovar.
+Serotyping in _Salmonella_ is based mainly on surface antigens with phenotypic characteristics, which can be tested in the laboratory, being used in certain cases. Information about pathogenicity or niche can also give helpful hints. There are over 2,600 known serotype profiles [(Grimont and Weill, 2007](https://www.pasteur.fr/sites/default/files/veng_0.pdf); [Issenhuth-Jeanjean et al., 2014)](https://doi.org/10.1016/j.resmic.2014.07.004). Serotypes are written as a string of numbers and symbols that often break programming scripts that try to read comma delimited files. '`II 4,12:b:1,5`' is one such example. The formulae do mean something, even though they are not immediately interpretable. For simplicity, you can treat the antigenic formulae as a unique and distinct string identifier. If the entire string is identical, it is the same serovar.
 
 There are bioinformatics software to predict the serotype using a genome assembly (i.e. a FASTA file of contigs). These are two I have used often and recommend:
 
@@ -24,7 +24,7 @@ Both can be run on the command-line, and are available via `conda`. They are als
 
 No. _Salmonella_ was isolated by Theobald Smith around 1894 while he was looking for the etiological agent of hog cholera, which was a significant problem in the United States at the time. Hence his intial name _Bacillus choleraesuis_. It was later shown that hog cholera was caused by a virus (Classical Swine Fever) and Smith's bacillus was a constant but secondary invader. The genus was later named after Daniel E. Salmon, Theobald Smith's supervisor [(Ryan, O'Dywer and Adley, 2017)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5429938/).
 
-_Salmonella_ (Typhi in particular) had been observed beforehand by others, like Karl Eberth and Tadeusz Browicz, and had been cultured once before. Georg Gaffky was the first to obtain a pure culture of the "typhoid bacillus", and in 1884 established that it is the causative agent [(Gaffky, 1884)](https://books.google.co.uk/books?id=Y6lQAAAAYAAJ&pg=PA372&redir_esc=y#v=onepage&q&f=false). The bacteria he cultured we know as _Salmonella enterica_ subspecies _enterica_ serovar Typhi. If history has been a little different, _Salmonella_ could be known today as _Eberthella_ or Gaffky-Eberth bacillus.
+_Salmonella_ (Typhi in particular) has been observed beforehand by others, like Karl Eberth and Tadeusz Browicz, and had been cultured before. Georg Gaffky was the first to obtain a pure culture of the "typhoid bacillus", and in 1884 established that it is the causative agent [(Gaffky, 1884)](https://books.google.co.uk/books?id=Y6lQAAAAYAAJ&pg=PA372&redir_esc=y#v=onepage&q&f=false). The bacteria he cultured we know as _Salmonella enterica_ subspecies _enterica_ serovar Typhi. If history has been a little different, _Salmonella_ could be known today as _Eberthella_ or Gaffky-Eberth bacillus.
 
 ## Why do serovars have names like 'Typhimurium'?
 
@@ -37,13 +37,13 @@ The table below has some examples of the origins of different serovar names to i
 | Agama        | Isolated from the feces of the Agama lizard (_Agama agama_).                                 |
 | Agona        | Isolated from cattle in Ghana, presumably in the town Agona, in 1952.                        |
 | Anatum       | Isolated from a duck in 1922 in the USA. Epizootic at the time.                              |
-| Choleraesuis | lit. "Swine cholera", believed to be causive agent of Hog cholera. Later found to be untrue. |
+| Choleraesuis | Lit. "Swine cholera", believed to be causive agent of Hog cholera. Later found to be untrue. |
 | Dublin       | First isolated from the stool of a patient in Dublin, Ireland in 1929.                       |
 | Gallinarum   | Causative agent of fowl typhoid.                                                             |
 | Heidelberg   | First isolated from a patient in Heidelberg, Germany in 1933.                                |
 | Infantis     | First isolated from an infant in Connecticut, USA in 1943.                                   |
 | Typhi        | Causes typhoid fever in humans.                                                              |
-| Typhimurium  | lit. "mouse typhi" . Causes typhoid fever in mice.                                           |
+| Typhimurium  | Lit. "mouse typhi" . Causes typhoid fever in mice.                                           |
 
 ## What are the 'O' antigens and 'serogroups'?
 
@@ -65,11 +65,11 @@ Many _Salmonella_ have two genes encoding flagella, and these are alternatively 
 
 ## Not all serovars are defined strictly by surface antigens (O & H)
 
-Serovar specification is not strictly limited to surface antigens ('O' and 'H'). Other antigens (e.g. Vi) are also used on occasion and other unrelated features can be used as well. An example of this are the serovars Paratyphi C, Chorelasuis _sensu stricto_, Chorelasuis var. Kuzendorf, Chorelasuis var. Decatur, and Typhisuis. All of these have the same antigenic formulae (`I 6,7:c:1,5`). However, have differential abilities e.g. the ability/inability to ferment Dulcitol, H2S or Mucate. Each of these have different host ranges, and form distinct phylogenetic groups [(Zhou et al. 2018)](https://doi.org/10.1016/j.cub.2018.05.058). There are more exceptions, for instance, Gallinarum lacks flagella so has no 'H' antigen (so the formulae is `1,9,12:–:–`) and is differentiated from its biovar Pullorum biochemically [(Grimont and Weill, 2007)](https://www.pasteur.fr/sites/default/files/veng_0.pdf).
+Serovar specification is not strictly limited to surface antigens ('O' and 'H'). Other antigens (e.g. Vi) are also used on occasion and other unrelated features can be used as well. An example of this are the serovars Paratyphi C, Chorelasuis _sensu stricto_, Chorelasuis var. Kuzendorf, Chorelasuis var. Decatur, and Typhisuis. All of these have the same antigenic formulae (`I 6,7:c:1,5`). However, have differential abilities e.g. the ability/inability to ferment Dulcitol, H2S or Mucate. Each of these have different host ranges, and form distinct phylogenetic groups [(Zhou et al. 2018)](https://doi.org/10.1016/j.cub.2018.05.058). There are more exceptions, for instance, Gallinarum lacks flagella, thus has no 'H' antigen (the formulae is `1,9,12:–:–`) and is differentiated from its biovar Pullorum biochemically [(Grimont and Weill, 2007)](https://www.pasteur.fr/sites/default/files/veng_0.pdf).
 
 ## Is it 'serovar' or 'serotype'?
 
-The terms 'serovars' and 'serotypes' are interchangeable. The World Health Organisation (WHO)/Institut Pasteur use the term 'serovar' [(Grimont and Weill, 2007)](https://www.pasteur.fr/sites/default/files/veng_0.pdf). While the US Centers for Disease Control and Prevention uses the word 'serotype' [(Brenner et al. 2000)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC86943/). Serovar seems to be the historic term but serotype is the term used in other organisms.
+The terms 'serovars' and 'serotypes' are interchangeable. The World Health Organisation (WHO)/Institut Pasteur use the term 'serovar' [(Grimont and Weill, 2007)](https://www.pasteur.fr/sites/default/files/veng_0.pdf). While the US Centers for Disease Control and Prevention uses the word 'serotype' [(Brenner et al. 2000)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC86943/). Serovar seems to be the historic term but serotype is the term used in the study of other organisms.
 
 ## _Salmonella_ taxonomy today
 
@@ -134,7 +134,7 @@ There are additional symbols used as well, which makes things more complicated. 
 | Postive for H2 antigens 1 and 7      |
 
 Other symbols include [ ], which means that O or H factor in question may be present or absent. If the O factor is underlined, it means they are present only if the culture is lysogenized by the corresponding converting phage. When H factors
-are in square brackets, this means that they are exceptionally found in wild strains. And finally ( ) means that O or H factor in question is only weakly agglutinable. All in all, it should feel quite similar to regular expressions, if you are familiar with those. When the strain is monophasic, a '`-`' is used to denote the absence of a second flagellum.
+are in square brackets, this means that they are exceptionally found in wild strains. And finally ( ) means that O or H factor in question is only weakly agglutinable. All in all, it should feel quite similar to regular expressions, if you are familiar with those. When the strain is monophasic, a '`-`' is used to denote the absence of a particular flagellum. Non-motile strains have `-` for both H1 and H2.
 
 Here are some antigenic formulae for different serovars, which should now look more friendly.
 
