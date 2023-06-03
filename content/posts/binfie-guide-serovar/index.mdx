@@ -13,6 +13,13 @@ Serovar designations by the `White-Kauffman-Le Minor` scheme in _Salmonella_ (al
 
 Serotyping in _Salmonella_ is based mainly on surface antigens with phenotypic characteristics, which can be tested in the laboratory, being used in certain cases. Information about pathogenicity or niche can also give helpful hints. There are over 2,600 known serotype profiles [(Grimont and Weill, 2007](https://www.pasteur.fr/sites/default/files/veng_0.pdf); [Issenhuth-Jeanjean et al., 2014)](https://doi.org/10.1016/j.resmic.2014.07.004). Serotypes are written as a string of numbers and symbols that often break programming scripts that try to read comma delimited files. '`II 4,12:b:1,5`' is one such example. The formulae do mean something, even though they are not immediately interpretable. For simplicity, you can treat the antigenic formulae as a unique and distinct string identifier. If the entire string is not identical, it is not the same serovar.
 
+There are bioinformatics software to predict the serotype using a genome assembly (i.e. a FASTA file of contigs). These are two I have used often and recommend:
+
+- [The Salmonella In Silico Typing Resource (SISTR)](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0147101)
+- [SeqSero2](https://pubmed.ncbi.nlm.nih.gov/31540993/)
+
+Both can be run on the command-line, and are available via `conda`. They are also available online at [http://www.denglab.info/SeqSero2](http://www.denglab.info/SeqSero2) and [https://usegalaxy.eu/root?tool_id=sistr_cmd](https://usegalaxy.eu/root?tool_id=sistr_cmd).
+
 ## Does the Salmon in _Salmonella_ relate to fish?
 
 No. _Salmonella_ was isolated by Theobald Smith around 1894 while he was looking for the etiological agent of hog cholera, which was a significant problem in the United States at the time. Hence his intial name _Bacillus choleraesuis_. It was later shown that hog cholera was caused by a virus (Classical Swine Fever) and Smith's bacillus was a constant but secondary invader. The genus was later named after Daniel E. Salmon, Theobald Smith's supervisor [(Ryan, O'Dywer and Adley, 2017)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5429938/).
@@ -126,7 +133,7 @@ There are additional symbols used as well, which makes things more complicated. 
 | Postive for H1 antigens b            |
 | Postive for H2 antigens 1 and 7      |
 
-Other symbols include [ ], which means that O or H factor in question may be present or absent without relation to phage conversion. When H factors
+Other symbols include [ ], which means that O or H factor in question may be present or absent. If the O factor is underlined, it means they are present only if the culture is lysogenized by the corresponding converting phage. When H factors
 are in square brackets, this means that they are exceptionally found in wild strains. And finally ( ) means that O or H factor in question is only weakly agglutinable. All in all, it should feel quite similar to regular expressions, if you are familiar with those. When the strain is monophasic, a '`-`' is used to denote the absence of a second flagellum.
 
 Here are some antigenic formulae for different serovars, which should now look more friendly.
@@ -142,29 +149,30 @@ If you would like to learn more, you can read the bible of _Salmonella_ serovars
 
 ## What is '`I 1,4,[5],12:i:-`'?
 
-The antigenic formulae for monophasic variants of _Salmonella enterica_ serovar Typhimurium is `I 1,4,[5],12:i:-`. It seems to be regularly encountered by bioinformaticians, and I am often asked about this serotype in particular. You may see the shorthand, `I 4:i:-`, used by US Centers for Disease Control and Prevention. When the strain is monophasic, a '`-`' is used to denote the absence of a second flagellum. Many serovars are monophasic such as Dublin and Enteritidis and many that are not commonly associated with human disease [(Grimont and Weill, 2007)](https://www.pasteur.fr/sites/default/files/veng_0.pdf).
+The antigenic formulae for monophasic variants of _Salmonella enterica_ serovar Typhimurium is `I 1,4,[5],12:i:-`. It seems to be regularly encountered by bioinformaticians, and I am often asked about this serotype in particular. You may see the shorthand, `I 4:i:-`, used by US Centers for Disease Control and Prevention. When the strain is monophasic, a '`-`' is used to denote the absence of a second flagellum. Many serovars are entirely monophasic, such as Dublin and Enteritidis [(Grimont and Weill, 2007)](https://www.pasteur.fr/sites/default/files/veng_0.pdf).
 
-All `I 1,4,[5],12:i:-` are not monophasic Typhimurium, however, there are a number of serotypes that start with `I 1,4,[5],12:i:...` differing only by H2. When H2 is dropped, the monophasic variants will have the same antigenic formulae. As such, if you see the antigenic formulae `I 1,4,[5],12:i:-` you need other information (such as MLST, where monophasic Typhimurium is usually ST34) to determine whether it is Typhimurium or not.
+All `I 1,4,[5],12:i:-` are not monophasic Typhimurium, however, there are a number of serotypes that start with `I 1,4,[5],12:i:...` differing only by H2. When H2 is dropped, the monophasic variants will have the same antigenic formulae. As such, if you see the antigenic formulae `I 1,4,[5],12:i:-` you need other information (such as MLST, where many monophasic Typhimurium are ST34) to determine whether it is Typhimurium or not.
 
 These are the serovars that could collide as `I 1,4,[5],12:i:-` [from Grimont and Weill (2007)](https://www.pasteur.fr/sites/default/files/veng_0.pdf):
 
-| Serovar name | Serogroup | O          | H1  | H2      |
-| ------------ | --------- | ---------- | --- | ------- |
-| Typhimurium  | O4        | 1,4,[5],12 | i   | 1,2     |
-| Lagos        | O4        | 1,4,[5],12 | i   | 1,5     |
-| Agama        | O4        | 4,12       | i   | 1,6     |
-| Farsta       | O4        | 4,12       | i   | e,n,x   |
-| Tsevie       | O4        | 1,4,12     | i   | e,n,z15 |
-| Gloucester   | O4        | 1,4,12,27  | i   | l,w     |
-| Tumodi       | O4        | 1,4,12     | i   | z6      |
+| Serovar name | Serogroup | O            | H1  | H2      |
+| ------------ | --------- | ------------ | --- | ------- |
+| Typhimurium  | O4        | _1_,4,[5],12 | i   | 1,2     |
+| Lagos        | O4        | _1_,4,[5],12 | i   | 1,5     |
+| Agama        | O4        | 4,12         | i   | 1,6     |
+| Farsta       | O4        | 4,12         | i   | e,n,x   |
+| Tsevie       | O4        | _1_,4,12     | i   | e,n,z15 |
+| Tumodi       | O4        | _1_,4,12     | i   | z6      |
 
-> N.B. O antigens `4,12` are definitive for serogroup O4. So, even through the specific O profile varies, these are all considered the same serogroup. With this in mind, replacing H2 with '`-`' makes all serotypes above indistinguishable.
+> N.B. O antigens `4,12` are the definitive factors for the examples from serogroup O4. The _1_ is only present when lysogenized by the corresponding converting phage (in the lab), and the [5] means the factor may or may not be there. With this in mind, replacing H2 with '`-`' would make all serotypes above indistinguishable when tested.
 
 I searched [EnteroBase](https://enterobase.warwick.ac.uk) for existing genomes that would fit this case. I looked at genomes with the MLST ST associated with each serovar, and then looked at the serotype prediction from [SISTR](https://github.com/phac-nml/sistr_cmd) for cases where `I 1,4,[5],12:i:-` is reported. I found 16 Agama (eBG 167) and 1 Lagos (ST 2469). Many of these were listed with a clinical/human source.
 
+Strains of _Salmonella enterica_ serovar Typhimurium that lack the first phase are also monophasic variants, having the antigenic formulae `I 1,4,[5],12:-:1,2` [(Bugarel et al., 2012)](https://doi.org/10.1016/j.foodres.2011.06.057). Again, these would collide with other serovars such as serovars Saintpaul (`I 1,4,[5],12:e,h:1,2`) and Stanley (`I 1,4,[5],12,[27]:d:1,2`). Naturally, a non-motile Typhimurium has the same antigenic profile as a non-motile strain from any other serovar in the O4 serogroup.
+
 ## Why is this so complicated?
 
-The simple serovar names (e.g. Typhi) belies the complex discussion of the _Salmonella_ genus. In my opinion, the `White-Kauffman-Le Minor` scheme attempts to simultaneously solve problems around taxonomy, clinical identification, characterising pathogen potential, and provide a stable nomenclature. Admirable? Yes. Foolhardy? Maybe. For instance, serotypes were expected initially to define species. Later, serogroups reflected a neighbourhood of _Salmonella_. And differences in antigenic formula were thought to imply differences in host association and pathogenicity. The scheme goes beyond giving stable names, measuring genetic variation (like counting SNP differences) or defining flat clonal complexes (like MLST).
+The simple serovar names (e.g. Typhi) belies the complex discussion of the _Salmonella_ genus. In my opinion, the `White-Kauffman-Le Minor` scheme attempts to simultaneously solve problems around taxonomy, clinical identification, characterising pathogen potential, and provide a stable nomenclature. Admirable? Yes. Foolhardy? Maybe. For instance, serotypes were expected initially to define species. Later, serogroups reflected a neighbourhood of _Salmonella_. And differences in antigenic formula were thought to imply differences in host association and pathogenicity. The scheme goes well beyond giving stable names, measuring genetic variation (like counting SNP differences) or defining flat clonal complexes (like MLST).
 
 Indeed, it is better to consider the `White-Kauffman-Le Minor` scheme as an addressing system for _Salmonella_ rather than just flat names. The scheme is hand and hand with our understanding of _Salmonella_. Many of the address fields we use for _Salmonella_ were defined by the scheme. Hence, if you received a letter from a _Salmonella_, the return address might read:
 
