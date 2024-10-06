@@ -6,63 +6,19 @@ tags:
   - microbinfie
   - podcast
 ---
-# Interview with the Author of SNP-sites
+## Interview with the Author of *SNP-sites*
 
-We recently had the opportunity to chat with the author behind SNP-sites, a bioinformatics software designed for efficiently extracting SNPs (Single Nucleotide Polymorphisms) from multi-FASTA alignments. While the tool might sound straightforward, the quirky details that go into the software development process often remain untold in the academic papers.
+We recently had a conversation with the author of *SNP-sites*, a bioinformatics software designed for extracting Single Nucleotide Polymorphisms (SNPs) from a multi-FASTA alignment. While the software may seem straightforward, it involves intricate details that are often absent from the final published work.
 
-## About SNP-sites
+**Software Repository:**  
+[SNP-sites on GitHub](https://github.com/sanger-pathogens/snp-sites)
 
-**Software Repository:** [GitHub - SNP-sites](https://github.com/sanger-pathogens/snp-sites)
+**Research Paper:**  
+"[SNP-sites: rapid efficient extraction of SNPs from multi-FASTA alignments](https://www.microbiologyresearch.org/content/journal/mgen/10.1099/mgen.0.000056)"  
+*Authors: Andrew J. Page, Ben Taylor, Aidan J. Delaney, Jorge Soares, Torsten Seemann, Jacqueline A. Keane, Simon R. Harris*  
+Published in *Microbial Genomics*, Volume 2 Issue 4, 2016
 
-**Published Paper:** [Microbial Genomics Journal](https://www.microbiologyresearch.org/content/journal/mgen/10.1099/mgen.0.000056)
+This study provides insights into the complexities behind developing efficient bioinformatics tools and highlights the collaborative effort of its authors in creating software that simplifies SNP extraction.
 
-### Abstract of the Paper
-
-**Title:** SNP-sites: rapid efficient extraction of SNPs from multi-FASTA alignments
-
-**Authors:** Andrew J. Page, Ben Taylor, Aidan J. Delaney, Jorge Soares, Torsten Seemann, Jacqueline A. Keane, Simon R. Harris
-
-**Journal:** Microbial Genomics, 2(4), (2016)
-
-This paper details the development and application of SNP-sites, a software tool designed to streamline the process of SNP extraction from multi-FASTA sequence alignments, offering a rapid and efficient solution for genomic research.
-
-#### Key Insights
-
-- **Simplicity Meets Complexity:** While SNP-sites serves a specific function, developing this tool involves overcoming unique challenges which don't always reflect in the published documentation.
-  
-- **Behind the Scenes:** The creation of SNP-sites was driven by the need for a straightforward yet effective method to handle SNP extraction, balancing user accessibility with computational robustness.
-
-By discussing the intricacies of SNP-sites with its author, we hope to share more about the innovative thinking, problem-solving, and perhaps some of the 'quirks' that went into making this software what it is today. Whether a bioinformatician, geneticist, or software enthusiast, readers can appreciate the seamless integration of biology and computational precision. 
-
-Stay tuned for more insights into the fascinating world of bioinformatics tools!
-
-### Extra notes
-
-- **Software Focus**: The discussion centers around tools developed for microbial bioinformatics, specifically Snipsites and Gubbins. Snipsites is designed to identify SNPs (single nucleotide polymorphisms) from a multi-FASTA alignment and is useful for building phylogenetic trees and studying recombination.
-
-- **Technical Details**: 
-  - **Snipsites Functionality**: It extracts SNPs from genomic data efficiently by identifying differences and consensus areas within alignments. Its primary function is SNP calling, making it a simpler alternative to more complex bioinformatics pipelines.
-  - **Memory Efficiency**: Snipsites is praised for its memory efficiency, capable of handling large genomic files without high memory demand. It accomplishes this by avoiding loading the entire file into memory, contrasting with other tools that are memory-intensive.
-  - **Programming Language**: The tool is written in C for its efficiency and low-level system access, though this requires manual memory management. It has been complemented by a version written in Cython (PySnipSites), which compiles Python code to C for speed improvements.
-
-- **Integration and Use Cases**: 
-  - **VCF File Creation**: Snipsites is used for creating VCF (Variant Call Format) files, providing a matrix of SNP variants that is useful for large data set analyses.
-  - **Formats Supported**: It supports gzipped input files and outputs in various formats, including older ones like those used by Raxomel.
-
-- **Implementation Challenges**: 
-  - **Memory Management**: Significant effort was placed on minimizing memory usage and ensuring speed, involving tracking memory leaks with tools like Valgrind.
-  - **Feature Creep**: There is a caution against adding excessive features which can lead to complex codebases and maintenance challenges.
-
-- **Interoperability**: 
-  - **Platform Independence**: The software is packaged to be platform-independent using automake and autoconf, facilitating straightforward installation across Linux and Unix systems.
-  - **Availability and Distribution**: It is available through package managers like Debian Med, Homebrew, Conda, and Docker, simplifying installation for users.
-
-- **Community and Usage**: 
-  - Snipsites has been integrated into numerous bioinformatics pipelines and is noted for its straightforward installation and utility as a building block in the Unix style of development, promoting the creation of tailored pipelines by chaining tools together.
-
-- **Related Tools**: 
-  - **Gubbins**: Initially included SNP calling, which was later separated into Snipsites.
-  - **SnipDiscs**: A software derived from Snipsites output to perform pairwise comparisons and generate distance matrices, enhancing the analysis of SNP data.
-
-- **Publication and Recognition**: The tool's development and efficacy have been documented in a well-cited publication within the MGen journal, highlighting its impact and utility in the microbial bioinformatics community.
+[Episode 27 transcript](/microbinfie-transcripts/episode-27.txt)
 

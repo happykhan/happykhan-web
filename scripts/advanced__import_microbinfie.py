@@ -86,13 +86,13 @@ def create_assistants():
     name="Microbinfie Summary Assistant",
     instructions="""Extract the key points specifically related to microbial bioinformatics from the following podcast transcript. 
     Focus on the most relevant insights, technical discussions, tools, methodologies, and challenges mentioned in the field. 
-    Present the key points clearly and concisely. Include main topics covered. Format as Markdown. Do not include a markdown block ```. Do not include a title.""",
+    Present the key points clearly and concisely. Include main topics covered. Format as Markdown. Italisize scientific names and technical terms. Do not include a markdown block ```. Do not include a title.""",
     model="gpt-4o",
     )
 
     tidy_assistant = client.beta.assistants.create(
         name="Microbinfie tidyup Assistant",
-        instructions="""Convert text into markdown. Clean up any formatting issues.""",
+        instructions="""Convert text into markdown. Clean up any formatting issues. Italisize scientific names and technical terms.""",
         model="gpt-4o",
     )
 
@@ -207,7 +207,7 @@ def main():
                             f.write('### Extra notes\n\n')
                             f.write(f'{summary_points}\n\n')
                         episode_number_padded = episode_number.zfill(2)
-                        f.write(f'[episode {episode_number_padded} transcript](/microbinfie-transcripts/episode-{episode_number_padded}.txt)\n\n')
+                        f.write(f'[Episode {episode_number_padded} transcript](/microbinfie-transcripts/episode-{episode_number_padded}.txt)\n\n')
 
     logging.info('Finished scraping')
 

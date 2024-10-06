@@ -6,49 +6,33 @@ tags:
   - microbinfie
   - podcast
 ---
-# GAMBIT: Accurate Classification of Bacteria and Eukaryotes
+**GAMBIT** (Genomic Approximation Method for Bacterial Identification and Tracking) is a sophisticated software solution designed for the precise classification of bacteria and eukaryotes. This software utilizes a targeted *k*-mer based approach to enhance the accuracy of such classifications.
 
-GAMBIT (Genomic Approximation Method for Bacterial Identification and Tracking) is software designed to accurately classify bacteria and eukaryotes using a targeted k-mer based approach. This methodology allows for rapid leveraging of whole genome sequencing of bacterial isolates, facilitating clinical identification.
+- **GAMBIT Software Repository**: [GitHub - gambit-suite/gambit](https://github.com/gambit-suite/gambit)
+- **GAMBIT Suite**: [GitHub - gambit-suite](https://github.com/gambit-suite)
 
-## Key Resources
 
-- **GAMBIT Software**: The software is available on GitHub at [GAMBIT Software](https://github.com/gambit-suite/gambit).
-  
-- **GAMBIT Suite**: Explore the complete suite of tools at [GAMBIT Suite](https://github.com/gambit-suite).
+GAMBIT provides a methodology that rapidly exploits whole genome sequencing of bacterial isolates, facilitating their identification in clinical settings. For detailed insights into the working and efficacy of GAMBIT, refer to the research paper: ["GAMBIT: A methodology to rapidly leverage whole genome sequencing of bacterial isolates for clinical identification"](https://doi.org/10.1371/journal.pone.0277575)
 
-- **Research on GAMBIT**: For in-depth information, refer to the study published in PLOS ONE: [GAMBIT published research](https://doi.org/10.1371/journal.pone.0277575).
+**TheiaEuk** is another tool available within the realm of bioinformatics. It serves as a species-agnostic workflow for the genomic characterization of fungi. To explore the functionalities and applications of TheiaEuk, see the full text of the article: ["TheiaEuk: A species-agnostic bioinformatics workflow for fungal genomic characterization"](https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2023.1198213/full). 
 
-## TheiaEuk: Fungal Genomic Characterization
+These tools are pivotal in advancing the understanding and identification of various microorganisms through genomic analysis.
 
-TheiaEuk is another related tool that provides a species-agnostic bioinformatics workflow for fungal genomic characterization. This tool can be explored further through the article published in Frontiers in Public Health: [TheiaEuk Study](https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2023.1198213/full).
+### Extra notes
 
-These resources and tools are essential for researchers seeking robust solutions for genomic classification and characterization in microbiology.
+- **Gambit Software**: A bioinformatics tool for typing bacteria and eukaryotes. Gambit uses a targeted camera search methodology to analyze genomes and derive a unique signature, helping in accurately defining species.
 
-## Additional summary:
+- **Methodology**: Gambit performs a targeted k-mer (referred to as cameras) search, which involves using a fixed prefix at the beginning of a gene followed by a variable region, to create a genomic signature. This targeted approach contrasts with other tools like MASH, which use random subsampling.
 
-- **Gambit Overview**: Gambit is a tool for typing bacteria and eukaryotes. It uses k-mers (a known sequence prefix followed by a set number of bases) to build genomic signatures that define a species. This targeted approach contrasts with random subsampling methods like MASH.
+- **Databases**: Databases based on huge datasets like those from RAS-Seq have been built using Gambit, adding metadata for each species to facilitate accurate speciation and reduce noise. The tool uses sources like RefSeq and enhances accuracy by using the GTDB taxonomy, which helps eliminate misclassifications often seen with NCBI's taxonomy.
 
-- **Technical Implementation**: Gambit performs a targeted camera (k-mer) search, utilizing fixed prefixes with variable extensions to create genome-wide signatures, which can significantly refine species identification.
+- **Technical Aspects**: Employs HDF5 format for data storage due to its ability to handle large, compressed datasets efficiently. Although HDF5 can be challenging to work with, it supports rapid data access and processing with SQL databases bridging metadata, enabling quick queries.
 
-- **Accuracy and Validation**: The tool has been clinically validated to accurately call species, particularly useful in public health for confirming species with high precision. It provides a conservative approach, avoiding misclassification, crucial for managing genomic data in clinical settings.
+- **Challenges and Validation**: Clinical validation remains a significant challenge. Gambit has pipelines validated for public health use, ensuring conservatism in species classification, critical for applications demanding high accuracy like in public health scenarios. Validation requires passing stringent regulatory processes, which Gambit aims to satisfy.
 
-- **Challenges in Bioinformatics**: Challenges include complexities in species differentiation, especially in closely related organisms like TB and bovis. Gambit's targeted approach is effective even in these edge cases.
+- **Performance and Development**: The software excels in parallelization and efficient computing to handle genome-wide comparisons. Gambit has evolved through continuous development, extending functionalities beyond initial microbial typing, and supports various workflows, thus enhancing its versatility in different laboratory settings.
 
-- **Database Management**: Gambit leverages HDF5 format for data compression, storing k-mer integer representations for rapid data access. This system supports efficient, memory-conscious processing of vast genomic datasets.
+- **Practical Usage**: The Gambit tool suite is accessible via GitHub, which includes software and database downloads for practical application. Demonstrations and academic papers support potential users in exploring the utility of Gambit for microbial bioinformatics tasks. 
 
-- **Parallelization and Performance**: The tool is optimized for parallel processing, particularly in computationally intense tasks like database comparisons. This efficiency is crucial in handling and analyzing high-throughput genomic data.
-
-- **Database Building**: The tool can build databases from RefSeq or custom collections, using standards like GTDB for improved accuracy over traditional NCBI taxonomy.
-
-- **Applications and Tools Suite**: Apart from bacterial typing, Gambit has been used in cases like the Camtas Iris outbreak to type eukaryotes. The tool also supports pan-genomics and core genome analysis to define common k-mers across genomes.
-
-- **Continuous Development**: Emphasizes the importance of ongoing software development and adaptation to maintain relevance and accuracy in microbial bioinformatics.
-
-- **Accessibility**: Gambit and its suite are available on GitHub, providing access to databases and tools necessary for running its analysis, allowing researchers to try it with their genomic data.
-
-These points provide insights into the microbial bioinformatics landscape, specifically how Gambit addresses species identification challenges with a targeted bioinformatics approach.
-
-## Guests:
-
-The guest speakers on the Microbial Bioinformatics podcast were Dr. Lee Katz and Professor Andrew Page, who discussed the software Gambit. Additionally, Dr. Nabil Ali Khan is mentioned as a co-host, although he was not present in this particular episode.
+[Episode 122 transcript](/microbinfie-transcripts/episode-122.txt)
 

@@ -6,83 +6,63 @@ tags:
   - microbinfie
   - podcast
 ---
-# Micro Binfie Podcast: Episode Summary
 
-**Hosts**: Dr. Andrew Page and Dr. Lee Katz  
+In this episode of the *Micro Binfie Podcast*, hosts Dr. Andrew Page and Dr. Lee Katz explore the captivating world of hash databases and their usage in *cgMLST* (core genome Multilocus Sequence Typing) for microbial bioinformatics.
 
-## Topic: Hash Databases in Microbial Bioinformatics
+### Challenges with Siloed MLST Databases
 
-In this episode, hosts Dr. Andrew Page and Dr. Lee Katz explore the intriguing application of hash databases within the realm of microbial bioinformatics, specifically focusing on **core genome Multilocus Sequence Typing (cgMLST)**.
+The episode begins by addressing the obstacles faced by bioinformaticians due to fragmented *MLST* databases worldwide. These silos impede synchronization and effective genomic surveillance. To overcome these challenges, the concept of using hash databases for allele identification is introduced.
 
-### Key Discussion Points
+### Hashing in Genomics
 
-1. **Challenges in Bioinformatics**:
-   - The episode begins by addressing the issues caused by siloed MLST (Multilocus Sequence Typing) databases, which complicate synchronization and genomic surveillance on a global scale.
+Hashing is explained as a technique for creating unique identifiers for genetic sequences, which simplifies database synchronization without requiring extensive system support. Dr. Katz elaborates on the principles of hashing in genomics, noting how even a single nucleotide polymorphism (*SNP*) can generate a distinct hash, making it an ideal solution for differentiating alleles.
 
-2. **Introduction of Hash Databases**:
-   - The concept of using hash databases is proposed as a solution to these challenges. Hashing allows for creating unique identifiers for genetic sequences, facilitating easier synchronization without requiring extensive system resources.
+### Popular Hashing Algorithms
 
-3. **Hashing in Genomics**:
-   - Dr. Katz elaborates on how hashing applies to genomics. A single nucleotide polymorphism (SNP) can change a hash, making this approach an effective method for allele differentiation.
-   - Common hashing algorithms discussed include **MD5** and **SHA-256**, each having its pros and cons, notably the risk of hash collisions.
-   - More sophisticated hashes reduce the likelihood of collisions, ensuring more reliable sequencing.
+The hosts discuss various hashing algorithms, such as *MD5* and *SHA-256*, covering their benefits and the potential risks of hash collisions. They point out that employing more complex hashes can markedly diminish the chances of such collisions.
 
-4. **Integration in Bioinformatics Software**:
-   - The podcast discusses practical implementation aspects, emphasizing the necessity for exact matching algorithms owing to the nature of hashing.
-   - Tools like **eToKi** and upcoming software are highlighted as applications utilizing hash databases.
+### Practical Implementation in Bioinformatics
 
-5. **Sequence Types and Standardization**:
-   - A discourse on sequence types in cgMLST underscores the difficulties in naming and standardizing in decentralized systems. 
-   - Alternatives like **allele codes** could potentially simplify sequence type representation.
+The episode also delves into the practical aspects of integrating hash databases into bioinformatics software, emphasizing the necessity of exact matching algorithms due to the nature of hashing. Examples of current and upcoming tools, like *eToKi*, illustrate how hash databases can be utilized.
 
-6. **Adoption by Larger Organizations**:
-   - The episode concludes by considering the potential for bigger bioinformatics organizations, such as **Phage** or **GMI**, to adopt this approach.
-   - A standardized and community-supported framework is deemed essential to leverage hash databases effectively, ensuring their longevity in microbial genomics.
+### Sequence Types in cgMLST
 
-### Conclusion
+The conversation includes the concept of sequence types in *cgMLST* and the complexities involved in naming and standardizing them within a decentralized database system. Alternatives, such as allele codes, are suggested as potential simplifications for representing sequence types.
 
-This episode provides a thorough examination of how hash databases can transform microbial genomics, offering solutions for longstanding issues in database synchronization and allele identification. It suggests paving the way for more efficient and collaborative genomic surveillance on a global scale.
+### Adoption by Larger Bioinformatics Organizations
 
-## Additional summary:
+The potential for larger bioinformatics organizations, such as *PHA4GE* or *GMI*, to adopt the hashing approach is discussed, stressing the importance of a standardized and community-supported framework to ensure the continued effectiveness and longevity of hash databases in microbial genomics.
 
-- **Hash Databases in Microbial Bioinformatics:**
-  - Discussion on using hash databases for storing and synchronizing microbial data.
-  - Hashes provide unique identifiers for alleles, facilitating the synchronization of previously siloed databases across different regions.
+This episode presents a comprehensive overview of how hash databases could revolutionize microbial genomics. By addressing longstanding issues of database synchronization and allele identification, hash databases pave the way for more efficient and collaborative genomic surveillance worldwide.
 
-- **Challenges with Current Database Systems:**
-  - Siloed databases lead to inconsistencies and difficulties in data sharing.
-  - Issues with integer-based allele identifiers differing across databases, complicating genomic surveillance efforts.
+### Extra notes
 
-- **Hashing as a Solution:**
-  - Hashing transforms an allele sequence into a large integer, providing a unique identifier.
-  - Multiple hashing algorithms discussed, including MD5, SHA-256, CRC32, and their respective collision risks.
-  - MD5 and SHA-256 did not show collisions in extensive testing, suggesting suitability for microbial databases.
+**Key Points Related to Microbial Bioinformatics:**
 
-- **Technical Aspects of Hashing:**
-  - Explained that even a single nucleotide polymorphism (SNP) can change the hash, ensuring precision.
-  - The risk of collision (different sequences producing the same hash) is rare but theoretically possible.
+- **Siloed Databases in Genomic Surveillance:** There's a significant challenge in synchronizing MLST databases across different regions (e.g., England and the U.S.), which leads to issues with allele identification due to independent naming systems.
 
-- **Software and Implementation:**
-  - Current software like Itoki and BMURU caller planned to support hash-based databases.
-  - Hashing requires adaptation of current bioinformatics tools that use BLAST or approximate matching.
+- **Hashing in Bioinformatics:**
+  - Hashing is considered as a potential solution for synchronizing genomic data. It involves using one-way algorithms to convert allele sequences into unique integers, making it easier to synchronize databases globally.
+  - Different hashing algorithms exist, such as *MD5*, *SHA-256*, and *CRC32*. While *MD5* and *SHA-256* seem to avoid collisions effectively in this context, *CRC32* was found to have some collisions when hashing large datasets.
 
-- **Current Tools and Community Involvement:**
-  - Mentioned software like Chewbacca (Chewy Snake) using CRC32 algorithm, displaying some collision issues.
-  - Suggested the inclusion of hash databases in GitHub repositories, noting community involvement and historical contributions.
+- **Bioinformatics Tools and Software:**
+  - Current MLST software often employs loose matching programs like *BLAST*, but exact matching through hashes requires different software approaches.
+  - Tools such as *ITOKI* and a new anticipated software might utilize hashing for allele identification and database management.
+  - *Chewbacca* software, although using *CRC32*, serves as a hash database example, with potential for improvement.
 
-- **Sequence Types and Allele Codes:**
-  - Discussed complications in assigning sequence types due to different methods of deriving identifiers.
-  - Introduced the concept of allele codes as an alternative, similar to SNP addresses for decentralized systems.
+- **Technical Challenges and Solutions:**
+  - A risk associated with hashing is hash collisions, where different sequences might produce the same hash. Increasing hash complexity can mitigate this risk.
+  - New methodologies involve using exact matching with hashes, though this requires adapting existing software and possibly creating new tools to handle the unique identifiers effectively.
 
-- **Future Directions and Standardization:**
-  - Potential involvement of organizations like PulseNet International in managing and standardizing the specification.
-  - The need for a formal adoption by larger entities to ensure longevity and consistency in microbial bioinformatics.
+- **Ongoing Research and Development:**
+  - The development of allele codes, similar to SNP addresses, aims to decentralize allele identification further, though challenges remain in standardizing and adopting these systems.
+  - A specification for hashing methodologies is being refined, with standardization efforts needed for broader adoption by international bodies like PulseNet International or other organizations such as GMI and phage.
 
-- **Community Engagement and Development:**
-  - Emphasized the importance of community involvement and open-source contributions.
-  - Ongoing efforts to integrate hashing into broader microbial genomics practices.
+- **Community and Future Directions:**
+  - There's an emphasis on involving international organizations to adopt and maintain these specifications, ensuring they become a widely accepted standard.
+  - The conversation highlights the need for new practices in microbial bioinformatics that advance beyond traditional genomic typing, especially for larger-scale schemes like *CGMLST* compared to traditional *7-gene MLST*.
 
-## Guests:
+This discussion emphasizes the importance of adapting traditional methodologies and tools in microbial bioinformatics to better manage and synchronize genomic data globally using innovative methods such as hashing.
 
-The guest speakers on the Microbial Bioinformatics Podcast transcript are Dr. Lee Katz, Dr. Nabil Ali Khan, and Professor Andrew Page. Dr. Lee Katz is a senior bioinformatician at the Centers for Disease Control and Prevention in Atlanta, USA. Dr. Nabil Ali Khan is the head of informatics at the Quadram Institute in Norwich, UK. Professor Andrew Page is the director of technical innovation for Theogen in Cambridge, UK.
+[Episode 123 transcript](/microbinfie-transcripts/episode-123.txt)
 

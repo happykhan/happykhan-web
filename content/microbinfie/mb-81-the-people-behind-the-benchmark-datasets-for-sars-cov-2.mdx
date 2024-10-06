@@ -6,50 +6,48 @@ tags:
   - microbinfie
   - podcast
 ---
-## Podcast Guests: Lingzi Xiaoli and Jill Hagey
+# Podcast Episode: Benchmark Datasets for SARS-CoV-2
 
-Join us as we welcome Lingzi Xiaoli and Jill Hagey to discuss their benchmark datasets for SARS-CoV-2. Discover more about their work at the following link:
+In this episode, we welcome Lingzi Xiaoli and Jill Hagey to discuss their development of benchmark datasets for *SARS-CoV-2*. 
 
-- [CDC SARS-CoV-2 Datasets on GitHub](https://github.com/CDCgov/datasets-sars-cov-2)
+## Links and Resources
 
-For additional context, make sure to listen to our previous episode, which is part 1 of this conversation.
+- Explore the datasets: [CDC SARS-CoV-2 Datasets](https://github.com/CDCgov/datasets-sars-cov-2)
+- Check out a previous related episode for part 1 of the conversation.
 
-### Featured Publications
+## Related Works
 
-- **Bacterial Datasets Paper:** [Access the paper on PeerJ](https://peerj.com/articles/3893/)
+- Previous paper on bacterial datasets: [PeerJ Article](https://peerj.com/articles/3893/)
 
-### Connect with Our Guests
+## Connect with Our Guests
 
-- **Jill Hagey:**
+- **Jill Hagey**: 
   - Twitter: [@JillHagey](https://twitter.com/JillHagey)
-  - Personal Website: [jvhagey.github.io](https://jvhagey.github.io)
+  - Website: [jvhagey.github.io](https://jvhagey.github.io)
 
-- **Lingzi Xiaoli:**
-  - LinkedIn: [Lingzi Xiaoli's Profile](https://www.linkedin.com/in/lingzi-xiaoli-27b87174/)
+- **Lingzi Xiaoli**: 
+  - LinkedIn: [Lingzi Xiaoli](https://www.linkedin.com/in/lingzi-xiaoli-27b87174)
 
-Be sure to follow and connect with them for more insights into their research on SARS-CoV-2 datasets. 
-
-Listen, learn, and engage with cutting-edge research in this insightful discussion!
+Stay tuned to learn more about the insights and implications of these datasets in the field of virology and genomics.
 
 ### Extra notes
 
-- **Data Collection and Challenges**: Jill and her team faced challenges in downloading and organizing SARS-CoV-2 sequence data. They initially struggled with bulk downloading due to limitations on certain platforms but utilized the Python package Selenium to automate web browser interactions, allowing them to efficiently collect necessary data.
+- The discussion revolves around creating benchmark datasets for *SARS-CoV-2* and the methods used in acquiring and processing these datasets.
+- Jill explored using the Python package *Selenium* to automate the process of downloading sequences by remotely interacting with web browsers, although this approach was later abandoned in favor of more efficient methods.
+- Checking and verifying metadata for datasets was crucial. There was an emphasis on ensuring sample consistency, such as making sure they were all *Illumina* reads, paired-end, and used *Arctic_primers*.
+- Challenges were noted with handling incorrect or inconsistent metadata entries on platforms like SRA, particularly when metadata did not specify the sequencing technology used or if there were discrepancies in naming conventions for primers (e.g., multiple ways of indicating "Arctic V3").
+- Initial quality control (QC) on sequence data involved fast QC, depth of coverage analysis using *SAMtools*, and running the *Titan pipeline*, which provided various QC metrics including *Pangolin* lineage assignments and detection of amino acid mutations.
+- Selection of representative samples for variants of concern (VOCs) involved using tools like *Snippy* to minimize SNP differences compared to CDC internal references, ensuring key mutations were present primarily in the spike protein.
+- The filtering process was enhanced by a linkage between *GISAID* assemblies and SRA records, ensuring only high-quality datasets were selected for further comparison.
+- Decisions on which viral lineages to include in the study were based on CDC-defined variants of interest or concern due to the absence of a WHO nomination at the time.
+  
+Key technical tools and processes mentioned include:
+- *Selenium* for web automation.
+- *SAMtools* for depth of coverage analysis.
+- *Snippy* for SNP comparison.
+- *Titan pipeline* for detailed quality control.
+  
+Challenges highlighted pertained predominantly to automatic data retrieval, metadata verification, and naming conventions in datasets, reflecting common difficulties in the field of microbial bioinformatics.
 
-- **Automation with Selenium**: Selenium was used to automate the collection of metadata from various databases. Initially intended for continuous integration testing, it enabled the team to automate repetitive tasks and manage large datasets without manual intervention.
-
-- **Data Verification and Checks**: After collecting sequences, additional checks ensured dataset consistency, including verifying that all samples were sequenced with Illumina technology, were paired-end, and used Arctic primers. This verification was essential to maintain the integrity of the data.
-
-- **Metadata Consistency Issues**: The podcast highlighted issues with metadata consistency across samples. Disparities in how metadata such as Arctic version numbers were recorded by different users led to the need for careful manual verification to ensure data accuracy.
-
-- **Quality Control**: The team implemented a quality control (QC) process using SAM tools and the Titan pipeline. These tools assessed sequence quality, depth of coverage, and identified discrepancies, such as the presence of ends, amino acid assertions, deletions, and substitutions.
-
-- **Alignment and Variant Analysis**: Using Snippy and internal CDC references, the team compared SNPs across sequences to ensure that certain lineages had minimal genetic differences from the reference. They paid close attention to variations in the spike protein, crucial for determining lineage.
-
-- **Lineage Selection**: Samples were selected based on having the least number of SNPs and ambiguous bases. Lineages with minimal genetic variation from the reference sequence were prioritized to ensure accurate representation of variants of concern (VOC) and variants of interest (VOI).
-
-- **Defining Variants of Concern (VOC)**: At the time of the project's development, the WHO list of nominated VOCs was not available, so the team adhered to the CDC's definition for selecting lineages, using these criteria to focus their dataset on significant and relevant variants.
-
-- **Final Thoughts**: Important discussions centered around the complexities of standardizing metadata and sequencing procedures to create reliable benchmark datasets for SARS-CoV-2, emphasizing the need for automation and thorough QC in bioinformatics workflows.
-
-The speakers on the Microbinfeed podcast are Dr. Lee Katz, Dr. Nabil Ali Khan, Dr. Andrew Page, Lingzi, and Jill.
+[Episode 81 transcript](/microbinfie-transcripts/episode-81.txt)
 

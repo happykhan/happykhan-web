@@ -6,53 +6,55 @@ tags:
   - microbinfie
   - podcast
 ---
-## How to Sequence SARS-CoV-2 Using the ARTIC Protocol
+### Workshop Overview
 
-### Presented by Joshua Quick, University of Birmingham
+Joshua Quick from the University of Birmingham presented on the topic **"How to Sequence SARS-CoV-2 Using the ARTIC Protocol"** during a workshop. This event was a collaborative effort between the **ARTIC Network** and **CLIMB-BIG-DATA** focused on COVID-19 data analysis. The session was chaired by Nick Loman.
 
-This presentation was part of a joint ARTICnetwork & CLIMB-BIG-DATA workshop focusing on COVID-19 data analysis. The session was chaired by Nick Loman. Below are some useful links and resources related to the workshop and protocols discussed:
+### Useful Links
 
-- [Workshop Announcement on Twitter](https://twitter.com/Scalene/status/1349402397249056779)
-- [Primer Design Tool - Primal Scheme](https://primalscheme.com/)
-- [nCoV-2019 Sequencing Protocol v3 (LoCost) - protocols.io](https://www.protocols.io/view/ncov-2019-sequencing-protocol-v3-locost-bh42j8ye)
-- [RAMPART - Real-time Analysis for Molecular Profiling](https://github.com/artic-network/rampart)
+- [Twitter Announcement](https://twitter.com/Scalene/status/1349402397249056779)
+- [Primal Scheme Tool](https://primalscheme.com/)
+- [nCOV-2019 Sequencing Protocol V3 (LoCost) on Protocols.io](https://www.protocols.io/view/ncov-2019-sequencing-protocol-v3-locost-bh42j8ye)
+- [ARTIC Network GitHub (RAMPART)](https://github.com/artic-network/rampart)
 
-These resources provide insights into the methods and tools used for sequencing SARS-CoV-2 with the ARTIC protocol, offering a deeper understanding of the data analysis processes during the COVID-19 pandemic.
+### Key Concepts
+
+- **SARS-CoV-2**: The virus responsible for COVID-19.
+- **ARTIC Protocol**: A widely used protocol for sequencing SARS-CoV-2.
+- **Sequencing**: A method used to determine the genetic sequence of an organism.
+- **COVID-19 Data Analysis**: Involves analyzing viral genetic sequences to track mutation and transmission. 
+
+The workshop aimed at equipping researchers with protocol knowledge to enhance their understanding and ability to sequence SARS-CoV-2 efficiently.
 
 ### Extra notes
 
-- The podcast discusses the success of a decentralized genomic surveillance network in the UK, which utilizes diverse methodologies to enhance microbial bioinformatics.
+- The podcast discusses the use of *amplicon sequencing*, particularly the *ARTIC method*, which is economical and scalable for recovering genomes even with high host levels.
 
-- **Amplicon Sequencing:** The ARTIC method, a form of amplicon sequencing, is highlighted for its cost-effectiveness and scalability, suitable for retrieving genomes in challenging conditions like high host-level contamination.
+- The *multiplex PCR* technique is highlighted as it allows the generation of multiple amplicons in a single reaction, which is essential for high-throughput sequencing needs.
 
-- **Technical Methodology:**
-  - Utilizes multiplex PCR to generate amplicon pools, followed by native barcoding, and nanopore sequencing.
-  - Challenges with high CT values in viral isolates led to a focus on reducing RNA usage and increasing throughput with multiplex PCR methods.
-  - Primal scheme is a web-based tool aiding in primer design for multiplex PCR, accommodating diverse viral genome inputs.
+- The *Primal Scheme* is a web-based tool developed for designing primers for multiplex PCR. Users can upload a FASTA file of references to design suitable primers for diverse viral genomes.
 
-- **Tools and Innovations:**
-  - Primal Scheme: A web tool for designing primers, allowing users to upload reference genomes, and the tool designs primers covering genome diversity.
-  - The tool can handle multiple reference inputs and optimize primer design, accommodating segmented viruses and bacterial panels in future updates.
-  
-- **Challenges and Solutions:**
-  - Designing primers for highly diverse genomes remains challenging; the focus is on single viral strains due to the difficulty in finding conserved primers.
-  - Issues like primer efficiency and amplification failure lead to "dropouts" in genome recovery, emphasizing the importance of primer design and optimization.
-  - Stringent demultiplexing is important due to possible coverage differences in multiplexed samples.
+- The tool uses *Parasail* for aligning references and selecting conserved primers and allows for adjustments to design primers against specific reference genomes.
 
-- **Direct RNA Sequencing Limitations:**
-  - The direct RNA kit requires high input RNA amounts, unsuitable for clinical settings unless additional steps are taken, impacting efficiency.
+- The technique allows the production of 96 amplicons in two reactions covering approximately 30,000 base pair genomes, with high plexity managed through primer efficiency and overlaps.
 
-- **Community Involvement and Support:**
-  - The Arctic Network offers protocols online and collaborates with companies like ONT, QIAGEN, and Illumina for protocol support and commercialization of related products.
+- Amplification dropouts, which result in no data for specific genome regions, are a noted challenge and can occur due to poor primers or mutations in the primer binding site.
 
-- **Future Directions:**
-  - Enhancements planned for the Primal Scheme to support segmented viral genomes and address bacterial genome challenges, particularly those with high GC content.
-  
-- **Comments on Tools Usage:**
-  - Primal Scheme's success rate in primer design for diverse genomes has improved, yet it’s better suited for less genetically diverse organisms like SARS-CoV-2.
+- The protocol initially developed for *SARS-CoV-2* showed early challenges in primer dropouts, prompting refinements for improved consistency.
 
-- **Discussion on Native vs. Rapid Barcoding:**
-  - Native barcoding is preferred due to the high specificity of demultiplexing required in the presence of amplicon dropouts.
-  
-These insights highlight ongoing developments, technical strategies, and challenges within microbial bioinformatics, particularly focusing on virus genome sequencing methodologies and tool development to enhance genomic data analysis.
+- The *Primal Scheme* tool's success rate improves significantly with diverse genomes due to a multi-alignment approach, although there are limits with highly diverse sets.
+
+- Native barcoding protocols are preferred for high specificity in demultiplexing, necessary due to amplicon dropouts and avoiding cross-sample contamination.
+
+- High GC content in bacterial genomes presents additional challenges in primer design. A high GC mode is available in *Primal Scheme* to adjust parameters suitable for such genomic contexts.
+
+- Different commercialization acts include support and products provided by organizations like *ONT*, *QIAGEN*, and *Illumina* based on these PCR primers.
+
+- The use of the direct RNA kit for sequencing is limited due to high input requirements and the necessity for polyadenylation in non-polyadenylated viruses, reducing practical utility in clinical settings.
+
+- The discussion includes managing equimolar pools and balancing pools for improved genome completeness, with techniques available on *protocols.io* for calculating primer weighting based on coverage.
+
+- The importance of stringent demultiplexing is emphasized to prevent cross-sample contamination leading to incorrect variant calling.
+
+[Episode 44 transcript](/microbinfie-transcripts/episode-44.txt)
 

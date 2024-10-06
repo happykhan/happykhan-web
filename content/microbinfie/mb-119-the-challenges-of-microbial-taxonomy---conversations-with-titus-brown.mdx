@@ -6,76 +6,60 @@ tags:
   - microbinfie
   - podcast
 ---
-# Taxonomy Assignment in Metagenomics: A Conversation with Titus Brown
 
-In this episode, Andrew Page and Lee Katz continue their discussion with Titus Brown, focusing on the theme of taxonomy assignment in the field of metagenomics. The episode covers several critical topics within this domain:
+In this episode, Andrew Page and Lee Katz continue their discussion with Titus Brown, focusing on taxonomy assignment in metagenomics. The episode touches on several key topics:
 
-## Topics Discussed
+- **Dealing with Contamination and Low-Quality Genomes**: In reference databases, managing contamination and genome quality is crucial for accurate taxonomy assignment.
 
-- **Dealing with Contamination and Low-Quality Genomes**
-  - Addressing issues present in reference databases.
+- **Sourmash as a Versatile Search Tool**: Sourmash is highlighted as a flexible tool for searching, though it is not a curated database.
 
-- **Sourmash's Role**
-  - Exploring Sourmash as a versatile search tool that serves a different function compared to curated databases.
+- **High Confidence in Taxonomic Assignment for Public Health**: The necessity of reliable taxonomic assignment is especially pressing in public health contexts.
 
-- **Importance of High Confidence in Taxonomic Assignment for Public Health**
-  - Discussing the necessity of high-confidence assignments, especially in public health contexts.
+- **Challenges with Microbial Assignment Tools**: Many microbial assignment tools exhibit low specificity or sensitivity, complicating accurate identification.
 
-- **Microbial Assignment Tools**
-  - Evaluating the low specificity or sensitivity present in most tools.
-  - Exploring possible approaches to achieve perfect species classification, even if only theoretically.
+- **Perfect Species Classification Theories**: Potential strategies for achieving perfect species classification are explored, albeit mostly theoretical.
 
-- **Challenges in Defining Species**
-  - The difficulty of defining species based on subtle genomic differences.
+- **Defining Species with Genomic Differences**: The difficulties of defining species when only small genomic differences exist are discussed.
 
-- **Unique Cryptography Concepts**
-  - Introducing the concept of 'unicity distance' from cryptography for classification purposes.
+- **Unicity Distance in Cryptography for Classification**: An intriguing cryptographic concept, 'unicity distance,' is considered for its potential application in classification processes.
 
-- **Conveying Nuances and Uncertainties**
-  - Emphasizing the importance of conveying the complexities and uncertainties involved in taxonomic assignments.
+- **Conveying Uncertainties in Taxonomic Assignment**: The importance of communicating the nuances and uncertainties inherent in taxonomy assignment is emphasized.
 
-## Overview
+The conversation underscores the challenges of taxonomic classification, particularly at the species level, while exploring avenues for enhancing accuracy. The episode also highlights the inherent complexities of biology and the necessity for transparent communication regarding uncertainties.
 
-The conversation delves into the intricate challenges surrounding taxonomic classification, especially at the species level. It explores potential methods for improving accuracy and underscores the complexities inherent in biological systems. A key takeaway is the necessity for transparent communication of uncertainties.
+## Recommended Papers
 
-## Further Reading
+- **Spacegraphcats**: [Spacegraphcats Paper](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02066-4)
 
-- **Spacegraphcats**  
-  [Link to paper](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02066-4)
+- **Sourmash**: [Sourmash Paper](https://www.biorxiv.org/content/10.1101/2022.01.11.475838v2)
 
-- **Sourmash**  
-  [Link to paper](https://www.biorxiv.org/content/10.1101/2022.01.11.475838v2)
+- **IBD Exploration**: [IBD Exploration](https://dib-lab.github.io/2021-paper-ibd/)
 
-- **IBD Exploration**  
-  [Link to study](https://dib-lab.github.io/2021-paper-ibd/)
+### Extra notes
 
-This episode provides valuable insights into the complexities of taxonomy assignments in metagenomics and fuels discussions on improving the current methodologies and tools used in the field.
+* The podcast discussed the use of **SourMash** in microbial bioinformatics, highlighting its capability to search extensive databases like GenBank, which includes over 1.3 million bacterial genomes. This feature facilitates the use of all available reference sequences, a critical aspect for bioinformaticians.
 
-## Additional summary:
+* A significant topic was the challenge of handling low-quality references, often present in large microbial databases. The discussion emphasized reliance on robust resources such as the **GTDB**, which provides databases with transparent quality metrics, helping mitigate this issue.
 
-- **Handling Poor Quality References:** SourMash is designed to search extensive databases like GenBank, which includes around 1.3 million bacterial genomes. The challenge is the presence of low-quality references. SourMash's approach is to allow the use of all available reference sequences without filtering.
+* A primary critique of existing microbiome bioinformatics software is their tendency to perform a "curated subselection" of genomes based on what their software can handle, rather than making selections based on informative content. 
 
-- **Reference Databases:** The Genome Taxonomy Database (GTDB) is praised for providing transparent quality metrics and a broad representation of bacterial and archaeal life despite some poor-quality sequences.
+* The use of tools like **Charcoal** was discussed for identifying inconsistencies in genome data by detecting contigs with high similarity across distant taxa, aiding in cleaning databases from contamination.
 
-- **Microbial Bioinformatics Tools:** The discussion highlights that many tools for microbial analysis are either lacking in sensitivity or specificity. There's a lack of tools that can reliably perform species-level taxonomic assignments with high accuracy.
+* The philosophy of using SourMash involves casting a wide net by allowing for the probing of comprehensive and noisy databases, then providing users the flexibility to apply their own filters post-search. This approach emphasizes empowering users to make specific decisions regarding the data they analyze.
 
-- **SourMash's Robustness:** SourMash is noted for its robustness against contamination due to its design principles. It allows researchers to use any database and focuses on providing flexibility rather than filtering results based on perceived quality.
+* There was a discussion on the limitations and challenges of current bioinformatics tools for bacterial assignment and metagenomics, with few tools achieving a balance between sensitivity and specificity at the species level.
 
-- **Tool Development Philosophy:** The podcast emphasizes the Unix philosophy, where each tool should do one thing well. SourMash adheres to this by allowing exhaustive database searches without making decisions about the quality of the reference data.
+* A debated issue was the difficulty in establishing reliable public bioinformatics tools given their transient funding and development cycles, often leading to reinvention rather than iterative improvement.
 
-- **Technical Challenges:** The field of microbial bioinformatics struggles with compatibility issues between tools and managing dependencies. There's a repeated need to reinvent tools due to reliance on short-term grants and the transfer of knowledge being inadequate.
+* Despite these limitations, the speaker expressed pride in contributions like SourMash, aiming to set a high benchmark for future tools and ensuring insights gained are not lost.
 
-- **Taxonomic Classification:** A major challenge is achieving reliable species-level classification. SourMash utilizes a concept from cryptography known as "unicity" to identify unique k-mers that differentiate genomes, potentially leading to a high accuracy in taxonomic assignment.
+* The podcast also touched upon **fracMinHash** and **MinSetCov** as tool advancements, the former capable of handling vast data redundancy in microbial genome matches, and enriching the bioinformatics toolkit with proven computational principles.
 
-- **Future Directions:** There's ongoing development to enhance the precision of species identification, which is deemed crucial for applications like public health. There's also a focus on ensuring future tools maintain or exceed the quality standards set by current tools like SourMash.
+* There was acknowledgment of the complexity in creating accurate taxonomic classifiers, especially for distinguishing species based on genomic data, and the alignment of these computational outputs with biological realities.
 
-- **Community Contributions:** The role of foundational tools like SourMash and SAMtools is crucial, as they form the basis for further development in bioinformatics pipelines.
+* The podcast discussed the concept of **unicity** distance, drawing parallels to cryptographic strategies to uniquely identify genomes, a method implicitly utilized by SourMash to improve taxonomic assignments.
 
-- **Publication and Documentation:** There's an emphasis on learning from existing tools and publishing findings to avoid repeating past mistakes, ensuring future developments start from an informed baseline.
+* The discussion noted the enduring challenge of effectively communicating the distinction between computational results and biological insights, a fundamental aspect of advancing microbial bioinformatics.
 
-- **Complexity of Biological Data:** The discussion acknowledges the complexity inherent in biological systems and the challenge of translating computational insights accurately into biological understanding.
-
-## Guests:
-
-The guest speakers on the Microbial Bioinformatics podcast include Dr. Nabil Ali Khan, Professor Andrew Page, and Dr. Lee Katz. In the specific episode mentioned in the transcript, they are joined by Titus Brown.
+[Episode 119 transcript](/microbinfie-transcripts/episode-119.txt)
 

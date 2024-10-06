@@ -55,8 +55,9 @@ const Mbpost = ({ pageContext }) => {
         <h1>{title}</h1>
         <p>Released on {date}</p>
         <Button href={"/microbinfie"}>Back to episode list</Button>
-        <MDXRenderer>{body}</MDXRenderer>
         {sFrame}
+        <MDXRenderer>{body}</MDXRenderer>
+        
       </Container>
     </Layout>
   )

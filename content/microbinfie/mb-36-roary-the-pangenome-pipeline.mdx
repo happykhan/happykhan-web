@@ -6,47 +6,35 @@ tags:
   - microbinfie
   - podcast
 ---
-### Chat with Andrew About Roary
 
-We recently had an insightful conversation with Andrew regarding Roary, a software designed for generating a pangenome. Below, we explore the background of the project, the origin of its unique name, some hidden features, and a light-hearted FAQ section.
-
-- **Background to the Project:** Roary was developed to address the need for efficient pangenome analysis. This tool is widely used in microbial genomics to provide insights into the genetic diversity across different strains of bacteria.
-
-- **Origin of the Name:** The name "Roary" is a playful nod to the software’s function of "roaring through genomes," emphasizing its efficiency and speed in handling large genomic datasets.
-
-- **Hidden Features:** While Roary's primary functions are well-documented, there are some less-known capabilities worth exploring. These hidden features enhance its utility for various specialized research applications. Users are encouraged to delve into the software's documentation to uncover these surprises.
-
-- **Light-hearted FAQ:** The Roary team has put together a humorous FAQ section designed to lighten the mood while providing insightful tips and tricks about using the software effectively.
-
-For those interested in diving deeper into the technical details or starting to use Roary, here are some essential resources:
-
-- **Research Paper:** To understand the theoretical framework and the initial development of Roary, you can read the [academic paper](https://academic.oup.com/bioinformatics/article/31/22/3691/240757) detailing its development.
-  
-- **Software Repository:** The complete source code and contributions can be found on [GitHub](https://github.com/sanger-pathogens/Roary).
-  
-- **Documentation:** Comprehensive user documentation is available [here](https://sanger-pathogens.github.io/Roary/), providing instructions for installation, usage, and troubleshooting.
-
-Roary continues to be an indispensable tool for researchers in the field of microbial genomics, facilitating the exploration of genetic diversity on a pangenomic level.
 
 ### Extra notes
 
-- **Pan Genomes for Bacteria**: The discussion centered on solving the challenge of creating pan genomes for bacteria at scale. This involves analyzing both core and accessory genomes, which can include plasmids, phages, and other mobile genetic elements.
+- The primary focus of the discussion was on solving the challenges of creating and analyzing bacterial pan genomes, especially at scale. 
 
-- **Rory Software**: The Rory software, initially named the Pan Genome Pipeline, was developed to handle large datasets of bacterial genomes efficiently. It scales linearly and is designed to be fast and memory efficient, capable of handling thousands of genomes.
+- A *pan genome* involves collecting all genomic content within a species, which includes both core and accessory genes. This is crucial for understanding genetic variations that affect survivability in different environments.
 
-- **Technical Setup**: Rory is structured as a collection of scripts that can be parallelized to run on high-performance computing (HPC) clusters, though it is often run on single machines with multiple CPUs. The software uses CD-HIT for pre-clustering data to optimize performance, reducing the number of comparisons needed.
+- The software Rory was developed to generate pan genomes efficiently, designed originally to serve the needs within the Sanger Institute where existing tools were inadequate for handling large bacterial datasets.
 
-- **Tool Integration**: The tool integrates seamlessly with specific annotation tools like Prokka and supports standardized data input to maintain consistency across analyses.
+- There is a distinction between core genomes (genes present in all or nearly all strains) and accessory genomes (genes that vary between strains). The ability to analyze these differences is essential for understanding bacterial functionality and evolution.
 
-- **Challenges in Microbial Bioinformatics**: A significant issue is the lack of consistency in annotations when users download genomes from diverse sources like GenBank, which can lead to errors without proper QC and uniform processing.
+- Tools such as *PanoCT*, *LSBSR*, and modifications of *OrthoMCL* were initially used but faced scalability and usability issues, particularly when managing large datasets.
 
-- **Community Adoption**: The Rory software has seen widespread use globally, including in public health labs, highlighted by over a thousand citations. This underscores its efficacy in microbial bioinformatics for core genome analyses and other uses.
+- The Rory pipeline addressed these challenges by massively scaling through High-Performance Computing (HPC) and using methods like *CD-hit* to pre-cluster data, thereby reducing the complexity and volume of necessary comparisons.
 
-- **Open Source and Availability**: Rory is available on platforms like Debian, Ubuntu, Homebrew, and Conda, making installation relatively straightforward. It’s open-source and available on GitHub, allowing for community contributions.
+- The tool was designed to be fast, memory-efficient, and scalable to thousands of genomes, offering a unique capability in the field.
 
-- **Comparisons to Other Tools**: Other tools like Panaroo and Pop Punk are mentioned as alternatives, each offering different benchmarking metrics against Rory. These new tools suggest a continued evolution in the field with one tool emerging approximately every month. 
+- Rory's implementation included thoughtful considerations such as integration with *Prokka* for consistent genome annotation, avoiding variability issues inherent with mixing different annotation tools.
 
-- **Scory Tool**: Scory is introduced as a valuable tool for statistical analysis of Rory outputs, developed by Hola Brindisland in Norway, allowing for detailed statistical insights.
+- Consistency in processing different data sets was emphasized as crucial, illustrating how differing annotations can lead to incorrect analyses.
 
-- **Best Practices and Learning**: Emphasis is placed on the importance of understanding the tools and data in microbial bioinformatics, with common support issues arising from a lack of bioinformatic expertise among some users. A thorough understanding is vital to properly interpret results and maintain data integrity.
+- Rory is widely distributed and maintained in software ecosystems like Debian, Homebrew, and Conda, making it accessible for various users.
+
+- Despite its effectiveness and widespread use (evidenced by substantial citations), the software has not been updated recently due to shifts in focus within the field, although it remains open for community-driven updates via GitHub.
+
+- The podcast highlights broader trends in microbial bioinformatics, underscoring the importance of methodological consistency and scalability in large-scale genomic analyses. 
+
+- Users are advised to prepare their genomic data sets consistently to avoid errors, reflecting a broader challenge in bioinformatics of ensuring data accuracy and completeness.
+
+[Episode 36 transcript](/microbinfie-transcripts/episode-36.txt)
 

@@ -6,69 +6,88 @@ tags:
   - microbinfie
   - podcast
 ---
-# Bioinformatics in Public Health: A Dive into StaPH-B and the Cecret Pipeline
+# StaPH-B and the Cecret Pipeline: Insights from Dr. Erin Young and Dr. Kelsey Florek
 
-## Introduction
+Dr. Erin Young and Dr. Kelsey Florek recently joined us to discuss **StaPH-B**, a U.S. state public health bioinformatics group, and provided insights into the popular SARS-CoV-2 pipeline, **Cecret**.
 
-Dr. Erin Young and Dr. Kelsey Florek join us to discuss StaPH-B, a US state public health bioinformatics group, and provide insights into the popular SARS-CoV-2 pipeline, Cecret. For more information, you can visit the [StaPH-B Website](https://staphb.org/) and the [Cecret Pipeline GitHub Repository](https://github.com/CDCgov/SC2CLIA).
+- **Website:** [staphb.org](http://staphb.org/)
+- **Cecret Pipeline:** [GitHub Repository](https://github.com/CDCgov/SC2CLIA)
 
 ## About StaPH-B
 
-Dr. Kelsey Florek explains that StaPH-B was formed to facilitate collaboration among bioinformaticians in state public health laboratories, particularly those new to sequencing and data interpretation. StaPH-B acts as a conduit for communication and expertise across various laboratories, benefiting projects funded by the NIH, CDC, and other agencies.
+Kelsey Florek explained that **StaPH-B** was created to facilitate collaborations between bioinformaticians in state public health laboratories. This group is particularly beneficial for those who are new to sequencing and understanding the data generated. It provides a communication and expertise network among different laboratories, contributing to projects funded by the NIH, CDC, and other grant agencies.
 
-### Membership and Resources
+Erin Young highlighted the diverse membership of StaPH-B, which offers excellent learning opportunities. With nearly 400 members and over 50 channels focused on bioinformatics, StaPH-B uses a Slack workspace to provide a valuable resource where bioinformaticians can ask questions and share ideas.
 
-Dr. Erin Young highlights StaPH-B's diverse membership, offering various learning opportunities. The organization utilizes a Slack workspace with nearly 400 members and over 50 channels focused on different bioinformatics activities. This platform serves as a valuable resource for bioinformaticians seeking answers, guidance, and ideas.
+When asked about membership, Kelsey clarified that while StaPH-B was initially founded for state public health bioinformaticians, it is open to everyone. However, the content is focused on state public health activities. Key achievements discussed include the Slack workspace, collaborations on GitHub, Docker, and the development of collaborative workflows.
 
-## Who Can Join
-
-Initially founded for state public health bioinformaticians, StaPH-B is open to everyone, focusing on state public health activities. Kelsey mentions that the community has achieved significant milestones, including successful collaborations on GitHub, Docker, and workflow processes. The Slack workspace stands out as a critical resource.
-
-### Training and Toolkit
-
-Erin talks about StaPH-B's training activities, which include the Staph-B Toolkit, training sessions, and educational videos to ensure the widespread sharing of knowledge and expertise.
+StaPH-B's training activities, including the **StaPH-B Toolkit**, training sessions, and videos, ensure that knowledge and expertise are shared effectively across the community.
 
 ## The Cecret Pipeline
 
-The conversation shifts to the Cecret pipeline, an initiative spearheaded by Dr. Erin Young during the pandemic. Developed for SARS-CoV-2 sequencing, Cecret employs the Arctic group's protocol for Nanopore sequencing but was adapted to work with Illumina-based sequencing, which is more efficient on the MiSeq platform. The pipeline uses BWA as the default aligner, tailored for viral sequencing with a reliable reference.
+The discussion moved to the **Cecret pipeline**, one of Erin’s bioinformatics pipelines for SARS-CoV-2. Developed during the pandemic, the intention was to use the Arctic group's protocol for sequencing SARS-CoV-2 on the Nanopore sequencing platform. However, Erin required an Illumina-based pipeline, as sequencing SARS-CoV-2 on the MiSeq was preferable to the Nanopore platform. The Cecret pipeline was developed using *BWA* as the default aligner and is intended for viral-based sequencing with a known, reliable reference.
 
-### Resources and Tutorials
+Erin highlighted the *SEQret pipeline tutorials* and the monthly videos produced by StaPH-B, which outline various state laboratory projects, as useful resources for those entering the field.
 
-Erin recommends reviewing the SEQret pipeline tutorials and the monthly StaPH-B videos for those entering the field. These resources highlight various state laboratory projects and provide guidance for beginners.
+## Evolution of COVID Genome Analysis Workflows
 
-## Bioinformatics Workflows
+In a previous conversation, discussions on the evolution of COVID genome analysis workflows were highlighted, noting how they have adapted due to the growing amount of data being analyzed. Various workflows like **Secret**, **NF Core**, **Monro**, and the **Next Flow Optic Pipeline** were mentioned for their unique features and popularity.
 
-In a previous discussion, the speakers elaborated on the evolution of COVID genome analysis workflows. These workflows, including Secret, NF Core, Monro, and Next Flow Optic Pipeline, have evolved due to the growing data volumes. Erin shared her initial apprehension about sharing her workflow publicly and her meticulous tracking of repository forks to ensure scientific integrity.
+Erin, the creator of Secret, shared her initial apprehension about making her workflow public and her diligence in tracking changes in her repository to ensure scientific validity. Over time, the workflow has evolved with gradual improvements and fewer bugs, maintaining a consistent trajectory without dramatic shifts. The name "Secret" was inspired by a meaningful hiking landmark in Northern Utah.
 
-### Evolution and Meaning
-
-The Secret workflow has gradually improved with fewer bugs, retaining its original name inspired by a significant hiking landmark in Northern Utah. This symbolizes the importance of managing COVID data effectively and linking it to public health efforts.
+The speakers emphasized the necessity of managing and connecting the increasing amounts of COVID data to public health efforts.
 
 ## Conclusion
 
-StaPH-B and workflows like Secret play vital roles in bioinformatics and COVID genome analysis. These collaborations and resources are crucial in disseminating knowledge and expertise across laboratories, enabling the successful execution of projects supported by the NIH, CDC, and other grant-giving bodies.
+In conclusion, StaPH-B and workflows like **Secret** are playing significant roles in the fields of bioinformatics and COVID genome analysis. Collaborations and resources like StaPH-B are essential for sharing knowledge and expertise among laboratories, which is crucial for the successful execution of projects funded by organizations such as the NIH and CDC.
 
 ### Extra notes
 
-- **STAFFB**: The State Public Health Bioinformatics Workgroup (STAFFB) was founded to enhance collaboration among bioinformaticians in state public health labs. It facilitates communication through a Slack channel, sharing expertise and providing resources to address challenges and implement new sequencing methods.
+**Microbial Bioinformatics Insights**
 
-- **Platform Independence**: The Arctic group's SARS-CoV-2 sequencing protocol, initially nanopore-based, was adapted to the Illumina platform due to setup constraints at certain public health labs, highlighting the importance of platform-independent workflows.
+- **STAFFB (State Public Health Bioinformatics Workgroup)**
+  - Founded to foster collaboration among state public health bioinformaticians.
+  - Acts as a communication conduit for labs engaged in various projects.
+  - Provides a Slack workspace with over 50 channels for diverse bioinformatics activities and communication.
+  - Members include state health departments and others with relevant collaborations.
 
-- **SeqCOVID Pipeline**: Developed by adapting the Arctic primers for Illumina sequencing, addressing the lack of an initial workflow suitable for this platform in public health laboratories. It utilizes BWA as the default aligner and includes multiple aligner options due to early challenges with mutation handling.
+- **Collaboration and Resource Sharing**
+  - STAFFB facilitates resource pooling and expertise exchange, crucial for labs new to sequencing technologies.
+  - Supports standardization and method-sharing for projects associated with bodies like CDC.
+  - Encourages joining of members regardless of their organizational affiliation, though benefits are more tailored towards state public health activities.
 
-- **Feature Creep**: The evolution from basic QC metrics to a more complex workflow with legacy features indicates the iterative nature of bioinformatics tool development. The community-driven development process led to the inclusion of redundant features.
+- **Workflow Development for SARS-CoV-2 Sequencing**
+  - Early 2020, with the emergence of COVID-19, new workflows were urgently needed to sequence SARS-CoV-2.
+  - Erin played a role in developing the SECRET workflow to translate Arctic group's nanopore-based protocols to Illumina platforms.
+  - SECRET uses *BWA* as the default aligner and emphasizes a species-agnostic approach to amplicon-based sequencing.
 
-- **Workflow Adoption**: Although initial workflows had niche users, more popular alternatives like NF Core's ViralRecon and Titan by Theogen have emerged, showcasing the transition as workflows mature and requirements evolve.
+- **Challenge of Workflow Adaptations**
+  - Initial workflows required compatibility with existing protocols which posed challenges.
+  - Features evolved through community feedback and rapid environmental changes.
+  - The introduction of multiple aligners and compatibility options to address submission standards (e.g., GenBank, GISAID).
 
-- **Community & Training**: The Slack Workgroup and GitHub initiatives facilitate collaborative workflow development, fostering contributions to Docker projects and command-line training that benefit public health informatics.
+- **Community Feedback and Workflow Evolution**
+  - The SECRET workflow, initially made public on GitHub, facilitated open feedback loops for refinement.
+  - Use of community-developed methodologies (e.g., Docker, Nextflow) helped streamline bioinformatic processes.
+  - Highlighted the adaptability of workflows as analysis strategies and public health priorities evolved.
 
-- **Resource Utilization**: State public health laboratories leverage STAFFB resources to manage data workflows, adapting to significant increases in sequencing capacities from high-profile CDC projects. 
+- **Shifts in Sequencing Practice**
+  - Shift to high-volume sequencing (500-1000 samples weekly) required adapted data management and analysis practices.
+  - Evaluation of tools and methodologies for effectively processing and connecting sequencing data with public health outcomes.
+  - Examples include replacements of tools such as *Pangolin* for lineage assignment and various trimming methods.
 
-- **Data Management Challenges**: Rapid expansion in sequencing obligations has necessitated new strategies for running workflows and managing data output efficiently.
+- **Training and Knowledge Dissemination**
+  - STAFFB's efforts in training and tutorials to onboard new bioinformaticians.
+  - Publicly available resources and monthly video projects providing insights into ongoing bioinformatic challenges and developments.
 
-- **Knowledge Sharing**: Open communication channels and community resources are crucial for navigating rapid changes in the field, particularly during events demanding fast workflow adaptation like the COVID-19 pandemic.
+- **Innovative Tool Development and Usage**
+  - SECRET's development involved an iterative process of community engagement and feature refinement.
+  - Incorporated tools like *Minimap2*, *SamTools*, and referenced specific feature needs to ensure broad usability while accommodating shifting standards in bioinformatics.
 
-- **Bioinformatics Opportunities**: For aspiring and current bioinformaticians, engaging with resources like STAFFB Slack and GitHub offers valuable networking, learning, and collaborative opportunities to address both current and future public health challenges.
+**Challenges Faced**
+- Rapid onset and evolving understanding of SARS-CoV-2 necessitated quick development of compatible workflows.
+- Balancing between legacy bioinformatics tools and cutting-edge needs often led to feature creep.
+- Continuous adaptation to ensure compliance with public health data submission standards amidst evolving pathogen genomics landscape.
 
-The speakers on the Microbial Bioinformatics podcast are Dr. Lee Katz, Dr. Nabil Ali Khan, and Dr. Andrew Page. They were joined by guest speakers Dr. Erin Young and Dr. Kelsey Florek.
+[Episode 78 transcript](/microbinfie-transcripts/episode-78.txt)
 

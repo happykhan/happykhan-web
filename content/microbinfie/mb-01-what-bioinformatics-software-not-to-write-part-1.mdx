@@ -6,107 +6,95 @@ tags:
   - microbinfie
   - podcast
 ---
-# Episode Summary: Peak Bioinformatics
+# Peak Bioinformatics Episode
 
-In this episode, we delve into the concept of "Peak Bioinformatics," exploring areas where further development of bioinformatics software may be redundant or ineffective. With numerous existing tools, we question if new software can provide significant improvements, focusing on discussions around genome assembly, read mapping, and phylogenetics.
+In this episode, we identify areas of "Peak Bioinformatics." There's a vast array of existing bioinformatics software—often, the tool you want to create already exists, or a new tool cannot offer significant improvements. We explore this topic in the contexts of genome assembly, read mapping, and phylogenetics.
 
-For questions and comments, reach us at: [microbinfie@gmail.com](mailto:microbinfie@gmail.com)
+For questions and comments, contact [microbinfie@gmail.com](mailto:microbinfie@gmail.com).
 
 ## Show Notes
 
-### When Novel Software is Unnecessary
-- **Saturation of Tools**: Many tools already exist.
-- **Problems Solved or Unsolvable**: Some challenges have been addressed or proven unsolvable.
-- **Obsolete Technology**: Outdated methods replaced by newer techniques.
+### When Novel Software May Not Be Needed:
 
-### Multiple Sequence Aligners
-- [MAFFT](https://mafft.cbrc.jp/alignment/software/)
-- [MUSCLE](https://www.drive5.com/muscle/)
+- **Plethora of Existing Tools:** There are already many tools available in the field.
+- **Problem Resolution Status:** The problem may be more or less solved, or it has been proven unsolvable.
+- **Obsolete Technology or Problems:** The underlying technology or problem might be outdated or have been surpassed by other methods.
 
-### Whole Genome Aligners
-- [Mauve](http://darlinglab.org/mauve/mauve.html)
-- [Mugsy](http://mugsy.sourceforge.net/)
-- [Sibellia](http://bioinf.spbau.ru/sibelia)
-- [Parsnp](https://github.com/marbl/parsnp)
+### Multiple Sequence Aligners:
+- **MAFFT:** [Website](https://mafft.cbrc.jp/alignment/software/)
+- **MUSCLE:** [Website](https://www.drive5.com/muscle/)
 
-### Assemblers
-- Short Reads:
-  - [SPADES](https://github.com/ablab/spades)
-  - [Skesa](https://github.com/ncbi/SKESA)
-  - [Velvet](https://www.ebi.ac.uk/~zerbino/velvet/)
-  - [Abyss](https://github.com/bcgsc/abyss)
-  - [Edena](http://www.genomic.ch/edena.php)
-  - [Ray](http://denovoassembler.sourceforge.net/)
-- Long Reads:
-  - [HGAP](https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/HGAP-2.0)
-  - [Flye](https://github.com/fenderglass/Flye)
-  - [Canu](https://github.com/marbl/canu)
-  - [Ra](https://www.biorxiv.org/content/10.1101/656306v1)
-  - [Unicycler](https://github.com/rrwick/Unicycler)
+### Whole Genome Aligners:
+- **Mauve:** [Website](http://darlinglab.org/mauve/mauve.html)
+- **Mugsy:** [Website](http://mugsy.sourceforge.net/)
+- **Sibelia:** [Website](http://bioinf.spbau.ru/sibelia)
+- **Parsnp:** [GitHub](https://github.com/marbl/parsnp)
 
-### Read Mapping
-- [BWA](http://bio-bwa.sourceforge.net/)
-- [Bowtie2](http://bio-bwa.sourceforge.net/)
-- [Minimap2](https://github.com/lh3/minimap2) (Note: [BWA recommended for short reads](https://lh3.github.io/2018/04/02/minimap2-and-the-future-of-bwa))
-- [BBtools](https://jgi.doe.gov/data-and-tools/bbtools/)
-- [BLAST/BLAT](https://genome.ucsc.edu/FAQ/FAQblat.html)
-- [SMALT](https://www.sanger.ac.uk/science/tools/smalt-0)
-- [Snippy](https://github.com/tseemann/snippy)
-- [Phenix](https://github.com/phe-bioinformatics/PHEnix)
+### Assemblers:
+- **SPAdes:** [GitHub](https://github.com/ablab/spades)
+- **Skesa:** [GitHub](https://github.com/ncbi/SKESA)
+- **Velvet:** [Website](https://www.ebi.ac.uk/~zerbino/velvet/)
+- **Abyss:** [GitHub](https://github.com/bcgsc/abyss)
+- **Edena:** [Website](http://www.genomic.ch/edena.php)
+- **Ray:** [SourceForge](http://denovoassembler.sourceforge.net/)
 
-### Variant Callers
-- [GATK](https://software.broadinstitute.org/gatk/)
-- [VIPR](https://www.viprbrc.org/brc/home.spg?decorator=vipr)
-- [Varscan2](http://varscan.sourceforge.net/)
+### Long Read Assemblies:
+- **HGAP:** [Source](https://github.com/PacificBiosciences/Bioinformatics-Training/wiki/HGAP-2.0)
+- **Flye:** [GitHub](https://github.com/fenderglass/Flye)
+- **Canu:** [GitHub](https://github.com/marbl/canu)
+- **Ra:** [bioRxiv](https://www.biorxiv.org/content/10.1101/656306v1)
+- **Unicycler:** [GitHub](https://github.com/rrwick/Unicycler)
 
-### Workflow Managers
-- [Bespoke example](https://github.com/VertebrateResequencing/vr-codebase)
-- [Snakemake](https://snakemake.readthedocs.io/en/stable/)
-- [Nextflow](https://www.nextflow.io/)
-- [Galaxy](https://usegalaxy.org/)
-- [Bpipe](https://github.com/ssadedin/bpipe)
+### Read Mapping:
+- **BWA:** [Website](http://bio-bwa.sourceforge.net/)
+- **Bowtie2:** [Website](http://bio-bwa.sourceforge.net/)
+- **Minimap2:** [GitHub](https://github.com/lh3/minimap2)  
+  *(Note: BWA is better for short reads. [Blog post](https://lh3.github.io/2018/04/02/minimap2-and-the-future-of-bwa))*
+- **BBtools:** [JGI](https://jgi.doe.gov/data-and-tools/bbtools/)
+- **BLAST/BLAT:** [Website](https://genome.ucsc.edu/FAQ/FAQblat.html)
+- **SMALT:** [Sanger](https://www.sanger.ac.uk/science/tools/smalt-0)
+- **Snippy:** [GitHub](https://github.com/tseemann/snippy)
+- **Phenix:** [GitHub](https://github.com/phe-bioinformatics/PHEnix)
 
-### Phylogenetics
-- [RAxML - RAxML-NG](https://cme.h-its.org/exelixis/software.html)
-- [IQTREE](http://www.iqtree.org/)
-- [FastTree](http://www.microbesonline.org/fasttree/)
-- [BEAST 1 & 2](https://www.beast2.org/)
-- [RevBayes](https://revbayes.github.io/)
+### Variant Callers:
+- **GATK:** [Website](https://software.broadinstitute.org/gatk/)
+- **VIPR:** [ViPR](https://www.viprbrc.org/brc/home.spg?decorator=vipr)
+- **Varscan2:** [SourceForge](http://varscan.sourceforge.net/)
 
-### Metagenomics
-- **Taxonomic Classification**: Megan, Kraken, SIGMA, MIDAS, metaphlan2, mOTUs.
-- **Assemblers**: MetaSpades, metaflye, MEGAHIT, MetaVelvet.
-- [AMR Protocols](https://food-safety-bioinformatics-hackathon.github.io/AMR-protocols/)
-- [ABRICATE](https://github.com/tseemann/abricate)
-- [ARIBA](https://www.sanger.ac.uk/science/tools/ariba)
+### Workflow Managers:
+- **Bespoke Example:** [GitHub](https://github.com/VertebrateResequencing/vr-codebase)
+- **Snakemake:** [Documentation](https://snakemake.readthedocs.io/en/stable/)
+- **Nextflow:** [Website](https://www.nextflow.io/)
+- **Galaxy:** [Galaxy](https://usegalaxy.org/)
+- **Bpipe:** [GitHub](https://github.com/ssadedin/bpipe)
 
-### Resources
-- [Recent Review: Zhang W, et al. (2011) "A Practical Comparison of De Novo Genome Assembly Software Tools"](https://doi.org/10.1371/journal.pone.0017915)
-- [The Assemblerthon](https://assemblathon.org/)
-- Blog post: [BWA and Short Reads](https://lh3.github.io/2018/04/02/minimap2-and-the-future-of-bwa)
-- [The Science Web Blog Post](https://thescienceweb.wordpress.com/2015/03/23/each-bioinformatician-to-have-their-own-personal-short-read-aligner-by-2016/)
+### Phylogenetics:
+- **RAXML - RAXML-NG:** [Software](https://cme.h-its.org/exelixis/software.html)
+- **IQTREE:** [Website](http://www.iqtree.org/)
+- **FastTree:** [Microbes Online](http://www.microbesonline.org/fasttree/)
+- **BEAST 1 & 2:** [Website](https://www.beast2.org/)
+- **RevBayes:** [Website](https://revbayes.github.io/)
 
-Feel free to explore these resources and contribute to the ongoing discussion on the necessity and evolution of bioinformatics software.
+### Metagenomics:
+- **Taxonomic Classification Tools:** *Megan, Kraken, SIGMA, MIDAS, MetaPhlAn2, mOTUs.*
+- **Assemblers:** *MetaSPAdes, MetaFlye, MEGAHIT, MetaVelvet.*  
+  (*Many single isolate assemblers have been adapted for metagenomes.*  
+   [Kalamari GitHub](https://github.com/lskatz/Kalamari))
 
-### Extra notes
+### Antimicrobial Resistance (AMR):
+- **Resources:** 
+  - [AMR Toolkit GitHub](https://github.com/arpcard/amr_curation) 
+  - [AMR Protocols](https://food-safety-bioinformatics-hackathon.github.io/AMR-protocols/)
+- **ABRicate:** [GitHub](https://github.com/tseemann/abricate)
+- **ARIBA:** [Sanger](https://www.sanger.ac.uk/science/tools/ariba)
+- **Detection Tools:** 
+  - [Detection Tools Spreadsheet](https://docs.google.com/spreadsheets/d/18XGWpDiaE249qQKDAL7gdBCka0Z1drpA_s3FElfMJe0/edit#gid=0)
 
-- **Software Saturation**: The conversation emphasizes the redundancy in developing new bioinformatics tools since many problems are already well-solved or obsolete. Creating new tools often seems unnecessary unless there is a truly novel approach.
+### Other Mentioned Resources:
+- Recent Review: *Zhang W, Chen J, Yang Y, Tang Y, Shang J, Shen B (2011). "A Practical Comparison of De Novo Genome Assembly Software Tools for Next-Generation Sequencing Technologies."* PLoS ONE, 6(3), e17915. [DOI](https://doi.org/10.1371/journal.pone.0017915)
+- **Assemblerthon:** [Website](https://assemblathon.org/)
+- **Blog Post:** *"Minimap2 and the Future of BWA:"* [Blog Post](https://lh3.github.io/2018/04/02/minimap2-and-the-future-of-bwa)
+- **The Science Web:** [WordPress](https://thescienceweb.wordpress.com/2015/03/23/each-bioinformatician-to-have-their-own-personal-short-read-aligner-by-2016/)
 
-- **Microarray vs. RNA-Seq**: Despite being largely replaced by RNA-Seq, microarray usage continued to be prevalent in literature, highlighting a lag in technology adoption.
-
-- **Sequence Alignment**: Established tools like MAFT, MUSCLE, and BLAST are foundational for multiple sequence alignment, with newer methods offering only marginal improvements. Whole-genome alignment requires different tools like MOVE and MUG-C.
-
-- **Genome Assemblers**: Popular tools include Spades, Velvet, and Skiza. Long-read assembly options like HGaP and Canoe are preferred for specific applications, but the quality of the data largely influences assembly outcomes. Smarts in assembly tool selection are favored over developing new assemblers from scratch.
-
-- **Read Mapping**: The problem of short-read mapping is considered solved with tools like BWA and Bowtie. Minimap2 is suggested for long reads, though BWA is still favored for short reads.
-
-- **Variant Calling**: There's a wide array of tools available. Optimizing parameter settings often outstrips the need to develop new variant calling software due to the existing options' comprehensiveness.
-
-- **Bioinformatics Workflows**: The importance of workflow managers like SnakeMake, Nextflow, and Galaxy is highlighted for managing analyses efficiently, offering power and flexibility through container integration.
-
-- **Phylogenetics**: The field is saturated with robust tools such as RAxML, IQ-TREE, and BEAST. New entrants face significant challenges in competing with such well-established tools.
-
-- **Technical Constraints**: Development with FPGA for speeding up alignment tasks is intriguing but requires significant technical expertise beyond most individual bioinformaticians.
-
-- **Community and Collaboration**: The content and opinions shared are part of a broader community effort and reflect personal views, not official institutional positions, emphasizing the collaborative nature of bioinformatics work.
+[Episode 01 transcript](/microbinfie-transcripts/episode-01.txt)
 
