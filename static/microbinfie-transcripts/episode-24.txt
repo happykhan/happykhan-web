@@ -1,0 +1,217 @@
+Hello, and thank you for listening to the Microbinfeed podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. Hello and welcome to the Microbinfeed podcast. This episode,
+we will be talking about the sustainability of bioinformatics software.
+Bioinformatics software currently lacks long-term support and maturity. We will
+discuss what is causing this currently and what we think needs to change for us
+to move the field forward. Do we continue with the new hope of academic style
+work, or do we go to a more rigorous model? Nabil, you want to kick it off?
+Yeah, let's kick it off with just describing how academic software development
+currently works. At the moment, it's usually backed by short-term funding. It's
+a project for a postdoc or a PhD student who, when they leave the project, the
+software then dies. The average lifespan of bioinformatics software, therefore,
+is about three to five years, which is the lifespan of the grant or the contract
+of the person working on it. There are a number of different ways that software
+working in this way will die. There are things like when an academic, like the
+group leader, moves to a new institution or gets a new grant, the software will
+cease to be maintained. There's very little funding for longer-term maintenance.
+It's just not sexy. Developers want to talk about novelty, and they want to talk
+about exciting new technologies, and they often don't want to maintain software.
+There are often areas where people work on a project, and they publish the paper
+describing their new tool, and they think that that's the end of it. In reality,
+when you put a piece of software up there, and people use it, you have to look
+after those users, and you have to add in new things as they require or fix bugs
+and so on. Andrew? Yes. I'm one of those academics who moved institution and
+left behind a long trail of software that needs to be maintained. Unfortunately,
+for people who I left behind, they ended up having to field all of the bug
+requests, or the bug reports, and the feature requests, and things like that. I
+know that I'm not paid to work at the weekends and the evenings on software I
+did for a different employer a few years ago. For me, there has to be a cutoff,
+and if I've published something five years ago, then should I really be
+maintaining it now for free? Yes. That's definitely something that's happened
+with me in larger infrastructure projects. For instance, when I was working on
+Entrabase, and this is an example that speaks wider for the utility of MNST,
+multi-local sequence typing is a standard method used by a lot of reference labs
+now, instead of a lot of other, say serological typing or genotyping methods.
+These databases that drive these schemes need to be kept consistent and need to
+be maintained. People need to review the sequence types and the alleles going
+into these databases, but there is very little central funding for that. It's
+essentially a service given for free. The projects, the databases that look
+after it, jump from grant to grant, and often the people driving it just are
+trying to always come up with a research angle to make it novel and fresh, while
+also trying to carve out some space to do the background day-to-day maintenance.
+I think Lee also has an MNST example as well. Yeah, actually, I almost forgot
+this, that in my PhD about 100 years ago, I made a 7-genome LST website, and I
+did it hand-in-hand with my co-PI at CDC and with my lab at Georgia Tech. It was
+a web server that analyzed meningococcal 7-gene MLST, and after about 5 or 10
+years, actually the web server went offline. I had moved to the meningitis lab
+and onto then foodborne, so I was two steps away from my academic career, and no
+one was left to maintain it or to even know how to ask how to put it back
+online, and it was superseded by the next graduate student, and by the
+meningitis lab. I believe now it is better sustained, much better sustained in
+the newest project, but I was definitely one of those academics that just moved
+on and I was not being paid either to maintain that thing. Yeah, exactly.
+There's a lot of maintenance man hours that have to be put in behind the scenes
+to keep these things going. These are very simple but important things like,
+say, security updates or updating it with new internal libraries or updating it
+with new changes in the programming language. You don't necessarily have to be
+adding new features to have a lot of work just to keep something running, and
+that's on top of answering user queries and bug fixes. There is always a moving
+target of having a polished software project, and that takes a lot of effort,
+ongoing effort to look after. But in some cases we've been successful, and some
+software does seem to persist and work, so I'm interested to hear from both of
+you, what are the examples where software did manage to succeed and has managed
+to have some staying power? Well, for me the shining example is SamTools, but
+that's only come about because there's an entire team of people behind it, and
+it's all open source and they're very much engaged with the community and with
+multiple institutions to try and keep it going, but in that case it's long-term
+sustainable funding which has kept that alive. You have then other projects like
+Canoe which came out of Celera, and again someone has taken a long-term decision
+to keep that alive and keep improving it and keep making it better and better
+and better all the time, but not everyone has the luxury of that, and a lot of
+people, academics often have a lot of pulls on their time, maybe through
+teaching loads or the requirement to publish every few years and get that Nature
+paper every two, three years, and not everyone can take the time to continue
+supporting all their old stuff. And it is a lot of work, you know, from simple
+things, you might have done the best documentation in the world, but you'll
+always get people who come along who haven't read documentation and need a
+little bit of extra help and support. Unfortunately the answer sometimes I have
+to give them, particularly if they're in a commercial organisation, is that they
+have to pay for support if they want it, and you know, when they start hearing
+proper commercial rates, they run away, you know? I know we're talking about a
+lot of academic stuff, but I was just thinking about it, while you're talking
+about it, Blast is a great example of well-maintained software over time. It's
+government funded, so it's not exactly academic, but it's another example like
+SamTools where the whole bioinformatics community has to use it at one point or
+another, and it is well-maintained, it's well-documented, so that is a really
+good shining example. Galaxy as well is a fantastic example as well of
+bioinformatics software that's just stuck around for many years, and that's, I
+suppose, because they've got a huge critical mass of people who are working on
+it, rather than, you know, 50 people reinventing the wheel, making workflow
+manager, they've gotten together, they've made one really, really good workflow
+manager on website, and they've kept at it, you know? Year on year, they've
+worked on it, there's multiple grants from different institutions around the
+world, so it's funded in the US, it's funded in the EU in Germany, and in a
+variety of different places, you know, it's got a lot of critical mass support,
+which I think you need for larger projects, but then not every project is big
+enough, or every field is big enough to support software that way, you know,
+because a lot of what we do is very, very niche. Before coronavirus came out...
+you know there's probably only a handful of people in the world working on the
+genomics of coronavirus probably not even and it's only now we we realize oh
+this is an area we need to put a lot of stuff into but prior to that there's
+virtually nothing. One just popped in my head was FastQC as another one this is
+a quick example I think that's been around for quite a while. That's funded by
+Baberham isn't it? Exactly. BBSRC. Yep keep it up keep funding vital software.
+Sorry yeah we only bring that up because BBSRC is the funder that Nabil and I
+work for. Oh I did not know that okay. Hint hint please fund more of our
+software. Actually BBSRC are one of the few funders to have a separate call
+every year or yeah separate call every year on for tools and resources and it's
+basically not for the new shiny thing but it's for keeping certain software
+applications going and certain databases going that have become critical to the
+industry but often as from what I've heard it's vastly oversubscribed because
+anyone who's going for anything and then needs continuing funding you know tries
+to throw an application into this but of course you know there's only a small
+pot of money if we could have more like that that'd be great. Yeah I think the
+funds in those pots are quite limited it's and a lot of them a lot of them have
+very strange ear marking they tend to be for capital equipment or things like
+that and not necessarily staff and it's actually the staff it's work hours that
+you really need to keep something going. Yeah programmers are pricey. Exactly.
+But of course people get around this you know they can rebrand their software
+they add in a new buzzword they make it work in a slightly different domain
+instead of bacteria be yeast instead of yeast it'll be viruses you know people
+people find ways to get around things or they stick a version two on the end and
+say it's a totally brand new thing or they put in the cloud because cloud things
+are obviously so much fluffier. One trick is to migrate your software from a
+desktop application to a web application. To a phone you know if you have it on
+an app it's you know it's obviously great. But hopefully everyone out there is
+getting the impression that the only way software really does continue is you
+have a very savvy group leader who can come up with a good story to keep it
+going or a large institution takes it over as a core project for themselves
+otherwise there's very little hope for any tool that we write to persist longer
+than the three to five year mark of what most people's contracts tend to tend to
+last for. So you're saying that a lot of the software that is produced by
+academics it's a very low quality and we probably don't want to continue anyway
+we probably want to kill it off pretty quick. Yeah there is a thing that and
+don't get me wrong I mean it's really important that people experiment with new
+software and new methods and prototype different ideas but we need to draw a
+line and most software is actually more or less a prototype and should remain as
+such. I think when I reviewed for different journals I found that the software
+submitted suffers from the sort of Dunning-Kruger effect where the people know
+enough to produce a software package but not enough to actually assess that this
+package really is a bespoke thing for their specific project and not fit for
+mass consumption. That's a flyway saying it'll only ever run on their laptop.
+Well a lot of it is glorified bash scripts and a lot of it is really hard-coded
+you know folder parts and things like that which just isn't acceptable. And also
+people think if they have spent six months or a year building this piece of
+software that it is worth publishing regardless you know whereas maybe if
+they've gotten a professional software engineer or someone like that who
+actually knew what they're doing it might have taken two weeks and the problem
+they're solving isn't actually that big or publishable and that's a hard truth
+for some people. Yeah it is important to recognize that they've produced a thing
+and they've produced some sort of output and really the best way for us in our
+community is publication. But yeah so it's difficult I think part of it
+struggles because we don't have a good avenue for software for the sort of basic
+software even just to get us just to get acknowledged somewhere so that a
+student can feel like yeah I wrote a thing and here it is and then they can
+carry on. It's a lot of it is like kind of the incentive model then it's in this
+case with academics it's you want to get credit for the thing you've been
+working on for six years or how much scientific thought you put into this and
+you want to publish it but the actual product after the paper you might get the
+paper out but you might get the paper out but then the actual software might not
+be very sustainable. Yeah we've said this before if you write a bioinformatics
+tool and nobody cites it did you really write a tool? That's a good question.
+Yeah and definitely this is exacerbated by people who reinvent the wheel over
+and over and over again and this harks back to our first episode like how many
+assemblers and aligners do we really really need at this point but there is a
+value for a student to take a genome assembler apart and understand how it works
+to tweak it but I'm not quite sure that should be presented as a polished
+software tool people can use but then so I mean while we've been discussing
+these different issues we've come we've touched on the issue that getting credit
+for your work seems to be a problem. How have both of you managed to facilitate
+credit or how would you get credit for work that you've done on a software
+project? I would say that it is kind of like an incentive issue and credit is a
+major incentive for this kind of stuff. I see where a lot of people come from
+where they want to kind of take credit and exclude others for you know just
+minor credit which I can kind of understand that there's a certain threshold for
+giving someone like authorship but I think it doesn't cost anything to give
+authorship to people who have contributed something to the project so I think
+one model for incentive for giving credit is you know anybody who's made a
+commit to you at least acknowledge them if they've done something significant
+give them authorship don't be stingy it costs you nothing really to to give
+credit to somebody so I think that's a good really good way to get community
+support and if you get community support then you might get more sustainability.
+Yeah that's a very difficult issue especially in say a large manuscript where
+there's a scientific component to it as well experimental component to it and
+people behind that project and then the software are a specific set of people
+and then there's a different set of people who maybe help out with the software
+but aren't necessarily involved in the science and so there's a feeling that the
+latter shouldn't be on as an author on the paper because they don't they haven't
+contributed to the scientific component which is fine but then those people do
+need to get acknowledged so in the past I quite like the idea of having a
+community group or development group and having that as an author in the author
+lifts and then having a list of all the contributors to that as a footnote in
+the manuscript just so that you recognize the different levels of contribution
+but people still do get acknowledged because if you don't acknowledge people and
+you don't thank people for helping you out we can never really have the open
+source community-driven software that we that people seem to assume will exist.
+So we've now outlined the major issues with sustainability of academic software
+in the field. These problems kind of flow around experimental projects which
+lead to experimental software and then there's no long-term maintenance plan.
+There's no incentive to maintain past, for example, the graduation date.
+Programs are not modular. They're unstructured and all these issues make it
+difficult for the community to take over like a modular design which is what is
+implied by the way we approach development and the development of funding. It's
+an important issue and hopefully next time we can talk about strategies to
+improve. Thank you all so much for listening to us at home. If you like this
+podcast, please subscribe and like us on iTunes, Spotify, SoundCloud, or the
+platform of your choice. And if you don't like this podcast, please don't do
+anything. This podcast was recorded by the Microbial Bioinformatics Group and
+edited by Nick Waters. The opinions expressed here are our own and do not
+necessarily reflect the views of CDC or the Quadrant Institute.

@@ -1,0 +1,52 @@
+---
+date: 2020-12-10 00:00:00
+title: MicroBinfie Podcast, 36 Roary the pangenome pipeline
+link: https://soundcloud.com/microbinfie/roary-the-pangenome-pipeline
+tags:
+  - microbinfie
+  - podcast
+---
+### Chat with Andrew About Roary
+
+We recently had an insightful conversation with Andrew regarding Roary, a software designed for generating a pangenome. Below, we explore the background of the project, the origin of its unique name, some hidden features, and a light-hearted FAQ section.
+
+- **Background to the Project:** Roary was developed to address the need for efficient pangenome analysis. This tool is widely used in microbial genomics to provide insights into the genetic diversity across different strains of bacteria.
+
+- **Origin of the Name:** The name "Roary" is a playful nod to the software’s function of "roaring through genomes," emphasizing its efficiency and speed in handling large genomic datasets.
+
+- **Hidden Features:** While Roary's primary functions are well-documented, there are some less-known capabilities worth exploring. These hidden features enhance its utility for various specialized research applications. Users are encouraged to delve into the software's documentation to uncover these surprises.
+
+- **Light-hearted FAQ:** The Roary team has put together a humorous FAQ section designed to lighten the mood while providing insightful tips and tricks about using the software effectively.
+
+For those interested in diving deeper into the technical details or starting to use Roary, here are some essential resources:
+
+- **Research Paper:** To understand the theoretical framework and the initial development of Roary, you can read the [academic paper](https://academic.oup.com/bioinformatics/article/31/22/3691/240757) detailing its development.
+  
+- **Software Repository:** The complete source code and contributions can be found on [GitHub](https://github.com/sanger-pathogens/Roary).
+  
+- **Documentation:** Comprehensive user documentation is available [here](https://sanger-pathogens.github.io/Roary/), providing instructions for installation, usage, and troubleshooting.
+
+Roary continues to be an indispensable tool for researchers in the field of microbial genomics, facilitating the exploration of genetic diversity on a pangenomic level.
+
+### Extra notes
+
+- **Pan Genomes for Bacteria**: The discussion centered on solving the challenge of creating pan genomes for bacteria at scale. This involves analyzing both core and accessory genomes, which can include plasmids, phages, and other mobile genetic elements.
+
+- **Rory Software**: The Rory software, initially named the Pan Genome Pipeline, was developed to handle large datasets of bacterial genomes efficiently. It scales linearly and is designed to be fast and memory efficient, capable of handling thousands of genomes.
+
+- **Technical Setup**: Rory is structured as a collection of scripts that can be parallelized to run on high-performance computing (HPC) clusters, though it is often run on single machines with multiple CPUs. The software uses CD-HIT for pre-clustering data to optimize performance, reducing the number of comparisons needed.
+
+- **Tool Integration**: The tool integrates seamlessly with specific annotation tools like Prokka and supports standardized data input to maintain consistency across analyses.
+
+- **Challenges in Microbial Bioinformatics**: A significant issue is the lack of consistency in annotations when users download genomes from diverse sources like GenBank, which can lead to errors without proper QC and uniform processing.
+
+- **Community Adoption**: The Rory software has seen widespread use globally, including in public health labs, highlighted by over a thousand citations. This underscores its efficacy in microbial bioinformatics for core genome analyses and other uses.
+
+- **Open Source and Availability**: Rory is available on platforms like Debian, Ubuntu, Homebrew, and Conda, making installation relatively straightforward. It’s open-source and available on GitHub, allowing for community contributions.
+
+- **Comparisons to Other Tools**: Other tools like Panaroo and Pop Punk are mentioned as alternatives, each offering different benchmarking metrics against Rory. These new tools suggest a continued evolution in the field with one tool emerging approximately every month. 
+
+- **Scory Tool**: Scory is introduced as a valuable tool for statistical analysis of Rory outputs, developed by Hola Brindisland in Norway, allowing for detailed statistical insights.
+
+- **Best Practices and Learning**: Emphasis is placed on the importance of understanding the tools and data in microbial bioinformatics, with common support issues arising from a lack of bioinformatic expertise among some users. A thorough understanding is vital to properly interpret results and maintain data integrity.
+

@@ -1,0 +1,387 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There's so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. Hello and welcome to the MicroBinfeed podcast. Today we're
+talking about some new research for SARS-CoV-2 COVID-19 genomics. Things are
+changing very quickly, so we should mention that it's the 12th of March, 2021,
+and some of what we mention might change by the time you hear this. Today we're
+going through a new method of identifying variants of concern using Sanger
+sequencing, and we're joined by two of the authors of this method, Kai Blin and
+Thuy Jørgensen. Thuy is working as a postdoctoral researcher in microbial
+genomics at the Technical University of Denmark, DTU, with a background in
+plasmid biology and metagenomics. He is now working on genome sequencing and
+comparison of antibiotic-producing bacteria. Since January 2021, he has been
+developing a COVID variant detection system. Kai Blin is working as a researcher
+with a focus on microbial genome mining at the Technical University of Denmark.
+He has a background in computational biology and software engineering. Most of
+his time is spent on maintaining and extending the anti-smash secondary
+metabolite genome mining tool in the surrounding database ecosystem. Since mid-
+January, he is building the COVID variant detection software of Thuy's COVID
+variant detection system. So welcome both. Hello. Thank you so much. Thank you
+for inviting us. For sure. So let's get started. What do you both normally do? I
+can go first. So normally I am working on genome sequencing of a large
+collection of actinobacteria with the purpose of finding new antibiotics. So we
+do comparison of these genomes. We select biosynthetic gene clusters found with
+Kai's software and we express them and try to find new compounds. Yep. And Kai,
+what about you? So I'm working as a research software engineer most of my time
+where I'm in charge of running and extending the anti-smash pipeline, which is a
+tool that finds interesting biosynthetic gene clusters in microbial genomes. So
+I mean, the purpose of this is trying to find and identify clusters that might
+be involved in the production of new antibiotics or other interesting secondary
+metabolites. And there's a bunch of databases that we also need that sort of go
+around this, like the miBIG database of known and described secondary metabolite
+gene clusters. And there's the anti-smash database that is basically anti-smash
+results on publicly available microbial genomes and so on and so on. And so the
+goal of this is then to support both sort of our group's work on trying to find
+new antibiotics, but also everybody else's. And I mean, anti-smash is running
+around 100,000 or more jobs on the public website a year. All right. And that's
+a big jump then to go into SARS-CoV-2 variants of concern and looking at it with
+Sanger sequencing. How did you two get roped into this? In the beginning of the
+pandemic, I volunteered at the COVID testing unit. So that was basically my
+entry. So I was in the normal qPCR pipeline, working shifts, getting the system
+up and running. So from that, I knew all the people in the testing system and
+Kai and I were discussing how to test variants around New Year's when variants
+of concern started to appear. So after some discussions and also talking to
+other people in the field, how they were doing it, we decided that we could do
+it simpler than that and faster than that. And then we just basically started.
+So how long has it been in production for now? That's the beauty of it. So we
+started, it took less than a week for developing both the software and just like
+starting to use the primers. And then since the middle of January, we've run on
+100% of the positive samples from the testing unit at DTU. And how many samples
+is that now? So it's a lot less now because there was a big, there was a lot
+more. So in the beginning it was around 200 samples a day, and now it's less
+than a hundred samples a day. And are those coming from staff and students or
+from the local hospitals? So this, the samples come not from staff and students
+that come from local hospitals in the Copenhagen area. And then I think some
+more samples, but like we don't do any of the sampling. We get the samples and
+then we extract the RNA and run the qPCR. And then we use the same RNA to do the
+Sanger sequencing. So you do diagnostics and sequencing at the same time? One
+after the other, because yeah, one after the other, because there's only, in
+Denmark we sequence so many samples, there's only like 0.3% of samples are
+positive right now. Something like that. So like doing Sanger sequencing on all
+would not be a good idea. It's possible, but it's not a good idea. And so then
+how do you link in with Mads' genome sequencing efforts? Basically the
+sequencing effort Mads is doing is fantastic. And he's doing whole genome
+sequencing on the nanopore system. However, it takes some more days for them to
+get their results than it does for us. So what happens is that as soon as we
+have positive samples in the qPCR pipeline, we set them up for Sanger
+sequencing. And then once we've started that process, we sent the samples to
+Mads for whole genome sequencing. How do you link in with your local public
+health teams? When you find some variants of concern, do you report it
+immediately to people who take action or what happens there? Yeah. So it's
+actually a dual thing. So we get samples mainly from hospitals. So we report the
+variants directly to the hospitals. But at the same time, we also directed the
+same information to the Danish authorities who do the contact tracing. We get
+the hospital information on their patient samples and also they test a lot of
+their employees, of course. But simultaneously, we give the information to the
+contact tracing units. So the information is really made available to everybody
+immediately. Have you had any surprising results pop out like P1 or anything
+like that? Yes. Last Monday, we got a P1, which was the first one in Denmark. So
+we were immediately alerted because it was like very, very clear signal that it
+was a P1. Of course, we can't tell from our pipeline that it is P1, but we can
+say that it has all the hallmark mutations of P1 and that it has none of the
+mutations that you would expect of any of the other variants. So what we did was
+that we alerted authorities immediately by telephone and by Slack and by any
+channel we can, and they got the person isolated. And then we could fast track
+that sample in the whole genome sequencing pipeline. And two days later, we had
+confirmation that it was in fact a P1 that we had found. That's brilliant
+because in that case, you know, it's such an important variant and you've caught
+it so quick, you know, days before genome sequencing. I presume then there was
+follow-up surge testing or kind of ring testing around that person? Yes. So, I
+mean, that's outside of what we know about. And like, so our setup actually has
+zero personal information. So like we never see any information that can be
+linked to anybody. We only see barcodes at DTU. So we send the information and
+then it's the hospitals and the CDC equivalent who's doing the actual contact
+tracing. So we don't know who the person is, but we made sure that the right
+people got the information immediately when it was found. That's fantastic. It's
+really working very well. What's the timeframe in this case, like from getting
+the sample in your hands and knowing it's a P1, how long would that have taken?
+So from the sample was taken, I don't know, but from it was sent for sequencing,
+it took about, I think about 24 hours from we send it for sequencing. So that is
+like, we have relatively good statistics. So the fact that, but the statistics
+we have is mainly from swap to result. I don't know about this sample, but so
+the fastest ones we do is about 30 hours, which is really, really fast. And then
+the average is around 50 hours, 50 to 60 hours from swap to variant call. But
+that is also, I think, relatively fast compared to like, so that includes first
+running a QPCR and then taking the sample out, running the RT-PCR, sending it
+for Sanger sequencing and doing the analysis until it's answered out. Like until
+we tell the hospital what time it is. So that's like the start and the stop of
+that. So that's yeah, 50 to 60 hours. That could be shortened if we would be
+doing the Sanger sequencing sort of more locally. Part of the nice thing about
+the method really is that there's commercial hearings that basically just do the
+Sanger sequencing in a highly optimized version, which sort of keeps the prices
+low. I mean, it's also what, in my opinion, makes the whole thing accessible to
+pretty much everybody who can like set up the QPCR testing. So like in our case,
+I mean, it's a question of, is it fast enough? And the answer for that is, for
+what we need it for, it is. The protocol itself takes roughly around six hours,
+right? Yeah. I mean, less than that. It's just setting up a single. So that's
+also like, we really aim for having simplicity and ease as the main things. So
+there's no purification of the product. The only thing is to set up an RT-PCR
+and then taking some of that product and sending that. So can you take a step
+back and maybe explain the protocol? Yes. Maybe I should do that first. So
+basically samples that are found to be positive in the QPCR testing, they are
+picked into new 96 well plates and then reverse transcriptase PCR is set up.
+with that and a single set of primers from the ARTIC protocol. After that RT-PCR
+is run we take 1.5 microliters of the product and mix with the forward primer
+and send that for sequencing at a commercial provider. I should maybe say that
+the enzyme mix we're using is actually the same enzyme mix that we're using for
+the QPCR and that we chose not because it's good but because it's accessible.
+Like if you can do a QPCR then you can also do an RT-PCR with the same master
+mix. So we run 10,000 reactions per day of this so doing an extra 200 is at no
+cost and we can just go into the freezer and pick out as much as we need. So we
+don't need a separate system for this setup that we do for the QPCR. Once we've
+sent the samples for sequencing we get the results back the following morning
+and then we do analysis on CHI software which takes a few seconds per, like
+depending on the system, but it can run on any laptop and it takes like less
+than a second per sample if it's a normal setup. So can I ask how did you choose
+which region of the genome you're targeting? Well so we set this up in the start
+of January so the only real variant that we knew about back then was the B.1.1.7
+which was first found in Britain, in Kent I believe. Basically we just found we
+found an area with a lot of mutations in that area and then we were also talking
+to both Mads Alpertsen and the Danish CDC and heard about their plans to do
+variant testing and we kind of agreed that this would be a good region to place,
+well not place the primers in, but to pick the existing primers from the ARTIC
+protocol and use those. So then I just tried it, I was given access to some
+samples and ordered the primers, got them the next day and tested it and it
+worked beautifully. I sent that for sequencing and that came back perfect and
+then we set up two days later we started production. So that's 1000 bases within
+the spike protein is it? Yes it's a thousand and one bases so it's two different
+primer sets where we're using the forward primer from one primer set and the
+reverse primer from another primer set from the ARTIC protocol. You mentioned
+Danish CDC you mean SSI? Yes. Okay. I don't know how internationally
+recognizable that is but yes and I believe they don't actually have a name in
+English. Yeah my at CDC came from SSI, we knew a lot about it. Peter
+Gernersmith, a long time ago probably before your time. In Denmark there are two
+completely parallel tracks, there's the track which tests the population and
+then there's the track which tests the hospitals and we are in the hospital
+system so we basically we give our data to SSI but we don't actually interact
+with them too much. So you do all the hard work and then they take all the
+credit? I think they have been okay in giving us the credit also. Like so for
+example when we found the Brazilian variant the Minister of Health in Denmark
+tweeted about it and mentioned us in his tweet which like my boss was very happy
+about and I was also very happy about. That's awesome. So what about your
+protocol? Can you modify it if say one of the primers stops working or if a
+different region becomes interesting how quick could you turn that around? I
+mean basically it's just ordering a different set of primers and seeing that
+they work. So we actually are already testing a couple of different sets of
+primers except on top of the ARTIC ones that we are using now. So it's very very
+fast to change if there's another variant that has another area of interest. In
+terms of the sequencing data you get, do you just get one single Sanger read or
+do you get multiple reads or what? Again we chose for the ease of the complete
+process we chose to get exactly one read per sequence. So that means that the
+quality is maybe less good than if we sequence for example from both ends but it
+means that the sample flow is incredibly simple because you send a sample with
+one barcode you get it back and match it to the sample barcode that you have and
+then you have your result. I mean we get worried when you do sequencing and you
+get less than like a thousand X coverage across the genome and we like with
+Lumina would never call less than 10 but actually if one read works well then
+great. So I mean the beauty with the Sanger sequencing is that if you get decent
+quality Sanger data then the quality is really good. So you can do a lot of
+variant calling on that. I mean compared to some of the sort of more modern
+versions where you really want more reads to cover the same area. I think it's
+also a factor that the samples that like this method is not necessarily thought
+to be the end product. Like in our setup all positives are whole genome
+sequenced afterwards. If every sample was not whole genome sequenced I think our
+screening would still be a good qualification for which samples should be whole
+genome sequenced. And have we tried to build phylogenetic trees or anything like
+that with your your data? No, no we have not. We've only looked at the known
+mutations especially because we're not actually interested in finding the exact
+phylogeny of it. We just need to in the fastest and easiest way possible find
+the variants and then tell the people to be extra isolated I guess and then we
+send the samples for whole genome sequencing and they will do the
+epidemiological genetics part of it. I mean for example if you had two p1s pop
+up suddenly would you be a would you maybe look at the reads and see are they
+identical or are they slightly different just in case there is mutations in the
+thousand base region? So I mean this could be done but I think there are so few
+mutations that it doesn't necessarily make so much sense especially when we're
+doing as much whole genome sequencing. Like the value of us doing that rather
+than Mads Albertsen finding it a week or two later. I mean we know that we know
+that it's a p1 like we know that it has the characteristic mutations of p1 and
+then the other part of it I don't think is as important to get as fast. And
+there's new variants coming out it seems every day now at this point. So how are
+you going to keep up with this for your publication? So I mean at some point we
+just have to stop taking in new things for the publication but for the pipeline
+I think you are like we're both following it as closely as we can and updating
+as soon as there's a new mutation we add that call to the pipeline. How do you
+decide which mutations are interesting? Yeah so that's a great question. We've
+obviously initially focused on just like the most important ones right so I mean
+euphorate 4k and 501y right so I mean like that's the the major ones and like
+the idea again is that sort of the pipeline is thought to be a tool to help the
+health authorities with the contact tracing and sort of a discussion that we had
+a while ago was I mean basically if we find one of these or two of the or both
+mutations right we basically want to be able to tell the health authorities like
+here you need to put a lot of work in the contact tracing because that's sort of
+high importance and then which strain it is exactly is sort of more of a
+secondary interest from our perspective and again as Tuya said right because
+every positive sample is going to get sequenced this info will come a couple of
+days later so it's really to close the gap between sort of like the initial we
+have a positive sample and we can kick off like the high intensity contact
+tracing that you might want to use if you have like especially like the EEC
+mutation right the other one is at this point in Denmark is pretty moot because
+I think we're at like over 80% of the positive samples are B.1.1.7 so like that
+one's done I mean we still want to go and be able to have a fast turnaround time
+to say hey go ahead and do like more resources at contact tracing for these ones
+and then yeah I mean again like phylogeny is going to come later so also to
+answer your question more directly then in my hotcrafts covariance.org is the
+main resource that we go to these variants and the mutations in them on top of
+that like when we see something interesting or hear something interesting then
+we include a mutation call for those positions for example we had a meeting with
+some some people working in Africa last week and they were very concerned about
+a variant called a 23.1 in the pangolin system so then we looked at this this
+particular strain and found that it actually does have mutations in our amplicon
+and then added them but I mean one of the things that we also decided pretty
+early on is that we're not actually trying to call the variants right we're
+basically just calling the mutations and then sort of the output of the pipeline
+is a table with all of the mutations I mean recently just to be sure because
+after we found the p1 people were a bit skeptical and so we basically added sort
+of quality values there based on the read quality in that particular positions
+and then that's what we report back because I mean we came to a point when I
+mean there's a bunch of variants now that are sort of separate variants that
+have the same telltale mutations in our sequencing window so and it was clear
+that it was going to be really hard to tell these apart I mean also because sort
+of initially I was trying to build these sort of in a bit of resilient way that
+if one of the calls didn't work out I can still call the mutation and like in
+our window there's not a much like a whole lot of different difference between
+like b351 and p1 and so if we if we said hey we allow for like a mutation to be
+missing or like an extra mutation to be present just because of sequence quality
+issues then suddenly it's getting really really hard I mean this was it was like
+pretty clear pretty soon that this wasn't going to be scalable so we basically
+pulled back and sort of what the hospital system that we've started developing
+this initially for they needed for their internal setup was just a list of all
+of the mutations that they were interested in in the sequencing window and
+that's what we could provide very easily and that's super scalable for future
+things because basically adding like a new position that we check for mutation
+and then adding like another column to the table is yeah five minutes worth of
+effort and then I spend another like 10 minutes on like deploying a new release
+and that's it. So I guess you're moving towards then constellations mutations
+that people keep talking about rather than focusing on the pango lineages which
+is actually a much better way to do it.  it as you described, you know, because
+what you're interested in is the EEC mutation and not that it just happens to be
+independently arising on, you know, five different B117s. Again, I mean, like
+we, we couldn't, like from the data that we're looking at, we couldn't even tell
+for some of these, right? So, I mean, there's, there's a bunch of new variants
+of interest or variants of concern popping up in the US and basically like from
+the spike window that we sequenced, they all look the same, right? I mean, we,
+we couldn't, we couldn't really tell the difference, but on the other hand,
+right, we, like all of them have an EEC mutation and basically, like from our
+perspective, it's like we don't have a lot of EEC mutations in Denmark at the
+moment. We want to keep it that way. So like every time we find that, we just
+know, okay, like high gear contact tracing for these ones. Obviously it's, it's
+interesting for a longer term view and also for policy planning to, to know like
+which kind of mutation was that, but again, that's what the general sort of
+COVID genomics that was going to happen on the sample anyway, is going to fill
+in a couple of days later. Okay. So the, so actually I looked at the covariance
+that all got a couple of days ago and we can actually separate except for four
+variants, which are not particularly interesting. We can separate all of the
+interesting variants she has listed, including the one found in New York
+recently and the one found in California recently. Like we can't separate these,
+like, so we can't separate the vast majority of interesting strains and then not
+just not calling them strains, we're calling them mutations. But I mean, that's
+also provided that all of the positions mapped fine and the read quality is high
+enough, right? Because I mean, that's an issue we do run into occasionally. The
+read quality around like E. cannelli is usually fine. If it's stuff that's sort
+of way to the end of the sequence or way to the beginning of the sequence, as
+usual with, with Sanger, right? Quality is a bit tricky there occasionally. I
+wouldn't feel confident in really sort of trying to do like proper strain
+calling based on the data that we see in the pipeline. I've tried and it wasn't
+pretty. So we decided, okay, let's, let's not do it. So maybe moving on to your
+software. I mean, Sanger sequencing is very accessible around the world. There's
+machines everywhere. It's been around for decades, so it should be reasonably
+easy for people to use, but your software is actually really interesting as well
+because you can install it very easily. Like it's seems to be in Konda. You've
+got Singularity up there or Docker. That's a fair play to you for, for wrapping
+that up really nicely. You even have tests like that. That's the sign of very
+high quality software engineering. Well, I mean, it's, I think it's one of my
+pet peeves in, in sort of my, my whole career that a lot of bioinformatics
+software that I have to deal with is of surprise level of quality where you sort
+of never know what you're going to get. Like if you start using it, right.
+Something that I've learned from sort of a experience, I mean, like we've been
+doing anti-smash for over a decade now. And one of the things that of course
+happened was that we built like the initial version on like a super short
+timeline because sort of the PhD supervisor and the PhD supervisor of Marnix
+Medema, who, who sort of was the other PhD student behind this initially, they
+decided we should like do a joint piece of software that we can publish
+together. And so if we finally got started when it was I know, one and a half
+months until the NAR web server proposal deadline. So we basically had like,
+yeah, 40, 50 days to build it from two existing pipelines that we had to smoosh
+together. And that was all sort of a couple of long days and short nights. And
+so if we got something that worked sort of, but I mean, not very robustly. And I
+mean, immediately afterwards, it was clear, okay, so we need to like engineer
+this more properly. And I had the luxury of learning a bit about sort of decent
+software engineering as an undergrad with sort of all of the extracurricular
+stuff I was doing. I mean, I'm a member of the Samba team sort of doing proper
+software development there. And so I'm always trying to get that into my
+software development projects. And it saved a lot of projects over the years to
+have proper tests. So people can't see this, but you're actually wearing a
+Google Summer of Code t-shirt. Yeah. Well, that's the Mentor Summit one. So
+that's from when I sort of shifted sides. I got started in open source software
+development with the first Summer of Code back in 2005, when it was, I know, 400
+students out of like 9,000 people who applied. I mean, now the numbers on sort
+of both accepted students and people who are applying is of course much higher.
+So I mean, I have to say as a mentor, the quality of applications has gone up
+way much. I mean, I probably wouldn't have accepted my own application from back
+in 2005 now if it was on my desk, but I guess that's pretty true everywhere. In
+2005, nobody knew what they were doing. So it's fine. So I was looking through
+your code. And so the steps you take are you start off with a bow tie to
+alignment. Is that it? So we actually start with Tracey to do the base calling
+on the AB1 files directly. Because again, that allows us to keep it in control
+of pretty much, I mean, like the Sanger sequencing will in any case give you
+like the AB1 files. So that's something everybody's going to have. And then so
+if we take it from there, we use Tracey for the base calling, because that was
+like the most straightforward base caller to set up for the Sanger data. And
+then yeah, we map to the reference genome using bow tie. And then just SAM tools
+our way out of the whole thing by getting pileups for the individual mutations.
+And then sort of go and take the SAM tools outputs and then sort of do the post-
+processing in Python. So do you use MPileup for actually calling it or do you
+translate it into anything else like VCF tools? No, we basically just use
+MPileup. It's not the most efficient approach, right? Because we basically do
+one MPileup call per mutation that we're interested in. But I mean, it's very
+convenient because it's super simple to test. If anything falls over, it's
+pretty straightforward to go and sort of check manually what's going on. Sorry,
+just to clarify, you do SAM tools MPileup just on the three nucleotides for each
+mutation you're looking for? Yeah. That's really cool. And so we basically, at
+the moment, I lost track, but I think we're at 12 positions we look at for
+mutations or so. A little more. And so, yeah, something like that. I mean, I
+have to go and look at the code to check. So basically we run 12 of these
+pileups per sample. Again, it's not the most efficient way of doing things, but
+as Tua said, the whole pipeline takes, I think, 10 seconds on my machine to run
+through 96 well-played of sequence data. So I mean, it's fast enough. It's a bit
+slower if you run it on Windows machines because you pay a price for forking
+there that's higher than on Unix machines. So it takes like T seconds when you
+run it on a Windows machine in Docker or something like that. But I mean, it's
+still, compared to everything else, I mean, you have a fast turnaround time and
+it's fast enough. And that's sort of always the balance you have to strike with
+a project like that. So I mean, if you've looked at the code, you will have seen
+that the tests, they really take care mostly of parsing the MPileup results and
+sort of turning it into the data structures that we need internally. Because
+that's the part where things go funky occasionally. I mean, that's where we had
+most of the pipeline is written a bit defensively. So if stuff doesn't look like
+the way it expects, it just crashes because I always feel that that's a better
+way to see that there's something that's not the way it's supposed to be. So we
+had a lot of crashes in there when the Pileup results had some funky things. I
+know if you have a mutation or a deletion upstream or downstream, then the
+Pileup string will show that. And I didn't realize that at first because I
+didn't read the man page properly. And then sort of adding all of these edge
+cases to the parser was a bit difficult to get right. And then sort of like
+that's the ideal place to test. And if I ever need to go and rewrite that, I can
+do that or like change things in there. I can do that with ease now, because as
+long as my tests still work, I'm pretty confident that I didn't break anything
+else. And I mean, that's what you want to have tests for, right? I mean, like
+the test coverage is going to be abysmal, but most of the code is involved in
+running external tools. And I just trust that these external tools work. So I
+don't need to test that code. Hi, everyone. It's Nabil up here in the editing
+booth. That's all the time we have for this episode, but we will join Tue and
+Kai again to talk more about developing new protocols and software to track
+SARS-CoV-2 variants of interest in the next episode of the MicroBinfy podcast.
+See you then. Thank you all so much for listening to us at home. If you like
+this podcast, please subscribe and like us on iTunes, Spotify, SoundCloud, or
+the platform of your choice. And if you don't like this podcast, please don't do
+anything. This podcast was recorded by the Microbial Bioinformatics Group and
+edited by Nick Waters. The opinions expressed here are our own and do not
+necessarily reflect the views of CDC or the Quadrant Institute.

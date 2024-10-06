@@ -1,0 +1,57 @@
+---
+date: 2024-09-05 00:00:00
+title: MicroBinfie Podcast, 127 Minimum spanning trees
+link: https://soundcloud.com/microbinfie/127-minimum-spanning-trees
+tags:
+  - microbinfie
+  - podcast
+---
+### Nabil and Lee's Quick Chat on Minimum Spanning Trees (MST)
+
+Nabil and Lee recently had a discussion about Minimum Spanning Trees (MST), focusing on their applications and significance in different fields. They talked about various algorithms like Kruskal's and Prim's that are used to find MSTs, which represent the most efficient way to connect points (nodes) with the least total edge weight.
+
+For those who are interested in algorithms and bioinformatics, they noted a relevant paper titled "Eburst" which can be found at [BMC Bioinformatics](https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-10-152).
+
+The paper, published in BMC Bioinformatics, explores applications of MSTs in understanding genetic relationships and evolutionary biology, showcasing the importance of computational methods in modern biological research. 
+
+If you're looking to dive deeper into this topic, the paper could provide valuable insights into practical applications of MSTs beyond computer science, highlighting their significance in solving complex biological problems.
+
+## Additional summary:
+
+- **Minimum Spanning Trees (MSTs):**
+  - MSTs are derived from graph theory and used to connect all vertices/nodes in a graph with the minimum possible total edge weight.
+  - MSTs used in bioinformatics arise from the need to represent connections between microbial strains with minimal genetic distance, such as alleles or SNPs.
+
+- **Applications in Bioinformatics:**
+  - MSTs are valuable in microbial bioinformatics for visualizing genetic distances among strains, especially in outbreak analysis. They help in mapping evolutionary events and relationships.
+  - Tools like eBurst, GrapeTree, and PhyloBiz are used to create these trees, although they often optimize other factors beyond strict MST criteria to make them biologically relevant.
+
+- **Challenges:**
+  - MSTs can present multiple solutions when only minimizing edge weights, complicating interpretation and requiring additional criteria to select meaningful solutions.
+  - MSTs do not inherently consider evolutionary hypotheses or hypothetical nodes, which can be problematic for accurately representing ancestral nodes.
+
+- **Differences from Phylogenetic Trees:**
+  - Unlike bifurcating phylogenetic trees, MSTs can have nodes connecting multiple other nodes simultaneously, reflecting more direct relationships without internal splits.
+  - Phylogenetic trees typically model evolutionary paths with assumed common ancestors, whereas MSTs primarily highlight genetic proximity.
+
+- **Use Cases and Limitations:**
+  - MSTs are useful for illustrating outbreak origins where one founder strain proliferates, showing clear genetic profiles with minor deviations.
+  - They are less suitable for long-term evolutionary studies due to the lack of hypothetical ancestral nodes, leading to forced assumptions about founder strains.
+  - Their intuitive nature in representing distances (e.g., allele numbers) makes them accessible to users unfamiliar with more complex evolutionary models.
+
+- **Technical Tools and Methodologies:**
+  - eBurst is noted as one of the first implementations for creating MSTs from genetic data, particularly multi-locus sequence typing (MLST).
+  - Advanced tools may incorporate evolutionary contexts, but basic MSTs focus primarily on minimizing distances between points/nodes.
+
+- **Versatility:**
+  - MSTs can be adapted to various types of data, as they do not rely on specific evolutionary assumptions, allowing them to suit different types of distance calculations in genomic studies.
+
+- **Contextual Use:**
+  - MSTs have been suggested for person-to-person transmission networks (e.g., tuberculosis, Shigella) where direct transmission lines are important to visualize without hypothetical intermediates.
+
+These insights into MSTs highlight their importance in bioinformatics for understanding and managing microbial relationships, particularly during outbreak scenarios, where swift and clear understanding of genetic links can be crucial.
+
+## Guests:
+
+The guest speakers on the Microbial Bioinformatics podcast are Dr. Nabil Ali Khan, a senior bioinformatician at the Center for Genomic Pathogen Surveillance, University of Oxford, and Professor Andrew Page, the Director of Technical Innovation for Theogen in Cambridge, UK. The podcast is co-hosted by Dr. Lee Katz, a senior bioinformatician at the Centers for Disease Control and Prevention in Atlanta, United States.
+

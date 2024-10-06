@@ -1,0 +1,68 @@
+---
+date: 2023-04-06 00:00:00
+title: MicroBinfie Podcast, 104 The Kraken software suite
+link: https://soundcloud.com/microbinfie/the-kraken-software-suite
+tags:
+  - microbinfie
+  - podcast
+---
+# Kraken: Taxonomic Classification Software Suite
+
+In this discussion, we focus on Kraken, a taxonomic classification software, and its associated suite of tools. We are joined by Dr. Jennifer Lu and Natalia Rincon from the Johns Hopkins University Center for Computational Biology. Both played key roles in the Kraken software development and were interviewed on the MicroBinfie podcast, where they provided insights into the various versions of Kraken and the tools developed around them.
+
+## Overview of Kraken
+
+Kraken started with the original version that employs an exact k-mer matching process, utilizing a k-mer size of 31—a nod to its origin referencing jellyfish. This software identifies microbial classifications by mapping sequence reads to known genomic data.
+
+### Versions and Enhancements
+
+- **Kraken Unique**: This version adds another dimension by including a unique k-mer counting column. It calculates the unique k-mers covered by each read, offering additional ways to verify microbial identification.
+  
+- **Kraken 2**: Developed to handle larger databases, Kraken 2 uses a probabilistic data structure and minimizers, which helps in reducing k-mer size for mapping sequence reads.
+
+## Applications in Microbiome Analysis
+
+Kraken is highly useful in microbiome analysis, including pathogen detection. The accuracy of results is contingent on the genomic data available in the database, which notably emphasizes bacterial and viral data.
+
+### Pathogen Detection
+
+For detecting infectious pathogens, **Kraken 1 Unique** is often combined with **Bracken** to estimate the abundance of species present. This combination enhances its utility in practical applications for identifying pathogens.
+
+## Contamination Detection
+
+Kraken's application extends to detecting contamination across various scenarios. The team elaborated on using Kraken for contamination analysis by comparing eukaryotic pathogen genomes against databases of bacteria, human genomes, as well as vertebrates and plants to detect and filter out contaminants. They have detected contamination from sequences of hosts like chickens or cows in eukaryotic pathogen genomes, showcasing its effectiveness in quality control.
+
+## Future Directions
+
+The Kraken development team aims to maintain and enhance the Kraken repositories by focusing on improving accuracy, speed, and utility. They are also exploring methods for reducing database size through innovative indexing and sketching techniques as more genomes become available.
+
+## Conclusion
+
+Kraken remains a vital tool in metagenomic analysis and pathogen detection, continually evolving to meet the needs of researchers. The development team emphasizes the importance of accurate genomic data for effective pathogen detection and classification and encourages users to be mindful of the available data's quality.
+
+In summary, Kraken is not just a tool but a continually improving resource in the field of bioinformatics, offering robust solutions for various applications beyond metagenomics.
+
+### Extra notes
+
+- **Kraken Software Suite & Evolution**: Kraken is a widely used tool for metagenomic analysis that has evolved over time. Initially developed by Derek Wood in 2013, it employed exact k-mer matching with a 31 k-mer size. Subsequent versions like Kraken Unique and Kraken 2 introduced enhancements such as unique k-mer counting and the use of probabilistic data structures to significantly reduce database sizes from 300 GB to 30-50 GB while maintaining similar accuracy.
+
+- **Technical Innovations**: Kraken 2 utilizes minimizers to map k-mers to shorter sequences, reducing database size and improving speed through efficient caching mechanisms. This allows Kraken 2 to offer considerably smaller database requirements at a slight trade-off in accuracy.
+
+- **Integration with Tools**: The Kraken suite has been extended with additional tools like Bracken, which uses a Bayesian approach for abundance estimation, and Pavian, a Shiny web application for visualizing Kraken results. "Kraken Tools" is an ongoing project assembling scripts for various downstream analyses.
+
+- **Use Cases & Challenges**: Kraken is used for both pathogen detection in clinical samples and microbiome analysis. It is instrumental for detecting infections like tuberculosis and viral pathogens in patient samples. However, the success of classification is highly dependent on the completeness and specificity of the database, which often lacks extensive eukaryotic pathogen sequences.
+
+- **Database Management**: Users are advised to be mindful of their database's content since it heavily influences results. Bracken helps correct for read counts, but limitations persist due to the representation in databases like NCBI RefSeq.
+
+- **Development Goals**: The ongoing focus for the development team includes maintaining efficient, accurate, and rapid tools while seeking innovations to handle ever-larger genomic datasets. This includes methods of database minimization and potential cloud-based solutions to manage computational demands.
+
+- **Applications in Pathogen Detection**: The software is used in pathogen detection pipelines, including quality control to identify contamination through unexpected taxa in genomic data. This has applications in identifying potential contamination in draft pathogen genomes.
+
+- **Collaborative Use**: Despite Kraken's robust algorithms, its use in pathogen detection still relies on clinical collaborations and verification with pathologists to ensure accurate interpretations.
+
+- **Future Directions**: The research team aims to continue developing Kraken tools and exploring new methodologies for database optimization as the number of available genomes continues to grow. 
+
+This podcast episode highlights the Kraken tool's comprehensive ecosystem, including its challenges and future strategies to optimize microbiome and pathogen analysis workflows.
+
+The guest speakers on the Microbinfeed podcast episode are Dr. Jennifer Liu and Natalia Rincon.
+

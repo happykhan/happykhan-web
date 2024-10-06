@@ -1,0 +1,217 @@
+Hello, welcome to a new thing we're doing called software deep dives, where we
+interview the author of a bioinformatics software package. Today we're having a
+chat about some of the software we've created ourselves because behind all of
+our software are quirky details that never make it to the final paper. Today Lee
+is in the hot seat with MASHtree. So Lee, what problem does MASHtree try to
+solve? MASHtree is one of the most rapid methods for creating a tree from whole
+genome sequences. So before MASHtree, the most rapid method might have been
+7-genome LST or some other low resolution method. But the issue is that we have,
+you know, 50 megabytes or 200 megabytes fastq files coming off of the sequencer,
+and we just didn't have a great way of making a rapid tree to compare them
+quickly before, you know, spending an hour on each genome to assemble and
+characterize WGMLST or any other method. This is possibly the fastest method to
+compare genomes right off the shelf. So I made something similar to that as well
+back in 2017 called Saffron Tree, published in JOSP by the way, but it's got two
+citations and it's the opposite of fast. It's fast if you have two or three
+genomes, but it scales exponentially. Oh, wow. I'm so sorry. I wish that I saw
+that before I started MASHtree actually. No, no, no, no. I mean, obviously
+you've done it much better, you know, if it actually scales properly. What was
+its method? So the method literally was just to get all the k-mers in each fastq
+file or fasta file and then just do an intersection and build a tree from that.
+That's exactly what I would have done too. I really do wish I saw your software
+before I started MASHtree. But it scales very poorly. So that is obviously a
+slight downside compared to your software. Just to clarify, Lee, both software
+are working directly with the raw sequencing data, right? Correct. So yeah, so
+you're saving a lot of time with avoiding a lot of genome assembly and
+processing that way. Where does the MASH in the name come from? Okay. So MASH
+comes from Adam Filippi's group and they made software called MASH, which stands
+for MinHash, the name of the algorithm. And originally, well, they borrowed this
+algorithm from an older technology, MinHash, from the 90s. I think it was first
+used in the software, in the search engine AltaVista. Wow, that's going back.
+Yeah, if you remember going way back. And I believe they used it so that they
+wouldn't have duplicate web pages in their index, so they could be a lot faster
+in their indexing. And I mean, the goal is just to look at a new page and to see
+whether or not it's the same or not. That makes sense. Like, yeah, if you have
+the same web page over and over, you don't want that to be every single search
+result. Yeah. So it's incredibly useful. And we wanted the speed also in
+bioinformatics. And I'm grateful that Adam's group brought it to bioinformatics.
+It turns each k-mer into an integer and there's some bloom filter stuff in
+between that I'm not going to go into. That's out of the scope. But it sorts the
+integers that comes out of those k-mers and it sorts them numerically. It keeps
+the first thousand integers. And those first thousand integers are way smaller
+than the original FASTQ file or the genome itself. It's, you know, a five
+megabyte genome might go down to or, you know, 15 megabyte raw FASTQ file might
+turn into just an eight kilobyte sketch file. So it's a huge speed up, reduces
+the footprint a lot. And so MASHtree takes those sketches, it takes the
+sketches, it compares those sketches using the MASHdist algorithm, it creates
+MASH distances and from those distances, it creates a neighbor joining tree.
+Originally I tried UPGMA, but neighbor joining turned out to be a better
+approximation of the trees that we're looking for. I always need to give this
+caveat. I always forget to give the caveat right away. MASHtree creates trees,
+dendrograms, but it does not create a phylogeny. Neighbor joining would be an
+evolutionary model? Yeah, I mean, neighbor joining is an evolutionary model, but
+the difference is there's no ancestry inferred here on the nodes that neighbor
+joining creates. We can't say that this is an ancestral state of these leaves.
+And there's no discussion of evolution implied in the tree at all. It's just
+clustering. These genomes seem to be closer to these genomes. So why does it
+exist? At the time we had, you know, genomes coming off the shelf, it was
+probably 2014 to 2016. I've been thinking about this problem and we kept getting
+asked to compare genomes, make a rapid tree and we were in the middle of
+outbreak analyses or we were doing population structure. And one day I just did
+MASH on all of our genomes and compared them and then I made a neighbor joining
+tree just stepwise and it turned out to be a pretty good tree. It described what
+we needed to see and I started pipelining it. So it was really for my own
+benefit and I'm glad that the rest of the community sees the value in it too.
+Can you use it with long reads, maybe stream it off MinION as reproduced? Yeah,
+I would love to test it with MinION. I haven't done it too much with that yet
+and I think it does need separate tests from MinION just because of the
+difference in the error profile. So anyway, who asked for this to be made and
+commissioned it? This is going to sound egotistical, but I just sort of came up
+with it. I did. I mean, this problem was being thrown at me every single day in
+my branch and I just, it was just one of those times where I had enough and I
+had to just do it. And I asked Adam Filippi five different ways if he wanted to
+do this project, if he was going to do it, if he was okay with me doing it, if
+it was okay if I did it this way, is it okay if I did a poster, is it okay if I
+published it like every single step of the way and he was very gracious and Adam
+is a really great person to talk with and I really appreciate everything about
+that. So I did come up with the actual tree making part of it, but the hard
+part, the algorithm was from Adam's lab. And were there any earlier prototypes
+of it at the time? I tried this with a few different things. Actually speaking
+of saffron, you reminded me, I had this incredibly slow way and I'm sure it was
+even slower than what you did in Perl and I did try to come up with basically a
+jacquard distance of k-mers, but it was incredibly slow and I dropped the idea.
+Yeah. You see, I didn't drop it. I learned my lesson. Maybe if I did this in
+rasters, then it would have been fast, I don't know. There's a lot of, if you go
+back to the match paper, there's a lot of tricks with their underlying
+libraries. I think Captain Proto is the one that they mentioned that has a lot
+of optimization by people way beyond our expertise. There's a lot of speed up
+stuff they did with getting it so that it's so fast. I appreciate that. I
+appreciate when speed ups are put in the library. Another early prototype was I
+tried it with ANI, Mummer-based ANI. And Mummer again is, for people who don't
+go way far back in bioinformatics, Mummer again is from Adam Phillippe. So I
+think that's kind of fun. So Mummer-based ANI. And again, it was not as rapid
+because you still have to assemble the genome. So MASH turned out to be the best
+alternative because you could use it on assemblies or on raw reads. So where did
+you end up publishing it? I chose JAWS. You and everybody else were kind of
+talking about JAWS and eventually I saw that FDA had a paper in it, a good paper
+from our colleague at FDA, Steve Davis. And they convinced me that this is not,
+like, it's a free journal. It's, you know, to me, it's very suspicious. This is
+the Journal of Open Source Software? Yes, but it's real. And it didn't take too
+long after I investigated it. Like, this is a real journal. And I went for it
+because it's this really transparent, open source method of peer review on
+GitHub. And I actually wish everything was like this. So everything I can do,
+I'm probably going to try to publish it in JAWS now. Awesome. Oh, I should
+mention, speaking of ANI, that in my experience, and there is a little bit of
+literature on it, that the MASH distances that it calculates is comparable to
+ANI. They're not equivalent, but comparable. That's where the fact that this
+makes trees that make sense comes into it. Yeah, it was comparable. There's a
+figure in the MASH paper where they showed that keeping 1,000 k-mers had a
+really good correlation with ANI. And I kind of made an executive decision,
+like, okay, it's fast, but it's still fast if I do 10,000 k-mers. And so I did
+it that way just to make sure the resolution stayed pretty high. So where did
+the name come from? I just glued together MASH and tree. And just like how you
+were talking with Greg in a different episode, I started saying MASH tree, and
+it just stuck. Internally, the resulting tree, people were just informally
+calling the MASH tree.  And that's stuck to yeah, I think there's there's
+something about the software tool The names that really stick are the ones that
+are kind of dumb Slightly slightly dumb or just catchy, you know, you know, you
+know earworm kind of way Totally agree. I'm done trying to make super
+sophisticated names like it needs to be very straightforward now I know I'm all
+for you know, the obscure Irish language names. I Like that I do like that I'll
+talk about that another time, but I like Yeah, so anyway, what are the unique
+selling points of it if you are stuck in the weeds like me and and you have a
+Bunch of huge fast Q files coming at you and and your higher-ups are asking you
+to make trees very fast. Well Mastery is rapid a tree that would be done with
+high-quality snips, you know That would be done in an hour and a half is done
+instead in a minute with mastery And that could be done on your laptop instead
+of on the high-performance computer The trees are are good approximates of the
+real phylogeny I shouldn't say we're real phylogeny because phylogenies are
+inferred usually But it it does a really good approximation. So if you want a
+rapid Approximate tree and and you're willing to admit that it's not the final
+tree because you're gonna run something else afterwards if you're gonna Do
+publication then mastery is a really nice way to to get that first round of
+analysis So what kind of organisms would you usually put through it and your
+day-to-day work? I've been asked to put E. Coli through it or you know related
+organisms Shigella or Listeria or or Vibrio All those guys I've been putting
+through it I've seen other people use it for you know, things that are not
+enteric like legionella and it's done a fantastic job awesome So what language
+is it written in? Oh, don't kill me. It's in Perl I think that Perl was a good
+choice actually even if I knew a few other scripting languages because One of
+the key points of mastery is as the multi-threading and I know Basically all
+other modern languages have multi-threading or some form of that But at that
+point in time when I was starting to write this I had a good grasp on multi-
+threading in Perl And it and it's people have their their valid criticisms of
+multi-threading in Perl, but it got the job done really well And is it just one
+big script or it's broken up into multiple files or what? There is a main
+mastery script and it reads off of a Single actually a couple different library
+files But after that it is kind of packaged up into kind of the standard Perl
+Package. Can you install it with CPan? Exactly. Yes, you can install it with
+CPan. That was sort of Inspired by Torsten prodding me on github issues I think
+he was doing it with he was prodding me on a different package But I realized
+that it would be easier to package up mastery at that time. How did you do the
+packaging? Did you use distiller or something like that? Perl has a Packager as
+a few different packagers, but I used make maker which basically creates a
+makefile and then runs the makefile to Install the whole package. And I presume
+for Joss you had tests in there as well. Yep this was this was perhaps my More
+it wasn't the first time I did unit tests But it was the more professional
+package that I did with professional Style unit tests where I just I picked
+every major thing and even several minor things and and tested tested tested
+Awesome. So, how is it documented? I'm not as sophisticated as as the rest of
+the world on documentation. I don't use LaTeX or read the docs I just used
+Markdown language so there's a main markdown readme in the main directory and
+then there's some and then that links to other markdown files And in the repo
+under a subdirectory docs I don't think it's as sophisticated but I think it's I
+think there are advantages to it Like the documentation always gets cloned with
+the repo and markdown is not too hard to read on the command line Yeah, that is
+That is a consideration It is sometimes annoying when you are stuck and then you
+have to open a browser To find the read the docs page or whatever So what
+features are you most proud of for mastery? Um, I wish I could say I was proud
+of making mash itself But I'm I'm only I can I can just say that I'm proud of of
+Having that aha moment that mash was this incredibly fast method of comparing
+two genomes I am I was fortunate that Adam visited Atlanta in I think 2015 and
+showed it to us and I had that aha moment like we can make trees out of this
+thing The thing I'm most proud of is just having that aha moment But I feel like
+it's possible just like the saffron like it could have been someone else could
+have thought of that some of the design principles some proud of like using
+multi-threading and Packaging it up for cpan by packaging up for cpan. It has
+standard installation It has standard unit tests and a standard whatever else so
+it's a lot better Streamlined in the Linux environment. That's I'm proud of the
+streamlining and the standardization of it Yep, and I can see that it's been
+cited a few times already and Yeah for different for quite a few different
+organisms and people all over the place are using it How has the community used
+the software as far as you know, as you know? I think there has been a couple of
+slip-ups where somebody said it was my phylogeny, unfortunately But when
+someone's using it, right? I've seen several times people using it as the first
+pass for their analysis so if they need to know the population structure if
+they've if they've got enough diversity or If they rapidly want to know whether
+or not to exclude a sample from an outbreak analysis I've seen all of these or
+or I'm not just outbreak analysis But what if they have you know, this question
+is this related or not? Is this is this the same isolate? Is this the same
+strain it can be used to rapidly exclude a sample before going into a more in-
+depth analysis So, um, so I think the community when they use it correctly are
+using it as a as a first pass analysis Yep, and has anyone used it in a more
+complicated pipeline that you know of? There has been one Instance that I saw I
+think it was the pandu pipeline in Australia and it's it's being used Where one
+data set is a possible Outbreak data set and so it's used to rapidly as a rapid
+sanity check I think to see whether or not a sample or all samples belong with
+each other Otherwise mastery itself is is the more complex pipeline that uses
+mash I think more often than not I would view mastery as the more complex
+pipeline that that uses the core program Okay, and any future plans? Is this
+something you'd like to add but you didn't have time to add yet? Oh man, there
+was a great suggestion by Torsten for Making this pipeline more generalizable
+and I wish I thought of that early on So what if you give it just a different
+mechanism for comparing distances and that could be plugged in So let's say you
+have like a bunch of ANI distances and then you plug it into the tree making
+program I wish that I built that in but I just don't have time for that
+Otherwise, I'm leaving mastery basically alone as as a stable program and I'm
+listening out for any any bug reports Yeah, that's cool Thanks for the great
+discussion. We've had a quick chat about some of the software we've created
+ourselves and There's always some interesting facts about how these different
+tools came into being Today we were talking about mastery which makes trees
+rapidly from raw reads You can check it out on github and the papers up on Joss
+and that's all the time we have for this episode See you next time. Thank you
+all so much for listening to us at home If you like this podcast, please
+subscribe and like us on iTunes or Google Play and if you don't like the podcast
+Please don't do anything This podcast was recorded by the microbial
+bioinformatics group The opinions expressed here are our own and do not
+necessarily reflect the views of CDC or the Quadram Institute

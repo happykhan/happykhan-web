@@ -1,0 +1,386 @@
+Hello, and thank you for listening to the MicroBitKey podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody really writes it down. There's no
+manual, and it's assumed you'll pick it up. We hope to fill in a few of these
+gaps. My co-hosts are Dr. Nabil Ali Khan and Professor Andrew Page. Nabil is the
+head of informatics at the Quadram Institute in Norwich, UK. Andrew is the
+director of technical innovation for Theogen in Cambridge, UK. I am Dr. Lee
+Katz, and I am a senior bioinformatician at Centers for Disease Control and
+Prevention in Atlanta in the United States. Hello, everyone. Today, Andrew and I
+are hosting Nabil is Out. You might have noticed our new intro. I guess we might
+tell you more about that later. But right now, Andrew has just come out with a
+new paper on using GPT with publications, and we thought we might want to riff
+on that a little bit. Yeah, thanks, Lee. Yeah, so just the other day, I brought
+out an editorial on basically the use of chat GPT and AI in microbiogenomics in
+the journal. And it's kind of interesting because this came about simply because
+I was at a hackathon, right, that they organized in Cambridge there in May, and
+sitting beside a guy called Sam Shepard, who is editor of Microbiogenomics, and
+we're just chatting away about actually chat GPT and the use in journals and
+basically how it's coming. Everyone's going to be using it, and we have to think
+about it. And so then I went and asked chat GPT, well, what do you think about
+the ethical considerations of this in scholarly publication? And I went and told
+me, and I was like, actually, that's pretty good. And so maybe we can discuss
+it, you know? So basically, the overall editorial is, the structure of it is
+that we have a human intro. So it's artisanal, you know, it's handcrafted, like,
+you know, these really expensive crafts you buy at a farmer's market. And then
+the rest of it is AI generated. And it's quite an interesting way to do it. But
+I guess overall, it is something, it's a challenge we're going to have to
+consider. And yeah, what do you think, Lee? I was reading your paper, and I
+thought it was really awesome. I noticed, by the way, you used GPT to make this
+up, to make the paper. But I did not see a GPT co-author on there. I did
+actually, in the original version and in the editorial manager, I did put in
+chat GPT as an author, as last author, actually. And it made it nearly all the
+way to the end. And then it was taken out by, you know, during copyediting. So I
+did try and get in there. You know, I was going to try and appropriately
+acknowledge my AI author, co-author. But unfortunately, it wasn't to be. But I
+guess you don't acknowledge the typewriters that are, you know, producing
+content. It's just a machine in a way. But I guess gender of AI is quite
+different. It's a different ballgame, and we don't really know what the answers
+are. So can I quote a friend of the show? So when Danny Park was reading this,
+he had a really great comment that just made me laugh. He says that you
+probably, I think he's indicating that the GPT author should be there. And then
+under conflicts of interest, he says, there should have been an extra line. One
+of the authors is an AI and may have conflicts of interest regarding the ethical
+use of AI. I think that should have been an acceptable way. Absolutely. I mean,
+it depends. Is this a real person or not? And well, philosophically, maybe it
+kind of is. Or maybe we'll be in a few weeks. Who's to know? But yeah, these are
+all things we don't really know the answers to, you know. Like, for example,
+should we be putting in prompts into supplemental material? That's kind of what
+two different people asked me. And I think actually, yeah, maybe. Because the
+way you prompt the AI, you can never get it. You know, it's generative. You can
+never get to give you the same answers over and over again. That will always
+kind of change it slightly. But maybe you should provide prompts. And you need
+to provide all the intermediate prompts because people have done studies and
+found that actually, if you get the model to think first about the problem, then
+it gives a better answer, which is kind of weird. So if you like, in this case,
+the prompts that I gave, I actually generated a podcast script for another
+podcast to do research pages with my wife. And so it had generated a script and
+had already thought about it. And then when I asked it to write a review for
+Microbiogenomics, the journal, it already had, I guess, formed an opinion. And
+then I would hope it wrote a better review. It certainly looked good. And it was
+a one-shot thing as well. It wasn't like I was there, you know, changing things
+and modifying things or whatever. It was just like, bang, bang, bang. There you
+go. Actually, I did cheat slightly. I did tell it, you know, can you suggest a
+better prompt at the very beginning? And it did. It was very kind. It, you know,
+because obviously I don't know how to do prompts properly, but it does. It knows
+what it wants. That's interesting. So you prompted it to give a review of your
+podcast, but then you said, what would be a better prompt for that? I prompted
+it to write the script for a podcast, which then was read out by AI Voices from
+11 Labs. And then I asked it to write a review of the area based on the podcast.
+I also got it to write tweets with emojis. That's great. That's on the paper.
+Yes, that's awesome. It saves a lot of work, like, but I guess on bigger issues
+like within scholarly publication, it is something we do need to confront. Head
+on, because people are using this, whether you like it or not, people are using
+ChatGPT. And just earlier today, we were joking on Slack about, you know, it can
+write reviews for us. It'll be reviewing our papers. But actually, when I asked
+to try to review a critical review, highly critical review of one of my papers a
+couple of years ago, it did a very, you know, damning review. You know, it
+wasn't correct or all correct, but it was like, really, you know, the, I don't
+want to curse this podcast, the real reviewer three type, you know, in a bad
+mood, old professor who is disgruntled with the world, big chip on the shoulder
+and the kind of things that they would say in a review. We've all had these in
+academia. That's what it could replicate. Actually, you showed me the review and
+I thought one of them in particular was a great example of an unfair review that
+still would have made my heart sink because I had to answer it. I'm not looking
+at it right now, but it was the last point was like, will this be open source?
+Will this be put out there? And I'm sure in the paper you said that, but you
+still had to like convince an anonymous reviewer. Like it's still one more
+point. And I'm like, oh my God, this reviewer is so unfair. Absolutely. And are
+we going to get to the stage, you know, in a few weeks, a few months where, you
+know, our paper is written by chat GPT and then it goes in and they're the
+publishers are using AI reviewers as well to review them. And then, you know,
+it's kind of just two models talking to each other and us humans are just kind
+of standing on the sidelines watching. Yeah, I think we could get there. Yeah.
+And it is scary how quickly we are going that direction. And also, if you
+consider that finding academic reviewers to peer review papers is quite
+difficult. Journals really do struggle to find them and that does delay a lot of
+papers. But you could see for some of the kind of lower quality journals where
+they're more interested in volume and open access charges than actually in
+quality and actual peer review, you could see them bringing that out, you know,
+and slipping it in and providing a reasonable looking review. You know, the ones
+that you weigh, but actually it's not real. Totally unethical, I think, but I
+can see it happen. Yeah, yeah, yeah. Do you think that people out there are
+using GPT to review now that you mentioned it? Oh, I think they're using for
+anything involving text. You know, if there's a bit of text being written, it's
+probably someone out there is writing with GPT in some way. But yeah, we do need
+to figure out, figure this all out. You know, there are things like, say within
+universities, what do people do? You know, if a student uses GPT, is that a bad
+thing or not? Is it just like the modern calculator? As we said the other day,
+we do need to have policies and procedures in place. And then for academic
+research as a community, we do need to understand is, you know, what is the key
+information that's the key point of an academic publication? Is it to get
+across, you know, some results from an experiment and some ideas? Or is it all
+the extra fluff of, oh, well, I did a letter review and I evaluated it, you
+know, against these different things. And, you know, because if you think of a
+paper, a lot of it's paper by numbers and, you know, to be honest, it's often it
+can be kind of copy and paste kind of territory, you know, because you're
+copying and pasting in the same methods, the same stuff that you do all the
+time, or you're referencing back to them and then briefly summarizing them. And
+that's kind of stuff that a model can do very, very rapidly. Yes. So do you want
+to get into your paper? Because we're touching on ethics, and I know you touched
+on ethics in your paper. Well, is it ethical to use AI?  think is plagiarism?
+Because it's getting the data from somewhere, right? So clearly, a human or
+someone else has written something, and it is written it off in some way very
+deep in the model, it might be, you know, taking 20 different texts put
+together, but is that plagiarism? What do you think? I don't know. I don't know
+if I've formed a total opinion of this yet. Because it is taking in so much, and
+it's, it's practically making its own thing. I think when, when it's obviously
+from a source, a set of sources that's so large, it's basically making its own
+thing. And it's probably not unethical in terms of plagiarism. Because let's say
+you're, let's say you come up with a topic that millions of people have had
+opinions about traffic lights, or something where millions of people have a
+strong opinion, I'm sure that that has been written about millions of times on
+the internet, I'm sure that it's forming its own unique perspective somehow. But
+if you're talking about the use of Rory with Salmonella and Terrica, you know,
+relatively few people have come up with that. And maybe, maybe some of those
+ideas are directly from the source. And I wouldn't know. Yeah, I know, some
+authors have gone and done some analysis. And they've, you know, kind of
+predicting next words, and they have particularly unusual combinations of pairs
+and truckles. And yeah, that they've been able to say, well, it appears to be
+basically ripped off from our texts from our books based on that, which is kind
+of an interesting thing. But more generally, is taking work that is produced by
+something else and passing it off as your own plagiarism, in the same way that
+if you copy and paste it from Wikipedia, without referencing the sources, is
+that plagiarism? That's a good question. So I put that kind of in the same
+categories Wikipedia. So for people as old as we are, you might remember going
+to college or university, as you say, and, and like the librarians would caution
+you against using Wikipedia, like that was always like one of the major topics,
+don't use Wikipedia, you don't know where it comes from, it to verify. I feel
+like GPT is sort of in the same category, like, it doesn't even have the
+citations, like, where, well, the main version of GPT doesn't have the
+citations. So it's where do you get the research from, you have to, you have to
+back it up and research primary sources. One thing I like about, for example,
+since I said it, one thing I like about the other GPTs, Bing and Google, they at
+least do an attempt to show you their sources. And I do appreciate that when you
+use OpenAI, like you have no idea where it's getting stuff from. And if you ask
+it for a reference, it's going to generate a reference that looks good for you.
+And it's going to be incorrect. Yeah. So I guess part of their problem is that
+they don't want people claiming that they've been ripped off. So they don't want
+to give the sources and don't want to disclose them. And you know, it is known
+that certain data sets were used like Twitter and, you know, and, you know, and,
+you know, and Twitter and Reddit, but they wouldn't be the highest quality data
+sets in the world, you know, if you know what I mean, like, there's a lot of, a
+lot of bad stuff on them. But they've also taken PubMed. So everything published
+with a CC by license before 2021 is in there, which is kind of cool, because
+that's a lot of high quality scientific content that's there within the model
+and has hopefully made it even better. Yeah, so, so we have, we have the topic
+of of ethical considerations like plagiarism. Do you want to move on to another
+one of your major points in your paper? So? Yeah, so actually, for the audience,
+we're actually cheating here, because we went and asked ChachiPT to give us the
+major points for review for for this podcast, you know, so we are kind of
+cheating as well. So maybe we should have ChachiPT as a co author for this
+podcast. Maybe we should have ChachiPT as a co author for this, this co host for
+this podcast episode. Please, yeah. Yeah, yeah, yeah. Maybe we can redo that
+intro, or at least, or at least we'll change the the outro. Yeah, absolutely. So
+okay, next topic that ChachiPT has recommended is best practices for using AI
+generated content. And this is kind of interesting, because how do you view it?
+Is it just a supportive tool? In the same way that an IDE is a supportive tool,
+or a syntax highlighter is a supportive tool, you know, these are these help
+you, but they're not actually doing the key piece of work, they're not replacing
+the human being or human being as a role, I would say. And it's actually just
+it's just yet another tool to make our lives a little bit easier. But how should
+we be using it? Really? How should we be citing it? Should we be putting every
+prompt into the supplementary material that we use, you know, if you do
+systematic reviews in medicine, you'll always have to search terms you use in
+the databases and the date, you know, all these things so that people can go and
+replicate it if they felt like it. And, you know, it's very, very precise and
+exact and saying, you know, this is how we did it. And maybe we should be doing
+that, although it is generative in nature. So you won't get the same answer
+twice. That's the downside. But let's see, get into our ballpark. Yeah,
+actually, if we if we went over the top to the extreme, what are all the things
+that you need to cite the perfect dbt like the random seed or seeds involved in
+a version that you used? Could you ever like cite it and go over the top with
+every little bit? I don't think you could. I mean, it would just have to be
+people trust that you that you have faithfully replicated what has come out and
+you know, you're not lying, basically. Because if you look at anything with GPT,
+it says down at the very bottom, you know, the date and the version, you know,
+and that changes regularly. So and we don't have access to that model on the
+back end, you know, we don't know what went in, we don't know what it is at this
+current exact state in time, we don't know, we've seen different functionality,
+you know, even in the stack. So some people when they put in URLs, they can
+actually go and access stuff on the internet. But if you get other nodes, it
+can't. So they're, you know, they're even within the GPT interface that people
+use, there's variation. And it's, it's all kind of hidden away. It's ironic that
+they say open AI because it is the absolute least open AI company that there is.
+It Yeah, isn't it? So like, if you can't cite the actual, like over the top
+version of this, that the random seed? Is it? Is it better for researchers,
+especially for for replication? Like, if you're a reviewer, would you rather see
+like the offline versions so that you can replicate it yourself? Like the
+Facebook one? Or so? So should we should we suggest or steer people towards
+something that's more reproducible? Well, I guess the problem at the moment is
+that this particular system is, you know, by far the best out there. And there's
+a lot of open source models coming along and trying to get there as well. But
+they're having problems because they are being you know, some of them are being
+sued by different companies because they are including publicly available data
+sets that people have sucked in. And because they're all open and open source
+about everything, then you can say, oh, you're using my data set. And I didn't
+give you an explicit license to do that. And, you know, I'm going to sue you now
+because everyone sues everyone for everything. And so then, you know, you have
+that problem where it's a double edged sword by being closed and locked down,
+you can actually come up with a better tool and better results at the end of the
+day than if you're really open. But even, you know, companies like Google who've
+vast quantities of compute available and vast technical knowledge, aren't able
+at the moment to come up with a better product than Microsoft and OpenAI. So
+these things, realistically, are billion dollar computations, and not everyone
+can do them. What is interesting, though, is when they make the model smaller,
+you know, so they, like Stanford used to have Alpaca, and they used like Llama
+from Meta, so Facebook, to train it and use Chachapiti, you know, as well. And
+it's all this kind of basically models, training models, training models, to
+get, you know, a small, really fast model that can do most of what you need.
+It's not perfect, but it does a lot. And maybe that's, that's part of the way we
+will, we'll go with it. Oh, have you seen Adobe's new image features where, you
+know, you can take an image and then tell it to fill out the rest of it, like
+you take the Mona Lisa, and then you say, you know, expand it, and what is the
+background of the Mona Lisa? It's phenomenal. I love it. I've been seeing those
+Twitter feeds. So yeah, I've seen the Mona Lisa, or there are a few other famous
+paintings. And they just, yeah, they expand, you can see the rest of the image
+is cool.  But even, you know, like a kind of a top shot of a person against a
+colourful background of another and it's like, OK, well, you know, show this
+person with their hands in their pockets, show this person with blah, blah,
+blah, and it's all the different variants of expanding and filling in blanks.
+And it's like, this is insanely good. You know, we've gone from photoshopping
+where, you know, you can see the glance, you know, a few years ago, oh, someone
+has put a head on their body to stunning, you know, things that are generated
+that just look absolutely amazing and absolutely believable. And from now on,
+you know, we're not going to be able to necessarily fully believe every image we
+see. We couldn't for years anyway. But, you know, we'll have to be even more
+careful about the origins of different images that we're going to see online.
+And I guess that brings us to then the problems with scientific papers. And, you
+know, we've seen examples of people fiddling with scientific figures, you know,
+like basically, oh, you know, remove all the basically the dodgy points in this
+plot, you know, give me a p value of blah and I can go and do it. You know, poor
+Elizabeth Bick, you know, won't be able to spot these because they're so
+precise. Yeah, it's just a whole new world. Yeah. Do you think that she's
+commented on that yet? Oh, my gosh. Oh, I don't know. I hope she does. You know,
+she the way that she spots fraud, or potential problems in some papers is just
+by eyeballing the pictures and looking for patterns, which are one of the ways
+she does is look for patterns which repeat and they shouldn't be repetitive
+within those images. So it's either an artifact of the image generation or
+someone has done something a bit naughty. And unfortunately, say, with blots and
+things like that, people quite often, you know, are a bit lazy and they might
+go, oh, well, I'll just copy and paste in my controls or oh, that experiment
+didn't work. I'll just do a bit of fiddling there or, you know, one of my mice
+died. I'll just chuck in another one, you know, so this these kind of ways like
+and there's a horrific amount of it out there. And some some labs you turn it
+out are particularly bad for it. And she's been combating this for years and you
+get a lot of flack just for pointing out the obvious, you know, and fair play to
+her. But this is a whole new ball game in terms of just the quality of the
+images produced is going to make this exceptionally difficult for anyone other
+than if you see the raw data and you go and regenerate yourself, which I don't
+think you can necessarily. Yeah, this is such a brave new world. It's not a bad
+one. I mean, I think we should absolutely embrace it. We just need to figure out
+all of these little things. And it's going to be like Uber, you know, it's going
+to be no one will know how to handle it for a long time to come. And then, you
+know, maybe after a few years of bringing laws on all that. But it's actually
+quite funny because at the moment, there's a lot of people calling for laws to
+be brought in to limit AI and all of this. But the people calling for it are
+basically the ones who are in the industry and haven't caught up. And they're
+the outsiders and they basically want to pause if they can catch up, which isn't
+really, you know, about limiting AI. It's about giving them time to, you know,
+get up to speed and having a level playing field. And that's a very different
+thing. You know, that's for pure commercial gain on their end. Yeah. Well, let's
+tie that in with, I guess, your fourth point that GPT gave you risks and
+benefits of AI-assisted research publishing. Anyway, risks and benefits of AI
+and publishing. Well, the big risk is potential for plagiarism that you don't
+even know about because you didn't write the stuff an AI has generated for you
+and you may be ripping it off without realising it. So you have to be very
+careful, but also biases. And we've seen time and time again, like with these
+models that they have implicit biases because they're pulling in information
+from what's out there on the web and, you know, obviously Reddit and probably
+4chan and Twitter and places like that, you know, are probably seeding this. And
+so you'll, I'm quite sure you'll get things like, you know, white supremacy and
+you'll get misogyny and all these different things that are underlying there,
+you know, like, I don't know, for example, if you say, give me a scientist in a
+white lab coat, it'll probably give you a man, you know, or give me a professor.
+And there's all these biases built in, which don't necessarily reflect reality,
+but we have to be super, super careful about it, you know. Yeah. I remember when
+GPT came out, the internet basically revived all these stories about Microsoft's
+tests. Do you remember that? So they put out a Twitter AI, like it was at least
+a few years ago, maybe it was five years ago. And like, it became like a Nazi
+within 24 hours and they just shut it down immediately. Yeah, we're quite lucky
+Chachapiti hasn't become an extremist in that time, but it could be under the
+hood, you know, like we don't know what the biases are within it. Yeah. Which is
+terrifying. Yeah. So, I mean, when you're publishing or you're doing something
+else, like you're not going to, you're going to stop yourself if it puts in any
+kind of extremism, but like, who knows what kind of insidious or like sleeper
+kind of bias you're getting in there? Yeah. I mean, and often it's the, the
+fringes are the most vocal about things, you know, if you consider say the
+fragmented political situation in the United States, it's, you know, the fringes
+are the loudest and it's the middle that are kind of quiet and they're the ones
+generating all the content and it could very quickly become, you know, like it
+wouldn't take much for an AI bot to go to those fringes rather than the kind of
+middle ground where, where most people live. Yeah. Do you have any real examples
+in the paper for that? I don't know if I saw that, but it'd be nice to tie that
+back into bioinformatics. Oh, I don't, but what I do have is an exam is examples
+of using for coding, right? So I was writing some bioinformatics software today
+and it's great, but it's got some old ways of doing things. So I was using a
+pandas data frames and it's basically because it's ingested a lot of stuff,
+some, some libraries and methods have been deprecated and ways of working have
+been deprecated, but it still uses the old ways and it still suggests them time
+and time again. And you're like, I know this is not correct because it throws a
+huge big warning and it crashes every time. And so you have to be careful
+because it's effectively biased towards a way of working because that's the way
+it used to work. But now time has moved on. APIs have moved on and libraries
+moved on and things have changed, but it hasn't caught up. So that's just
+something to be aware of, you know, just because it's a consensus doesn't mean
+it's correct. Yeah. So it could be for your, for example, if you're writing a
+paper, then if you are citing a whole bunch of things, then all your citations
+are gonna be biased towards things before 2021 and you won't have any new
+research. Absolutely. No, I'm sure that's going to change, you know, because
+they'll update the model and you know, it's without a doubt, that's going to
+happen with new information, but it is a very interesting thing, you know, just
+because a lot of people say something doesn't mean it's the right way to do it.
+And it's certainly rapidly changing areas like Malik. So if you think, say, I
+don't know, to take Nanopore, right? Base calling is changing all the time and
+it's rapidly improving all the time. And what you wouldn't want is to use a
+method, which it seems an error model from a few years ago, because, you know,
+there's a big difference between having an error rate of, or an accuracy rate of
+90% versus 98%. You know, you make very different judgment calls based on that.
+So this, this paper came on the heels of a, of a hackathon and you have two
+other coauthors. Did you, did they have any other insights that you think that
+they would have wanted to say? Yeah, well, so one of the coauthors is Nick
+Tumulty, who is also my wife and she is director of the library of the London
+School of Economics, which is like a big university here in London. And she also
+is a managing director of a, of their press, obviously it's a non-profit press.
+So she has a little bit of an interest in, in the kind of open research and I
+guess the future of information and research and academic research and learning
+and also in publishing. So yeah, it's kind of an interesting angle that she, she
+brought in on, on the paper, particularly around, she's very much more on the
+ethics, like what the hell do we do? Because this is a minefield. Whereas I'm
+like, ah, yeah, it's grand. I'm using, I'm going to use rare thing where she's
+like, well, you know, where, what source is it coming from? We need to know,
+because if you don't know where it's come from, then it, that's, you know, a
+huge challenge. You have to know what you're, you know, it's all based on. So
+she's a little bit more cautious on it. And the, you know, around the fact that
+we need a lot more policies and procedures and.  we need to really nail this
+down because it's going to cause a whole heap of problems. And then Sam Shepard
+is the last author and he, well, last author bar Chachapiti. So Sam is the
+editor-in-chief currently of Microbial Genomics, which is like my favourite
+journal. And I think I've got more papers in that than in any other journal. So
+it's, you know, it's clearly a winner there. And that's published by the
+Microbial Society, which is obviously a society journal. And yeah, he's coming
+at it from a totally different angle, which is, you know, editor of a journal.
+He's also an academics editor of a journal. And basically we're going to have to
+deal with this because people are going to be submitting papers with Chachapiti,
+whether you like it or not. And again, that's a whole different ball game and
+changes how we operate. And you can try and pretend it doesn't exist, but the
+reality is it does. And you have to actually cater for it. And in some manner,
+you have to make things clear. You can say ban it outright, but people still use
+it anyway. Is that bad or not? Or is it, you know, if I use it just to improve
+my language because I don't speak English as a native speaker. Actually, I am a
+native speaker. If I don't speak English very well or write English very well,
+you know, is it a bad thing just to tidy things up? Well, maybe not. I don't
+think. Or just to expand on things or just to kind of restructure things. Those
+aren't bad uses. And people do employ people to like Santa Fe writers to check
+their work, who do that kind of stuff. And they don't get authorship. So a lot
+of interesting things to consider. And it's going to be, I think the technology
+is going to move much faster than we can actually put policies and procedures in
+place to deal with it. I think that's probably a good conclusion there. Well
+done on your paper. Congratulations. Thank you very much. Thank you so much for
+listening to us at home. If you like this podcast, please subscribe and rate us
+on iTunes, Spotify, SoundCloud, or the platform of your choice. Follow us on
+Twitter at Microbinfee. And if you don't like this podcast, please don't do
+anything. This podcast was recorded by the Microbial Bioinformatics Group. The
+opinions expressed here are our own and do not necessarily reflect the views of
+CDC or the Quadram Institute.

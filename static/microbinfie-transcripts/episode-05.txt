@@ -1,0 +1,257 @@
+Hello and thank you for listening to the MicroBinfeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There's so much information we all
+know from working in the field, but nobody really writes it down, there's no
+manual, and it is assumed you'll pick it up. We hope to fill in a few of these
+gaps. My co-hosts are Dr. Nabeel Ali Khan of Enterobase, GrapeTree, and
+BrakeFame, and Dr. Andrew Page of such works as Plasmatron 5000, Rory, and
+Govens. I am Dr. Lee Katz, and you might know me from my Tree Making Pipeline
+Mastery or my SNP Pipeline Live Set. Both Nabeel and Andrew work at the Quadram
+Institute in Norwich, UK, where we work on microbes in food and the impact on
+human health. I work at the Centers for Disease Control and Prevention and am an
+adjunct professor at the University of Georgia in the U.S. In a whole genome,
+like post-genomic world, we have that ability to distribute standardized genetic
+data, and then with that comes the danger of issues around privacy, because this
+is very high-fidelity, reliable data along with metadata can be used to infer
+certain things. For instance, you might have a situation where you do anonymize
+all the patient names or something like that, but just based on a process of
+elimination of you know that such and such went to hospital at such a time, and
+you can just work backwards and figure out, oh, okay, it's that group of people
+that have this, or if it's a food outbreak and you know there's, you know, like,
+oh, these came from animals in a farm in a certain county, and there are only
+two possible farms that have it in that county, you can kind of narrow it down
+pretty quickly of what the ultimate source was. So then we've got this issue of
+when we want to go beyond an institution and we're trying to put data out there
+to the public space so that we can have cross-institutional conversations, we
+then have to worry about issues of privacy, we have to worry about issues of
+what other sort of standard formats we distribute our data in so people can
+understand it. And also people can infer the wrong information. So, for example,
+a lot of UK samples all appear to come from Colindale in London, you know, it's
+obviously rife with disease, but that's primarily because it's Public Health
+England's headquarters, and they just put in a default location for privacy
+reasons. And people can infer the wrong thing as well, because say they test
+food at ports, and then that gets added to the system. But if you're just
+looking at the country of origin, you might see, oh, it's all coming from the
+UK, you know, all of these pathogens, when in fact, they could just have been
+food samples tested at ports and rejected from countries all around the world.
+So you have to be very careful about how you actually use the metadata that's
+there. And you have to go back to the people who have deposited in public
+archives and double check with them and, you know, get extended data if it is
+possible. Yeah, it's sort of back to the, it's, because the issue is, is when
+you submit your data, there's a field that says source. And you're then you're
+wondering, source in the context of what sources and the people who have the
+isolate sources where it came from originally, where it was sequenced, it's
+really quite ambiguous with that. And I think there's a lot of work trying to
+improve the way we report this sort of information. So it's a little bit more
+specific. But I don't think we're quite there yet. Well, I know, GMI is helping
+with this, to try and have one standard way of reporting this minimal metadata.
+So I'm trying to nail it all down as well. But you do get slight inconsistencies
+then between, in the US you have the NCBI has the pathogen checklist, and that
+has very small differences to the EBI implementation, which is the GMI
+checklist. And those, you know, little edge cases are enough to trip up a
+computer program, which is ultimately what you're going to use to parse these
+absolutely enormous datasets, because there's hundreds of thousands of bacterial
+isolates in their name. What constitutes minimum metadata for you, Lee? That's a
+good question. So actually, this was a big discussion point. We had to decide
+what to do early on with Listeria, which has relatively very few cases in the
+US. And so one Listeria case could potentially point back to an individual,
+which would break our rules about personally identifiable information. For
+example, if we uploaded, if we did upload a sequence from New York in June 2010,
+and in the news, somebody had Listeria in June 2010, then we could get into
+trouble because we would have linked that patient back to that genome. So we
+actually had to be very careful about the metadata. So we decided that we would
+provide very little metadata to protect patients. So it would basically say that
+the isolate was from the United States, and that it, um, what else would it
+have? It would have, maybe it was like that, and maybe like one more thing,
+like, like, came from human. Maybe not even that. And then we actually
+anonymized it with an identifier. And then later on in our collaboration, we
+decided that we would update the metadata six months later to include things
+like serotype, maybe like the collection date range or the year, the geography,
+like the region in the United States, not necessarily the state. And then we
+would include like an age range, which I think would have ranges every 10 years
+of age. FDA has a different set of criteria, they can be a little bit more lax,
+because they don't have to worry about personally identifiable information. But
+yeah, you're right, there are inconsistencies across agencies in the US for
+reasons, for real reasons. I suppose the FDA is a different, different set of
+problems. You know, if they put up stuff that identifies one factory as the
+source, that could have huge commercial consequences, companies go out of
+business. We've just seen in the UK, a company that was implicated in a listeria
+outbreak in hospitals in the UK, where people died, they were shut down for a
+few weeks, and they went out of business. Oh my gosh. Yeah, so that's, yeah,
+FDA, though, they do at least say like what the food is, but not necessarily
+which company it came from. I can see that they would get into trouble if they
+identified a country. And then of course, you know, there are people, certainly
+in academia, who don't want to share data for a totally different set of
+reasons. And that I suppose is fear being scooped, I think is a big one up
+there. Or maybe they don't have the resources to navigate the complex systems
+for uploading data. Because you know, it does take a lot of brain power to get
+stuff through. And I know when I've actually gone particularly to type strains
+and tried to track back where they've come from, you know, is this strain from a
+particular country or what year was collected. And quite often that information
+can be very difficult to come by. You go back to the original papers from 50
+years ago, and it just says, sent to me by X person, and you don't have any more
+information than that. It's just magically appears in the world. And now that's
+a type strain we all use. Well, a lot of those strains, there is a person who
+does know somewhere, there's a magic, there's a magic technician or a magic
+postdoc somewhere who has all of this in the back of their head. That's right.
+Never really bothered to write it down. And often with these video collections,
+you have to go back and find that person. Absolutely. Yeah. So Andrew, you
+mentioned, you mentioned how little inconsistencies can, can hurt like an
+analysis when there are hundreds of thousands of organisms. And I just want to
+ask about enterobase since enterobase is a data user, like how does it deal with
+these inconsistencies? Well, for most of them, we have to just accept it at face
+value and, and take it with a pinch of salt that there are plenty of instances
+where if you go to the data that's sort of released on the public databases,
+along with the reads, say within the bio sample on NCBI, for instance, and then
+you go back to the paper, you'll find that there are quite different
+information. So even, and we do try the best to sort of like,  detect these
+issues and fix it or minor problems. But if it's just a simple outright thing
+with one value, it says one thing in the paper and one thing on the record, you
+have to basically go back to the literature and try to tidy it up as you go
+along. Often people tend to upload their data as soon as they generate the
+sequencing and then realize that as they do their analysis that, oh, wait, this
+was not, this strain is not the species, it's contamination, or they realize
+that there was a mix up in the original sample sheet that was sent to them. So
+they go and clarify that and they fix that for the publication, but they don't
+necessarily go back and fix that in the record that's already up. And often when
+I've asked people about this, like, why don't you fix that? They say, oh, but
+it's in the paper. You just read the paper. It's like, yes, but there's
+essentially almost, there's 200,000 salmonella SRA records. I'm not going to go
+and read the paper for each one of them to try and figure out what, which
+metadata is correct or not. But that does not really compete with a lot of
+people. I think for, in the EnterBase world for us, the way we sort of thought
+about the way metadata would work is we would, the requirements in EnterBase
+actually is to submit information is very, very minor. You just want a rough
+explanation of the host, the country and the year. And the reason that we
+capture that is so that we don't expect it to be the primary resource of all of
+the metadata because of these sort of reasons around privacy and so on, and even
+academic reasons about being scuba. But what we would hope is that there should
+be just enough information for you to have your strain and see, oh, it's similar
+to this other strain, which this other person has, which was sampled in this
+context. I'm going to go and talk to them about it. And for me, that's the main
+thing is facilitating that conversation, those collaborations. I don't think
+it's really tractable to have a world where as data is immediately generated,
+you have everything immediately available. I think, I think that this phrase
+that you wrote down for us in our notes, Nabil, centralized, decentralized
+future is pretty, I think it's a good description because we have several
+projects across the world that are coming out as the platform for whatever set
+of, I'll call them clients, like PulseNet serves the US or PulseNet
+International serves our international collaborations. So with our centralized,
+decentralized future, we've been trying to kind of get together under the Global
+Microbial Identifier, GMI. And we have, I think the last count was like 40 or 50
+nations represented. And they just want to know how to coordinate with whole
+genome sequencing across various nations or within their countries. And so the
+members for GMI can represent so many different things, including the, so not
+necessarily PulseNet, although PulseNet is represented, but we, from the US, we
+go there representing GenFS, which is, it kind of stands for Next Generation
+Food Safety, which is the collaboration between CDC, FDA, the agencies under
+USDA, and NCBI and how we're using whole genome sequencing and collaborating
+with that. I think this year or next year, we should see actually a publication
+describing GenFS. So be on the lookout. I will make one comment. I think that
+it's actually an incredibly complex paper and it has, I forgot how many tens of
+authors. It's actually a very complicated paper, but yeah, it's a long time
+coming. I hope it comes out sooner than later. The other platforms that are
+represented there are IRIDA that you mentioned earlier, Andrew, or also
+Innuendo. I don't wanna speak too much to Innuendo. It's an incredibly useful
+platform. I don't wanna speak too much to it because I don't know all of the ins
+and outs of it, and I don't wanna misrepresent it, but Innuendo is this
+wonderful platform serving, I believe, 12 countries in Europe for WGS and
+genomic epi. There's also the Compare project, which I don't know a lot about
+either. Do you guys wanna describe it in a nutshell? No, well, it's doing
+something similar to Innuendo as well, so. So Compare is more of a, it's another
+European project, and it does something similar to Innuendo, and they are trying
+to bring in systems like ResFinder and PlasmaFinder combined with, say,
+pipelines and systems that EBI have. So it's like the European equivalent of
+GenFS probably, and there's been a huge amount of money invested in it, and
+yeah, it's been a great project. And then one more in the US I forgot to
+mention, although we did mention earlier, is GalaxyTracker, which is the
+platform over GenomeTracker. And then there are other platforms, I just wanna at
+least mention, that have been used for genomic epidemiology, but maybe they are
+part of a larger thing that are not, maybe they're not especially focused on it.
+Maybe they're focused also on population genomics like BigsDB and Enterabase. So
+they're incredibly useful for the things that we've been talking about and much
+more, but I won't speak too much more to them myself just because I don't know
+the ins and outs of those either. Do you wanna say a thing or two about
+Enterabase, Nabil? Yes, in both cases, the people have been using both kind of
+platforms to do surveillance and communicate with other institutions as well.
+And that's the papers out in print where that was a sort of primary analysis-
+like platform. And that's useful. Yeah, agreed, it's a little different to the
+others where it's not sort of streamlined into a reference lab, it's not
+handling patient data or any sensitive metadata like that. But the information
+that is available is enough for people to actually start that conversation and
+talk to each other, which I think is their main use. They're also online and
+free, so people can just upload their data and start using it for that as well,
+start using it to do analysis. So that always helps, that sort of low price of
+entry. Yeah, it's a great platform. Thank you for all your work on that,
+actually. But I think, so the thing that came out of working on it on Enterabase
+was sort of, where you come out of it thinking that in the past, people have
+approached, so if you take, say, PulseNet, or even Enterabase, or BigCB, or even
+the MLST databases, or any of these sort of systems, they all sort of assume
+these monolithic, central database that is handling all of the requests of the
+entire world. And that, I think, is going to stop being tractable very soon. I
+mean, I think in the US, or in the UK, or in most of Europe, you can have the
+logistics where that's sort of possible. You can have internet bandwidth where
+you can do that. But you've got to remember that a lot of these genotyping
+methods were really powerful for a lot of low-income, low-economic developing
+countries, or elsewhere in the world, where they could just do simple PCRs and
+have results that they could compare to what was going on anywhere else in the
+world. Or they could do simple PFG, or they could do whatever it is. And then
+saying, now you have to jump to whole genome sequencing to keep up is a big step
+in terms of just the mechanics and logistics of then trying to take your data
+and then submit it to the central server somewhere. So I think that in a lot of
+cases, we're going to see a move where people, or we should have these platforms
+available that should be run locally, and people should be able to, I'm sure
+within the CDC, you all do this as well, where you sort of do your own local
+analysis within your institution, and then are able to farm out some of the
+results off to some place that's sort of, all it's doing is collating these
+together. And I think that's sort of the trend for most, most of the people that
+I talked to like over the enter base time where that's sort of what they wanted
+to do. They weren't strictly like people in smaller labs weren't strictly happy
+with putting, always submitting their data to these sort of large centralized
+databases. It also creates this odd disconnect that the person holding the data
+or who's submitting the read data, isn't strictly the person who's done the
+field sampling. So when you then see some of these samples out there in public
+and you want to query, where did this come from? You've written X, Y, Z in the
+metadata and I want to know more about it. Then that person.  not know because
+that person just received it the same way that Andrew was talking about oh I
+just got the sample from X that's that's the extent of their information and
+then it's difficult to have this trace back to who actually got it so you can
+ask them the real question of well was it a sample from this tissue or that
+tissue or was it when you say it's from a farm was it from the animal or from
+the environment around the animal or something like that so I think there's
+going to be a shift and especially with we see the like real time sequencing
+with nanopore and things like that we definitely have this ability to sort of do
+a lot of this processing in the field and then at the very end collated to then
+say oh this is the result what is happening elsewhere so what do you think the
+future will be with this centralized decentralized future will these will these
+platforms continue to grow in their niches and they're gonna have to learn to
+talk with each other well I would hope so yeah I think I think what we would
+have to do is we'd have to actually have the platforms themselves will have to
+just be things that you can run locally and the pipelines will have to be
+transparent things that you can install and run yourself it also is quite
+convenient because if every user assembles their own data then the person who
+has to curate and put it together doesn't have to worry about doing it them
+doing it themselves so that innate like that sort of implicit scaling out of the
+of the problem because I can't imagine if if we have half a million half a
+million salmonella genomes or a million you know we're approaching these sort of
+numbers when the next years we will see hundreds upon hundreds of thousands of
+genomes I don't think any any institution wants to go to the rigmarole of trying
+to assemble or collate all of that yeah it's a really good point so yeah so
+we'll have a we'll all agree on a some sort of fixed versioned probably
+containerized pipeline that will produce these reliable results and then
+there'll be some magic cloud place in the sky that where we submit those data to
+and we can say hey I see this have you seen this has anyone seen this who has
+that cloud place will have the minimum sort of metadata that we've been
+discussing but probably not much more and then you will be sort of directed to
+make those connections and talk to people very good I'm looking forward to the
+future with that our discussion can kind of be boiled down to the old saying if
+a tree falls in a forest doesn't make a sound and so I can translate that saying
+into if a snip type or an MLS T type is assigned but it's not reported does it
+matter and it I think it can only matter if we're all coordinating with each
+other and and we follow the ideas behind how it's it's one global health we're
+all we have what is the saying bacteria doesn't have national boundaries thank
+you all so much for listening to us at home if you like this podcast please
+subscribe and like us on iTunes or Google Play and if you don't like the podcast
+please don't do anything this podcast was recorded by the microbial
+bioinformatics group the opinions expressed here are our own and do not
+necessarily reflect the views of

@@ -1,0 +1,261 @@
+Hello, and thank you for listening to the Microbinfeed podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. Hello. Welcome to another Software Deep Dive, where we
+interview authors of a bioinformatics software package. So today, we're going to
+continue the conversation to talk about the software developed around Kraken,
+and in the hot seat are Dr. Jennifer Liu and Natalia Rincon. Jen is a staff
+scientist working with Steven Salzberg in the Johns Hopkins University Center
+for Computational Biology. Nat Rincon is a PhD student in biomedical
+engineering, also in Steven Salzberg's lab. There was recently a paper in Nature
+Protocols on which Jen and Nat were co-authors about metagenomic analysis using
+the Kraken software suite, and there seems to be a lot of tools that have been
+developed around Kraken. Yeah, we sort of touched on this last episode, but like
+there's different methods of Kraken. It's not just one Kraken to rule them all.
+There's a Kraken 2 and a Kraken Unique. We mentioned Kraken 2 Unique, Kraken
+Unique 3. So could you guys break, then there's the Kraken Chunking for Kraken
+Unique. I mean, can you guys break it down? Like what's, what's, what's Kraken
+lacking? Oh, that was a good one. So the original Kraken, so the original Kraken
+1, which we refer to, is the original tool written by Derek Wood back in 2013,
+2014. And that was the start to this whole world. And so that was the
+introduction of the exact camera matching. We use a camera size of 31 based on
+jellyfish. And so that was the original. As time went on, there needed to be
+some changes into, based off of how we were using it in our lab and how people
+were using it. And so Kraken Unique, I believe is the next one that was
+released. And so Kraken Unique is very based on Kraken 1. So it uses the same
+database structure. It uses the same kind of algorithms for everything. It just
+adds an extra step, which is the unique camera counting. And so that provided
+the additional column, which basically told you that for your read, I don't
+remember all the details of it, but it basically told you how many unique
+cameras are you covering with the reads that you have. So under the assumption
+that if you're classifying against a species, for example, you'd expect that
+these species would be fairly spread out across the whole genome, right? You'd
+expect that they wouldn't all the same read, and you'd have various reads for
+that genome or various reads for that species. And so you would also expect that
+the number of unique cameras would also be fairly high. And so it added that
+extra column to kind of help verify things. And so that was the first two of the
+tools. But as we kind of mentioned on the last episode, as the number of genomes
+has increased significantly, there needed to be smaller databases. We needed
+some way to make the databases a lot smaller because 300 gigs of RAM was just
+not going to cut it for a lot of people. And that's when Kraken 2 comes into
+play. And so Kraken 2 was released by Derek, Ben Langmead, and myself, where the
+database structure is significantly changed, and it uses a probabilistic data
+structure. So you're sacrificing a little bit of accuracy for a very significant
+decrease in the database size. Accuracy is fairly similar to the original
+Kraken, but because of the probabilistic data structure, it's slightly
+decreased. And you're using some minimizers, and there's other details that I'm
+not really going to go into. But it took that 300-gig database, and it decreased
+it down to about like 30 to 50 gigs, which is a very, very big change and a very
+big improvement. And because also of the changes that were made, there were a
+number of additional changes that I'm not going to go into, but the one other
+one that I will mention is also is faster, Kraken 1. Can I push just a little
+bit, since this is a bioinformatics podcast, do you want to go a little bit into
+the algorithm? Not all the way, but just a little bit. Into the Kraken 2
+algorithm? Yeah, why minimizers? I mean, it's essentially, it's trying to map
+the cameras to a shorter sequence size, which are the minimizers, which is then
+mapping back to the original camera lookup process. And so there's space seeds
+and minimizers, which try to take the full cameras and reduce them down in such
+a way that you're not like biasing any particular sequence, but you're also kind
+of randomly masking out individual parts of that camera in order to reduce down
+the database size. And that's the easiest way I can describe that without
+hurting my brain. And I guess one of the things that make it faster is that they
+do clever like caching by, since we're using these minimizers, we don't have to
+save the cameras or we don't need to go to a specific camera. We go to a
+specific like Elmer first, and they're all sorted in this way so that when you
+go to that position, now it's in the cache. And the next camera that you're
+going to look at is likely going to have that same Elmer and be in that same
+group. And that speeds things up a lot. And then so the other tools. So as now
+we have cracking unique and cracking too. Right. And so then the next question
+is, okay, which tool do I use? And so one of the things that we did recently was
+we incorporated the cracking unique camera counting into cracking too. The one
+big difference there is that you are using minimizers instead of cameras. Right.
+And so it's counting unique minimizers and not cameras, but you have the
+cracking unique functionality now in cracking too. People still use cracking
+unique if you do have that large database, like RAM availability. And if you are
+a little bit more concerned about the decrease in accuracy with the new cracking
+too. And so we kind of suggest that you can use either or. And then the other
+big update with cracking unique is that they now have a flag where if you have
+this large database, say your database is 300 gigs, you don't need to load it
+all into memory at a time. And so we, I guess we've mentioned the cracking
+unique caching. I'm not sure if they came up with the name for it, but it's
+still in the same cracking unique code base. It's just another flag that you
+specify for when you're running cracking unique to say, I only have this much
+RAM available. Can you just run it with this much RAM? And it'll compare your
+sequencing reads against a portion of the database at a time with a slight
+decrease in speed. And so you are kind of sacrificing a little bit of speed in
+order to be able to only have a small portion of the database classified
+against. And so those are the main cracking tools and kind of iterations of
+cracking. And then the other two things that I, or the other three things that I
+want to mention are bracken, which I'm the author of, which was written kind of
+in between before the release of cracking too, but it works with cracking unique
+and cracking too. That provides abundance estimation. And so, as I said, it's
+cracking is a classification algorithm. It's not going to give you read counts
+at species level only. It's going to tell you as specific as possible. So you
+might have reads that are at a genus level or family level based on how specific
+those reads are. But for people that want to know kind of percentage of my
+sample, how much is this species over another bracken uses a Bayesian algorithm
+to estimate what the abundance is. Are at any given level. So you can do genus
+abundance, you can do species abundance, and it'll do the re-estimation of the
+read counts that way. The other tools that I do want to mention are Pavian,
+which is near and dear to my heart, although I'm not the author of it. Pavian
+was written by Florian, who was the original author of cracking unique, which
+makes analyzing these reports a million times easier. So Pavian is a graphical
+interface written in Shiny, written in R, that allows you to compare read counts
+across species and also just kind of gives you some nice graphical
+interpretations of your species. So you just provide the cracking reports and it
+gives you amazing visualizations. So you can kind of see what's in your sample
+based off of the report. And then the last tool, which Natalia and I, sorry,
+have been working on is cracking tools. And this is an ongoing project for us
+where we're creating a set of scripts that help people do downstream analysis
+based off of kind of what you're looking to use your cracking results for. Are
+you trying to look for more statistical metrics for measuring what's in your
+sample? Do you just want some visualizations? Are you trying to extract reads?
+Cracking tools is kind of the catch-all set of scripts that should help you do
+all these things. Yeah, that's not quite so brief, but it's an overview of all
+the different tools that we have in our wheelhouse as of date. Yeah. Yeah. So I
+think last time, one of the great things about all the Kraken suite and
+everything, Nat was saying like she came into a family and  And you're a third
+year, so how did this all strike you? It seems like if I were going into that,
+it would be a little bit overwhelming. There are a ton of tools coming in and
+you're kind of the next PhD student looking at all these tools. Is this
+overwhelming or are you kind of getting a handle? It was so easy, you already
+got a handle on it. I guess I started with it as soon as I started my PhD. I was
+really lucky in the beginning of my PhD, we got this sweet data set of ocular
+sarcoidosis eye infections. And with patient and controls, whole genome
+sequencing, so immediately we were put into basically the infectious pathogen
+detection pipeline. And that was one of my very first projects and that's the
+very first paper that I had with the Salzburg lab. And that was one of the
+original reasons why I wanted to join. So I think having Jen around is basically
+been my lifesaver. And so, yeah, so it hasn't been overwhelming, but it really
+could have been. And it's been really great. Speaks to you as a good mentor,
+okay. I do my best. So what are some of the applications that you both have been
+using this suite of tools? When would you use one or the other? So our lab
+mainly focuses on more pathogen detection than microbiome analysis, but I'll
+kind of go through it. So microbiome analysis is something that I think that a
+lot of people have used Kraken for. And so if you look up papers that have cited
+Kraken, there's a lot out there that use Kraken to try to just generally give
+you an overview as to the microbes in your sample. And so this can be anywhere
+from, you're looking at microbes in water and drinking water and various
+waterways. I even looked at, can we use Kraken to detect the kind of pathogens
+and microbes that might be in the inner harbor and Baltimore water? And so
+there's a lot of different tools for that. There's some people that are looking
+at microbes in the gut microbiome, human microbiome stuff, and Kraken is very
+useful in those instances. But I would say that for our particular lab, we do a
+lot more pathogen detection. And so one of the really cool things is that our
+lab's been able to use Kraken to detect infections. So microbes that are in
+samples that shouldn't belong there. And so we are very fortunate to work with
+Johns Hopkins Hospital and some doctors there that have patients and they need
+to diagnose them. And so they'll get a CSF or brain biopsy sample and so we'll
+send it through sequencing and then we'll analyze that with Kraken to try to
+detect what kind of things might be infecting them. There's many cases where
+we're not able to find anything, but there are some very cool cases that have
+been published. Are we able to detect tuberculosis, for example, in a patient or
+a viral infection in a patient and successfully diagnose these patients using a
+combination of Kraken and Pavian? And I guess to add to that, in terms of like,
+should you use Kraken 2 or Kraken Unique or Kraken 1, we usually use Kraken 1
+Unique for the infectious pathogen detect. Since with Kraken 2, we have a small
+false positive rate that is just like, for us, we consider not like good enough
+to find that needle in a haystack. But if we're just looking at how much
+diversity is in the sample and a rough estimate, not even that rough, but an
+estimate of how many of the abundance of species, Kraken 2 is much faster,
+smaller storage, so we use that for those sorts of problems. And I will say that
+you can build both a Kraken 2 database and a Kraken Unique database in the same
+folder. So you don't need two separate storage spaces because they do use
+different file names, it's different database structure. So for a lot of our
+databases, we have both a Kraken Unique and a Kraken 2 database built. So you
+don't need to have two copies of the library files or two taxonomies or anything
+like that. Do you have any advice to people who want to do microbiome analysis?
+Because quite often you have an over-representation of pathogens versus anything
+that's not a pathogen. Like if you look at salmonella, virtually probably
+everything that's in there is gonna be like typhimurium or typhi, that kind of
+thing, because it causes serious disease in animals and humans. Well, we
+typically would just run Kraken and then Bracken. And I think that one of the
+big things and the difficulties around Kraken is you're very dependent on what's
+in your database. And so this is also dependent on what's been sequenced, what's
+been genotyped and like what's actually available in NCBI RefSeq Complete,
+right? So what we have found is that those databases are heavily bacterial and
+viral. You're not gonna have a lot of the eukaryotic pathogens just based off of
+like what's been studied. And so you kind of have to be aware of that when
+you're building your database. Bracken should kind of like account for what
+you're, it should kind of help adjust some of those recount levels when doing
+the re-estimation based off of like what's a unique read and how many reads you
+expect to get classified when you just have the base database. But I will say
+that that's something that we are aware of. I don't really know. It's all about
+what's been out, what data genomes are out there, yeah. So we're kind of reliant
+on that. Yeah, so I guess if you're shedding DNA in an infection, which is what
+you do, then I guess the database itself can't really handle the, it can't
+account for overshedding of DNA from an infection. That's just kind of beyond
+the scope, huh? Yeah, for infections, we wouldn't really use the crackin results
+to say the amount of the infection that's in there. I think it's just the
+presence or absence rather than how much, yeah. There's a lot of, we're still
+kind of refining how we use sequencing for pathogen detection, but we are also
+reliant on the doctors themselves and kind of verification from pathologists for
+any of our infectious disease analysis. That's fair. Bioinformatics, we're not
+alone. We work with other people. So I have some other use cases that I use
+crackin for, but I don't know. I'd like to hear if you guys have come across any
+special use cases that wasn't metagenomics specifically. Like have you seen
+anyone use crackin in a surprising way? I guess I'll give you an example of what
+I do. Yeah. So part of our quality control analysis is taking a single genome
+and treating it like a metagenome. And the null hypothesis is that this is a
+single genome and that there are no conflicting taxa in the reads. And crackin
+can give us a result showing us whether or not there is a conflicting taxon in
+the reads. And so if we have, you know, over a certain percentage of reads that
+are conflicting, like if it's, you know, Listeria in our E. coli sample, then we
+can say that there's some contamination there. We do a lot of work with
+contamination. I think that's something that Steven Salzberg is very passionate
+about is contamination in genomes. And so that we have used crackin, I guess I
+really didn't think about this. We have used crackin to detect contamination in,
+for example, eukaryotic pathogen genomes. And so, as I said, like we're very
+reliant on the databases and what's out there. And NCBI Rest State Complete has
+very few eukaryotic pathogen genomes, but there is many, many draft genomes for
+a lot of eukaryotic pathogens. And so we actually use crackin to detect in those
+draft genomes, any and all contamination. And so we compare all these eukaryotic
+pathogen genomes to say bacteria, human, even we built databases for vertebrates
+and plants, very large databases to try to mask out anything that could be
+contaminating. And it was very often that we found a lot of these eukaryotic
+pathogens had contaminating sequences from their hosts. So the, what you would
+expect these sequences to be infecting. And so, for example, there were some
+eukaryotic pathogens that were various forms of malaria that were found in say
+chicken or cow. And so you'd find a lot of chicken DNA that we had to mask out
+in these draft genomes. And so we use crackin for a lot of these contamination
+detection things. And I know that now with HM13, we're also including that in
+our databases as well. So the full T2T consortium human genome, we're now
+including that in our databases and which has also yielded some interesting
+contamination results as well. I run crackin on all of my genomic data, even if
+it's isolate data, because yeah, I don't believe what anybody tells me. It's
+like, it's a salmonella. Yeah, okay, sure. Sure it is. Quite often it's not,
+yeah. And if you ever want to see how much people get it wrong, you can
+actually, we run crackin on all the genomes in Entrobase. So you can actually,
+and it'll, I think we expect the amount genomic content to be 90% the species we
+expect it to be. Otherwise we just say, well, something's gone wrong. And yeah,
+there's a lot of trash. People saying, oh, it's a salmonella. It's like, no,
+it's not. So just to close out this episode, here's a question to both of you.
+What's next?  for Kraken and the Kraken development team? Yeah, so we are
+continuing to maintain all the GitHub repositories to make sure that Kraken
+continues to be an accurate and fast tool for everybody. Yeah, and we'll
+continue to keep an eye out on the metagenomics fields and classification fields
+just to see if there's any improvements that can be made. Yeah, and Kraken tools
+is gonna continue being developed as the need arises for any new scripts and
+downstream analysis. We're gonna continue to add to our Kraken tools suite to
+make it as complete and as useful as possible. And one other thing that's
+really, I think it's sort of like the next thing that we need to tackle for
+people to at least continue to use Kraken as we get more and more genomes
+available. We need to figure out how to make the database smaller. So finding
+different ways of indexing and sketching and making that be more doable or even
+hosting on a compute resource, like we're sort of trying to figure out how we
+should continue and how we can improve upon it. That's awesome, guys. I look
+forward to the future. Today, we've been talking with the developers, Dr.
+Jennifer Liu and Natalia Rincon about the Kraken software suite around Kraken,
+the taxonomic classification software. Thank you so much for listening to us at
+home. If you like this podcast, please subscribe and rate us on iTunes, Spotify,
+SoundCloud, or the platform of your choice. Follow us on Twitter at MicroBinfy.
+And if you don't like this podcast, please don't do anything. This podcast was
+recorded by the Microbial Bioinformatics Group. The opinions expressed here are
+our own and do not necessarily reflect the views of CDC or the Quadram
+Institute.

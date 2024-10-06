@@ -1,0 +1,397 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There's so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Andrew
+and Nabil work in the Quadram Institute in Norwich, UK, where they work on
+microbes in food and the impact on human health. I work at Centers for Disease
+Control and Prevention and am an adjunct member at the University of Georgia in
+the U.S. Welcome to the Microbial Bioinformatics podcast. Leo and Nabil, myself,
+are your hosts for today, and we're talking with Dr. Emma Hodcroft about all
+things SARS-CoV-2 and Nextstrain. Emma is a postdoctoral researcher at the ISPM,
+University of Bern in Switzerland, and a member of the SIB, that's the Swiss
+Institute of Bioinformatics in Switzerland. Emma has had many lives, including
+college in Texas, graduate school in Scotland, and now a research position in
+Switzerland. Her topics have been very diverse, from HIV to tuberculosis, and
+now SARS-CoV-2. She currently works on Nextstrain and SARS-CoV-2, and there is
+plenty to unpack today. We're also joined by Dr. Leo Martens, who's head of
+phylogenomics at QIB, so he runs analysis for other researchers at the
+Institute, especially when they involve a phylogenetic inference. At the same
+time, he's been developing and implementing new software where there are gaps in
+the current landscape and help the community. We are now talking about
+Nextstrain and as it applies to SARS-CoV-2, and so just to open up with an easy
+question, Emma, what were some of the changes made to Nextstrain to allow it to
+work on SARS-CoV-2 as opposed to flu and other viruses? This is a great question
+because this is something that we did face kind of from the early days of the
+pandemic. Now, luckily, because we'd done a lot of the base work to make
+Nextstrain a more modular and more flexible bioinformatic pipeline before the
+pandemic, actually adapting it to work on this novel virus, that was really
+straightforward. Nextstrain is now flexible enough that if you have a virus you
+want to run it on, the pipeline essentially will usually work just fine. It's
+more your own details about, you know, picking a reference sequence and setting
+the mutation rate or inferring the mutation rate. The more bioinformatic
+questions, of course, always have to be sorted out, but just running Nextstrain
+on this novel virus was pretty straightforward. And actually some of the first
+questions that we faced were not technical, but were more about how to present
+this, because one thing we encountered very early with Nextstrain was getting a
+lot more attention than we had ever had before. Nextstrain was certainly known
+in the scientific community before the pandemic, but it was pretty niche. You
+know, you had to be into phylogenetics to be familiar with Nextstrain. And with
+the interest in SARS-CoV-2 or NCOV as it was then, we had a lot of people, not
+just scientists, but also the general public coming to the website and
+interested in understanding What is this virus? And why are scientists making
+these strange tree graph things about it? And so we actually made some early
+decisions about things like normally we would display our branch lengths in the
+very traditional format of showing the number of changes per base per year,
+which is really useful, especially for more diverse sequences. And this is kind
+of the standard in phylogenetics, but it's almost impossible to interpret if you
+aren't from a phylogenetics background. They're really, really tiny numbers.
+They were especially very tiny for SARS-CoV-2 because it didn't have any changes
+yet and it doesn't have like a super fast mutation rate. So we made the decision
+to actually just show the number of mutations, which works really well for SARS-
+CoV-2. And we still show this today because it has few enough changes that you
+really can, you know, it's still less than a hundred for most sequences out of a
+30,000 base genome. And so you can just put this in really simple terms for
+people to understand that this sequence and this sequence are separated by X
+number of changes. It makes it much easier for people to understand and
+interpret than having a more complicated way of showing it. Another thing that
+we've changed early on was not necessarily, again, in the code, but in being
+really careful about what we were putting up. So making sure that we were
+previewing every build before we put it online, making sure that the analysis
+looked accurate and that there wasn't anything misleading. And this is because
+very early on people started trying to interpret these trees, which is wonderful
+as a phylogeneticist, but phylogenetics can be very misleading. You know, you
+can look at these colorful trees, especially then we had them, you know, it was
+pretty zoomed in picture. We didn't have that many sequences and you could make
+up all kinds of fun stories about, well, this person from this country must have
+gone to this country and that's how this country got the virus. And of course,
+if you, if you do phylogenetics, you know, that we can rarely make these kinds
+of really concrete statements, but with a phylogenetic tree, especially if
+something in there is, is not in the right place, people can come up with a lot
+of stories that can have real world impact. And so we did change how careful we
+were being about what we were putting online and how much interpretation we were
+going along with. And I think one of the coolest things that we did early on was
+we actually made situation reports. So these are these great things called next-
+grade narratives, where you can actually put a next train tree on one side, and
+then you can have some texts on the other side. And as you scroll through the
+text, the next train tree will change. And we use this as a way of showing
+people, this is how you can actually read a phylogeny. And these proved to be
+insanely popular. I think they were translated, they're being translated into
+over 20 languages early in the pandemic when they were at their peak. And this
+made all of next train phylogenetics and the genetics of the pandemic much more
+accessible for the many people that were interested in it at the time. Later on
+in the pandemic, we've also, of course, had to make many more changes. I don't
+know if we want to get more into that, but about, of course, the more technical
+challenges that we faced as the pandemic has progressed. And we've had to deal
+with completely new challenges with things like data size. Yes, please. Yeah,
+let's, let's, let's jump into that data size automation. I mean, Leo, how many
+are we up to now? How many people are trying to shove into one of these programs
+at a time, 2 million, 3 million? I think at the GizAid we have 10 million,
+right? So how, like, I'm sure people want to know, how do you even approach
+numbers like this? Because when I make a tree of a bacteria, I can put like 500
+and then it doesn't, that's it. Like it just takes forever, 2000 tips on a, on a
+figure and fig in, in ITOL or something, it looks like a spiky sea urchin thing.
+So what are you doing to, to just chug through this data, automate it, display
+it and so on? Yeah. So these were challenges that came on pretty quickly as the
+pandemic progressed. In the early days, of course, the data was really
+manageable. We just had a few sequences and actually they were coming in, you
+know, not many countries even were picking up the virus yet and they were coming
+in some, I mean, I don't want to say infrequently, but we might get a few every
+day. And it was also so exciting that we would, we would literally be checking
+the website, you know, refreshing the page to see if there was a new sequence.
+And when we got one, we would run it immediately because we couldn't wait to see
+how it fit into the tree. And in those early days, it was incredibly manual as
+in so manual that there wasn't even a way to download FASTA files very
+effectively. And so we were copying and pasting them into text editors to put
+them into the FASTA. And then of course we would have to run the pipeline. This
+was all happening somewhat manually. I mean, we were each running it on our
+laptop and I ran SARS-CoV-2 analyses on buses, you know, in the middle of the
+night, whenever a sequence came, that was what we did. And this was super
+exciting. But of course it became completely unsustainable as the number of
+sequences went up. One of the first things that we had to counter with was we
+can't fit them all in the tree. So Nextstrain really works. I mean, you can push
+the visualization side. It's completely in your browser. You can push it up to
+maybe 8,000, maybe 10,000 tips, but the performance does start to degrade
+massively. You'll get a lot more lag as you try and click around, change colors,
+this kind of thing. And so we decided to restrict the trees to about 5,000
+sequences, which is what we still do today. So we take the global set of
+sequences and we then downsample that in different ways. So we have a global run
+and then we have a run for each of the continents, North America, South America,
+et cetera. And this not only keeps the analysis a little bit faster. So we run
+every day. This means it completes a little faster, but it also means the
+visualization just makes a lot more sense. Because the other thing is if you put
+10 million sequences into a tree, even if your browser could visualize that,
+you'd probably have a very hard time making anything of it because it would be
+too much to even look at. Another challenge that we had to face though is
+actually automating the runs. So we had people doing this, starting the runs on
+their laptops for a long time. And then we moved to running these on compute
+clusters as the dataset got bigger, but they were still being cleaned and
+started manually. So every day we would get new data, but we still had to make
+sure that data was good. So for example, are the dates in the right format? Have
+people put the countries in in the right way? Have they put a funny symbol into
+the name of the sequence? All kind of scientifically that seems boring, but if
+anyone who's worked on sequences know this is critical before you can start a
+dataset. And we need to do things like standardized locations, because of course
+you can call a country or even a town many names. In Switzerland, of course, we
+often have two or three names for different cities in the country. But if you
+want to put it on a map with a computer.  It has to be the same name all the
+time so that you know where that is. And so we had people working every day.
+Moira Zuber and Eli Harkins were the two research assistants that really helped
+with this. And unfortunately, this was something that we did literally seven
+days a week. And we'd nobody got any weekends for the first few months of the
+pandemic. This was, again, it was really exciting at the time. And I think we
+were all really happy to pitch in, but again, it wasn't sustainable. And now
+we've moved to a system where this happens completely automatically. The data
+cleaning happens automatically and then the runs start automatically and it all
+gets pushed up online automatically, but it's taken us a long time to get there.
+And of course it does lead to questions about, we need to have automated things
+like automated quality control. Because we don't, we no longer have someone
+manually checking the tree every day to make sure that something crazy didn't go
+in there, which unfortunately can still capture conspiracy theory mindsets. And
+then the last thing that's been a challenge, not just for Nextstrain, but for
+many people is even just the size of the data and the size of the files. The
+files are now pretty huge, even though they're compressed and it can take a
+while to download them and take a while to just read them in to start your
+analysis. So we've had to work on ways to make even just reading in and writing
+out files more efficient, which of course pre-pandemic was the least of our
+worries when you're working with 2000 sequences, this is really nothing. But
+when you're working with 10 million, even things like how many times you're
+going to write out data or how many times you're going to read it in, it make a
+huge difference to your runtime. And for us, we've of course been really lucky.
+We've had the expertise and the compute power to deal with this, but I know
+there are other, other programs around the world, other labs around the world
+where this is a, this is a real bottleneck. Even just getting the files over a
+bad internet connection can be a real challenge these days. Oh, definitely. And,
+but you did mention downsampling strategies and I know Leo, that's, that's a
+thing you've also been having a look at. So I'm wondering if we can just talk
+about how Nextstrain actually does it. Maybe we can compare some notes. What's
+the best approach for downsampling for COVID and then maybe generalize it to
+downsampling for any biological thing we want to look at. For most of SARS-CoV-2
+for the main Nextstrain builds, we've actually been a little bit lucky because
+we've been able to do a pretty straightforward downsampling. So in the earliest
+iterations, we were just trying to sample equally across geography and across
+time. So we've had a pretty simple filter method, which already existed that
+tries to evenly sample, like for example, you know, the same number of sequences
+from each geographical place over the year that you have samples to try and
+equalize between countries that sequence a lot and countries that sequence a
+little. And then for the regional builds, we modified this a little bit so that
+for example, if we're trying to focus on North America, we'll preferentially
+sample more sequences from North America and then include a little bit of
+background from the rest of the world. But over time, we've had to even change
+this to be more complicated. So for one thing, we wanted to make sure that even
+in, for example, a North American build, the sequences that you're probably most
+interested in are those that might have connections to your North American
+sequences. Not necessarily just a random sample of the world, but samples that
+might help you learn something about how your North American sequences are
+connected more globally. And so I helped to introduce our proximity function,
+which essentially looks at the sequences that you consider your kind of focal
+set in this example, North American sequences. And it tries to find similar
+matches in the rest of the database and preferentially include those so that you
+have what we would call background sequences that are kind of most relevant to
+your question. And this has come in particularly really useful for people that
+are looking at more detailed questions, which of course, if you're not next
+strain is going to be most of the world, you're not necessarily interested in a
+global picture of SARS-CoV-2 anymore, it's global, but you're more interested in
+what's happening in my town or in my country, can we see connections between
+different places? And this proximity function has actually been really useful
+there because if you have, for example, samples of a suspected outbreak, you can
+include those as your focal set. And then the proximity function will comb
+through the rest of the database and find some appropriate sequences that are
+nearby, which are probably the ones you're most interested in, you know, how is
+this outbreak related to some other town or another country or sequences that
+are in the outbreak that you missed, you didn't sample them, but they're in the
+database. And so I do think that's been a real advance, and I'm hoping that this
+will be also potentially useful outside of the pandemic for people to search for
+sequences that are related to the sequences they have, of course, with the
+somewhat caveat that for many pathogens, we just don't even have enough
+sequences, that this is a problem. You can literally throw them all in because
+there's maybe a thousand or 2000, but we're hopefully heading towards a world
+where that won't be the case anymore, where we're going to have a lot more
+sequences. And then thinking about how do we downsample, how do we make sure
+we've included the most relevant sequences? These are questions that people are
+going to need to start answering, even outside of the pandemic. Is that
+implementation available for people to pick up and use, or is it still under
+development somewhere? No, no, it's fully developed. So we've made a number of,
+so I helped with the initial implementation. It has been kind of streamlined and
+improved since then, beyond what I could do, but you can find it as the
+proximity function and then the priority function within Nextstrain Augur. So
+the proximity function actually calculates like how similar the other sequences
+are to your focal set, and it will line up kind of a set of matches. And then
+the priority function will turn this into a number that Nextstrain will use for
+sampling, if that makes sense. So it then will assign kind of, well, priorities.
+For, you know, how much, how, how, if we only are taking X number of sequences,
+how do we figure out which of these are the most important to take? But of
+course, both of these functions can be used just as part of another pipeline or
+all of our code is open source. So you can, you can just take the code if that's
+all that you need. Right. And Leo, do you want to hop in and talk about some of
+the downsampling you've been doing and your views? What's the best approach for
+it in a post COVID world? Because the challenge is, as Emma said, so you have
+the global, you have a global view, but you also have local, right? What's going
+on in your region with the sequences that you already have. I would say in
+general, I tend to use, if I already have a tree. And then I tend to use samples
+that preserve the phylogenetic diversity from that tree into my subsample. So I,
+there's a, there's a hidden function in the, in IQ3, which is IQ3 minus K, that
+you can set the number of, this is because the, one of the authors of IQ3 wrote
+a software called PDA, which is phylogenetic diversity analysis. And so they
+still have the functions inside IQ3. Anyway, so you can have a tree that, that
+tries to preserve the same phylogenetic diversity as the original tree, but with
+fewer leaves. There's another software called Tremor that I also use sometimes.
+This is to, to try to have a global representation that still makes sense. And
+for localize it, I use, so as I was talking about the proximity function. So we
+develop here at the quadrant, a software called Uvaya, which tries to do the
+same thing. And basically it scans through the database and finds the sequences
+that are closest to your sequence. And then it returns them with some
+statistics. All right. So between all of that, for all the people who tend to
+ask me questions about downsampling, there you go. There's tons of
+implementations and approaches for you to use between both what Leo and Emma
+have said. I do have a question that comes up for me. How do you detect and
+deal, because the sampling isn't random. Well, you assume it is, but it isn't.
+So how do you deal with cases where someone has just shoved in an outbreak
+analysis where they've just gone after genome after genome of effectively,
+probably the same patient or same family or whatever, how do you detect that?
+And probably you want to exclude that from the type of analysis we've been
+talking about. So what would both of you do? Yeah. So that's a great question.
+And unfortunately it's one that's pretty hard to deal with. So there is a field,
+if you upload data to GISAID, for example, where you can put in the type of
+sampling that you were doing, so whether it was surveillance, which is generally
+what we want. So these were, you know, people that came in and got tested and
+we've selected a random or a geographically represented, but, but essentially we
+didn't pick, you know, just a few people specifically we've tried to get a
+survey of our infected population. That's ideally what we want in phylogenetics
+for, for these kinds of overviews, and then you can also put in, for example,
+this was an outbreak investigation, ideally, we would always be excluding the
+outbreaks and just using the surveillance. Unfortunately, we don't get this data
+automatically for Nextstrain at the moment. But even if we did, a lot of people
+just don't include it. I mean, there's a lot of fields to fill in when you
+upload data. And a lot of people are now uploading a lot of data and the people
+that upload the data are often, or can be quite removed from the people that
+collected the data. So there can be a real break between who actually knows what
+these samples are. And are they just numbers and sequences that, you know,
+someone else got off of the sequencer and needs to put into GISAID. So these are
+problems that can be really hard to rectify. On the Nextstrain level, this is
+something that we, we, we checked for kind of manually earlier in the pandemic.
+If we saw a lot of sequences coming in, it seemed a little suspicious that we're
+from the same place with very similar dates, we would reach out and check, you
+know, how were the sequences gathered, was this, you know, some outbreak
+investigation, is this something we want to include, but at this point, it's
+just not something that we have the time or the person power to follow up with
+this anymore. On the other hand, it's also not as big of an issue. We get so
+many sequences now from all over the world that even if a few of these are
+outbreak investigations, it's just not going to have a big impact, especially on
+how down-templed our trees are, since we only look at these large.  larger
+levels. Now, where this will play a bigger role is of course, people who want to
+use this data for doing things like local outbreaks or local investigations or
+more detailed questions, then unfortunately you might have to go back and check
+manually, you know, and maybe contact people to find out where did these
+sequences come from. So it's an, it's an ongoing challenge of how do you, how do
+you filter for things that sometimes are related to data that you may or may not
+be able to, to reach out and ask someone about. There you go. Never trust
+anybody. That's what I'm hearing. Always be skeptical. I do think that's a good
+rule. I mean, something that we've run into a lot is, is date mix ups and it
+seems like such a small thing that like surely, surely we as a scientific
+community can figure out one answer to this. But of course in reality, it's
+really hard. You know, people make mistakes. Excel messes up your, your date
+fields. People write dates. Of course, you know, in some countries they write
+month and day and other countries they write day and month and people hard code
+years. I mean, I, I'm still fixing dates that come in as Omicron sequences from
+January, 2021. It's hard to keep on top of all of that. And I have a lot of
+sympathy for the people on their end putting this in, but these are simple
+things that, yeah, you, you can't always trust the data that comes. You have to
+have ways to check it. Oh my God. Yeah. That's, I don't even want to talk about
+it. It was terrible. The amount of times I had to correct dates. So one of the
+other things that came out of SARS-CoV-2 was the development of the covariance
+website. We'll have a link to that in the show notes so people can have a look
+at it. So Emma, what is the covariance website? How did you develop it? Why did
+you develop it? Covariance is something that I'm really proud of having come up
+with during the pandemic. And it's one of the things that I've enjoyed working
+on the most during the pandemic. And essentially what covariance is, is it's a
+website where you can get information about the different variants circulating
+SARS-CoV-2 variants. And perhaps the most popular is that you can look at graphs
+that show the proportion of sequences from different countries, what variant is
+currently circulating and has circulated in the past in those countries. And
+then there's another couple of pages that are popular. For example, you can also
+compare the mutations across the different variants. This is something people
+are often interested in as well. And the idea for covariance came about at the
+end of 2020, when I'd been working on the EU1 variant, which was one that I
+detected that circulated a lot in Europe in the summer of 2020. And as part of
+that work, I was making these graphs showing how EU1 had spread to different
+countries and what other variants were in those countries. And I realized like,
+you know, I bet other people would be interested in these graphs. And of course
+I'm thinking scientists, but I thought I bet that other people would find this
+really useful. And when alpha hit at the end of 2020, it really put some urgency
+in this for me, like, okay, now people are really interested in what variants
+are circulating in different countries. So I bundled up the code that I had made
+to do that analysis. And I made a GitHub repository where you could look at a
+few different countries in Europe and see the variants circulating there.
+Especially with the rise of alpha, this kind of instantly proved to be something
+people were really interested in. And I was incredibly lucky. Ivan, who's also
+developed the NextAlign and NextClade, he asked Richard if he could help to
+develop a full website for covariance, which he's the one that makes it look so
+beautiful. And so we launched that full website, I think just before the end of
+the year in 2020. And it was the first website that was dedicated to tracking
+SARS-CoV-2 variants. And it's proved to be incredibly popular. We've been
+featured in many different magazine articles, many publications. Our data also
+goes to support our world in data charts that you can see there. And I think
+what's really made covariance a little bit unique is, is that it's really
+accessible. So there's a lot of websites now that you can use to track variants.
+And I think it's fantastic that there's different resources people can use,
+especially because we all target slightly different things. But a lot of the
+other websites like outbreak.info or QOP Spectrum are a little bit more
+technical, which for scientists is fantastic. You can dig into the details of
+the variants and look at all the different mutations and really customize what
+you're looking at. But for a lot of people, this is more than they need. And
+covariance offers a simple, but in a lot of ways, a really accessible at a
+glance overview of what variants are circulating where. And I think that there
+has been a need for this and an interest in seeing this. And so for me, it's
+been hugely gratifying to be able to develop something that people have found so
+useful in the pandemic. I use it all the time as crib sheets from my mom asked
+me, what's this variant doing and what's happening in this country? I go and
+look it up. Is this mutation like bad or something like that? I go, cause you've
+got, you've actually not only got the demographics of what's going on, but
+you've also got like, what are the mutations responsible for possibly? I often
+use it just for that, to just tell my folks what is going on at any given point
+in time. So yeah, it's useful too. And there's a very nice tree as well, right?
+Describing the connection between all the variants. Yes. And that actually comes
+from Nextstrain. So I can't, I can't take credit for the tree that that's a,
+that's a Nextstrain effort. But again, I think it's, it's, it's another great
+way where, you know, we make these really complicated trees and they're
+incredibly useful to many people, especially scientists, but also having a
+really simple graphic that just shows you how the variants are related. This is
+super useful for a lot of people. So the, for me, I mean, I'm super happy to
+hear that covariance is useful and it's exactly kind of what I'm hoping that
+it's for. It's that a lot of people want answers and they need those in, in an
+accessible way that is still really accurate and useful, but it's something
+that's not too scary and that is approachable. So I'm, I'm really happy to have
+kind of married phylogenetics and science communication through covariance. Just
+one last question. Is there anything you can say about the implementation tips
+for people who might want to make something similar for their bug of choice? I'd
+say that for me, certainly the hardest part of covariance for me to imagine is
+the wonderful web interface, because I had nothing to do with that. And that's
+all of Yvonne's imagination. So one tip I would have is find a wonderful person
+who can develop you a beautiful website. That's not an easy one, but it is
+really important. But I would say also just have a think about what, what your
+target audience is. So what are you trying to get across and how can your
+website contribute something that's not out there already? And sometimes that
+may not mean that you try and put every single bit of information into your tool
+or into your app. It can sometimes mean that you're going to simplify that in a
+useful way that you're going to actually, you know, de-science-ize or de-
+complexify what people are looking at. Cause for a lot of science, it's not that
+the information isn't out there, or I mean, of course for some science that is
+true, but for a lot of science, the information is out there and things like
+publications and datasets. But if you're trying to make a web app, it's often to
+make things more accessible. And so that sometimes does mean that you're not
+going to have it in the same format as you might for a raw dataset or a
+publication, but how can you creatively expand on that and simplify that and
+come up with new ways of displaying it so that more people can make use of it.
+And that's, I think that's actually a really good final closing point to end on
+something positive for everyone out there. So that's all of the time we have for
+today. I'd like to thank our guests Emma Hodcroft and Leo Martens for joining me
+today. We've been talking about neck strain, coronavirus, and some of the
+implications of that. And we'll see you next time on the MicroBinfy podcast.
+Thank you so much for listening to us at home. If you like this podcast, please
+subscribe and rate us on iTunes, Spotify, SoundCloud, or the platform of your
+choice. Follow us on Twitter at MicroBinfy. And if you don't like this podcast,
+please don't do anything. This podcast was recorded by the Microbial
+Bioinformatics Group. The opinions expressed here are our own and do not
+necessarily reflect the views of CDC or the Quadram Institute.

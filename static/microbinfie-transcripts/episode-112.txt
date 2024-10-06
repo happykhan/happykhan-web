@@ -1,0 +1,85 @@
+Hello, and thank you for listening to the MicroBibCade podcast. Here, we will be
+discussing topics in microbial biology. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody really writes it down. There's no
+manual, and it's assumed you'll pick it up. We hope to fill in a few of these
+gaps. My co-hosts are Dr. Nabil Ali Khan and Professor Andrew Page. Nabil is the
+Head of Informatics at the Quadrant Institute in Norwich, UK, and Andrew is the
+Director of Technical Innovation for Liagen in Cambridge, UK. I am Dr. Lee Katz,
+and I'm a Senior Vice-President at Centers for Disease Control and Prevention in
+Atlanta in the United States. Hello, everyone, and we're back at day two of
+Global Microbial Identifier. And I'm your host, Andrew Page. I'm here with Lee
+Katz and our very special guest, who is running this whole event. Introduce
+yourself. My name is Will Hsiao. I'm a Associate Professor at Simon Fraser
+University, and I work with Emma Griffiths to put on this event. We agreed to
+host back in 2019, right before the pandemic, and little do we know that it will
+be an event that's, I guess, four years in the making. Well, I mean, clearly,
+it's the best event if it's taken four years to organize, you know? It takes
+four years to think about it, and then a few months to organize. Yeah, so thank
+you for putting on the event. I'm really enjoying it. What about yourself, Lee?
+I'm really enjoying it, too. I was just talking about how this is like one of
+the best organized conferences. Unfortunately, delayed due to the pandemic, but
+I'm glad we're back. So, can I ask, how did you go about inviting people?
+Because, obviously, you've targeted particular groups of people to bring, you
+know, what was the whole process there? Yeah, so I think we, after years of
+involving with GMI, realized that there is a lot of emphasis towards later years
+on equities and diversity and mechanisms to support that through our efforts.
+And there's more and more low- and middle-income country participants have been
+invited and involved. And, as you know, the last GMI was hosted in Singapore,
+partly to support the travel logistics for communities in Asia and so on. So,
+for this particular meeting, that's what we emphasized on, which is trying to
+build on that experience and then continue to see how through social sciences
+and more social-oriented discussions, how we can improve the data-sharing
+process and make it more equitable and not just a one-solution-fits-all type of
+approach. Actually, what I found very refreshing with this conference is the
+inclusion of people, say, from First Nations and from marginalized communities.
+This isn't something I've seen in other conferences. So, you know, you're very
+much leading the way there. Thanks. Yeah. And I have to say, in terms of sort of
+setting up all that initial vision was one thing, but then getting the people to
+actually come and talk. And a lot of time, people have to back out due to
+various reasons. So, for example, for the indigenous one, there's actually,
+without us knowing, there are major First Nations conference going on right now
+across town. So, we actually had a bit of trouble inviting the most... We tried
+quite a few groups and they all are going to that event. So, finally, we found
+someone who are very relevant, of course, but who are able to join. So, we're
+kind of a sign of relief. But I should also say that all that work was really
+done by Emma. So, I sort of had that initial discussion with her, and then it
+was very much up to her to solve the problem. So, I can't take any credit for
+that. And it's also a very gender-balanced conference as well, which, again, is
+quite unusual, particularly in mathematics, where it skews much more towards
+male. So, fair play on doing that. You know, we haven't had a mammal yet. That's
+correct. Which is a male-only panel. Yeah. Lee is just looking perplexed there.
+What the hell are you talking about? I appreciate your clarification. So, you
+set out with some ideas on what the conference should be, and we're a day and a
+half into it. Is it kind of meeting your expectations? I think so. I think, in
+many ways, it exceeds our expectation in terms of what... in terms of the level
+of engagement from the participants, and also the... We have some preconceived
+notions of where we want to direct the conversations, but actually, we realize
+those preconceived notions did not fully encompass the diversity and the
+richness of the discussion. So, that was really great to see. And this is a
+bioinformatics podcast, so do you have any other bioinformatics... I don't know.
+Things that you want to express? This is your bread and butter anyway, you know?
+Yeah, no, I fully realize this is a bioinformatics podcast, and the other aspect
+of this conference, as we outlined, is interoperability, right? So, the reason I
+sort of highlight the social aspect is that I think if we take those
+perspectives in mind when we design our technological solutions, then we can
+achieve much better buy-in, we can make the practice more equitable. So, that's
+the goal we're trying to achieve. Awesome. I want to hear your take too. I
+wasn't sure what to do about Tim Hortons when I got here, so I want to hear your
+take on this too, because I asked Emma. It's only fair. As soon as I got into
+Vancouver that night, I went to Tim Hortons and I got a Boston Cream Donut.
+What's your opinion? I think there are a lot better donut shops in Vancouver
+than Tim Hortons, but if you want to prove yourself Canadian, then just go in
+and order a Double Double Coffee. What is a Double Double Coffee? It's two sugar
+and two cream. Oh my god, that sounds terrible. Usually when it's a double
+coffee or something, it's like double an espresso, but it's just double the
+extras. Oh, it just means two sugar and two cream. To go is your black coffee.
+They're not that fancy. I don't think they have espresso there. Very good. All
+right. Well, thank you very much for talking to us. And yeah, good luck with the
+rest of the conference. All right. Thank you very much. Thanks. Thank you so
+much for listening to us at home. If you like this podcast, please subscribe and
+rate us on iTunes, Spotify, SoundCloud, or the platform of your choice. Follow
+us on Twitter at Microbinfee. And if you don't like this podcast, please don't
+do anything. This podcast was recorded by the Microbial Bioinformatics Group.
+The opinions expressed here are our own and do not necessarily reflect the views
+of CDC or the Quadram Institute.

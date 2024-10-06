@@ -1,0 +1,462 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. Hello and welcome to the Microbial Bioinformatics podcast.
+Andrew and I are your co-hosts today, and we're continuing our series where we
+examine a particular microbial species in some depth. Today we're talking about
+Mycobacterium tuberculosis, and we're hoping we can discuss some of the specific
+issues for bioinformaticians to keep in mind when studying this organism. We
+have a number of special guests on the show today. We are joined by Dr. Susie
+Hingley-Wilson, who is a lecturer in bacteriology at the University of Surrey.
+She works on tuberculosis, and in her lab they focus on its survival and
+persistence. We have Danny Best joining us as well, who is a senior lecturer in
+microbial metabolism at the University of Surrey. She is a bacterial dietician,
+so she's interested in what MTB actually eats. And we're also joined by Dr.
+Connor Meehan, who is an assistant professor in molecular microbiology at the
+University of Bradford. He specializes in whole genome sequencing and molecular
+epidemiology of pathogens, primarily Mycobacterium tuberculosis and genome-based
+bacterial taxonomy. So Andrew, do you want to kick us off? Yeah, so when people
+think of MTB, their mind usually wanders back into history to the consumption
+and, you know, the time of Angela's ashes. So is TB still a problem these days,
+and why should we be concerned? Well, yes, TB is still very much a problem, and
+in fact, until last year, TB was actually Mycobacterium tuberculosis was
+actually the leading cause of infectious death. It overtook HIV. So aside from
+the COVID pandemic, it's still a really, really important pathogen. And there's
+no doubt that, you know, when the COVID pandemic has been long, you know, got
+under control with all the multiple vaccines that have been developed, that TB
+will continue to be a problem. And actually, in the TB community, we've kind of
+looked on awe at the speed at which they've come up with COVID-19 vaccines. And
+we're still running with a vaccine that is, is it 100 and 150 years old? So
+yeah, very much so a problem. So does that mean the BCG vaccine is so good that
+it's worked for 150 years, or it's antiquated and we need new treatments? The
+BCG vaccine is incredibly complicated, because whether it works or not, is very
+dependent on where you live in the world. So the closer you live to the equator,
+the worse the BCG vaccine is. And the reason that this is, is that they think
+that people who live nearer the equator are exposed to environmental
+Mycobacteria, and that this sort of means that their immune system have kind of
+been primed. And so when they're vaccinated, they don't get a proper response to
+BCG. However, BCG is very good in protecting children from TB and from
+disseminated disease. Let's be honest, BCG has been the most widely, it must be
+one of the safest vaccines, right? It's been given to the most people in the
+world. It's very, very complicated and it's, you know, to do with the
+individual, where they live. And, you know, in some individuals, it does have a
+lifelong protection, but it's very variable. And in some places in the world,
+they found the protective efficacy can be less than 5%. But we do have
+antibiotics. It is a bacterium which responds to them. So, you know, why are we
+still concerned about it? There's approximately one and a half million deaths
+every year from TB. And about 80% of those are due to fully drug sensitive
+tuberculosis cases. So even with the drug resistance, which is a huge problem,
+that there's still a huge problem there, not counting for the drug resistant
+strains. So treatment takes, for a drug sensitive, it's four drugs for six
+months. And so you have a problem with adherence in some cases, you know,
+because symptoms will go away after a couple of weeks. Actually, your bacterial
+load goes down to almost non-detectable after a couple of days. So when you have
+six months of four different drugs that you have to take, even if it's
+sensitive, you can have problems with supply, you can have problems with
+adherence, but also just with efficacy. We don't always know exactly how all the
+drugs interact with each other. We don't know exactly how they all work. So some
+of the drugs that we have for a long time, we don't even know how they actually
+work properly. And then that's not until you get into the drug resistance and
+that's a rising problem for sure. So about 10 million cases of TB every year and
+about 500 to 600,000 of them are drug resistant. So the vast majority is still
+drug sensitive related, but you have access problems. You know, most TB cases
+are in countries that don't have great health care systems. Myself and Andrew
+can think about it from Ireland. There was a lot of TB cases in Ireland for a
+very long time. And now people say, where did it go away? We got better health
+care. People didn't have to all live, 20 people to a house. People were able to
+just have better immune systems. And TB is a public health problem that's
+related to poverty a lot of the time. On the negative side, there's no doubt
+that COVID will have a massive impact on people getting TB treatment. And
+there's already some documented evidence that people aren't either getting
+diagnosed with their TB and then they're not carrying on with their treatment.
+So that will have a massive knockout effect. But there have been some hopeful
+things. So, for example, there's now a six month new treatment for drug
+resistant TB, whereas before you had to treat for 18 months to two years. And
+they've also, I just saw that there's been a new clinical trial where they've
+reduced the treatment time from six months to four months. So there are some
+hopeful signs on the drug market. But when they last looked at TB pre-COVID, the
+WHO's sort of goal to end TB is not on target. They are managing to reduce the
+incidence of TB. They've massively reduced the death rate, but they aren't able
+to significantly chink into that incidence. And I think that that's where COVID
+is going to have a really serious impact. I read somewhere that about one third
+of the world has latent TB. I think it's one quarter now. I think, well, yeah,
+it depends on who you ask. The newer numbers say that that seems like a massive
+overestimation, but it's definitely more than people think. So that's a lot.
+That's a big number. The R0 of TB is about two and a half. So the R number is
+everyone here is now for COVID. So it's about the same as COVID, but that's only
+of symptomatic people that we know of. So we know that one TB patient will
+infect on average two to three people who will become symptomatic. So the
+calculation was that actually it seemed that it was up to 10 people that would
+be there and be asymptomatic. And then they extrapolated from that the number of
+people that have it to the number of people that could have it. And you come up
+with about a quarter. But obviously, it's also localized. That doesn't mean that
+loads of people in countries without TB have it. But it does mean that you
+probably have a lot of latent period and a lot of asymptomatic people in high
+burden countries, South Africa, China, India, these kind of countries. And what
+also factors into that is on average, it's about one year after being infected
+before you see symptoms. Some people, it can be two, it can be 10, it can be
+longer. So mycobacteria are just really slow growing and slow to present. So
+it's about like you have asymptomatic people, but then you have latent people.
+This is not the same. And you've subclinical and you've clinical. So it's it's
+pretty complicated that way. Can I ask, has there been any studies done with
+genomics looking at, say, when a person is first infected and then it goes into
+the latent stage? And then what does their genome look like? 10, 15 years later,
+whatever period of time, you know, how has it evolved within the host? Is it the
+same? Is it quite different? Some studies have started doing that. There was a
+thought that when it was in the latent period, its mutation rate was
+significantly slower than when it was in the active period. That doesn't seem to
+be the case. But you're thinking, yeah, so mycobacterium tuberculosis has a very
+low mutation rate anyway. It's about 10 to the minus 6, 10 to the minus 7. So it
+doesn't evolve very quickly over time anyway. We can probably get into sniff
+distances between people. It's not always known because it's unlikely that you
+would have the genome when the person gets infected and then also have the
+genome 15 years later. Now, we do have them on treatment, but then we also don't
+know how much the mutation rate is speeding up due to the treatment pressures
+that are there. It's kind of the million dollar question as well, because TB
+grows really slowly. And usually you like mutation rate is the dogma is it's
+affected by growth rate. But when you look, it looks like TB evolves more.
+Although it's slow, it looks like it evolves.  more than it should. So I think a
+fundamental question that still hasn't been answered, which I think is quite
+intriguing, what's driving that? Is there some sort of clock-like fashion? Is it
+to do with growth rate or are there some sort of mutators within the host? I
+don't think that's fully, to me that's a fundamental scientific question that
+still remains unanswered, which I think is quite interesting. There's another
+complicating factor as well is with mixed infections, isn't it, as well? So we
+had patients that had sort of a multi-drug resistant and a non-drug resistant in
+the same lung. So you've also got this other issue, another complication that
+can happen there as well. What happened at the same time they got infected or
+were they infected at two different time points? Like was it a cloud of mixed
+infections or was it...? So this was an interesting case actually. There was one
+strain was sequenced, one came up, so what happens is when it's diagnosed, it's
+the fastest growing which will be diagnosed, and then another strain, the
+patient came back again, there's another strain after sort of two months that
+had taken over and this was an isoniazid, like a first, a frontline drug
+resistant strain, and there were two completely different strains that, you
+know, this had done, this, the faster growing strain, which was a non-drug
+resistant, was there, and then once the patient took treatment, the other strain
+came up, and mixed infections are really massively underdiagnosed in TB because
+it's the fastest growing strain which grows first. TB is coming along on the
+genomics, but when I meet people who work in E. coli and salmonella, they're
+just like, oh, that's what you're doing? You don't understand that? It's just,
+there's a lot of things that bacterial epidemiology or geneticists really think
+is a fundamental thing that you would know, and in TB we don't know so much. So
+for a very long time it really was, they had one strain, that strain was
+everywhere in their lung or whatever, and then they passed that one strain on to
+another. Now we're seeing that when we are doing the deep sequencing, we're
+seeing a lot more within host diversity, so we're seeing that the cavity that
+sometimes is in the lung might have a different subpopulation to what would be
+in the rest of the lung, or if it is, and then what we actually see in the
+sputum, so what they cough up in order to give us a sample, is not always
+representative of what's even in the lung underneath, and this is because of a
+lot of different things. Different drugs penetrate into different parts of the
+lung, creating different types of pressures on treatment, and indeed we don't
+know that much about the transmission of multiple strains to people, or whether
+we have one that's, that is transmitted. So all of this is very, very new, and
+Naki Kamos is showing a lot of this. I'm trying to show a lot of it, but we're
+not getting the funding for it, and other people who are better are doing it.
+But it's, deep sequencing is really difficult with TB, because we have to
+culture it, we have to culture for eight weeks. As Suzy just said, one strain
+will take over because it's faster growing. Some lineages grow faster than
+others, because we don't even know what to put in for proper growth of some of
+the lineages, and so now we're trying to go to that direct from sputum
+sequencing to try to get us a better picture, but that's really, really
+difficult as well. Do you believe that this intra-host variation is going to
+change the sort of dogma around MTB, where, I mean, the main thing you know
+about MTB is like, it doesn't have any sign of recombination in the genome. So
+there's no sign of recombination, and even when you look at these, there's no
+recombination going on. This is because of a couple of different factors. The
+cell wall is covered in these mycolic acids and other things. Naked DNA doesn't
+seem to be going in and out. We don't know that much about the phages, but it's
+just all the different ways that recombination can occur, doesn't seem to happen
+within classic mycobacterium tuberculosis. Mycobacterium kineti, which is
+extremely closely related, lots of recombination occurs there. But a lot of
+papers have shown that even though you have mixed infections, they're not
+interacting with each other in the same way that you would think of like with
+viral recombination. They're just both present and seem to then result in worse
+clinical outcome. So they're essentially mutually exclusive. One would fight the
+other one out. Is that the case or we don't know? Maybe. They're just, they're
+not recombining their genomes and that's as far as we can say, I guess. It could
+be a localisation. Things like this in the lung, the different foci of infection
+are normally very local. So there'll be lots of, one sort of population in one,
+one sort of virgin in the other. So you've got this distance between them, if
+you will, as well. Yeah. I mean, some groups are doing in America, some groups
+are doing some really exciting experiments where they actually barcode different
+strains and sort of compete them and see where they go in the granuloma and that
+heterogeneity. I mean, that's the kind of thing about TB, whatever it does, it's
+going to be terribly heterogeneous. So that showing that actually one type of
+strain may survive better in one lesion and the other type might survive better
+in another lesion because the lesions are so heterogeneous. But one thing I
+think is really interesting, only because I've just read a MSC project from
+someone in South Africa, is people starting to look at all the DNA repair
+systems and the effect that has, like the error-prone DNA repair systems and the
+effect that might have. And actually, you know, you have those systems which
+kind of create that noise, which allows the genome to mutate more and actually
+gives the strains advantages. And I wonder if that kind of might explain a bit
+of the puzzle about the mutation rate with TB. I mean, I don't know a lot about
+it, but it kind of piqued my interest. I thought it was quite interesting. And
+that might change the cell types there as well. So if you've got different
+strains, you'd have different cell types there with, say, more macrophages
+affecting it or more B cells in another might have, you know, that point you've
+got, it's just sort of increasing the heterogeneity even more, isn't it, with
+different strains? So a lot of what was taught about TB, Mycobacterium
+tuberculosis, if you ask somebody 15 years ago who was doing genetics, they'd be
+like, oh, well, it's kind of boring for a bacteria. There was really this thing
+that it's strictly clonal. There's not really any difference between the
+lineages apart from extreme, specifically known regions of difference. It's just
+one strain going from one person to the other. And every single new thing that
+comes out that's showing more genomes, it's just creating a more complicated
+picture. So we keep on trying to, if we go to bioinformatics side, we keep on
+trying to say, well, this is the pipeline we're going to use. And then another
+paper comes out going, that's just not going to work because there's this
+diversity or there's this issue or it's selection bias or all these different
+things. So it's just called an evolving field as an understatement. I just
+wanted to clarify. So there's no known or canonical mobile genetic elements at
+play here or? Not in Mycobacterium tuberculosis, single chromosome sitting by
+itself. Even the Mycobacteria in general don't have a lot of plasmids, but most
+of the other opportunistic pathogens do. But maybe we get where you're going
+with that in terms of drug resistance and stuff like that. It's chromosomal,
+it's mutations related or potentially epigenetic, but there's no there's no
+plasmid or anything that's causing this. Are you able to do hybrid capture on TB
+and could we come up with a scheme where, you know, you pull down from a from a
+sample that's hasn't been cultured all the TB and then sequence that population
+of diversity really deeply? Right. So, yeah, we just had the European Society of
+Mycobacteriology conference and this was talked about a little bit by Gallo
+Goig, who works in Switzerland, and again with the NACICOMAS. The difficulty, so
+yes, hybrid capture has begun to work with sure select and things like that.
+It's based on the H37RV genome, which is our reference genome, which is lineage
+four. And it does seem to work to a certain extent. It's expensive. And that's
+why we're still working on trying to make it cheaper, because when we're looking
+at doing that for epidemiology or drug resistance, we want to start doing it in
+high burden countries. Yes, we can do it here in the UK, four and a half
+thousand cases a year can probably handle that. But most countries, we want to
+be able to get the sample numbers up and we're talking the number of COVID cases
+we see this year. That's what they're seeing every year with TB, right? So think
+of all the things that have gone into the COVID resources we have for just this
+one year. They're doing that every year. So hybrid selection does work to a
+certain extent. We have a couple of different problems. Getting the DNA out is
+very difficult because of the waxy cell wall. Normal sonication just ends up
+breaking up all the DNA into very short fragments. So we have to do work a
+little bit better with that. But yes, hybrid capture is working a little bit
+better with it, assuming that the gene content is the same in all of them. But
+in some lineages, the gene content is different. So we found in lineage five,
+that there are certain genes in some of those strains that are not in H37RV. So
+then they wouldn't be captured right from there. So it's getting there. Again,
+like hybrid capture, the papers came out this year and last year. So it's still
+very, very new and trying to go towards that, but in an affordable way, because
+what's important in TB is that we don't create a two tier system. We don't have
+all these technologies that then go into something that's only in high income
+countries, where the reality is that we're here to try to help people in high
+burden countries. And these two only overlap in one country, which is China. So
+I suppose the reason I bring up hybrid capture, maybe this is just a random
+crazy rabbit hole. In Oxford for COVID work, Tanya Gubilek did a lovely paper
+where they were looking at the population of diversity within one host, and then
+like all the people that they would have infected.  so they could have these
+chains of transmission and they could see that in some cases, minority variants
+are being passed on. And I was wondering, could you, if you had those chains of
+transmission, say within a population, could you track how often you get like a
+cloud infection being passed on or, you know, a mutation being passed from one
+person to another, you know, is this something we can possibly capture really
+deep sequencing using hybrid capture of MTV? In theory, yes. Write a grant
+there, Connor. Other people have already written that grant, so I'm not going to
+compete with them. But from what I've seen, I'm trying to remember what's
+published and what's unpublished and what I can say and what's not. From the
+published literature, we do know that there are some minority variants that are
+being transferred. Some people have shown that it's the same two or three
+strains that were in transmission clusters going across people. So we do know
+that it's not just one thing being transferred and that's even from culture base
+where you do deep sequencing. So I think it's going in that direction that we'll
+see more of this. A question that we really are asking at the moment is how much
+is being transmitted between the different people? And is there a selection on
+that? So I think back to HIV that I used to work on, the dominant strain inside
+the patient was not always the dominant one that was being transmitted. So the
+fitness, what fitness means in TB is very different because transmission fitness
+versus obviously culture fitness and everything. So I think we're going towards
+that. But you also remember that when a patient coughs up sputum, there's not a
+lot of TB in that sputum. So we just don't have a lot of cells to work with when
+we do all of this. It's not like a lot of other things where you take a blood
+sample and it's just filled with bacterial cells in there. So we just don't have
+a lot of starting material when we don't culture first. So kind of, excuse my
+ignorance, but going back to HIV, right? I recall in HIV research, when they do
+genome sequence, they want to see what all the minority variants are and what
+percentages are in the sample so that then they can say switch drugs. So if a
+drug-resistant mutation is popping up, is that something they do in TB or is it
+just whichever one goes fastest, that's what we treat with and that's it? So in
+the UK now they're using deep sequencing to look for the SNPs. But the
+difficulty with that approach is obviously they're only going to see the SNPs
+that they are known to be associated with drug resistance. And I noticed that
+the WHO just released a list actually of all the different SNPs that are
+associated with different drug resistance. So yes, in the UK that's done.
+Elsewhere, it will be what they mostly look for is because in TB it tends that
+you get isoniazid resistance first and then the other resistance tends to
+follow, there's different quick and dirty methods to look for that resistance.
+But it is a massive challenge in TB because obviously you've got a combinatorial
+problem. If you're giving somebody four drugs, it's what do you take out and
+what do you put in and then how do those drugs interact with each other? But
+with this new, I think it's called BPAL, is it? It's called a BPAL, the new
+treatment for drug-resistant TB. They can then say, right, we've got an
+isoniazid resistance strain or a rifampicin resistance strain. We can convert
+them onto this regimen for drug resistance. But the key in resource-limited
+countries is you just want something quick and dirty. So in a way you don't want
+all this finesse because you haven't got the time or the money. The person may
+have walked 20 miles to get to the health service. So you haven't really got
+that kind of wriggle room that you've got in the UK to kind of dig down. So only
+two countries use genome sequencing for drug resistance determination in the
+world, which is the UK and the Netherlands. I think New York use it for their
+local public one. At the moment, let's say you were in South Africa and you came
+in, you would have a sputum sample taken. They would then put it onto an expert
+machine, so a gene expert machine that tests whether it is TB and will tell you
+whether it's resistant to rifampicin. So even though isoniazid resistance comes
+first, they mainly test for rifampicin in the clinic. If the person is resistant
+to rifampicin, they go onto multi-drug resistant treatment, normally without
+checking the other drugs even work. Then they're put on the MDR one. Then you
+want to know whether they're resistant to fluoroquinolones. If they are, then
+they have to go onto what used to be called an XDR treatment, but all of these
+terms have changed in the last three years. Actually, the XDR one has changed in
+the last two months, maybe one month because of the way we've changed, the way
+we treat multi-drug resistance. So it's different for a lot of other things that
+people are used to, where they're used to take the sample, get the genome,
+decide on things from there. With TB, even doing that here in the UK, it's get
+the sample, wait three weeks, and then get the SNPs and then go off. So they'll
+normally, that's how long, you can maybe grow it in a week in order to get
+enough to tell you the majority SNPs that are there, but these minority ones,
+we're still very reliant on the culture and we're working hard to moving away
+from culture, but that's just, it's really, really difficult to do. And moving
+away from culture would be fantastic for a lot of other places. Then you
+wouldn't need a category two or category three lab and all that. And there is
+deep sequencing, target sequencing of the drug resistance related genes that you
+can do directly from a sputum sample in what's called a deplex machine. And that
+does 30 something genes and that'll tell you your resistances without having to
+grow it all up. But as Danny said, it's based on knowing those exact SNPs. And
+we get that for rifampicin and isoniazid, we do pretty well up in the 90%
+sensitivity and specificity that starts to drop off for a lot of the new ones,
+but Daquan, which is kind of seen as one of the new key drugs that we're using,
+we're still pretty shaky on how well we do with those SNPs. And that's, it's
+about how the resistance comes about in those ones. So it's still pretty
+complicated on that side. So I just wanted to clarify when you're talking about
+these resistant SNPs, despite this being quite slow, you always see new variants
+that confer resistance or? So let me take two examples for you. We have
+rifampicin, which is mutations in the RPOB gene primarily in an 81 base pair
+region, confers 95 to 98% of rifampicin resistance that we see. And the gene
+expert essentially works on that 81 base pair region. It's got probes. It does a
+quick PCR against those probes. And then it says, if it binds, it's a wild type
+probe, there's no resistance. If one of them doesn't bind, you have resistance.
+So rifampicin is very, very concentrated in one area with very known SNPs coming
+up over and over and over. For pyrazinamide, it's in PNCA in the gene. It's a
+product that's then converted by PNCA into the drug. And their variation appears
+all over the gene. And it's much more difficult to say. And bedaquiline is the
+same. We see new variations coming up all the time with that. So it really
+depends on the drug and it seems to relate to how essential the gene is as well.
+So for some of them, we do super well. Thoracrinolones, rifampicin, and
+isoniazid, almost always the same resistance. Interestingly for isoniazid, it's
+almost always exactly the same SNP and exactly the same gene. But in the lab,
+when you try to artificially get it to do it, it almost never will do that
+resistance SNP. So it's just some other pressures that are there with that. I
+did just want to mention with pyrazinamide, you've got some species that cause
+tuberculosis that are inherently resistant to pyrazinamide as well, like
+Mycobacterium bovis. So then you've got, you know, that there's sort of a deeper
+problem there as well. Hopefully we can get a better vaccine too. Now we know
+how fast it can be done with COVID. Near where I grew up, there was an old
+hospital, which was like a TB quarantine hospital. You know, long ago, back in
+the day, that's where they shoved people when they couldn't treat them. So are
+we going to go back to those kinds of days, you know, with totally drug-
+resistant TB, where we're just going to have to lock people up? I think we have
+in some cases. Some cases there's strains that are completely resistant to all
+known drugs. So we've gone back to surgically resecting lungs, so taking out an
+area of the lung that has caused TB. I mean, that happens already with extremely
+drug-resistant strains, yeah. And so what is the categorization? So you have
+MDR, multi-drug-resistant, and XDR, extensively drug-resistant. And then kind of
+what's the next level above that? I remember there's like a New Delhi strain,
+but of course we're not meant to be calling things after places. In theory, you
+have TDR, totally drug-resistant after that. The main levels we use are RRTB,
+rifampicin-resistant TB, MDR-TB, which is multi-drug-resistant TB, resistant to
+rifampicin and isoniazid. Pre-XDR is fluoroquinolone. Fluoroquinolone's by
+itself, but no other ones apart from MDR. And then XDR used to be
+fluoroquinolone and an injectable. We don't really use injectables as much
+anymore. Now it's fluoroquinolone plus a category A drug, which at the moment is
+just bedaclin or linoisilid. But they've said category A so that other drugs can
+be added into that if we do. And they're essentially the core drugs for treating
+MDR-TB. So it's saying XDR-TB is now, you're resistant to at least two of the
+three core drugs for MDR-TB treatment, until they potentially move
+fluoroquinolone to first line, but that's a completely different discussion. And
+these get more and more toxic as you go along, don't they, as well? As you go
+along this system, they're incredibly toxic drugs.  cost for people in low-
+income countries? In high-income countries like us it's covered, in low-income
+countries yeah not so much. That's obviously an issue and it's probably going to
+be an issue. It was one of the criticisms of, I think they've recently developed
+a more child-friendly set of regimen and one of the criticisms was the cost
+because I think the new regimen for MDR-TB is likely to be quite costly for low-
+income countries. It's quite interesting that one of the drugs that they trialed
+that worked, linazolid, which I can't say very well, the history of that is that
+basically it defies all science because basically a clinician was so desperate
+to treat TB patients with something he just shoved in linazolid into the regime
+and it worked which is quite amazing if you think about you know all these fancy
+trials and all this kind of you know hypothesis driven yes and then and then he
+just tried it and and it worked so that's kind of how desperate people who are
+actually at the coalface are. You know if you watch they made an incredible
+documentary about drug-resistant TB and as Suzy was saying well it's totally
+drug-resistant TB people have to go off and die on their own and it's not a fast
+death it's a slow horrible death and they had this documentary I can't remember
+what it was called where they had this young teenager who was just in an empty
+house just waiting to die of asphyxiation effectively which is is fairly you
+know in in 2021 that we've got a disease which was one of the first diseases to
+be described first infectious diseases to be described by Robert Koch that we
+still haven't managed to to you know cure that people are going away I mean to
+me I still even though I work on TB I find that fairly shocking and you know
+when we look at COVID I know I keep banging on about it but my line manager said
+that each one of the approaches used to make COVID vaccines have been proposed
+for TB but there's been no money behind it right because the vast majority of
+people who get TB are in resource limited countries so there is no country that
+is free of TB and TB is a pandemic and will continue to be a pandemic and when
+you see the difference of the response when you get high-income countries
+affected as a TB researcher you'll you'll kind of you know you don't even know
+what the what co-infection is going to be like with them with COVID as well I
+mean that's people getting long COVID you're going to get and we're going to get
+even you know it's going to get even worse it's not going to get better so maybe
+that's another grant you can put in to uh investigate that because all the
+research funding seems to have been re-diverted to COVID so new drug development
+is really slow we only have bedaclin and now technically lanazuli come up
+recently just because it's intrinsically resistant to a lot of things beta-
+lactamases and all that it's just they can't get into the cell because of this
+waxy cell wall what's interesting is I think it's going to start going in the
+phage route of maybe trying to see if we there are phages that can do it and
+what I'm actually interested in kind of what is what kind of Danny works on of
+can we starve it out in other ways can we just cut off its sources of nutrition
+and other things and try to try to use alternative non-antibiotic ways to get
+rid of TB that's something I'm trying to pursue in the lab is and something
+that's quite sexy at the moment is adjuvant therapies therapies that will make
+the the drugs we have now last longer I think that is kind of what we need to do
+probably for all infectious diseases right because you know there's there's no
+money in antibiotics because as soon as they get produced the bacteria get
+resistant to them so we need to find strategies to make the drugs we have last
+longer are people co-infected with other pathogens and is TB like the
+opportunistic pathogen that will finish someone off or is it that TB is the
+primary driver of all of this disease so well if you if you think about TB and
+HIV they form a really unholy alliance because TB basically makes HIV worse and
+HIV makes TB worse and I used to live in in Malawi in the 90s in the absolute
+height of the HIV I mean it was it was like 30 percent of women attending
+antenatal classes were HIV positive all of those HIV patients died of TB so from
+that point of view from other infections it's it's interesting too like there's
+a lot of cross between parasitic infections but that's more complicated some of
+them seem to actually provide some form of protection from TB and some of them
+may make the TB worse when they've looked into that there's then from non-
+infectious diseases diabetes is a massive risk factor for TB so and a lot of
+reactivation as well will happen so exactly what Dan is saying you'll get you
+know with onset of diabetes if you've got a latent TB infection which a quarter
+of the world's population do that will then be reactivated by diabetes
+reactivated by HIV possibly reactivated by COVID but we you know we don't know
+yeah that's going to be terrifying all right so that's all the time we have for
+today this is part of our ongoing series to talk deeply about a particular
+microbe and this time around we had mycobacterium tuberculosis I want to thank
+our guests Drs Suzy Danny and Connor for joining us today and I'll see you all
+next time on the Microbinfy podcast thank you so much for listening to us at
+home if you like this podcast please subscribe and rate us on iTunes Spotify
+SoundCloud or the platform of your choice follow us on Twitter at Microbinfy and
+if you don't like this podcast please don't do anything this podcast was
+recorded by the microbial bioinformatics group the opinions expressed here are
+our own and do not necessarily reflect the views of CDC or the Quadram Institute

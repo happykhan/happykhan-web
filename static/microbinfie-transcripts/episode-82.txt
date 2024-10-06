@@ -1,0 +1,495 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention, and am an adjunct member at the University of
+Georgia in the U.S. Hello and welcome to the Microbial Bioinformatics podcast.
+Lee, Andrew, and myself, Nabil, are your hosts for today, and today we are
+joined by Professor Mark Palin, who is a Professor of Microbial Genomics at the
+University of East Anglia and Research Group Leader at the Quadram Institute.
+Today we're taking a trip down memory lane to reflect on some of the most
+exciting bioinformatics moments in Mark's very long and very illustrious career.
+So good day to you, Mark, good to have you on the podcast yet again. Thank you
+for inviting me, and thank you for giving me a chance to go down memory lane and
+reminisce. Let's start, let's see chronologically, start off at the beginning
+and meander through time as we as we go along. So what was perhaps maybe the
+earliest, most exciting bioinformatics moment for you? It's kind of ironic,
+1977, as you probably know, was a great year, because that was the year which
+Sanger, Fred Sanger actually described his method of sequencing, which took over
+the world. But at that time, protein sequencing was far more prevalent than DNA
+sequencing. And I applied to go to University of Cambridge. And interestingly,
+when you look, I looked at my textbook that I used at school, biology textbook,
+you could look in the in the index, and there was no mention of DNA at all. So
+we weren't taught about DNA. And there was nothing, almost nothing about DNA
+sequences at that time. But I had to do this Cambridge entrance exam, which was
+a special thing that the University of Cambridge did, where they set you some
+questions. And if you pass that, then they let you in a very low grade in your
+normal school exams. And the irony was, I got this one of the questions in that
+entrance exam was to give me a lot of peptide sequences, and say, assemble these
+into a larger protein sequence. And I did it. And obviously, did it well enough,
+because I passed the entrance exam and got in, but it was a kind of slightly
+prophetic moment, hang on, I was asked way back then in 1977 to assemble some
+protein sequences by hand in under exam conditions. So that was that that's my
+first recollection of what we might now call bioinformatics at the time, it
+didn't have a name, I don't suppose. And then I got into Cambridge, I remember
+having conversations with some of fellow students about all the things that were
+going on, Richard Dawkins had just released the selfish gene. So kind of new
+ways of thinking about the genes being important in and kind of the importance
+in evolution and all that was was coming to the fore. But there was very little
+known at that stage, about how hardly any genes were even known, let alone how
+much similarities there were between them and so forth. I remember in my final
+year at Cambridge, one of the lecturers coming in and said, oh, we just
+discovered these strange things called introns. And we don't know why they're
+there and what they do. But it's a kind of interesting new finding. Oh, okay,
+that's kind of weird. Actually, I was training as a as a medic. And so I then
+went off and completed my medical training. I did my three years clinical, I did
+my house jobs. But I was always interested in getting back into research. And in
+fact, when I finished my house jobs, I went and did six months working on using
+what were then very cutting edge techniques of polycolloid gel electrophoresis
+and Western blotting. And I did I did some molecular biology, got paper out of
+that work. But I decided, no, I've got to keep going with the clinical stuff.
+And so I did that and I qualified as a medical microbiologist. And I got lucky
+because although I was on working as a job in medical microbiologist, I applied
+for a job at the Barts Hospital in London, the medical school at Barts Hospital,
+and I didn't think I'd have a chance of getting it was a clinical lecturer
+position because there was already a guy there who was like the internal
+candidate was doing his MD thesis with the professor and so forth. But I just
+turned up at the interview and and I thought, well, this interview practice and
+I just wasn't at all nervous. And then they talked about molecular biology and
+said, oh, yeah, I kind of grew up with this. I can do this stuff and fine. And
+so I got offered the job and that was a bit of a shock. Wow. OK, but it turned
+out to be one of the best things that happened to me because it turned out that
+in that lab I was working in, it was headed up by a quite remarkable Iraqi
+British lady called Syed Tabakchali. She had managed to get onto the idea that
+molecular biology was the next happening thing. And she'd written a first grant
+that got in a guy called Brendan Wren, who might be known to some of you to work
+there. And he had then helped her write the second grant and the third grant and
+so forth. So she put up a small team, even though she was a job being a medic
+herself and wasn't didn't have a great grasp of molecular biology. But we had a
+small team of people there working at what was at the time the cutting edge. So
+Brendan Wren's job was to clone the toxin from C. Difficile, which turned out to
+be far harder than anyone ever imagined, is that he didn't quite get that fully
+done. But one of the other guys there, a guy called Chris Clayton, was working
+on helicobacter pylori, which had only been discovered a few years previously.
+And he'd been trying to clone the urease gene from helicobacter pylori. And
+around that time, after I'd arrived there, I kind of managed to get in. With the
+molecular biology guys, they kind of I could just about talk their language and
+I kind of won their trust. And the other thing that was happening was that
+computers were coming in in a big way, personal computers. I mean, when I've
+been doing my as a medical student and just after that, I bought myself a BBC
+microcomputer and I learnt a little bit of BBC basic. But then the Apple Mac
+came in and we bought, I managed to persuade them to buy an Apple Mac that we
+put into the lab. And I started mucking about with sequences and software. And I
+think most of them were saying, what, that guy, he's all right, but he's a bit
+old, isn't he? Spent all that time mucking about with the bloody computer. What
+use is that? And then one day Chris came to me and he said, he explained that he
+thought he might have cloned the urease genes from H. pylori, but it was all
+hanging by a bit of a thread. So what he'd done was he'd got some rather crude
+antibody preparation of being raised against a rather crude urease prep from H.
+pylori. And he'd made a lambda expression library from H. pylori. And he used
+his antibody to probe the plaques. And he said he got this very faint kind of
+glow around one of the plaques. But but there were no there was no urease
+activity associated with the clone that he subcultured from it. And so he wasn't
+clear whether he was really traveling in the right direction or whether he had
+the right thing cloned or whether it was all just a red herring. And I said to
+him, well, have you got some sequences? Yeah, I've been sequencing it. And in
+those days, this shows my age, you use sequencing gels, you use radioactivity.
+It was a strange old business where people had to be very skilled in the art of
+pouring gels without bubbles and making sure that they ran them correctly. In
+fact, I remember one day they used to run the gels overnight. And one day one of
+the guys in the lab came in and just caught a gel that caught fire in the early
+morning before it actually went up in flames and set the whole lab on fire. So
+it was a strange old time in those days. But he had all these sequences and he
+said, I could have a look at them. And so what we did, and again, this is just
+laughable looking back at what we have to do, was he would sit there with his
+autoradiograph and he'd hold it up against the light. And I would have the
+computer and then he would call out the bases as he read them from his
+autoradiograph. And in that way, we digitized his autorads and got these
+sequences from them. And I just managed to lay my hands on a program for the
+Apple Mac. I think it was called Fast A or Fast P, I know it's also the name of
+a format, but it was the name of a program at the time as well. And there was
+this library called the PIR library, which is a protein database library. And I
+said to him, well, I can search this library, but are there any other urease
+sequences known? And he said, well, there is this plant, this Jack bean urease.
+I said, that's a bit of a bit of a leap, isn't it, to think that we might find
+any similarity between a bacterial urease and a plant urease. And at that time,
+you know, we had so few sequences that comparisons across domains was wasn't
+done very much anyway. But I said, well, we'll have a go. And I remember the day
+it was the 15th of September, 1989, when I sat down in front of the Mac and took
+his sequences and ran this translated, well, effectively a translated blast
+search, translated homology search.  to see whether his sequences encoded
+anything that looked like the urease from the Jack bean. And it was one of those
+things where you were just knocked off the chair, because there was around 50%
+amino acid identity coming up from the various sequences. And interestingly, it
+was on one strand, but it was wavering from one reading frame to another. So you
+get a great block of sequences from one reading frame, then just nothing, and
+then another reading frame would light up. And so I went back to him and I said,
+there is no question. You have cloned H. pylori urease genes. And not only that,
+but they show this remarkable sequence homology to the plant urease. And this
+kind of similarity between a bacterial protein and a plant protein, I think, is
+unprecedented. And so that was one of my moments where there's a poem by Keats,
+which goes on, Then felt I like some watcher of the skies when a new planet
+swims into his ken, Or like stout Cortez when with eagle eyes he stared the
+Pacific, And with all his men looked at each other with a wild surmise, Silent
+upon a peak in Darien. And to me, that's one of those moments where you're on
+that peak in Darien looking out at something completely new. And it was just
+amazing to see this. But what I said, well, actually, you've got the sequences,
+but there must be mistakes because they're coming in and out of frame. Let's go
+back and look at the autorads and see if we can correct this. And so we went
+back through each of the bits where it went out of frame. And he said, I said,
+oh, you've got six A's here. He said, oh, no, there's only five. Oh, you've got
+four G's here. Oh, it's five. And we managed to correct it. So we got everything
+in frame. And in fact, that still stands true. Apart from there was one final
+frame shift at the end. I think there was five amino acids we missed that were
+out of frame at the end that we didn't sort out by this process. So we
+immediately wrote that up. We tried to get into Nature, but the editor at Nature
+didn't like it or didn't think it was exciting or whatever. But it did get
+published in Nucleic Acid Research. And that was, for me, the beginning of a
+voyage because it meant I convinced myself and my colleagues that mucking about
+with sequences and playing around on your computer actually could make a
+decisive, have a decisive influence on the outcome of research and actually
+inform the way forward. For lab-based research, it wasn't just some kind of
+weird kind of activity that you did in a corner when you couldn't be bothered to
+do anything useful. So that was a great step forward. And within the same
+context, we found other things as well. There were several other efforts that
+came out of our work at the time that were similar. We found a group to intron
+that included a reverse transcriptase in a gram positive. That was the first in
+a gram positive. It wasn't quite the first in a bacterium. We also found a
+cluster of genes in Clostridium difficile, which were homologues of the set of
+genes in Clostridium acetobutyllicum that were responsible for butanol
+fermentation. And I got very excited about that because I said, well, these are
+the genes that gave rise to the state of Israel. Because a bit of a kind of
+knight's move thinking there. But it turned out that Chaim Weizmann, who made
+the case to the British government for the support to support Israel with the
+so-called Balfour Declaration, made his reputation by being able to produce
+butanol by fermentation during the First World War. And that made a decisive
+contribution to the First World War, the British efforts in the First World War.
+And it was using this particular genetic pathway in Clostridium acetobutyllicum
+that he'd done that. So that was an example where I got perhaps more excited
+than I should have done about what we found. But we did publish a paper on that.
+So that was a very exciting time back then. You know, that little phrase, we
+band of brothers, we happy few comes springs to mind as well, because it was a
+great time to be doing science. It's interesting as you as you go through it,
+some of the problems that you were talking about are some of the same ones I
+still have to feel today, where someone will come to me with some sequence
+they've generated in the lab, some, some mutant, they made under some condition
+and then asking whether what other organisms have something similar. And
+interesting you had to deal with homopolymer errors, probably a few decades
+before people had to deal with it with pyro sequencing. Yeah, indeed. Yeah. So
+that's always been the bane of any bioinformaticians existence is homopolymer,
+polymeric tracks. So many of these problems go back a long time. In some ways,
+there's nothing new under the sun. These things have the same problems have
+cropped up repeatedly. I did have a question about how you actually did the
+alignments considering like BLAST was published in 1990. It wasn't. So let me
+correct myself that it wasn't BLAST it was a forerunner of BLAST I think it was
+called FASTA the program back at the time, and it allowed you to just sequence
+to do homology searches against FASTA formatted sequences. I suspect that was a
+simpler, just local alignment. Yeah, and I'm sure it didn't. It wasn't as
+elegant and as quick and as efficient but the database probably only had like
+1000 sequences in it at the time so it didn't have to be massively elegant and
+efficient. BLAST as you say was a few years later, Altschul et al. It's one of
+the most highly cited papers, and later in my career I almost became a BLAST
+symbiont or a SyBLAST symbiont if you like, in that I spent so much time, you
+know, fused to a SyBLAST terminal, but we can go on to that in a moment. You
+said that in 1977 you were just like handed sequences and you had to assemble
+them by hand. Did, did you have anything more on that this is a bioinformatics
+podcast so I wanted to get like a little bit into that. Did you have like a way
+that you did it I wouldn't say an algorithm because you're obviously doing it by
+hand but but how did you do it back then. Well, it's like one of those things
+where you look back and think well I did that but how did I do that how did I
+know how to do that I must have must have had an aptitude for these things,
+because it seemed fairly straightforward to me that you just line them up and
+look for the overlaps and where they overlap you join them together until you've
+got the whole thing. The good thing about protein sequences is of course that
+they're all effectively in one strand if you like. Whereas if you're doing DNA
+sequences you have to reverse complement and it gets more complicated. But yeah,
+it was one of those. It was just like doing a jigsaw, but doing it with
+sequences instead and I guess I had some kind of affinity for that. For language
+I suppose I've done Latin and French at school I taught myself the language
+Esperanto. And so sort of playing around with, with strings of letters was
+something that wasn't that unusual to me. I mean if you if anyone's ever done
+Latin where you have to pause a Latin unseen, it's a similar kind of process of
+working out what the parts are and how they fit together, it's not that
+different. Yes, we shouldn't forget that most of our most fundamental algorithms
+and bioinformatics are essentially derived from tech searching and linguistics.
+Indeed, yeah I mean there are many parallels and jumping forward quite a long
+way I did actually persuade one of my colleagues to use similar approaches to
+the origin of species where they treat it like a series of genomes and look for
+among all the editions look for the additions the deletions and the edits, and
+they came up with an online Barry or the origin of species by thinking like a
+biome petition and I did later in my career, I rubbed shoulders with a
+theologian, who was using these kind of approaches to analyze gospel manuscripts
+gospel Luke, looking at, you know, how do you align the text as you look for
+changes, how do you identify work out whether it's an insertion in one or
+deletion in the other all those kind of issues, and it's. There are many
+parallels between these ways of thinking in in bioinformatics and in the digital
+humanities and elsewhere. And one more question from from before also. You said
+that your, your textbook wet back when you started there was like no mention of
+DNA at all. I thought that was really startling so back then I mean, did you
+ever get to rub shoulders also with with Franklin Roslyn or a prick or anybody.
+Not back then. You know, it was something that British people at the time had
+this warm glow of satisfaction that the these two guys working in Cambridge that
+solved it, and I did read the double helix as well, Jim Watson's memoir of the
+time, which is, I think, probably not very politically correct these days but
+it's an entertaining read if you, if you allow for that. And Jim Watson, the MRC
+gotten to come along I think in Cheltenham was the hundredth anniversary of the
+MRC they had him talking there. And that was a very strange business because he
+had just been saying all those stupid things that got him sacked  all those
+advisory boards about black people not being the same as white people and
+whatever. And the MRC had been very brave actually giving him a platform and one
+felt the whole time he was talking it was like treading on eggshells because he
+but I didn't speak to him but I took a photograph of him with my daughter and so
+she's got that in her archive somewhere she wanted to meet him because she'd
+heard of him. Yeah so how did you get into I suppose developing bigger grants
+and you know taking your own research forward involved Maddox? So what happened
+after when I was at BART I was doing this I was making the contribution to the
+research the other thing that had come in at that time was from raised chain
+reaction PCR and we we spent a lot of time playing around with PCR. In fact one
+of those moments where I had a moment of inspiration which then fizzled out and
+I looked back and think that was a missed opportunity I remember in the tea room
+saying to someone look the way which we type bacteria at the moment is that we
+cut them with these restriction enzymes and we get all these bands I wonder if
+we could do something similar with PCR. If we could make PCR primers that had
+the restriction enzyme sites at the end of the primers maybe we could replicate
+those bands and he said yeah yeah and I said but actually we don't need to do
+that we could just put any old sequencing so the primers could be completely
+arbitrary because as long as we take the temperature down for the annealing low
+enough something's going to get amplified and so why don't we try that why don't
+we just do a PCR with a very very low annealing temperature on some bacteria
+with any old primer and see what happens and we did it and it did work you took
+different strains of E. coli and you could see different banding patterns I said
+oh we've invented a new typing method and we started to write it up and we tried
+to get it published in nucleic acid research and they said oh this is a bit
+niche it's only for bacteria we're not really interested and then at the time I
+wasn't that skilled in the lab so so my my colleague was doing a work I called
+Ian Lamb he continued then he came back and said look I'm a bit worried because
+I'm not getting the reproducible profiles so when I've run the experiment the
+second time I'm getting a few extra bands and he said I don't think we should
+press on with this and so I said well you're more of an expert than me we put it
+to one side and then about 18 months later a paper was published in NAR on on
+exactly the same technique they'd applied it to both plants and bacteria and so
+I keep a gel from those experiments a picture of a gel from those experiments on
+the wall in my office to remind myself not to let opportunities pass you by and
+looking back probably what had happened is that because it's now called RAPD
+that approach what had happened is that from one round to the next some of the
+the um amplicons had hung around and there was contamination of subsequent runs
+and that's why they weren't giving consistent results so if you run the if you
+run the same experiment under perfect conditions you would get the same results
+probably but and as I say later on people did adopt this RAPD approach and it
+became very highly used so that's one of those missed opportunities but anyway
+getting back to Andrew's point so I did an MD thesis at the time which is a kind
+of thesis that that medics do in the UK and that was looking at using the PCR to
+detect the diphtheria toxin gene and I realised that there was a kind of gap in
+the repertoire that if we wanted to determine whether a strain of corynebacter
+diphtheria was toxigenic or not the conventional approach is very laborious and
+and required very complex agents that were not necessarily reproducible
+antiserum and such and so I said well we could just do it by PCR and I did
+manage to get it to work. I got the MD I then got into a senior lecturer
+position where I became an honorary consultant and I thought well I can make
+that can be a clinical academic I've kind of got some credentials here but then
+people said well you know medics in the lab basically there was this idea that
+all medics are jokers in the lab and the MD thesis was a kind of noddy PhD for
+medics. It became a debased coinage in a sense. People said if you want to be
+co-equal with your medical colleagues you have to do a PhD and around the same
+time Gordon Duggan who I was through Brendan Wren had come up with the same idea
+he basically said oh yeah medical microbiology in the UK as a profession is just
+rubbish. I was like this is my whole profession that's a bit harsh but yeah
+you've got a point and he so he managed to persuade the Wellcome Trust to launch
+a scheme to allow medics to go and do a PhD, medical microbiologists to do a PhD
+and I said oh how do I get onto this scheme? Where would I go? Could I do it in
+Bath? He said no if you stay where you are that's not how fellowships work
+you've got to go somewhere else. I said well where shall I go? He said well I'll
+take you on and so I went and did a three-year PhD with Gordon Duggan. It was an
+interesting experience because I went from being a self-important or at least an
+important person or self-important person I was a consultant you know I was the
+youngest consultant in my year at medical school and I like a lab idiot once I
+started the PhD you know that they were just joking on this guy his gels are
+rubbish and he can't make mutants and all this sort of stuff but it was three
+years of hard graft and I actually in that time I did change completely into
+becoming a jobbing molecular biologist and I also extended my bioinformatics
+skills. I continued to play around with computers and interestingly at that time
+the internet had fully arrived so the internet had been a kind of a niche thing
+for many years but with the arrival of of the worldwide web and increasing use
+of email it was coming into public consciousness and I started mucking around on
+the internet. I built my own web pages and I actually wrote a series of articles
+I persuaded the British Medical Journal to allow me to write a series of
+articles introducing the medical profession to the internet and so I wrote these
+these three articles about the internet. My daughter read them recently and she
+just laughed at me she said oh well I suppose at the time this was all very
+pioneering but some of the things you say it says here getting email is so much
+more fun than getting snail mail because there's no such thing as junk email and
+that's what we believed at the time we believe we're going into the promised
+land everything would be wonderful in the internet was only a force for good of
+course it's been very much a double-edged sword since then but anyway as a
+result of that I got the PhD and then I was in a place to start writing grant
+proposals I was kind of tooled up and I wrote I think I wrote eight proposals I
+wrote four proposals to welcome trust none of which got funded and I wrote three
+to the bbslc a fourth of bbslc three of which did get funded so I I kind of
+started off with three project grants and that was the launch of of my career
+and in one or relaunch if you like all right so let's take some questions I I
+can't help myself do you remember when your opinion changed about spam no I
+think that's more like the frog being boiled by the temperature going up slowly
+isn't it the amount of spam slowly increased over the years until now we have
+spam filters and all that sort of stuff yeah I'm just looking at google scholar
+and you've hundreds of citations for these guide to the internet yeah yeah
+exactly no I I look back and think well I yeah I did make a make a difference
+the other thing I did while I was doing the PhD was obviously I went on
+university challenge and captained a team on the university challenge which is a
+UK version of college bowl for those in America yeah we run that so that was
+that was a bit of fun as well along the side the other thing that happened and
+this is I think the theme of what I'm saying to you is that nobody remembers all
+those days in the office is the sort of thing that we say nobody remembers all
+those days in the lab apart from the fact that there are a few days that you do
+remember and there was one particular moment I remember when I was in Duke's lab
+where a guy called Duncan Maskell who is friends with Ian Charles our director
+he's now running the University of Melbourne in the US but he was on a
+secondment in Duke's lab but he'd been to a conference in America and he
+returned to this conference and we all saw him in the lab we all stood around
+him with bated breath listening to what he was saying he said oh he just met
+this guy called Craig Venter and and this other guy Ham Smith and they had just
+sequenced a bacterial genome and and they they'd done one but then they'd done
+Haemophilus influenzae but just to show they weren't a one-trick pony they'd
+then done a second one a mycoplasma genome as well and and it was one of those
+moments where wow they've actually done it and it was one of those things where
+Craig Venter you know had a a mixed reputation in the field I guess slightly a
+bit of a troublemaker but he certainly stirred the pot and you have to hand it
+to him what was going on at the time was that there were efforts going on at the
+Sanger and people were talking about oh yes we can sequence bacterial genomes
+but it was going through this very laborious process of making this top-down
+approach where they made a a very large library and then they subcultured bits
+from the large library and then and then subculture bits and then sequenced all
+that and put it all together in this very slow and laborious you had to have a
+total genome map before you could even start doing sequencing and Craig Venter
+and Ham Smith just upturned the uppercut because they just said no you just
+sequence all this stuff uh in lots and lots of small fragments and you let the
+bioinformatics do the heavy lifting of assembly  And that was one of those
+moments again, wow, okay, that's incredible. You said shotgun approach. Yeah,
+the shotgun approach. So using a shotgun approach rather than a top-down kind of
+mapping approach. That was a breakthrough. Yeah, and oddly, we still use that
+nomenclature even though no one does back-loadings anymore. Well, not for
+genomes in that way. No, no, exactly. So that was very exciting, and I got
+interested in that area. And Sanger very quickly decided that they were going to
+do the same thing. So they were at the time sequencing mycobacterium
+tuberculosis using the top-down approach, and they did complete that genome. But
+the next one they did was Campylobacter jejuni, and I got involved in that
+project. So what happened next was one of those strange serendipitous moments
+where something unexpected happened. So because I'd been working with the
+British Medical Journal on writing those articles, and they'd been well-
+received, what followed was that they asked me to do a regular column in the
+British Medical Journal on the internet. It was called Netlines, and I did that
+for a few months. So there's one question that I don't know if I'll ever get the
+answer to, but you mentioned that they said that you give all the data to the
+bioinformaticians and they can sort it all out. And the question that I'll never
+get the answer to, I think, is when was bioinformatics the term actually used
+first? And I've heard before, like maybe 1997 when the journal renamed itself to
+Bioinformatics, but I don't really know. So while I was doing the PhD with
+Gordon Dugan, I remember Gordon Dugan using the term bioinformatics and said,
+oh, you're interested in bioinformatics. This is a growth area. And that was the
+first time I'd heard the term bioinformatics. And that was in the mid-90s, 95,
+96. I'd been calling it sequence analysis up till then, but he used the term
+bioinformatics. And that's when the term came into my consciousness, and
+obviously became much more widely used as the field grew. Now, what happened
+next was one of those strange moments of serendipity, where I'd written those
+articles to the BMJ, the British Medical Journal. I did this regular column
+called Netlines, discussing innovations in the use of the Internet in medicine,
+new websites and interesting new developments. And after I'd been doing that for
+a few months, they said, oh, we have this student British Medical Journal as
+well, maybe you could do a column for that. And I said, yeah, right. They said,
+the thing is, there's this other guy that also wants to do that. And would you
+be happy to work with him? And I said, I suppose so. I mean, I don't need to
+have this other guy. I could do it myself. And who is it? And they said, oh,
+it's a guy called Nick Loman, and you might want to meet him. So I had a chat
+with him. And I said, it turned out he was at school. He was in his final year
+at school. He was applying to get into medical school. And he had, from a very
+young age, he taught himself the program. And so we started writing this column
+in a student BMJ together, which I think we called Net Files with a PH. And I
+said to him, why don't we run a little workshop to introduce people to the
+Internet for medics, to show them how to use the Internet, how to use the web,
+how to send emails and do stuff. And he said, yeah, right. And so we got
+together. And it was one of those experiences where you forget how much you've
+already picked up, because we had people turning up to that workshop who didn't
+know how to use a mouse, a computer mouse. You know, they were just looking at
+it. What's this? How does it work? And all that. And so we ran that and it was a
+qualified success. I should point out that we have had workshops recently where
+you kind of still run into the same stumbling blocks. It's the same. It's the
+same issues that recur year on year. You think you're running a workshop with a
+basic expectation of what people know and they and they fail you. They can be
+less skilled than you could ever imagine. Anyway, as a result of that, I
+thought, well, Nick, you're in this kind of programming space. And I'm still
+working with Sarah Tabatchley at the time. My mentor. And I said, look, there's
+this bright guy here. He's going to do a gap year. Maybe we can employ him in
+that gap year to do some kind of programming for us. And she said, yeah, right.
+So I took Nick on. And around the same time, the Sanger had started sequencing
+compiler back to judge and I. And the Sanger had said what they were going to do
+was sequence the whole genome. And only when they finished it and got all of the
+reads that they needed, would they then assemble it. And then once it assembled
+it, then they would annotate it one gene at a time. And then when they got to
+the end of that process, they would start creating vignettes, trying to draw out
+any kind of biological lessons from the genome. And through Brendan Renn, I was
+involved with the compiler back to the research community. And he said, well,
+the research community want to get access to this data straight away. And they
+don't want to wait for 18 months or two years or however long it's going to take
+for the whole thing to be finished. Around the same time, there had been this
+thing called the Bermuda Accords, where publicly funded or any sequencing
+project funded by public funds or charity funds. There was an obligation to
+release the data straight away. So the Sanger were releasing all their shotgun
+data, but they just weren't analysing it. And so what I said to Nick Langman is
+what we need to do is basically assemble that. We'll take those reads and then
+blast them against the E. coli genome, which was in a fairly good state, against
+the proteins in the E. coli genome. And then see if we can assemble them into
+the various protein metabolic pathways. So people can see Krebs cycle or
+glycolysis or whatever and see that those things are present in the genome. And
+they can do their own searches against the proteins as we go along. So if you
+could make a kind of genome browser. And he said, yeah, yeah, I can do that. I
+can make a database, a relational database, and then I can build a web front
+end. So I said, can you go away and do that? We were going to employ him for the
+best part of a year. I thought it might take him three months or six months. I
+think it took him about three days to do it. And it was just amazing. And it was
+at that stage that I had started thinking, well, maybe I should become a biome
+petition. I'd spoken to Bart Burrell, who was one of Sanger's kind of disciples
+at the Sanger, who was involved running this genome sequencing. He said, oh, if
+you're interested in this, you should learn Perl. And I started trying to learn
+a bit of Perl. And I was OK. But then when I saw Nick Langman at the age of 18
+come along and do this work in three days, I would have taken three months, I
+thought. I just thought I can't compete with you. You know, I'll just let him do
+it. What happened then was that we managed to do all these analyses. People were
+very grateful. I did some of my own analyses on stuff in the genome, and I
+managed to get myself onto the genome paper, which appeared in Nature. I'm
+looking at your Nature paper with Campylobacter. And so that figure one, I guess
+I'll put that in the show notes later for everyone to hear. That figure one, it
+looks like a modern figure. So the Sanger had their own bioinformaticians, and
+the Sanger did a perfectly good job of analysing the genome. It's just that they
+had this particular way of working, which was that we don't start one stage
+until the previous stage is completed. So we're not going to start analysing
+this data and interrogating it and basically iteratively looking at the
+biological significance of it and refining hypotheses and whatever, until we get
+to the end of not just the shotgun, not just the finishing, but the end of the
+annotation process. And the thing that the back in those days, the annotation
+was done manually. So an individual looked every protein coding gene in the
+genome, looked at the homology search results for that protein coding gene, made
+an annotation, made a call to say this is an ortholog of that, it can be called
+that, or this is distant related to something we can say it's a sugar transport
+protein, but we can't say what. They made all those kind of calls manually.
+There was none of this business of just running it through a pipeline in five
+minutes. It took months and months to actually do those annotations. And so I
+got in because we could actually help people make sense of the data in advance
+and so some of the things that we got written up in the nature paper. People had
+been working on them even in advance of the Sanger saying it's now finished and
+we're ready to do the next part. They'd already been like we've been laying the
+kind of groundwork for it. On that cliffhanger, I want to thank our guest Mark,
+Professor Mark Palin for joining us today we've been talking about some of the
+bioinformatics highlights from his career gleaning some advice and thoughts for
+the rest of us. We've gone from the start of his career to the dawn of the of
+the millennium, with exciting events like next generation sequencing on the
+horizon so we're going to cut back to that in the next exciting episode of the
+MicroBinfy podcast. See you then. Thank you so much for listening to us at home.
+If you like this podcast, please subscribe and rate us on iTunes, Spotify,
+SoundCloud, or the platform of your choice. Follow us on Twitter at MicroBinfy.
+And if you don't like this podcast, please don't do anything. This podcast was
+recorded by the Microbial Bioinformatics Group. The opinions expressed here are
+our own and do not necessarily reflect the views of CDC or the Quadram
+Institute.

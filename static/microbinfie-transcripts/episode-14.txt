@@ -1,0 +1,337 @@
+Hello and thank you for listening to the MicroBinFeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the US. Hello and welcome to the MicroBinFeed podcast. I am Nabil Ali
+Khan, and I'll be your host today. This episode, we'll be doing a deep dive into
+bioinformatics in regards to antimicrobial resistance. Today, I'm joined by a
+very special guest, Dr. Kate Baker. Dr. Baker is a Wellcome Trust Clinical
+Research Career Development Fellow and Honorary Senior Lecturer at the
+Department of Functional and Comparative Genomics in the Institute of
+Integrative Biology at the University of Liverpool. She is interested in genomic
+epidemiology of infectious diseases with a particular interest in what drives
+the emergence and persistence of disease. Her work focuses largely on Shigella
+and antimicrobial resistance. She's really interested in picking apart the
+independent epidemiology of antimicrobial resistant determinants and how they
+shape bacterial populations and disease outbreaks. She works in collaboration
+with public health agencies and works across both high and low income settings.
+Thank you, Kate, for joining me today. Thanks for having me on, Nabil. I wanted
+to first start off by asking, who are you and what do you do? What is a typical
+day in the life of Kate Baker? There's not many typical days. There's not much
+to return. Basically, I'm a research group leader at the University of
+Liverpool. I guess I spend quite a large amount of my time managing my team.
+I've got really, really excellent people. I've got a couple of postdocs and two
+and a half PhD students. Obviously, a lot of my time is spent supervising them
+and helping them grow their projects. Yes. What happened to the other half? The
+other half? The other half is supervised by someone else. Hopefully, you've got
+the better half. Yes. Then, I guess quite a lot of time is dedicated to
+directing the ship of the group in terms of not just delivering the current
+science, but planning what we're going to do next and grant writing and just
+maintaining relationships and communicating with collaborators. I've got an
+embarrassingly small teaching load and a few other roles in the university as
+well as some broader community roles. I'm an editor for microbial genomics,
+attending at conferences and giving talks and those kinds of things as well. A
+few different hats. What about you in terms of dealing with antimicrobial
+resistance? How much of your work has been focusing on that? I'm kind of, I
+guess, mostly interested in emerging infectious diseases, really. I think as
+soon as you switch to bacteria, antimicrobial resistance becomes a massive part
+of that because it's so prevalent in shaping bacterial populations at the
+moment. And so, you become kind of an accidental expert. Expert's a strong word,
+but you know, you become very involved in looking at antimicrobial resistance
+because of your interest in other things. So that would be the key determinant.
+Would that be the key determinant globally for emerging infectious diseases
+would be antimicrobial resistance? Not necessarily. It's certainly well funded
+at the moment, which is another reason I guess I was working on it. I think it's
+one of the most obvious things because it's this really artificial kind of
+selection pressure, which we've placed on bacterial populations. It's very
+measurable. It's very changeable. And the other changes in populations are a bit
+more subtle and happen over time. It's not that they're not happening. It's just
+that AMR is kind of this great global experiment that we've been doing with
+bacterial populations and we're now kind of in a position to measure the impact
+of that. When you approach a project, what would be your favorite bioinformatics
+tools in regards to, say, detecting and annotating this kind of resistance? So
+my most frequently used tool, I mean, I don't have a favorite tool because I
+think you have to pick the tool that's fit for your purpose. So it depends on
+the dataset you're working on, on what you're trying to do, right? I most
+commonly use ResFinder and PointFinder because they do a very good job on the
+pathogen I work on. And I'm almost always interested in the whole genomic
+context of a gene. So I would very rarely not want assembled genomes alongside
+my resistance gene predictions. So it's not a big deal for me to wait for
+assembly to then go on to use those tools. So other than having that genomic
+context, do you notice any slight differences in just outright quality in
+detection versus assemblies against reads, for instance? I think it's, I mean,
+to be fair, I don't have a huge amount of experience detecting in reads. I mean,
+you want to get straight to the point, so why bother, I suppose, right? Well,
+it's just in that, I mean, I'm not in a field, you know, I'm not in metagenomics
+where assembly is complicated. I'm not in like bedside clinical diagnostics
+where you need to be working with the raw data as it comes off the machine. It's
+not, for the projects I work on, it's not a big deal to set up the assemblies
+and come back the next day and then get the resistance results. You know, I'm
+not working to the timescale that I need the results. Okay, but often with
+antimicrobial resistance, a lot of these are on fairly complex cassettes with a
+lot of repetitive elements. Do you find that you can actually recover these to
+the extent that you'd like? Right, no, sorry, I now understand your question. Of
+course not. No, yeah, it's horribly limited and Shigella is like the worst
+pathogen for that. I was just checking myself because I know it's being
+recorded, the worst pathogen. I'm pretty sure that it's up there in terms of
+fragmentation. What would be the expected, well, what would be the expected
+number of contigs you'd expect from a Shigella genome as compared to E. coli,
+for instance? So of course, it all depends how you sequence it, but using kind
+of standard Illumina pipelines, looking at kind of, you know, several hundred
+base pair fragment libraries and paired end reads, you're still only going to
+get like three to 400 contigs for Shigella because they have loads of insertion
+sequences just littered throughout their genome. There's a really good paper by
+Jane Hawkey and Kat Holt and Co, obviously, in preprint at the moment, which
+shows just how extensive the IS diversity in Shigella is. And compared to E.
+coli, you know, E. coli is kind of hovering in the tens of IS or repeat elements
+that break them down. And so it's something like 50 to 100 contigs rather to
+several hundred. And so it's really a problem in Shigella. Following on from
+that, in terms of Shigella, where is the antimicrobial resistance for people who
+don't know the species very well? Is a lot of it driven by point mutations on
+the chromosome? Is a lot of it driven by plasmids? Where is it actually coming
+from? I guess it depends on the phenotype you're looking at, obviously. So
+suprafloxacin-resistant Shigella is a really big problem. It's on the World
+Health Organization's top dozen, you know, priority pathogens for new
+antimicrobial agents. And that's because suprafloxacin is the recommended
+treatment for Shigella and we don't have a licensed vaccine, and it causes a
+massive global burden of disease. So that's a really big problem. But it's and
+it's caused by point mutations, but there's only one kind of genetic context to
+it, really, in that we get these accumulation of point mutations in a quinoline
+resistance determining region. But in addition to those, that really important
+kind of chromosomally mediated phenotype, there's a huge number of acquired
+resistance gene phenotypes in Shigella, and a lot of them are on quite commonly
+found mobile genetic elements. And so there's integrated chromosomal islands, as
+well as a number of plasmids that have kind of found quite a comfortable home in
+Shigella. And so I think quantifying antimicrobial resistance is something
+that's really hard to do. Yeah, so we've touched on a couple of different
+elements that are introducing or mobilizing antimicrobial resistance. So far,
+we've had point mutations on the chromosome, ICEs and plasmids, so mobile
+genetic elements. Are there other mobile genetic elements? Is it ever mobilized
+by a phage or something else? What are some of the other mechanisms out there?
+So obviously, you get smaller units of mobile genetic determination, so things
+like integrons and transposons. I know that phage-mediated resistance can
+happen. It's certainly not a big part of what happens in Shigella, and I can't
+think of a reference where someone has demonstrated it for Shigella. That's not
+to say it couldn't happen. But yeah, that's the list in my head. All right, and
+that sounds like a rather heady list of things to keep track of. And are there
+any particular tools other than ResFinder and PointFinder that you use to detect
+these? What are the approaches that you're familiar with that you would use to
+identify these different systems? Yeah, so I mean, obviously, there's
+PlasmidFinder, which is based around replicon typing and ink typing of genetic
+sequences. And I certainly have used that. And I'd like to couple it by actually
+pulling out AMR contigs, and then, you know, AMR gene-containing contigs, and
+then putting them through PlasmidFinder. But in my experience, I mean, they're
+very good, but it's got the same problem everything else has, right? It's
+database limitation. So you quite often get things that either don't type, or
+because of the fragmentation issue, you know, you might get an integral.  on a
+plasmid but the problem is by the time you get the contigs they're fragmented
+and you've just got the integron so you can't obviously plasmid type that and
+you can look at association and stuff but really for this kind of work you know
+we need to be moving towards long-read sequencing to be pulling out that level
+of detail. So based on your experience there is no way to resolve this from
+short-reads you have to have more sequencing information through long-reads? I
+guess it depends on the pathogen but certainly for my group working mainly with
+Shigella that's the direction we're going in. Okay and it's interesting you pick
+up on the merging the sort of res finder and plasmid finder because a lot of
+people keep asking me the same thing of how do I get you know identify the ink
+type and then also figure out which resistance genes are associated with that
+plasmid and to my knowledge there isn't a tool that does it I just say well
+you're gonna have to get your hands dirty with sequences and blast to figure it
+out. Sort of I mean I think you can do quite a lot of statistical magic to
+associate you know the presence of a particular ink type with the presence of a
+particular resistance gene. Yeah so one way you can approach that problem is to
+do statistical analysis of the presence of particular you know ink types and
+plasmid groups with particular resistance genes and and you can always use that
+kind of approach to then target long-range sequencing. You know we're still not
+or most of us aren't in the position where we can long-range sequence the kind
+of data sets we've been working with with short-range sequencing. So you know
+we've been working with hundreds of genomes at a time and it's still not
+financially viable nor are the tools available to process things you know at
+that scale in long-range sequencing. So you can use those kind of statistical
+approaches to target your long-range sequencing and then once you have a
+scaffold of a reference then you can obviously use your short-range data in the
+ways that we're all familiar with by mapping back and looking to see how the
+coverage is across that region and those things. As part of your group I'm sure
+there's a lot in the wet lab as well taking these predictions and then testing
+them empirically. In your experience with in particular for Shigella, what is
+your experience with the accuracy of these predictions and what you can actually
+see based off the phenotype? Actually it's quite variable in terms of just preps
+and intra-sample variation, intra-colony variation, even intra-prep variation
+between different genomic preps that we've done. There's a lot of variation in
+you know the gene content and the phenotype between those sorts of scales and I
+think that's something that's going to come back to kind of you know I don't
+know if it's just Shigella or if everyone else's pathogens are doing this as
+well but it's going to become an important part of how we do our studies. Well
+it sort of sounds familiar from my experience. I sometimes see mixed mixed
+colonies from the same plate, you have multiple pigs and you sort of see
+different resistance patterns within something that's supposed to be clonal. I
+don't know if you're seeing something like that yourself. No, that's exactly it.
+So we see quite a lot of variation in genome content and you know including
+those crucial mobile genetic elements and you know we're just sort of starting
+to get to the bottom of some of that in some more focused studies but you know I
+guess it worries me in how things are interpreted. Part of the problem is as
+well you know some of these resistance phenotypes are more obvious than others
+in that you know obviously if you have a functional beta-latinase gene then that
+is going to confer the phenotype. You know some of the resistances are much more
+obvious than others whereas a lot of things like changes in modulation of
+expression of resistance genes and things that might cause more subtle changes
+in the minimum inhibitory concentrations are not so easy to detect. Because I
+think a lot of the time we work in this space of kind of resistant or
+susceptible and that's actually not the reality of what these bugs are doing.
+You know this is actually continuous data which we forced to be discrete for the
+convenience of analysis. So you mentioned that there are some that are easier to
+call over others. For me things like some fundamite resistance is brain-dead
+easy and others are a lot more cryptic. For you do you agree with that and which
+are the ones that you find that that you would just say are really easy to
+detect genomically and then in the lab? We don't do a huge amount of phenotype-
+genome correlation in my group but the experiences I have to date that I'd
+comment on for that you know beta-latinase is a really complex trait. I think
+you know I guess if it were a human trait we'd probably call it polygenic. You
+know for enterobacteriaceae they have you know AMPC genes encoded on the
+chromosome and small variations in their promoter region can cause a higher
+resistance than others and then obviously there's other genes that can come in
+as horizontal gene exchange like Blarox or Blartem genes. You know to look at
+that as a gene presence equals phenotype presence is just kind of artificial and
+you know obviously for a lot of these there's efflux pumps and things involved
+as well and when it comes to something more like azithromycin resistance I mean
+if you have azithromycin resistance if you have an MPHA gene and an ARMLB gene
+you will be resistant at a high level against azithromycin but then there's
+again all these kind of shades of grey at the lower regions that are harder to
+pick apart. Is it always this cascade of multiple events in play? I mean it
+sounds it sounds like even the simplest ones are fairly difficult to call or you
+wouldn't necessarily say that the predictions you get straight out of these
+databases would be reliable. I'm probably getting too caught up in the grey
+right some of them are very obvious if you have you know MPHA and ARMLB you will
+have a high level azithromycin resistance but I think it's important not to lose
+sight of the fact that below these massive you know these ones where there's
+this obvious massive increase in MIC where there's a very specific mode of
+action there's a lot of stuff happening underneath to do with regulation and to
+do with small changes in expression of you know a bunch of normal bacterial
+defense mechanisms that we are not yet classifying as resistance gene. Yeah I
+mean you touch on mode of action how much do we understand of the mode of action
+I suppose at the moment we have a good idea of the low-hanging fruit the stuff
+that's really obvious but what proportion do we just simply don't understand? I
+really don't think that there's a quantitation for I mean in terms of do you
+mean for every resistance gene do we have a function is that or is it kind of
+for the amount of volume of burden of disease do we how much of the resistance
+do we understand? No I mean I'm talking more in the sense that we've got the
+we've got this obvious threshold where we can figure out very obvious very
+obvious cases and then they're probably more much more oblique ones which are
+gray but it's are they what's the range of that is it that are the gray area
+ones like 5% of the total case total cases we could expect or is it 90%? You
+mean kind of correlation of genotype and phenotype? No just being able to just
+being able to predict it reliably with these tools bioinformatically or even
+just in the lab. Yeah okay so it depends on what you're working on right so for
+Shigella the prediction is actually pretty good and that varies with
+antimicrobial class and probably for the reasons we were discussing before where
+a lot of things have more than one thing involved and might have other
+mechanisms but obviously Shigella is really closely related to everyone's
+favorite pathogen E.coli you know it's a big human pathogen so there's been a
+lot of studies into the antimicrobial resistance of it and the mechanisms that
+underpin that whereas if you are working with some wild and beautiful you know
+heretofore unknown pathogen environmented from you know from environmental
+samples then your chances of being able to correlate phenotype and genotype are
+probably much less good you know it's a biased system towards human clinical
+pathogens. But you're saying that I can't I can't write one universal tool that
+just solves everyone's problems? Well if you can you'd never have to work again.
+There's so much money in microbial bioinformatics. You're saying but that tool
+would be very unlikely. Yeah I think unlikely because it here's the thing well I
+think so antimicrobial resistance is a bit like how everyone used to talk about
+cancer. It's such a complex multifaceted thing that you know it just involves so
+many different mechanisms and forms of mobility and you know methods of
+detection in that you know some things are all in the regulation and and that
+won't be detected by you know most of the tools we have now and and I think once
+we can start to kind of break it down a bit you know we are starting to in terms
+of talking about you know point mutations versus horizontally acquired genes you
+know we are picking it apart a bit but I don't think there will ever be a one-
+size-fits-all tool because it's just such a massive complex phenotypes that
+we're trying to capture with this catch-all word. We used to talk about cancer
+and cancer was one thing and people talked about curing cancer and at least now
+you know that's matured a bit and now people are talking about breast cancer and
+melanoma and testicular cancer and and you know I think to be fair you know
+antimicrobial resistance needs the same kind of thing instead of trying to talk
+about it as if it's this one thing that we will be able to solve in one way.
+It's not the case you know it's far too complex a phenomenon to be you know
+trying to address. I mean I think on that note of like you know trying to
+correlate gene is present therefore resistance I mean one thing that really gets
+me about the whole as we move into genomics for prediction of resistance in
+surveillance what bothers me is that the gold standard is sort of MIC
+breakpoints  mewn gwirionedd, yn amlwg, mae cyfrifiad genedlaethol yw a yw
+hynny'n cyfathrebu gyda'r data MIC. Ac eto, mae'n arddangosfa i'r rhaglen, ond
+dydyn ni ddim yn cyfathrebu gyda'r data MIC o ran y ffordd y bydd y cyfrifiad
+genedlaethol a'r cyfrifiad genedlaethol, yn hytrach na sut y bydd y bugiau yn
+ymdrechu yn yr ystafell. Ac dydyn ni ddim yn gwybod sut y byddwn ni'n mynd allan
+o hynny, ond mae'n un peth sy'n fy nghyfathrebu gyda'r holl cyfrifiad
+genedlaethol. Mae'n dweud, oh, iawn, ac rydyn ni'n ei gael i'w hyrwyddo y MIC
+hwn o'r bug yn y ystafell, a yw hynny wir yn y cyfrifiad genedlaethol rydyn ni'n
+mynd allan i gyfrifiad genedlaethol y MIC yn y cyfrifiad genedlaethol? Dydyn ni
+ddim yn gwybod. Dwi'n meddwl, mae'n anodd cael gysylltiad o'r math o wybodaeth
+ynghylch y canlyniad penodol i ddarparu, o fy nghefnd, fel rhywun sy'n rhaid
+ysgrifennu dylunio a ceisio gysylltiad o'r math o wybodaeth y canlyniad penodol
+i ddarparu, dydyn ni ddim yn gwybod. Felly, os yw cyfrifiad genedlaethol, dwi'n
+meddwl, byddai cyfrifiad genedlaethol yn anhygoel a bod hynny'n canolbwyntio fel
+standard Dugaldd byddai'n dda, ond dydw i ddim yn gwybod sut y byddwn ni'n
+cyfrifiad hynny. Nid yw'n wirioneddol, mae'n mwyfactorol hefyd, nid yw'n
+wirioneddol, y byddai rhywun sy'n cymryd cyfrifiad genedlaethol nid yw'n
+wirioneddol i'w wneud, yn enwedig pan ydynt ar y pwynt hwnnw, nid yw'n
+wirioneddol i'w wneud gyda'r antibodiadau maen nhw'n cael, ond dwi'n teimlo,
+rydych chi'n gwybod, yn ceisio gysylltu â'i gyfrifiad genedlaethol nid yw'n
+wirioneddol y peth y gallwn ei ddod â. Ond mae hynny'n ddiddorol fel cyfrifiad
+llawer mwyaf. Mae hynny'n dod, mae hynny'n dod yn ôl o'r cwestiwn canser o
+ceisio ddod â'r cyfrifiadau sy'n gosodol ar gyfer sefyllfa penodol, y byddwn yn
+rhaid i ni ddod â phobl dros amser byd eang a recordio popeth a chael llawer o
+bobl i alluogi o unrhyw ddiddorol ac yna fynd yn ôl a edrych ar beth oeddant yn
+cael eu hysbysu a sut oedd hynny'n ymwneud â hynny ac yna edrych ar beth oedd y
+elementau genedlaethol sy'n cyfrifio un ffordd neu'r ail. Ie. Dyna'n ddiddorol.
+Bydd hynny'n gwneud ni'n gweithredu erioed. Ie, roeddwn i'n mynd i ddweud a
+edrych yn gyffredinol, iawn? Felly, byddwn ni'n mynd i fod yn cyfrifio llawer o
+samplau o unrhyw ddiddorol ac, ie, mae'n mynd i fod yn ddiddorol. Ond yna, wel,
+gadewch, gadewch, gadewch i ni edrych yn ôl ychydig. Dwi'n meddwl efallai
+oeddech chi wedi edrych ar y niferoedd o sut o ddiddorol i wneud rhywbeth i'r
+niferoedd hwn. Ie, dwi'n mynd i roi cyfraith politig ar hyn i'r niferoedd hwn.
+Felly, dwi'n meddwl bod cyfrifiadu AMR yn wir, dim ond eang oherwydd dydyn ni
+ddim yn gwybod beth ydym yn ei ystyried. Ac, dwi'n meddwl, dydych chi'n gwybod,
+dydych chi'n gwybod, dydych chi'n gwybod, dydych chi'n gwybod, dydych chi'n
+gwybod, dydych chi'n gwybod, dydych chi'n gwybod, Mae'n siŵr Mae'n siŵr Mae'n
+siůr Mae'n siŵr Mae'n siŵr mae'n siŵr Mae'n siŵr Mae'n siŵr Mae'n siŵr Mae'n
+siŵr Mae'n siŵr Mae'n siŵr Mae'n siŵr Mae'n siŵr Mae'n siŸr Mae'n siŵr Mae'n
+siŵr Mae'n siŵr Mae'n siŵr Mae'n siŵr Manau Manau Bydd bod sylwyadau Bydd bod
+sylwadau Gwych Mae cyfeiriadau symudi Aller yngo feicmor y tradyn y gwydraddau
+yr glaswyd. Rydym ddim gyda life sylwydau amdano mewn ffordd systemiedig.
+Offioliaeth Node rhyddhau chweinidod Cymryd Befydl Mae'r Dod Mae'r �� a gopethau
+rhaid i atal i ddeall y systemau cymhwysedig hwnnw ac, wyt ti'n gwybod, yn y pen
+draw, rwy'n meddwl am y pethau isolaethol, yn siŵr, ar gyfer pathogenau clinigol
+dynol. Dw i'n meddwl ei bod Shigella yn ymdrech yn cael ei gysylltiedig o lawer
+o'r cyflwynoedd o ddarpariaethau a phethau ond mae'r rhaid ymdrech yn mynd i
+gael llawer o ymddygiad i ddod ymlaen ac mae hynny'n ddiddorol. Rydyn ni'n
+gwneud gyda'n amser gyda ni, sydd bob amser yn anodd, ond unrhyw sylwadau
+gwreiddiol o chi? Nid yn wir, ond roedd gen i stori byr os oeddech chi eisiau
+rhoi hynny. Oh, roeddwn i'n hoffi clywed stori byr, ie. Mae'n stori byr
+anhygoel, ond rwy'n meddwl roeddwn i eisiau gwneud ymddygiad y byddwn i yn y
+diwrnodau cyntaf o'n amser mewn pathogenau clinigol dynol, roeddwn i wedi gwneud
+ymddygiad a gwneud ymddygiad o ran ARDB Anno, syddwn i'n gwybod nad oedd yn cael
+ei hyrwyddo, ond roeddwn i'n dweud, mae'n iawn, mae'n gwneud yr hyn sy'n ei
+ddweud ar y tin. Roedd hwn yn amser byr, ac roeddwn i'n gwneud ymddygiad o'r
+dynol sy'n bwysig iawn ac mae'n llwyddiannus bod cydweithwyr wedi cyflwyno'r hyn
+cyn i'w cael ei ddatblygu, ond rwy'n meddwl mae'r pwynt cydweithredol yw, rydych
+chi'n gwybod, mae'r peth hwn yn bwysig, mae'r pwyllgor dylunio'n bwysig, mae'r
+pwyllgor datblygu'n bwysig, ac felly, rydw i'n gofyn i bawb fod yn gwybod beth y
+maen nhw'n ei wneud, beth y mae'r dyluniau sy'n eu defnyddio, a bod yn gwybod
+beth y mae'r biaisau sy'n eiddo eu bod yn rhedeg. Iawn, well, dyna ddiddorol
+ddiddorol i bawb gwrando'n dda. Ac felly, gyda hynny, byddwn i'n hoffi ddiddorol
+y peth hwn i'r llwybrau. Diolch yn fawr iawn, Kate, ar gyfer mynd ymlaen heddiw.
+Mae wedi bod yn llawer o hwyl. Rwy'n credu ein bod ni'n defnyddio llawer o
+ddiddorolau gwahanol, sy'n siŵr y byddwn ni'n cael llawer o ddiddorol ar y
+Twitterverse. Felly, diolch yn fawr iawn ar gyfer mynd ymlaen heddiw. Diolch,
+Nabil. Diolch i chi i gyd am wylio ni yn ein tu hwn. Os ydych chi'n hoffi'r
+podcast hwn, gallwch chi asgrifio a hoffi ni ar iTunes, Spotify, Soundcloud
+neu'r ddal hwn o'ch penderfyniad. Ac os ydych chi'n hoffi'r podcast hwn, gallwch
+chi ddim gwneud unrhyw beth. Roedd y podcast hwn cael ei recordio gan Gwgrop
+Bio-informatig Cymdeithasol Migrobial a'i edrych gan Nick Waters. Mae'r
+cyfredodiadau sy'n cael eu hanfod yma yn ein ei hun ac nid yw'n ymwneud â'r
+ymdrechion o'r CDC neu'r Gwgrop Bio-informatig Cymdeithasol Migrobial.

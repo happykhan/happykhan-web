@@ -1,0 +1,675 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. Today we are going to discuss the ins and outs of getting
+started with SARS-CoV-2 bioinformatics. What are the pitfalls? It seems like an
+easy problem, but there are so many gotchas. Andrew and Nabil are part of the
+COG-UK Consortium, which is a national effort in the UK to sequence and analyze
+SARS-CoV-2 to provide a real-time map of the pandemic as it progresses. I am
+part of the SPHERES community, which is the U.S. equivalent to Sequence and
+Analyze SARS-CoV-2. And to top it off, we are all part of the PHAGE community,
+which is a global coalition that is actively working to establish consensus
+standards and improve bioinformatic tools and resources in public health
+microbial bioinformatics. I totally didn't lift that PHAGE description off the
+website. So guys, do you want to kick us off? What are some of the pitfalls? How
+are you enjoying analyzing SARS-CoV-2? It's been a long year. I can tell you
+that. We have to skip Christmas and New Year's and it just keeps on coming, but
+I think mostly we've settled down. What about you Nabil? Well, this new variant
+definitely is something a bit different, but yeah, a lot of the stuff we
+struggled with at the beginning, we've definitely overcome and we've kind of
+built some normalcy around what we're doing. But in all of this, we have learned
+a lot of stuff. You know, we've made many, many mistakes and come across little
+gotchas. So we'd like to just tell people about those so that they don't make
+the same errors and they can just proceed straight to the good stuff. Yeah, I
+mean, I think there are two different ways you can slice different types of
+errors that at least we've seen, is people making mistakes with how they
+generate and manipulate sequencing data, and then sort of general mistakes they
+make when dealing with the contextual data that they get from the clinic. So
+maybe like one, can I go back a step actually? I should have asked this question
+originally. We're all kind of coming from the foodborne bacterial world. Was
+there something that was just like, I was not expecting that? Because for me,
+that expectation to go from a five megabase genome to 30 kilobases, I was just
+like, this is going to be great. What were your thoughts? I felt exactly the
+same as, oh, this is easy, 30 kb, no worries. Yeah, I mean, you can nearly print
+it out and learn it by hand, you know? How hard could it be? Famous last words,
+right? Yeah, I think that is a big problem, though. I mean, a lot of people came
+from other fields like us, like bacteria and human genetics, cancer, that kind
+of thing, and they moved into viruses thinking, oh, this is easy, I'll apply the
+same methods that I've been using for 20 years, same mappers, same parameters.
+I'll throw an assembler at something, you know, what could go wrong? And of
+course, then you realize viruses have their own little quirks and pitfalls. Like
+in human genetics, you don't have to deal with things, you know, a genome where
+maybe one part is 10x coverage and then the next part is 10,000x coverage. Like
+assemblers just don't like that. They really do fall over at that point. So
+those are things you need to consider. You can't just transfer everything from
+one domain to another. So I think a lot of biometricians have to go and relearn
+bits and pieces. They could, you know, they could transfer their skills quite
+easily, but they have to be careful to relearn in the correct way to process the
+data efficiently without error. Yeah, that was that was definitely another
+learning curve, not just moving from between domains of, it's not really alive,
+is it, moving from different types of biological agents, you have the issue that
+you're moving from a whole genome shotgun to dealing with a lot of amplicon
+data, a lot of messy amplicon data. And that has its own quirks and requirements
+that you need to need to deal with as well. And if I mean, you can do shotgun, I
+mean, the first SARS-CoV-2 sequencing was just out of metagenomics, so it was
+like a straight shotgun, but it's much cheaper, obviously, to do targeted
+amplicon. And that's what most people do. But that has problems that you have to
+keep in mind when you're approaching the data. That's different to probably what
+we're used to. And a lot of bacterial data is forgiving. If you have a few
+errors in there, it doesn't really matter. Whereas in SARS-CoV-2 bioinformatics,
+every single SNP counts because it's a reasonably stable genome. Things don't
+really change that much. And when you're down at that level where you're
+analyzing a single SNP to tell you if this is in a cluster or not, then every
+SNP really is important and you've got to get that right. OK, so one big issue
+that we discussed is basically like huge amounts of coverage. You're going from
+de novo or metagenomics over to amplicon-based sequencing. So the pipeline's
+changing. Do you want to talk about that a little bit? Well, luckily, in the
+early days, we already had pipelines established from the Arctic network. And
+for like Zika and Ebola, they already had these amplicon methods and they had
+bioinformatics methods established for those. And those were geared towards
+nanopore. But it meant that there was a foundation to work from. And so those
+are very quickly ported over to work for SARS-CoV-2 and adapted as things went
+along. Of course, where we work, we primarily use Illumina. So it required a
+different type of pipeline, slightly different, to analyze that data and take
+into account all the different quirks of that. Other people use other types of
+prep methods, so like hypercapture, that kind of thing. But predominantly, last
+time I looked, it was virtually all amplicon sequencing in the world. Some
+people have taken Arctic and tweaked it. But Arctic is the primary method for
+producing SARS-CoV-2 data. So, yeah, just following on from that, one of the
+pitfalls that people have we've seen fall into is when you work in human
+genetics or even bacterial genetics, it's quite common to call your variant
+sites and then go back to the reference sequence and use the reference to
+backfill extra missing information for regions of the genome that you didn't
+recover on the first from your actual data. So that's going back with all of the
+end characters and just replacing that with the reference sequence or another.
+Or you might do something like you call all your variants and then you just
+mutate the reference sequence to have just those changes in there and you keep
+everything else intact. Both cases sort of impute extra data that isn't there.
+And that's just a big no-no for the SARS-CoV-2 genomics, because that's just not
+the kind of data that people are expecting. And the established expected result
+is that if the base isn't supported, you just put a placeholder and you just
+leave it. But it makes a big difference because the genome is so small that when
+people misbehave and just put in random bases, it can cause massive problems. So
+is that something you have had experience with that you had to get across when
+you were first starting? Yeah, I think Andrew had to run into that directly.
+Yeah, so I did a review of care home papers that or long term care facilities
+that use genomics to analyze outbreaks and for surveillance. And there was one
+instance of a group actually filling in, you know, trying to make things
+complete. So they're filling in from a reference and also imputing. So they're
+looking at the tree and where, you know, if you have this step, then you should
+have this step, this kind of thing. So classic human genetics kind of stuff, but
+not really stuff you want to do with non sequencing. That doesn't really fit.
+Another issue is that when you get amplicon data, you don't assemble it. And it
+is a bit of a problem. People don't necessarily realize that in the amplicons,
+in the reads, you have artificial sequences and those have to be masked at first
+before you then go do anything with them. If you just go and assemble them
+straight, then you effectively have like the reference strain in quite a large
+part of your assembled genome. So, you know, those have to be accounted for. And
+the standard pipelines that people have built actually do take this into account
+for SARS-CoV-2. Yeah, even with your mapping, you have to take that into
+account, even if you do something fairly primitive, like taking your, you know,
+sequence read raw data and then just using BLAST or something against the
+reference, because then you'll find like there's this massive hanging off bit
+that doesn't align properly. But why is it going on? Why isn't this like
+aligning 100 percent? And it's just because you've got some.  a synthetic
+sequence that's messing you up. So yeah, that has to be, going back to what you
+were saying before Lee, like that's one of the things you really have to
+specifically address is trimming out or masking out synthetic primers. And some
+people think that Illumina data is okay and the first 50 bases or whatever will
+be just chopped off anyway by how it works when it inserts from this boson. But
+actually sometimes you do get a bit of that artificial sequence still in there.
+So you have to be careful and check for that. So just always be careful.
+Basically, consequencing is a little bit harder than you realize. And if you try
+and just blindly assemble stuff or if you blindly map stuff, it's not gonna work
+the way you expect. You're gonna get weird errors and they're gonna manifest in
+weird ways as well. It might be that your tree looks slightly off or something
+is at a slightly different cluster. But if you're giving that to people working
+public health like Lee, people might go and actually do real things with that
+data and that might end up to be really bad because you might draw drawn
+conclusions. Oh, yes. Yeah, just following on from that, this sort of dives into
+another gotcha is you have to explicitly look for human reads and remove them.
+And you kind of assume that if you're doing targeted amplicon, you shouldn't get
+ran aberrant reads from the host, but you might. And you have to be very, very
+careful. So for all our data, yeah, basically your first step is you're mapping
+it to the, I mean, the easiest, most trivial way to get rid of human reads is to
+just look at the reads that map to the virus. There's no overlap between the
+two. So if it maps to the virus, it's not human, so that's fine. That's one of
+the easiest ways to do it, but there's a lot of other tools out there that go
+off and remove human reads, but you need to do that as initially. First, deal
+with synthetic sequences and deal with human reads. And so we find that
+occasionally we'll get samples where we've got lots of reads have been
+sequenced, but there's no coronavirus in there at all. And usually, you know, it
+might be a false positive or maybe the wrong sample was picked in the lab and
+sent to us, that kind of thing. But you'll get hundreds of thousands of reads
+which aren't coronavirus, which make it all the way through the entire prep
+process and then get to you at the end. So you gotta be careful, but you know,
+it's just random stuff. It's probably the microbiome from the mouth or whatever,
+but you have to be careful with that. So we always look for, after we've done
+the human mapping, we look for fully mapped reads to the coronavirus genome
+dealing with Illumina data. So full length, we're not looking for, you know, the
+itty little bits like that are 25 bases long, say if you have 150 bases
+matching, then that's what you wanna do, you know, if you're doing 150 paired
+and sequencing. Yeah, you have to be careful. If you wanna check that a COVID,
+that a sample truly does have coronavirus in it, you need to see fully intact
+reads. And if it's Illumina, it's gonna be, you know, a cigar string of 150
+matches, right? 150, you know, 145 matches or something like that, bases
+matching or. Yeah, I keep trying to figure out which pipeline to use for this or
+that. And it's getting updated so fast, so furious. And it's just because all
+this is so new. So what are the tools? What are the pipelines that you guys are
+using now? Well, first of all, let's say don't reinvent the wheel because we've
+been doing this for a year. The world has been doing this for a year and you
+don't need yet another pipeline. There are so many examples in the literature of
+groups going and do their own thing and getting it wrong and making minor
+mistakes or using the incorrect version of something and they get the incorrect
+conclusions and everything is unsound. So don't reinvent the wheel. Instead,
+there are lots and lots of pipelines out there. The most commonly used for
+Arctic is actually the Arctic's own pipelines on the Arctic Network website. And
+then for Illumina, Tom Connor's lab in Wales, Public Health Wales, they've gone
+and taken a fork of that and added on extra stuff for Illumina. So I would use
+those. That's what we use. Yeah, I mean, it fits more into the NextFlow
+environment and more with the principles around designing better NextFlow
+workflows. There are dime a dozen pipelines coming out of public health labs. I
+think any public health lab that's looking at this has sort of spun out their
+own thing. And one of the ones that I recommend, if you have a pipeline and
+you've written it or you have just some data and you want to start playing
+around with quality control and looking at sequencing results, there's nCov
+tools, which just allows you to just dig into the BAM files and just get some
+basic metrics out. So even that kind of data munging that you would say, oh, I
+need to write a script for that, it's done. There's really not much. And then
+there's a GitHub page from the CDC written by Duncan McCannell, which just has
+a, which was started like, it's about eight months old now, but it still has
+this exhaustive list of pipelines. There are pipelines for Illumina, pipelines
+for PacBio, pipelines for every, I think every sequencing platform already out
+there. IonTorrent, I'm sure there's one out there. I've seen IonTorrent data in
+the wild. It's quite wild. Yeah, so, you know, everybody's had a crack at it.
+Okay, if you want to write one for 454, then I don't think that exists, but
+nobody's going to use it. The one area that I think there is scope is the
+visualization and reporting, because that is a very bespoke thing and that
+changes depending on your audience and your question. So if you're trying to,
+you know, it's a different way you'd represent data if you're saying, oh, what
+lineages have changed week to week versus what's going on across the country
+versus what are the individual mutations or which parts of the genome are under
+selection. You're going to use the same output data from all of these pipelines,
+so don't make a new pipeline, but you might have specific interpretations and
+that's where you can start playing around with. But for that, you're going to go
+back to standard data viz. So R, Matplotlib, NumPy, SciPy. I don't know what the
+Perl one is, if there is a Perl statistics package. I cannot remember if there's
+a specific Perl statistics package. There are like several smaller ones. Well,
+you'd do it by hand, wouldn't you? Yeah. That's the Perl way. In the UK, there's
+programs called Civet and by Anya O'Toole and Verity Hill and a few other things
+that integrate like Pangolin and they will overlay your data on trees and then
+try and contextualize things. And there's other reporting tools which overlay
+stuff on maps. You know, there's quite a lot, but a lot of these rely on, say,
+private data sets to enhance your genomic epidemiology. So it's going to be
+different for every country. So maybe that is something you do need to write.
+You can use Augur, which is the Nextstrain sort of do-it-yourself version. So if
+you want to spin that up, you can do that. So, and you can always, if you just
+generate the correct metadata table and the correct NUIC file, you can chuck it
+straight into MicroReact and use that as well. So your data viz on the filer
+side is good. I think when I say like the scope, when you want to get nitty
+gritty and start dealing with like individual comparisons between sequences of
+one sample versus another for one reason or another, that's where you've got a
+bit of wiggle room to go and make something or look at something. Well, I'd
+argue a lot of that is solved actually by, say, Cov, Glue, and Clades at
+Nextstrain. So there is a lot of tools out there where you can drag and drop
+files and then you magically get these reports. And you can analyze a lot of
+samples as well. You can even, with Pangolin, you can drop in files on a website
+and it will go and tell you what the lineage is there. So there's a lot of stuff
+that's done, but yeah, you're right. For the more bespoke stuff, like even today
+I was working with Nabil and Than to look at, say, particular mutations, and it
+was very, very specific to a cluster, really digging into it and trying to
+extract out some magic information, but that had to be done in R basically.
+Yeah, but generally, no, totally agree. Generally, there's no need to run off
+and make this huge monolithic pipeline to do something with SARS-CoV-2. It's all
+been done at this point. Well, we're talking about the pitfalls and everything
+today. So if you have a war story in there, like what were you, were you trying
+to dig out for the viz and? No, I had a very primitive example where I just
+wanted to look at the basis of the variant calling in a particular sample,
+right? I just wanted to know why it was this versus this. And normally you'd
+write some fancy thing that's digging into SAM tools and doing this, that, or
+the other, and I was getting excited. And then someone just linked me the ENCOV
+tools, and I just looked at that and was like, oh, that just does everything I
+wanted. There's nothing for me to do. It just spits out the report I wanted. It
+just tells me exactly what the heterogeneity of the base was. Like there's
+nothing left. I just run it until.  Andrew what happened? How boring, someone
+already did it for you. Oh I'm gonna have this little intricate problem to play
+with it's like not just run this you got the numbers out that's it so yeah
+there's not there's some stuff but yeah for the most part it's it's solved it's
+a bit sad really so so for the people just like listening how how do we spell
+ncop tools how do they find that one? ncov hyphen t double o ls okay ncov i mean
+a lot of the stats i wanted is also bundled into the arctic bioinformatics
+package as well so yeah it's it's just been implemented over and over again i
+know a question i'm asked i've been asked a few times is about complete genomes
+some people seem to be obsessed with getting like 100% complete coronavirus
+genome and then they are disappointed when they don't and they really try and
+push to get 100% out of every single genome and if it's less than that you know
+if it's not even gz quality they don't consider that to be any good so i know a
+lot of this is just dictated by the quality of the sample Nabil you've done a
+bit of work on this haven't you? yeah so we've been going back and trying to see
+just having a look at which why samples fail and most of it is down to not
+having enough viral material to begin with and there's really nothing you can do
+about there's no post-production fix for that if the if the fragment isn't there
+if you haven't got the seed in it it's just not going to happen and and as we
+said before don't go back and backfill because that's not what anyone's
+expecting is going to expecting so you just you're just going to have i think
+the best thing to do with that if you want to get the best genomes out is you're
+going to need to start thinking about introducing cycle thresholds and cutoffs
+for your cycle thresholds but that's all the wet lab side that's not for us and
+the bimfi side is too late when it comes to us well if they go and start
+sequencing stuff that's like ct40 then you know they can't complain when it
+doesn't work yeah i think if you want i think so the number varies slightly
+because it depends on the protocol right so this isn't a hard and fast number
+but once you've run a few you will get a feeling of what this cutoff will be for
+your particular you know setup but generally if it's higher than 30 ct32 ct33
+you're not going to get enough genome back that you're going to be able to use
+it reliably in phylogenetic analysis just as a rule of thumb and that i think
+that sort of threshold is put around in the literature a bit as well although
+there you'll always find a use for data and there'll always be experiments where
+you might want to push it a bit more so you might take partial data if it's a
+really important sample or maybe it's a reinfection sample and you really really
+are interested to know is this the same lineage or is a different lineage or
+whatnot or if it's someone with a long-term infection you know and you want to
+track mutations maybe their viral load has dropped but you really are interested
+in what's going on there so there there are cases for going above it but
+generally you know you may be just wasting your money if you are trying to
+sequence something as Nabil says where the virus just isn't there yeah i mean if
+you want to get this data out into the public domain i mean if you've got your
+own burning desire to answer a question that andrew's describing that's that's
+that's a separate matter but if you want to get it out into the public domain
+and you want to include it in these beautiful neck strain figures and all these
+trees and so on you need 90 of the base is confidently called and when we say
+confidently called we mean that for Illumina you need at least 10 10x coverage
+for that site and for Nanopore you need about 20 that that's so if you're not
+getting that it's just it's not good enough and no contamination no
+contamination yeah so that so that i think leads into another gotcha is that you
+need to be very careful with cross-contamination when working with this i think
+people don't realize like you're amplifying it a fair bit and you will pick up a
+lot of a lot of stuff you will get all all sorts of things flying around the lab
+so you have to be vigilant with with controls all through the to the process so
+one thing you mentioned i just as a person coming into this more and more for
+any given like surveillance system like are you are you saying that a lot of
+stuff depends on the ct value should that be recorded and kept alongside the
+sample is that something to be submitting to the public databases yeah yeah i i
+would say basically if if the diagnostic because normally the diagnostic test is
+is pcr anyway so you kind of get the value for free when the when the diag lab
+runs through it but if they're not if you're using some other platform for the
+diagnostic test that doesn't give you a quantifiable value you're going to have
+to probably do a quantification step okay i mean i mean you can just sequence it
+you can just run off and sequence it but don't come crying to me when it doesn't
+work i know that was like a really leading question but like i don't know if
+i've seen that i like actually specified like you should be recording this and i
+would like to make sure that we have said that at least you don't have you don't
+have to do anything except don't backfill your bases don't try to assemble it i
+mean don't publish that data but if you if you're trying if you're in this scope
+where you're like i want to get the best genomes i can i want to make sure that
+i'm successful with with getting a genome out you're going to have to go back
+you're going to have to think about your cycle threshold cutoffs and if you're
+not if you don't have that value you're going to have to generate it and also
+sequencing is very expensive and pcr is cheap so you're better off spending you
+know a few cents to do a pcr than you are spending i don't know fifty dollars to
+to sequence something and i think it also it also it there's also a hidden human
+labor cost involved where samples that flow into this workflow of the sequencing
+and then they get this result and then you have to feed back saying these failed
+and that that going backwards and forwards sort of starts to become a waste of
+time it's much easier that if you just say nope this isn't worth it we're not
+going to do it and you just cut it there and you just let everything flow sort
+of laterally in one direction it just makes your workflow that much easier so we
+should always include negative controls but we should always also look at the
+negative controls as well that's another pitfall because sometimes people run
+them and they think oh great job done but they haven't actually looked into them
+so nabil what would you say could you give us some examples of what happens with
+negative controls what you see not sure what you mean actually okay different
+patterns you might see like you might see just low level contamination or the
+odd primer dimer or you might see you know 25 base reads that kind of thing yeah
+so what what i found particularly for alumina because you're amplifying that
+much you you're going down like 3 000 times that's your depth of coverage often
+often and you're doing that because you want all of the amplicon primers to fire
+at a depth to get you enough yield back so that you can actually recover the
+genome so you are going to pick up primer dimers so you might see a you might
+see a blank which just has a bunch of low level short trash in it you might look
+at that sequence and realize that it's just like random primer junk and you so
+you have to think carefully like your your blank probably isn't going to be like
+zero reads you're going to get you might get like a few or something and you
+have to be quite careful with the number of reads that come through on your
+blank and some of it is okay some of it you can let it pass because you look at
+it you go like oh it's just a couple of reads of primer dime or whatever it's
+fine sometimes it can look quite nasty and you can see short fragments and a lot
+of them and you might think actually our primer stock is contaminated which
+which can happen and then other times you might see very very nice handsome 150
+base pair reads in your blank and then you might think well actually this is an
+issue i've got some cross-contamination going on and so that there's a lot of
+different different outcomes you can get and just you need to sort of dig into
+your blank and not just look at the total number of reads that are there but the
+length of them how many of them map to the reference genome and how well they
+map to the reference genome whether these are like partial 50 base pair 30 base
+pair mappings or these are like intact reads and then make an assessment on is
+that does what does that mean for the rest of my run one of the things is to
+look at could you if running run the blank to your variant calling pipeline and
+does do you get variants called from your blank if you see that that's when you
+really should start to panic because that variant if it's in your blank then
+it's probably cross contaminated to every sample in your run and you're probably
+going to get this weird hybrid chimera and that's just not something you want to
+put out there into the public domain so you should probably junk that run so one
+way to reduce the number of reads in your blanks is for say illumina to set the
+bar coding to be very strict and allow no mismatches and on nanopore you make
+sure  that the barcodes are on both ends. And that seems to get rid of, you
+know, a fair few of these stray reads. Yeah, I think that's a mandatory setting,
+especially for the nanopore is to make sure that you've got both indexes on the
+read. Otherwise, yeah, you will run into some pretty nasty, nasty problems. And
+with the Illumina, yeah, we learned early on that you need to set the number of
+allowed mismatches to zero, just because you don't want anything to come through
+via like barcode bleeding. And obvious stuff. I mean, I should also mention
+obvious stuff. Cycle your indexes as well from run to run. Don't keep using the
+same indexes that you did on the last run. That's a basic thing, but people may
+not be aware of that. And that is doubly important in this case. Particularly if
+you're washing flow cells. Yeah. Do you know if there are any pitfalls for mixed
+plate sequencing? Like if there's bacteria and SARS-CoV-2 on the same plate? It
+actually improves things. Oh, an anti-pitfall. Actually, yeah, we've found that
+it does improve things when there's more diversity on the plate. All right. It's
+a good thing. Although your bacteria will be contaminated probably with SARS-
+CoV-2. So as long as people don't go and say, oh, my microbiome has SARS-CoV-2
+in, I don't know, some random environment, you'll be fine. Or food is
+contaminated or something like that. Yeah, you might see a little bit of barcode
+bleed through, which you always do, which is generally fine. But what you really
+want to avoid is when someone runs like a microbiome sample on the same plate as
+the COVID one, and then runs away saying like, all these people from last year
+had coronavirus in their feces, and it's like, no, you didn't. But this is
+standard sequencing stuff, I would hope. It just comes to the fore in this
+situation because now it's not just academic. You're sequencing something to
+inform the real world. This is reality now, so it matters. That's not just a
+mistake in a supplementary figure that just gets a paper that nobody reads.
+People are going, governments will make decisions based on the stuff that you're
+putting out there. On the subject of putting stuff out there, it was only when
+the new variant came out that people suddenly, out of nowhere, started dumping
+data into GISAID. It seems that quite a few groups around the world were just
+holding it back in reserve. I don't know why, but it is great now that people
+are sharing a bit more. In the UK, I know for CogUK, everything we generate goes
+onto our website first, basically on a daily run, or sometimes it doesn't work,
+but maybe every two days, and then gets uploaded weekly to GISAID. So there is a
+constant flow into the public domain of data, and hopefully more countries
+around the world will enable their flows as they produce data rather than
+hoarding it, and then, like parasites, use everyone else's data but not give
+back. Yep, the CogUK website has 176,000 coronavirus genomes for you to play
+with right now. You can just go download it. It's five gigs, but you can go off
+and play with that, and there's some minimal metadata that anyone can look at
+with the lineages, all for anyone to use, and that's on top of putting it into
+GISAID and into the ENA as well. You've both said some pretty topical things, so
+maybe it's important just to say what the date is, because things rapidly
+change. It's January 13th, so what was the new variant today, which is probably
+gonna be different than the one tomorrow? The new one today is the Brazilian one
+from the Amazon region. Called P1. P1, yeah. It might be named something else,
+but it's P1 right now. P1, and also topical is how many genomes you have up on
+CogUK, because that's gonna rapidly change too. No, it was 176K when I checked
+yesterday. Well, I think internally they've done 200,000, but not all of them
+have passed quality control. Yeah, we would probably, by the time anyone's
+listening to this, that we would be well over 200,000. It's well on track to be
+the most sequenced organism in the world. Give it a year, and there'll be
+substantially more. I'd say, as the US and other countries come on stream, it's
+gonna ramp up rapidly. Yeah, other than PhyX. Actually, yeah, you're right,
+yeah. Can't beat PhyX. No, amazing. So what would you say to people deciding
+which entity to submit to? There's GISAID, and then there's the INSDC
+consortium. Yes, INSDC is your regular GenBank, EBI, NCBI, EJ, everyone has a
+different name for it. The regular public database that you're used to. So from
+my understanding, it's probably better to submit to both if possible, but what
+I've heard is NCBI, you kind of put it on the open, you lose, and you let people
+work on it. You may or may not get credit right away, but GISAID seems to
+protect authorship pretty well. So you think that. So GISAID was originally for
+flu, and they very quickly spun up a separate entity for coronavirus, and they
+have extra protections in there. And that's to make sure that, say, if you're
+from a low-income country and you're providing data, that maybe some company
+doesn't just come in and steal it and make a vaccine, and then you can't afford
+to buy that vaccine that's based on your data. So they have extra protections in
+there to make sharing a bit easier where people are maybe a bit more hesitant
+and want more restrictions. With the INSDC, so GISAID only takes genomes. So
+with the INSDC, they can take raw reads, and they can take the genomes as well,
+and they have much looser guidelines, and it's more like Creative Commons in
+terms of sharing data. But we have found that getting data in can be a
+challenge, and the turnaround times are measured usually in weeks or months
+rather than in hours, which is what you need in a pandemic. So while they're
+getting up to speed, I suppose GISAID will remain the main place for sharing
+data. However, the big problem is a lack of metadata, which is something that
+Phage is working on improving. I think everyone wants to improve it, but it is a
+bit of a challenge, and not just metadata, but actual consistent metadata maybe
+is based on ontologies, things like that, because otherwise it's a bit useless
+if you just put a random stuff online. Yeah, I seem to recall maybe talking
+about that specification in a previous podcast episode. Oh, did we? Oh, great.
+Okay, see you in the next. Yeah. No, having done data submissions to both ENA
+and GISAID, GISAID is much easier, but obviously it's because it's a sort of a
+flat submission where it's just a consensus sequence, so it's sort of one-to-
+one. ENA, NCBI, whatever, is a bit difficult because you have to create a
+project, then there's a sample, then within the sample, there's an experiment,
+and within an experiment, there's some reads, and then linked to the reads is an
+assembly. And so there's this like tangled web of data interacting with each
+other, which is important. No, the assembly is actually linked to the sample,
+not to the reads. Oh yeah, yeah, sorry. No, hang on. Yeah, BioSample. The fact
+that we're confused is because it is a very complex thing, and the barrier for
+someone to actually get into that is very, very high. I think you're right. I'm
+sorry. No, you're right. You link the analysis back to the sample, BioSample.
+Yeah, I've had to make, it is a confusing topic, and I've had to make figures
+for PIs at CDC for this. And I still get confused sometimes. Yeah, I mean, for
+the, within the, if anyone is stuck as part of the phage-SARS-CoV-2 metadata
+specification, we included some walkthroughs that, you know, click by click how
+to actually do the submissions on both platforms, on all the platforms, NCBI or
+EBI or GISAID, that might help people if they're really stuck. But it's tricky.
+I think I had another question based on what you said earlier. So if I'm just
+starting out, again, I'm the, kind of the imposter here, starting out in SARS-
+CoV-2 world, and I want a bioinformatics benchmark data set. Now, I know that
+you have, you know, thousands of genomes online. Is there like a standard data
+set that people are coalescing over as a benchmark? No. No, it would depend on
+country to country what you'd be using. Okay. Standards are taking time to catch
+up. The pandemic will be over by the time they're made. I mean, if, I guess you
+could grab the cog data and just pick one sequence per lineage at random. That's
+a start. Maybe you should make a standard, Lee. Yeah, I'm thinking something to
+work towards. I have, okay, always be promoting, I guess. So I have started
+making a simulated benchmark data set.  And I put that on my GitHub so far. And
+by simulated, I mean, I started, I used the tree to reads pipeline. I, Jane
+McTavish and Ruth Timmy and others I'm forgetting. I'm sorry if I am. And what
+you do is you start off with a tree and you say that this is my tree. And that's
+the true tree. It's no longer hypothetical ancestors. It's no longer anything.
+This is the tree. And you start off with an anchor genome. And I started off
+with Wuhan one. And you basically run this pipeline, which backfills what snips
+were needed in order to make that tree. So that if a perfect pipeline were run
+on these simulated assemblies, it would actually recreate that tree. That's
+ancestral reconstruction, but backwards. Yes. So I've started making that in my
+GitHub repo. It's definitely in a draft state, but I have about 3,500
+assemblies, simulated assemblies. And I would say there are some pitfalls to it
+that the snips are probably not biologically informative or let's see another
+pitfall might be, well, I'm trying to think of them on the spot right now, but
+there are some pitfalls, especially related to the biology of the snips, which
+there is no biology of the snips, but it's the beginnings of a benchmark
+dataset. Actually a better benchmark dataset would be if you had physical
+biological samples that you could send to labs and you could say, go and
+sequence these 12 samples and then we'll see what you get at the other end. So
+end to end kind of validation nearly. Definitely. I would love to see that.
+Definitely. Off you go. Yeah. You guys are going to catch up. Come on. There's a
+project idea for a listener or for us or for whoever. There is the, I think the
+main one, the main one is the, yeah, is to use Wuhan one as the reference. That
+is, I think pretty much the established reference genome. So that is the GenBank
+MN908947. Did you get it? Do you remember that? No, I just read it off, but I do
+remember the first couple of letters and that's the one you should use. I think
+that's pretty much established as a standard at this point. And what date was
+that collected on? Oh, I've got the record around you somewhere. It was the, I
+think it was December the 26th, maybe or 29th. Oh, it doesn't say in the GenBank
+record. I don't know what it says in the nature paper. Submitted Jan 5th.
+Submitted Jan 5th, apparently. I'm looking this up. I have to know now. I
+suppose on the subject of reference genomes and calling samples things, having a
+good sample identifier is a good first step. A good sample identifier is going
+to have to be something that you can use all the way through your process that's
+anonymized and you can stick in a tube so someone can read it off if they have
+to transcribe it manually, but also that you can then go and like scan it like a
+barcode reader or whatever. And not too long either. You don't want like 20
+numbers or 30 numbers. No one's going to be able to say, oh yeah, I've got
+sample XYZ, one, two, three, four, five. So you need something nice and precise.
+And you don't want people's zip codes in there or postcodes or patient numbers
+and all this kind of hoopla that you often get accidentally. So at COG, we have
+two parts of our sample identifier. The first part is where we sequence. So in
+our case, it's NORW Norwich, which is the place where our institute is based.
+And then each different sequencing center has their own prefix. And then there's
+a suffix. And actually the suffix is the consortium-wide unique bit and that's
+letters and numbers. And they've been chosen so they, you know, you don't have a
+zero and the letter O conflicting, like it's one or the other. And so that means
+when you read it, you can easily see what it is. Yeah, it's easy. You have to
+take into account like a whole bunch of different things because when you make
+this identifier, it's going to be used by a human being who's going to read it
+in the lab. It's going to be people talking about it on the phone or remote
+meetings. It's going to be on figures. It's going to be on computer texts, you
+know, in scripts and trees and so on. So, you know, it's all of that has to be
+taken into consideration. You know, like you can have really long, you can have,
+and it has to be unique as far as everyone's using it. It has to be always
+unique. And not patient identifiable. I haven't heard of any situation where
+that's happened at least for COVID, but I have heard about it for other, for
+bacterial stuff. And it is a nightmare when someone realizes that the sheer
+panic when someone emails you going like, oh, I actually accidentally named
+these, you know, whatever strains with their social security number. And they
+persist as well. You know, if you look back at the original Shigella dysentery,
+going back to the World War I, like they named it after the guy, Private Cable,
+who, you know, was the poor, poor guy who passed away from it. And that's
+persisted, you know, for what, a hundred years? We don't want, you know, to make
+a mistake now in a sample identifier and then have patient identifiable
+information there forevermore going forward. Awful. Yeah. That's a war story.
+Good job. War story. So yeah, you just have to be careful. One thing is I would
+avoid putting weird characters. There's no reason to put weird characters in
+your sample identifiers like commas or colons or, you know, slash drop tables.
+Little Bobby tables. Yeah, don't put the Bobby tables kind of stuff in there. Or
+like the salmonella, you know, where they have the colons and all of that. Yeah,
+the antigenic formulas, but if you've got commas, it breaks everyone's like CSV
+files. I think don't, I mean, it's a bit mean, but try not to put Unicode
+characters in your sample IDs because people's scripts break because they don't
+read Unicode. That would be, I mean, I am going to follow what you said there. I
+believe in it. But also at the same time, it would be kind of amazing if
+somebody put some emojis inside of their sample name. Good idea. That's a great
+idea, actually. Yeah, why don't we do that? Little face mask for a SARS-CoV-2
+sample. Just have a thumbs up or thumbs down if it's positive or negative or
+something. So I suppose one last thing, or maybe a few last little points,
+right, that I think I've missed. Sometimes you get mutations. They're not all
+equally informative. So if you get C to U or C to T variants, lots of them,
+often that can be a sign that the sample is a bit degraded or restored
+incorrectly, rather than, you know, like lots of mutation. So just be aware of
+that. And also, if you find that every single one of your samples has passed,
+then you should be very, very afraid because some of them should fail. And if
+it's 100% passed, then, you know, something's gone terribly, terribly wrong. So
+are you saying also at the same time that there's definitely some amount, some
+percentage that you're always sending back to re-sequence? Or what do you do
+with that? We never re-sequence. We do occasionally get multiple samples from
+the same person. And occasionally we'll sequence those accidentally, but ideally
+we don't want to sequence the same person multiple times because it's expensive,
+you know? And there are far too many samples for us to sequence. Additionally,
+in the UK, we have like a, we try and only focus on recent samples. So maybe
+samples collected in the last three weeks or less, ideally in the last week. We
+don't want to sequence stuff now that has been collected maybe last March or
+April because that's, while it's academically interesting, it's not interesting
+for public health response at this moment in time. And you can see the kind of
+recency of different countries around the world varies quite substantially. Some
+countries you can see, like a lab, it's a big batch and they'll sequence stuff
+all the way back through the pandemic, back to February and onwards. But is that
+really interesting now? Not really. And you could see then with the new variant,
+while the UK was dumping in lots of right bang up-to-date genomes, there was
+other countries, I'm not going to say the US, which were putting in mostly old
+genomes, say 8,000 old genomes and then like 50 recent genomes. And there's like
+this kind of imbalance. So that meant that they didn't have, at that point in
+time, they didn't have coverage on what exactly was floating around in the
+country, and they didn't necessarily know was the new variant there or not from
+sequencing alone. Yeah, I think if we ever get out of this alive, we'll have
+plenty of time to go back and do retroactive studies. Right now, we just need to
+get through this. A lot of the stuff that I'm doing is just QAQC. That's all
+I've been asked to do really in my day job. So a lot of my questions are kind of
+newcomer questions, like, is there a standard QAQC pipeline that people are
+using? And can I get in on that? Can I just run that for myself locally? Do you
+guys have anything like that? So most of the pipelines are including some.
+basic QC as, you know, as part of it. The thing is, is that the output is like
+designed for us. And you might need to do a little bit of legwork to convert it
+into a sort of like, green yet, like traffic light, green, yes, red means, you
+know, no, for the sample output. Do you do a yellow? No, we don't. I don't know
+what I do talk to the clinic more directly than I do. I don't know what he tells
+them. Well, often, the clinicians just want to know, are these the same or
+different? You know, is this the same outbreak, in which case on a ward, in
+which case it might be just nosocomial spread? Or is it multiple introductions,
+say from outside, and they're all totally different. We see both of those.
+Sometimes we get questions about, you know, like a hospital outbreak, are they
+all the same? Answer is no or factory outbreak and like meat factory? Yes, they
+all happen to be the same. Or then we've had cases where say a second or third
+meat factory has been infected. And we find multiple introductions, and we can
+track it through genomics, because we've done so much sequencing in another
+factory, we can say, okay, well, actually, it looks like say, four different
+introductions of this lineage have appeared around the same time. And by
+complete coincidence, have you, you know, moved staff from the factory that
+closed because the COVID into a different factory and now infected everyone. So,
+you know, you see these kind of things or what prisons, you know, all of these
+closed environments where you can track a bit better, you know, what comes in
+and what goes out? And is it the same? Is it different? And that can inform then
+measures that people put in place. That took a really wide turn. I love that,
+because that's another war story. Almost. It's just like, you were able to talk
+to epidemiologists and turn that into something actionable. Yeah, usually it is
+we talk directly to the public health officials who then, you know, might go
+knock on doors or ring people up and do contact tracing, that kind of thing, or
+go into factories and do, you know, mass asymptomatic screening. And also to the
+virologists, you know, people who are actually on the wards, you know, making a
+real difference. And, you know, stuff that we've said has resulted in work
+closures and deep cleaning and that kind of thing. You know, they know there's a
+problem. And we can go back and say, actually, this looks like it's hospital
+associated, rather than, you know, just random stuff from the community coming
+in with with visitors or staff or whatever. So yeah, we can provide useful
+information as mathematicians, as long as you know, there's no contamination and
+the bioinformatics is incorrect. And you know, you're not just seeing random
+contamination, you know, giving a signal. And it can also be used to rule out
+actually, and it's a lot easier to do that. That's also quite reassuring, right?
+Like, yeah, it's circulating, but it's not spreading to the ward. It's not
+because people in the water spreading it from one to the other, that it is
+community, it's just multiple community introductions. And that's, that's like a
+good news. That's a good validation. And that's something else you can get out
+of the genomics. It's not always like doom and gloom. If you send it for
+sequencing, you're going to find out all it's terrible. Well, unfortunately, a
+lot of the questions we can't answer, you know, because often, when you have an
+outbreak, every genome is identical. And it's like, well, you know, we can't
+tell you who introduced this, or who's the index case, because the incubation
+period, you know, is like, what, two to 14 days. And it may be the person who
+was symptomatic on day 13 was actually the index case, rather than the people
+became symptomatic earlier, you know, all this kind of jazz, it's hard. I'll do
+one more question that's on the top of my mind. So, okay, just going past the
+pipelines, like, can you drill it down just to the very basics? What is the
+essence of the QC that we should actually be checking? Like earlier, I heard you
+say that you should have 90% of the genome? Like, what are the other QC steps
+that I should definitely be checking on? Yeah, that's it depends. Okay, so
+quality control is going to have many different aspects to it. So it's sort of
+like, what is the error? What is the issue that you're afraid of? And that's how
+you're going to design your QC. So when I'm saying like, you need 90% of the
+genome of confidently cold, that's the cutoff to get it submitted into for
+public consumption. That's just one, you know, that's one hurdle that you need
+to need to cross. But we also talked about checking blanks and just looking if
+there is cross contamination in your samples. And that's going back to your
+blanks and looking at aberrant mutations jumping all over the place. That's,
+that's one type of quality control. You might look at, you might look at
+coverage depth to look at variations and that to see if certain primers are
+failing for your amplicon sequencing. It depends on what what you're worried
+about, really, on any given day. There's plenty of worry about these days,
+right? Yeah. All right. Do you want to put an end cap on it? We've talked about
+a lot of pitfalls. There's a lot of things we talked through. Well, when it does
+work, it works really well. So maybe end on a positive note, that it is really
+useful for genomic epidemiology, and for mapping out the course of pandemic, and
+for identifying new variants, you know, in no other point in history, we've been
+able to look at a pandemic as it unfolded in real time, and see the dynamics and
+how it changes and mutates like this is amazing stuff. And it gives people
+amazing amounts of data to tackle the pandemic and make changes and put in place
+lockdowns and to notice trends, like the the UK variant that's come out
+recently. Yeah, I mean, this was science fiction, five years ago. Yeah, I'm
+proud to be part of it, at least intentionally. Well, hope it helps. I think the
+for me that the take home is the same cliche that we always say is like, you
+know, don't reinvent the wheel, that chances are, try to locate and use an
+existing pipeline that's been specifically developed for SARS-CoV-2. It's
+probably out there for what you're trying to do and just try to use that. Thank
+you all so much for listening to us at home. If you like this podcast, please
+subscribe and like us on iTunes, Spotify, SoundCloud, or the platform of your
+choice. And if you don't like this podcast, please don't do anything. This
+podcast was recorded by the Microbial Bioinformatics Group and edited by Nick
+Waters. The opinions expressed here are our own and do not necessarily reflect
+the views of CDC or the Quadrant Institute. Okay, I couldn't have said it
+better. I think that you guys give a good end cap. Well, we'll just end there,
+then you can just finish up from my sentence and then put your standard. Thank
+you for listening. Okay, we can do a save it then or stop recording. Yeah,
+that's a wrap. We can just do the music.

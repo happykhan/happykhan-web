@@ -1,0 +1,368 @@
+Hello, and thank you for listening to the MicroBinFeed podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the US. Welcome to the MicroBinFeed podcast. Today we're giving a
+rapid roundup of what's been changing for SARS-CoV-2 and COVID-19 genomics.
+Things are changing very quickly. We should mention that it's the 19th of
+February, 2021. Some of what we mention right now might change by the time you
+hear this. Today, we're putting a spotlight on COVID-19 in Africa, and we're
+joined by a very special guest, Peter Van Hursten, a bioinformatician at the
+South African National Bioinformatics Institute. Peter has a systems
+administration background and has moved over into the bioinformatics world.
+Welcome, Peter. Thank you, Nabil. All right. And so let's get started with
+reviewing the latest changes regarding the different variants of concerns. We'll
+have a quick chat about BLEAK and FIDEL. So they identified the UK variant
+B.1.1.7 with the E484K spike mutation there recently, and Ravi Gupta did a nice
+little paper on that. And that was identified, I think, in Bristol, but it's
+arisen a few times in the UK independently. People have come up with the name
+BLEAK. You know, EAK is E484K. And they've said BLEAK. Well, I think it sounds
+reasonable, you know, with the BLEAK one. But just give us a bit more info on
+that. Is that actually just popping up like popcorn, or is it actually in
+growing lineages? So there was an outbreak, like many linked cases, nearly
+identical in one UK city. And then when they looked further, they saw that it is
+coming up independently. So unfortunately, it obviously confers some kind of
+advantage to the genome. And it's also in, you know, like the B.1.351 and in the
+P.1 and P.2 lineages as well. So it is a bit of a problem, because I think
+that's the one that's linked, that's a mutation that's linked to vaccine issues.
+And it's causing some concern, I know, amongst people that the vaccines,
+particularly like AstraZeneca and the like, aren't going to work as well. And I
+believe South Africa have decided to hand back the AstraZeneca vaccine, haven't
+they? It's been a bit complicated. It's now been announced, I think, that
+they're going to donate them to the African Union. So what happened was that
+there is actually a phase two arm of the AstraZeneca trial in South Africa.
+There are only about 2000 people, I happen to be on it, actually, obviously, I
+don't know whether I got the vaccine or the placebo. And then when they looked
+at a sub-analysis, so they've been running this since last year. And then when
+they looked at a sub-analysis, since the B.1.351 variant emerged, then it seemed
+to lack efficacy against this new variant. However, I mean, I think that was
+down to about 1000 odd people that's in both the placebo and the vaccine arms.
+And the error bars were huge. I mean, I think that the 95% confidence interval
+went everywhere from minus 40% to 50 something percent efficiency. In other
+words, there is a chance that the vaccine will make you sick with COVID-19. That
+doesn't make any sense whatsoever. But the thing is that basically because the
+sample size was so small, this was designed as a as a phase two trial, which
+really is a baseline efficacy and safety trial, not a real efficacy trial, like
+a well powered phase three, then the results were really difficult to interpret.
+And then the thing that was particularly concerning was that there was not
+enough statistical power to tell you what's happening with regards to serious
+disease. Also because the trial population, because it's phase two, was chosen
+from generally healthy individuals. So these people would normally not get
+severe COVID anyway. So I mean, I think the average age of a trial participants
+in the 30s. And so we've got this big worry, but we don't really have enough
+data to actually know how worried we should be. So it's all a bit nasty. Yeah,
+I've been seeing a lot of conflicting reports on this one. It's definitely watch
+the space until we get some something a bit more, more concrete. You can't
+exactly do that while rolling out a vaccine, right? So no, I mean, I kind of
+gave the vaccine back. Yeah, it does seem to be that nearly every day now we
+have a new variant of concern or a variant under investigation. There's quite a
+few now. I mean, the original UK variant, you know, is getting absolutely
+everywhere now around the world. I see in Denmark, MADS has said it's 48% now of
+their cases. And it seems to be in many European countries, it's similar kind of
+trajectories, which isn't the best, you know, because obviously need much more
+enhanced measures. But it's good now that people are kicking into gear with
+sequencing and actually identifying it versus previously where, you know, it was
+just, well, that's it, that's how it is. And so this week, we've had a few new
+ones as well. We'll discuss some more later. But there's a B.1.525, which I
+think is associated with Nigeria or travel to Nigeria. And then there's A.23.1,
+which is associated or first discovered and described in Uganda. And then even
+with us, like we did a bit of sequencing with Zimbabwe, and there's a C.2
+lineage, which sounds interesting. So lots and lots of new potential variants of
+concern arising absolutely everywhere around the world as we start looking for
+them. And so all of those you've mentioned are all carrying the EEC change,
+E484K, I think. Oh, well, some of them are, but some of them are carrying other
+things and they don't really know what they're doing. All they know is that
+these lineages have, you know, exploded and look pretty bad. So in our data,
+we've been actually kind of hunting in the marginal data for E484K. So you know,
+going out to read level 1x coverage, you know, what is actually in the sample in
+our in Illumina data, you know, it can be dangerous to look at a single read and
+try and make some kind of assessment on it. If you're doing, say, surge testing,
+and you're trying to say you've identified one case in the community, and now
+you want to see who else is around who might have that and then stop them and
+stop the transmission chain from, you know, and stop it from spreading in the
+community very quickly before it gets established. That is a reasonable way. And
+it is worth looking for these very marginal samples at single reads. But you
+know, would you be confident in a single read of Illumina? So looking at single
+reads, where there's only one read coverage or single reads where the other
+reads say something different? Single reads where you have one read coverage.
+Now, generally, even in marginal samples, you'll have maybe two, three, four,
+five reads. But to help with this, Public Health England have actually now
+published different thresholds for different variants, you know, how many of the
+lineage-defining mutations do you need to be able to call that as a low-quality
+case, or a high-risk low-quality case. So they now have these kind of
+definitions of really crappy data. But it's important, you know, when you're
+trying, when you have a new variant of concern in an area, and it hasn't
+established, and you want to kind of stamp it out quickly. So I mean, like, what
+do you do if one acts like, is that reported as like a statistical measure so it
+just helps out public health? Yeah, we would, I have reported some of these,
+where you say, you might have, say, five or six defining mutations for a
+lineage. And maybe they only have one X covering, one read covering each of
+those. But the probability of all of those being in the same sample, like low-
+coverage sample, at the same time is very low, you know, it's probability of all
+being sequencing errors. So it's probably, there is that lineage, particularly
+if it's not in the sequencing experiment you're doing already. So yeah, we have
+called some of those, and we have highlighted them to public health, but as
+high-risk, low-confidence data. So that poses a bunch of daunting challenges. So
+firstly, you're not putting that into ZAID, right? I mean, that's just not going
+to be the level of sample that you can put in a database. No, no, no, this is in
+general, definitely not for general consumption. I was actually asked earlier
+today, like, you know, about cutoffs for, you know, because we used to, you
+know, bacteria with mixed infections and things like that. It's not something
+that we really pay as much attention to in SARS-CoV-2, because we're not really
+anticipating a lot of mixed infections, but, you know, normally something like
+that would just get tossed out by the QC. Yeah, so most of that does get tossed
+out. But if you have, say, 30, 40% of your samples failing to meet the GISAID
+criteria, but you still want to get useful information out of those, you know,
+they are still useful. And you can still call a lineage down to a very low level
+of coverage. So it's about trying to make the best use of the data you have. And
+that's in the case where you're sequencing everything you can get your hands on.
+Do you have any particular tooling for identifying these things? Are you
+eyeballing things in ITV? I mean, how do you, like, how do you put that into a
+pipeline? So the very first step was MPILOP, right? To look for interesting
+samples. And then TVIEW.  But then to a slightly more advanced step that Thang
+on our team developed is he's basically done up spreadsheets and reports, and
+it's quite simple then to just kind of scan very quickly and identify them. You
+know, it takes like two seconds, you know, to pull them out because it's
+particularly if you're looking, if you know particular mutations are
+interesting. So the E404K being the example, it's not very common in the UK. So
+finding it is, you know, it sets off alarm bells. Yeah. I think even, I think
+this approach is, could be super useful for partial samples. I mean, maybe it
+could be generalized to maybe something like 5X. I think, would you be
+comfortable with 5X, Peter, if you had a tool that gave you like a partial,
+very, you know, sort of couched prediction of the lineage? Because look, what is
+your, your base error rate in Illumina? I mean, 5X would make me much more
+confident, you know, but you know, the other thing I'm thinking is that this is
+the kind of thing where you could perhaps be using this on sequencing from
+sewage samples because you can get such faint traces. But if you're willing to
+go that down, that deep down, might actually be an interesting early warning
+system. I guess the sewage problem is that generally the fragments, the
+amplicons don't really work as well. And people have been looking at smaller and
+smaller amplicons to try and get more out of sewage because the RNA is, you
+know, so degraded at that point. But yeah, you're right. I mean, pulling that
+stuff out of sewage would be fun. Even asymptomatic cases where you don't have
+that much viral load or even early on in the infection when it hasn't ramped up
+that much. So here's an interesting thing. I was just looking at this B1.525
+that was mentioned as the other interesting variant of concern that has been
+seen in Nigeria, Denmark, UK. But besides the EAK, the E4K, there's a little bit
+of a crossover here with the United States because I see that it's also got
+QQ677H, which is in the birds, right? Birds? The birds. There are these
+strangely named bird lineages that were announced in a preprint a few days ago.
+Lee, you're a resident American. Could you answer this? I think that people have
+tweeted about this now, so it's not really so secret anymore. It's just people
+are kind of musing over using bird names for lineages instead of tying them to
+geography or using these variant names to words like bleak. So they're thinking
+about bird names. On that call, I suggested that maybe we need some bird
+watchers to help us name some variants. I sort of volunteered my friend and
+colleague, Jess Chen, for that because she loves bird watching and she is also a
+biopharmacist. So the thing about these, if I recall the preprint, is that these
+are... The reason they went with bird names is that we're talking about sub-
+lineages, something going really down to like, we found this thing and then this
+thing had this slight variation, but it's not enough to call a lineage yet. So
+they basically are 677H or 677P in the spike protein. And then they had to come
+up with... I mean, they couldn't keep coming up with even more numbers, so they
+had to just give them nicknames for now. In the UK, we have UK lineages. So you
+have the pangolin lineages like B117, but then we have UK lineages on top of
+that. And then those go down into like .1, .2, .3, .4. So there's like thousands
+upon thousands upon thousands. It's basically a numerical representation of a
+phylogenetic tree, you know, each level down is another number, dot something.
+And I think we'd run out of bird names very fast if we're doing that. I'm
+surprised they didn't incorporate something similar. By the way, we're not meant
+to call it pangolin lineages anymore because apparently the linen pangolin is
+standing for lineage. So apparently they're now pango lineages, which sounds
+like a word for computer game. So I think part of the story in the US as well
+might be the involvement of Emma Hodcroft. And therefore they started with next-
+gen clades and then dividing things within there instead of the pango lineages,
+which tend to be a bit more fine grained. So all the birds are sitting either in
+20G or 20B and then various kind of variations on a theme from there. But yeah,
+it really causes problems for us. I mean, somebody was calling for the, what's
+it called, the ICTV to give us names for things. Can you imagine if we had to
+wait for the International Committee on the Taxonomy of Viruses, whatever they
+called, I don't know if I got that acronym correctly, you know, can you imagine
+if we had to wait for them to give us names? We'd be stuck forever. It is an
+issue, isn't it? Because at the beginning, I think a lot of lineages were just
+kind of people in under armpits keep going, oh yeah, that looks like a lineage,
+there we go. But now they've had to try and formalize the process a little bit
+more because there's so many lineages out there and it's just, there's an
+explosion of diversity as time has gone on. Well, everyone has their own variant
+of concern now. How does it pass the smell test with what you guys think about
+with naming variants, with human-friendly names versus serial numbers versus
+whatever with that last discussion we had? Well, I think the press need a name
+they can use and they default to like South African variant and a UK variant.
+And of course, those things are quite controversial. So Peter, can you tell us
+what all the different versions of the names there are for the South African
+variant, which is a name we shouldn't use because we don't want to link location
+to a particular lineage or anything like that. Yes, ever since they misnamed the
+Ebola virus after the wrong river. So it's 501YV2. It's also 20H slash 501YV2.
+It's B.1.351. And I had to train myself to remember these things kind of the
+same way that one remembers the keystrokes that you use in VI and it doesn't
+mean anything. You just have muscle memory for it. It's so confusing, isn't it?
+And you know, we're working in the area and it's confusing for us. I mean, God
+help anyone who's maybe not working exactly in this area. They will just be
+totally and utterly bamboozled. You mean like Lee? Yes, that is me right now.
+But yeah, I'm still learning. It's fun. Look, the geographic name really falls
+apart when you've got things like the Bleak, which is, you know, B.1.1.7 with a
+twist of lemon or something like that. And then if you're going to call it the
+UK variant, then what is Bleak? Because it's also from the UK. Well, actually,
+the UK variant within the UK is called Kent variant because that's a place in
+the UK. And then the Bleak is actually the Bristol variant. And all of these
+birds, what variants are there? They're all USA variants. So yeah, but I mean,
+the thing is, what also concerns me a little bit is when is a variant of concern
+of concern? Because we heard for a while about some new results from California,
+but it didn't seem to actually have a lot concerning about it. It looked like it
+was actually just capturing a fairly accidental expansion through outbreaks. I
+mean, you describe that in terms of Bleak, that Bleak was associated with a
+particular outbreak. So if you have, you know, some kind of super spreader
+event, it can look like the expansion of a viral lineage. But you know, it used
+to be that we would pour cold water on that and tell people that, you know,
+viruses mutate. But now it seems that we're super scared and every little blip,
+we get worried about it. Every long branch in a tree, we get very worried, I
+think. Long branches is a different story. So I mean, for instance, there's been
+a report now from some in the US about a recombination event. And that is stuff
+to worry about, because we've suddenly got the selective landscape of the virus
+is being explored much faster than we thought it was just accumulating two
+variants a month or something like that. And now suddenly this thing is jumping
+and that that is something to worry about. Now I know recombination can occur,
+but we have to be very careful with this. If people are just basing it purely on
+sequencing data, I'd want to see like the underlying reads and I'd want to see
+if recombination has occurred, you know, two mutations occurring on a single
+high quality read, this kind of thing. If it's just someone has gone to GISAID
+and then found a really interesting sequence with lots of mutations in it, then
+I'd be very worried because that, you know, could just be contamination. It
+might just have been two different ninjas on the same experiment on the same
+sequencing run and there's, you know, bit of cross contamination or maybe
+someone that was infected with two different strains or some, you know,
+something like that. But I'd be very concerned without seeing the actual
+underlying data and without someone having grown it, you know, maybe I'm just
+skeptical in my old age, but I've seen so much contamination now that I really
+do want to see the data before believing these kind of things have happened. And
+I know that we're trying to be careful over on our side too. If anybody sees a
+variant, then it's like double check, triple check anything. And we have to be
+very sure before like the media hears like CDC reports a new variant, like we
+don't want any overreaction. Yeah. Especially since you are CDC, but I mean,
+yeah, this came into the media via somebody giving a presentation on an online
+webinar that doesn't seem to have a recording anyway. So definitely I think
+caution is merited. But the other thing is that people are now looking for more
+things and we're going to see more things. And I mean, that's actually
+encouraging. I mean, the fact that we're finally seeing the U.S. getting
+organized and hopefully putting something much bigger scale than the previously
+kind of academic based sequencing and small scale.  public health sequencing in
+place. And on the African continent as well, we've seen a push in very difficult
+circumstances to actually like do surveillance. Last year, we had a lot of first
+viruses. You know, we've the first sample from, you know, some other place and
+that wasn't always sustainable. That's amazing. I mean, that's always the case,
+right? You always have for any new process or technology, there's this prototype
+foundation bit and that's actually fairly easy to knock out. And then going back
+and trying to make it routine is a massive undertaking and that's taking time.
+And, but we're starting to see that come online, but only now. It's almost like
+nobody took us seriously before. Why sequence this virus? There's no variation.
+Why bother? So maybe we'll move on to Africa because there's been a lot coming
+out of there in the past two weeks. So Peter, do you want to give us kind of a
+quick roundup of what the major papers have been and what major things have come
+out? So there's been some continuation of what already started and then some new
+work that's quite interesting. So let me start with the continuation. I think we
+have to credit groups in Kenya at Camry for getting a sampling and sequencing
+effort, not producing a huge amount of data, but doing it relatively
+consistently since last year. And the same in Ghana, we've seen an effort to at
+least drop sequence every couple of months or something like that. I know it's
+not the scale that we'd like to see, but it's at least continuous. And then in
+Uganda as well, the group at UVRI around Matt Cotton and others has been showing
+that like previous investments into these places, it's paying off.
+Unfortunately, we've also had a few kind of stalled processes where I know one
+group, I won't mention the group or the country, they basically ran out of
+reagents and therefore they'd started some really good surveillance. They had
+the skills and then they couldn't continue at the pace that they started at. And
+I know that something like that has happened in more than one place. So there
+was some shortages related to shopping constraints earlier in the pandemic, but
+also a lot of people use their research funds to do some of the initial work.
+And then when those dried up, they weren't always replenished. So it's real
+challenge that like, what is the relationship between academic research groups
+that are trying to help and actually kind of sustaining things from maybe your
+local ministry of health or something like that. But then besides that, we've
+seen the expansion of the B.1.351 variant northwards. I heard most recently, I
+have first heard about it from Botswana and then Zambia, a big drop of sequences
+from Dan Bridges' lab in Zambia showing that it was very, very common. And I
+think you said there's something in Zimbabwe now as well. Yeah, we did
+sequencing with Zimbabwe for December and January, and we found a lot, like it
+is absolutely the most dominant strain. I think in December is about 60%. And
+now it's about 90% in Zimbabwe. So it's overwhelming. And the so-called second
+wave in Zimbabwe from what I've heard has been quite brutal. Unfortunately, some
+very prominent physicians passing away. Yeah. And hopefully they'll get that
+under control soon. But we have also observed other lineages there. So the A23.1
+was observed as well. And then kind of a novel one as well, we've seen as well,
+which we're just investigating at the moment, which has a 501T mutation, which
+people have seen in mink before, but that's popped up with a few other little
+mutations. So we don't know what's going on there. Well, I hope that you will be
+able to carry on sequencing on a regular basis, either within Zimbabwe or by
+shipping samples out. Yeah, the A23.1, which makes up the majority of sequences
+in Uganda is interesting because it's a place where we haven't. And similarly,
+the results that I heard from Kenya yesterday at the WHO seminar was that they
+haven't seen the either B.1.351 or B.1.1.7 taking over in those places. So
+something about the travel restrictions is perhaps having an impact. Yeah,
+that's always the interesting thing. Dawn of the spread is always a human story,
+isn't it? Yeah. So one of the things is basically different regimes for how
+people are being checked at the border or not. The presentation from Ghana that
+I heard yesterday was that B.1.1.7 was very prevalent there in community and in
+travelers. So it seems that West Africa, there's a lot of B.1.1.7 going around.
+And a friend of mine was actually asking me, well, which variant's gonna win? I
+mean, it's kind of a little bit like alien versus predator, you know, whoever
+wins, we lose, right? But just given the volume of travel, that really is the
+story of the variants, right? So generally people are more connected with these
+places like Dubai or the UK or Europe where there's lots of flights back and
+forth. If things come from South Africa to the Southern African region, they're
+probably coming via road. Yeah, that's the interesting thing about pathogens is
+they tell us a lot more about our human migrations more than anything. And when
+this is all done and dusted, it'll be interesting to go back and see how people
+actually move using the virus as a marker. It's very interesting that we're
+doing sequencing in different places because we're now connecting the dots. So
+we noticed a little cluster in Zimbabwe data and actually it looks like that's
+kind of the source, the reservoir for this particular lineage. And it's been
+seen in a few other cases around the world in travelers. We guessed they're
+travelers, you know, popping up in like 10 different countries. And it's only by
+sequencing, you know, broadly across the globe that we're actually going to see
+where is the actual source of these things rather than just kind of sporadic
+things popping up magically. And we really do need to have surveillance just
+absolutely everywhere. We don't have to have much, but just, you know, a little
+bit to kind of catch these things because at the moment we're totally blind in
+huge parts of the world. Yeah, I was just playing around with some of those
+numbers going back to the country of isolation from the GISAID database and just
+tabulating all of those. And then found that of all of the GISAID data, 4.4% of
+them are from LMICs. Obviously the bulk of it is from the UK and then the US and
+then Denmark and then, but otherwise very, very small proportions coming from
+LMICs. Does everyone know what LMIC is? I'll pretend I don't, tell us. Oh, at
+low middle income countries. Yeah, which makes up the majority of the world's
+population. So, I mean, I must admit, by the way, in terms of hearing about
+Denmark, I must congratulate Mads Olbertson for a very, very efficient use of
+nanopore sequences. I saw a photo from his lab a while back and it was just, you
+know, nanopore sequences on every flat surface. And again, that was the example
+of somebody whose real strength before this thing was metagenomics, just
+pivoting towards viral sequencing and doing a great job. Yep, I'll have to say
+South Africa comes at number two as the LMIC with the most sequences provided.
+Who's number one? India. Ah, that's good. So, and in fact, have we been looking
+at the variant landscape in India? I don't think so. I haven't paid much
+attention, but I mean, obviously there should be, this is just absolute count. I
+mean, as a proportion of population, it's a completely different story where
+the, what would come up. That is true. There has been some interesting work from
+India that I've been tracking. I haven't been looking at it very closely, but
+like in South Africa, some parts of India have reported very, very high
+seroprevalence, you know, 40% seroprevalence in some low-income neighborhoods.
+Same thing coming out of Ghana, especially in the low-income areas. We're seeing
+this virus has been kind of ripping to the neighborhood, but sometimes luckily
+not with a severe disease, perhaps because of the age profile of the
+populations. But yeah, definitely there's a lot to learn around the world from
+Brazil, from Indonesian archipelago, from India and elsewhere. So it just shows,
+I think also, that there's a bit of a Western as well as kind of Anglophone bias
+to how these kinds of conversations are happening. You know, I don't speak
+Portuguese and I can barely get by in French. That's all the time we have for
+today. We've been talking SARS-CoV-2 with some special attention to what's up in
+Africa. And I want to thank Peter for joining us today. And thanks everyone else
+for listening. Thank you all so much for listening to us at home. Please
+subscribe and like us on iTunes, Spotify, SoundCloud, or the platform of your
+choice. And if you don't like this podcast, please don't do anything. This
+podcast was recorded by the Microbial Bioinformatics Group and edited by Nick
+Waters. The opinions expressed here are our own and do not necessarily reflect
+the views of CDC or the Quadrant Institute.

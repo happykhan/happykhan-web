@@ -1,0 +1,296 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There's so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Andrew
+and Nabil work in the Quadram Institute in Norwich, UK, where they work on
+microbes in food and the impact on human health. I work at Centers for Disease
+Control and Prevention, and am an adjunct member at the University of Georgia in
+the U.S. Hey everyone! Today we're going to talk about genome assembly, and this
+time we're going to focus on short read assembly. And just to start off, Nabil,
+do you want to start off with the history? All right. So let's just explain the
+problem, I guess, if nobody knows what the problem of why you assemble genomes
+in the first place. So your essential issue is when you sequence DNA, you never
+get back, well, not quite yet, you don't get back the complete chromosome in one
+go. You have to do little tiny fragments of it over and over again. And
+hopefully from the oversaturation you can then reconstruct the original
+sequence. And we call that de novo genome assembly. So there's a bunch of
+different ways you can do it. And I think this is a little before my time, but
+the earliest ones were sort of just greedy assemblers. So things like CAP. Oh, I
+remember that. CAP3. That's kind of where you print them out and you overlap
+them by hand, is that it? I think, well, yeah, I think that probably was the
+earliest genome assembler was, yeah, printing them out. But that was Sanger
+sequencing. I used to do CAP3 also, and it was like, it would automatically
+generate it, but then you definitely had to look at it by eye. So those were the
+earliest, that was one of the earliest ones, along with FRAP and the Tiger
+assembler. And this is, yeah, this was mainly for doing capillary sequencing. So
+like human genome days. I think maybe it was a bit prior, or it was around that
+time, because for human genome they had Celera by that point, yeah. Which we now
+know as Canoe. Yeah, it was rebadged as Canoe. So I remember when I, I think
+when I started, FRAP was still the go-to viewer, even though you didn't
+necessarily use the assembly tool, but you still used that interface to have a
+look at your assemblies and see if what the assembler had done made sense. You
+could see the consensus sequence, and then all the underlying reads. And that
+was a rite of passage, being able to install and run that, and being able,
+knowing how to use it. From memory, the software still isn't freely available,
+and you have to, well, back then you had to email the authors to get a copy. And
+would they post it out on a tape or something? No, they would email it to you,
+but it was more or less the same thing. It was like mail order software. It was
+in a tar.gz, or it wasn't in a tar.gz, it was just like in a .z file. I still
+have that email around somewhere, just in case. Everyone kept that email around
+because it took, because they didn't give it to you immediately. So you know, if
+you were in a hurry, you could spend like a day waiting for a reply. So my copy
+was pass-handed down to me from a postdoc who got it from their PVS supervisor
+and so on, like this, for the FRAP software. But I never really got it to work.
+You had to hard-code folder directories. It wanted a very specific folder
+structure, and if you didn't feed it that, it got very upset with you. But still
+a very useful piece of software, and that's just what we had to work with. But
+after that, I think what I'm more used to are things like overlap consensus
+assemblers. These are things that you'd be using for 454. The 454 one was
+Noobler, and there were other ones like Minimus as well. And then, and I think
+we've talked a lot about Noobler before on the podcast in Monday's format, so I
+don't think we need to revisit any of that. Let's have a look at some earlier
+episodes. And then I think at that point, so historically what had happened at
+just that same time was you had more, you had higher throughput sequencing from
+Illumina, or Selex in those days, that started to come out. And you also had
+this from Solid as well. And what was happening there was you had higher and
+higher levels of coverage, and that was computationally more and more difficult
+to do with the approaches doing overlap consensus. And so then people started
+using De Bruijn graphs to- How do you pronounce that? De Bruijn? De Bruijn? De
+Bruijn? I mean, that was probably one of the hardest questions that you could
+ask a bioinformatician about like short read assembly, was how to pronounce De
+Bruijn. I thought it was like De Bruijn. De Bruijn? I have no idea. I always
+said De Bruijn, but I know that I'm messing up words. I already have a bad
+history on this podcast. How do you say the football team, the Bruins? The
+Bruins? It's brown. It's just brown. I don't know. I actually have no idea.
+We're going to get roasted over this. We're going to get into so much trouble.
+Oh no. So that's basically when computer scientists joined a party and
+mathematicians to try and make it work. No, well, that already existed. I mean,
+De Bruijn was long gone by that point when we started using it. But it was just
+an older, it was a representation of the assembly graph in a more efficient way
+that handled the higher density sequencing data. And the first, from my memory,
+the first software that really, really codified it was Euler from Pavel Pesner.
+Hopefully I said that right. And his group went on to write Spades and so on. So
+he's been in the field doing stuff ever since. But that was the big one, was
+Euler. I remember it was a little bit tricky to use. But that was instrumental,
+I think, for the development of Velvet. And then Velvet is the one that
+everybody knows and everyone loves. Is that Danny Zerbino? Yeah, Zerbino, yeah.
+For that one. Yeah, I used to use that one a lot. I was amazed by that in grad
+school. I guess everyone's moved on from Velvet, but that's the one that just
+super impressed me so much. And I still go back to it sometimes. And maybe, I
+don't know, I think it's awesome. I did like half a million assemblies with
+Velvet. So it's quite useful and it works quite well. The only gotcha, I
+remember, was the default camera size, maximum camera size was something very
+small, like 31, which, you know, when reads got longer, it was no longer
+appropriate. And I think it didn't really handle longer read lengths, even if
+you went outside the defaults. It was very fine-tuned to a specific set of
+parameters. 37 bases. Yeah. And for me, the thing that Velvet at the time
+struggled a lot with was when you had a lot of variation in your insert library.
+If your insert library was too far, like, you know, sometimes you had some
+really lousy library perhaps, and you had like maybe 200, 300, 400 bases for
+your insert, and then that Velvet would just chuck a fit for that. It really
+wanted very tight read distributions. But what really helped was Velvet
+Optimizer from Torsten Siemen and Simon Gladman over in Melbourne. And I found
+that really, really useful because it would just churn through all the different
+parameters and then give you a nice assembly at the end. Actually, that's kind
+of how I came across Torsten's work, was Velvet Optimizer. I mean, it's just so
+far-reaching, like, that was just my first encounter of many. He's never
+published it. I have seen a manuscript or certainly a one-page abstract that he
+intends to publish, but no, he's never gotten around to that. I think he might
+have missed a boat at this point. I'm not sure how much of it was Simon and how
+much of it was Torsten at the time. Bit of both, I think. But yeah, I definitely
+used Velvet Optimizer a lot. I even remember that they wrote a GUI. I'm not sure
+if they did it or someone in their group did it, but someone wrote a GUI around
+the Velvet Optimizer as well just to make it even more accessible. But that
+definitely brought short read assembly to just made it available to a lot of
+people. I really liked it because it would give you a reasonable assembly all
+the time and it worked without failure. It just would not crash compared to,
+say, Amos, where I found it would take one month to assemble a single bacteria.
+How big was this bacterial genome? E. coli. E. coli. So five million characters
+in one month. Yeah, it was quite slow. So you said a couple interesting things
+that you did half a million assemblies and you also had at least one assembly
+that took you a month to run. Was that part of a larger experiment? Yeah, I
+wrote a little paper on an assembly improvement pipeline that I had in Sanger
+and that would basically do velvet assembly and then afterwards it would do a
+bit of scaffolding and cleaning up. And for that comparison we had to compare it
+to Amos and that's how I know.  that an assembly with one core could take a
+month. Wow. And we did half a million because it was an automated pipeline. So
+as samples are coming off the sequencers, if it's bacteria, you just get
+assembled regardless with velvet. And that changed later on to spades. But
+everything by default was velvet for many years. It was definitely embedded in
+people's workflow. I think the one thing that we liked in my old, in, you know,
+when I was doing my PhD for velvet was if the contigs were almost never wrong.
+It was very conservative with the contigs that it generated. And you could take
+those to the bank that those genes were synthetic if they were on the same
+contig. And other assemblers didn't necessarily have that. Sometimes they might
+have edge cases where they sort of fell apart. And I remember that maybe some of
+the earlier versions of spades were a little aggressive. And that put people, I
+do remember that put people off initially from jumping over to spades. It wasn't
+quite clear how it was doing it. And at what point would it make these sort of
+funny little mistakes. But those are no longer there. I think those are gone now
+in more recent versions. But that was like at the initial release of spades that
+was there. So people stuck with velvet for a very long time because it was, you
+could just trust it. And also spades at the very beginning was very memory
+intensive compared to velvet. And so there was this push just to keep it on
+velvet for a while because spades just hadn't caught up. But then spades over
+the years has been continuously improved. And you can see the value of investing
+over a very long period of time in a piece of software, because now spades is
+just phenomenal. Yeah, I mean, spades, I mean, it's an apples and oranges
+problem because spades is obviously doing a bit more than velvet. But velvet was
+just doing the assembly. And then spades is doing the read correction as part of
+it. And then the post-processing where it maps the reads back and then tries to
+check for errors, for scaffolding errors. And that was the stage that was very,
+very memory hungry at the beginning, which, you know, as you say, it's much
+better optimized. But that was like the chunk. And velvet didn't do any of it.
+Velvet was an assembler that just generated that. For anyone listening at home
+who is interested how these actually work, I remember reading the velvet paper
+is a very good place to start. I think it still is a very good place to start
+with the Brun assembly. And then Zerbino's actual dissertation is really good at
+explaining what a bubble is, what a spur is, why do k-mers have to be odd
+numbers, this sort of stuff. Like all of these funny things that if you've ever
+wondered what actually makes these things tick, it's a really good read. So
+choosing k-mer is a big problem. How do you do it? I think after listening to
+Torsten talk about shovel and all of his trick, he just said read length like
+minus one, as long as it's odd. One thing that gets to me sometimes when I do
+these assemblers is that sometimes they produce different results just randomly,
+like especially space. I'm not sure if velvet does that. Velvet, okay, so from
+memory, it's because of multi-threading. Velvet, so not all assemblers, most
+assemblers are not deterministic. Velvet, so yeah, usually if you run it on one
+core for velvet, you would get the same result over and over again, but if you
+ran it in the multi-thread, you wouldn't. And I think that also applies to
+spades, that applies to most of them. It's got to do with the fact that when
+they start the assembly, they'll obviously begin with different seeded k-mers
+and so on, and so they can't necessarily guarantee the same result. But velvet
+one core, you will always get the same result, I think, at least back when I was
+using it. Huh, that kind of says to me like as a reviewer, like if somebody does
+multi-threading, I might want to ask them to do like a single thread one time or
+something in a peer review. Might be like a third reviewer comment. Yeah, like,
+and so like, I mean, we haven't, I mean, I want to hear more about the one month
+genome. Yeah. So I think why, why was that one month? Is that on one thread to
+prove a point? It was to provide a benchmark. So as far as I can remember, Amos
+was the best of the time, and then it assembles with different assemblers. I
+might have this totally wrong now. It was a long time ago, but it would assemble
+with lots of different assemblers and then kind of choose the best. Oh, like
+tea, coffee, but assembler version, like this one. Oh yeah. Optimizer. Okay. But
+these days, you know, we have a lot more assemblers. Not many good ones come
+along, but Skeezer, I think, has been like the one that really shook the
+industry. What do you think, Lee? Yeah, I love Skeezer. And I was kind of
+hinting into Skeezer just now, because one of Skeezer's strengths is that it's
+deterministic, and it doesn't matter how many threads you give it, or which
+computer you run it on. If you have the same input, it'll give you the same
+output assembly with the same, you know, essential parameters, like camera
+length and stuff. And I was fortunate enough to be a partner with NCBI. We got
+to try it a little bit earlier, and I think that we just like really, really
+liked it as soon as we saw it. And we are very fortunate to have worked with one
+of the authors, Risha. So big shout out to you. Thank you very much for Skeezer,
+Risha. And haven't they assembled everything basically in RefSeq? I think
+they've done everything in the SRA, right? Yes, NCBI has gone back and done
+everything. Well, they've gone back to SRA, and especially the genomes in the
+pathogen detection pipeline, they've gone and started assembling everything. I
+believe everything in Listeria is done. So if you see something from like CDC or
+FDA that's sequenced in SRA, it's now sequenced in Skeezer. You just download it
+straight from RefSeq. It's pretty amazing. And they're not stopping there.
+They're really trying to assemble everything now. I mean, that saves a lot of
+computational time. I know it's Entropace trying to keep on top of it. The
+assembly is definitely the most computationally intensive part of it. Once you
+have that as a launching point for a lot of other analyses, those are trivial to
+go back and do genotyping or do whatever you want to do with it, or even calling
+SNPs and so on. So I think that's going to be a really great resource if that's
+available for everybody and easy to just fetch, just curl all of it and be able
+to use it, plug it straight into our pipelines. But yeah. How did you feel about
+some of the... How did it compare in terms of quality? Because I know that the
+performance-wise, it's probably 80% fast, or, you know, it's very fast. It's
+very, very fast. It'll assemble a bacterial genome in sometimes like in two
+minutes. I give it a range of like two to 10 minutes per genome, and it's still
+fast that way. And on the other hand, I would give spades a range of like 30 to
+90 minutes, probably. I don't know how everyone else feels about that, but it's
+about that magnitude. That's an actual like-for-like comparison? Same number of
+threads, same amount of memory for that? Or is it just more what you've seen in
+sort of anecdotally and day-to-day use? That's my day-to-day personal
+experience. Okay. And you asked also about the QC, or kind of how we view it.
+The quality, like how... Yeah, how well does it... Does Skiza misassemble? Does
+it... Because all of them have like little quirks. I mean, what's the dirty
+secret for Skiza? I think that internally, we kind of view spades versus Skiza
+as kind of a trade-off, where spades will give you the most contiguous thing
+possible. It'll try to, in other words, try to give you the most nucleotides in
+a row without breaking as possible. But Skiza, as soon as it sees any kind of
+ambiguity or branching or bubbles or whatever, like it'll break the contig right
+away. So, and to emphasize that point, one time we were doing a comparison of
+spades versus Skiza, and we saw zero ambiguous bases in the Skiza assemblies
+versus, you know, however many in the spades assemblies. And it's because Skiza,
+as soon as it sees an ambiguity, it's like, okay, I'm going to stop right here,
+because I don't want to make a missed call. So the trade-off is contiguity
+versus Skiza is going to give you the most accurate base calls as possible. So
+when talking about this, we really have to talk about shovel, spades, and Skiza
+in one go. Because spades came along, default settings were pretty poor. So
+Torsen invented shovel, which, you know, did things like it would overlap reads
+before putting into the assembler. It would turn off read correction and do it
+itself. And, you know, it would do things slightly differently. And then, you
+know, you'd Skiza come along with an ultra conservative assembler. And then
+wasn't there an embarrassing blog post put out? And so the spades guys were
+like, okay, we got to up our game. If you do these different parameters,
+everything will be magically work. And we are as good as Skiza. And then they
+brought in an isolate flag as well to turn on all the extra settings to get
+really good bacterial assembly.  so that they wouldn't be worse than Scyza,
+which is kind of cool. Yeah, it was kind of a satisfying blog post that the
+Spades team did too, just to just distill what all the parameters did and
+everything. If we find that blog post again, I guess we should put that in the
+show notes. And they specified exactly what parameters to do for a single
+bacterial isolate. I almost forgot to say that. Thank you for bringing that up.
+I think that's a really good sign that we have a robust scientific process and
+we have a good community that are able to have these new ideas and then have
+this backwards and forwards. And I mean, I think the turnaround time for that
+was fairly quick. The blog post came out, they were fairly quick with responding
+to it. Yeah, although this is known generally for years, that's why Shovel
+existed. But it's nice that there is feedback. And I suppose if you're
+developing an assembler and you're trying to make generic, you don't want to
+say, oh, well, here's a special bacterial assembler, because that might limit
+the citations again and whatnot. But fair play to them. Oh, and I should also
+say since the blog post, I have not done a really good comparison. So I don't
+know how great it was since then. So I can't give a yes or no since then. I
+don't know if you guys have done any experiments since then. No, and I think
+that's a good point. We should say like this sort of stuff is really quick and
+this is always a moving target if we're talking about it. And what we're saying
+might be obsolete by the time someone is listening to it. So, you know, when in
+doubt, please consult your physician or bioinformatician if problems persist. So
+this isn't the first time there's been kind of comparisons with different
+assemblers. There was the Assemblathon papers, one and two. And I seem to recall
+that it was set up by a group and then they found their own assembler was the
+best. But I might be wrong on that. I think it was Mazurka. I'm remembering
+something like that, but it's been a very long time. Was that Assemblathon one
+or two? I think Assemblathon one. They had something strange. It was like jump
+libraries and not all assemblers are set up to use those. Oh, yeah, it was the
+jump libraries. Yeah, yeah, yeah. I'm still having a hard time remembering it,
+but it was that thing because when I went back to redo it myself, like to
+understand comparing genome assemblies, I was like jump libraries and like I had
+to investigate what the heck that was and we never had any jump libraries
+ourselves. No, it's quite a specialized thing. We should really get Aaron or
+someone on the show. Oh, was A5, was that his? A5 was his, that was, but that
+was just the tool for the metrics, wasn't it? Oh, A5 is an assembler also. I
+never used it. Oh, okay. Yeah. And then there's some other ones like Sean
+Jackman was involved in Abyss. That was used for a while, just a fair while ago
+though. And do you remember Soap De Novo as well? I remember Soap De Novo. That
+was an interesting one because I think for eukaryotes, it consistently was quite
+good. And then for bacteria, it was sometimes the best and sometimes not. The
+other ones were pip into the post. But that was always up there on the list,
+Soap De Novo. Oh, and I almost forgot this one too, but do you guys ever use
+Mira? No, I know Mitch, the Easy Fig, is a big fan of Mira. I think from memory,
+he used to use it, but I never used it. That was like a huge, it was like
+randomly seeded, like you'd get a random assembly every single time. And that's
+when the randomness really came into my point of view. I was just like, how is
+this happening? But that one actually would take all day to run if you were very
+careful on your options. We used to use Mira 3 with more 454 stuff. And some
+other people have gone back and used it on some long reads stuff, I think. I
+know we're not talking too much about long reads, but Mira 3 was, I think, a big
+contender before, at least on my side, we started looking back at Canoe later
+on, but Mira 3 was a big contender. Thanks for a great discussion. I feel like I
+learned a lot about short read assemblers and even some I've never even used
+before. We're all out of time, but have a lot more discussion on future
+episodes. And so please stay tuned for future episodes on our discussions on
+genome assembly. Thank you all so much for listening to us at home. If you like
+this podcast, please subscribe and like us on iTunes, Spotify, SoundCloud, or
+the platform of your choice. And if you don't like this podcast, please don't do
+anything. This podcast was recorded by the Microbial Bioinformatics Group and
+edited by Nick Waters. The opinions expressed here are our own and do not
+necessarily reflect the views of CDC or the Quadrant Institute.

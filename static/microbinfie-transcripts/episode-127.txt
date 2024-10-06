@@ -1,0 +1,180 @@
+Hello, and thank you for listening to the Microbid P podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody really writes it down. There's no
+manual, and it's assumed you'll pick it up. We hope to fill in a few of these
+gaps. My co-hosts are Dr. Nabil Ali Khan and Professor Andrew Page. Nabil is a
+senior bioinformatician at the Center for Genomic Pathogen Surveillance,
+University of Oxford. And Andrew is the Director of Technical Innovation for
+Theogen in Cambridge, UK. I am Dr. Lee Katz, and I'm a senior bioinformatician
+at Centers for Disease Control and Prevention in Atlanta in the United States.
+Hello, and welcome to the Microbial Bioinformatics podcast. Nabil and I are your
+co-hosts today. Today, we're talking about minimum spanning trees. This is
+something we touched on talking about tree visualization last time, and it's
+something we use, but people might not understand. So we're going to also talk
+about the application of minimum spanning trees in our lines of work. Someone
+was recently asking why anyone would want to even use one. So a minimum spanning
+tree is a concept from graph theory, and we sometimes just call these MSTs. It
+applies to a connected, undirected graph where each edge has a weight or cost
+associated with it. The MST is a subset of the edges in the graph that connects
+all the vertices or nodes together without any cycles in the minimum possible
+total edge weight. So over to you, Nabil. Help us understand this a little bit
+more. Yeah, so that's the technical dictionary definition of what a minimum
+spanning tree is. I think it's very easy to imagine, even though it sounds
+complicated. I mean, if you think about a constellation of nodes, of points in
+space on a piece of paper or something, and between them, there's all a bunch of
+known distances between all of those different points. What the minimum, that's
+your graph, basically, nodes and a bunch of nodes and edges. And what the
+minimum spanning tree says is, well, find the tree. So a tree, in this case, is
+something that models the hierarchical relationship between all of those nodes,
+those points. And it's just a connected acyclical graph. So an acyclical graph,
+meaning it doesn't have any loops. And there's one path between the two nodes.
+There's no redundant connections or anything. So that basically means connect
+all the dots, all the points up together, so that there's only one connection
+between two nodes. And there's no loops. In a tree that we usually use, so just
+to drive this home, usually a tree we'll use is a bifurcating tree or
+multifurcating tree, like whatever you want to call it. It starts with a node
+and just keep going out and out and out. With a minimum spanning tree, it sounds
+like it's more like, just to drive this home, it sounds like it's just an
+acyclic graph. So it's just like a set of profiles connected to each other,
+maybe. How would you separate these out? I mean, a phylogenetic tree is
+actually, is a tree. It has the same thing. It's a bunch of nodes connected
+together. And there's no loops. And there's this sort of hierarchical
+relationship there. But the theoretical differences is that in the minimum
+spanning tree and trees in general, compared to phylogenetic trees, they can
+have, one node can connect to multiple other nodes at the same time. It's not
+bifurcating. In most phylogenetic trees, you'll see one node and then two
+children, and then two children from each of those and so on and so forth. That
+makes sense to me. Yeah, but so yeah, you want, so you have your graph and you
+want a tree and you don't just want any tree, you want a spanning tree. So
+something that touches all of the nodes on your graph that you have in front of
+you, and you want the minimum spanning tree, which is the minimum, you want to
+do this with as low total edge weight. So as little distance as possible. People
+use this in very contrived maths questions, like imagine you have a bunch of
+houses and you want to connect them up with telephone and you have telephone
+wires and you're trying to figure out what's the least amount of copper you need
+to use, right? The sort of thing where you have a bunch of houses spread across
+the countryside and you're disconnecting them all up. It's one of those kind of
+maths-y problems. And we use it in bioinformatics. I think it's from, it
+might've been eBurst was the first real implementation that uses, certainly one
+of the first. And in this case, the data you've got is you've got genomes,
+you've got strains and the distances between them is the distance in terms of
+genetic distance. So alleles, allele distance, usually because it was originally
+used for MLST, but you could use it for anything, any type of distance. So it
+could be MILVA, it could be any measurement of distance between these strains.
+And you then have all your data points out and you just connect them all up and
+see the relationship between them with the minimum spanning tree. There is sort
+of a problem though, that the definition of how you create the minimum spanning
+tree, I explained it to you what it is. And there's nothing in that that
+mentioned, we didn't talk anything about evolution or genome or genes or
+bacteria or microbes or anything. It's entirely just the maths problem of just
+minimizing the distances, connecting all the points up, but minimizing the
+distance. So that runs into problems. And one of the problems you'll find, it's
+described in the Go eBurst paper, is that you will run into a case where if
+you're just optimizing the minimum distance, you will find multiple solutions.
+Because you'll find multiple solutions just for optimizing on the minimum
+spanning tree for the lowest distances, lowest possible total edge weight. So in
+that case, what do you do? Because you don't want, no one's interested in having
+10 different solutions to 10 different trees for your question. You have to pick
+one. And then there are different approaches that you can find in the literature
+of how people have tried to pick the correct tree that's sort of in line with
+what you'd expect, biologically speaking. So a minimum spanning tree is that you
+see then in, say, bionumerics or you go to eBurst or you go to PhyloBiz or you
+go to GrapeTree or whatever is not actually a minimum spanning tree in the
+strictest sense. Oh, so with GrapeTree or these other ones, you're kind of
+optimizing it in the context of evolution? No, a lot of them is just a deal.
+First, a lot of the decisions is just to deal with the tiebreaker problem where
+you're going to have just on minimum edge weight, total edge weight, you're
+going to find multiple trees. So now you have to try and pick one. So that's the
+first thing you're probably going to run into. But then, yeah, I think in
+GrapeTree, there is the underlying algorithm does try to fix certain things to
+make it more realistic. And particularly if you have missing LDL data between
+different texts in your data set. So GrapeTree definitely, the minimum spanning
+tree produces definitely not a minimum spanning tree in the mathematical sense
+that you can see in the code that I can point to in the code base that it
+doesn't. It isn't actually a real minimum spanning tree. Yeah, but in some of
+the other tools, they also make minor changes here and there. So it's not
+strictly rank and file definition. It's not a true minimum spanning tree. Well,
+I like to use minimum spanning trees for outbreak analysis, actually.
+Ordinarily, we'll try to put everything in the context of strictly in terms of
+evolution, just using a bifurcating tree. But sometimes you know that you just
+have a founder that started the outbreak. And it's a bottleneck expansion event.
+So you get one founder and it expands outward evolutionarily. So you're
+expecting tons of the pathogens to have one specific genetic profile. And then
+just a minority of differences that you can probably see radiating outwards
+using a minimum spanning tree. So if you just are expecting a couple of SNPs or
+a couple of alleles difference, it doesn't make sense to try to correct those
+distances using evolutionary ideas. It just makes sense to just try to show the
+distances between them in a nice, what'd you call it last time? A blobby format.
+So I like that way of looking at it. And then you can look at those profiles.
+And if you have a majority in one profile, the circle, the blob for that profile
+gets bigger and the minorities are smaller and you show the distance between
+those blobs. It's really interesting because there's so...  much sort of wrong
+with the minimum spanning tree from an evolutionary perspective. Like it's just
+anyone with a solid to say this is not appropriate. This is totally
+inappropriate. One of the critical things that most people will pick on
+immediately is the fact that a minimum spanning tree does not have hypothetical
+nodes. It does. The thing that you like about it is the thing that's problematic
+for other people, which is the fact that there's no, there's no concept of an
+internal split. So what it will do is it will force one of your existing nodes
+to be the founder, which may not be true. And on long evolutionary timescales,
+it usually isn't true, but you usually don't have such good sampling to have the
+founder. So you want that hypothetical node shown. So these are the internal
+branches. These are the internal splits in a tree. People have seen them all the
+time. But then as you say, rightly that in an outbreak scenario, and you've, you
+have in principle, sampled every patient that's come through your traceback
+support, you know, your contact tracing supports this idea that you've got the
+full panorama of all of the different strains that have, that are implicated in
+this outbreak. You can do that, right? Like ideally, or in principle, you can do
+that. So it's an interesting application of it. I think one of the other things
+people really like about minimum spanning trees is the distances between the
+different strains are something that they can understand very easily. So usually
+it's distances in terms of number of alleles or number of repeats or number of
+whatever it is, snips, whatever the measurement they're used to using, PFG
+bands, whatever, whatever, whatever it is, they can look at it. The, the axes on
+the, on the tree is in that number. So just number of alleles away, that's
+something they can understand something like substitutions per site is something
+a little less intuitive. I think that's a good point. You can use all these
+different distances in there. It makes it pretty versatile though. Yeah, because
+you're sort of getting away from thinking about it in terms of evolution and
+mutation and clock rate. And you're talking about this in terms of just distance
+difference in some way, because you can make a minimum spanning tree of any
+data, as we sort of said at the beginning, any, any data, any, just any nodes
+that, that distance between the different nodes can be anything. You, you may
+even have a really contrived way of calculating the distance between them of
+evolution, number of evolutionary events. You might say number, you could, you
+could do something like insane, like number of plasmid insertions, a number of
+structural variation or something, and it would still work. Yeah. Yeah. Speaking
+of different scenarios that might work, you have in our own document where we're
+sharing between each other, a few notes, you have a transmission network
+actually. So ordinarily you and I are thinking about, honestly, I mean, we're
+focusing usually on what we, what our backgrounds are with, with foodborne,
+which has usually a food intermediate vehicle. You might have a common ancestor
+in the food actually. But a transmission network, if you're looking at something
+like tuberculosis, where it's person to person, Shigella, a transmission network
+with a minimum spanning tree might be more appropriate too, because you might
+not have a lot of hypothetical common ancestors if you've sampled everything.
+Like if you have a population of people who have unfortunately or inadvertently
+shared tuberculosis between each other, like you'll, you'll see person to person
+and the lines in a minimum spanning tree would represent those transmission
+lines and you wouldn't need a food vehicle intermediate. I think, I think for
+that kind of application, it also is a lot more familiar to people who aren't
+used to phylogenetic trees because they might've seen transmission networks. And
+so, you know, you can put the two together and yeah, if it is a sort of closed
+space where you know, you don't have a possible third party that is perhaps
+infecting both, you know, you can kind of map out transmission. It is something
+controlled that you can, you can follow then the transmission network and the
+minimum spanning tree may be quite similar and they're both fairly same type of
+interpretation. So I think that I always felt was why people tended to gravitate
+to this sort of thing. Well, we're at time. Do you want to wrap it up? Do you
+have? Yeah. Well, I mean, we were just talking really quickly about minimum
+spanning trees and why we would ever be interested in it and why people would
+use it. And hopefully it's helpful for people out there to learn about this kind
+of odd application of, of a fairly messy concept. And yeah, so that's it from
+the Micro Binfy podcast and we'll see you next time. Thank you so much for
+listening to our podcast. If you like this podcast, please subscribe and rate us
+on iTunes, Spotify, SoundCloud, or the platform of your choice. Follow us on
+Twitter at Micro Binfy. This podcast was recorded by the Microbial
+Bioinformatics Group. The opinions expressed here are our own and do not
+necessarily reflect the views of CDC, Theogen, or the Center for Genomic
+Pathogen Surveillance.

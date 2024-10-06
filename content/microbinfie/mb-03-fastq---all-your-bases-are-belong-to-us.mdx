@@ -1,0 +1,93 @@
+---
+date: 2019-10-17 00:00:00
+title: MicroBinfie Podcast, 03 FASTQ - all your bases are belong to us
+link: https://soundcloud.com/microbinfie/fastq-all-your-bases
+tags:
+  - microbinfie
+  - podcast
+---
+# The Evolution of FASTQ: A Chat with Lee, Nabil, and Andrew
+
+FASTQ files are the foundation of modern bioinformatics. Join the informal conversation between Lee, Nabil, and Andrew as they delve into the story of how FASTQs emerged, seemingly out of nowhere, along with all the backstories and quirks involved. You might even learn something fascinating about this key file format!
+
+## Participants
+
+- **Lee**, the computational biologist
+- **Nabil**, the genomic data analyst
+- **Andrew**, the bioinformatics software developer
+
+---
+
+### Highlights of the Conversation
+
+- **The Emergence of FASTQ**  
+  Lee, Nabil, and Andrew explore the origins of the FASTQ format, detailing how it became an essential tool in genomics research.
+
+- **Why FASTQ?**  
+  Discover the reasons behind the adoption of FASTQ files, including their ability to efficiently store both nucleotide sequences and quality scores in a single file.
+
+- **Backstories and Quirks**  
+  The trio shares intriguing anecdotes and lesser-known facts about FASTQs, adding a touch of humor and insight into how the format has evolved over time.
+
+### Insights Shared
+
+- **Lee:**  
+  "FASTQ revolutionized the way we handle sequence data. Before its advent, managing the quality scores alongside the sequence information was cumbersome and inefficient."
+
+- **Nabil:**  
+  "It's fascinating how something that seems so technical and niche like FASTQ has become the backbone of a multi-billion dollar genomics industry."
+
+- **Andrew:**  
+  "The design of FASTQ was pretty ingenious for its time. It foresaw the need for scalability in handling massive genomic data which was only beginning to explode."
+
+### Learning Moment
+
+- FASTQ files store sequences and their corresponding quality scores using a simple yet efficient format that aligns with the requirements of modern sequencing technologies. This has made them indispensable in bioinformatics workflows.
+
+### Additional Resources
+
+- [Understanding FASTQ Files](#): A comprehensive guide for beginners.
+- [History of FASTQ](#): An article exploring the origins of the FASTQ format.
+
+**Images and Diagrams**:  
+![FASTQ Structure](https://example.com/fastq_structure.png)  
+*Diagram showing the structure of a FASTQ file with labelled sequence and quality score lines.*
+
+---
+
+Join Lee, Nabil, and Andrew in this engaging exploration to uncover the story behind one of the most fundamental components of genomic data processing.
+
+### Extra notes
+
+- **FASTQ Files**: 
+  - FASTQ files contain DNA sequences and quality scores, essential for understanding raw sequencing data.
+  - There are preferences and debates between using shuffled vs. split FASTQ files for ease of processing through pipelines like Spades.
+  - Common formats before FASTQ included proprietary formats like SFS, used in 454 sequencing.
+
+- **Quality Encoding**:
+  - Quality scores in FASTQ files are typically encoded as ASCII characters, allowing for compact storage compared to lengthy numerical formats.
+  - Different encoding standards exist, including the older Pred64 (ASCII64) and more commonly used Pred33 (Sanger, offset by 33). 
+  - Modern quality scores on platforms like Illumina use binning, which may lead to loss of detailed quality information.
+
+- **File Formats & Tools**:
+  - BAM and CRAM formats are used for sequence alignment, with CRAM offering significant compression over FASTQ.
+  - FASTQ remains the "gold standard" due to its widespread adoption and ease of use.
+  - Tools like SAMtools, SeqTK, and custom scripts are commonly used to manipulate FASTQ files, reflecting both community preference and custom solutions.
+
+- **Challenges with Formats**:
+  - Multi-line FASTQ entries and the diversity in quality encoding presents parsing challenges. Custom solutions like Heng Li's insistence on non-strict format guidelines offer various interpretations.
+  - The issue of higher-than-expected quality scores in PacBio and Nanopore data, which can exceed standard expectations, poses a challenge for analysis tools.
+
+- **Practical Tips**:
+  - Sorting and compressing FASTQ files can lead to biases; therefore, care must be taken in preprocessing steps.
+  - Investigating Illumina FASTQ headers can reveal detailed run and positional metadata but requires careful interpretation.
+  - Binning quality scores on platforms like NextSeq/Nextera can cause inconsistencies, leading practitioners to avoid such practices when possible.
+
+- **Insights into Historical Context**:
+  - The FASTQ format emerged from practical use rather than structured invention, highlighting community-driven evolution in bioinformatics standards.
+  - Historical limitations (e.g., tile issues in Illumina) show that physical challenges (e.g., "bubbles" on flow cells) can impact sequencing quality data.
+
+- **Looking Forward**:
+  - Continuous evolution in sequencing technologies and formats necessitates adaptation in bioinformatics tools and protocols.
+  - Addressing encoding issues and aligning quality standards remain vital for ensuring compatibility across various platforms and research outputs.
+

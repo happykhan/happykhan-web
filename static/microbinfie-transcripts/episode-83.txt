@@ -1,0 +1,218 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the US. Welcome to the MicroBinfeed podcast. Today, I've got Nabil
+and Lee joining me, and they're going to tell me about mobile genetic elements
+and, well, what they are and why I should care. So I come from a computer
+science background, so a lot of the terminology and biology is, I suppose, not
+my cup of tea. I haven't learned it, but these two guys, luckily, know all the
+buzzwords and all the lingo and are going to explain to me exactly what I should
+know, and hopefully, I'll become a better biophysician at the end of it. What is
+a mobile genetic element, and what kind of different ones are there? Well, I
+should first start off and say that I've been working on COVID, SARS-CoV-2
+doesn't have any mobile genetic elements, and I'm also pretty rusty on all of
+this stuff. But I'll give it a good go. So mobile genetic elements are genomic
+elements or segments that can mobilize themselves and move between different
+genomes, between different chromosomes. There's a plethora, there's a multitude
+of different types you can get. This includes things like bacteriophages, so
+bacteriophages that integrate as prophages into a host chromosome and then
+excise themselves and transduce elsewhere. You have transposons, you have
+plasmids, you have just genomic islands as well. You have integrative
+conjugative elements and integrons, so these are things that look like plasmids,
+but then dive into the chromosome. It just keeps going on and on, and within
+these different classifications, they can be remixed, so you can have something
+that's sort of phage-looking, but isn't. You can have something that's plasmid-
+looking, but isn't. And it's incredibly difficult. As long as there's some sort
+of mechanism for it to transfer, then it's a mobile genetic element. There are
+even mobile genetic elements that don't seem to have obvious signatures of how
+it actually mobilizes, or whether it's able to do it, whether it's sort of
+autonomous in its ability to mobilize. So often you can have prophages that
+don't have all of the bacteriophage excision machinery properly and they borrow
+it from somewhere else, and then they use that to excise along with something
+else. It's a wild, wonderful world out there, and we kind of pretend, a lot of
+us pretend that it's not actually there, and try not to think of it too much,
+and pretend everything is just nice and tidy sequence types. So it's just like
+the accessory genome that people talk about in pangenomics. Yeah, I mean, it
+doesn't, just because something's in the accessory genome, it doesn't strictly
+mean that it is mobilized, but both things do kind of overlap with each other.
+When you say mobilized, I mean, how do I tell the difference between maybe some
+phage-annotated genes in the chromosome that I've sequenced, and just a random
+contig I have with random annotated phage genes? Phages are quite particular
+because you should hopefully see, you should see something for the capsule, you
+should see some tail proteins, things like that, for the sheath as well. So they
+have a specific structure and you expect a certain panel of genes including
+certain proteins there, but not necessarily, because you can find from the very
+beginning of bacterial genomics that definitely instances of phage-like,
+prophage-like elements, which don't necessarily have the full set of genes that
+you'd be expecting, so you're not quite sure if that's something that's self-
+contained and complete. There are certain tricks to identify the likelihood that
+something is a mobile genetic element. Quite often I will run Plasmid Finder or
+something like that to look for the ink type or whatever in my isolate. Now, how
+accurate is that, and what does it actually really tell me? It's obviously
+looking for a certain replicon and it's trying to type based on the replicon. I
+don't know if Plasmid Finder does it, whether it looks for genes involving
+conjugation as well and gives you a type from that, I don't think it does. Some
+other tools do, but there are certain features you can use to identify a
+plasmid. Usually it's the ink type, that's the most standard way of going after
+it. But then, I've seen before where there are ink types buried within the
+chromosome itself as well as within standalone plasmids, so how do you know
+which is which? You don't. If you're dealing with short reads, you have no idea
+whether this is something that's accidentally been misassembled in a way that
+it's been merged into the chromosome by accident, or it could be an ICE, could
+be a genuine biological event where something like a plasmid has integrated into
+the chromosome. Difficult to say. Usually people are these days using short
+reads to do large-scale isolate sequencing, so what are the things we should be
+wary of? Yeah, if you are sequencing with short reads, then you might have some
+region of the genome, some IS element that repeats so many different times you
+won't be able to place it. Well, we've had some extreme examples of that. We had
+this strain, this Vibrio strain, and it had three phages back-to-back-to-back in
+it, and we had to type it and everything, and PacBio was just becoming available
+to us and we were able to finally span it after a year into study of this. And
+it was so hard. So, I mean, the real dangers with short-read sequencing is you
+won't be able to span that repeat, you won't be able to place where it is, but
+you might come across something with three of the same phages. In this case, it
+was a tandem phage, and even longer reads wouldn't be able to handle it, which
+is where really long-read sequencing comes in. Yeah, some E. coli can have up to
+10 or 20 prophage or prophage-looking repetitive elements in the genome, and
+each of those will probably be a breakpoint in your genome assembly. I've had a
+lot of trouble with short-reads and assembling pertussis. Are MGEs responsible
+for this hellhole of an assembly problem? So with pertussis, they have a certain
+IS element. I forgot which number, but with IS elements, you'll number them like
+IS element number 1111 or something. And in some cases, I think with pertussis
+also, people use it to actually use it as a sequence-typing method, and you can
+find it hundreds or maybe thousands of times in the genome. It's incredible, and
+it will really break up your genome. Shigella is another example of an organism
+that has tons of IS elements, and usually your N50s are pretty lousy. Don't you
+mean E. coli? Yeah. Yeah, I guess that extends to all inter-invasive E. coli as
+well. Grant, I have heard that CRISPRs are the mechanism that bacteria use
+against phage. Like how on earth does that work, and informatically, what can we
+do with it? I mean, sort of off-the-cuff explanation of CRISPRs, because there's
+a lot going on in terms of explaining how CRISPRs work. But it works like, it's
+like a bacterial-acquired immune system, right? So, they have a set of
+associated genes, and they have a panel of sequences that they use as targets to
+identify foreign DNA. And when they identify it, they then go off and destroy
+it. In some organisms, you'll find that there are phage, or foreign plasmid, or
+foreign phage, or foreign other things that are in the spacer sequences that
+it'll go after. CRISPRs are pretty easy to find at this point, because the
+associated genes are usually quite well-conserved in the species. So, they're
+easy to find, and the segment itself, the spacer sequences, and the repeats
+between those spacer sequences, is usually very short. So the whole thing comes
+out quite nicely in a de novo genome assembly for most organisms. And it's a
+very unique structure. So there are tools like CRISPR Finder, PileCR, PileRCR, I
+think, from Robert Gurr. There are tons of them, CRISB, CRISPR-DB, which you can
+use to, or MINST is another one, which you can use to find CRISPR sequences. So
+do CRISPRs and the transmission of CRISPRs follow the same evolutionary path as
+the chromosome? Like, say, if I take one ST E. coli, will I find mostly that the
+CRISPRs in there are identical, you know, in all of those, or do they differ
+quite substantially? Depends on the organism. It's a bit hit and miss. I would
+say you can't really use it as a rule of thumb. For salmonella, it works a lot
+better, particularly in some cerevals like typhimurium. CRISPRs can be, do
+follow, I guess, the spacer sequences were fixed quite a long time ago, and it
+sort of has followed along with the cerevals.  ours. In other organisms like
+Mycobacterium tuberculosis, like you have spoligot typing and that is
+effectively looking at the CRISPR panel. That's what that's derived from and
+that's a standard typing method. So it varies really whether you can, how
+CRISPRs relate. You kind of think it shouldn't because it's defined on mobile
+DNA that the organism run into, but sometimes it can be associated with the
+species tree without the original evolution of the organism. I think at one
+point or another, like we try to use it for genomic surveillance also, but it
+just is not as reliable as using SNPs or MLST, unfortunately. Yeah, usually, I
+think historically people were interested in CRISPR typing before genomics. It
+was a useful thing to try prior to genomics and you'll find a lot of literature
+where people in, especially in the public health sphere, do it. And then, you
+know, once you have genomics, all of that quickly tops off because you realize
+it's much easier just to shake a genome out. Okay, so assuming that I start with
+the FASTQ file, right, of an isolate, what do I do next if I want to actually
+really dig into the mobile genetic elements? You want to assemble the genome
+somehow if you've got short, you've got short reads, right? Short or long? I
+mean, let's start with short. Short or long? All right, let's start with short.
+So you want to, either way you want to assemble the genome because one of the
+key ways that you're going to identify your mobile genetic elements is the
+synteny of the genes. Just finding a singular transposon just in the vacuum of
+gene space doesn't tell you anything. So assembly is a good way to go. Lee, what
+would you do next? I'd probably do a rough and dirty annotation with Prokka just
+to have something I can look at in a genome browser like Artemis. I feel like
+you stole my brain over there. That's exactly what I was going to say. I'm 100%
+agreeing with you. And then you want to get to the stage where you can just look
+at it and decide what to do next. So you have your annotations and how would you
+do a better annotation after that? Because Prokka is just a generalized
+annotation. You might want to do something a little bit more plasmid-specific or
+whatever you think you might have. So if Prokka is showing a bunch of IS
+elements, do some kind of IS element annotator. If you have a bunch of plasmid-
+looking genes, a plasmid annotator. So one thing I would add, and I think Andrew
+was alluding to this earlier, is a good trick is once you have your assembly,
+you map your reads back onto your assembly and then look at the coverage.
+Because one obvious sign that you've got an MGE is a collapse repeat. So it's a
+duplicated thing, that repetitive thing over and over again. If you plot the
+coverage, you'll have a massive spike over a certain region of the genome, even
+if you don't know what those genes do. That's a good indication that something
+over and over again, it's an MGE. Just as you said that, I've remembered that
+when you look at a GC plot, often if there's an MGE, it will have a different GC
+to the background chromosome, and that can be an easy way to spot it. Yeah, a
+lot of proof pages are AT-rich, generally speaking. So that's a good trick to
+find it. So you mentioned Artemis there, but it is actually quite important to
+go and eyeball your data for basically any mathematics you do, because I trust
+no algorithms at all. They're good for getting you 90% of the way there, 95% of
+the way, but actually you have to dig in and see exactly what's going on and use
+your brain. And unfortunately, that kind of stuff can't be automated, no matter
+what people claim about artificial intelligence. As I was saying at the
+beginning, mobile genetic elements are definitely a wild west still, and you
+can't trust a singular tool to get the answer right. Okay, so now you've gone
+and you've got your assembly, you've got some annotation, how do you sort the
+wheat from the chaff? So if you've given me a genome and say, Nabil, where are
+the proof pages? If there are any proof pages, I would bung it into FAST, which
+is a web service you could use, or FASTA now, and that'll just quickly tell you,
+it has a sort of set of criteria that it's using to measure different regions of
+the genome. Does it have, you know, the structural proteins we were talking
+about that would suggest a phage? Does it have these AT-rich sort of things? It
+has a panel of metrics it does, and it says, well, these are the most likely
+pro-phage regions in your genome. Most phage typing methods have this, and they
+don't have like a sort of, they have a set of heuristics, they're not like a
+complete solution. So you, again, you go back to Artemis and double check
+whether those make sense. So there's things like FASTA, PhageFind, PhySpy,
+there's a ton that you can play around with and get slightly different results
+each time. And so then you have to figure out which one is right, but that's
+where I'd start for phages. 100% agree with you. Once again, same page. So I
+know when I've manually looked through genomes at the annotation, you'll see
+like a phage tail annotated, and then a helix, and then, you know, some genes in
+between. And often, you know, I go and shove those, that sequence into NR in
+NCBI, and there's nothing. Like, it's like, this has never been seen, no one has
+ever deposited this ever. Like, what the hell do I do next? Panic. Yeah. I don't
+think there's anything you can do. You got to go and talk to your friends in the
+wet lab and actually do some real microbiology and figure out the gene function
+of that thing. Sounds hard. Sounds hard. No, that's, you have to do actual work
+at that point. There's really not too much you can do once you've bunged it into
+NR. You can try more sort of more sensitive alignment approaches. So like
+CyBLAST kind of things, which is looking at not just the base position, not just
+the base alignment, but also the position and things like that. You can do
+methods like that to kind of look for very divergent, similar genes. Or again,
+looking at things like, I mean, obviously if you're doing it NR, you are using
+it in amino acid space, right? And not just nucleotide, NT, NR. And you might
+have to start thinking about looking at structural predictions and comparing
+that. It gets pretty messy when you don't have any idea. I was thinking when you
+were talking about all that, like if I were looking for like the moonshot and I
+was stressing out about it and I had zero annotation so far, I'd probably go to
+like InterProScan or something like to at least give me an idea what the domains
+are on there. Yeah, there are some ProPhage databases or like sort of MG, like
+plasma databases that are a bit better curated that you can possibly throw them
+against to get an idea. Maybe PFAMs might help you in that case, if you're
+really struggling. Maybe that might be one way, but whenever I suggested that
+and tried it, it doesn't help. Basically when I run into that thing and there's
+no result on NR, like nothing, it's like, I don't know, there's nothing I can
+do. I've tried all of those different things and nothing works. It's like, yep,
+well, this is just an unknown, a duff. Because Lee has had a power cut,
+obviously they're freezing down there in Atlanta, Georgia, but we are going to
+call it a day there and we will catch up again on mobile genetic elements. So
+thank you once again to Nabil and Lee for this really insightful discussion.
+Thank you so much for listening to us at home. If you like this podcast, please
+subscribe and rate us on iTunes, Spotify, SoundCloud, or the platform of your
+choice. Follow us on Twitter at Microbinfee. And if you don't like this podcast,
+please don't do anything. This podcast was recorded by the Microbial
+Bioinformatics Group. The opinions expressed here are our own and do not
+necessarily reflect the views of CDC or the Quadram Institute.

@@ -1,0 +1,207 @@
+Hello, and thank you for listening to the Microbid Key Podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody really writes it down. There's no
+manual, and it's assumed you'll pick it up. We hope to fill in a few of these
+gaps. My co-hosts are Dr. Nabil Ali Khan and Professor Andrew Page. Nabil is the
+head of informatics at the Quadram Institute in Norwich, UK. Andrew is the
+director of technical innovation for Theogen in Cambridge, UK. I am Dr. Lee
+Katz, and I am a senior bioinformatician at Centers for Disease Control and
+Prevention in Atlanta in the United States. Welcome to the Microbid Key Podcast.
+I'm your host, Andrew Page, and I'm joined today with Lee Katz. Nabil isn't here
+today, unfortunately, but he sends his best wishes. So we're going to be talking
+about hash databases. And if you don't know what these are, listen to us for the
+next few minutes, and we will absolutely tell you all about these and why they
+are kind of cool and kind of awesome, both at the same time, but also kind of
+dangerous. So I know, Lee, you've had a little bit of a dabbling in hashes and
+also in the blockchain and things like that. So do you want to kind of give us a
+little primer on what this is, what the concept is? Yeah, maybe I'll start with
+like, why? Because it's kind of out of frustration. We have MLST databases
+around the world, and they're used for genomic surveillance or population
+structure or maybe other exercises or applications. And everyone is kind of
+siloed. And it sucks because one database in England could be, just using you as
+an example, sorry. Could be, you know, getting all these wonderful genomes and
+getting MLST alleles, and they increment those alleles by integers. And then
+over here in the US, we might be doing surveillance or other exercises, and we
+have our own siloed database. And those integers are going up, and we might have
+the same alleles across the pond, but they're named differently. And it's
+frustrating. How do we synchronize those databases better? Or, you know, if it
+isn't a well-funded institution, what if it's just, you know, some place and
+they just stand up a database, how do they synchronize easily without good
+system support or without resources? So some people around the world have
+floated the idea of hashing the alleles. And for those who don't know, hashing
+is just a one-way algorithm to take a string and turn it into a large integer.
+Or usually large. And that integer could be, that hash could be the allele
+sequence. And so that would be a unique identifier that if I found it and you
+found it in your institution, we'd have the same identifier and we could
+synchronize our databases much more easily. And I guess in this case, MLST works
+on alleles. If there's a single difference, then it is a different number. So a
+hash is perfect because if there's a single difference, you get a different
+hash. Yeah, absolutely. It's a totally different hash. I do not understand
+personally, like what the actual underlying algorithm is. There are several
+different hashing algorithms out there, but once you introduce even one snip,
+the whole string, the whole integer, sorry, turns out totally different. And so
+people would have heard of say MD5, which is an old school way of hashing. And
+as far as I know, what it does is you take say a block of text, imagine a page
+of text and you format it into a matrix. Okay, so kind of a little squashed down
+matrix of a slim width. And then you do mathematical function just along the
+columns. And the idea is basically is one way you compress it, you lose data,
+but you get a number at the end, which more or less cannot be, you can't get
+unless you have the same text. It is possible to get key clashes. So it's used
+heavily in cryptography. So you can, in theory, come up with a different way of
+different input data, which would give you the same hash. But these numbers are
+so big and the space is so large that it doesn't happen very often. So it's
+quite robust. And for what we do, it's grand. There is a theoretical risk that
+you can have two different alleles, which will result in the same hash, but it's
+minusculely small. And if you put in extra safeguards, actually, it becomes even
+smaller. So have you heard of the birthday attack in cryptography? Barely. You
+have to remind me about that one. So if you, the probability, I think of a safe
+room for people, the probability of two people sharing the same birthday, I
+think is like the square root number of people in the room. Or something like
+that. Oh, God, no, I got it totally wrong. It's something like, is it there's a
+50% chance at a certain level? Anyway, basically, if you have a random pool of
+people and you take two out, there's a higher chance that randomly two of those
+will have the same birthday, rather than saying you and you, like who has a
+birthday on the 1st of May? That's a harder problem. Whereas is who, what any
+two people in this room have the same birthday, that's a much easier problem on
+a smaller space. And so that can happen with hashes. And as a computer
+scientist, I'm failing to explain this very, very well. And I totally apologize.
+But let's get back to away from hashes and back to the actual databases
+themselves. So you're talking about people in England, incrementing these
+numbers and what happens if they're not well funded. So the, those are obviously
+your centralized databases with gatekeepers and sometimes committees who, you
+know, and there's verification and validation and things like that. So is there
+not a risk that you'll have, you know, database will become polluted if you just
+allow anyone and everyone to have their own hashes and then say, yes, this is an
+allele. Yeah. So taken together, like there's a, there's a risk of collision. So
+this idea that you have any two DNA sequences that they might collide, like
+there's a risk that you have a, a two sets that have the same hash. And the way
+that we get around that is we can increase the complexity of the hash. So
+there's a, an algorithm in, at least I found it in Python called CRC32 that
+produces a hash, but it's a small integer. And when I hashed a whole MLST
+database, I did find some collisions. So that means that some of the sequences
+did have the same hash. So that could have consequences. You might not have the
+distances right between any two genomes. They might have different DNA
+sequences, but the same hash. So there would be a zero distance with that locus
+versus a one distance. But then there's some more complex hashes. A lot of the
+world seems to be coalescing around MD5SUM, but I mean, I guess it's not really
+definitive at this point. And MD5SUM, when I hashed a whole database, I did not
+find collisions. And I guess- How much did you hash on HyperAquazon? I hashed
+all of the databases I could find on Chewbacca.online. And so those are a bunch
+of whole genome MLST databases. I think that's some CGMLST databases. And that
+includes Salmonella, E. coli, Listeria, Campylobacter- The lesson. Yeah. And
+well, I tried it on some other hash sums. So another one that a lot of people
+know about is SHA-256. And also I didn't find any collisions there. And I
+thought, well, what if people started adding more and more? So you're asking
+about polluting the database. What if people add more and more and more? So I
+took the biggest database I could find, Salmonella, and I just started
+introducing random mutations. And I did that 10 times per allele. So I made a
+database 11 times the size of the original database. What you just using random
+mutations. And I hash summed all of it. And of course, the CRC32, I found
+collisions. Both mt5sum and SHA-256, I did not find any collisions. And I showed
+my work on the, on the GitHub repo. So I guess we can put that into show notes.
+I guess the other thing is if you restrict, if you say that you can have
+duplicate hashes, but for different alleles, that's fine. Sorry, for different
+genes. And then say for Salmonella, I don't know, whatever it is, is it 3000
+genes in the scheme? It doesn't really matter at that point, you know, because
+you kind of split, you know, 3000 copies, potentially of the same thing, which
+makes life a bit easier. True. I started doing that experiment with CRC32, but I
+actually didn't need to do that experiment to worry about within loci. I didn't
+find any collisions across any alleles across any loci. Oh, okay. So it was even
+better than expected. Yeah, that's really cool. Because that means that you no
+longer then have to wait, you know, you submit stuff, you wait for your sequence
+to be accepted. And then you have, you know, you go through that whole loop. And
+then people would say, can you prove it?  can you do Sanger sequencing? You
+know, there's a few barriers to some of these databases where because they're
+very suspicious and they want high quality calls in there only. Obviously,
+that's more for MLST, but you can't do the same kind of QC on CGMLST itself,
+because obviously there's so many more genes. But that's really cool. And how
+are people going to use this in practice? Is there software then that people are
+going to use? Because no one is going to go and make their own. Yeah, to do
+this, you actually need to change the idea behind a lot of software. So a lot of
+good MLST software uses BLAST or other loose matching programs. It doesn't have
+to be an exact match, but with hashes, even one snip changes it to a different
+hash. So you have exact or not exact matching. There was an idea out there that
+I tried, but it sort of failed to produce many hashes for each allele. And then
+you could have kind of a loose matching, like how many of the 10 hashes for the
+allele that you made did it match on. But it started getting way too
+complicated, way too fast. It made a huge database, and it ultimately didn't
+matter. So you still need some software that's either exact or not exact. So
+some software that does that right now is Itoki. Another one is, I believe,
+coming out, we're going to see this in the next few months, I believe, is the
+new BMURU caller that we're trying out. I don't know what it's called yet. I
+don't know where the software is. I don't know anything. I've just seen like
+little hints that it might be coming out. And I believe some other software out
+there. So there's a version of Chewbacca that uses a hash database.
+Unfortunately, it uses CRC32, which, it does produce collisions, but they are
+rare still. But I just, I want to be careful about that kind of stuff. So
+Chewbacca, it's called Chewy Snake by our colleagues in Germany. And I'm
+forgetting right now. And I think, you know, this is sort of notable. I was
+looking at Torsten's MLST7gene site, and he does allow for people to do hashes
+on those alleles too. And I was like, really? Wow. Like, when did he do that?
+And I, you know, on GitHub you can, or in Git, you can click on blame, which I
+think is the funniest subcommand. So if you put, if you push blame, it'll tell
+you line by line who made the change and when. And Torsten made that change for
+hashing five years ago. So again, ahead of his time. Very, very ahead of his
+time. He always was. So how are the sequence types allocated? Because those are
+integers as well. And that's a representation of the collection of alleles.
+Yeah. So you're touching on something where it got complicated real fast. So
+when I was designing this, I was thinking, okay, I'll just hash all of the
+alleles, but wait, what if you guys produce a sequence type and you name it
+sequence type 10, but over here, we get the sequence type at a later date and we
+call it sequence type 30. Like now we have different databases. So now there's a
+method in the specification, which again, we'll have them show notes. The
+specification shows how to hash the hashes of alleles to create the sequence
+type. However, like if you are talking to people like a medic or something and
+you say, oh, you know, I have sequence, this patient has sequence type 11 versus
+this patient has sequence type ABC 1589201. They'd be like, really? What is
+that? Right. So yeah, maybe it'll go the way of COVID where you guys had really
+cool names for different SNPs, like a laser. Maybe we'll have something like
+that. Well, I mean, there's the COVID naming is still done by essentially, you
+know, GitHub issues and stuff like that, where it's manually allocated, you
+know, like BA1, BA2, dot 1, 2, 3, 4, 5 in a very nice structured manner, but it
+is still very manual and effectively that's kind of a committee informal or
+otherwise that is the gatekeeper there. Yeah. There's one other notable thing
+happening right now because sequence types are very difficult, I guess I would
+say they're, they're less useful for CGMLST than it was for 7-genome LST because
+every single genome basically gives you a new sequence type. So people rarely
+use it. We have something else kind of happening in the world right now called
+allele codes. And we described this in our paper, Stevens et al from a couple of
+years ago. I guess we'll have to put that in show notes too. Is that like SNP
+address? It's like SNP address. That's right. We actually copied it from that.
+Oh, very good. So, but that, I don't know how to decentralize that yet. So it's
+a little outside the scope of this. I guess, you know, one step at a time, like
+if we can just get the alleles to be decentralized, then we're probably 90% away
+there. Yeah. So there's more hashing in this database that makes it more and
+more and more complicated. I won't get into it. There are, I basically took a
+few days to make a whole specification to draw it out and it's working at this
+point. I think it could be used with certain callers like eToki and I think that
+other callers could probably adapt to it. We'll see how it goes. Can I ask,
+right? You've made a specification there, which looks really cool, but this is
+in your personal GitHub account. And would it not make more sense for longevity
+to have say phage or some kind of organization like that to take it over where
+you have that weight of the international community, weight of the international
+community kind of feeding in and maintaining it and expanding it to make it a
+true standard? Yeah. One day I think I'm going to take this to phage and, or
+maybe another organization. We'll see where I can, where I can go and just sort
+of ask them to adopt me on this. I'm looking for a parent to adopt me on this
+specification. There are, there are a few organizations that I agree probably
+could use it and could probably take it to fruition. Probably phage. Another
+organization is GMI. That's a possibility. And, and yet one more organization
+that I actually made this for is PulseNet International. So there are some very
+viable candidates. Since I made it for PulseNet International, that's possibly
+more of a place to go to with this, but you know, I really, this is, this is me
+just like brainstorming aloud. So maybe I shouldn't be doing that recording, but
+okay. I guess if I, if I said it and it's in the recording, we can't edit it. So
+it's there. Grand. Well, I look forward to seeing this in production. You know,
+it's a super useful thing. And I know it's something people have been talking
+about for a long time. So it's great to see that you've actually gone on and
+done something about it rather than just, you know, sitting back and riffing on
+it in a podcast and not doing anything. You've actually got code there. So fair
+play, Lee. I think we'll leave it there and we'll see you guys in a week or two.
+Thank you so much for listening to us at home. If you liked this podcast, please
+subscribe and rate us on iTunes, Spotify, SoundCloud, or the platform of your
+choice. Follow us on Twitter at MicroBinfy. And if you don't like this podcast,
+please don't do anything. This podcast was recorded by the Microbial
+Bioinformatics Group. The opinions expressed here are our own and do not
+necessarily reflect the views of CDC or the Quadram Institute.

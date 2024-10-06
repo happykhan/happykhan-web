@@ -1,0 +1,42 @@
+---
+date: 2020-05-28 00:00:00
+title: MicroBinfie Podcast, 19 Microbinfies assemble
+link: https://soundcloud.com/microbinfie/microbinfies-assemble
+tags:
+  - microbinfie
+  - podcast
+---
+In this podcast, we dive into the fascinating topic of **short read de novo assembly**. We explore the history of assembly techniques and discuss how short read assemblers have developed to become the powerful tools they are today. Our main focus is on the assembly of bacterial genomes, highlighting the advancements and challenges in this area.
+
+Key points covered include:
+
+- **History of Assembly**: An overview of how assembly methods have evolved over time.
+- **Evolution of Short Read Assemblers**: A discussion on the technological advancements and improvements in algorithms that have enhanced assembly accuracy and efficiency.
+- **Bacterial Genome Assembly**: Insights into the specific challenges and strategies used for assembling bacterial genomes using short reads.
+
+Listen to gain a comprehensive understanding of the current state of short read de novo assembly and its applications in bacterial genomics.
+
+### Extra notes
+
+- **De novo Genome Assembly:** The process involves reconstructing an original sequence from DNA fragments. This requires assembling genomes because direct sequencing of complete chromosomes is not yet possible. Early genome assemblies were done manually with tools like CAP3 using Sanger sequencing.
+
+- **Assembler Tools:** Early tools included GREEDY assemblers like CAP3 and other tools like FRAP and the Tiger assembler for capillary sequencing. The introduction of overlap consensus assemblers with tools like Noobler and Minimus for handling higher-throughput sequencing from platforms like Illumina.
+
+- **De Bruijn Graphs:** A computationally efficient method for handling high-density sequencing data, overcoming issues with previous methods that could not handle higher coverage levels. The first significant software using this was Euler, paving the way for Velvet, a universally loved assembly tool.
+
+- **Challenges with Velvet:** Although highly trusted, Velvet had limitations with longer read lengths and variation in insert libraries. Velvet Optimizer was developed to overcome these, allowing parameter optimization for better performance.
+
+- **Transition to SPAdes:** Velvet was eventually replaced by SPAdes due to its ability to perform read correction and handle scaffolding errors. SPAdes evolved to offer functionalities beyond basic assembly but initially was memory-intensive and faced trust issues.
+
+- **Skeezer's Entry:** Skeezer is noted for its determinism, providing consistent results irrespective of system resources, contrasting with many other assemblers, including SPAdes.
+
+- **Comparison of Assemblers:** The podcast discussed various assemblers and their trade-offs, including ABySS, SOAP de novo, MIRA, and others. Notably, some assemblers were better suited for certain organism types.
+
+- **Industry Impact and Current Usage:** Assemblers like Skeezer are being employed by NCBI to process vast databases for uniformity and speed, impacting fields such as pathogen detection with faster and more reliable results.
+
+- **Continual Evolution:** The field continues to evolve with assemblers being continually compared and improved, as seen in community-driven initiatives like Assemblathon exercises and the development of customized methods like Shovel to optimize assembler settings.
+
+- **Technical Recommendation:** For those interested in the field, reading foundational papers on Velvet and exploring Velvet's implementation details can provide insights into the underlying mechanics of de Bruijn graph-based assemblers.
+
+
+

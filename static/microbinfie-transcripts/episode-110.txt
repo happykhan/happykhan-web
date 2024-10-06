@@ -1,0 +1,328 @@
+Hello and thank you for listening to the Microbidkey podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody really writes it down. There's no
+manual, and it's assumed you'll pick it up. We hope to fill in a few of these
+gaps. My co-hosts are Dr. Nabil Ali Khan and Professor Andrew Page. Nabil is the
+head of informatics at the Quadram Institute in Norwich, UK. Andrew is the
+director of technical innovation for Theogen in Cambridge, UK. I am Dr. Lee
+Katz, and I'm a senior bioinformatician at Centers for Disease Control and
+Prevention in Atlanta in the United States. So in our previous episode, we've
+been talking about artificial intelligence and using that for some basic live
+demo of how it would solve bioinformatics problems. And we've been just playing
+around with it in the last episode, but in this one, we want to delve into some
+of the literature that's slowly trickling in about these type of systems and how
+they can be applied and seeing more consistently how they've been performing for
+various tasks that we may encounter in microbial bioinformatics and genomics. So
+in the last episode, we were basically given very simple toy exercises to chat
+GPT and seeing how it performs. And there's already some literature where people
+have been trying this, but more systematically. So there's this paper from
+Piccolo et al. It's available as a preprint, and we'll have that in the show
+notes. Its title is many bioinformatics programming tasks can be automated with
+chat GPT. And what they do in the study is they basically take about 180
+exercises that you would have in a bioinformatics course, and they basically
+feed it to chat GPT and say, here's the problem, as you would, you'd write it on
+an exam. They're just giving it to the AI. And they're saying, here's the
+exercise, write the output. They're taking the output. And then because usually
+they're programming exercises, they're then able to feed it into their standard
+automated testing suite that you would use for assessing programming tasks, like
+you would for any student assessment. And they're seeing how well the chat GPT
+does. So it's basically like if chat GPT was a bioinformatics student, how well
+would it do at an exam? And in the preprint, out of the 179 exercises they gave
+to chat GPT, it managed to solve 75% of them. So 139 exercises, it was able to
+solve on the first attempt. They, for some of them that it got wrong, they went
+back and they gave it a bit more prompting. Some cases they suggest that it
+wasn't, the exercise wasn't specific enough or it got stuck. And then they say
+that with more prompting, it was able to basically resolve majority of like vast
+majority of all of the different questions that they presented to it. So yeah,
+what that says to me is I'm going to have to change the way that I hire people.
+So all these technical tests that you might give people in advance, we just
+cannot do these tests anymore because those are simple problems you can do in a
+few minutes. We're going to have to like physically sit beside someone and go,
+right off you go. Can you solve this problem without actually using chat GPT?
+You know, can, do you have the fundamental knowledge there or are you just kind
+of a copy and paste jockey who is going to just copy and paste the question
+we've given you into chat GPT and then send it back to us, you know, two seconds
+later. So it is going to change things a lot. It's going to make life a lot
+harder. There's going to be this transition period as well, where some people
+are using this, people are not. I think we're the early adopters, but there's
+going to be a lot of other people out there who don't necessarily use it. And
+that's going to cause a bit of a bit of an issue, I think. Anyway, yeah, we have
+to change everything we do. So what do you think about the analogy that I've
+heard before, where this is a disruptive technology, like the calculator and
+it's legitimate for people to use a calculator on an interview or something like
+that. Is it legitimate for someone to, to answer a question that's really
+simple, like calculate the GC content? I want to, when I'm hiring someone, I
+want to know that they actually know what they're doing because they're going to
+need that same knowledge to assess what chat GPT says to figure out, is this
+accurate or not? And on a simple problem, that's fine. But in a more complex
+problems that, you know, they do have to have the base level of knowledge. And
+so like even people using calculators in school, you will teach them things from
+first principles. You know, you don't just hand them a calculator when they're
+five years old and say, off you go. You do teach them progressively all the way
+through, you know, this is what it is to say, estimate, to say check, is this
+right or wrong and, you know, and build up. So, and then it's only at the end,
+you give them a calculator and say, well, you know, now you know the basics,
+you're fine. You know, you can use this for most of, but if you ever need to,
+you can always go back to your, you know, pen and paper and work it out from
+there. So we, it is a great tool, but we do need to ensure that students and
+employees and scientists in general do fundamentally know what they're doing so
+that they can see something and go, that doesn't look right. Well, I mean, for
+me, when I did programming, when I was doing software engineering in undergrad,
+most of our exams was pen and paper in a closed room, which in visualators. So
+we were doing programming with pen and paper. We had to write, the exercise was,
+here's a problem, write the pseudocode or design the data structure or calculate
+the, you know, big O complexity, whatever it was. And we weren't able to touch a
+computer. We didn't have the internet or anything. And back then you would think
+like, okay, I'm doing an exam on programming. Why don't I just look it up and
+see what the answer is? So I don't think that's going to, that doesn't, that's
+resilient to chat GBT. That's resilient to any technology because you're there
+doing it with pen and paper. That ultimately, I see what you mean about
+disruptive technology, but that's not how I was tested on my programming
+knowledge in my undergraduate. A lot of marks for courses are now assigned
+through project work and work you do does not within an exam. And so that's
+going to be a problem because you won't necessarily know is this coursework done
+by chat GPT or not. And particularly if someone goes extra lengths to obfuscate
+it or whatnot, I guess the only, well, there will be clear signs, you know, like
+if they include texts that says as an AI chat bot, blah, blah, blah. And they,
+you know, they're too stupid to even, you know, read what's come out or, you
+know, if you have a student who's clearly at the bottom of the class and then
+suddenly they're producing something that looks like, you know, it's high, very,
+very, very high quality, you know, students don't normally go from the very
+bottom to the very top in one step. And also, you know, there's minor little
+tells as well. Maybe I shouldn't give this away, but like chat GPT is more
+American and saying, and spelling and things like that. And so you can tell from
+the spellings or you can tell from the style. Yeah. I've seen code where people
+have mixed different indentation styles within a project. And it's very clear.
+Okay. Well, you know, using tabs in this file and using spaces in this file, you
+know, four spaces and then use eight spaces. And it's, well, you've probably
+copied and pasted this from different places, you know, just based on the actual
+style people use, or even the, you know, using camel case or whatever, you know,
+mixing and matching different styles. So, you know, if, if you're stupid enough
+to have to rely on this stuff, because you don't understand that, you know, you
+can be caught by other means just by a human applying their own intelligence and
+going, that doesn't look right. But for how much longer, I don't know. When I
+was doing my undergraduate, I always in every single programming exam, in every
+single programming subject, they always had it that you had to pass the final
+exam. You had to get 50% on the final exam to pass the course. And I always
+wondered why. And now I think I know why. Because it's exactly what Andrew's
+saying. That's the final check. Like even if they fudge everything with, with
+the assignments and they copy and paste from everyone and they plagiarize and
+they don't understand what they're doing, they will get caught out on the final.
+They won't be able to perform to pass that. That's awesome. There is these sort
+of tricks to, I mean, it's, it's one way, I think you can, you can probably at
+the moment, based on the code we're seeing, and as I'm just saying, like, it has
+a syntax, it has a sort of a style or it makes a style that you can detect. One
+thing I've noticed with essays that, that these programs, right, they always say
+in conclusion, something, something, something. And you're like, yeah, in
+conclusion, no one writes in conclusion, da, da, da, da, it's boring. Yeah. So
+you, but it's, then it's very hard to prove that the students done it. That's
+the issue. How do you systematically demonstrate that the students done that?
+But when I've discussed to, to people who are involved in teaching, they're not
+too worried, I guess. They always come back and say, well, you know, we just
+changed the assessment. That just means we don't, okay, we lower the weighting
+for these assignments, or we make the exam like a mandatory pass.  for that, the
+closed book exam, or they even say, well, you know what, this is a good
+opportunity to bring back some old school assessment methods. Like they have to
+stand up and give a sort of oral fiver on the subject to assess that they know
+what they're talking about, because I think you can figure out pretty quickly if
+no one, if someone doesn't know what they're talking about, if you make them
+stand up and actually explain the matter to you. There's, there's no, there's no
+chat GPT to help you there. So as I mean, in terms of the stuff to technology or
+the thing around, is this the next sort of calculator? I don't think it's going
+to break formal assessment like that, but the job hiring thing is, is a problem.
+How, how you assess that. I see, I see in table one, there's some tests that it
+can't pass or it didn't pass in this, in this preprint. Yeah. So coming back to
+the preprint where they, where they basically gave it, you know, the exam
+questions for, for an intro to bioinformatics course, there were things that
+wasn't able to do. And they highlighted, there was out of the 180 odd that they
+gave it, there were five that it just couldn't solve no matter how many attempts
+they get. They tried to prompt it like 10 times over and over to see if it would
+eventually figure itself out. And there were five things it just could not do.
+So, one of the ones, the exercise was to, I'll pick one, one out. It says, find
+words that start with a vowel. And this is an assignment around regular
+expressions. And the prompt was find words in a biological text that begin with
+vowel. So it's just reading, it's just comprehending texts. There's, there's no
+programming involved and it was not able to do it. It couldn't, it couldn't
+write regular expressions to solve that. It had problems trying to interpret
+extra spaces and punctuation marks in the test data. So when you think about it,
+that is a problem that if you're writing the sort of regular expressions, you
+need to actually understand the type of input that's coming in. And so it makes
+sense. You go like, okay, yeah, that would be a thing that if you don't know
+what you're doing, you're not going to be able to solve it if you can't
+conceptualize like what the sort of space of the different inputs you could get
+and write a regex around it, you'd probably have a problem. So for all of the
+Perl people out there, there's hope for you yet. You won't get replaced by chat
+GPT. Oh yeah. Regular expressions. I suppose it's because most people are pretty
+bad at it too. So there's probably not that much test data out there to feed it.
+Yeah. And so like, also, so I've been, I've been teaching that intro to
+bioinformatics course over this, I guess, now two semesters. It's like, do I
+need to be worried? Do I, is it okay? Is it enough that they are sort of bound
+by an ethics code? Like don't cheat on this. Or do I need to write more
+sophisticated multiple choice? It depends on if they have a computer available.
+They do have a computer. Then that's a problem. See, it'd be hard to fool an AI
+like that because you know, things would be very obvious. I think, yeah, it's a
+hard one. And being bound by ethics codes has never stopped anyone from trying
+to get a leg up, you know. I'll have to think more on that. Do you want to move
+on in the articles that you have here? I think that's mainly it. The last thing
+that they comment on in, I mean, if there's other things that they point out in
+the preprint, that's interesting. I mean, one of the things is they say that
+other people in the past have, in this case, that testing chat GPT, but other
+people in the past have tested other large language models. So it's not
+something magical that this particular implementation can do. I mean, things
+like alpha code or open AI's codex, which I think was a precursor was also able
+to solve these kinds of problems as well. Not the specific example of these
+specific exercises, but this is a longstanding thing. I mean, and that's what
+people tell me who have been in the field. They say like, this doesn't do
+anything that hasn't been in large language models for some time. What I think
+the magic here is that they've made this so incredibly accessible because it's
+just a webpage with a prompt and you can just ask it whatever, and you can feed
+it whatever input and off it goes, which is where people can now start playing
+around with it. I suppose that's, that's really the real revolution here. And
+that, that was from November, 2022, where they released the chat GPT for people,
+and I think one of the other things they point out, which is quite interesting
+as one of the interesting results is that the number of lines of code that the
+AI generates is comparable. It's basically the corresponds more or less to what
+the instructors best, you know, best answer would be. So it's not, it's not only
+solving the questions in terms of like, it's producing the answer. So when you
+run the code, you get the output through using various tests inputs, but, but
+the sort of shape of the code, at least in terms of the number of lines is
+comparable to what you'd expect. So it's probably what we found in the previous
+episode is it's able to solve the problem, but it's also able to solve to write
+good code. And that's what I've noticed. It writes decent code. It doesn't, for
+instance, it doesn't do something strange. Like it's trying, you ask it to
+evaluate something and it doesn't just do something ridiculous, like write a
+hundred if statements, you know, like something really dumb that will produce
+the correct output, but something like, you know, sort of some, you know,
+semantically, just like, no, don't do that. Don't just write like case, case,
+case, case, case over and over. I did find that the longer the block of code it
+produces, the more likely it is to basically start getting into a loop and
+repeating itself. And so I had a case where it was, it was just doing some
+simple stats calculations, like counting up numbers and doing percentages. And
+then it kept producing the same like block of maybe 10 lines over and over
+again. And it's like, okay, it's forgotten what it's been doing because this is
+so long and now it's just getting into this loop, which is kind of interesting.
+Yeah, that's an interesting point. And in this particular preprint, none of the,
+none of the answers required code longer than 30 lines as far as the instructor.
+So the instructor's like best implementation was never more than 39. So these
+are very, very, very short scripts. And so the fact that it's able to solve them
+so well, that it performs so well is probably due to that, that it is just doing
+something very simple. 30 lines is not a complex task. Most would be average
+script. I mean, average script. If, if I, if I give someone a task, I'm
+expecting a script about a hundred lines or, or some of these scripts that we
+were looking at, like two, 300 lines. They're fairly this, they're trivial
+tasks, but they're, you know, that's sort of complicated. I'm not sure at that
+point, if we, if we ask those sort of questions to the AI, would it be able to
+perform? And it probably would not. Do you think with the increasing prompt
+sizes and the number of tokens you can put in, will that basically just solve
+this stuff overnight? Because at the moment, what is it? You can put in about
+4,000 tokens. So it's approximately 4,000 words at a time. And, you know,
+they're talking about chat GPT for some people have access to 32,000 tokens. And
+I know other people have in a research context doing like a hundred thousand
+tokens. And so if the prompt size just gets bigger and bigger and bigger, maybe
+we might just actually get better and better code squeeze the whole thing in
+rather than squeezing, you know, a smaller block into memory. It depends on the
+problem in general. I mean, what we're talking about here is, is the jet is, is
+chat GPT as the general language model, right? So if you go back and you do this
+kind of fine tuning, you probably can get much better performance and have seen
+claims. You see all these funny web pages and tools and things, people pointing
+out that there are these, Oh, this is better than chat GPT. It's been optimized
+for, for writing programs and things like that. There are other models out
+there. So in time, yeah, I think we'll fine tune it. We'll probably get better
+performance. Although are these other models really better because like chat GPT
+was trained on was a 10,000 high power GPUs, GPU cards, where they, I don't
+know, a one hundreds or something like that. Like some, I don't even know if
+that's right model number, but basically that phenomenally expensive Nvidia
+cards and they use 10,000 of them and each one probably costs $10,000 as well.
+You know, these are billion dollar calculations that people are undertaking just
+to create one model, which obviously then has compounding effect because it has
+it's worth even more, you know, but not everyone can just, you know, kind of
+stump up a billion, even, even Google, you know, with what it's part has tried
+to, you know, jump into this space and seems not to have done very well
+initially. There's still a lagging behind in terms of their art and their AI. I
+think possibly a lot of the problems there are because they have like about 20
+different teams all trying to compete internally with each other to fix AI
+because, you know, suddenly open AI and Microsoft have gotten a jump on them.
+The jury's still out for me. I've seen people talk about this, like, yeah, it's
+specialized. So it's better. And I'm not convinced.  It's early days, right?
+We'll have to see how it goes. I think the big thing is going to be when you
+have these models that don't need an internet connection. And if you can have
+like GPT on, say, a sequencing instrument, right? On, say, on Nanopore, on
+something like that, it's like you could potentially do very different things.
+You're opening up a whole new world there of potential applications. If it
+doesn't need internet, then it can do much faster in near real time on whatever
+device it's on. And in terms of actually processing data, maybe you might just
+start sequencing something and it'll guess the rest of the molecule or guess the
+rest of the species based on what it's seen. Because it is predicting the next
+word or whatever. Here's a pro tip if anyone is involved with Illumina. Here's a
+free idea. Why don't you get the machine to autocorrect my sample sheet when
+it's wrong? Instead of just telling me, hey, this doesn't work. That would be
+fantastic. If we can use the AI just to autocorrect the number of commas in the
+sample sheet or whatever the format is to help me out there or tell me that my
+indexes are garbage or something like that. Or when you've done 10x of
+sequencing, it goes and makes up the other 1000x. And then it's like, oh, wow,
+I've got a great sequencing run here. That's what I really hope. I mean, I'm not
+happy with some of the read correction stuff. And then it's telling you that
+these are the raw reads. You're like, no, these aren't the raw reads. You've
+gone back and done some shenanigans. I'm not happy about that. So what you're
+suggesting is like, no, I really hope they don't go that way. It starts making
+up data. I would hope base calling will drastically improve as well. Because
+effectively, a lot of this is similar stuff. Because a lot of what we read in
+bacteria are words written in amino acids and whatever. And that is a language.
+And I would wonder if a large language model like that could actually have a
+huge positive effect on read correction. Because, you know, it'll know, okay,
+well, I've got these six amino acids. It probably means, you know, that the
+seventh one is going to be this, because it usually is. And, oh, look, it looks
+like there's an error there. Maybe I'll correct that to what I think it probably
+should be. You could actually end up with some really, really cool stuff coming
+out the other end. So there's a, there's a very, not addressing this
+specifically, but just in terms of language, which is what most of these models
+are trying to solve. There's a very interesting blog from Stephen Wolfram, where
+he, you know, explains what ChatGPT is doing and why it works. And one of the
+interesting take-homes he has at the end is to talk about the fact that language
+is structured. And it's not random, and there is a trend. So there is, and you
+think about it, like, yeah, there obviously are certain tokens that follow or
+certain words that follow after another. And that makes it predictable,
+something that a machine can predict if it sees enough of them. And for him, one
+of the sort of conclusions or take-homes is the fact that we over, we sort of
+think language is very fluid, but it's not. It's a very structured, stodgy
+thing. And perhaps that's obviously going to apply to genetic code, because that
+is also a structured, stodgy thing, which could be interpreted using these sort
+of approaches. So since, since large language models are kind of like just
+predicting what the next word is after another, it makes me think of Markov
+models. Like maybe it's like, you know, next, next, next gen Markov models. Do
+you think that therefore it could be used for things that Markov models have
+been used for, like gene prediction? I guess so. I mean, I'm still trying to
+figure out what's the secret sauce here that's got everyone so excited versus to
+what people have been doing in the past beyond predicting the next token. And
+then, I mean, the trick with this is this idea of temperature, which is, you
+have these things which will just predict the next likely word and you can make
+a model of it. You can feed a bunch of text and you can train it. But the
+problem with that is if you're writing language, it gets boring very, very
+quickly because it just keeps picking the same word. And it sort of does that
+thing that Andrew was talking about where it starts to repeat itself because it
+just says the same thing over and over and over again. So it sort of hits this
+local maxima and doesn't, doesn't break out of it. So they have this idea of
+temperature, which adds this component of randomness to it to break out and do
+something more creative and go off onto a tangent. Now, with, if you took that
+same concept into gene prediction or, or any kind of genetics problem that we
+have, would it, you'd certainly think that that would also be applicable, all of
+that would be applicable. I mean, one fun idea would be, okay, well, I have a
+gene. Why don't, here's the gene sequences I've seen a million times. I have all
+these examples of this family, this ortholog family. Why don't you predict for
+me all the possible alleles? Predict to me new future alleles that would make
+sense, based on some constraints. Here's an antimicrobial gene, what are all the
+possible configurations that are possible? That wouldn't be, you wouldn't be
+able to do that just from the sequence, you'd have to take into account the
+protein structure as well. But that's, but that again, if we're talking about
+this in the sense of something that has structured and has rules, it would be
+predictable. Well, I think we have time for our folks. This has been a great
+little discussion on ChattGPT and the kind of uses of it and how it may impact
+us in our future lives. So stay tuned. This is a very fast moving space.
+Hopefully we'll see you next time. And we haven't been replaced by machines.
+Thank you so much for listening to us at home. If you like this podcast, please
+subscribe and rate us on iTunes, Spotify, SoundCloud, or the platform of your
+choice. Follow us on Twitter at microbinfee. And if you don't like this podcast,
+please don't do anything. This podcast was recorded by the Microbial
+Bioinformatics Group. The opinions expressed here are our own and do not
+necessarily reflect the views of CDC or the Quadram Institute.

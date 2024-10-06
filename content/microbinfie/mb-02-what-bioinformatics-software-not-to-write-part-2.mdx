@@ -1,0 +1,101 @@
+---
+date: 2019-10-03 00:00:00
+title: MicroBinfie Podcast, 02 What bioinformatics software not to write part 2
+link: https://soundcloud.com/microbinfie/what-software-not-to-write
+tags:
+  - microbinfie
+  - podcast
+---
+# Peak Bioinformatics Podcast Episode
+
+### Episode Overview
+
+In this episode, we explore areas of "Peak-bioinformatics." With the abundance of existing bioinformatics software, often the new tool you desire to create already exists, or cannot effectively improve on current solutions. We discuss these realities through the lens of metagenomics and antimicrobial resistance.
+
+**Questions and comments?** Email us at [microbinfie@gmail.com](mailto:microbinfie@gmail.com).
+
+---
+
+### Show Notes
+
+**When Novel Software Is Generally Not Needed:**
+
+- There are a multitude of existing tools.
+- The problem is effectively solved or has been shown to be unsolvable.
+- The underlying technology or problem has become obsolete and/or has been supplanted by other methods.
+
+#### Metagenomics
+
+- **Taxonomic Classification Tools:**
+  - MEGAN
+  - Kraken
+  - SIGMA
+  - MIDAS
+  - MetaPhlAn2
+  - mOTUs
+
+- **Assemblers:**
+  - MetaSpades
+  - metaFlye
+  - MEGAHIT
+  - MetaVelvet
+  - Many single isolate assemblers have been adapted for use on metagenomes.
+
+- GitHub Resource: [Kalamari](https://github.com/lskatz/Kalamari)
+
+#### Antimicrobial Resistance (AMR)
+
+- GitHub Resource: [AMR Curation](https://github.com/arpcard/amr_curation)
+- AMR Protocols: [Food Safety Bioinformatics Hackathon](https://food-safety-bioinformatics-hackathon.github.io/AMR-protocols/)
+  
+- Tools:
+  - [ABRICATE](https://github.com/tseemann/abricate)
+  - [ARIBA](https://www.sanger.ac.uk/science/tools/ariba)
+
+- Review of AMR Detection Tools: [Google Spreadsheet](https://docs.google.com/spreadsheets/d/18XGWpDiaE249qQKDAL7gdBCka0Z1drpA_s3FElfMJe0/edit#gid=0)
+
+### About the Podcast
+
+Microbial Bioinformatics is a rapidly advancing field that bridges computer science with microbiology. Join us as we share tips and tricks we've learned over the years. Whether you're a student new to the field, or someone looking to stay updated on the latest advancements, this podcast is for you.
+
+**Hosts:**
+
+- Dr. Lee Katz from the Centers for Disease Control and Prevention (US)
+- Dr. Nabil-Fareed Alikhan and Dr. Andrew Page from Quadram Institute Bioscience (UK)
+
+*The opinions expressed in this podcast are our own and do not necessarily reflect the views of the Centers for Disease Control and Prevention or the Quadram Institute Bioscience.*
+
+---
+
+### Music Credits
+
+- **Intro Music:** "Werq" by Kevin MacLeod ([incompetech.com](https://incompetech.com))  
+  Licensed under [Creative Commons: By Attribution 3.0 License](http://creativecommons.org/licenses/by/3.0/)
+
+- **Outro Music:** "Scheming Weasel (faster version)" by Kevin MacLeod ([incompetech.com](https://incompetech.com))  
+  Licensed under [Creative Commons: By Attribution 3.0 License](http://creativecommons.org/licenses/by/3.0/)
+
+### Extra notes
+
+### Insights into Microbial Bioinformatics
+
+- **Long-Read Sequencing vs. 16S Sequencing**: There is a strong recommendation against relying on 16S for leading scientific research in microbial bioinformatics. Long-read and metagenomic sequencing offer more comprehensive data, allowing for better insights into microbial communities.
+
+- **Shotgun Metagenomics Tools**: The field is saturated with tools like Megan, Kraken, Sigma, Midas, Metaflan, and Motus for taxonomic classification. Each employs different methods such as fixed genes, unique markers, or whole genomes. The focus should shift to enhancing existing databases rather than creating new tools.
+
+- **Database Optimization**: Efforts should be directed towards improving and synchronizing databases. Projects like "Cracking with Calamari" focus on database optimizations to reduce unclassified reads and false hits. There is an ongoing need to address issues like sample bias in metagenomic databases.
+
+- **Kraken and Bracken**: Kraken has evolved with its newer version, Kraken 2, and now includes Bracken for improved classification accuracy using Bayesian methods, simplifying output reports.
+
+- **Metagenomic Assemblers and Long Reads**: Existing assemblers can be improved with higher-depth data, yielding better results. Long-read metagenomics offers significant advantages, allowing for better structural assembly of chromosomes and plasmids, aiding in understanding microbial communities at a deeper level.
+
+- **Antimicrobial Resistance (AMR) Databases**: The landscape is crowded with numerous databases, some well-curated, others not, leading to inconsistency. Efforts are needed for synchronization among existing resources to ensure reliable data.
+
+- **Tool Development Recommendations**: The podcast discourages reinventing widely available tools like assemblers or AMR finders, suggesting instead the modification and improvement of existing tools and databases. Focusing on long-read technologies, adapting to GPU and FPGA platforms, and leveraging new chemistry in sequencing can bring advancements.
+
+- **Visualization and Data Interpretation**: There's a need for improved visualization tools to make large microbial datasets comprehensible to non-specialists. Future visualization solutions should incorporate advances in machine learning and cater to mixed populations or metagenomic assemblages.
+
+- **User-Friendly Tools**: Emphasizes the importance of tools that are easy to install, use, and maintain, with a focus on user-friendly platforms like Conda and Docker to ensure wider adoption and usability.
+
+Overall, the focus should remain on improving existing tools and methodologies, optimizing and synchronizing databases, and adapting to new technological advancements like long-read sequencing and data visualization techniques.
+

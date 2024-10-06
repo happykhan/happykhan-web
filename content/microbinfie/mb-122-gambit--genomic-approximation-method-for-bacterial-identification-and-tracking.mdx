@@ -1,0 +1,54 @@
+---
+date: 2024-03-09 00:00:00
+title: MicroBinfie Podcast, 122 GAMBIT  Genomic Approximation Method for Bacterial Identification and Tracking
+link: https://soundcloud.com/microbinfie/gambit-genomic-approximation-method-for-bacterial-identification-and-tracking
+tags:
+  - microbinfie
+  - podcast
+---
+# GAMBIT: Accurate Classification of Bacteria and Eukaryotes
+
+GAMBIT (Genomic Approximation Method for Bacterial Identification and Tracking) is software designed to accurately classify bacteria and eukaryotes using a targeted k-mer based approach. This methodology allows for rapid leveraging of whole genome sequencing of bacterial isolates, facilitating clinical identification.
+
+## Key Resources
+
+- **GAMBIT Software**: The software is available on GitHub at [GAMBIT Software](https://github.com/gambit-suite/gambit).
+  
+- **GAMBIT Suite**: Explore the complete suite of tools at [GAMBIT Suite](https://github.com/gambit-suite).
+
+- **Research on GAMBIT**: For in-depth information, refer to the study published in PLOS ONE: [GAMBIT published research](https://doi.org/10.1371/journal.pone.0277575).
+
+## TheiaEuk: Fungal Genomic Characterization
+
+TheiaEuk is another related tool that provides a species-agnostic bioinformatics workflow for fungal genomic characterization. This tool can be explored further through the article published in Frontiers in Public Health: [TheiaEuk Study](https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2023.1198213/full).
+
+These resources and tools are essential for researchers seeking robust solutions for genomic classification and characterization in microbiology.
+
+## Additional summary:
+
+- **Gambit Overview**: Gambit is a tool for typing bacteria and eukaryotes. It uses k-mers (a known sequence prefix followed by a set number of bases) to build genomic signatures that define a species. This targeted approach contrasts with random subsampling methods like MASH.
+
+- **Technical Implementation**: Gambit performs a targeted camera (k-mer) search, utilizing fixed prefixes with variable extensions to create genome-wide signatures, which can significantly refine species identification.
+
+- **Accuracy and Validation**: The tool has been clinically validated to accurately call species, particularly useful in public health for confirming species with high precision. It provides a conservative approach, avoiding misclassification, crucial for managing genomic data in clinical settings.
+
+- **Challenges in Bioinformatics**: Challenges include complexities in species differentiation, especially in closely related organisms like TB and bovis. Gambit's targeted approach is effective even in these edge cases.
+
+- **Database Management**: Gambit leverages HDF5 format for data compression, storing k-mer integer representations for rapid data access. This system supports efficient, memory-conscious processing of vast genomic datasets.
+
+- **Parallelization and Performance**: The tool is optimized for parallel processing, particularly in computationally intense tasks like database comparisons. This efficiency is crucial in handling and analyzing high-throughput genomic data.
+
+- **Database Building**: The tool can build databases from RefSeq or custom collections, using standards like GTDB for improved accuracy over traditional NCBI taxonomy.
+
+- **Applications and Tools Suite**: Apart from bacterial typing, Gambit has been used in cases like the Camtas Iris outbreak to type eukaryotes. The tool also supports pan-genomics and core genome analysis to define common k-mers across genomes.
+
+- **Continuous Development**: Emphasizes the importance of ongoing software development and adaptation to maintain relevance and accuracy in microbial bioinformatics.
+
+- **Accessibility**: Gambit and its suite are available on GitHub, providing access to databases and tools necessary for running its analysis, allowing researchers to try it with their genomic data.
+
+These points provide insights into the microbial bioinformatics landscape, specifically how Gambit addresses species identification challenges with a targeted bioinformatics approach.
+
+## Guests:
+
+The guest speakers on the Microbial Bioinformatics podcast were Dr. Lee Katz and Professor Andrew Page, who discussed the software Gambit. Additionally, Dr. Nabil Ali Khan is mentioned as a co-host, although he was not present in this particular episode.
+

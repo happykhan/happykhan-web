@@ -1,0 +1,368 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There's so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. Hi, and welcome to the MicroBinfeed podcast. This episode,
+we're going to keep talking about genome assembly, but we're going to talk about
+the post-processing steps you might apply to make the most of your genome
+assembly. These are the different approaches that we used in the past, such as
+genome scaffolding or merging assemblies or other post-processing tools like
+polishing. Then we'll talk about some of the QC and visualization tools you will
+use to assess your final genome and make sure that everything is okay. This is
+digging back into old classics like N50 and some new ones, such as SAKU, which
+is looking at genomic rearrangements. So let's get right into it now. When you
+get your data, you process it, you do your assembly. Then once you have your
+assembly, we should talk about what steps you take. What is your first step,
+Nabil? When the assembly's done. Yeah, to make it better. To make it better. Oh,
+they're perfect when they come out, right? Oh, yeah, for sure. Depends what
+aspect we're improving. One thing to always check. I mean, a bog standard thing
+as an assembly check is always just to map your reads you put in against the
+assembly you created and just make sure that that's sane. And there's a couple
+of different tools for that. I remember one, it's called Reaper, I think, which
+is from the Sanger, but that was years ago. I don't know if it's still used. So
+that was developed by Martin Hunt. Yeah, I think so. Who did Ariba and IVA. And
+what you're looking for there is you're just hoping that your reads are mapping
+within your contigs correctly and they're not suddenly jumping out to somewhere
+else. You have suddenly got massive indels or massive amounts of snips within
+your reads. Because it's the same data you put in for that output. So there
+should be very, very little difference and very few anomalies. If there are
+these sort of issues with this, generally I've found this is down to problems
+with scaffolding. So these days if you work with a genome assembler, this sort
+of step is all scooped together in one go. But it didn't always used to be this
+way. In de novo genome assembly, there's sort of two stages. The first step is
+to generate contigs, contiguous sequences. So this is where you have reads
+joined together because they're overlapping on some degree. Differs how you
+define the overlapping depends on the assembler. Then the second stage is to
+take other information, which is normally the paired-in information or mate-pair
+information or even physically op-gen or the other stuff, to sort of then take
+those contiguous sequences and stitch them together. Now there used to be
+different tools to do this and some used to be very good at it and better than
+what came out of the box with your, what came with the assembler. So the things
+like mirror or S-spades were some of the tools used for that. And image 2? Oh
+yeah, that is for gap filling. Gap filling. Yeah, which is quite a nice concept
+where you have a scaffold and then you want to fill in the bits in the middle
+with maybe possibly pretty weak data. Yeah, so you don't see this very much
+anymore. So the thing with the scaffolds was because you had mate-pair
+information, you had paired-in information, you knew the two reads were
+physically linked together, but you hadn't sequenced that chunk in the middle.
+So you just have the contigs next to each other with a certain amount of
+placeholder characters as ends. And so the gap filling was then to go back to
+the reads and try to address that problem. Yeah, you might have an overhanging
+read. Maybe one of the mate-pairs is a long and third-sized library and you want
+to fill in a little bit further along and that can help you. Once you know
+approximately, say there's a gap of a thousand, you can start filling that in.
+But I think image and those tools are actually all wrapped up in Paget, which is
+from the Sanger Institute from Thomas Otto, and that's like a suite of different
+programs. One is Abacus for putting together contigs against a reference genome.
+Oh, I've used that one. There's iCorn, which is for basically you map your reads
+back, as you said, you call SNPs and then you keep fixing the reference until
+you have no more SNPs. So polishing basically. And then RAT for transferring
+annotation from one reference to another. Although the original name for Paget
+was Gobsmacked, however, our IT people, thank God, they said, no, we're
+absolutely not having that on our website. You must change the name. So then it
+turned into Paget. So what about you, Leo? What have you been doing post, any
+post-processing of your data? Yeah, I used to, actually you covered a lot of
+what I used to do. I used to, I used to do image two a lot because I was a
+little bit lazier and I wanted to do scaffolding and gap filling at the same
+time. And I just thought, why, why not just do that? And image two is pretty
+great. And I got a little bit, I actually came across Paget in grad school or
+maybe a little bit after, I can't remember now. So thank you. And thank you to
+all you guys over at Sanger. And I used that a little bit to refine my genomes
+after that. That was, that was kind of my process. I don't know. I think, I
+think if I were in the business of trying to make sure my genome were like
+absolutely complete, then, then I probably would have gone further, but I tried
+to simplify my life then. There were a ton of things out there. Do you guys do
+any polishing at all? For polishing, I actually created a wrapper script around
+pylon. Pylon's kind of like our go-to and the community kind of says, I've heard
+back and forth, but I think pretty much everyone says use pylon four times. It
+feels kind of magical. So I made a wrapper around that to just run it four times
+and make sure there are no new differences or not too many new differences. I
+suppose it can reinforce errors as well. Yes. So I've no idea how to get past
+that. Like I know that I've been at that point when I use pylon a few times, I
+know I've been careful enough and then I try not to overthink it, but I know
+that there's like always something more I can do and probably some mistakes that
+I've made along the way. So you're right. I just don't know what else to do
+after a pylon. Yeah, I don't think there's any clear answer because some people
+use like multiple different polishers and then kind of combine them in different
+ways. And is it really helping after the first few iterations? I don't know. Has
+anyone used nano polish from Jared Simpson? Yeah, I like nano polish a lot. So I
+did use that one a few times. I've handed over a lot of my work on nano, on
+nanopore stuff over to my colleague Curtis Capsack. But up until then, I think
+still we've been using nano polish and it's really good because it tries to
+polish in, what is it called, not a base space, but in, is it like in slow
+space? Squiggle space? Squiggle space? Yeah. Sure. Squiggle. Why not? So I think
+it's a smart idea to try to polish in that space because it's kind of the raw
+data and it seems to come up pretty well. Yeah, that tool has developed quite
+substantially over the past while. You know, it used to take like 4,000 hours to
+polish a Winnie Koli and they've continuously just worked on the method and
+they've gotten it down to just a handful of hours now. So it's quite good
+software engineering there. So yeah, just a related thing on the polishing. One
+way of post-processing is definitely to use sequence of other information other
+than what you use for the assembly. So cross-checking it, so taking, so I mean,
+the obvious case these days is to have your nanomotator and then use aluminum on
+top of that, however you process, however you integrate that in the many
+different ways. But doing that is definitely one way to go. But this is a very
+old idea. We've been doing it for the, you know, the good old days of pyro-
+sequencing in alumina or even solid. Remember that? Remember having to do that?
+Because solid used to be, solid with its color space, which no one could ever
+figure out how it worked, was the highest, was, you know, the highest quality
+base by base, but the reeds were only 30 base pairs. I'm sorry, but solid is
+dead. Solid is very, very dead. But that was a definite strategy, was to have
+hybrid assemblies and mixed different data sets. Even going back with Sanger,
+with capillary sequencing, which still is alive. Barely. Barely. So, guys, once
+you have your assembly, what do you do to check the quality of it? In our lab,
+we use a couple of different things. A lot of us...  have switched over to using
+Quast from the same lab that made Spades and they basically have this really
+nice interface or command line interface also just to just get a nice table of
+all of your standard metrics and even some new ones that they introduced. I
+think they've even added a web portal as well, I think. I saw that the other
+day. So you can drag and drop your FASTA file and it'll spit it all out. You
+don't have to even install anything. Before I started using Quast, though, I
+created this script called RunAssemblyMetrics. Again, great name, I'm sure. I
+think we've all made scripts like that. I think everyone has one of those. So
+this is another... Yes, we use Quast in our lab a lot, but a lot of us are also
+using RunAssemblyMetrics and it just provides a tab-delimited table on very
+standard metrics. It's kind of a very straightforward, not-getting-into-the-
+details kind of method. So it tells you just what your N50 is, what your longest
+contig is, and so forth, and then it's done. But that's in contrast to Quast,
+which you can really dive into the data and really understand your data really
+well. I know, I suppose, another script like that from, again, Sanger, from
+Martin Hunt, is AssemblyStats, and it's just a very, very quick way of getting
+an idea of what's in your assembly, what's the N50, what's the largest contig,
+that kind of thing. And it's written, I think, in C++, so it just runs in
+seconds. Can I just get your opinions on what's the best metric for assemblies?
+Is it N50, L50, god only knows, 50? Yeah, why is it always 50? Why not N... That
+was a good span of N75 and... There's N90! N90! Any way of slicing it. Does
+someone want to act... Who wants to have a go of explaining what N50 actually
+is? Over to you, Lee. I've done this so many times. I'll see if I can do this.
+All right, all right. Okay. We once had a discussion in our lab in grad school
+on how to simplify N50 to one sentence, and I think we got it down to two back
+then. And that was a full day discussion. N50 is the contig length of the contig
+in the middle when you sort your contigs by size. Did I get it? Sure. I mean,
+yes, that is literally what that number is. So it's, yeah, so 50% of your
+contigs are larger than this number. Oh, that's really good. Darn it. Darn it,
+Abhil. So I'm just drawing out the definition now. So what you do is you sort
+all your contigs by length, right? And then what you do is you figure out what
+the total length of all of those are combined together. You take that number,
+divide it by two, and you look for the contig that overlaps that position. I
+made it more confusing now, didn't I? Yeah, a little bit. Damn it. I think an
+important point here is that no one metric can fully capture how good or bad
+your assembly is. No, because I mean, N50, oh man, this was just, this was just
+lowball questions you'd throw at any PhD student when I was growing up. Oh, N50,
+yeah, but N50 isn't perfect. Why are you using this metric? And yeah, because
+you can inflate your contigs. You can inflate the N50 size because if you just
+start mashing contigs together, like there's, I think my favorite one is how to
+close genomes on Torsten Simons' blog from ages ago, where he just takes an
+assembly, greps out all of the headers, and then just says, it's closed now.
+It's done. And like the N50 would be the length of the chromosome then. But that
+has happened in real life. Yeah, no, that's happened in real life. For medically
+important genomes. Yeah. Oh my gosh. Oh, we won't name names. No. But yeah, if
+you've done some shady business or by accident, even by accident, you can
+inflate the N50 by just being very aggressive with your scaffolding. So one
+thing I always like to do is after I've mapped my genome, I've mapped my reads
+to the assembly, I'll always try and do a bin assembly then, see what's left
+over, why hasn't that actually assembled? Because sometimes you can find
+interesting stuff. Most of times, it's just random, low-level, say,
+contamination. Yeah, I think the first thing I always do is run Kraken on the
+contigs, or centrifuge, whatever, it doesn't matter. Some taxonomic
+classification of the contigs, though. So that's stupid fast to do. And you
+just, again, but it's the same sort of thing. You're looking for weird, weird
+stuff. If you've done a Salmonella and you've got contigs that match a
+Klebsiella, you've got problems. Well, maybe plasmid. Either you've got problems
+or you've got a nature paper. So that's probably the one I lean on a lot. The
+second thing I'd probably go for is looking for the number of, so you assume
+that for that given bacteria, there are going to be genes there that are single
+copy. And so there should be only one copy of those in your assembly. If you
+have more than one, you have a problem. So like MLST genes? MLST, there should
+only be those seven. There should only be one copy of those. And there's other
+tools that do this, like Busker, which have their own set of markers that
+they're looking for. But this principle is the same. You basically make sure
+that there's only one copy of the thing that should be like that. I found a
+CheckM2 quite useful. Have any of you guys used that? So that's about genome
+completeness. So that's a similar question. So it's quite useful, particularly
+for metagenomics, but you can use it on isolates as well to get the completeness
+of the genome, an estimate of the completeness of the genome. And that is, do
+you have all the usual suspects of genes there? And if you don't, well then
+there's probably a problem. Yeah, I mean, you need at least, I think at least 50
+myosomal encoding genes. I mean, you can't really shrug that off. So is it
+checking for all the ribosomal genes and other? I think for CheckM, it varies
+what it uses. I mean, some of these tools like Busker as well, they might, but
+they have their own panels. They have their own, and it depends on the organism.
+By this point, I might thumb through the N50. The N50 is actually quite low down
+on my list these days to check. Well, particularly now that we have nanopore and
+we can get full chromosomes out without even thinking. So I find a program that
+I've written recently called SoCRU to be quite useful if you have a full
+chromosome. And that will look at the order and orientation of the ribosomal
+operons, so like 16S and such like, and it will work out, do you have a pattern
+that is biologically legal, or do you have a pattern that's well-known? And so
+at a glance, you can see, okay, here I've got a Salmonella. Normally it has
+seven ribosomal operons, but my assembly only has one. Okay, something's gone
+wrong there, or it's got 15. It's quite easy to see. Or if the ribosomal operons
+are in a biologically improbable order, so they're reversed, so you can't go
+from the origin to the terminus legally. So it's quite nice for that. So I'd
+recommend always running SoCRU over a fully complete genome if you have one of
+bacteria. Yeah, and again, following from that, total assembly length actually
+tends to be a bigger one for me these days over N50. And so many people miss
+this. They say, oh, I've got a Salmonella genome. That's six megabases long.
+That is impossible. That's not how this works. And a lot of people miss that
+simple check, or it's too small, like three meg Salmonella. Well, have you seen
+the extremes in RefSeq? You've got 150 kilobase E. coli and you've got a 10 meg
+E. coli. I've never seen it in the wild, but I can imagine that that's happened.
+I mean, I'm assuming it's someone who's done something really strange and just
+put it in there as a genome. We've had a couple of Salmonella, for example, that
+have had some huge plasmids and maybe it is 5.5 or 6 megs, but something like 10
+megs I would be very, very scared of. I would not use that. I'm keen to see what
+a 6 meg Salmonella looks like. I think one of the biggest, was it the biggest?
+The biggest Salmonella cerevara, the genome, I think is Veltifraden. It's
+probably the largest one. Oh, I assembled that. Yeah, I think that's probably
+the largest one. I wrote a really nice paper on that. It's a nice cerevara of
+Salmonella. Check it out. I have a question about SACRU since you brought it up
+earlier. All right, so is it, do you have a database of what kind of ribosomal
+sequence types there are out there and it's described against it? So what it
+does is it uses Barnup to identify the ribosomal operons and then it looks for
+the fragments in between the operons and there's a database.  like a standard
+reference with a conserved region from the bits in the middle between the
+operons, and then it just kind of looks that up, and it produces a pattern so it
+knows, okay, this large fragment is maybe fragment one, and it can tell if it's
+in a reverse orientation or whereabouts it is in the genome. And so then you
+have a database for every species, every pathogen, with all the different
+identified patterns. It looks up to see are they biologically legal or not, and
+then it'll look at your genome, your chromosome, and produce a pattern and say,
+okay, this is already known and seen, it's probably okay, or this is
+biologically legal, but it's a novel pattern, so maybe you want to publish that,
+or this is just something crazy, so it's probably a misassembly. So from the
+novel ones, does it write the paper for you? Sure, yeah, if I'm an author. Very
+cool, I'll have to use that some more. And it supports 433 different genomes, or
+sorry, species so far. Wow. All right, that has to be a really good QC check.
+I'm gonna put that on my pipeline. Thanks for making that. I don't know if
+anyone cares about it that much, but I will point out that these metrics that
+we're talking about in terms of N50, genome length, and so on, so people always
+say that Shigella's basically an E. coli. Yeah, with a plasmid. Which is true,
+but the N50 for Shigella is much, much, much lower than what you'd expect for E.
+coli. It can be as low as like 30,000, 40,000, like really poor, and you might
+expect about 120, 150 for an E. coli. You mean in terms of a de novo assembly
+from short reads? Yeah, yeah, yeah. Is that because there's more IS elements or
+something, or just bosons? Yeah, exactly, it's because of the amount of IS
+elements in it, and so your genome assemblies for Shigella are much more
+fragmented than what you'd expect. I don't know, I think the general point there
+is that you just have to, you have to know your bug a little bit and get a feel,
+and I think that's part of what we were talking about with total assembly length
+and chromosome size and so on, that yeah, once you get an idea of what those
+ranges are, you can sort of fine tune these metrics, but it does vary from bug
+to bug, so sometimes Salmonella are six meg, and sometimes N50s can be low as
+30,000, and that is as good as it's gonna get. So PulseNet and GenomeTracker
+both put out actually some ranges on their bugs on what their partner labs
+should be looking for, and I don't think it's exactly published in peer review,
+although it might be in the upcoming year, but this is something that we
+distribute out to our labs, and maybe we have it online somewhere, and if not, I
+should see about that. I think for EntroBase, we've listed the average values as
+well, so if you're interested in Salmonella, E. coli, Yersinia, Clostridioides,
+like those numbers are up as well on the EntroBase documentation, and I do know
+people have looked those numbers up and used that for their own pipelines as
+thresholds. And come back to me saying, like, yeah, they're good. How do you
+guys eyeball your assemblies? Well, we have to start at the beginning with
+CONSED, right, Lee? I think back in the day, you would email, who was it, Phil
+Green? And he would send you back an email with a GZIP file with Fred, FRAP, and
+CONSED. And that was wonderful. I mean, you could, back in the day when
+everything was command line for genomics, you had, like, this really nice GUI
+tool for visualizing where your reads map to, and that was just incredible to
+me. And it's got one of the best features that I haven't seen very much of since
+is when it gives you the pileup for all of the reads, on the right column or on
+the left column, it actually tells, it gives you a hint of where the next read
+is or where the mate is. And I haven't seen that in many, it's actually quite
+difficult to get that information at a glance, or no, it would tell you what the
+next contig was for the mate, which contig the mate was on. So you could see at
+a glance on the pileup, oh, okay, everything's pointing to this guy, like, okay,
+that's fine. Or you go to it and go, oh, wait, there's a subsample that's
+pointing somewhere completely different, and I should look into that,
+something's gone wrong. So that was a really nice feature, and hopefully someone
+integrates that into a more modern tool. I totally agree. And do you guys ever
+use Hawkeye from the Amos package? Yeah, yeah, yeah. I used to have it on my
+Mac, when I had a Mac. It was forced on me. Who forced that on you? When you're
+just starting out, you just get whatever equipment you get. But yeah, that was
+always installed, and it had a really cool icon. I don't know, I never used this
+other classical one, but did you guys use GAP-45? Yeah, I used GAP-5 for fixing
+assemblies. It's really, really powerful, like, insanely powerful. And you can
+load up an assembly, do some magical reads. It'll find where different reads
+are, and it'll extend things. It's just phenomenal, but it is kind of difficult
+to use, so you need to have someone, I suppose, teach you all the ins and outs.
+But if you're one of these old-school genome finishers, this was like the
+absolute tool you needed. But what I really use more on a day-to-day basis is
+Artemis from Tim Carver. He used to be in Sire, and that's really good for
+bacteria. It's very good for piling things up, having a look at them, looking at
+annotation tracks on top of that. And yeah, you can spot a lot of errors there.
+So things like where to make pairs, how far away are they? Is this distribution
+of insert sizes quite crazy for this area? What's GC content, that kind of
+thing. Yeah, I think for me, I used to, like, Artemis is definitely the mother
+of all genome viewers, I'd say. That's standard issue, like, any student, you
+have to get on top of Artemis. There are so many features. It's one one-pro tip
+before I forget. If you're zooming in and out a lot, turn off stop codons. It
+will save you a lot of render time. And turn them off for when you draw figures,
+because those little black lines look terrible in a screenshot. Actually, here
+recently, we had to look at multiple different files simultaneously. So the
+solution was actually to get one of these 100-inch TV screens that you use in
+presentation rooms. And just look at it on that, because it was easier than
+trying to look at it on a normal screen. Yeah, but there's a lot of stuff in
+Artemis. Like, I mean, I think Sanger used to have one day or two, like, a solid
+workshop of how to use it. And I never got it to work, but you can hook it up to
+some server to do all of the blasts. Like, you can launch blast alignments to NR
+and all of that from it, but I never managed to get it to work. Yeah, and I
+suppose the most powerful part of it was being able to do live annotation on a
+shared server, something called Chato. So you could have a lot of genome
+annotators then, you know, saying, okay, this gene does blah. And it could all
+be editing and making changes simultaneously stored in database. You can dump it
+out into whatever format you need. But that's quite useful. Yeah, but who
+annotates genomes anymore? We just trust what Procket tells us, right? Oh, yeah,
+that's all right. Yeah, all the time. All hail the Toastyverse. Yeah, so Chato
+is part of Gmod. So maybe Gmod also has a genome viewer. I just don't know right
+now. I think WebApollo. Oh, WebApollo, right. Yeah. So there's probably, I
+wonder if Apollo can also do pile up or something, but I've never tried that. If
+anyone at home wants to tell us more about that. Yeah, I mean, there's tons. I
+mean, we shouldn't, oh, there's so many viewers out there. There's IGV, there's
+JBrowse. The new one, new kid on, it's not that new now, there's like
+BioDallians. There's a whole bunch of these viewers out there. And they've all
+got their pluses and minuses. I think when I started out, Artemis was the go-to,
+but Hawkeye was actually better for memory usage. So you could shove more into
+it. And that was like a plus being able to do that. Then IGV is really good
+with, in terms of showing tons and tons of tracks on the interface because I
+think it's just drag and drop all the files. Pretty much you just point to
+whatever files you want and it just loads all the tracks in. So you could show
+the snips, you could show the annotation, you could show the presence absence of
+this in one context and then with another, and you can see all of that racked
+up. So that was really handy. In terms of vision, there's also a look at, we
+mentioned concept, but then there are more modern implementations that have a
+similar thing of looking at not just the assembly, like the chromosome, but also
+the underlying reads as well. So things like tablet was one, we used a fair bit
+back in the day. And then there's the one from Ryan with bandage. Oh yeah,
+that's really cool. That's really cool. That's a bit different. That's showing
+the assembly graph that's showing the link of the context sequences and what
+they link up to as far as the assembly graph is concerned. So that's really
+handy, especially for long reads if you're trying to see why it didn't
+circularize. Yeah, and I think, oh, I can't remember. Oh, and of course, there's
+things like pileup. Like there's this SAMtools viewers. Just when you've
+remapped your reads back onto your assembly, you can do that. And that's in the
+browser on the shell. You can look at things that way. Yeah, do you guys use
+SAMtools TV? Yeah, yeah, yeah. That's fantastic, yeah. So do you want to explain
+what TV is for the viewers at home, listeners at home? It's just, it's an ASCII
+representation of your assembly on the top line and then all of your reads piled
+up on the subsequent lines. And you can use your left and right and up and down
+arrow keys to navigate around. It's really, the controls are extremely
+simplified. The view is extremely simplified, but the advantage is that it's on
+any computer out there. That's huge. You can go on any computer that has
+SAMtools and look at that. All right, wow. I think we've touched on so many
+different subjects in terms of the post-processing, how to assess assembly
+quality. And we've managed to pick up a lot of tips and tricks along the way.
+There are plenty of things I didn't know about, plenty of history. And I hope
+everyone out there also learned a lot as I did. And yeah, we'll see you next, on
+the next episode of the MicroBinfee podcast. Thank you all so much for listening
+to us at home. If you like this podcast, please subscribe and like us on iTunes,
+Spotify, SoundCloud, or the platform of your choice. And if you don't like this
+podcast, please don't do anything. This podcast was recorded by the Microbial
+Bioinformatics Group and edited by Nick Waters. The opinions expressed here are
+our own and do not necessarily reflect the views of CDC or the Quadrant
+Institute.

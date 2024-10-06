@@ -1,0 +1,308 @@
+Hello and thank you for listening to the MicroBitKey podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody really writes it down. There's no
+manual, and it's assumed you'll pick it up. We hope to fill in a few of these
+gaps. My co-hosts are Dr. Nabil Ali Khan and Professor Andrew Page. Nabil is the
+head of informatics at the Quadram Institute in Norwich, UK. Andrew is the
+director of technical innovation for Theogen in Cambridge, UK. I am Dr. Lee
+Katz, and I am a senior bioinformatician at Centers for Disease Control and
+Prevention in Atlanta in the United States. All right. So hey, we're here with
+Titus Brown. Andrew and I are your hosts today, and we wanted to get a little
+bit into SourMash. We were just having an offline conversation and just how well
+SourMash scales, and especially in the context of metagenomics. I don't know if
+you want to give a little intro on what SourMash actually is. I think we've kind
+of skirted around on the previous one. Sure, yeah, yeah, yeah. So SourMash
+itself is a command line Python package that sits on top of a Rust library and
+does very fast lossy compression of Kmer datasets with the goal of enabling
+overlap analysis between large collections of Kmers. So you can go grab it from
+Conda, or you can do a pip install, and it will let you do things like take two
+samples, two DNA or RNA samples, sketch them into much smaller datasets, and
+then determine things like Jaccard similarity. Similarity of the two datasets
+overlap between the datasets in either direction, and also lets you do things
+like search very large databases of these sketches for matches. So that's like
+80% of what SourMash does, is it sketches things and lets you compare them to
+each other in a variety of ways. And the cool thing is that the coolest thing
+about it, one of the two coolest things about it is that it scales extremely
+well. So we typically, with the default parameters, we typically compress
+sequences by around a factor of a thousand. So you can take an E. coli genome
+that's five megabases in size, and you end up representing that with 5,000
+hashes that are sitting in a cute little JSON file on disk. So, you know, in the
+neighborhood of 30 KB, and that lets you do things like find similar genomes,
+discover whether that E. coli is in a metagenome, and basically those two things
+do taxonomic assignments, that kind of stuff. Yeah, so I originally came across
+you just mimicking MASH with a library, but it sounds like with the 5,000
+hashes, like you might have a few different default parameters that are
+different at this point. Is that what I'm picking up on? Well, we use a
+different sketching technique. So our sketches are, to some extent, we use this
+compatible sketching technique, but rather than retaining a fixed number of
+hashes, like what MASH does, where MASH says, you pick how many hashes you want,
+and that's how many we're going to extract. And that's going to be forever more
+what you use for comparisons. We extract hashes at a, what I would call a fixed
+sampling rate. So if you have a three gigabase genome, say human, and you use
+our standard technique for downsampling, which is this fracament hash approach,
+you would end up with about 3 million hashes, whereas MASH would still give you
+whatever, you know, 500 or 1,000. The downsides of this, of course, for
+SourMasher, that your sketches get bigger as your data sets get bigger. So for
+metagenomes, if you have a very large metagenome, you're going to get a very
+large sketch for it. But the upsides are that you can then do containment
+analysis. So you can say, oh, for this metagenome, what genomes are in this
+metagenome? And you can answer that question with just the sketches. You don't
+need to go back to the raw data, which is how most of the other techniques,
+including the MASH screen technique, work. So SourMash is really focused on
+metagenomics and containment and overlap analyses, rather than on Descartes
+similarity comparisons. Okay, incredible. So my personal story with SourMash is,
+I thought it would be great for a genomic epidemiology platform. And I started
+developing this with my student at UGA, at the University of Georgia. And I
+think this is a compliment to you, that your code is so elegant, we figured out
+how to code it up, make a nice platform where we could query anything in under a
+thousand lines of code. And that number is important, because we submitted it to
+JOS. Oh, no. And they desk rechecked it. Oh, no. Because it was under a thousand
+lines of code. And so we've been spending the last half a year just adding in
+more features, so we could have more code in there. I, that says something good
+about SourMash. Thank you. And it, I wonder, you know, I'm worried about, I'm
+worried about what it says about JOS. A little bit. We'll have a better paper
+for it. You know, at the end of every review process, it's painful and then you
+have a better paper. So I think there's that. But then I think it's definitely
+an arbitrary number. Wow. I guess it's to avoid the, you know, the 20 line bash
+scripts, you know, which I'm sure they've gotten. Yeah. So I, I serve on the, I
+guess I'm a guest editor still. I don't know if I've officially joined the
+editorial board for PyOpenSci, which is sort of, which is sort of focused on
+Python, you know, Python and open science. And they have a review process that
+sits on top of JOS's. So the idea is that they, they will review your package
+with their own standards for coding and tests and stuff. And then as part of
+that, you'll get an expedited review process for JOS. And I will say that
+consistent topics of discussion on the PyOpenSci editorial channel are, is this
+enough? Is this big enough? Is this different enough? And I'll just say, you
+know, my philosophy, which I have espoused openly on the editorial board is we
+shouldn't be worried about if it's different enough. We should, we should maybe
+big enough. Yes. But the difference is in the eye of the beholder. And, you
+know, if there's a lot of diversity out there, we should let the environment
+select rather than, than prejudging. But it would add to the review burden. So I
+don't know. I take a very microbiome, take a very microbiome approach to this,
+right? Everything is everywhere in the environment selects. Yeah. Yeah. This is
+like your software. There might be noise out there, but you know, let, it should
+be robust enough. Yeah. But so, so since I led you to this topic of scaling, I
+want to, I want to tell you about something that we're kind of, we're kind of
+absurdly excited about, despite the fact that we don't have that many great use
+cases for it. And that is this thing called the branch water. And if you go to
+branchwater.sourmash.bio, I'm hoping this makes your heads explode in a nice
+way. This is a real-time search for a genome within all of the SRA metagenomes.
+So go to the examples and click on, this is my favorite search here. Click on
+the bottom one, SAR11. And now click submit. And if you'd count out loud, did
+you click submit? Okay. And if you could just count out loud. 1, 2, 3, 4, 5, 6,
+7, 8, 9, 10. Did you actually click submit? Oh, there we are. Let me try it
+again. Scroll down, scroll down. All right. Oh, let's try that again. All right.
+There we are. Okay. So now you can count. 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+11. Okay. So what we just did was we did a search for SAR11, which is a
+ubiquitous marine microbe. And it returned 9,000 accession IDs. Those are 9,000
+different SRA metagenomes that contain SAR11. But it gets better. Scroll down.
+Oh, okay. And you can see a map of all of the samples where this genome is
+found. And SAR11 is everywhere where there's a marine. Everywhere marine. So
+basically what this map is, is it's a map of everywhere people have done ocean
+sampling and deposited the results in the sequence read archive. Oh, this is
+incredible. Oh. I guess for me, is it in any human gut microbiomes or anything
+of that? Like, could you see it as contamination? So can you scroll up a little
+bit? I don't remember if in this one we have done a way to filter. Go over to
+organism on the right. At the top of the spreadsheet. So you can see activated
+sludge. We don't have a good way to do. Can you do a keyword search for gut? I
+don't know. There. So it's in some bovine gut metagenomes. And because often
+you'll see. Do a search for human. Do a search for human. Often human will be,
+or often contamination will be like marine and soil bacteria happen to be in.
+sterile body sites and stuff like that. Well, it's in one gut and one oral
+metagenome. Cool. Wow. So, so there's a funny story behind this and we're going
+to come back to Luis again. So Luis Erber, my co-conspirator on SourMash, who
+saw me, you know, watched his advisors, GitHub, saw me contributing stuff to
+this repository called SourMash. And then was like, Ooh, this could use better
+code and more tests and, you know, continuous integration and a release process.
+And just started adding pull and, you know, better data structures just started
+adding, adding, uh, adding code. Um, this became a core SourMash became a core
+part of his thesis. In fact, his thesis is basically all about SourMash and then
+the data structures in SourMash. And then, um, how to monitor GenBank and
+automatically construct signature sketches, SourMash sketches for every new
+sequence that came into GenBank and then how to search all of those, all of
+those things. Um, and so the story behind Branchwater, this website that I'm
+showing you, um, is that the underlying code was written because this is my
+interpretation. Luis may disagree. The underlying code was written because Luis
+didn't want to write his thesis. So Luis had convinced me in, in, he had a very,
+he has a, he had a very sneaky way of convincing. He has a very sneaky way of
+convincing me to do things. He had convinced me that we should swap out the C++
+extension library under SourMash for Rust. And he basically said, look, Rust is
+just a better piece of software and it'll let us do a better language and it'll
+let us do a multi-threading very easily. And I was like, great, because the
+biggest problem in SourMash was that we didn't do multi-threading. We still
+don't do multi-threading, I'll maybe tell you more about that in a second. So
+what Luis did, I was like, well, I don't know. My biggest worry is I don't know
+Rust, or I didn't know Rust and I didn't want to have to learn it in order to
+maintain SourMash. And something I've learned over the years is that everybody
+leaves the lab but me. So I'm going, I'm the maintainer of last resort. So
+anyway, so what he did was he put in, I don't know how many, I don't know how
+many weeks or months of work. He wrote a pull request that swapped out the C++
+layer for a Rust library. And then he's like, hey, it's all working. And I was
+like, okay, he's like, can I push the button? I was like, I guess. And so we
+pushed the button and swapped out and it's between SourMash 2 and SourMash 3,
+the underlying extension library was switched over to Rust. And all the, we had
+great tests on the Python side. I love writing automated tests for things. So
+all of the tests passed, everything worked great. And then Luis was like, well,
+I don't want to write my thesis. I want to play more with Rust. So what he did
+was he wrote a multi-threaded Rust front end to SourMash called BranchWater. And
+his use case for this was, hey, I've been sketching all of the metagenomes in
+the sequence read archive for a while now. We're up to like 500,000 at this
+point. And I can't search them using SourMash because it's too slow and single-
+threaded. So I'm going to write a Rust front end that lets me use all of the
+underlying ideas in SourMash, but just isn't as easy to use because it's a Rust
+command line front end rather than a Python, you know, a fully developed Python
+front end. But it will be blazingly fast because Rust makes multi-threading more
+or less trivial. So he wrote something that would not have passed Joss's review
+criteria. It was under a thousand lines of code. I think it's like 200 lines of
+code. Wrote something called BranchWater. And it was basically SourMash, but
+multi-threaded. And we could scale it up to something like between 30 and 40
+threads before it overwhelmed our file system. And he developed this technique
+that let us, the software that let us search all of the 500,000 sequence read
+archive metagenomes in about 18 hours on one of our compute nodes. Wow. And then
+we were like, hey, what can we use this for? What's a use case? And we didn't
+have one. And over the next couple of years, we found two. There was one use
+case that a guy named Adrian V.A., V.A. Vegar. He's a MD, bioinformatician in
+Germany, came up with, which was source tracking. They had a breakout of, I
+think it was Klebsiella in their hospital. And he wanted to not just do source
+tracking within the hospital, but across all of the public genomes and
+metagenomes. So he used it to search, he used Branchwater to search all of the,
+all of the metagenomes, found one match to the particular strain, along with a
+bunch of other matches in the genome database, and then published, they
+published that and they tracked the outbreak to origin to Greece somewhere. And
+that's where it fell apart because they didn't have enough high density sampling
+in Greece. And then another collaborator here at UC Davis found another use
+case, which was they had searching for doing biogeography on interesting
+genomes. So my collaborator, friend and collaborator, Dawn Sumner, and her then
+postdoc, Christy Grettenberger, and a former student of mine named Jessica
+Lumian basically got hit with COVID, not, not the lab got hit with COVID. They
+stopped doing experimental work and they needed something to do. And they
+decided, well, we have these five Antarctic cyanobacterial mags that we've
+isolated from our, our Antarctic map, you know, lake work, and we want to know
+where they are. This will be a great, you know, a great COVID, COVID exercise,
+because we can't do experiments. So we're going to, we're going to do some
+bioinformatics. And so they did a search again using this Branchwater tool
+across all of the metagenomes and they found that, you know, long story short,
+this, this paper is available on bio archive and will be published hopefully
+soon. They found that, you know, some of the Antarctic cyanobacteria were very
+limited to cold environments. Others were cosmopolitan and yet others were, were
+very specific to extreme environments, not just cold, but they could do this.
+They could take five mags and they could search all of, all of the sequence read
+archive metagenomes and then dig into what the matches were and, and so on and
+so forth. And that, that's a really nice validation paper for the Branchwater
+stuff. It's also pretty exciting scientifically, but I of course was excited
+that it showed that our matches were legit. So, so that's where we were as of
+like two or three years ago. And then Luis graduated and kept on working on Sour
+Mash in his, in his spare time. And I had a postdoc, Tessa Pierce Ward, who
+started to get very interested in this and through a combination of things, Luis
+basically, Luis was invited to give a talk at the Joint Genome Institute and
+decided that 18 hours was too slow. So he developed an inverted index for the
+entire sequence read archive. That's what you're seeing right here, where you
+can do essentially real-time search using a RocksDB-based inverted index of the
+hashes across now a million sequence read archive metagenomes. And Tessa, along
+with Suzanne Fleischman and Adam Rivers at the USDA, put together a web
+interface on top of that. That's what we are using right here that let you do
+the search and then get real-time visualization of the, of the GPS coordinates
+for where these things showed up in, in metagenomes. So we're really excited
+about this. This is sort of petabase scale search. We're searching something in
+the neighborhood of 10 petabases of sequence read archive metagenomes in real
+time. Admittedly, what we've done is we've indexed them all. So we scrunched
+them down by a factor of a thousand. So it's actually about 14 terabytes on
+disk, and then they're indexed into a RocksDB database and you can take any
+genome you want. It will scrunch the genome down using our sketching technique
+on the browser side. So because we're using Rust, we now have a web assembly
+version of SourMash that's fully runs in the browser. It, it scrunches, it does
+the sketching on the client side and then sends it to the backend branchwater
+server, which does the finding. And then there's JavaScript on the front end
+that does the visualization and it all works quite well. It's also fully
+deployable on private metagenomes. If you had your own collection of hundreds or
+thousands of metagenomes, you could do this, do this to stand all this up on
+your own. It's all free and open source software. That's not super well
+documented yet. We're working on that. And now the biggest problem, and I think
+this is a hilarious statement on bioinformatics as well. The biggest problem is
+it's not clear what the use cases really are. There's no one dominating use
+case. Source tracking, maybe. We have yet to demonstrate that it works really
+well for that. Biogeography, sure. But how many people want to do biogeography?
+It's not entirely clear. Despite this, like we're really excited about it
+because it's just cool. There's a whole NIH initiative on petabase scale search
+and lots of people are implementing stuff in the space and we still don't really
+know what we would use it for. There's a lot of use cases, like, for example, if
+you get, I don't know, XDR resistance popping up in typhoid, where did it come
+from? Did it come from something that's been sampled on the other side of the
+world, you know, and kind of reconstructing that story of how resistance moves
+around. Or if you find something and you think, is this, well, something in
+metagenome and it's like, is this just a local British thing, you know, because
+of our lifestyles and we're very insular? Or is it widespread? And is this the
+true cause of a pathogen? So, right. So I'm going to say two or three things
+here. So one is absolutely, we totally want to do that stuff. And I think we
+can. There's a couple problems though. One is this question of what the level of
+specificity is. Like, are we getting down to strain level stuff? I think our
+answer is yes, but we haven't really conclusively proven that yet. Another.  is
+we don't fund, again, I'm gonna, we talked a lot about this off recording, but I
+would say like, there's not, it's a chicken and egg problem. I think we can do
+this, but right now we need the fund, we need to figure out how to support the
+work necessary to show that it actually really works, if that makes sense. And
+there's not a lot of funding out there in this exploratory realm of, well, we
+have some like vague and fuzzy use cases, but nobody's really incredibly urgent
+about solving this problem tomorrow, and there's no call for this, like that's
+sitting on my desk. This is an incredibly fortunate discussion because I think
+I'm chomping at the bit just like Andrew is here, because there are so many use
+cases. Excellent. Like definitely source tracking, and you can say source
+tracking of AMR genes for sure. CDC is actively engaged in like wastewater
+analysis and tracking where pathogens are getting higher or lower, or where
+they're present or they're absent. And then getting into the early discussion,
+like what species is it? What lineage is it? You can start diving in like, and
+just start tracking where all these subpopulations are going on. This is totally
+a public health problem. That's awesome. Well, so there's two other flies in the
+ointment that I want to mention just before people get too excited. One is that
+the resolution is still somewhat limited. If you want to search for things under
+10 KB in size, you start to get false negatives. It works exceedingly well above
+that. We know how to adjust the parameters to drop the false negatives. We would
+just need to resketch the entire sequence read archive, which would take us a
+couple of months. But so that's straightforward to do. The other thing is, and
+this is a weird, this is going to be a weird one. It's actually where a lot of
+my follow-on work has been. A lot of the lab's follow-on work has been, you
+don't actually get, we're dealing with sketches here. So you don't actually get
+the sequences. What you get is a statement, like this thing you searched for,
+it's probably in this metagenome. And then you need to follow up on it. So, you
+know, there's a level of indirection. We call it the sort of, we've narrowed it
+down to sort of this hit to lead terminology. Like we're giving you hits that
+are probably pretty good leads for you to follow up on. We're not giving you a
+definitive answer. I mean, sure. Like you'd get like the answers from that
+genome. And then you could probably like just retroactively or what's it called,
+a flex culture, some things and actually do like a molecular clock or get some
+directionality for sure. Like I can, I think in my opinion, sketches are
+definitely like a way to narrow down what you need to do, but it's usually not
+like the last thing you do. Like you have to polish it. Yeah, exactly. But I
+think we can get, I think we can get to the point where, you know, we have,
+there's a bunch of theoretical work and here I want to shout out my
+collaborator, David Kozliky and Tessa Pierce-Ward, who I mentioned before, who
+together with one of David's grad students, oh no, I'm blanking on his name. His
+last name is Raman Hara. And I've just forgotten his first name and I'm so
+sorry, but there's a publication out. They've been able to tie these, our sketch
+statistics to ANI. So we can tell you for a given match what the ANI is between
+the query and the match. So we can do things like that. And we know what the
+resolution, so we have good limits and sort of bounds on where our stuff works
+well, where it doesn't work. We know how far away you get before you start to
+lose signal and all of that other stuff. And that's actually all published at
+this point. So we're very interested in character and accurately characterizing
+the limits of our techniques so that you know when you need to pick up a
+different tool. So we don't think Sour Mash is the thing that everybody should
+use. We want to just be really clear about where it is useful and what it can
+do. And coming back around to the beginning of this segment of the podcast, it
+scales ridiculously well. And that has been really cool. And it's nice to hear
+that there's a bunch of really good, strong use cases in public health because
+we've always felt that way, but I guess we failed to talk, we failed to reach
+out to the right people who appear to be you too. Thank you so much for that. We
+all love tools that scale ridiculously well. It is often overlooked and, you
+know, our desire to search everything versus our desire to get a result in a
+reasonable time, you know, obviously conflict sometimes. So thank you so much
+for talking to us again today. And I think this will be the final time we talk
+to you, but it's been great over the past few weeks. And yeah, good luck in all
+your endeavors. Thank you. It's been great. Been great being on here. Thank you
+so much for listening to us at home. If you like this podcast, please subscribe
+and rate us on iTunes, Spotify, SoundCloud, or the platform of your choice.
+Follow us on Twitter at microbinfee. And if you don't like this podcast, please
+don't do anything. This podcast was recorded by the Microbial Bioinformatics
+Group. The opinions expressed here are our own and do not necessarily reflect
+the views of CDC or the Quadram Institute.

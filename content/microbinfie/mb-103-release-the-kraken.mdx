@@ -1,0 +1,52 @@
+---
+date: 2023-03-23 00:00:00
+title: MicroBinfie Podcast, 103 Release the Kraken
+link: https://soundcloud.com/microbinfie/release-the-kraken
+tags:
+  - microbinfie
+  - podcast
+---
+# Kraken: Taxonomic Classification Software
+
+In this episode of the MicroBinfie podcast, Dr. Jennifer Lu and Natalia Rincon from the Johns Hopkins University Center for Computational Biology discuss **Kraken**, a taxonomic classification software.
+
+## Overview
+
+Kraken, developed in 2013-2014, is renowned for its ability to classify sequencing reads by assigning them to specific species, genus, or general bacteria. Its efficiency in classifying millions or even billions of reads sets it apart from other methods like Melan, MegaBlast, and Chime due to its ease of use and accuracy.
+
+## Innovations and Developments
+
+- **Kraken Unique**: Developed by Florian Breitweiser, this version provides more information than the standard Kraken.
+- **Bracken**: Created by Dr. Jennifer Lu, Bracken estimates abundance based on classification.
+- Recent editions have been enhanced by Natalia Rincon, who focuses on analyzing diversity metrics.
+
+## Functionality
+
+Kraken utilizes "exact camera matching" technology, producing two outputs:
+- A long text file for every read
+- A Kraken report, which gives a breakdown of reads for each taxonomy ID
+
+Despite a small number of reads, the taxon assignments from Kraken reports remain significant.
+
+## Usability
+
+For beginners, Kraken offers pre-built databases for simplification and ease of use. The software is primarily designed for Illumina reads, but its accuracy with Nanopore reads may be affected due to a higher error rate associated with Nanopore technology.
+
+## Technical Insights
+
+- Kraken achieves exact matching of k-mers and compresses genome information efficiently.
+- The software mixes Perl and C++: Perl handles input processing, while C++ manages memory-intensive tasks like sequencing and compression.
+
+## Community and Collaboration
+
+- The developers work closely with others to address the impacts of changing Nanopore chemistries on read accuracy.
+- Kraken databases include vector sequence information, classifying vectors as "synthetic sequences."
+
+## The Name "Kraken"
+
+The name "Kraken" was inspired by a mythological creature and relates to Jellyfish, a tool used to construct Kraken databases. Derek Wood conceptualized the original idea for Kraken.
+
+In conclusion, both Dr. Jennifer Lu and Natalia Rincon expressed pride in their contributions to the Kraken community, citing its simplicity, speed, and accuracy as key reasons for its widespread adoption in taxonomic classification.
+
+The guest speakers on the microbial bioinformatics podcast are Dr. Jennifer Liu and Natalia Rincon. Dr. Liu is a staff scientist at Johns Hopkins University Center for Computational Biology, and Natalia Rincon is a PhD student in biomedical engineering also at Johns Hopkins University.
+

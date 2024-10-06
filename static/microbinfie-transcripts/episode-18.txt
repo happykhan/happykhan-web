@@ -1,0 +1,225 @@
+Hello, and thank you for listening to the Microbinfeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There's so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Andrew
+and Nabil work in the Quadram Institute in Norwich, UK, where they work on
+microbes in food and the impact on human health. I work at Centers for Disease
+Control and Prevention and am an adjunct member at the University of Georgia in
+the US. This episode is a panel discussion which was recorded in The Gambia in
+West Africa. Unfortunately, the audio from Nick Loman was not of sufficient
+quality to include in the podcast as he was Skyping in. The question is, has
+nanopore rendered on-site Illumina sequencing obsolete? And today we have Nick
+Loman from the University of Birmingham, David Baker from the Quadram Institute,
+Ozan Gundogdu from London School of Hygiene and Tropical Medicine, or LICHTUM,
+but actually in London. And we have Abdul Sese from the London School of
+Tropical Medicine here in The Gambia. I personally find that in terms of
+bioinformatics, that there's no point anymore in doing any bioinformatics
+software for short-read sequencing because it's on the way out and we need to
+reinvent everything for nanopores, we might as well, and you get so much more
+data out of it and you can find so much more biologically interesting things
+that you can't find with Illumina. Like when you do a short-read shotgun
+metagenomic assembly, you'll get things in maybe bins with 10 or 20,000 contigs
+in there, and that's crazy to work with, you know, whereas when you do a
+promethean assembly of a gut metagenomic sample, you get these beautiful bins
+where you might have 10 or 20 contigs and they're massive, you know, massive
+chunks of your genome. So you can actually do proper biology, proper
+metagenomics, unlike, you know, with short-read Illumina metagenomics where
+you're kind of heavily relying on algorithms to kind of tell you maybe this
+might be related or maybe it's not, but then you end up with mags, which are
+just sometimes just these crazy accumulations of stuff that happens to look
+slightly similar, but it's totally different. What do you think? I just
+personally think, in terms of being obsolete completely, the error rate for
+nanopore I can't see ever going up significantly. They've made small
+advancements over the years, but when you're applying a voltage across a pore
+and looking at a squiggle, I just can't see that that will ever become high
+enough quality to get, you know, SNP resolution. Just down to application, I
+still, maybe 90, 80, 90 percent of applications can be covered by nanopore long-
+read sequencing, but there'll always be a small percentage of work that will
+need the high-quality Illumina read quality, or if indeed, you know, PacBio, if
+people have got access to PacBio. Overall, I do see nanopore as maybe the leader
+in, you know, we've gone from a period where over 90 percent of sequencing is
+Illumina sequencing, and even in the coming years I can see that switching
+around so that, you know, because of the accessibility of the nanopore platform
+as well, you know, less and less people, when they go into sequencing, will go
+down the Illumina route and will probably go straight to nanopore. Abdul, what's
+your opinion? We had a grant that Gates Foundation gave us, and they had a deal
+with Illumina that they would buy this 20, the small iSeq for the metagenomics
+on septis. So actually, it was a really good project that they gave, but they
+tied it with an Illumina platform. But when we had the meeting, and Nick was
+there in Addis, they actually extended that we could do the work on nanopore.
+And I think in our setting, again, in our setting when we talk about obsolete,
+it would be obsolete much quicker in Africa than it would probably be in your
+high-end setting. So for me, I think that it would be quicker to get rid of
+Illumina for us, because we have to go to providers, the access to it is much
+more difficult than you guys are doing. We don't have novice genes sitting next
+to us and all of those, so we need to develop something that's easy and quite
+cheap and accessible for us. So we might not worry about error rate, but we can
+do 90% of the stuff that we want to do in Africa, then maybe it might be
+obsolete in our setting quicker than it would be in your guy's setting. Yeah, I
+mean, just going back to the error rate, I mean, I think there is, I agree with
+you, Dave, but I think there's more and more methodologies I've seen out there
+that are trying to circumvent this error rate problem, and I think that's one
+thing to bear in mind. The other thing is, I think, yeah, we've had an Illumina
+in my seat, for example, at the London School for a number of years, and there's
+individual groups that are having the Oxford Nanopores and the Promethean now
+coming in, and we're moving towards that more and more. Yeah, I think sometimes,
+though, that when we look back at the microarray story, when the infrastructure
+is there, at some institutes, it does take a long time to actually change that,
+so going to your point, you know, buying something now, it might actually be
+better to actually just buy the Oxford Nanopore and, you know, have yourself
+future-proof, as we were saying the other day. And I guess the barrier to entry
+is so much lower because, you know, it's $1,000 to get into it rather than
+having to build an entire building to house these beautiful NovoSeqs and all the
+wet lab support that goes with it. Has anyone actually done a comparison or even
+tried to use Nanopore to do analysis of a bacterial outbreak to see if you can
+call SNPs accurately enough to compare that with what you would get with
+Illumina to see Stavorius going through a hospital or Acinetobacter or anything?
+Has that actually been done with bacterial genomes and shown to work, or shown
+not to work? It's something we're quite used to, and if you look back at the
+days of GA2 when the quality was so much lower, you know, we're well used to
+having to throw away lots and lots of SNPs and, you know, making these judgement
+calls, so I think it's just more of the same. Luna wanted to speak. Yes, I
+wanted to say that I think it depends on what your question is, so for us, where
+we're looking at antimicrobial resistance and we're looking at outbreaks and
+things and trying to understand what is the resistance that is causing outbreak,
+a difference in SNP can mean that you have a different gene or you might have a
+resistant or a sensitive isolate, so for us, what we do is we do the hybrid, so
+we use the MinION Nanopore as well as the Illumina, so we look at the hybrid
+sequence as well, and there's a work we did with Oxford with Derek Crook's group
+where we actually compared the PacBio with the MinION Nanopore, and you can see
+that they both work really well, but with PacBio the accuracy is so much higher,
+but if you're doing high throughput where you're looking at hundreds and
+hundreds of isolates like we're doing for our surveillance activities, it just
+doesn't make sense because it's just so expensive, you can't use it. So
+presumably you can use Nanopore to work out if you have an outbreak going on, so
+you can say we have a bunch of salmonellas that look sufficiently similar that
+are coming from Newcastle and London and whatever, that we've got an outbreak,
+but you can't yet work out, well actually it's that kebab shop in Newcastle that
+gave it to that individual, and that kebab shop needs to be closed down, or for
+your case the farm needs to... That's right, for us accuracy is the most
+important thing, because if you think based on that you might go and put some
+farmer out of business, and it costs the UK government millions of pounds if
+they sue us. And if you did Nanopore sequencing on everything and then threw
+things into barcodes to say these things look quite similar, we've got a
+thousand isolates and of these 50 of them look the same, you could then go and
+do Illumina sequencing just on those 50 to get the fine resolution. Yeah, and we
+do it almost the other way at the moment, we do the Illumina first. We do the
+Illumina first, but I'm just saying that maybe that's a little bit flippant, but
+we could do that in the ES, yeah, yeah, yeah. I was going to say, I mean our
+emphasis is slightly different from Moon, I mean just in our setting we really
+want public health response, so when there's an outbreak, first of all we want
+to detect the pathogen, and we want to know the serotype or the genotype,
+because this is where WHO or UK government or partners are bringing vaccines in
+order to stop the transmission of that outbreak. Of course, this is really
+important, but in terms of response quickly, it's really to detect the pathogen
+and the serotype, but these are the ones that the vaccines are available. So I
+suppose the one thing that Nanopore and these Langmuir technologies give you is
+that you can maybe go and do direct sequencing, what I call.  So you can cut out
+that entire day or two, or however long it takes to culture your bug. And you
+don't just get the small chunks of it, you get full, big chunks and you can say,
+well, say this salmonella has these resistance genes because I'm able to
+sequence such a long piece of it. Well, that depends on how much biomass of the
+bacterium you have. In a stool, that would be okay, but if you're trying to
+detect pneumo in a nasopharyngeal stool, I suspect there's probably not enough
+there for you to do it directly. You might have to do some culture first, or
+Nick said PCR was, you know, for viruses they take, they do the PCR step first,
+but yeah. I've got a point for Arno, from the perspective of an end-user,
+somebody who doesn't do the sequencing themselves but helps with the analysis,
+how much of a step is it to go from the Illumina sequencing where you just get
+your FASTQ files, to the type of files that Nanopore uses? Can you just easily
+convert everything, can you just use your same programs, or do you have to
+actually change your pipelines or your setups to be working with Nanopore data?
+So basically for Nanopore and PacBio, you need totally different pipelines to
+Illumina because of all the errors and you have to account for those. I've done
+hybrid assembly where you just basically mix the long read and the short read,
+and as long as you get FASTQ files or FASTA files you can do that, but that
+already requires a conversion, so you can't just work with the native files. So
+that's what I'm saying, can you work with the native files quite easily in
+different programs, or do you have to completely change it if you start working
+with Nanopore? So the native files for Illumina are BCL files, but you don't
+work with those. And you work with the FASTQ only? Yeah, and I think people have
+confidence in Illumina's base calling over the past few years, that if it's an A
+it's an A, whereas with Nanopore, because Guppy and all the base calling
+software changes so rapidly, you do have to go back every now and again and
+rebase all the same data over and over and over again, because you will get
+better data at the end, and I think it's only when we're really, really
+confident that the base calling is as good as it's going to get and it's stable,
+then we'll just probably keep the FASTQ files and use those as the base, but at
+the moment you do have to keep the native squiggles. Okay, so the rumours of the
+death of Illumina are greatly exaggerated. It's inevitable, I think. So Abdul,
+what's your plan for using Nanopore here? I know you've got a grid ion and
+you've got lots of min ions, but are you thinking about bringing in a
+Promethean? I think one of the things, we're writing our QQ now, and that's one
+of the things that I'm playing in my head with, is whether we get a bigger piece
+for our human genetic stuff, or we've got time, we think we've got two years is
+a long time in the sequencing business, so I'll get the money and then we will
+look at what technology we'll bring in. I think we've got two years and it gives
+us more time to think where we go. Yeah, I completely agree. The appointment for
+human genetics, I think, is still under discussion because of the cost, but that
+happens every day, we need a high throughput sequencing. So would you consider
+doing Plasmodium on it, or Anopheles, or anything like that? On Promethean, yes,
+if we have. We're already doing that with Alfred, and yesterday's talk, and this
+was done through the Sanger, wasn't it? Yes. With Dominic? Yeah. But the idea is
+to do everything in-house. Yes, my question is that, would this affect, would
+they change from Illumina sequencing to the long read and sequencing as services
+affect the data rights of the sample donors, or is something that is still going
+to be the same as it is now? Or will it have any effect on the data rights for
+specimen donors? I don't think so. So, I mean, when you go and give a blood
+sample for a test, if you've given permission for a test to be done, you don't
+actually decide which machine they're going to run it on. So I think that once
+you've got ethics, I think, is that not right, Martin? Yeah, that's right. I
+don't think it matters, really. I mean, it matters about protecting your data
+when it comes out, but I really don't think the way you... I guess that if you
+do better genomics on humans, you might get more human DNA out, longer stretches
+of human DNA in assemblies. It might mean it's easier to identify the person.
+But would you say, if it's not a human project, those sequences will be thrown
+out? Yeah, exactly. They should just be thrown away anyway, so they should never
+be released. It wouldn't matter in any way. But I guess it would make it easier
+to do sequencing in-country, so you don't have to ship it off to Sanger or to
+Broad or wherever. I think, really, again, this is why I go back to our setting,
+is that it will change in terms of taking infectious samples out of here. I
+mean, people are changing in animal transportation on aeroplanes, so that might
+change whether you send samples out. So, I mean, doing something in-house might
+probably be... And the governments are also trying to change that, so that
+sample doesn't belong to a research scientist, it belongs to the country. So
+they can come here and seize our freezers. If Jami was here, that was one of his
+plans. Yeah, I mean, it can be in the past. Any sample that is shipped out, we
+needed to keep an aliquot here anyway, as part of the ethics approval. So in our
+freezer, we have a lot of samples that are practically useless, but we had to
+keep an aliquot back, and it's not linked to the metadata, which is a pain, but
+it's a revelation. I think it's standard for government projects. I mean, for
+us, anything which is funded by the government, which is 95% of our work,
+belongs to the UK government, so it does not belong to the research scientists.
+So if people leave, all of that comes back to the government. And if you need
+permission, you have to go to our policy people to ask for permission for
+certain things. So I think that's standard across. Any final words from Ozan?
+Yeah, I mean, I agree with pretty much most of that, and I think somewhere like
+the London School of Hygiene and Tropical Medicine, I mean, we have a core
+facility with Illumina to now convince the school to invest more money in the
+core facility for Oxford Nanopore. It's something a lot of individual groups are
+having their own pieces of equipment. We do a lot of work abroad, so people just
+want to take and do the sequencing on site. So it's in that sort of middle
+playing field of we're not exactly sure what's going to happen in terms of
+sustainability. We've always got issues about warranty, who's going to pay for
+the warranty of these capital expenditure equipment. And, yeah, these are
+ongoing issues, and I guess that's why we're here discussing this today. David?
+Yeah, I mean, I just feel that in terms of, you know, Muna mentioned earlier
+that a single PacBio assembly was actually better quality than a Nanopore
+Illumina hybrid. And I just think that PacBio are missing a trick. If they could
+come out with an instrument that would encompass both Illumina quality and
+Nanopore read length, they wouldn't necessarily do the field work. But if they
+could make it accessible in terms of cost, I still think the future could be
+bright for PacBio, and that might be the all-in-one solution for someone setting
+up their own core sequencing facility. Cost of PacBio, even if they make it
+cheaper, would be an issue in our setting, and maintaining that would be an
+issue in our setting. So maybe we're still leaning into the smaller machine.
+Okay, thank you very much for everyone participating, and thank you very much to
+Nick as well from the University of Birmingham. Thank you all so much for
+listening to us at home. If you like this podcast, please subscribe and like us
+on iTunes, Spotify, SoundCloud, or the platform of your choice. And if you don't
+like this podcast, please don't do anything. This podcast was recorded by the
+Microbial Bioinformatics Group and edited by Nick Waters. The opinions expressed
+here are our own and do not necessarily reflect the views of CDC or the Quadrant
+Institute.

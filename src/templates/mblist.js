@@ -61,10 +61,10 @@ const MbItem = ({ excerpt, frontmatter, slug }) => {
 
 const bios = {
   nabil:
-    "Dr Nabil-Fareed Alikhan: Bioinformatician with Andrew Page. Interested in Enteric pathogens.",
-  lee: "Dr Lee Katz: Public health bioinformatics scientist. Author of Mashtree, Lyve-SET, Fasten, and others.",
+    "Dr Nabil-Fareed Alikhan: Senior Bioinformatician - CGPS, University of Oxford",
+  lee: "Dr Lee Katz: Public health bioinformatics scientist at Centers for Disease Control and Prevention.",
   andrew:
-    "Dr Andrew Page: Head of Informatics at The Quadram, currently doing SARS-CoV-2 genomics/bioinformatics.",
+    "Dr Andrew Page: Director of Technical Innovation, Theiagen Genomics.",
 }
 
 const Mblist = ({ pageContext, data }) => {
@@ -108,7 +108,7 @@ const Mblist = ({ pageContext, data }) => {
                   <Avatar
                     key="NFA"
                     alt="Nabil-Fareed Alikhan"
-                    src="/images/Nabil-FareedAlikhan-portSQ.jpg"
+                    src="/images/Nabil-FareedAlikhan-headshot-whitebg-square.jpg"
                     sx={{ height: "100px", width: "100px" }}
                   />
                 </Button>

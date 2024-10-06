@@ -1,0 +1,58 @@
+---
+date: 2021-01-22 00:00:00
+title: MicroBinfie Podcast, 44 How to sequence SARS-CoV-2 using the ARTIC protocol with Joshua Quick
+link: https://soundcloud.com/microbinfie/44-how-to-sequence-sars-cov-2-using-the-artic-protocol
+tags:
+  - microbinfie
+  - podcast
+---
+## How to Sequence SARS-CoV-2 Using the ARTIC Protocol
+
+### Presented by Joshua Quick, University of Birmingham
+
+This presentation was part of a joint ARTICnetwork & CLIMB-BIG-DATA workshop focusing on COVID-19 data analysis. The session was chaired by Nick Loman. Below are some useful links and resources related to the workshop and protocols discussed:
+
+- [Workshop Announcement on Twitter](https://twitter.com/Scalene/status/1349402397249056779)
+- [Primer Design Tool - Primal Scheme](https://primalscheme.com/)
+- [nCoV-2019 Sequencing Protocol v3 (LoCost) - protocols.io](https://www.protocols.io/view/ncov-2019-sequencing-protocol-v3-locost-bh42j8ye)
+- [RAMPART - Real-time Analysis for Molecular Profiling](https://github.com/artic-network/rampart)
+
+These resources provide insights into the methods and tools used for sequencing SARS-CoV-2 with the ARTIC protocol, offering a deeper understanding of the data analysis processes during the COVID-19 pandemic.
+
+### Extra notes
+
+- The podcast discusses the success of a decentralized genomic surveillance network in the UK, which utilizes diverse methodologies to enhance microbial bioinformatics.
+
+- **Amplicon Sequencing:** The ARTIC method, a form of amplicon sequencing, is highlighted for its cost-effectiveness and scalability, suitable for retrieving genomes in challenging conditions like high host-level contamination.
+
+- **Technical Methodology:**
+  - Utilizes multiplex PCR to generate amplicon pools, followed by native barcoding, and nanopore sequencing.
+  - Challenges with high CT values in viral isolates led to a focus on reducing RNA usage and increasing throughput with multiplex PCR methods.
+  - Primal scheme is a web-based tool aiding in primer design for multiplex PCR, accommodating diverse viral genome inputs.
+
+- **Tools and Innovations:**
+  - Primal Scheme: A web tool for designing primers, allowing users to upload reference genomes, and the tool designs primers covering genome diversity.
+  - The tool can handle multiple reference inputs and optimize primer design, accommodating segmented viruses and bacterial panels in future updates.
+  
+- **Challenges and Solutions:**
+  - Designing primers for highly diverse genomes remains challenging; the focus is on single viral strains due to the difficulty in finding conserved primers.
+  - Issues like primer efficiency and amplification failure lead to "dropouts" in genome recovery, emphasizing the importance of primer design and optimization.
+  - Stringent demultiplexing is important due to possible coverage differences in multiplexed samples.
+
+- **Direct RNA Sequencing Limitations:**
+  - The direct RNA kit requires high input RNA amounts, unsuitable for clinical settings unless additional steps are taken, impacting efficiency.
+
+- **Community Involvement and Support:**
+  - The Arctic Network offers protocols online and collaborates with companies like ONT, QIAGEN, and Illumina for protocol support and commercialization of related products.
+
+- **Future Directions:**
+  - Enhancements planned for the Primal Scheme to support segmented viral genomes and address bacterial genome challenges, particularly those with high GC content.
+  
+- **Comments on Tools Usage:**
+  - Primal Scheme's success rate in primer design for diverse genomes has improved, yet it’s better suited for less genetically diverse organisms like SARS-CoV-2.
+
+- **Discussion on Native vs. Rapid Barcoding:**
+  - Native barcoding is preferred due to the high specificity of demultiplexing required in the presence of amplicon dropouts.
+  
+These insights highlight ongoing developments, technical strategies, and challenges within microbial bioinformatics, particularly focusing on virus genome sequencing methodologies and tool development to enhance genomic data analysis.
+

@@ -1,0 +1,278 @@
+Hello and thank you for listening to the Microbidkey podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody really writes it down. There's no
+manual, and it's assumed you'll pick it up. We hope to fill in a few of these
+gaps. My co-hosts are Dr. Nabil Ali Khan and Professor Andrew Page. Nabil is the
+head of informatics at the Quadram Institute in Norwich, UK. Andrew is the
+director of technical innovation for Theagen in Cambridge, UK. I am Dr. Lee
+Katz, and I am a senior bioinformatician at Centers for Disease Control and
+Prevention in Atlanta in the United States. Hey, welcome back. We're talking
+with Titus Brown. We have a lot to talk about. We wanted to get a little bit
+more into SourMash. Andrew, I think you had a question about it. Yeah, so
+SourMash is based on references, but there's a lot of very poor quality
+references out there. There's even some we call out are like 10 megs. So I was
+wondering, how do you get around that? You know, what is your strategy for
+avoiding all the crud out there in the real world? Yeah, really good question.
+So I have declared that that is not my problem. And there's actually a lot of-
+You can't just say it's not your problem. But I have tenure. This is Michael
+Scott declaring bankruptcy. So my first very real answer is thank God for GTDB.
+So, you know, we have been doing a lot of investigation recently into taxonomy,
+for example. And before that, large-scale genome databases. One of the things
+that SourMash lets us do is search all of GenBank or all of GenBank microbial,
+which is now up to around 1.3 million bacterial genomes. And one of the things
+we wanted to do with SourMash was make use of all available reference sequences,
+because I think that that's really important for bioinformaticians. And one of
+my objections to most- One of my objections is maybe a strong word. One of the
+problems I think is really endemic to microbiome bioinformatics is that most
+software packages do some sort of curated subselection of the available genomes
+too. And that curated subselection, I'm going to be sort of mean here, that
+curated subselection is usually decided by what their software can handle. And I
+thought, well, I'd rather have it be decided by what somebody wants to include,
+whoever that may be. So how do you, even with GTDB, like I've noticed in the
+spreadsheets that they provide that they run CheckM, do you do any like
+filtering at that point where to get rid of the stuff that's really obviously,
+you know, very poor quality, or do you just take- So GTDB has very transparent.
+So we just take the GTDB databases that they release. They have very transparent
+quality metrics. And, you know, I think they do a nice job. From what I can
+tell, they do an excellent and amazing job of sort of trying to mediate between,
+we want as broad a representation of bacterial and archaeal tree of life as
+possible, while we don't want to include too many bad sequences. And so there's
+some, you know, most of our knowledge of about a dozen different phyla all comes
+from mags, metagenome assembled genomes. And some of those just aren't going to
+be very good quality, but it's important to have them in the database so that
+you can do a good job of analyzing things. So we just take the GTDB database as
+it is. We do have a side effort, and it's been on the back burner for a couple
+of years, where we are finding problems in GenBank genomes and GTDB genomes
+specifically using a software called Charcoal, which takes advantage of SourMash
+to look for various contigs that are very similar between very widely distant
+taxonomic units. And so, you know, yeah, there's some contamination and some
+messiness in there. I will say, and this is going to be a little bit of an
+advertisement, a little bit of a teaser, I will say that SourMash itself seems
+to be relatively robust to that kind of contamination for reasons that I would
+be happy to get into in terms of taxonomic assignment. But basically, my design
+principles, our design principles for SourMash are whatever databases people
+make available, we should be able to search. And if that database is bad, that's
+the problem. That's a problem for the people doing the searches. It's not our
+problem in SourMash. Like we're trying to do the, what's that? There's that
+tools, small tools manifesto. Each tool should do one thing and one thing well.
+SourMash searches things well. And if you give it the wrong database, it's going
+to search the wrong database just fine. So I love that GTDB is around and is
+doing a good job, a good systematic job of curating GenBank. I love that GenBank
+is around because then you can go find things that may be bad. And then you get
+to go decide for yourself. I don't have to, I don't decide if it's too bad to
+report basically within SourMash. So that's sort of my attitude towards the
+crud, if that makes sense. Right. Okay. Because I take the complete opposite
+approach where it's like, kill all the contamination as quick as possible. You
+know, if an E. coli has 3000 contigs, it's probably very, very poor quality and
+all that. Right. But yeah, it's kind of cool that you just deal with it. Well,
+so go ahead, Lee. I feel like we're on a different level, me and Andrew, because
+we're looking at the supplied stuff and I agree, like I'm taking Andrew's
+approach. I need to get rid of all the crud. Yeah. So like, I'll have a SNP
+pipeline and I need to get rid of all the SNPs that might be noise, even if some
+of them are real. Or I need to get rid of some of the k-mers, even if some of
+them are real, just because I need to make sure I have the highest fidelity
+phylogeny. But we're on a different level. I feel like you're on the base level
+where you're describing like you have a library of sour mash, like the sour mash
+library, and you want to make sure that it's just as versatile as possible. And
+it does that thing well. Right, right. So there is another philosophy to bring
+into this. I'm bringing in a lot of philosophical statements today, I guess. So
+I was trained by physicists. And there's sort of a physics style, I'm going to
+call it a physics style approach. I don't actually know if it's a physics style
+approach, but if you look at what the CERN or the various particle physics
+colliders do, what they do is they generate masses of data. And then they go
+through a multi-stage triage pipeline where they basically say, ah, okay, this
+is clearly noise. We're going to get rid of that. Okay. And this next, this is
+signal we already know how to understand. And we're not interested in stuff we
+already understand. And so you go through these multiple stages of filtering.
+And I think a principle to bring that I, my group has brought to sour mash is
+once you get rid of something, you can never get it back. So our job for that
+first search is you have the biggest, messiest, noisiest database ever. You have
+the biggest, messiest, noisiest data ever. We're going to give you all of that.
+And then if you want to filter after that, we'll make that easy as well. So with
+sour mash, you're never locked into a particular database. You're never locked
+into the public database that we have downloaded. And you can only use that. You
+can always have your own curated versions of things. We've actually made it very
+easy to use our databases and then sub-select just the things you want from
+them. There's always ways to pull out all of the matches, not just the refined
+ones we give you. And so, you know, basically like we want to give you that
+flexibility and we don't want to make decisions for you. If you want to make
+decisions, we'll make about what to include in your matches. We'll help you with
+that. But it's not our responsibility to tell you what's good or not. And part
+of the reason for that, I mean, I think we're also robust in the face of certain
+kinds of noise. But part of the reason for that is that that messy E. coli with
+the 3000 contigs might actually really matter and might be that hot lead that
+you dive into. This can't possibly be right, what's going on? And then you
+discover that, yeah, it's not right, but parts of it are interesting. And then
+you can take that and run with it. And if we had made the decision that that's a
+bad E. coli to begin with, then you would be denied that opportunity. I guess
+Lee and myself work more in a public health end, which is much nearer to making
+decisions. You need to have more of a confidence in what you are actually
+presenting to people at the end of the day, then I guess the big bag of
+everything and all possible results are on the table. Whereas when we're
+working, it's much more like we're absolutely confident this is a salmonella and
+it's in this outbreak and this is kind of what it looks like. What do you think,
+Lee? Yeah, I think I agree. And we need this situation. We need a situation
+where someone like Titus or someone is developing that base level tool that
+follows the Unix manifesto and it makes that tool. Where would we be if I was
+the person who developed SAM tools? It would be shit. We need someone who makes
+the tool and we can develop around it. We need that. Well, thanks, Lee. I like
+that. I like that perspective. So I'm trying to figure out, there's a
+tendentious topic that I kind of want to move that I would like to bring up.  is
+that most of our tools for bacterial assignment and metagenomes are quite
+terrible. So I sort of, and you can tell that you can see that with
+benchmarking, right? If you do benchmarking just at the species level, most
+tools are either terrible at sensitivity or terrible at specificity. And there's
+only like three or four tools that are in that golden spot of like specific
+enough that you can sort of trust the results and sensitive enough that you're
+not throwing away most of the data. SourMash, obviously, since I'm saying it, is
+one of them, somewhat by, somewhat surprisingly, because we didn't develop it
+for that, for taxonomy purposes in the beginning. MOTU is another, and then I
+think Megan and there's one more that I'm missing, another alignment-based one
+are pretty good. So I guess, I guess what I'm saying is, is I don't think, I
+don't think any of the public, most of the public tools out there get, get you
+where you want it to go in the first place. So I'm puzzled by the, not puzzled,
+I'm sort of raising this question of if we've been so worried about the end
+product being high quality, how did we end up in a situation where most of the
+tools out there aren't actually meeting your requirements in the first place?
+Because a lot of them are funded by three-year grants and the postdoc moves on
+and then the software just kind of disappears. And then we reinvent the wheel by
+starting from scratch because we think it's an easy problem and so on and so
+forth. Perfect. Yeah, yeah, yeah, yeah. Okay. I mean, we know, we know, we sort
+of know why, but I guess I would posit that maybe this is, I don't want this to
+be like the pull quote or the Buzzfeed headline, but like bioinformatics is
+terrible. Everybody knows bioinformatics is terrible. We're jury rigging
+together piles of software that aren't, weren't really designed to work with
+each other, use terrible interchange formats, have unknown specificity and
+sensitivity. Ground truth is often unknown. And then we're, we're like slapping
+a web interface on top of that and going, well, I guess we're done here. And
+it's, it's, it's not, it's not a good situation that we're in. Yeah, I would, I
+would, sorry, go ahead. So I would, I would go ahead and say that, that it's
+also like that, like another XKCD where it's like dependency management hell.
+And like, there's that one person who's developing that one software since
+whenever ago. Yeah. And I would, I would say that again, like, like we need the
+people at the base level developing things like SourMash or SamTools. We need
+that and we need to build on a very solid foundation. And I think that we, I'm
+going to use your, your, your slang there. We've been jury rigging a bunch of
+stuff together, but it's not going to work unless we just keep going back to the
+foundation and keep making that good. Yeah. But we, but the reality is, yeah,
+we're in public health and we need health now. We're going to, we're going to
+keep addressing that. So we're going to, we're going to Jerry rate things
+together as best we can to, to get to that, the public health solutions that we
+can. Yep. Yep. I mean, I think so, so, you know, I'm very, I'll say a couple
+things. So I'm very proud of SourMash because I put a lot of, a lot of time and
+effort and love into it as, as have a lot of people in my, my group and
+elsewhere. And I would not be there. There is a chance just like with cage where
+that tomorrow I will wake up and be like, you know what I'm going to go work on
+something else. And I wrote a blog post about this, I think for cage more like
+10 or so years ago where I said, what would, what, how, how should I think about
+sun setting software? And for me, there's another, there's another way I think
+about this, which is that like, I don't actually care if people use SourMash
+particularly like it's great. Like it's foundational to my own research program.
+I have multiple grad students in the lab doing cool biology stuff with SourMash
+and I'm helping support them. But for me, the important bit of SourMash is that
+this is, this is going to be really pretentious sounding. And I, and I, I, I
+mean it for all software, not just SourMash. I wanted to raise the bar. I love
+when you preface things like that. Sorry, go ahead. I wanted to raise the bar,
+right? Whatever replaces SourMash, I want to be no worse than SourMash. I don't
+want it to be a situation where things that we've learned in implementing
+SourMash are forgotten because we didn't write them down. We didn't publish
+them. We didn't talk about them. And so someone comes along and says, you know
+what? I'm a grad student on a three-year grant and I can do this better than
+Titus did. They probably can. And then they do do it 80% better, but then they,
+they, they mess up and it's, it's 20% worse in a particular way. Like that would
+be a bad, that would be a bad way for science to go. So for me, the things that
+I'm actually proudest of in SourMash are things we've learned. And that's where
+my publication efforts go. Like FracMinHash, pretty cool. If you don't mind
+throwing away 99.9% of your data, it, it works for some things really well.
+MinSetCov, I haven't really talked about that, but we have a really nice way of,
+of taking extremely redundant sets of matches to, to the microbial genomes and
+distilling them down to, you know, a shortest list of matches that covers all of
+the known matches. It's, it's actually turns out it's a algorithm that they
+teach in first year grad, grad studies and probably third year CS undergrad. And
+we sort of reinvented it by hook or by crook because it solved a particular
+problem. And then I, you know, I presented it to computer scientists. They're
+like, yeah, that's great. That's been known for, you know, 50 years, good work
+putting it into your software. And, and it's, but it works really well. And so
+we've, we've, we've learned that. And then, you know, something else I've
+learned, and this is, this is another nice teaser and maybe a pull quote for you
+that can go into your Buzzfeed style advertisements for the, for the podcast.
+Like I know how to write a virtually perfect taxonomic classifier that will
+classify at the species level with a hundred percent accuracy. We've gotten
+pretty close with sour mash. If I cared about solving that problem, we could
+write something that's perfect because we understand the problem now. I'm not
+convinced it's the right problem to solve. I think if you guys are in public
+health, my guess is you don't really care about species level that much. You
+care more about strain level. You're disagreeing with me heavily. Go ahead.
+Species can be quite hard depending on the species. Like if you get into micro
+bacterium tuberculosis, for example, that's a really hard problem because
+historically people have classified species based on what they've seen, not what
+it actually is genomically. Sure. Sorry. Let me rephrase. Let me rephrase my,
+my, my quote, given a taxonomy on a date, on a reference database, taxonomy may
+be wrong. The reference database may be bad, but given a taxonomy and a
+reference database, we can write a perfect species level taxonomic classifier. I
+I'd argue it'd be difficult and it, and that's fine. Cause I, I think I like
+this, this theme where we can discuss things at the jury rate public health
+level versus the ground level of computer science. Yeah. So how, how confident
+are you? Would you stand up in a court of law, you know, and say, absolutely. I
+would, I would hedge it a little bit. I would hedge it and say that I have run
+across. So we've done the analysis. I would hedge it and say, there's, I think
+about a dozen genomes. I can give you their names where based on cameras alone,
+they are indistinguishable from each other. But as long as you can find me one
+Kramer or sorry, any combination of cameras that, that uniquely distinguishes
+every element of a species, every member of species from every other genome out
+there, we can do that taxonomic assignment with extremely high accuracy. You
+need to write that up if you haven't already. So, so it's yeah. So cool. So we
+we're, we're close to it and I'll just, I just want to shout out to Leighton
+Pritchard here. I was, I was gassing on about this in a, in one of our
+collaboration meetings and he, and I said, look, it's something about
+combinations of cameras, this, that, the other thing. And he said, Oh, you
+should look up this, this. I think it's a cryptography term called unicity.
+Unicity is the, the unicity measure of a cryptographic message is the shortest
+number of symbol, the shortest set of symbols that allows you to uniquely decode
+a cryptographic message. And you can apply it to genomes. It's the shortest, the
+smallest number of cameras that uniquely distinguishes this genome from any
+others. And it won't be a big surprise to you that the unicity distance for most
+genomes in GTDB is one. There's almost always one camera that distinguishes that
+genome from everything else. And there's, I forget the number, but at the space,
+at the genus level, there's only a few genomes that can't be uniquely
+distinguished from each other by cameras at the taxonomic level, sorry, at the
+genus level. And underneath, it turns out that what SourMash is doing is
+implicitly calculating this unicity distance, using this unicity distance to
+track down genomes. That is actually really cool. And it is really cool that
+there's so much out there that we can do and use to make stuff even better. So,
+yeah, what I would love to see in the very near future is...  an amazing way of
+just calling a species a species with 100% accuracy, because that is really
+needed for public health. It sounds so easy, but a lot of algorithms just work
+by taking the top hit out of a list and saying, you know, more or less we think
+this, you know, this is tuberculosis, or it's not, or this is a mitochondrial
+bovis. But, you know, we're 99.99% sure, but we're not 100% sure. So maybe it's
+something we can have in the near future. Definitely. This is actually a paper
+we're going to publish on soon, too, just like how much we care about species,
+and that's under review, too. Not to talk about our lab too much, but it's an
+incredible problem. And there are, I've come across species that our reference
+lab has told me that is different than the other species by one gene, or there
+are different lineages of listeria that, okay, we're all calling them listeria
+minus cytogenes, but really they act as though they're four different species,
+and we have to call them all the same species because they all have to be
+treated equally under the regulatory framework. Right, right. And so I would
+just love to see if that could be maneuvered with Kamer somehow. There's like so
+many ins and outs. That's why I think that you probably do need to hedge your
+bets on that, but it'd be interesting to see how close you could get to it. And
+I hope you're taking notes here because this is our shopping list that we want,
+you know? Yeah, well, I'll just say we, you know, there are some limits, and I
+think the challenge that I've had in writing this up is finding a way to talk
+about the limits in such a way that it's, like, I understand them intuitively. I
+even understand them in a mathematical formalism, but conveying, communicating
+that to people so that they know the difference between what the computers can
+do and what biology is saying is, what's the right way to put this, an ongoing
+challenge. Biology is hard. Yeah, biology is really hard. Who would have known?
+All right, that's all we have time for today, but thank you so much, Titus, for
+having a chat with us again about all these really interesting things and about
+all the future stuff you're going to do. And we will be back next time. Thank
+you so much for listening to us at home. If you like this podcast, please
+subscribe and rate us on iTunes, Spotify, SoundCloud, or the platform of your
+choice. Follow us on Twitter at Microbinfee. And if you don't like this podcast,
+please don't do anything. This podcast was recorded by the Microbial
+Bioinformatics Group. The opinions expressed here are our own and do not
+necessarily reflect the views of CDC or the Quadram Institute.

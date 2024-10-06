@@ -1,0 +1,518 @@
+Hello, and thank you for listening to the MicroBinFeed podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the US. Welcome to the MicroBinFeed podcast. Today we have a special
+panel discussion. We're at the seventh microbial bioinformatics hackathon, and
+this time it's got a special focus on AMR, and it's being organized at JPI, AMR,
+PHAGE, and CLIMBIGDATA. We have a brilliant panel here, and I'm going to ask
+each person to introduce themselves. Mark? I'm Mark Pallon. I'm a professor of
+microbial genomics at the University of East Anglia and a research group leader
+at the Quadram Institute of Bioscience. In a former life, I was a consultant
+medical microbiologist. I'm medically trained, but I've seen the light and
+become an academic in recent years. I dabble in bioinformatics from time to
+time. Hi, I'm Phil McGuire. I'm about to start an assistant professorship at
+Dalhousie on the East Coast of Canada in computer science and epidemiology.
+Yeah, I do a lot of work on AMR, AMR metagenomics, shitting on MAG methods for
+plasmids, and with CARD and SARS-CoV-2, so just kind of all over kind of AMR
+bioinformatics and infectious disease bioinformatics. Hi, I'm Anthony Underwood.
+I work in the Centre for Genomic Patterns and Surveillance in David Anderson's
+team. I get most excited about actually implementing bioinformatics and actually
+seeing it in action. Recently, I've been involved in a global health research
+unit project, which is about implementing global surveillance for AMR based on
+WGS. That's been very interesting seeing how when you have groups who are
+perhaps novel to the field, how do they go about implementing it and what are
+the challenges they face when they're doing it from the ground up? So my name is
+Clement. So I'm working in a hospital in Qatar at the moment, although maybe I
+may be in a transition very soon. But yeah, I'm a research scientist, so I
+basically do whole genome sequencing for the AMR pathogens collected from the
+patient, both bacteria and also fungus. So I am a molecular scientist in a
+clinical lab and working with the physician and the laboratory staff in the lab.
+So I help building the molecular lab for infectious disease diagnosis and also
+involved in setting up some basic pipeline and workflow for whole genome data
+analysis. AMR is important in the Middle East because I think very few people
+are actually looking at the bugs in that part of the world. And I think in that
+region, people are getting, they are more concerned about the spread and also
+the transmission of the MDL pathogens in the Middle East. I think there's lots
+of novel discovery during the past few years when I was working in that part of
+the world. And actually not many hospitals are using whole genome sequencing to
+do the detection and also diagnosis. So they basically still rely on the
+conventional techniques and some of the quick genotyping tests available in the
+commercial platform to detect whether the bugs carry MDM or KBC or just oxa
+instead of looking in depth of the gene, the presence or absence of particular
+genes in the bacteria. Awesome. Okay. So my first question really is, what are
+the major challenges for getting AMR genomics into the clinic? So, you know, we
+can all see medical microbiologists really want to know immediately what is the
+AMR profile of a, of a pathogen and we know sequencing can get those results
+pretty quick, but you know, where is the disconnect? What do we need to do to
+push it over the line and get it a bit closer, Anthony? I think one of the
+issues is that there's still some scepticism that for genomics at least that you
+can get a really trustworthy result from the genomics data. So for some bugs
+like TB, there's a growing acceptance that you can get faster, better results
+using genomics, but for other bugs, Pseudomonas acinetobacter, there's quite a
+lot of discordance between the phenotypic results and the genomic results. And
+so I think for some bugs, the path to actually seeing it into the clinic is much
+more straightforward given cost and time, I suppose, has been one of the factors
+which are very important, but for other bugs, I still think it's a long way to
+go and it'll be some time before they can be implemented in the clinical setting
+and will probably remain in the domain of the surveillance setting for the time
+being. So what is the lowest hanging fruit in Europe? In terms of bacterial
+species? Yeah. Oh, well, like I said, TB is the obvious one because I mean, it's
+implemented already in the UK, other species, Salmonella, there's a pretty good
+congruence. Some of the enterobacteriaceae, Klebsiella is not bad. I think
+there's some pretty good one, pretty good concordances with those data. Mark?
+Well, I was on a learning curve a few years ago when we were doing some work on
+ancient TB. We were looking at some 200 year old genomes from some mummies. And
+it was only after a certain amount of time, scratching his head, that the
+bioinformatician suddenly realized that what he was looking at was a mixture of
+two genotypes in the same sample. And I said to him, I said, I don't, I don't,
+that doesn't tie in with my clinical understanding. You don't catch TB twice.
+It's very unusual. What's going on here? The thing was that his initial pipeline
+that he used had actually excluded many of the things that were in front of him
+because it was looking for SNP calling and it was excluding anything that didn't
+meet a certain criteria, like 70% representation. In fact, he had two different
+genotypes mixed together, just by chance, roughly 50, 50, 50% each. And that
+made it clear to me, when we looked at the literature, it was clear that
+actually there is quite a lot of evidence of mixed infection with TB. And in
+some areas where TB is highest prevalence in KwaZulu-Natal, I think it was one
+in four patients has evidence of mixed infection. What we found when we were
+looking at these samples from 200 years ago in Hungary, when probably in Hungary
+at that time, the instance of TB was similar to that in KwaZulu-Natal, very,
+very high, was that, yeah, the majority of the samples had mixed cultures. And
+when you're trying to predict AMR, that becomes an issue because if you have a
+strain that is sensitive, mixing with a strain that's resistant, you've got to
+have sophisticated enough pipelines that can actually take that on board and
+say, give you an honest report of what's going on. The problem is that, you
+know, what is clinically interesting and actionable, if 95% of what you see is
+sensitive, but 5% is resistant, and then you give the antibiotic to which that
+5% is resistant, you'll probably end up with 100% resistant as your majority
+culture. So even minority populations are important in this setting, but it's
+certainly not well-defined. The other issue that became apparent to me when we
+were looking at that issue, we were using metagenomics. What was happening at
+the time is that people were taking single colonies in lab and following it up.
+So they're actually purging the existing biological variation out of the sample
+and just following up one thing. According to Conor yesterday, he said that,
+well, nowadays, people will probably take a sweep to try and keep that variety
+alive. But this is something, if you're going to future-proof your procedure so
+that in the age of metagenomics, where you don't want to actually have to
+culture anything, you just want to take the sample, extract the sequences and
+call out the genotypes, including resistance genotypes, from the metagenomes,
+this is something you have to take into account because there's a good chance
+you will see a mixture of things. The other thing, the other one last point I'd
+make is that there are two reasons why you get this kind of effect. One is
+within host evolution. So you may have one strain, which part of which has
+evolved to become resistant. So that part of the population is resistant, the
+other part isn't, it's all the same genotype. Contrary to what I said earlier,
+people do get infected twice with TB. And when you think about it in an area of
+high prevalence, where you might be coming into contact with TB every day in
+crowded situations, why would you not get infected twice? But in those
+situations, you may have two completely different genotypes and you have to pull
+those apart. The worst case scenario is where someone gets infected twice with
+distinct but very closely related genotypes, where then it becomes even harder
+to pull them apart. So Mark, do we know, is this like a cloud of infection
+people get infected with or would it be distinct different infection events? So
+when someone gets infected, do they get infected with a single cell and the
+whole infection goes through a single cell bottleneck? Or let's say they got
+infected with 10 cells, five of those cells are one genotype, five of those
+cells are the other genotype. I don't think we know what is, you know, these
+kind of.  situations with HIV, you know, that things go through a bottleneck,
+but it doesn't actually necessarily purge all the variation out of it. Sometimes
+it does, sometimes it doesn't. With TB, I just don't think anyone would know. I
+don't think it's been looked at enough to know quite how often you do get mixed
+infections passed on in a single transmission event. So it's fascinating,
+actually, the population dynamics. I think one of the barriers for genomics,
+especially metagenomics in the clinic, is it's the amount of data they actually
+do produce, and it's the interpretation of that data. It's a lot, and I've
+personally been working at Sunnybrook trying to help them get accreditation via
+the medical microbiology kind of accreditation organizations for their use of
+pathogen genomics. And frankly, the accreditation agencies don't really, that
+I've dealt with, don't seem to have any idea what they need to do to accredit
+use of genomics. So that's a huge, huge logistic and legal barrier to getting a
+marginomics really kind of more widely used. Because, yeah, how do you deal with
+the fact that, yeah, okay, compared to our simple PCR test that we did on the
+TB, and we found there was, everyone had a single infection. We found this one
+gene, so it's resistant to, this antibiotic is great. But when you find, oh no,
+it's a mixed infection, and one of the strains is resistant to this set of
+antibiotics, and the other is probably resistant to this set of antibiotics, and
+now you need to use your medical judgment to work out what you can do with that.
+Which is where I think the other kind of major component comes in, and some of
+that, you know, trying to do that with phage and harmonization is kind of
+standardized reporting of the results. Like, how do we actually report those
+genomics and metagenomic results to clinicians so they can make meaningful
+decisions without kind of doing our bioinformatics thing of like, here's all the
+data, work it out. You know, it's like, oh, but this could matter, but you know,
+maybe it won't. So as I think some of Anna Christensen's work a few years back
+was really cool, especially for English for TV, it was focused on, which was
+kind of using evidence-based approaches and speaking to clinicians kind of in
+this iterative process to develop, you know, a meaningful report. So yeah,
+accreditation reporting, and I think those kind of tie together. And also just
+genomics and metagenomics kind of not being penalized for being more informative
+than more simple tests, and working out how to kind of balance that. Yeah, I
+guess too much information can actually overwhelm people. And Anna's very famous
+talk, I think, was at ASM NGS. I think it was one of the best talks ever that
+I've seen. And it was very, very clear, and it made it very straightforward and
+simple to see, you know, this is the information that clinicians need versus the
+information that, you know, me as a biomedicine practitioner would want to
+convey. And I'd want to tell people, you know, exactly where the symptoms are
+and exactly which allele it is, but it doesn't impact clinical, you know,
+decision-making at all. You know, it just overwhelms people and they ignore it.
+So I'm going to go to Mark Pollan next. Yeah, I'll just amplify that. I mean,
+the context is everything. And what you can tell through metagenomics, and then
+through the bioinformatic analysis of metagenomes, may or may not be actionable
+in the clinical setting. And it's very easy to get carried away and say, oh, we
+can show these interesting things, and then find that actually nobody's going to
+take any action. Basically, when clinicians use antibiotics, they're being
+defensive in their practice. They're always going to go for the broad-spectrum
+antibiotic because they know then that they've covered all the options. So for
+you to say, well, we've got this organism and it's sensitive to this, you know,
+narrow-spectrum antibiotic, then they're probably not going to take any notice
+of you. What we did a couple of years ago was we looked at the intensive care
+unit microbiome, and we looked at the gut microbiome of patients there. And this
+was another example where my assumptions were challenged. I assume that if you,
+these patients all get given antibiotics, 95% of them get given antibiotics when
+they go in ICU, you'd expect there to be a little bit of resistance in the gut.
+What we found was that the gut microbiome was taken over, overwhelmed by usually
+a single clone of an antibiotic-resistant organism that basically became 95% or
+80, 95% of that metagenome. And so you'd think, well, you know, you've detected
+this highly resistant enterococcus in this metagenome, surely this is clinically
+actionable, or you've detected a, you know, multidrug E. coli. But when we
+delved into the literature, I mean, obviously, you could do the same thing by
+taking, say, people take perianal swabs and then plate them out and say, oh,
+yeah, we've got multidrug-resistant E. coli in this person. But the evidence to
+show that that is a cost-effective approach, even using conventional
+microbiology to go and deliberately screen for antimicrobial resistance in
+carriage in those patients is not well established. So we kind of thought, oh,
+we're leaping ahead into doing it by metagenomics. But when you look back, even
+doing it by conventional approaches, it wasn't well established. So just because
+you can do a thing using metagenomics and bioinformatics doesn't mean that it'll
+actually be useful in the clinical setting or adopted. You have to be very
+careful to question all the assumptions in that whole pipeline from doing the
+analysis to actually being deployed somewhere. Just briefly a follow-up, because
+you comment similar situation. When we do WGS, we will generate lots of
+information, but not all the information are relevant to the physician. Usually
+in their mind, they are looking for a specific target for making clinical
+decision. And I think NGS data usually are more for retrospective. It's rarely
+been used as like a prospective study. I mean, it's not quick enough comparing
+to those simple PCR tests. But definitely progenome sequencing would offer much
+more data in a short period of time. If we can generate the data within a few
+days, definitely some of the WGS data will be supplementary to the follow-up or
+the treatment, the patient in that sense. But of course, WGS data sometimes
+would give us some additional data. Say for example, in two cases that I
+encountered, we sequenced some MDR bacteria during the screening or from the
+patient. We detected MCR1 gene in two bacteria, which is to their surprise,
+because if you need to confirm the bacteria and high MIC2 was callisthenic, you
+have to do some sort of specific microdilution test in which not many hospitals
+are equipped to do the microdilution test. But then when we detected the MCR1
+gene in those spots, in addition to the CRE, then the whole scenario, the
+context changed because the physician didn't know that the bacteria actually is
+callisthenic. The system is like even hyper kind of things. Then it's alert.
+They're more sensitive in that way. So there's some special cases like the WGS
+data just getting just often more for the physician. But in other scenarios,
+probably the physician, they already have enough data on their hand based on
+their phenotypes to make a clinical judgment, but they really wanted to have WGS
+data just to confirm. So they would rather have it done. But I mean, it's a
+selective process. We are not, as a molecular scientist, we are not making
+judgment which bacteria to be sequenced. It's always their call. So they wanted
+to look for something additional to look for evidence to confirm the initial
+phenotypic data. But to me, as a scientist who analyzed those data, I found it
+to, it's really hard for me to QA those phenotype data because the phenotype
+data is an output from the phoenix or biotech and they are stored in say a
+hospital information call center or whatever system the hospital is using. And
+those platforms are not authorized. I have no authority to assess those data.
+They can print out a hard copy and then give it to me. Okay. It's like, it's a
+whole bunch of the MIC of this part, but like it's in PDF and things like that.
+It's really tedious for me to type in, to translate those information in the
+Excel sheet or whatever, because it is like an output PDF. So I don't know how,
+so that's why in many, in a discussion in those metadata, I said like many of
+the bio-sample we submitted to the, I would guess many of this bio-sample
+submitted to the GenBank, the MIC are not submitted as well because like those
+data are in a different domain which is not accessible either. It's like PDF.
+How do you find student help to type all this data into Excel sheet or in the
+bio-sample submitted form? It's impossible. So I'm just wondering from a
+clinical point of view, do we need to go direct from sample in terms of speed in
+order to be able to make this something which is viable? So for TB it's a
+special case because it's a slow, but for other bugs, do we need to be able to
+have a solution which is direct from sample rather than having to go through the
+isolation and whole genome sequencing? So that was kind of the question from a
+clinical perspective. And I guess from the bioinformatics point of view, it
+still seems to me that that metagenomics approach is still a little way off
+being ready for prime time. So I just wondered whether people had comments on
+that perspective. You mean to go direct sequencing without a culture? You mean?
+Yes. I mean, I think that, yeah, it's an interesting question because it's one
+of the things that I've taken seriously. You think, oh, wouldn't it be great if
+we could do this? We could cut out so much time and effort. And then you sit
+back.  back and it will be interesting. I mean, there's a literature on it about
+how often is action taken on the result of laboratory tests. And you have to be
+sanguine about that. You think that everything you're doing is really important,
+it's gonna make a big difference. But as clinicians will often just, they'll
+say, well, we're gonna have to give the broadest spectrum antibiotics or we're
+gonna have to be very careful. We're gonna start treating this patient even
+though, first of all, they start treating the patient without having a specific
+pathogen. And often they don't get a specific pathogen, but they say, well, we
+think this patient is infected, we're gonna give them broad spectrum
+antibiotics. When you do get a specific pathogen, they may or may not change. I
+mean, but usually only in those cases they escalate upwards to using more
+powerful, more broad spectrum agents. Very seldom do they go down. And even when
+you tell them, oh yeah, we've got this multidrug resistant thing, how much
+action is taken? And actually I was putting my hand up earlier for another
+point, which I think should be made. When you're talking about the
+bioinformatics of AMR, obviously the one key point is detecting AMR, detecting
+the resistance genes, predicting phenotypes and so forth. But another key role
+that we can use genome information for is in unpicking the AMR. So how is it
+spreading around the hospital? How is it spreading around the community? We did
+one study where we tracked a multidrug resistant acetobacter over a very
+prolonged outbreak in a hospital. Part of controlling AMR is antibiotic
+stewardship and appropriate use of antibiotics. But infection control measures
+are just as important. And so knowing where the organism is, how it's spreading,
+what we discovered in this study we did was that there was cryptic spread going
+on in a burns theater, where patients who had burns were getting infected and
+then they're getting their burns debrided in this operating theater. And that
+was where the organism was traveling from one patient to another. But we were
+able to show that because we could see that the genomes from successive patients
+who'd been to that operating theater were identified. And so their whole genome
+sequencing allowed us to control antimicrobial resistance in a way that you
+might not anticipate by just thinking all you're doing is predicting the gene.
+Predicting the genotypes and the epidemiology is really important. That's
+simple. And with the intensive care unit study we did where we, there we did
+look at metagenomes and we got, we were able to genotype the vancomycin was just
+enterococci we're getting out. And we were able to show that in some of the
+patients they had indistinguishable genotypes or one or two SNPs different. So
+it was inconceivable. This was just by chance. These patients had acquired this
+from a common, from each other or from a common source. And we went back to the
+clinicians and we said, what about these patients then? And they said, ah, yeah,
+they were in adjacent rooms in the same part of the ICU at the same time. So
+what you're saying is that there was cryptic transmission of antibiotic
+resistant organism between patients. We didn't screen for that. We wouldn't have
+known about it. They were colonized, not infected, but nonetheless it shows that
+our infection control measures are not good enough. Having this genome based
+information and being able to say beyond all reasonable doubt that these things
+are transmitted here in this specific context, it does inform behavior beyond
+just treatment with antibiotics. Absolutely. And this kind of prospective
+sequencing does help set the context for a lot of this stuff. I think
+practically WGS can, we are able to sequence the bacteria without the culture,
+but it also has to be in the context. I think we have to create a workflow that
+justify for the diagnostic lab to do in such a way, because in a clinical
+laboratory on a monthly basis, we are culturing almost 6,000 bacteria. So
+depending on different contexts, like screening, some doctor, physician,
+infectious disease division, they are asking to do screening, say swap from
+skin. And then the 6,000 culture came from skin swap, urine, blood cultures,
+whatever, from different kinds of collection. So, and then they have to, after
+these kind of collection, then they are culturing the bacteria on different
+selective media, some Chrome Ager to see which bacteria are ESBL or CPO and
+things like that. So based on that, probably only 10% of them are MDR or less
+than that are MDR. And then depending on the physician decision, senior
+consultant decision, whether any particular bug need to go further for whole
+genome sequence, has the value for whole genome sequencing, because say
+acinobacter, they don't think it's intrinsically resistant to CRE, then they
+have no interest to find, to confirm that they have an intrinsic resistance. So
+then probably people go for the gram negative, say CID, because they want to see
+whether there's like a novel genetic elements, or they basically most of the
+physician are not interested in ST, unless like it belongs to the SLI or ST
+1193, they have no interest at all, because it doesn't communicate clinically in
+terms of treatment. So I think practically it's feasible, but sometimes it
+doesn't fit into their clinical workflow, because usually, I don't know, like in
+the public health lab, in a reference lab, maybe they have a different workflow,
+but in a clinical hospital setting, they have a set of protocol, like SOP in
+making clinical decision, how these WGS technique, whole genome sequencing, AMR
+genomics can fit into the decision making process. I think that's more
+important. And I think at the moment, I don't see, I mean, I think the
+physician, they don't see how, because, and also it's very, the operation cost
+is really high comparing to a simple ComAGA test, because you're like
+considering, like you have 6,000 cultures, I mean, on a weekly or even monthly
+basis, we are not able just to use WGS to replace the conventional techniques
+for screening. And also given the sample came from different kinds of specimen,
+not, I don't think all the specimen are, you can do WGS on different kinds of
+specimens, yeah. Maybe one day we'll just sequel, who's to know? Yeah, yeah, I
+know. I mean, there are some pipeline that you can sequence two culture and then
+to see like whether there's a mix, and even like I have seen papers in my co-
+group, genomics saying that you can like, even as there's a mixed culture on the
+petri dish, you can sequence all the material and based on the risk to assign,
+but yeah. Yeah, I don't know. Maybe, yeah, I think it's feasible, but how we can
+operate that. And not all the technician, like you can hire a high number of
+technician who can do the conventional microbiology techniques, but you won't be
+able to find that many technician who can do the WGS or the hospital is not
+willing to. And also the other aspect is the accreditation process. I don't
+think that at the moment, there's any licensing for the clinical staff purely
+based on library preparation for whole genome sequencing. At least I'm not aware
+of like, even in a cap in United States or in UK, I don't think there's a
+licensing. So then many of the technician, if they need to require a license to
+work in a lab, but if you only have the techniques to do molecular, you are not
+able to get into the operation of the lab. I think that's another issue that we
+have to work with the senior level. So yeah, both way, you have to standardize
+protocol, then you get training and then people, technician get licensed to do
+this kind of work then they can work in a clinical lab. Otherwise it's hard.
+Grant, I'm gonna let Finley come in next. So it sounds like what the real
+challenge is, is how do we use public health and infection control who are quite
+keen on genomics, especially like break tracing, et cetera, as our Trojan horse
+into medical microbiology, diagnostics, infectious disease treatment side. And I
+don't know if anyone has any kind of comments or ideas on that. I do. There was
+one hospital in the UK, they were being fined, they get fined if they have too
+many C. diff cases. And so what they were doing was they were sequencing the C.
+diff cases to prove that the C. diff didn't come from the hospital, but it was
+acquired in the community to avoid getting a fine. So it is useful in that
+respect. So Anthony Underwood. Yeah, I mean, I suppose in the public health
+arena, we can afford to make some mistakes, not big ones, but it's not as
+critical as treating a patient. So I think we can use the public health arena to
+do the kind of surveillance kind of thing, look at the concordance, figure out
+what's going on so we can get things better and learn our lessons in that way. I
+guess the other thing, big thing for me, then something I've found during the
+project I've been involved with is actually it's relatively easy running the
+bioinformatics pipelines to process your genomic data to get a result, albeit in
+a fairly sort of archaic format or hard to read format. The much, the bigger
+challenge is going from that result then to what does it mean? And I think
+that's where kind of that kind of intelligence encoded in a way which is not
+just in someone's head and an expert's head, which is so often the case is where
+the real challenge comes, particularly where there are nuances and you can have
+particular beta-lactamases, which different alleles of the same gene can
+actually be,  allow resistance to cephalosporins or carbapens, for example, and
+trying to understand the nuance of that is very, very challenging. I think
+that's kind of why part of this hackathon that I'm involved with, I'm trying to
+bring together some of that sort of metadata into one pool so we can at least
+look at that together. But there's a lot more to do. There's a huge amount to do
+in terms of actually somehow distilling that intelligence and writing down a
+series of rules, albeit may not be a simple decision tree, but maybe some kind
+of rules which enable people to make that interpretation. I'm going to ask Lee
+to come in here now because he's been very quiet. Definitely been very quiet,
+but I'm not an AMR expert. I've just been listening and this has been a
+fantastic discussion. There was one twist that I wanted to follow up on. It's
+almost like that Jurassic Park quote, like, should we have been doing it? It
+sounded like we might be venturing into the legal perspective with this. You
+said that the hospital would want to sequence these genomes for liability
+purposes. Are we going to feed into the legal system with this? Are we going
+into a territory we don't really want to be in? That is a minefield and I don't
+think we're going to solve that here. Particularly when you get into pathogens
+like, I don't know, say HIV and whatever, could you go back and say he infected
+me and blah, blah, blah. It could be quite a minefield. There was a study, I
+forgot where, that was discussed at Applied Bioinformatics and Public Health
+Microbiology. I think from the University of Maryland and they were studying
+where all of their AMR, Klebsiella were coming from when they basically found
+out it was coming from the pipes coming out of the sink. They couldn't get rid
+of it. You guys remember that? I think they still have a whole sink lab, right?
+University of Virginia or something? They have the PI from that project. I
+forget her name, she set up a whole lab and that is now their project where they
+have all these sink openings and they have plates and measure how far things
+disperse. Yeah, biofilms in the drains and anytime you turn on the tap,
+aerosolizes everywhere. Yeah, yeah. So could a hospital be sequencing all this
+stuff and they can find out if it's their fault or someone else's fault? If it's
+their fault, could they hide it? Not that I'm saying anyone's doing that right
+now, but this is a whole minefield that we are not going to solve here. I agree.
+Yeah, this is very sensitive. Yeah, very sensitive issue. There's a case in our
+hospital that like we are a children's hospital, several babies are infected
+with pseudomonas and then the physicians wanted to use WGS to confirm, to
+investigate whether this is an outbreak. We did the WGS and then we find out
+it's like a polyclonal. Our polyclonal is not like single clone pseudomonas.
+They all belong to different sequence type of the pseudomonas. And then when
+we're trying to report the data to the infection control, the meeting, actually
+they didn't like it. Like we investigate this case at all. So in the end, all
+the data is suppressed. We cannot carry on doing that. So it's blocked. So it's
+very sensitive. Even internists, the hospital didn't really want the public
+health senior, like if there's an outbreak in a hospital, they have to report it
+to the ministry of public health, things like that. So it would affect the image
+of the hospital in operation and also funding, whatever. I was going to say that
+in the UK, we have a national health service. One hopes that there's a more open
+and transparent and altruistic approach. But even there, now we have individual
+trusts that kind of competing with each other. It's not in the interest of the
+trust for everyone to know. It's your fault that you've got this organism that's
+been traveling around your wards for a long period of time. In fact, when I gave
+a public talk, well, a scientific talk about the asthma outbreak, asthma factor
+outbreak that we had in Birmingham, one of the people in the audience said, you
+know, hearing what you've said officer out around the back and shot them,
+because they weren't doing their job properly. This is dereliction of duty. And
+you sort of think, yeah, okay, you can you can play the blame game. And it does
+become quite it could do. The only thing that I've noticed that when you're
+dealing with clinical data and whole genomes and stuff, you can generally get
+get it through. I mean, we did pilot, we published our ICU study published
+asthma factor study and nobody in the in the trust headquarters said no, this is
+reputationally damaging can't publish it. But when I've worked with people in
+the animal health area, you're not you're allowed to know that this pig got this
+brachyspira in the northeast of England. But the idea that you might actually
+know which farm it was on or which town it was in, or any context at all that is
+totally forbidden, because then the farmer would lose their livelihood. And it's
+just so it could be more than human clinical medicine. I was just going to make
+another point actually coming back to what Clement was saying, about the
+technological side of things. It's interesting to contrast us trying to get
+whole genome sequencing and even metagenome sequencing into the clinical arena,
+whether with Illumina or now with Nanopore, with the advent of Moldytoff. And
+Moldytoff basically rammed its way into the clinical microbiology laboratory,
+just about the time I was leaving and wandering off into academic life. But it
+actually it transformed things. And it became very much the that was the method
+that people use to quickly identify organisms. And it's not digital. And so for
+those of us who like our data to be digital, and like a tidy kind of universe,
+it's like, what you're just looking at this kind of messy kind of wiggle
+matching effectively. And you're you're trying actionable data. And they say,
+yeah, but we can do that in minutes, you know, you can you give us a genome in
+the same amount of time in the same price that's so cheap and whatever. So it's
+been interesting that they're the competitor. And I wonder if there are lessons
+to be learned. I mean, maybe if Nanopore becomes the next Amazon of genomics and
+becomes a predatory monopolistic company, maybe they would be able to push it
+themselves into the clinical lab. But otherwise, I don't know when it's gonna
+happen. Anyway, maybe you edit that out. Well, the arena for a long time, but
+but never made it. Yeah. Okay. Is there any final words? Or we'll go around?
+Maybe we'll start with Finlay. Especially with the pandemic, the use of genomics
+in surveillance, public health, infection control side of things really is like,
+where it's been showing its use. I think the biggest some of the biggest
+barriers is really getting to getting used more actively in the clinic is
+getting it accepted in that more diagnostic mindset, that side of the clinical
+labs, which I think is bound to be sometimes kind of can kind of homogenize from
+the outside. It's like, oh, it's just the clinical labs, the medical
+laboratories, some of the same people, they're just different hats on. And I
+think, yeah, one of the big barriers is, like, integrating into that medical lab
+tech kind of hierarchy and world and like, dealing with accreditation and all
+that process that so people feel they can trust the data, and also communicating
+results in a meaningful way that is actually actionable. And I think, yeah,
+there's some great work kind of happening in those areas as well, coming out of
+public health. Okay, Mark? I think an interesting point is that with whole
+genome sequencing, we can look at where antimicrobial resistance is arising and
+where the reservoirs are, and address some of these perennial issues. So the
+medics will say, it's not us, it's all those people in veterinary practice, but
+they're the ones that are actually making all the selective pressure to breed
+this stuff up. And then the people in veterinary practice say, oh, it's not us,
+it's the farmers who are misusing antibiotics. And it would be interesting to
+have, and it is interesting to see, you know, how far are resistance genes
+moving around from totally different contexts. And I mean, even looking at
+hospitals, you know, hospitals put their sewage out into the outside world, that
+sewage is full of antimicrobial resistance genes, and we don't know anything
+about that. You know, does that matter? Does it not? There's lots of interesting
+questions that can be addressed in a much broader context, rather than just
+looking at... Thank you. Yeah, and I believe there's a study looking at sewage
+and distance from hospital with vancomycin resistance found in bacteria, and it
+was very close to related, unfortunately. Okay, Clement? Yeah, I do agree the
+genome sequencing definitely helped to make that clinical decision. I think the
+value is there, like I think that most of, I mean, although there might be some
+limitation or maybe in terms of cause and also, but I think most physicians,
+they like it. They like the technology and they like to have this kind of data
+around, but probably who is making the call, like what I said, like usually they
+decide which sample to be sequenced, not us. So, and I think, but also it's
+important for the decision, they understand the concept and the technology and
+also the power of that, and I think the pandemic helps in many ways, and they
+like it, but of course, there's some technical and practical challenges. I think
+there's still some challenge and limitation, yeah, but I do see the value. They
+really like it, yeah, so I would say they like it, but sometimes given the
+current framework and also the system, how to make better integration of this
+technology into the daily workflow, probably that's something we need to
+discuss, maybe even with the higher level, the national level as well, yeah.
+Yeah, but I'm really optimistic for the future. I think when we look back to
+where we've come over the last few years, we've made huge strides in actually
+determining AMR, the phenotype of AMR based on genomics, I think it's looking
+really rosy. I think there's still some big hurdles to cut, overcome, and there
+was a paper by Ronan Doyle and colleagues, Katherine Harris, etc.  microbial
+genomic massive discordance between bioinformatics prediction methods and so I
+think there's a what we need to do better at is getting our benchmarking better
+which is why it's great the hackathon has it has a benchmarking channel as part
+of that and when we start to see better concordance and better agreement between
+the different softwares and different databases then I think the adoption will
+be much greater in the future. Okay thank you so much for joining me so that's
+Clement, Mark, Finley and Anthony and Lee and we've had a great discussion today
+and I think this is really an exciting area for the future and I hope that we
+can speak again and we'll be that bit closer to getting genomics into the clinic
+and being quite useful. Thank you so much for listening to us at home. If you
+like this podcast please subscribe and rate us on iTunes, Spotify, SoundCloud or
+the platform of your choice. Follow us on Twitter at Microbinfee and if you
+don't like this podcast please don't do anything. This podcast was recorded by
+the Microbial Bioinformatics Group. The opinions expressed here are our own and
+do not necessarily reflect the views of CDC or the Quadram Institute.

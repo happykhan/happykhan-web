@@ -1,0 +1,335 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. Today we are looking at the crazy world of NFTs, non-
+fungible tokens. For some reason, I took a deep dive by creating my own NFT.
+What do you think? I'm totally in the dark with this one, Lee. You'll have to
+start right at the beginning and explain what a non-fungible token actually is.
+It sounds like you need a topical cream for it. Just apply the cream and then
+you'll get better. I know the idea is based off of blockchain and all of this
+crypto whatever whozits. So maybe we should start there and you can tell us what
+is the blockchain and explain it like I'm a kid or someone who doesn't know. The
+blockchain is a public ledger on the internet and like with Bitcoin, it keeps
+track of who owns how much of each Bitcoin. And so anybody can do like a public
+query at any time and figure out who owns how much money, basically. Right. It's
+like a public ledger of all of the transactions, at least in the Bitcoin
+example, it's a ledger of all of the transactions involving the currency. But
+then it's constructed in a way and people can keep making new transactions and
+those are added in a way that it doesn't like pollute the ledger somehow. Yeah,
+I guess so like there's security built into it also. And you can't just like
+tell a computer to update the ledger in your favor and give yourself 100
+Bitcoins. You have to have the right hash and the right key to the hash in order
+to make any update. And then a majority of the computers that control that
+ledger have to agree to that update. If you even try to change something in the
+past, it won't work because you'd make like a new chain off of that and
+everybody would be disagreeing on which way the chain went and the majority
+would just be against you. So there's like a lot of security built in and a lot
+of it is through democratization. Well done. Okay. Anyway, I think that the
+point of the non fungible token is that you can arbitrarily store any text on
+the blockchain and no one can change it and it's there for everyone to see.
+Isn't that right? That you own it? Yeah. So like with Bitcoin, you have like
+these quantities on the public ledger and they're all interchangeable. The non
+fungible part is like you have your unique thing. Non fungible means it's a
+unique, non, this thing is not equivalent to this other thing. Like the Mona
+Lisa is not the same thing as another banning. And so if you have a non fungible
+token, an NFT, then you own that unique thing and the public ledger supports
+that you own it. And what that means in the real world, I don't think that's
+defined by any laws or anything like that. I mean, I can say I own it and the
+ledger supports it, but if somebody copies my picture on the NFT blockchain,
+it's not like any kind of court in the world is going to support my claim that
+somebody wronged me. So does that mean we can add a genome and then we can say
+we owned that genome or genus? I think so. I think you can put it onto the
+blockchain and say you own it. But again, the court systems of the world would
+never support that probably. Maybe think about academia. What happens if instead
+of you have a new organism, a new species, instead of uploading it or sending it
+to a reference hub and a reference collection, could we maybe put it into these
+non NFTs because I can't say non fungible. Could you put it as an NFT, the
+genome and say, listen, we found this first. Here we go. Here's the type strain
+for the species. And there you go. We can do away with the NCTC and the ATCC and
+all of those. I think that's an incredible idea. So I have a few thoughts on
+that. Number one is you need a network of computers to actually support this.
+And so sometimes a database or usually a database is actually better than a
+blockchain. And maintaining something as big as NCBI can only be done by a few
+institutions in the world right now. So I can't imagine thousands or millions of
+computers out there maintaining this huge database through a blockchain, through
+a public ledger. If it were possible, then I think it would be kind of
+interesting and awesome. No one person, no one entity would control a genome
+that was submitted. It would just be submitted. But then you were saying like,
+this could be like the type strain. Who's going to call it the type strain? I
+would not support a majority of internet users calling something the type
+strain. I suppose we could do away with accession numbers, maybe going back to a
+previous point. If all the genomes that we make, we get accession numbers and
+they just happen to be tokens, we would have a decentralized accession number
+generating system effectively. Yeah, that would be so awesome. And we wouldn't
+have to go through a bunch of, it was probably to submit things. You'd have your
+own blockchain submitter at home or something. And it's scalable as well,
+because there's so many transactions on Eurythium and Bitcoin that we know it
+works, you know, at massive scale. So think about it, you know, 100,000
+bacteria, throw them in, get new accessions, token accessions for them, put them
+in a paper, they're never going to change. We already own them. No one else can
+take them from us. It actually solves many, many problems and it's all public as
+well. So it's not like we're trying to hide anything. Yeah, you'd know like
+everything, like when it was submitted, you'd know who has it, all that stuff
+and it would never be changed. So what do you think about retractions and
+changing stuff? It would never happen because science does everything perfectly
+and there's never any mistakes. Well, I mean, if it's just a thing of minting
+accession coins, then you just trash that accession coin and that accession
+code. OK, so there is there there's a mechanism on a blockchain to trash one?
+No, you just you'd have to just you'd have to just append an amendment that says
+the thing is now junked. So, yeah, but it would but the record of it would
+always be there. OK, so now we've come up with a new way of a decentralized
+accession number system. We can now destroy NCBI, EBI and DDBJ and we can get
+rid of all of them because now we have a system where we can get our accession
+numbers for our papers. Don't need to worry about it. But how feasible is it?
+Does it cost any money or is it this all kind of free? Yeah, so you democratize
+the network. You also democratize the cost. So instead of our respective
+governments paying for these things, you're looking at spending tens of dollars
+every single time you do one increment on the chain. It takes money and it takes
+actual electrical energy to do this stuff. I just want to say again, I'm
+horrified at the prospect of of destroying NCBI or DDBJ or ENA. Well, not
+destroying, but we could liberate them from having to maintain this kind of
+database and archive perpetually into the future. And we could allow them to
+focus on, you know, other high value stuff like science and whatnot or research.
+Yeah, so I'm just hinting at what's to come, but I mean, for example, submitting
+one NFT to the network cost me more than thirty dollars to do. I think. Yeah.
+Why don't you take us to your example? Because you've done this. You should you
+should take us through the process if we're going to try this out. Right. I got
+really interested in this after reading on this. So I had a few different
+examples to read up on. There was a New York Times article that we'll put into
+the notes and it was about an article on making an NFT. So the New York Times
+author made the NFT and the NFT was a picture of the article itself. So this guy
+put it out there and described how people bid on it. And and I think it got up
+to like it approached a million dollars to buy this picture of an article,
+which, again, is only owned the only evidence of you owning it is on the
+blockchain, not by like the American justice system or anything. Did you see
+today that Tim Berners-Lee, the inventor of the Internet or the World Wide Web,
+sold the original web source code for something like five point four million
+dollars? Yeah, yeah. Ridiculous. That came across. Yeah, it's pretty crazy. As
+an NFT, of course. And can you even do that with it being open source? Why not?
+Well, I mean, I think.  The thing is, it's odd what the NFT actually represents,
+because it's trying to convert a digital entity. So say I draw a picture in MS
+Paint, and I make an NFT of it, and then I transfer ownership to Yuli, like you
+basically have control of that thing and access to that thing. But the
+intellectual property of the image is not transferred to you. It's like a
+photocopy or a copy of this document that I've just given to you. So if it's
+like the thing of the article, it's like a picture of the article, it's not the
+information in the article itself, nor is the source code of something. You've
+just taken a snapshot and put it up there. So it's like buying a print of an
+artwork. And I get it, it's this idea of making something which is like
+introducing an idea of scarcity for digital things, which doesn't. I mean, if I
+want to give you a program, I just make a copy and give it to you. There's no,
+like what's the, like if the price of something is defined by the scarcity of
+it, then there is no price for anything on the internet because you can just
+make an infinite amount of it. So do you feel like this is a, is this a fad,
+Nabil? I think in its current implementation, it's a fad because it's not
+actually understanding the thing, what it means to own something. Because the
+value of owning a thing, like if I get a print of an artwork, like, yeah, what?
+That doesn't matter. The thing that matters is the idea, is ownership of the
+concept of property itself, you know? So I would rather own, as Andrew pointed
+out, you'd rather be in control and modify the source code of what Tim Berners-
+Lee put up, rather than just this instantiated copy of it that is now like
+immutable. It implies that the creator never makes another copy of the thing
+again. Right, there was that artwork that, I'm forgetting the guy's name now,
+Beeble put out there, Beeble or Booble, I don't know. And he put an artwork out
+there and he sold it for millions of dollars. It was like $59 million. And that
+really sparked this whole thing. It was what? Was it Banksy? No, oh, Banksy also
+did one. Yeah, you're right. But that was- Okay, but it wasn't that much money.
+I think it's an interesting idea for a digital artwork or for some sort of
+certification or a coupon, some sort of like, it's like a bearer bond. It's a
+thing that you say, it's a promissory note or something like, okay, if you come
+to me on such and such a date, I'll give you money. And then you make that an
+NFT and then we start like trading that thing around. Then it's something like
+that, but that already exists. That's a thing that exists anyway. These kinds of
+certified objects that have some sort of value. Digital art is definitely a
+thing where this can go. But then in the genomic sense, we want to share our
+genomes but at least we make the genomic data. So I sequenced a salmonella
+genome and then I have the copy and I make an NFT. And so I have only one. I
+can't make another copy, right? Okay, right. Yeah, so then I have to transfer.
+Then I guess if Andrew wants to work on it, he has to buy that genome off me. So
+then I give it to him, then I no longer have it. And then he can sell it to you
+and so on and so forth. Maybe we find a super salmonella, right? Which like
+makes you thin, you know? Like the secret sauce for obesity and you take the
+salmonella and you get really thin. Actually, that's a terrible example because
+some salmonella do make you very poorly and makes it very thin. But imagine you
+found a bacterium which didn't try and kill you, but you know. That wasn't
+cholera. It could be useful for like a sequencing provider that does the
+analysis and then makes an NFT. So it only goes to one group. I would say, okay,
+go come back to the super bug, right? The super bacteria. You find a super
+bacteria, you want to stake your claim and say, listen, I've found this. It was
+in my gut. I've sequenced it. I know that this makes me skinny. You can buy the
+rights to this or you can sell the rights to a company through maybe a token and
+let them then produce this bacteria. It could be any synthetic DNA sequence that
+does a thing. It could be the sequence for the COVID vaccine, for instance,
+which I think someone just very quickly reverse engineered once they put that
+out. Maybe in your contract to whoever, you can actually have a contract like
+only the person who has the NFT is allowed to produce this vaccine or only the
+person with this NFT is allowed to use the super bug to make yourself thin.
+Yeah, and as long as people respect that, then that's great. We're going down a
+rabbit hole here, okay? So how on earth did you go and make an NFT, Lee? Well, I
+get ideas sometimes and I just go and do them. And I was thinking, what's
+something that is unownable and I cannot own this thing and I'll make an NFT out
+of that thing so I can own it. And I remembered this Myriad Genetics Supreme
+Court's decision in the US where, you guys remember BRCA1 and BRCA2 genes? Yeah.
+They are strong indicators for breast cancer and this company had into the genes
+Myriad Genetics and it went all the way to our highest court and they struck it
+down. So this was the moment when they said you cannot own a gene. Brilliant.
+And I found that that Supreme Court decision in the PDF that they had for it and
+it was interesting and they had legal reasons for it. I mean, we can feel that
+we should not own genes. That sounds like common sense, but they actually wrote
+it out. And so I thought, okay, I'll make an NFT of the picture of BRCA1. So I
+read up on it. I found an article on coindesk.com and I hope that link stays
+active. I'll just put that in the notes also. Suggested a few different ways to
+do it and a few different sites that can get onto the NFT blockchain. And I went
+to rarible.com and made an account and I put money in my Coinbase wallet and I
+didn't know how much it was gonna cost exactly. So I transferred above and
+beyond that amount of money. In the end, it cost about $30 plus $8 in, quote
+unquote, gas. You need gas to move things on Ethereum, on the Ethereum
+blockchain, even if you're doing NFT. So a transfer actually costs money to the
+maintainers of Ethereum. Yeah, it makes you wanna have an Ethereum computer for
+the blockchain. And I just had a field day without, one of my days off, I just,
+I went back and forth on how to make this picture and I ended up, and I'll put
+this picture in the notes also. So what is that picture of? I mean, is it a
+nucleotide sequence or something, or? Yeah, I did a few different depictions. I
+went to my favorite gene browser, Apollo, and made a picture of the genes and
+the exons of BRCA1. So Apollo is pretty old school and I did another old school
+thing that the Protein Data Bank, which is still in use and is still awesome.
+It's just that people are focused a lot more on nucleotides right now, but the
+Protein Data Bank, I made images of BRCA1 in the cartoon and ribbon styles. And
+then I just, I just searched for DNA double helix for fun also. And I made that
+the background of the image. So that's the bioinformatics that I put into this.
+I also took some quotes from the Supreme Court decision and pasted them in there
+and just, you know, just put it all together in one picture. So now you own
+BRCA1 and you're super popular. I own the picture of BRCA1 and sure, why not?
+I'm popular. I have friends. I have some friends. So I think this is funny. I
+put it out there and I think it would have been funny either way if somebody
+bought it or didn't buy it. And I basically got nobody to buy it. Nobody cared.
+And I think that's all right because I don't want to get in trouble at my job
+for making money on the side. I didn't- It came out in a very evil way either.
+Yeah, not in an evil way. So I did this, let's see. This was May 2nd, I believe,
+or it was a day or two before that. And we are recording this on July 1st. So I
+am actually kind of happy that I have skirted that, that nobody is buying that.
+And it's been that long and I am not super popular. That is, I'm actually
+relieved. So what you're saying is that if maybe I go in after this podcast and
+buy it, you'll get into a bit of trouble. I'll make sure you make a profit out
+of it as well. You could pay a certain amount and get me in trouble, actually.
+Don't do that. $10, $100, you have to declare. What is the limit for government
+employees? It's a rule of thumb. And several years ago, I'm remembering I'm not
+allowed to make more than $10 in a gift from somebody. $11 it is, Dan. I'm
+especially not allowed to, except from a foreign actor. We're paid by the
+British government as well. Does that make it even worse, foreign government?
+Yes. Don't get me in trouble. I guess if I make money, I'll have to find some
+creative way to get rid of it. So overall, I'm into the NFT. It cost me about, I
+wrote down in my notes back then, it cost me about $38 in Ethereum costs. And so
+it's just, it's out there and I'm okay with that sunken cost. I think it's just,
+it was just fun to make that unownable thing that I own now.  the things you do
+when you're in lockdown and you've nowhere else to go uh or to spend your money
+you know all the cinemas are closed and the pubs are closed and you've kids you
+know what else do you do oh my god i don't know about you but we we drive
+ourselves crazy at home with the kids right for sure the things you do in
+lockdown have i have i come across by the way something that that we have
+difference in our in our in our english do you always call them the cinema yeah
+okay yeah we say we go to the movie theater movie theater yeah i don't know lee
+do you say film or movie i watched a movie all right we'd say film would you say
+it's a great film would you say if you start getting into like the artistic
+whatever and you're criticizing a film i i would say that you you might start
+going into the word film okay so it's like uh you know it's a coen brothers film
+and it's an adam sandler movie is that what we're saying yeah yeah yeah i think
+that we would say that film sounds like a really it sounds like a more artistic
+kind of word a high higher level high culture word yeah the fun part is is
+basically none of these are on film anymore i know it sort of doesn't make sense
+i i just realized the fun anachronism is the is the phone handset on your mobile
+phone you know the icon for phone is the handset which you i i think i have one
+no one's ever called my house though ever let's dive back to the to the genomics
+angle of i suppose we're talking in general we're talking nfts but we're also
+talking crypto whatever in general i mean where what is any of this useful for
+genomics other than we've said minting accession codes which is a good which is
+a good use i don't know about i from what i've always seen all of these crypto
+whatevers always have very small payloads i don't think it's it's scalable to
+put in large amounts of data in in one entry so i guess you'd have to store the
+file somewhere else but you could put the accession code and the md5 hash or
+something yeah so you you would suggest still having a database behind it
+somewhere yeah i just think practically you you don't want to have the gas or
+whatever the post file processing of trying to build all of that nucleotide load
+into the into the blockchain like can you imagine if you had to download that
+whole ledger if anyone joining the network it'd be insane it wouldn't work i
+don't think definitely not on ethereum i think that there are like side chains
+that people have made so like they have i'm not going to remember what they are
+but you can make like a whole new crypto chain and call it something else that's
+not ethereum but it's like the backbone is ethereum you like you link back to it
+oh yeah that might be one way to do it but then it's not readily accessible to
+everybody i don't know i'm just thinking the the thing of minting the accession
+code though is definitely like doable so really what we're saying here is we
+need a special uh token or a special coin just for genomics that solves all of
+these problems but then the real question is what do we call it gnome coin bio
+box i think the scope for the ethereum gas model where you have these i guess
+they call the smart contract so you give a piece of work to someone and then
+they do it and they take money from you right i mean that's what that's what
+your gas that's what your money was paying for was it was paying for some
+computer somewhere to take your submission and do the processing to add it to
+the chain right that's right yeah so we could have a thing of take some reads
+and make the consensus sequence and send it back to you and that could cost some
+bio bucks then that organization could use bio bucks to do something else
+actually it could solve a really good problem you know the way with jizaid the
+whole reason it exists is because you had rich countries and companies stealing
+genomic information from poor countries not not causing a controversy or
+anything but um allegedly allegedly you know and so these poor countries would
+then you know give material and then rich countries would use it to make
+vaccines that the poor countries couldn't actually you know buy but anyway what
+what if instead of jizaid you had tokens for all of this genomic information and
+so when people are supplying it they know that there is like a contract in terms
+of a token saying that they own this they put that there and that's their
+information so if any commercial company comes along and uses the information
+you know it's all public and whatever so they can see it but if any commercial
+company comes along and tries to use it then they it would be very abundantly
+clear where they've got from and who owned that and you know people stake their
+claim so maybe this is the solution to jizaid i like it they do do that sort of
+certification for a lot of products to make sure that they're done through fair
+trade and they're given these certificates so that could be definitely a use
+that in buying this or buying this genome it has not been no uh no
+bioinformaticians were harmed in the creation of this genome assembly okay so
+now we've got our own uh currency we're all going to be millionaires and we
+solved the world's problems i mean yeah now we just just make your own just buy
+an island somewhere can i come to your island i love it i would i have no idea
+how to start my own coin but i think it'll be fun we need physical coins as well
+you know the way you'd like the bitcoin logo instead of the b you could have
+like a double helix uh genome anything is better than that dogecoin so if they
+made that that up it can't be that difficult i mean the real magic is getting
+elon musk to tweet your bio buck and then tweet about it and then you're you're
+golden no then it goes down if he tweets about it no it went down because they
+said tesla wasn't going to take transactions in bitcoin anymore it went down as
+soon as he was on saturday night live i'm definitely down if somebody wants to
+do this i just have no idea how to make a new coin but i think it could be fun
+well maybe our listeners can help us out there you know and if uh there is
+people out there who want to make bio books or genome coins or gnome coins even
+sure why not maybe it might be a side project for someone who's bored during
+lockdown i think it could be useful every time you help a student someone asks a
+bioinformatics question they have to pay us a bio buck it's not real money but
+it could be a way of measuring research output like how much are you in the
+community you get bio bucks by helping people out just does it as a score
+scoring mechanism oh for measuring impact like on a research fish yeah you have
+okay you can do that next time we'll just mint you a million bio bucks and you
+just write it there and they'll be like i don't know what that means but it's a
+big number so it has to be good and every time you read an article it goes from
+your account like you're automatically paying for the things you read that could
+be interesting every time you review every time you review a paper too i mean
+that could be fun every time you review a paper because i don't think getting
+paid for reviews is a good thing but getting some recognition would be good
+unless that paper is making some controversial claims and then reviewers get in
+hot water like there's an article there the other day um in mdpi vaccines and
+they're claiming that for every three lives saved through vaccination two are
+inflicted two deaths are inflicted by vaccination which is you know clearly
+bonkers but the reviewer is clearly and editor you know drop the ball there yeah
+that's the kind of thing that gets attracted hopefully yeah and the thing that
+would really corrupt bio bucks or genome coin thank you so much for listening to
+us at home if you like this podcast please subscribe and rate us on itunes
+spotify soundcloud or the platform of your choice follow us on twitter at
+microbin fee and if you don't like this podcast please don't do anything this
+podcast was recorded by the microbial bioinformatics group the opinions
+expressed here are our own and do not necessarily reflect the views of cdc or
+the quadram institute you

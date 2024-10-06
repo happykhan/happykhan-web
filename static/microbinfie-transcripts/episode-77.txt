@@ -1,0 +1,554 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There's so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Andrew
+and Nabil work in the Quadram Institute in Norwich, UK, where they work on
+microbes in food and the impact on human health. I work at Centers for Disease
+Control and Prevention and am an adjunct member at the University of Georgia in
+the U.S. Welcome to the Microbial Bioinformatics podcast. Andrew and I are your
+co-hosts for today, and we're talking about some exciting new developments in
+the area of comparative genomics. And our guests today are Dr. Zaman Iqbal, who
+is a research group leader at the European Bioinformatics Institute. He leads a
+computational genomics research group working on genetic variation in microbes,
+developing methods for representing and understanding complex genetic variation,
+and exploring surveillance and diagnostics for antimicrobial resistance. We're
+also joined by Dr. Grace Blackwell, who is a postdoctoral fellow working jointly
+at the European Bioinformatics Institute in Zaman's group and in Nick Thompson's
+group at the Wellcome Sanger Institute. So welcome to you both. Thanks for the
+invite. So let's start off with something easy. Normally we ask guests, who are
+you and what do you normally do? I'm a computational biologist. I trained as a
+mathematician once upon a time, and then as a software engineer once upon a
+time, a bit more recently, and then moved into genomics. I spend my time
+thinking about how bacteria evolve, how we can sort of conceive of bacterial and
+writing algorithms for doing that. And another half of my life works on
+tuberculosis and moving TB sequencing into the clinic. All right. And Grace?
+Yeah. So as mentioned, I'm a postdoctoral fellow, but during my PhD, I was
+trained as a wet lab microbiologist with a bit of a genomic sort of aspect where
+looking into mobile genetic elements and how they move antimicrobial resistance
+genes around. So when I came to EBI, I wanted to still keep that focus of
+looking at MGEs, but on a much larger scale. So with Nick, I've learned a lot
+more bioinformatics and computational skills to be able to do so. Okay. So first
+question, everyone really wants to know, anyone who works in EBI is, are you
+completely loaded? Do you have tax-free cars? You've got all this data at your
+disposal, the entire world's data right there, and what are you going to do with
+it? So I moved to EBI in 2017. And the first thing, I arrived at the point where
+we were just sort of in the middle of trying to trial big Z on a big data set.
+And I was like convinced this was going to be perfect because I'd be able just
+to run jobs on the cluster and they would be able to see the ENA like locally on
+the data. And so everything would be like super easy. And that was when I
+realized that life's not that simple because a cloud is never where you think it
+is, so the ENA isn't, you know, the data isn't physically there. So yeah, I
+ended up failing badly. My PhD student ended up SEPing a lot more data than we
+ever expected to SEP around. EBI is an exciting place. I mean, there's lots of
+people, I mean, it is exciting to have all of that data around and to the
+combination of actually there's two different things. One is thinking about
+public health stuff and really, really thinking about what people need
+practically. I think that changes the questions you ask. And so the big Z stuff
+and Grace's stuff all really triggered off of us trying to work out what you
+would do when you really have millions and millions of genomes and how you're
+going to query them. And we wanted to do that for surveillance. But yeah, so
+it's exciting being there with people who care about sort of looking after the
+data. I don't have a Rolls Royce or a diplomatic community or anything like
+that, sadly. So I really want big Z in production, you know, because for me, I
+need to go on fishing expeditions all the time, right? So just the other day I
+asked Nabil, could he look up some weird and wonderful genus or species for me
+and get everything that's there. And I know there is, you know, a couple of
+hundred, a couple of thousand of these particular species in the EBI. But what's
+the best way to pull those out, you know, and identify them? And not only that,
+to identify the ones that I want for my clade, you know, because I know there is
+a bit of an emerging cluster there, but I only want the specific ones. But I'm
+probably going to have to trawl through tens of thousands of different species,
+different genomes to actually pull out the, you know, probably 20 that I need.
+So what is the best way to do it? Do you have a solution for me or am I still
+going to wait for big Z to come along? I don't think there's, I don't think
+there's one single answer. Okay. There's, there's a technical question and
+there's a practical question. So technically sometimes what you want is you want
+to know whether there's some specific sequence there and then big Z or cobs or
+other, I mean, there are clever people doing better things than cobs now, but
+it's basically sequence search or ideally blasty type stuff rather than just
+presence. But then, but that's only half of it. Like, you know, sometimes
+someone wants to know, can I have a hundred genomes that roughly represent my
+species, the whole diversity of the species and big Z is not the right thing for
+that. You know, you want something that represents the, you want genetic
+distances of all your stuff basically from each other or a tree or something
+like that. And sometimes you want to know is my, is my thing like your thing,
+you know, you want something like, you know, what's the nearest thing to my
+thing. And I think we're just going to, we're going to end up with having to
+index in multiple ways for multiple types of query. And really, I think the
+thing that we don't have that we need is a general open API that allows you to
+query multiple databases and say, I want to make this type of, you know, if you
+support mash, can you tell me if I've got anything like this? And if you
+support, you know, sequence search, can you, do you have this sequence and that
+kind of thing? And we, it's just a, it's sort of obvious thing, but we should
+have a, an open API that allows you to specify what kind of query you want and
+the, and the server can reply saying yes or no, I don't support it. And, you
+know, and that way, you know, you're great, I mean, Grace has done an amazing
+job with all of this data and other people are doing amazing jobs with other
+chunks of data around the place. I, either we spend all of our lives continually
+aggregating it, or guess which answer we find a way to actually talk between
+these, these databases. And in some cases they weren't, there'd be legal reasons
+why they don't, they can't share or strong preferences, but they might be up for
+saying, yes, I do have something like that. So Grace, what is COB? COB stands
+for Compact Bits Slice Signature Index, and it's in my kind of view, cause I'm
+not a developer, it's like Big Z 2.0. So it indexes in the same way, my best of
+my knowledge, but it's just more compact. So it means that when I created this
+index, it was now not 80 terabytes. It was only 800 gigs and we could actually
+perform searches a lot faster. Big Z basically makes a massive rectangle, a big
+matrix of bloom indexes. COBs pays attention to the, some of the genomes being
+smaller. And so you actually, it's like, it's like integration, really, you, you
+have rectangles underneath the curve instead of one massive rectangle. And so
+what can you get out of it? Like what are the inputs to it and what are the
+outputs from it? Yeah. So you can query any sequence, so this could be a gene,
+particular part of a gene that covers a SNP or even an entire plasmid, which
+I've done for quite a few people. And so what it does is it splits your query
+into its overlapping K-mers and then queries on each of those K-mers for its
+presence or absence in the index, and usually have to specify a threshold. So
+how many of those K-mers have to be present for you to get the resulting hit?
+And yeah, and then it will spit out at the end, a list of the sample IDs that
+have your query of interest and the specific threshold that's present. And it
+does, it does really well for identifying sequences that are quite close to what
+you query, but due to the way it needs a perfect match for each of those K-mers,
+it's not good for identifying more divergent sequences. So would that be useful
+for say, looking at plasmids that move around between different species? Yeah,
+yeah. I've done that for that. So one of my projects that I'm doing at the
+moment is we're taking one of the replicons for the small plasmids, colon RNA1,
+and pulling out all of the assemblies that have that plasmid, and I've used COBS
+to do that. And that's, and that's across all of kind of proteobacteria that
+plasmid is found. And have you noticed any unusual signals? Like I personally,
+as a computer scientist was surprised when I saw say a plasmid from E. coli
+turning up in salmonella, but have you noticed anything else like that? Yeah,
+host range of plasmids is, for some it's quite well known how far they can go.
+Some can actually go across phyla, which I think is pretty amazing to have the
+replication system work that well, but others we know are more restricted. And
+what I do find is really cool is when you do have identical sequence of a
+plasmid in different species, especially over time, that can happen as well
+when, so these elements I just think are quite amazing in the way that they can
+spread and evolve, but also stay the same for so long. What kind of size of
+k-mers can you support? Like can you support say PCR primers, could you use it
+for primer search, you know, and seeing which primers will work best for one
+particular species, that kind of thing? There's no reason why you couldn't do
+that. At the moment we've indexed it for 31-mers. We very nearly, I mean, we
+actually, so in the back of the, it's annoying that we've got 90% of a job done.
+We set up a system so that we could try and live, keep up with it. And, and
+while we were at it, we decided we were going to index everything at 15 and 31
+so that we'd have both. And we got through to like January, 2020 more or less.
+And then some people left the team and COVID happened and all the rest of it.
+And so a whole plan of moving that from research to ENA core basically fell
+over. But we need to restart and try and catch up with like there's, there's
+what, 660,000 genomes in Grace's data set and there's now 1.7 million in the
+ENA, so we really need to get our skates on to catch up with them. Well, don't
+worry. There's been no sequencing of bacteria in the past year and a half
+anyway, so. Yeah. That's a good point. Yeah. Imagine what it could have been at.
+I mean, it's kind of exciting that, I mean, some of the questions with like host
+ranges of mobile elements and things like that, it'd be quite hard to design a
+study.  study to sample widely enough the phylogeny of pseudomine. I mean, you
+would, the things that we found, you know, they're widely enough spread that you
+wouldn't know to go and look there for pseudomine. It's only with this gradually
+accumulated massive data set from all kinds of people that you find all this
+stuff that you would never know to look for. That's one of the exciting things,
+really, that we've got, it's a massive shared resource and we ought to be able
+to make better use of it. So what kind of memory do you need for a system like
+that? Not much, actually, it's all on disk. I mean, so maybe a gig or two, but
+the limitation is actually disk speed. So ideally it would all be an SSD or
+we've actually built an aggregation thing so you can query multiple, you know,
+multiple indexes. I mean, it's much more scalable if you can split many smaller
+indexes across different servers. Are you able to look at AMR genes over all
+species simultaneously and get kind of like a high level satellite overview of
+how that is and how it changes over time? Yeah, so that's one of the analyses
+that we did with the paper. So instead of doing it via the COBS, instead I
+actually ran NCBI's AMR finder on each of the genomes individually. And so that
+reported to us any sort of predicted antimicrobial resistance genes. For the
+acquired ones, we didn't end up including SNPs. But as for, and yeah, so we were
+able to look, you know, what genes are where and, you know, how many genes,
+antibiotic resistant genes are in a specific genome. We were slightly limited on
+over time as we were based off the metadata that you get from a read submission,
+which doesn't include isolation date. And so instead we were having to use date
+made public as our sort of age estimation of that dataset. So we've been talking
+about a range of different topics. And a lot of this is actually encapsulated in
+this recent preprint from the both of you and your colleagues. So can you take
+us through that? So this is the recent bio-archive, it's out on bio-archive as a
+preprint called Exploring Bacterial Diversity via a Curated and Searchable
+Snapshot of Archived DNA Sequences. And we'll put a link to that in the show so
+people can find it. So can you take us through, maybe Grace, what was the
+motivation for this? I mean, a lot of it we've kind of touched on in terms of
+just getting on top of all the data out there, but what was it for you really
+getting into? So for me, when I came to the UBI and Sanger, we wanted to, along
+with Sam and Nick, we wanted to look at mobile genetic elements and how they're
+distributed within bacteria and how they've evolved over time. Those sort of
+questions were what we were interested in asking. But really we wanted to apply
+this to all data that was available. And so just when I joined, BigZ Demo was
+available and that had everything up to end of 2016 and it was indexed just
+based on the reads. And so I could do my queries in BigZ and I could get out the
+datasets that had my element of interest. But when it came to analysis, I really
+wanted and also to know some extra information about what's in the assembly,
+such as other plasmid replicons or what AMR genes did it contain. And so that
+led to one conversation with Nick and Sam when it was like, let's just assemble
+it all. And so that was probably early November, 2018. And then we pulled in
+Martin Hunt, who's an amazing developer and bioinformatician. And yeah, he over
+like three weeks put together our download pipeline and assembly pipe. And then
+I spent the next six months actually running the pipeline and getting all the
+661,405 bacterial assemblies. Yeah, and so now these are all up on an FTP server
+via the ENA, I think, isn't it? We are in the process of submitting them to the
+ENA. They're gonna be classed as third party assemblies. It's also been about a
+year and a half of trying to figure out how they class our assemblies and how
+they wanted to upload them and make sure it was in a form that NCBI would also
+agree with and the DDJ as well. But yeah, so on the FTP, but hopefully we'll be
+in the ENA and SRA soon. Sam, anything you wanted to add? Yeah, I think it's
+quite exciting trying to build. I, at the start of this, I was really, I was
+sort of keen not to do the assemblies if I possibly could. When we did Big Z, we
+would just, I mean, it's because shortly assemblies are imperfect anyway. And
+sometimes things have got mixtures and so on, but it is so much more valuable
+having the assemblies and being able to actually properly align and try and
+figure out what's going on, especially when you're trying to work out the
+history of some mobile element and whether it's inserted in another mobile
+element or whatever. So it's taken longer than we expected. Although, I mean, we
+were obviously flat, but just all of the curation that Grace has had to go
+through in order to get something high enough quality, I think it's just gonna
+be really useful for people to have, I mean, one of the things we've been having
+to justify to people recently was like, does it matter that they're all
+assembled the same way? Because you could just take collections of assemblies
+that already exist and depends what you're gonna do. But if you're trying to
+look for a signal across all of these genomes and they're all these sort of
+implicit batch effects, because some of them are being assembled with one tool
+and some with another, and you find a subtle signal, you've got to work quite
+hard to persuade yourself that it's not actually an artifact of different
+assemblies being used. So it depends what you're gonna do, but there is a real
+value in having sort of completely uniform system for assembly and QC for the
+whole thing. Yeah, I totally agree. I mean, if your interest is the fringe
+elements of mobile genetic elements repetitive elements that tend to be more
+problematic, I can imagine if you pulled in a bunch that were just done on
+velvet or something like that, they would not be comparable. Yeah, exactly. But
+I think people have sort of forgotten, people have forgotten the old days when
+assemblies were really, when you really did get different outputs from different
+assemblies. Well, it's a funny time for us now, because at one level with long
+read assemblies, we're sort of expecting really perfect assemblies. And so now
+looking at Illumina assemblies, they seem much worse than they would have done
+before. I mean, yeah, I sort of look forward to a place, a time when we can have
+this many. That's really where we have to go. That would be the dream, yeah.
+That'd definitely be something amazing. But I mean, we touched on a few of the
+different use cases already with digging around for mobile genetic elements or
+AMR. But what are some of the others that come, that for you were the main
+motivations for this work? I suppose what I want to mention here is more the
+extra indices that we put on top. So yeah, making it searchable was a big thing,
+and that was the COBS. But the other thing was we wanted to actually be able to
+look at how the phylogenetic relationship between the genomes that did contain
+any gene or sequence of interest. And so that really led us to doing, at first,
+the cell mesh index. So we sketched each of the assemblies and then put that
+into an index. And so that really allows, like, if you say got a new genome and
+you want to see how is it related to anything we've seen before, you should be
+able to sketch it and search it against this database, and you'll be able to get
+out however many of its closest neighbors that you're after. And then the other
+thing, then we've kind of followed this up with John Lee's PP sketch, and that
+really, it performs a core and accessory genome distance estimation. And so then
+we're able to, yeah, actually have punitive relationships between these genomes
+and can make trees. Nothing, you know, too fancy, but enough to tell you if
+you've maybe got a cluster of very closely related strains, or if they're
+different clades within a species. You've given the kind of answer I might've
+expected myself to give. So I'll give the kind of answer I'd expect you to give,
+which is like, there's just so many unknowns with transposon and plasmid and
+other mobile element biology. And to give definitive answers, you sort of need
+to do very carefully, but to get good hypotheses, I mean, this is really fertile
+ground. So I'm kind of excited about sort of picking individual transposons and
+things and following them up through the data and trying to understand how and
+when they, well, when is quite hard to estimate, but, you know, where they're
+more and less abundant, how they've changed. Again, it's all sort of
+circumstantial, but looking at what correlates with what, particularly stuff
+like spacer elements, what correlation is there between spacer elements and the
+mobile elements you do and don't find inside genomes, that kind of thing.
+There's so much stuff to it. I have like a laundry list of genes of interest or
+structures of interest that I would love to kind of get, dig into this and go
+after, you know, maybe once in a glorious future when COVID isn't a problem. I
+mean, from the other Jekyll and Hyde half of my personality, I'm quite keen on,
+basically, so there's a weird thing that look, K-mer indexes are a bit like
+Google. They're sort of like a document retrieval problem. So in Google, you
+sort of, you know, you pass in a word and you want to know which webpage
+contains it. And here you pass in a K-mer and you want to know which genome, and
+that the language, obviously bacterial language is so much more complicated than
+English or French or whatever, but it is that kind of problem. And there are a
+lot of super clever computer scientists out there with very clever ways of, you
+know, doing these kinds of indexes. And you can already see, I mean, it's four
+years, I guess, since Briggsie came out and that there's so many different
+approaches now, which are more efficient. So I'm keen, I think this data set is
+just a really useful data set for people to benchmark on. And you've already
+seen this amazing paper for Ron Cheeky and co where they're building sort of
+minimizer to point graphs where the alphabet is minimizers instead of bases. I
+think it's really important for us, for people who care about the majority of
+cellular life on this planet, as opposed to humans, that we have to make sort of
+data sets and the kind of problems we want to answer. We want to make that sort
+of really clear because there's a bioinformatics tools end up inevitably be
+attuned for the use case that you want them to use them on. And it's very easy
+for things to get super tuned for working really well on human genomics, which
+is important, but it's different. And I think we need to...  to, you know, I
+actually think there's room for, this is overkill, but, you know, instead of
+having only 22 problems for mathematics, it's that sort of bioinformaticians'
+problems when they're trying to deal with bacteria. I think the kinds of
+problems you want to answer and the kind of data that you deal with are very
+different because there's billions of years of diversity in there. So, I think
+just from a, just providing data for other people to innovate on this.
+Definitely. I see this as a step change towards more of a data analytics thing
+that everyone else does in other fields and in computer science generally, where
+biology has sort of been a bit behind with, because it is difficult to
+articulate exactly what we're trying to do and trying to look for. I can't, I
+tried to explain the kind of genomic data to physicists and they just lost their
+head. They're just like, what, how would you deal with that much error in your
+sequencing? What do you mean? You can't trust it. Like, what are you doing with
+it in the first place then? I mean, that is a challenge that it keeps changing,
+especially particularly with nanopore data, right? And that, you know, the error
+style changing and even the base call is changing and it's hard, it's hard to
+compare genomes, base call with different methods. So I think I'll, I'll cross
+back and ask Grace about the AMR results in the paper, because that I think is
+the most, I suppose the most sizable biological result, I think, or maybe I'm
+wrong, but would you, do you want to take us through that? And what was the main
+take homes from, from that analysis when you've looked at 600 odd thousand
+genomes, what can you tell us? Yeah. So I suppose I just want to preface this
+with some caveats with how the analysis was done in the way that all of this is
+predicted. So it doesn't necessarily mean genotype does not mean phenotype, but
+also we're missing, you know, mutational resistance and that was just to do with
+how it was run. And so that's, you know, for definitely for some organisms
+that's like, you know, the major pathway to resistance. And the other thing is
+just cause I was running it on everything at one time, there have been some, you
+know, sneaky core genes that get counted as a resistance genes. So I have where
+possible, I've tried to note that, but overall ignoring, well, moving forward
+from those caveats, it does show us, yeah, some pretty interesting trends. There
+are some genomes with a huge number of antimicrobial resistance genes. Like I
+think there were so many coli and Klebsiella that had from 32 to 34 different
+antimicrobial resistance genes. And yeah, I want to check these like islets just
+to be sure that there wasn't, you know, any like strong sign of contamination in
+the genomes themselves, but they looked, yeah, pretty clean. So yeah, there's
+some very resistant things out. When we were kind of just like plotting the
+number of resistance genes per genome in a genus, you could see some vacuum,
+definite peaks from certain genera. And when we compared back to the WHO
+priority list for bacterial pathogens, where there's a real need to develop new
+antibiotics because they are so antimicrobial resistant. Yeah, we see, yeah, the
+same genera coming up. So these are sort of some problems that we already knew
+about, but there is quite a number of species that came up that, you know,
+aren't on that list. And so potentially it might be problems in the future or
+might be reservoirs of antimicrobial resistance genes for our more problematic
+clinical species. So I noticed that TB isn't even on that list. So is TB still a
+problem? I think if you read the introduction to that paper, the one that says
+like the WHO priority pathogen list, it then says NTB. It's like a secondary.
+It's like, it's because the numbers for TB are so high, it just dwarfs
+everything else in the graph, right? It's sort of, I mean, I think there's more,
+yeah, I think it dominates. And from the point of view of this analysis, I mean,
+Grace was only looking for gene presence rather than SNP driven stuff, so it
+wouldn't have shown up. Yeah, TB is a scary problem. There's lots of interesting
+science, but it's as much or more a political and social problem of ending
+poverty at some level, as much as, you know, diagnostics and surveillance and
+drugs. I mean, all of which are important, particularly drugs. Yeah, it's a huge
+deal. Just to go back to something you said there, Grace, you mentioned that you
+found some E. coli with huge numbers of AMR genes. So is there duplicates, like
+are they targeting the same drugs and it's just they're become super resistant
+to particular drugs or is it just kind of a spread of everything? Both, like I
+think there's quite a broad range of coverage, but there definitely is some
+redundancy. Like I'm pretty, I've seen isolates, I can't tell you specifically
+about those ones that you have three different sulfonamide resistance genes
+where, you know, one is definitely enough to confer resistance to high levels of
+resistance to sulfonamides. So there definitely is some redundancy in there, but
+also with that many, I also expect it to cover the broad range of potential
+antimicrobials that would be thrown at it. So I guess you'd call these something
+like absurdly drug resistant as opposed to multi-drug resistant. I mean, without
+the testing, I wouldn't want to call them pan, but my guess is they'd probably
+be towards that. That's pretty scary, isn't it? I wish there was a better way of
+strain banking rather than just, just, you know, banking so we could test
+things. I mean, there'd be a ton of work to set up. You really hope there's a
+big fitness cost there. Yeah. I mean, the other kind of thing to comment on with
+this is we do know that like a lot of sequencing projects will actually select
+for resistance. So you might be plating on a particular antimicrobial already.
+Like I know a lot of people do it for the third generation or carbapenem
+resistance they want to select for in that particular maybe hospital. And so a
+lot of what gets through into, into the sequencing databases are the ones that
+are already resistant. So I think it would be really worthwhile to also make
+sure you're pairing it with a susceptible isolate from if you're doing it from a
+hospital. Let's talk more generally about that. The issue of sample bias,
+because obviously people are sequencing, especially isolates is what's
+culturable. They're sequencing what's clinically relevant for you. How was that
+readily apparent in the data set? Did that cause problems? Yeah, definitely
+apparent. So for example, we just look at the species breakdown of a 661,000,
+90% of that data comes from just 20 bacterial species. Almost 30% of it is just
+Salmonella enterica alone. Definitely huge biases in what species are collected,
+but even within species. So say we go into like E. coli, huge numbers of ST11,
+which is a 157H7 serotype. So really important in disease, but also things like
+ST131 and things that seem to like they're over represented in the data compared
+to, you know, all the other STs sequence types of E. coli. So you've got, yeah,
+you've got your species level biases, you've got within the species bias, and
+then we've got selecting for particular resistant isolates bias as well. Because
+you've got the US CDC, FDA are doing sequencing, PHE are doing sequencing, but
+then other countries do virtually no sequencing, which does complain. You're
+totally right. And you could think of that as funding bias rather than country
+bias actually, because, so Grace has a statistic, which I've forgotten, but it's
+like, like a handful of sequencing cover, I don't know what it is, tens of
+percent of that data. So I got 50 projects, 50% of the data, 50 sequencing
+projects. Yeah, I mean, the bulk of it's going to be, because for things like
+genome tracker or the PHE enteric bacterial submissions, they're all just going
+into one bioproject because it's a pain in the neck to keep setting up new
+projects really. And I guess no one is really looking at those either if they're
+just kind of regulatory turn handle type sequencing. So actually it's probably a
+very nice data set to mine if you can handle it. Yeah. And I mean, actually
+something that we've done in response to viewers was to compare like the
+composition of our dataset against, you know, the genome assemblies in NCBI and
+the Patrick database and to just comparing the sample accession ID, which is
+present in each. We actually found that we've got over 300,000 assemblies that
+weren't in NCBI assembly prior to this. So they only existed in the read
+database. And so, yeah, like you said, we're probably not looked at or analysed
+in any sort of great detail. When is enough sequencing enough? You know, when do
+we stop for a particular pathogen? Like say take TB, is a hundred thousand TB
+enough and can we just stop because it's all the same? It depends on your goal.
+I've got about three answers to that. One is TB is unusual because sequencing it
+is directly useful for treatment. So you get information that directly allows
+you to decide what drugs you can treat with. So actually moving in a direction
+of more countries starting to sequence by routine routinely. So for the
+individual patient on that basis, then we're going to keep going. You could
+legitimately argue that we maybe don't need to share it, but I would
+legitimately argue that we should keep it in particular because we don't know
+now what's important. And we can later on discover that, you know, some mutation
+caused drug resistance. And then you can look back and say, actually that
+appeared in 2016 or whatever. So like, for example, people have discovered that
+the bedaquiline resistance first appeared before people started treating with
+bedaquiline. We don't know why. There's potentially shared mechanisms with
+resistance to antileprosy drugs and clofazamine, but it's not totally clear that
+those drugs are really heavily used, certainly not in South Africa. So I think
+basically biology is complicated and drugs are only one selection pressure and
+resistance mutations are not just resistance mutations, you know, they have
+cellular metabolic effects. I think that's a cheap answer that we're going to
+need to keep sequencing because of diagnostics. I think you're right that if
+nothing much was going on now, you can learn a lot about ancient history without
+having hundreds of thousands of genomes because it depends how far in the deep
+past you want to go. The thing is that we're applying all these pressures now
+and we sort of want to know what's happening now. So that, you know, there's
+interesting examples. For example, so here's an interesting one. Quite commonly
+for TB where you test with Lyme probe assays, there's effectively PCR testing
+for specific SNPs. If there's a resistance SNP that's not on your list, it's not
+in your PCR test, that's a selective advantage for that bug because you know,
+you don't treat it appropriately. And so you actually, you're actually seeing
+outbreaks where we're basically diagnostic driven selection for a mutation.
+that are not in your catalog? The chlamydia in Sweden, a few years ago in
+Sweden, they had a huge drop in cases of chlamydia and it turned out it was just
+the particular PCR primers they're using weren't working anymore. And those
+primers were on a plasmid. Oh really? Like it was selecting, it was trying to
+detect a plasmid, which like I have heard is very stable in chlamydia. It's
+normally always there, but some changes happened. Yeah. So it wasn't even like
+on the, like chromosome, the marker. Oh wow. But anyway, so I mean, I think as
+long as changes are going to be starting and in particular, so first of all,
+we'd like to notice when resistance appears to new drugs and we're pretty sure
+it's going to happen fast and we want to, when it happens, we sort of want to
+try and backtrack and sort of find out when it appeared and where else it is. If
+you're rolling out a regimen somewhere, I think in theory it would be important
+to know, you know, is resistance, I mean, that's me being paranoid. It's not a
+super high likely thing, but I think in principle, when you're testing a new
+antimicrobial, how do you test? I mean, obviously you test in the lab. In
+principle, you would have clinical trials. It would be really good if we started
+deep sequencing people in clinical trials and noticing low frequency mutations,
+which start to appear and so on. And if I was a drug manufacturer, I would quite
+like the abilities. If I knew something caused resistance, I'd quite like the
+ability to go and check, you know, is it out there already? Or is this, you
+know, at least a priori something that doesn't exist in the world yet? It
+depends. Anyway, another, another answer, which is maybe more constructive. If
+you want to know how much AMR or whatever there is out there in the world, there
+are other species we need to be sampling rather than the ones we already have.
+Systematic random sampling from across the world would be super valuable. Yeah.
+And just, yeah, increasing the diversity. So not just maybe different species,
+but also the same species that we care about, but in different places in the
+world from different environments, all of that, I think would really be valuable
+and would increase what we know about bacteria. I guess even what's inside us,
+you know, we don't have to look too far. There's so many bugs inside us we only
+have terrible mags for and not, not even isolates. So start at home. I mean, we
+have to go back and redo all of this for different growth conditions, don't we?
+Yeah, we do have to do that. The work never ends. Like microtiter plates with
+different growth conditions, different drugs. That's the way forward. Well, it's
+one way forward. We're going to be busy for a while, even if it wasn't for
+COVID. Great. We have a job then for the next few decades. We're just
+advertising that we should have a job for life. Well, until someone comes up
+with a sequencing technology where we can just get the full chromosome out, you
+know, a single cell goes in, magic, full chromosome, full plasmids, push the
+button. That would be great. But let's say I give you 10,000 perfect genomes and
+you want to understand either their evolutionary history or, you know, how
+things are related and things like that. It's still, it's not straightforward in
+particular because bacteria have pan genomes and they don't, you know, it's not
+strictly clonal evolution. I think there's, there's a lot of open and
+interesting stuff going on. The obvious stuff, which is, you know, the
+difference between the clonal inheritance and genes move in and out and what
+compensatory mutation happens when stuff arrives and this kind of stuff. And
+then the bonkers stuff with phagin plasmids and mobile elements and what stuff's
+going on there. I mean, I, I, I actually think, you know, once, once we're at
+that place that you're talking about where you can get perfect genomes out,
+which is not miles away, just, I think we're just going to start seeing so much
+fast stuff happening. Like the mobile stuff is so much faster than SNP. Yeah. I
+think that's only really the end of the beginning. There's, there's an entire
+universe to unravel there. I think that's exciting rather than scary, but maybe
+it's a bit of both. Yeah, that's the bit that I'm really waiting for. So what
+else is, as you mentioned, like that's one way of the future, what else is, is
+on the cards in terms of the future directions? Maybe we can couch it in just
+this pre-print. What next? I mean, you've got review comments to do and then
+catch up with the other, you know, over half a million to do and. Grace has a
+way, then we'll, we'll sort it out for protein search. I think that's, that's,
+that's been, that's been aggressively going up the priority list. I think that
+would be, I mean, COBSL doesn't care what alphabet your data's in. So we could
+six-way translate everything and then search it that way. What would be the
+advantage of protein, say, if you did it that way and yeah, what, what, what
+would you do with it? I can tell you what I'd want, you know, if, if I'd protein
+search and maybe you can solve it then. I want pathways, right? I want to know
+which pathway is in, you know, all these different bugs. So I can go on a
+fishing expedition and then just pull out all the stuff I need. So that's, that,
+that's much more than just a sequence algorithm question. I, I, well, it's the
+next level, you know, you go up to proteins and then you join the proteins
+together and you have some kind of mechanical process or whatever. So, you know,
+it's all about joining the dots and you've got the nucleotides and now you're
+going to protein. And then the next obvious level is, you know, what does it do?
+Yeah. I'm still stuck on the, how to get the best proteins out of all my
+assemblies, that question, because like, if we just, you know, do we run Prokka
+on everything and just take what it says, where we know that you can improve
+your annotations if you do it for this particular species and maybe you give it
+a good reference genome, or do we just, you know, six way translation, translate
+everything and then just build a COBS index on that instead. But then we're
+going to have a potential junk. So yeah, I'm still stuck at the, then how do we
+do the next step? But yeah, I can definitely see in the long run, what you're
+suggesting would be very useful. And we've sneakily not answered Nabil's
+question, which is who cares about protein? Why do you need protein search? I
+mean, but Grace said before that, you know, these k-mer things, they only really
+work for really, really close matches. And if you're looking for things that are
+more evolutionarily diverged, basically amino acids are more conserved than DNA.
+So you can sort of look further away in the tree. I mean, for me, what comes to
+mind is looking at some of the garbage, like pseudogenation, looking at
+pseudogenes and how they're distributed, because that's going to tell you a fair
+bit about which, which clades are moving into different niches, which have
+recently moved into a different niche, that sort of thing. Now, which, which,
+which, you know, only sort of variably pseudogenes have seen to me within a
+species in which they're sort of consistently as well. Anything else from you
+two you'd like to promote or plug? Or I think one question we didn't ask is, is
+there any new software coming out? So I can plug two things, but one is a
+mystery. So one of the limitations of what we do at the moment is it's not
+proper blast, right? We sort of break things up into k-mers and sort of say, you
+know, demand that certain number of them are present. And that, that works
+pretty well, but it's not, it's not a proper alignment. And there is a mystery
+person out there somewhere who I think is making big progress towards being able
+to do that on these size data sets. So I think you should look out for that.
+I'll point them to you, but reveal. And then less, less, less mysteriously. I
+mean, we're, I mean, in the group, we're spending a lot of time working on how
+to, how to look at, you know, simultaneously study SNP and gene presence
+diversity. So our Pandora paper is sort of still in review, but I think a lot
+of, we're going to do a lot of exciting things with that, but basically allowing
+you to sort of look at mutational changes within the accessory genome and, and,
+you know, and thereby how that impacts phenotype. Lots of stuff in the field
+coming, I think. All right. Any final words from you Grace? I'm really excited
+to use this data set for what, start using it for what we designed when we went
+out, which was to actually start looking at, you know, distribution and
+diversity and of mobile elements and potentially predicting new ones from all
+the data out there. But, you know, we realized, you know, along the way that
+this was just, you know, one use case for all of these assemblies and this
+resource. And so we really wanted to make it public and get out there. And yeah,
+so I really hope that, you know, the community finds it useful and if they do
+have any troubles or questions about trying to utilize it or run it, then yeah,
+please send us an email and I'll help where. And we really will try and make it
+web searchable. That is, we, I've been saying that for like 18 months, but we
+really will. All right. And on that, we'll end this episode. So I want to thank
+Sam and Grace for joining us today. And we've been talking today about some
+really exciting new developments in the area of comparative genomics, and that's
+it for the MicroBinfy podcast. See you later. Thank you so much for listening to
+us at home. If you like this podcast, please subscribe and rate us on iTunes,
+Spotify, SoundCloud, or the platform of your choice. Follow us on Twitter at
+MicroBinfy. And if you don't like this podcast, please don't do anything. This
+podcast was recorded by the Microbial Bioinformatics Group. The opinions
+expressed here are our own and do not necessarily reflect the views of CDC or
+the Quadram Institute.

@@ -1,0 +1,472 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There's so much information we all
+know from working in the field, but nobody writes it down. There's no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. Hello. Welcome to a new thing we are doing called Software
+Deep Dives, where we interview the author of a bioinformatics software package.
+Today, Hank Dembaker is in the hot seat with Sepia. He's an assistant professor
+at the University of Georgia. That's the state, not the country, in the U.S. I
+work with him through the food safety informatics group at the University of
+Georgia. Hank's an alum of the Wieman Lab and has a rich history working on
+things like Listeria and Campylobacter. I think, correct me if I'm wrong later
+on, please, but I think fungi and a lot of other things out there. He got into
+computational biology and bioinformatics from working on all these different
+things. We're interviewing him today on Sepia. First of all, Hank, what is
+Sepia? I pronounce it Sepia, but it's not to correct you. Sepia is, I would say,
+yet another read classifier. That's what it is. And why do we need it? One of
+the things, being a taxonomist and somebody who uses read classifiers a lot,
+there were just a lot of things that I wanted to have in a read classifier that
+I didn't have yet. I wrote a Sepia to just address all those things. So Sepia
+uses a couple of data structures. One of them is the complex hash table that
+Kraken 2 uses, and actually some of the principles or algorithms that Kraken 2
+uses to classify reads. And one of the, I think, main components in read
+classification is the use of taxonomy. And taxonomy is very important. And I'm a
+taxonomist by training. So integrating new taxonomies, for instance, the GTDB
+taxonomy versus the NCBI taxonomy, there are several taxonomies currently that
+are being used in the metagenomic field. And seeing how that influences your
+ability to classify reads, and especially reads that are from organisms that are
+not necessarily well known, that really interests me. So it's a tool to
+experiment with those things. The other thing is that I'm interested in data
+structures. So how can we, the compact hash table of Kraken 2 is already pretty
+compact, but can we make that compact more compact with things like combining it
+with something like a perfect hash function? So CPI has those things. So maybe
+to step back a little bit, you say hash table there. So how are you actually
+storing the sequence information? How are you encoding it? So the sequence
+information, currently it's encoded in bits. So we have basically the compact
+hash table or the hash table with the perfect hash function is one big factor
+containing unsigned 32 integers. And we can use those unsigned 32 integers to
+store both information of part of the sequence and the associated taxon that
+goes along with those sequences. So we first hash the sequence. And then we use
+that hash to find the position in that factor. And then we use either the hash
+value of the sequence of your minimer to confirm that really or part of your
+sequence to confirm if that's a good match or not. So how long would your k-mers
+be then in that case? So currently my k-mers can go up to 31 base pairs, but so
+you don't use the full 31 base pairs. One of the things that I'm excited about
+is that I can actually can extend the size k-mers so we can go up to 64 base
+pairs. The language that I'm using Rust has unsigned 128 value. So we should be
+able to make it even bigger. I don't know if that affects the performance of the
+software. So I got really excited when I looked at your code and I saw this is
+Perl because it has many of the same constructs as Perl and a similar kind of
+layout and syntax and whatnot. But I was very disappointed then when you told me
+you'd abandoned Perl for some other frivolous fly-by-night language called Rust.
+Can you tell me more about that? So Rust, let's see. So first I have to explain,
+probably explain the reason that I never abandoned Perl. Like I can read Perl, I
+write most of my scripts and things like that. Where Python is fast enough, I
+use Python. That's my go-to language at the moment. But if I write code that
+really is performance critical and I want to read classifier, I want to classify
+a couple of million of reads and tens of data sets within a limited amount of
+time, that's where I use Rust. So if we go to the Rust website, they say it much
+better than me. Like they say a language empowering everyone to build a reliable
+and efficient software. And I think you can really, with Rust, you can get the
+same performance out of Rust as C and C++. You can get at that level. It seems
+to occur with some types thrown in on top of that. Yes. So it's a compiled
+language. Awesome. I don't see, actually, which parts are you seeing that have
+Perl on it? Like I feel like when I started learning it, going from Perl to
+Rust, I was like, it just blew me away. Like I had to go step by step in the
+tutorial and learn a whole new language. Well, the way I see it is, you look at
+it, it says use and then library and then a semicolon, you know, that's very
+Perly. True, true. Okay. Which got me. And then, you know, all the curly
+brackets and stuff like that. It is a very beautiful language, actually. Yeah, I
+think so. I got, honestly, like my experience was getting so frustrated with it,
+but like being just like gobsmacked when it was performing, like I translated my
+Perl over to Rust and I got like a 10 or 20 fold speed increase. That's insane.
+Yeah. This language is insane. Sorry. Back to you, Hank. Yes. So that's
+absolutely, that's the reason I chose it. I mean, the other thing is, I can read
+C++, I can read C, just to look at algorithms and at the details of some
+people's codes. But what always frustrates me is to skip between files, like
+your header files and whatever you need. Here you just have one file. That's
+where your code is. And it's not overly verbose like Java either, where you have
+to put in a million different objects and then stuff like that. Yep. Okay. So
+maybe let's get back to why you didn't just use Kraken 2 and why you went and
+made up your own classifier. So I think Kraken 2 is fabulous and it's fast, but
+there are just things. I don't know if it already exists, but one of the things
+that frustrated me was that there wasn't a batch mode. So if you start a Kraken
+2 run, the first thing that the software does is load the index or database,
+whatever you want to call it. And if it's large, and no matter how big your
+computer is, that takes a long time. That usually takes longer than the average.
+actually the actual action of classifying your reads. Absolutely. So one of the
+things CPI can do is just a batch mode where that loading the database is done
+once and then you can specify to have the limited files with your sequence data
+and your sample names and it will just do it in one go. So it takes like a
+minute to load your whatever 80 to 90 gig index and then it takes like 10
+seconds per sample to classify the reads and give you nice summary files and all
+those things. So one thing with read classifiers I find is that you can have
+bits that are shared by different species like maybe mobile genetic elements or
+AMR genes or virulence genes or whatever and that can sometimes throw some weird
+curve balls and it's just influenced by the number of samples that happen to be
+sequenced. So like say salmonella, that's massively over represented than just
+generic salmonella you find in the soil. So how does your classifier work in
+that case? In that case, it will just be as bad as other classifiers. That's the
+other thing that I'm very focused on, indexes that use reference type or not
+type strains but the reference strains instead of like trying to index all of
+salmonella, take like a median and centroid strain from a population and use
+that as a reference. That takes away some of those genera being over represented
+but you still have that same problem. If you use HyperLogLog for instance, to
+estimate how many k-mers are, or how many minimizers, whatever are represented
+by some of those elements. Say you sequence a soil microbiome and you run your
+read classifier and you have like a hundred thousand reads that match
+salmonella. But it turns out that those a hundred thousand reads all a hundred
+thousand reads should be enough to cover like a salmonella genome several times.
+But if you find that actually it's a subset of the k-mers, a small subset, say
+2000 k-mers compared to the whole genome should be like 4 million, 5 million
+k-mers. Then you can say it's probably a shared gene instead of the organism
+itself. So I'm working on that currently. The other thing that I find really
+helpful that I get standard currently that I started to integrate into CPI from
+the start is what I call a hit ratio. So a minimizer based estimate of the k-mer
+similarity, average k-mer similarity of your reads compared to the reference
+strain or the strains that are classified. The reads are classified as such. So
+kind of like a much score of some description. Exactly, yes. It correlates
+really well with ANI. So an average nucleotide identity. And I find that really
+useful to see if one, if you have a really high score, since you're working with
+k-mers that that's something between like 0.8, 99, you never get a one unless
+you have like exactly the same strain that you recovered from the metagenome.
+You have a pretty good indication that you have that organism. The other thing
+is that you can filter out a lot of the noise. So if you have these read
+classifiers, things get classified as, it's usually over classified. So these
+classifiers always go to the lowest level that you can get. But if you have like
+a k-mer similarity of 0.01, you know, that's clearly noise. And that's just the
+read classifier being not that great, being very, doing its over classification
+thing. Do you, just switching gears for a second. If you feel like it, do you
+want to give any hints on what you've been using CPF or on any applied research?
+So currently I'm working on some metagenome projects, like using metagenomics to
+predict species that like animal intrusion in farmlands and using metagenomics
+to predict like how long ago that animal dropped its feces on your land. We're
+working on mapping the microbiome of the, what is it, of the retail environment.
+So at the far end, actually of the farm-to-food continuum of the farm-to-food
+continuum in food safety. So, and see how we can relate microbiome data to the
+occurrence of things like listeria or salmonella. Where I use CPF there is if I
+have 16S datasets within seconds, I can quickly scan through a dataset and pick
+out reads of interest. That's especially with like an Amplicon database use 16S,
+that's super, super fast. You don't even need the batch mode there. Have you
+used it for coronavirus yet? No, and I know it can do coronavirus, yes. I
+suppose that would be the next thing you need for your paper when you write it
+up. It's coronavirus capable. I made sure of that. Awesome. Yeah. Because you're
+going to get that everywhere, I'd imagine at some point. All the reagents of
+contamination will be coming through and whatnot. Yeah. Yes. So tell me, going
+back to your, I suppose, animal droppings and food safety bit, does that mean
+that say if you get maybe contaminated lettuce or cantaloupes or whatever, that
+you can give some kind of classification on where that might've come from? Yes
+and no. One of the first things I did for that project was see how long the
+native microbiota of animal droppings. So that's in particular indicative of
+what species was associated with those droppings, and how fast that disappears.
+So what you see first in the first couple of days is that most of the typical
+obligate anaerobes disappear. They're the most indicative, I think. But I was
+quite surprised. So it depends. It depends how long ago that the fecal
+contamination occurred. That's basically that. So, I mean, if you think about
+foodborne pathogens like Salmonella, Listeria, and E. coli, they're actually
+some of the species that I found in that data set, especially we had some nice
+Ascoricans that last the longest. So with Listeria, I always, or I've always
+heard that it's very difficult to take from the environment and you have to do
+an overnight culture, that kind of thing. And just pick it up off the ground or
+in a factory and do something with it. So what type of samples would you be
+dealing with in that case? So that's absolutely true. So all those data sets,
+what we're currently doing. So you find Listeria, I mean, you find it in small
+numbers, even in data sets that you sequenced without any prior enrichment. So
+what we've done for a couple of these projects is that we did a cultural
+enrichment. So that takes actually a lot longer than an overnight culture and
+all those things. So it's cultural enrichment like where Americans go abroad and
+share their culture? Yeah. Sorry. I have to- Sorry. Restrain myself there,
+growing up in the Netherlands. Yes, so culture enrichment, it means that you get
+a sample and you expose it to an environment that's positively affecting a few
+organisms or your organisms of interest. So it can be by using certain
+antibiotics.  the medium, etc. So for Listeria, that would typically be
+initially an overnight culture and it takes at least a couple of days to get
+from like a soil sample to your Listeria cultures Okay, so maybe let's get deep
+into the technical bit, right? Yes And I recall that you were involved somehow
+in Big Z with Zamenhof, did his kind of work influence you in any way?
+Absolutely, I have another piece of software called, and it's also in Rust, it's
+called Color ID And it uses a version of Big Z that's a Rust version that can be
+actually downloaded as a crate, it's publicly available So it builds a Big Z in
+memory. So it's an in-memory use of a Big Z. So you have your index gets loaded
+in memory, and that makes it really, really fast So you cannot make Big Zs that
+are as big as like the entire SRA, NCBI's SRA, but you can index 10,000s of
+strains in a relatively small data structure That kind of terrifies me because I
+know that Big Z at one point is running on a half a terabyte of RAM Exactly,
+yeah So how much RAM does your algorithm require? That all depends on how many
+accessions you have To be able to do that just out of the top of my head. Like,
+let's see. So if you have, if we're talking, are we talking about Big Z now, or
+about We're talking about SEPA, sorry SEPA, okay, SEPA So a small data set. Let
+me quickly. So if we have, for instance I guess what I'm asking is, can I run it
+on my laptop or do I need a bigger virtual machine to run it on? That all
+depends. So if you want to do, say, all the current GTDB version R202, so the
+latest version of, and you want to have something, all reference strains Here we
+have 50,000 references. So they are everything, archaea, bacteria, they include
+everything from cultured organisms to metagenome amplified genomes Any humans?
+Not yet. But if we look at the GTDB database with SEPA, so that is 98 gigabytes.
+And that has to be loaded into your RAM. So it won't work on my laptop. It won't
+work on your laptop. But 98 gigs is quite good, actually, compared to, I know
+Kraken can require a fair whack of RAM. Yes, but here's the thing. So I've, some
+of the things that I've been experimenting with is that the k-mer size versus
+the minimizer size. And how much that influenced the accuracy of your read
+classification. Like after playing around with some values, a k-mer of 31 and a
+minimizer size of 21 actually gets you a significantly smaller database, even if
+you use the same values in Kraken. So is that kind of indicating like, there
+might be people who might want to know what the parameters are for lower memory,
+or those who want to have it faster? Absolutely, absolutely. Yep. So are you
+kind of, are you kind of documenting that or detailing that? Yes, I will. I
+forgot if we actually said that on the recording, but we literally just got
+access to the, to Sepia, just as we started this podcast. So we're kind of
+talking and looking at the same time. Yes. And I really like these, these,
+talking about these things, because I'm literally writing the markdown, the
+updated and extensive markdown. So one of the things since I've been working on
+this over several years is that the help functions are really, really helpful.
+And I can tell you that because there are things that I didn't remember from,
+say, over a year ago, and I look at my help function and, oh my. So, everything
+works with, with the help function. Well done for doing it right. And I have to
+say that one of the things that makes it really easy is this one crate. What do
+you mean by a crate? Is that like a container or something? Crates are pieces of
+our functions software containers, not really containers. Are they close to like
+library files? Yes, they're library files that you can download from the, from a
+central depository. But they're not just subset libraries or modules. Yeah, they
+call them crates. Yeah. And you get them at crates.io. Yeah. And so the crate
+that's responsible for me writing good help functions is actually called Clap.
+So, the Clap crate is fabulous. So something that I wish probably tell people is
+that we're recording this and you guys are in the middle of, is it a hurricane
+or a tropical depression or something with tornado warnings. By now it's a
+tropical depression and I think it's about just past us. So it's the tropical,
+or tropical depression threat. Yes, there were tornado warnings this morning and
+flash flood warnings. So it's dedication that you're on this podcast.
+Absolutely. Yes. Absolutely. I have to cross some streams. It's I'm what like 30
+miles away from Hank right now and we're getting. I guess it's, it's just like
+really, really wet we're, we're fortunate that we're pretty inland but it was
+thundering and lightning and everything early this morning. Did you have any
+different kind of experience over there. Same, same here. It's, it's really kind
+of sucks when you have to take out the dogs in the morning. I have three dogs
+and they don't like rain. They don't like rain. How do you, how do you do it
+Hank, how do you bring them out. I just dragged them out, and we go for a small
+walk, instead of a longer walk. The thing is, is that they may not do their
+business outside, because they refuse to, they don't like rain. Now the question
+is, have you sequenced your business. I haven't sequenced my own business. Yet.
+I think there are some people at CDC that are still interested, probably. Oh
+yeah, I'm not supposed to advertise it but if you ask me offline I'll tell you
+how you can donate. If you're here. Are we still talking about dogs or by humans
+here. Oh Hank switched it to human. Yeah, we're talking about my business. We
+also in Quadram look for anonymous donors as well to donate regularly. Do you
+get a lot of donors over there. I know this is a tangent. Well, there is quite a
+big requirement for ethical poo, so that you can do R&D that kind of stuff. Have
+you guys donated. Me no no no. It's anonymous, it has to be anonymous. It's
+anonymous. There we go. Yeah, same here I donated it anonymously, and nobody
+knows it's mine. So we're going to go rooting through now the NCBI to see can we
+find Lee's poo. Yeah, they're supposed to have scrubbed the human DNA but I feel
+like that's. We all know that can be problematic. Yes, yes. Because people use
+you know things like cracking just to find a human reads, maybe they should use
+Sepia. Yeah, because that's one of the things that I have one function that I
+want to add. And that's the read filter. And that would be it. It's going to be
+integrated into CPI and now I'm going to have it as a standalone.  So have you
+written a paper on this yet? No. So I'm working on a million papers. So after
+this, I will get something out as soon as possible. Grand. So in the fullness of
+time, you'll write a paper. Yeah, maybe whenever we're locked in next time for
+the next hurricane. Yes. Or the next lockdown. I think that's always the thing
+with writing software. You're writing loads of code and potentially help
+functions. And then you have to write a paper. I mean, there are a couple of
+neat things. For instance, the data structure that that uses the perfect hash
+function needs to know the set of all k-mers or minimers that you want to index
+for the perfect hash function. So I wrote a a variation on the compact hash map,
+and that's the compact hash set. So it's a set that can take gigantic, ginormous
+numbers of k-mers or whatever. And just you can infer the set of all k-mers in
+your data set before you start building your your hash map. So can you take two
+different databases and then do set operations on them and say, basically start
+doing like GWAS? Oh, we're onto something here actually now. That would be
+interesting. I haven't thought about that. Yeah, because you know, what's
+common, what's different, and extract them out and then maybe go and mine for
+interesting things. Yes, that shouldn't be too hard. And if you can do more
+complex set operations, you can do some pretty phenomenal things. Yes. Okay, off
+we go. Implement that and we'll write the nature paper then. That sounds quite
+similar to Unifrac. I don't know that one. It's just a distance metric between
+communities. You're just feeding it in the number supporting each taxa and then
+it just meshes everything together. Okay. So I mean, if you could take this and
+just make the right output and it could just plonk straight into that kind of
+software. So what would that look like? I mean, you could have like a set of
+reference genomes, which are your cases, a set of reference genomes that are
+your controls. And then you say, okay, go and build me two separate databases,
+then get say the intersection or whatever is not an intersection. And then you
+have like a unique database, maybe for finding Listeria or whatever. That would
+be pretty cool. Are you trying to scoop yourself on Plasmatron? It's basically
+Plasmatron that I'm reinventing here. And obviously done in a better way because
+Plasmatron was very much hacked together. Yeah. I use Unifrac a lot these days
+in my microbiome work. Yeah. I was curious that you were talking earlier, much
+earlier about the batch being able to run samples through in a batch. And then I
+noticed in the source code that you've got some callouts to Redis. Is that
+what's underwriting that or what's your use of Redis in this? Redis. So this is
+one of the leftovers. What did I use? Oh, yes. Here. Before I started building
+my own compact headset for those big things, I tried to do it with Redis, but it
+ran out of... Okay. Basically, I couldn't use that to set operations there. So
+that's actually vestigial. Yeah. All right. There's a lot of vestigial stuff in
+the current code, which I may remove. So Redis, for those who don't know, it's
+an in-memory or it's like a cache data structure store. And basically, it's just
+a giant key value storage. You can use it for a whole bunch of different things
+and you'll find it all over the place. So the way that taxonomy are stored
+actually in the index is different from Kraken 2. So there are a lot of things
+that are very similar to Kraken 2, but also different. So the taxonomies are
+stored as directed acyclic graphs. So in that way, you can look up like a
+taxonomy of a single organism or if you identify the k-mer fairly quickly. So it
+goes from the lowest to the highest taxonomy level. So it's always like, say,
+seven or eight steps that you need to infer a taxonomy. And then you can do some
+set functions to figure out what the most recent common ancestor is. I was
+curious about a couple of things in that. What would the output look like for
+Sepia, actually? Because is it the sort of Kraken classification where each read
+gets assigned a thing and that hierarchical number of reads or bits or whatever
+chunks that support a particular taxon and then the number of absolute that
+uniquely map to a particular taxon? So currently there are two outputs. There is
+a summary file, but it doesn't use that hierarchical structure of Kraken. That's
+just a straight assignment to a particular genus or species, much like the
+Kraken output? Yes, exactly. So that's good. And so what it gives you, it gives
+you like a taxon, like a number of reads that hit taxon. The average k-mer hits
+similar or minimizer k-mer, dependent on what you're using, similarity per read.
+And if you use the HLL, so the hyper log-log function, it will give you an
+estimate. It will give you the total number of minimizers or actually k-mers
+that were found for that specific taxon, the cardinality, and then the total
+number divided by the cardinality. So you can infer like kind of a coverage per
+organism. Okay, that's good because that sounds more digestible than sort of
+your raw, the raw Kraken, like the Kraken report that you get. I mean, that's
+not something you can just palm off to someone else who doesn't necessarily know
+how to interpret it. So it's good that you've got something that sounds a lot
+more, like a lot more human or digestible. Yes, yeah. So it's to keep
+everything, like to keep the code fast, everything is like in U32 or whatever,
+encoded like all your taxonomic designations. But then at the moment that you
+have, so the summary file and the per read classification file, everything is
+human readable. So I made sure that there is like a separate folder in the sepia
+repository that says scripts. And that's a Python script that actually generates
+chronoplots or the input for chronoplots from the classification file that that
+CPI generates. And another file that they called the plus file. So it will give
+you not only the average K-mer similarity, but also the distribution of how
+those K-mer similarities are. So you can see what the curve looks like. And I
+made that in the past to kind of see if I could use a machine learning algorithm
+to filter the noise from the real hits. Yeah, that sounds good. And definitely
+the Corona output is, professors like the Corona output. Nice and clickable for
+them. Yes, exactly. Interactive. Yeah, exactly. I think we kind of touched on
+this, but I am curious how, what happens if there are reads that are very
+diverse, completely unrelated to your reference database? What is the chance
+that this program is going to falsely assign it to one of those taxonomies just
+because it has no idea? I think you touched on this confidence value that would
+help.  but what would be the propensity here? So the propensity of, I think,
+read classifiers in general is to just assign it to the lowest taxon possible.
+That's where you get it. So that's where that K-mer similarity comes in. I mean,
+then if you give a closer look, usually like a very, very low K-mer similarity
+that really throws out those hits, as being true hits for that organism. The
+other chance is that it just gets classified as no hits. So I have specifically
+a no hits category, but I mean, the danger is real. I mean, I've heard a couple
+of talks, I think virology talks where they used read classifiers and then were
+thrown off by weird or disturbing classifications, which not turned out to be
+the things they were. Yeah, like using your pestis on the subway or whatever
+that was. Yes, yeah. I mean, that was a naive case, but yeah. Can you test your
+software with us? That would be a good test. Yeah, I'm really curious. Is that
+data set still out there or has it been retracted? We can make up a data set. I
+mean, it's not that hard. I think you can find some, I think there are some
+comparison papers out there for read classifiers, kind of like a semathon, but
+it's read classifathon. I can't remember the name of the papers and they do have
+some data sets that they use that are these kind of gotcha ones, which should
+throw off some of these tools. And so that would be a good benchmark.
+Absolutely. You know, pulling those down and having a go with those. A little
+more seriously, maybe the first benchmark should be like something like the Zymo
+mock communities, that kind of thing. Yep. Oh, the sky's the limit, right? Can
+try and break it as much as we can. Now the code is out, we can stop trying to
+break it as much as we'd like. What do you think that people should be looking
+at first when they get to the repo? We're like, we're coming up with all sorts
+of awesome things. Just give the software a run and see what you can do with it.
+So the current implementation of HyperLogLog function, it's not something I
+wrote myself. So it makes my code very slow. I wouldn't do that. The other thing
+I use it for is read classification of Oxford Nanopore reads. Because you have
+that flexibility and setting those parameters that well, you can really play
+with the ideal parameters to read classification for Oxford Nanopore or noisy
+reads. Okay, so somebody first coming to your repo should try out their Oxford
+set on that? Yep. I'm curious. I mean, what you will see is that your average
+K-mer values are of course highly effective. They're not comparable to what you
+will find for Illumina data, but it does a pretty good job, I think. All right.
+I know that Minimap has an error model to cope with PacBio and Nanopore. I don't
+know if that's a thing you can just flag. I should have a look at that,
+definitely. So currently I think that the best, if I use smaller databases, for
+instance, just with a bunch like Calamari, if I make a Calamari database with
+just a K-mer size of 21, which is fairly small. So you can wiggle your way past
+those critical errors that Nanopore includes. That works pretty well. So smaller
+K-mers definitely seem to do a good job as long as they're not too small because
+then you need everything and that's not very valuable. Do you have like a two-
+pass hierarchy kind of thing? So maybe you start off with K-mers of say 11 or
+something crazy small and have a second pass. Yeah. Do you want to explain what
+Calamari is? Oh yeah. It's a database of curated reference genomes, mostly
+bacterial, mostly foodborne that we are using in-house over here, but I also
+have it up on GitHub. And it's basically a list of accessions of these things
+and a script to download them and documentation on how to build it for different
+databases. And I'm looking forward to documentation on how to build it for
+sepia. Oh, I just found the dataset that was used for the comparing the re-
+classifiers and that is the CAMI, I've just blanked on the name, the CAMI
+dataset. So that's Critical Assessment of Metagenome Interpretation. And I think
+the paper is in Nature Methods 2017, Skirba et al. If you want to look that up.
+Yes, absolutely. I mean, for the audience, you know, they want to use it
+themselves. Me too. I want to see this. I haven't seen this before. Oh, there's
+a couple of them. There's Skirba et al. There's one McIntyre 2017 in genome
+biology, which I think is the sequel to that. And then what I've played around
+with in the past is Chris Quince's Desmond tool has a simulated set of different
+E. coli's all mixed together. So they're like co-infection or mixed infection
+kind of things. And you can pull that down and use that as well if you want to
+try that. Because I don't think the other two datasets really have that
+intraspecies problem in those papers. So between that, you know, if you're able
+to outperform everyone with those, then your thing is golden. If anyone wants to
+play around with those datasets. Yeah. I have a feeling that really strain level
+differences with reclassifiers, unless you use like a really big k-mer size and
+all those things. So a former colleague played around with doing intraspecies
+comparison. And his trick was to weight the classification based on sort of
+these pools of the assignments. So basically the logic was if a k-mer or read or
+whatever, was assigned to multiple strains in the same bucket, in the same
+species, and not assigned to outside of that, then that was more convincing than
+one that was sort of in, you know, across salmonella and E. coli and something,
+something, something, something. Yeah. That was one of the tricks. And there's a
+couple of other tricks he used, but you do have to have a very good
+representative database of the species to be able to pull that apart properly.
+So you kind of have to understand the whole population structure of the species
+before you really do that effectively, which is annoying because you often don't
+have the time to do that. Absolutely, yeah. I mean, for old hat stuff like
+salmonella and E. coli, like you can just pull those down there, all of those
+publications in that space. But if you're doing something a bit weird, I don't
+know, like oral pathogens, that's, that's a fun one. Tannerella, what's the
+other one? Tryptomonas, Tannerella, the stuff the dentist tells you to worry
+about. Those ones are more difficult to kind of get you. Gingivitis? Yeah, these
+cause gingivitis. They're the ones that, the red complex bacteria, if you look
+them up, they're the ones that cause gingivitis and periodontitis. And there's
+very little known about, like we know there's these species and there's these
+communities that we don't really know much about, not like the same way we know
+about enterics. Porphyromonas, that's the third guy. Oh yeah, Porphyromonas.
+Porphyromonas, Tannerella facetia, and Tryptonema denticola. So yeah, if you
+have a weird species, then intraspecies comparison becomes really tough. You
+just don't know. Oh yeah, so one thing I want to mention is, CPI will also check
+the consistency of your taxonomy. So if there are, for instance, if the same
+genus name is found in different lineages, it will flag it. So you can have a
+look at it, or if that's the main thing. So if you combine a plant taxonomy with
+a bacterial taxonomy, you will find that there are some genus names that are
+used in both domains of life. Yep. Is Candidatus one of those that is a bit
+difficult?  Because they'll just suck that on anything, right? Yep, that would
+be really difficult. And also bacteria, and also disease names as well, you
+know, if it causes pneumonia, well, sure, we'll call the species pneumoniae.
+Yep, so that's the thing is that notes in my taxonomy don't, they have, the name
+is just the whole taxonomy string that fixes it, not just the genus name. I
+learned that pretty quickly when I started to combine plant and bacterial
+taxonomy with zoological taxonomy. Oh, yeah. Yeah, people might not realize that
+the people who decide those things don't talk to each other. No, they don't talk
+to each other. At least three different codes of nomenclature, or probably, I
+mean, actually, there are four, like the botanical and the bacterial, and then
+the zoological and the viral. Yeah, we didn't get into the whole part where you
+know so much about taxonomy and how this has led you until this, actually,
+another time, I guess. Yep, yep, that's a good subject for another time. Did we
+say, Hank, where the name sepia came from? Oh, yeah. So, the name sepia is
+actually a tribute to Kraken, because Kraken is a big octopus, so cephalopod,
+and sepia is also a cephalopod, and it refers to the rust color, like the
+pigment that you can make from its ink sac, which is rusty colored. So, it's a
+humble cephalopod compared to the big Kraken, and it refers to the rust color.
+Oh, that's interesting. So, cuttlefish. Yeah, exactly. Or the sepia, okay,
+sepia. All right, well, thanks for a great discussion. This was a quick chat for
+sepia, the classifier that Hinkley and Bakker created. There's always some
+interesting facts about these tools, so I'm glad that we talked it through,
+especially where the actual name came from. I love diving into rust and
+everything else about that, too. For those who are listening, you can check it
+out on GitHub. That'll be in the show notes, and that's all the time we have for
+today. See you next time. Thank you so much for listening to us at home. If you
+like this podcast, please subscribe and rate us on iTunes, Spotify, SoundCloud,
+or the platform of your choice. Follow us on Twitter at Microbinfee. And if you
+don't like this podcast, please don't do anything. This podcast was recorded by
+the Microbial Bioinformatics Group. The opinions expressed here are our own and
+do not necessarily reflect the views of CDC or the Quadram Institute.

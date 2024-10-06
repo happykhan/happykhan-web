@@ -1,0 +1,309 @@
+Hello and thank you for listening to the MicroBinFeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. Hello and welcome to the Microbial Bioinformatics podcast.
+This week I have some special guests joining me. I have Dr. Conor Meehan, who is
+a lecturer in molecular microbiology at the University of Bradford. He
+specializes in whole genome sequencing and molecular epidemiology of pathogens,
+primarily mycobacterium tuberculosis and genome-based bacterial taxonomy. He
+says the programming language he's always wanted to learn properly is R. Also
+joining me today is Dr. Leo Martin, who is head of phylogenomics at the Quadram
+Institute Bioscience. He enjoys developing and implementing tree-based models,
+so he has a bunch of tools like BioMC2, GNOMU, TreeSignal, and we'll have links
+for those packages in the show notes. He recently moved to working with
+bacteria. Previously he worked with viruses, eukaryotes, but from a modeling and
+theoretical perspective. He says he should have learned OpenCL by now, and next
+year he wants to write something in C++. Good day to you, gentlemen. Nice to
+have you on the show. So today's episode, we were going to talk about
+phylogenetics. I think both of you are expert arborists. Yeah, supposedly. Three
+headers. So we'll start off with a softball question for both of you. Connor,
+who are you and what do you do? That's probably more of a difficult question. I
+do a little bit of everything. I've always worked on pathogens of some kind. So
+I started off with HIV and then moved into human microbiomes, lateral gene
+transfer a little bit more, and now into mycobacteria, but it's always been
+based around phylogenetics. So in HIV, that was small transmission trees.
+Microbiomes, it was actually lateral gene transfer and started taxonomy, and now
+doing a lot of tuberculosis, mycobacterium ulcerans as well and other things, a
+lot of Bayesian reconstructions and heavy use of a lot of phylogenetics
+programs. Okay, and what about you, Leo? So yeah, I'm a bioinformatician here at
+the Quadram Institute of Bioscience, and what I'm doing right now is to provide
+service and research. So on one hand, I install software, I run analysis for
+other researchers at the institute, especially when they involve some sort of
+phylogenetic inference. And at the same time, I also design and implement new
+software when I see there might be a gap in current landscape or it will help
+future research by the community. And so through my background, I'm a Bayesian
+phylogeneticist, so I develop usually Bayesian models for complex phylogenetic
+models like recombination and species tree inference on the phylogenomics
+context. So it's clear both of you have some excellent credentials when it comes
+to phylogenetic reconstruction, and I'm assuming between the two of you, you
+both must have used every single program out there. And I was curious, I have a
+basic assumption that different data or different data sets require different
+approaches. Maybe they don't. Do you both agree at least with that sentiment?
+Yes. Mostly yes. Okay. Mostly yes? Would you like to clarify? I mean... A lot of
+the reasons for using something like parsimony or distance-based approaches have
+gone away, I would say. So a lot of it now comes down to, in terms of the
+phylogenetic approach, something within a maximum likelihood framework or even
+better, a Bayesian framework. So I think as we go along and along, you'll start
+seeing the simpler methods drop off and most of the data will go through some
+form or some different aspect of one of maximum likelihood or Bayesian. And is
+this simply because it's more feasible to compute using those more comprehensive
+methods or is there a fundamental change in the theory or what's the difference?
+Why are we making that shift? I would say a little bit of both. So about 10, 15
+years ago, you would have had to have a computer that was used to run your
+maximum likelihood tree and you would leave it for days for maybe 20 to 30 taxa,
+but that's not the case anymore. So back then parsimony and neighbor joining
+were done so that you could actually get some results within your year. But now
+as the computers get much, much faster and the code is streamlined a lot by some
+excellent programmers, maximum likelihood and Bayesian can be used on much
+larger datasets and more comprehensive models of evolution. And what about...
+But I, yeah, I understand. Yes, so I'm a bit biased because I'm Bayesian. But I
+think that whenever you increase the capacity of the computers, people come up
+with more data and more complex models. So I don't know. I think we still have
+space for parsimony or for distance methods. So although I'm not an expert on
+them, I would say, so for instance, if you have for a short time frame, you
+know, an outbreak or if you have, if you're looking at subspecies, clonal
+complexes, can't you just say, because in this case, you know, if you're using
+SNPs, you assume that you don't have back substitutions, you don't have anything
+weird going on there. So every, you know, substitution that happened in the
+population is present in your sequences. In this case, can't you use parsimony
+or distance? I have the impression that it might be complicated to use Bayesian
+models for everything. And I think people are, I think there's a renaissance of
+this, you know, quick and dirty methods. Yeah, I will say, often when I'm
+talking to people who want some help with molecular epidemiology, like these
+kind of outbreaks, the first question always is, why are you building a tree?
+And a lot of the times people are building a tree because that's what they think
+is required to go into their papers, and they don't always need that. So for an
+outbreak, it can just be, yes, a quick build a SNP matrix, and then just have
+some cut offs to say these things are closer than these other things. And in
+that case, exactly, a parsimony or a distance approach is fine, because it's
+just coming from a matrix of some kind. As a quick background to why we
+sometimes we use maximum likelihood and Bayesian for people may not know, it's
+to model multiple substitutions happening at the same column or in alignment.
+Like Leo said, if it's a very short time span, and it's in a small population,
+the likelihood of multiple mutations having occurred that you did not observe is
+so low that a parsimony or a distance matrix is fine, probably will get you the
+same answer as a maximum likelihood. Yeah, no, yeah, yeah, I agree with that. I
+think on short timeframes, when people want to work on an outbreak, they want to
+look at transmission clustering. And there, you have to maybe start moving into
+some of these Bayesian approaches, which are trying to turn a phylogenetic tree
+into a transmission tree, like outbreaker or transphylo, which are trying to
+estimate how many events you may have missed. So as with everything, the answer
+is always yes and or no. I was hoping even if we were talking very short,
+focused timeframes, like outbreaks, we could get some sort of consensus what it
+looks like. It's really, you know, the standard thing that anyone tells you,
+it's down to the question you're asking, what's appropriate? What's your data
+doing? How deeply do you want to model this? And how important is it to
+establish that line of succession in your data? Well, if you were working on
+viruses, and you have a small outbreak in a hospital, you look at the MRSA paper
+that Simon Harris did years ago, which is kind of set that out, you can then
+just do a distance based or a parsimony tree, because all you want to know is
+whether they are related to each other or not. And then it's just about the
+topology of the tree, and then they're probably fine. It's about if you want to
+do something with that tree, as in look at clustering on that tree, or look at
+the branch lengths and know times of when did this transmission occur and all
+that, that's when you got to go to the more complex things. Yeah, I think I
+agree with you. When you want to use tree seriously, you shouldn't rely on
+parsimony or distance. You want to have something that you can trust upon,
+right? Yeah, I think I can agree with that as well. I, myself, am quite fond of
+doing a first pass NJT, no matter what size the data set, just to get an idea
+and make sure that it's sane. And then, but I always keep that caveat that this
+is not really robust and you need to go back and do something There's still a
+very nice algorithmic trick, right? So you can use that as a starting point for
+doing something. Even IQ3 or XML like that, they use some distance-based
+methods, just to have a first pass on your data. Yeah, I think a lot of people
+forget that all maximum likelihood approaches often start with a parsimony or a
+distance tree. And they refine that within RaxML or IQ3 or PhiML to get to
+something better from there. But you have to have something to start with. Well,
+all right, guys, let's go deeper.  What does does does your advice or does the
+type of tools you would use change when we start thinking about? Looking at an
+entire clonal complex or sub within a subspecies not necessarily species level.
+It might be species level if it's a very monoclonal species, but just sort of
+within a species, but not just an outbreak you're going a bit broader. What
+would you recommend? As the approach there does it change compared to these
+shorter time frames we've been talking about So I will say a lot of my work
+recently has gone away from Using phylogenetics and focusing on the data that
+you're going to put in to build that tree because It's just tends to be a bit
+more of a mess when you do go to whole genomes or whole species level They're
+the maximum likelihood approaches Tend to work quite well again. I'm a big wax
+ml NG fan other people use IQ tree a lot and there's a big discussion about
+which one is better in my opinion Neither is better. They're both quite Robust
+at doing anything at that level then it's about what data you're going to put in
+there And normally you're going to put in something like a core genome that
+you've created with Rory or there's a program called pro genomics which also
+will create these core genomes and then you want to build a Tree of some kind
+from there normally a maximum likelihood if you just want to know the
+relationships between these things in there Well, I know Leo is a massive IQ
+tree friend You well, I use IQ tree because it's very easy to use. So I think
+it's and it's quick I've used rex ml in the past, but I remember for some data
+set it gave me, you know, it was taking too long It was taking longer that I
+used to with IQ tree and then I went back to IQ tree But I think I did it the
+other way. I did it the other way around because with rex ml I've been using
+that for years. Everyone was like why aren't you using IQ tree? That's where
+it's at right now I tried to do this huge Complex based tree and IQ tree was
+like estimating that it was going to take me about two months XML and G. So the
+new version of XML is much much faster at these large trees But IQ tree
+definitely is more comprehensive and a lot of the things it can do Especially
+picking that model for you and running it all and doing the bootstraps and it's
+definitely a great program I'm contemplating going back to IQ tree So these more
+diverse data sets Leo do you agree with with Connor that essentially it's less
+about the Program using and it's very dependent on the on the data. Yes. Yes,
+absolutely I think for yeah, and I think this is going to be more of an issue in
+the in the future So for people who don't know what constitutes bad like if it's
+so important what what constitutes bad data or good data? They thought that was
+to pick and pick it So good. That's bad Well, we depend so some people call this
+so this can be a selection bias or it can be gene shopping So gene shopping is
+when you when you want to answer a problem and so for instance if you want to do
+a time Divergence time estimation and so you need genes that let's say are
+constitutive genes. So you Not genes that are under weird selective scenarios
+nearly neutral. Yeah, exactly And so and so you this is what they call gene
+shopping So you go in your genome and you find the genes that are the best to
+answer your question But then there's the you know, there's the the evil twin
+side of this which is a selection bias so maybe you can you choose the genes
+that you have more data available or the genes that are easier to detect in more
+genomes or the genes that you only have in single copy because then you don't
+need to handle paralogy and so if you Because feeling by the way, I'm talking
+this not only about microbes Because you have a lot of Long-going discussions on
+parts of the tree of life that are when you look at it It boils down to which
+genes are you taking? Which species are you taking because it becomes a matter
+of do you optimize the the noise to signal ratio? So, you know by selecting the
+genes that are more present in more species Then you might be actually selecting
+one kind one kind of signal their enemies all the other rest So, you know from
+this from this standpoint I think choosing the the genes and choosing the data
+and how do you throw away your samples? and well, how do you choose which
+samples to analyze and then if you have a lot of data, I think people sometimes
+they They first do a clustering and then they remove the sequences that are very
+similar and then they work with the other ones But you know, what if you're
+inducing some bias there? Connor any comment from you? Yeah, it's data selection
+is a real big problem with these kind of things So there's become a huge trend
+of taking the core genome and then you have all of those those genes that are
+present in Every species that you're looking at or every isolate you're looking
+at and then concatenating that all together into what's called a super alignment
+And then building a tree from that and a difficulty is especially with bacteria
+is lateral or horizontal gene transfer And you're assuming that everything in
+the core genome was vertically inherited and not horizontally Inherited in
+what's called orthologous replacement where the bacteria has a copy of that gene
+and just replaces it Through lateral gene transfer with a copy from another
+bacteria and these individual If all the individual genes that you've
+concatenated together don't all have the same signal You can get really weird
+trees and maximum likelihood can have real problems with incongruent data inside
+of the same alignment Understanding what data you should be putting in can be
+quite difficult. So if you take for example 16s Everybody uses 16s and they say
+that it's the best marker to use and it's fine in some ways But some bacteria
+have four copies of 16, four or more copies of 16s And they are not all
+identical and which one of these do you choose? Some of them have gotten 16s
+through horizontal gene transfer. Which one of these do you use? So paralogs and
+orthologs and putting all that in it's a lot more work than people probably
+think it is Much of what we're talking about essentially extends across all life
+From the sounds of it from our discussion that the short time frame within an
+outbreak It's sort of dependent exactly on your question what you're going to do
+But as you get wider away, it's more your input data is vitally important More
+so than probably picking between your xml or iq tree. Yeah That's I don't think
+that's that's the bit we talk about the most but that's not the bit that we work
+on the most for sure I always say with with phylogenetics, you will always get a
+tree every program will create a tree It's not like you'll get an error and it
+says nothing can come out at the end No, you get a star sometimes. Yeah, you get
+a star, but that's still a tree technically. It's acyclic technically It's about
+knowing actually a lot of the skills that go on top of that of how to check how
+good that tree is In terms of does all the data support it with something like a
+bootstrap or better in a Bayesian framework Leo you want to chip in? Yeah, no,
+actually i'm I'm, very happy to hear Kono saying this that you can get a tree
+out of anything. So, you know garbage in garbage out any any Set of sequences
+even if they are random if even if they don't have common ancestry, you know
+completely random sequences once you align them you have signal there that The
+tree inference procedures will pick up and they will tell you this is the tree
+and so it's and it's very hard to Sometimes sometimes it's easy, you know, if
+you just take random sequences probably or three you have very large branch
+lengths But still they're going to be finite because the software assumed that
+you should have finite branch lengths there but anyway, uh, so the the I think
+that's the That's the big question, right? So Does the tree make sense? So if
+okay, well, let's carry on from that to both of you. I put the question let's
+take a hypothetical a colleague or a student or someone comes to you very
+excited with with a picture of a Phylogram and they ask you how oh look at this
+tree. Isn't this great? What are the things you're looking? What are you
+critical of or what are you looking for to make sure that that tree? Looks good
+is believable In line of what we're talking about and you can say you need to
+look at What and if you need to go back to primary data what aspects of the
+primary data? Yeah So I think the first thing that I would do is I would go back
+to primary or I would ask Uh, how many different models did you use? How many
+different algorithms did you use to get to this tree? so I think that's the And
+uh, and maybe take a look at the alignment, you know ask what if you invert some
+of these sequences we will have the same alignment, so actually there's a test
+called head and tails to see if the alignment is good or not is uh, So I think
+you invert all the sequences or because you know the alignment sometimes It can
+it depends on the order in which it starts aligning and in the order that you
+put the sequences there So so first first thing would be to check the alignment
+to see if there's a lot of gaps in those and so which yes Uh, so which part are
+you reversing you're reversing the order like so you can so you can invert the
+order in which the sequences Are added but you can also invert the whole the
+whole genome the whole alignment So what's in you know, what the what's the
+right most will become left most so if you invert completely and then you align
+again And you have and then invert again at the end and then you have a
+different alignment from the from what you start with Uh, this means that you
+know, the alignment is doing something there that is that was not on the data So
+the alignment is forcing some some things there. That's that's a really good tip
+connor any any tips on you What are you worried about? What do you look for?
+Yeah alignment is is So important when it comes to phylogenetics and I would
+also say again comes back to the question I always ask of why are you building
+the tree? So if it's to look at the relationships between the isolates within
+the same species Then different data sources can give you different trees so you
+build a 16s tree and then you build Um multi-local sequence type tree and then
+you build a whole genome-based tree and these might all be different from each
+other If they're all exactly the same Then you've probably robustly means that
+there's a strong signal for whatever this one tree is If they're all different
+that doesn't mean that any of them are wrong It could actually be that's just a
+different signal and then it comes back to the question of what are you trying
+to prove? With this tree  Are you trying to say that these isolates evolved from
+a common ancestor with each other? Then it's trying to find exactly and make
+sure that each individual gene that you put into that alignment doesn't suffer
+from a combination or lateral gene transfer or all this kind of thing. So it's
+for me, I'm then trying to I want to prod at the tree as much as I can to see if
+it breaks. There's just one thing before we finish that I think this is part of
+a standard answer is look at the bootstraps. Yeah. So, you know, look at the
+confidence, the confidence interval. Or if you're working Bayesian, you can look
+at the distribution of trees to see. I think that's a that's what you are
+hinting on. Right. Sorry. Yeah, I would say if you are good at doing Bayesian or
+you're not good at doing Bayesian, find someone who is good and build a really
+good Bayesian tree. And I definitely would be more if that had been tested
+properly to make sure the priors were all correct and that your models going in
+were all correct. I'm I'm more inclined to, quote unquote, believe that tree. So
+my last question for this session is, is there any really stupid mistakes that
+people can sanity check when they when they look at a phylogeny. So, a couple of
+ones that I've run into is someone shows me a tree, and all of the blur. It's
+meant to be a maximum likelihood tree generated, you know, very vigorously
+produced, but all of the branch lengths are the same. It's essentially a
+cladogram or part of the tree looks like a cladogram. Another one is, as you
+mentioned before, certain taxa have exceedingly long branch lengths that don't
+make any sense. So is there any other things like that when you look at a figure
+and you just go, okay, that's just wrong, something has happened. For me, it's
+where the bio of bioinformatician comes in. It's about knowing what you're
+working on. When I'm working on tuberculosis, I normally have a fair idea of
+where certain I know that what lineages should be beside what lineages and what
+subspecies should be clustering with what subspecies. And if they're not doing
+that, then something has definitely gone wrong. And I see that quite a lot. The
+branch lengths, if someone's using SNP data and they haven't done an
+ascertainment bias correction or introduced constant sites, the branch lengths
+would be wrong. But if you look at that branch scale and if you're like, wait,
+this is a species level and there's tiny branches, something has gone wrong
+there. You've cut out a lot of the data, maybe by mistake or something. I'm
+happy to hear that because that's usually the first thing that I that I that I
+search for in a tree is the branch lengths. So if I see a lot of zero or, you
+know, on the limit of zero, because sometimes the software doesn't give exactly
+zero, but it's going to give you 10 to the minus six or something. So if you see
+this limit epsilon like branch lengths and then I know that something it might
+not be wrong, but I would look at the data again. All right, well that's
+fantastic. Thank you both. That's all the time for we have for this session,
+maybe we'll have you back on for another episode, I don't know. But this is so
+this is Nabil with Connor and Leo signing off from the microbial bioinformatics
+podcast. Thank you. Thank you. Thanks. Thank you all so much for listening to us
+at home. If you like this podcast, please subscribe and like us on iTunes,
+Spotify, SoundCloud, or the platform of your choice. And if you don't like this
+podcast, please don't do anything. This podcast was recorded by the microbial
+bioinformatics group and edited by Nick waters. The opinions expressed here are
+our own and do not necessarily reflect the views of CDC or the quadrant
+Institute.

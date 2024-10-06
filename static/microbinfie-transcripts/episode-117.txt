@@ -1,0 +1,255 @@
+Hello, and thank you for listening to the Microbid Key Podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody really writes it down. There's no
+manual, and it's assumed you'll pick it up. We hope to fill in a few of these
+gaps. My co-hosts are Dr. Nabil Ali Khan and Professor Andrew Page. Nabil is the
+Head of Informatics at the Quadram Institute in Norwich, UK. Andrew is the
+Director of Technical Innovation for Theogen in Cambridge, UK. I am Dr. Lee
+Katz, and I am a Senior Bioinformatician at Centers for Disease Control and
+Prevention in Atlanta in the United States. Hi, and welcome to the Microbid Key
+Podcast. We are here today with Titus Brown. He is a full professor at UC Davis.
+He has had his hands in many things that you may or may not realize you work
+with. So anyway, let's get into it. Let's learn what all those things are. So we
+have a few different topics we can get into. But first of all, I'm sorry, it's
+about 6am over there to help accommodate our different time zones with Andrew in
+England and me in Atlanta. So are you awake, Titus? Maybe that's the first
+question. Yeah, thanks for having me on the podcast. Yeah, I normally get up at
+5am, and that's when I get most of my deep work time, I guess, is the term for
+it, and so I'm really happy to be here. And I'm fully caffeinated. Could you
+tell us about yourself and what your background is? Sure, gosh. So my background
+is I did a math bachelor's degree at Reed College, and that's when I started
+getting really interested in research. And I did some research and I worked in
+two different areas as an undergrad. I worked in digital evolution or digital
+life work that's now being continued on by my collaborators that's been
+continued by my collaborators at the time to this day. And then also, I worked
+in something called physical meteorology, where we were looking at climate, we
+were measuring the albedo of the Earth by using the moon as a mirror, following
+work that was done that was initiated by Leonardo da Vinci, actually. And so,
+yeah, yeah. And so it turns out that you can observe the ratio of the
+intensities of the dark side of the moon and the bright side of the moon using a
+ground-based telescope, and that that informs you about sunlight that's bouncing
+off the Earth's atmosphere, hitting the moon and then reflecting back to you.
+And so you can get a whole hemisphere measurement of the Earth's albedo in real
+time, just by observing the moon. And anyway, so I did that as an undergrad.
+That work's also still going on, just without me as part of it. And that got me,
+the digital evolution stuff got me really interested in biology. And so for grad
+school, I asked a couple of different scientists that I knew, mostly physicists,
+what I should do for grad school. And without any hesitation at all, all three
+of them said, you should do biology. If I was starting today in research, I
+would do biology. And these were all pretty senior physicists. So it was
+startling to hear three separate physicists say biology is where the future's
+at. So I went to Caltech and I bounced around a couple labs in the beginning and
+eventually found a developmental biology lab where I started doing experimental
+molecular biology. And I don't think many people know that I actually did
+experiments for six or seven years. Yeah, in the lab, wet bench, wet bench,
+PCRs, yeah, PCRs, micro injections and C2s, all the good things. And I worked
+for about eight or nine years in the lab of Eric Davidson, who did a lot of work
+on cis-regulatory analysis and gene regulatory networks in sea urchins. So I got
+a, my most in-depth formal training actually at this point is in developmental
+biology. And during that time, this was in the late nineties and early two
+thousands, and that's when genome sequencing really started to blossom. And we
+started getting lots and lots of sequences. And so I was in this lab and I had a
+background in open source programming at the time, and I had a math background.
+And so all of a sudden we had too much data and I was someone in the lab that
+knew how to deal with it. And so I started developing tools to help people do,
+you know, large-scale blast searches. It started with large-scale blast
+searches, which I guess is where a lot of bioinformaticians got their start. And
+then it moved on to custom software tools for doing comparative sequence
+analysis and a web server to run the compute heavy stuff and, you know, really
+nice, really, really nice interactive bioinformatics applications within a large
+lab. And I think this is where one of my, I would say, formative philosophies
+for my life came along where I worked for, I worked on developing a comparative
+sequence analysis tool that would let people look for conserved non-coding
+elements in very large segments of eukaryotic DNA. And I developed this
+graphical user interface and I developed this backend web server, and then I
+wrote a tutorial. And then I went back to the lab and started working on my own
+stuff. And over the next two years, about eight different people in the lab
+picked up the tool, used it on their genomic DNA to find cis-regulatory
+candidates, cis-regulatory elements, then tested in the lab, and then without
+really having to talk to me since I'd written tutorials and documentation and
+stuff. And so I showed up at the annual, at the every 18 month sea urchin
+meeting to discover that eight different people in my lab had actually used my
+tool to further their research, had gotten good results and were ready to
+publish. And I had never had to talk to them or support them in any way because
+I'd done a decent job in writing the software and so on. And I thought to
+myself, this is the way to do bioinformatics. I get to write software and then I
+don't have to talk to people. It's just, it's, and they, they advanced their,
+their own science. And, and ever since then, I've sort of had this philosophy,
+like I love writing software. I don't particularly like talking to people on a
+daily basis because I'm, I'm, I guess I'm an archetypal bioinformatician type.
+And so what I do instead is I do my best to make the software usable. And I
+write good tutorials and documentation. And that is what spreads, spreads my
+labor more easily than anything else I've found. And so that that's been behind
+a lot of the software work that I've done since then is to try and do good
+documentation tutorials. So, so I got my PhD. I did a very short postdoc working
+in chick neural crest. I'm also at Caltech. And then I went to Michigan state
+university as an assistant professor. And that was another big career shift
+happened then where I was planning to do gene regulatory network stuff. I was
+planning to, to combine good embryology with large-scale gene expression
+analysis. And I arrived at Michigan state in 2008. And right about then was when
+the Illumina GA2 sequencer became widely available. And I remember walking
+around the halls at Michigan state university. And my colleagues would run up to
+me with zip disks in their hand and say, my antenna transcriptome is on the zip
+disk. And, and it's got all the secrets to my organism. I can't open it in
+Excel. What do I do? And within a couple of years, I, I, I switched pretty
+decisively over to thinking, well, probably I don't need to generate data. I
+know everybody on the planet, every biologist on the planet is going to be
+generating more data than they can handle. So maybe I should switch to analyzing
+data instead. And so I took a pretty sharp right turn and I switched over to
+doing non-model transcriptomics and metagenomics. Cause that was what my
+colleagues needed. And I figured that's what everybody else I knew in biology
+would need. And that's when I started working on k-mers pretty much full time.
+And I've stopped, I haven't stopped since then. So it's been, it's been, I don't
+know, somewhere between 12 and 15 years of, of k-mer focused bioinformatics as a
+way to deal with, with all of this data. So that ended up being, that work ended
+up being what, what got me tenure. I, I worked on a bunch of, I worked on this
+k-mer software that let us, and digital normalization, things that let us deal
+with large transcriptome, large non-model transcriptomes and metagenomes. I've
+used that software. It's really, really good. I used it years ago for
+downsampling, you know, when a bacteria, if you get 200 X or a thousand X or
+10,000 X, you don't want to assemble that and the assemblers often fall over or
+they pick the wrong thing to focus on. And it was quite nice, you know, to zoom
+in and just make stuff work. Yeah. Thank you. Yeah. We were, I, I had this sort
+of epiphany, you know, about digital normalization that I still remember. I
+think I was, I, I was driving home with my wife and I'd been looking at this
+ridiculously deeply sequenced single cell E. coli data set. I remember thinking,
+why do we need 400 X coverage? Wouldn't it be better if we just had like 50 to a
+hundred X coverage? And I was like, what if we wait, wait, that could work. And
+somehow I just, what if we could estimate the coverage of each read and just
+throw them, throw it away? Once it got high enough. And I think once I got home,
+I dipped out while my wife made dinner and I should say that I cook regularly.
+So this wasn't, this wasn't, you know, I don't always do this, but. And I think
+within 30 minutes I had something functioning because I had a nice Python
+interface to the software and so on. So once I, once I had the right idea, it
+was very easy to implement. And that ended up solving a lot of problems for us
+with the RNA-seq and also the, the metagenome stuff we were working on. I was
+working on soil metagenomes at the time. And that's what another one of my.
+sort of basic philosophies is if you can analyze a soil metagenome, any other
+metagenome is easier. So if you develop tools that work on the scale of soil
+metagenomes, then your tools will be as broadly applicable as they can be. So
+soon after, or not soon after, I mean, this is all happening over a period of
+about seven years, I ended up getting recruited more or less out to UC Davis,
+where I took the position I hold now, which is as a professor in the School of
+Veterinary Medicine. And it's not, wasn't a natural position for me. I was very
+nervous about taking a position in a vet school. And it basically, you know, I
+sort of joke that, and I think the joke has some level of accuracy, that they
+basically recruited me and hired me because they wanted somebody that they could
+have coffee with whenever they wanted to talk about data science or sequence
+analysis. And so, you know, in the vet school, I pursue my normal research
+program, whatever, wherever that may lead me. And then just pretty regularly, I
+have coffee or meetings with my colleagues where they say, well, what would you
+do if you were in this situation? Sometimes I collaborate with them and more
+often than not, they go away and they do their work. And sometimes I interact
+with the graduate students and help them analyze their data. But it's been a
+really interesting experience that, you know, the other joke is everything has
+DNA. So if you work with DNA sequence, you can fit in pretty much anywhere. And
+when I arrived at UC Davis, I went through a really, one of the two or three
+toughest periods of my career, which was, I was exhausted from moving. My wife
+was starting a new job. You know, I had a whole bunch of new people in the lab
+and I thought to myself, I'm never going to be creative again. And I came
+across, at the time I came across two papers. I came across this paper by David
+Koslicki and Daniel, I think it's Daniel Falouche called Metapolet, which was
+about k-mers and species level specificity. And I came across a paper, I think I
+was asked to review this paper and I was asked to review another paper, which
+was the MASH paper by Andov et al from Adam Phillippe's lab. And that was on
+MinHash. And those two papers together sort of sparked something in me. And as
+part of my review for the MASH paper, actually funny story, I didn't review the
+MASH paper the first time out. I gave it to my grad students and had them write
+the review. And I read the review and I was like, okay, it seems like a cool
+paper. And I agreed with it and I sent it off. And then it came back and one of
+the reviewers had, one of the other reviewers had said, had been kind of
+critical of the paper. And so I was like, okay, well, I need to dive in and
+figure out like, am I going to be an advocate for this paper or not? And I read
+the paper and I said, oh my God, this is, this actually works. This is amazing.
+I'd never run across, I'd never come across MinHash before because I'm not a
+computer scientist. As you may note from all of my background, one of the, one
+of the things I, I have never formally trained in as computer science, although
+I was a computer science professor at Michigan state. How did you become a
+professor without actually studying the topic? You do a dof programming. You, I
+guess you, you pick up some stuff and the department at Michigan state was,
+again, I'm channeling a little bit of my understanding, but the department was
+mainly concerned, like, can he teach some of the CS classes? And it turns out
+that I could, I wasn't doing CS research. Although of course my research ended
+up being pretty algorithmically, algorithmically, but you know, I could teach
+programming. I could teach data structures and algorithms. I could teach some
+stuff. I just wasn't trained that way. So it worked out. Okay. So I'd never
+heard of MinHash and I read this paper and I thought, Oh my God, this is
+amazing. And then I re-implemented as part of the review, you know, it's like
+five lines of Python or 10 lines of Python to implement MinHash. And I, my
+review, I wrote, I don't know what the other reviewer is smoking. This, this is
+the best thing ever. And you absolutely need to publish it. And I didn't say, I
+don't know what the other reviewer smoking, but I said, I said, this is really
+transformative. Like this is practically speaking, you know, this is
+transformative. I know it's an old algorithm, but what the authors have done
+here has shown that it works exceedingly well for genomic sequence of all, all
+kinds. And it's going to be, it's going to change everything. I don't think I
+wrote, it's going to change everything, but that's how I feel now looking back.
+And a year or two later, I got this very nice email from, I don't remember if it
+was Adam or somebody else saying, thanks for your review. It really helped push
+the paper over into publication. And so that was really nice. So those two
+papers together really lit a fire under me and I started implementing this
+software called SourMash. And then I had a grad student at the time, Luis Erber,
+who as far as I can tell, just monitored my GitHub, saw that I was working on
+SourMash and started contributing pull requests. And that's how SourMash got
+started. And that's now one of my main obsessions, which is the sort of MinHash
+derived way of dealing with k-mers. We extended MinHash in a different way and
+sort of not in a super novel way, but in a way that made sense for metagenomics.
+And ever since then I've been sort of mentally exploring what you could do
+mentally and I guess computational exploring, like what can you do if you could
+look at all the k-mers and didn't have to worry about the fact that there are so
+many of them. And that's basically how SourMash works. It just throws away 99.9%
+of the k-mers. And that turns out to let you look at pretty much all of the
+genomes, all of the metagenomes at once without really having to worry about
+memory or disk the way you would if you were looking at all of the k-mers. And
+so for the last, I guess, six years, I've really been focused on that. And
+ironically, I guess I would say, I was really worried about being creative
+again. And ironically, I look back on that period and it's been the most
+creative and most interesting portion of my, part of my scientific career, or at
+least one of the most. So it's been, it just goes to show you like your own
+perception of where you are in your career and what you're doing may bear no
+resemblance whatsoever to the actual reality on the ground. So. Absolutely. So
+yeah, in terms of k-mers, I was looking at a method recently called Gambit. It's
+really cool. You should check it out. Gambit? Gambit. G-A-M-B-I-T. It's from
+David Hess's lab. And it's really good because what it does is it has, you look
+for not all k-mers, but you look for k-mers with a particular prefix. And then
+you look at the bit after that. So it's like a targeted k-mers. And I think it's
+based on the k-mers usually start at the beginning of star codons. So you get
+approximately one k-mer per gene in a bacteria, which is kind of cool because
+you could do like lots of really good typing. And Lee has just gotten it up
+there. Anyway, targeted k-mers works really well. Check it out. Yeah. So, so the
+other thing, so I did take a, I did take a six year detour from, from thinking
+obsessively about k-mers somewhere in there. And this overlaps a lot with COVID
+due to some of the training activities that I had done as a starting in 2010. I,
+I got connected with an NIH program officer, Vivian Bonazzi, who recruited me to
+work on the data commons pilot phase consortium that the NIH was running. This
+was in about 2019 or so. And I spent, well, I guess four or five years really
+focused on practical aspects of implementing infrastructure for large-scale data
+reuse at the NIH. And I, that project started as the data commons pilot phase
+consortium, and then it morphed into the common fund data ecosystem, which was a
+more targeted effort focused on the NIH common fund specifically. And I ended up
+being one of two people running, running a large NIH consortium for a couple of
+years. And I left that in April of this year. And I think my takeaway from that
+is that I don't like meetings enough to keep doing coordination work, but it was
+really interesting and informative in thinking about where the real obstacles
+are to data reuse. And I would just say, I think data reuse is the question of
+data reuse and fairness as in findability, accessibility, interoperability, and
+reusability is probably up there in, in sort of the, the wicked problems that we
+face in science and in biology in particular. And I think it's unfortunately one
+of these things where we need socio-technical solutions. We need solutions that
+really are aware, factor in how people work. And that is historically something
+that science has not been very good at. And when you get into, when you get into
+different countries and different states with different laws, it's just becomes
+a minefield. That's right. And the amount of money that's spent on giving the
+illusion of sharing data, but without actually sharing data is just obscene.
+Yeah. Yeah. I think we need to leave it there. We're going to, we're going to
+cut this off and make everyone really upset at me and make everyone wait for the
+next podcast episode. So we're going to, we're going to thank you. That was a
+good note to end on. Thank you. So thank you very much for joining us on this
+podcast and we will see you again shortly. Thank you so much for listening to us
+at home. If you liked this podcast, please subscribe and rate us on iTunes,
+Spotify, SoundCloud, or the platform of your choice. Follow us on Twitter at
+MicroBinfy. And if you don't like this podcast, please don't do anything.  This
+podcast was recorded by the Microbial Bioinformatics Group. The opinions
+expressed here are our own and do not necessarily reflect the views of CDC or
+the Quadram Institute.

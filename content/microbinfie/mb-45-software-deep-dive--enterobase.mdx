@@ -1,0 +1,70 @@
+---
+date: 2021-02-04 00:00:00
+title: MicroBinfie Podcast, 45 Software deep dive  Enterobase
+link: https://soundcloud.com/microbinfie/software-deep-dive-enterobase
+tags:
+  - microbinfie
+  - podcast
+---
+# Interview with Nabil: Insights into EnteroBase
+
+In our conversation with Nabil, we explored EnteroBase—an integrated software environment designed to identify global population structures in several bacterial genera, including pathogens. We delved into the project's background, the platform's general benefits, and some of the peculiar quirks users might encounter.
+
+## Background of EnteroBase
+
+EnteroBase is a comprehensive tool that serves researchers and scientists who study bacterial genomics. Its primary focus is on pathogens and includes integrated support for analyzing population structures.
+
+## Relevant Publications
+
+1. **Salmonella Population Structure**:
+   - Alikhan et al. (2018) provided a genomic overview of Salmonella's population structure. 
+   - *Reference*: "A Genomic Overview of the Population Structure of Salmonella," PLOS Genetics, 14(4): e1007261. [doi:10.1371/journal.pgen.1007261](https://doi.org/10.1371/journal.pgen.1007261).
+
+2. **EnteroBase Overview and Genome Fishing**:
+   - Zhou et al. (2020) discussed EnteroBase's functionality, including case studies on Salmonella transmissions and other bacteria.
+   - *Reference*: "The EnteroBase User's Guide, with Case Studies on Salmonella Transmissions, Yersinia pestis Phylogeny, and Escherichia Core Genomic Diversity," Genome Research, 30:138-152. [doi:10.1101/gr.251678.119](https://doi.org/10.1101/gr.251678.119).
+
+3. **rMLST Description**:
+   - Jolley et al. (2012) provided insights into rMLST in bacterial genomics.
+   - *Reference*: "Microbiology," 158:1005-15. [doi:10.1099/mic.0.055459-0](https://doi.org/10.1099/mic.0.055459-0).
+
+## Resources
+
+- **EnteroBase Website**: [EnteroBase](http://enterobase.warwick.ac.uk/)
+- **PubMLST**: [PubMLST Website](https://pubmlst.org/)
+- **EnteroBase Schemes**: [EnteroBase Tutorials](https://enterobase.readthedocs.io/en/latest/enterobase-tutorials/deeper-lineages.html)
+
+## Software Tools
+
+- **EnteroBase Toolkit and Related Software**: Available on GitHub at [EToKi](https://github.com/zheminzhou/EToKi).
+
+## Errata
+
+Nabil pointed out a common mix-up regarding Jay Hinton’s Salmonella: It is an ST313 (D23580), not ST131.
+
+This exploration of EnteroBase shows its significance in the realm of bacterial genomics, providing valuable insights and tools for the scientific community.
+
+### Extra notes
+
+- **Enterobase Overview**: Enterobase is a microbial bioinformatics tool designed to unify genomic comparison and genotyping for enteric pathogens and Moraxella, focusing on the population structure of bacterial species.
+
+- **Comparative Genomics and MLST Integration**: Enterobase combines functionalities of XBase, a comparative genomic tool for bacterial genomes, and MLST databases developed by Mark Ackman. MLST schemes were internal tools for bacterial typing based on multiple loci.
+
+- **Platform Development**: Developed using Python with Flask for the web framework and Postgres for databases, Enterobase offers a more comprehensive and user-friendly interface compared to previous systems.
+
+- **Automated Data Processing**: Enterobase fetches new sequencing data regularly from public archives, applying pipelines that include quality control with Kraken, assembly with Bades, annotation with Prokka, and genotyping with various MLST schemes.
+
+- **Data Standardization and Cleanup**: The platform provides robust tooling to convert free text and loosely structured data into systematic and consistent formats for easier usage and integration.
+
+- **Comprehensive Data Access**: Users can search and visualize data, set thresholds for genomic comparisons, and get metadata curated for consistency, aiding in broader genomic analyses and machine learning applications.
+
+- **Challenges with Legacy Data**: The transition from manual Sanger trace submissions to whole-genome sequencing revealed historical errors and biases in datasets, particularly from earlier MLST systems.
+
+- **Ongoing Tool Development**: Iterative improvements continue in areas like metadata categorization, leveraging a classifier refining data received from sources like NCBI to enhance usability and accuracy.
+
+- **Popularity and Utility**: Widely used for Salmonella and E. coli genomic studies, Enterobase is appreciated for its ability to find related samples quickly and facilitate large-scale genetic investigations, although challenges remain in managing data bias and sample representativeness.
+
+- **Future of Enterobase**: The continuation and further funding of Enterobase are uncertain, but its significance in microbial bioinformatics highlights the need for sustained support and development.
+
+- **Related Tools and Initiatives**: The podcast mentions BigsDB and NCBI's pathogen browser as other related tools, but emphasizes Enterobase’s unique approach to population-level data analysis in microbial genomics.
+

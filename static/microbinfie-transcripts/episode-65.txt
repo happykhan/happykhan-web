@@ -1,0 +1,425 @@
+Hello, and thank you for listening to the MicroBinFeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There's so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. Hello and welcome to the MicroBinFeed podcast. Andrew and I
+are your co-hosts today, and we're continuing our series where we examine a
+particular microbial species in some depth. Today, again, we're going back to
+mycobacterium tuberculosis, and we're hoping we can discuss some of the specific
+issues for bioinformaticians to keep in mind when studying this organism.
+Joining us again, our guests are Dr. Susie Hingley-Wilson, who is a lecturer in
+bacteriology at the University of Surrey. She works on tuberculosis, and her lab
+focuses on survival and persistence. We also have Dr. Jani Best, who is a senior
+lecturer in microbial metabolism at the University of Surrey. She is a bacterial
+dietician, so she's interested in what MTB actually eats. And we are also joined
+by Dr. Connor Meehan, who is an assistant professor in molecular microbiology at
+the University of Bradford. He specializes in whole genome sequencing and
+molecular epidemiology of pathogens, particularly mycobacterium tuberculosis,
+and also does genome-based bacterial taxonomy. So let's start off with Andrew,
+who wants to tell us about software we've been developing. So I have actually
+developed software for TB, bioinformatics software for TB, which is quite a
+surprise to everyone I know, and quite shocking. We have a tool called GalRoo,
+and what it does is polygotyping on long reads. Originally, though, it was meant
+to do something totally, totally different, but we reused the code when we
+figured out that wouldn't work, and it did work for TB. So thank God, and we
+have a preprint out of that. So it just shows that you should never throw away a
+failed project. You can always recycle it in something else. But what it does is
+it just looks at long reads, does a bit of polygotyping. It produces some kind
+of numbers that people who like TB seem to be interested in. I don't know much
+about it, to be quite frank. But I understand there are many other
+bioinformatics tools for TB, and so maybe Conor can give us an idea of what's
+going on there, because I know you've written a review recently. Yes, well, 40
+people wrote that review. I just coordinated them and did some of the writing
+myself. But bioinformatics in TB is very much a field that is changing by the
+day. TB was very clinician driven for a very, very long time. So what a lot of
+people think of as being basic biology and basic bioinformatics is kind of
+coming in at the end and then trying to fit into the systems that we saw before.
+So GalRoo, which is a good tool, and I've used it, and it's good, I like it. It
+does polygotyping on long reads. For people that don't know polygotyping, it's
+essentially CRISPRs. It's a presence and absence of spacers in the genome. It's
+called polygotyping in TB because it is, but it's essentially CRISPRs. And it's
+the presence or absence of 23 of these that will tell you whether it's a certain
+lineage or something else that's out there. So it's a lot of the tools now are,
+well, in the clinic, we did it this way. Now can we get that information from
+the genome? And then a lot of them were built for the short read one. And now
+it's moving into the, can we do it with the long reads? But obviously
+bioinformatics, to a lot of people who are using the tools, they're like, but
+this is the same, but obviously bioinformatics, we know that this is a
+completely different program in order to do that. So an example I'll give you
+is, there's a lot of tools like TB profiler, micro-TB, are the ones that will do
+drug resistance from it, but they all start with short reads. So now we have to
+remake all the tools, so they'll work with nanopore reads or something. So TB
+profiler will now work on the nanopore reads. But a lot of the bioinformatics
+tools are really, really based around the short reads. We use specific SNPs to
+tell you what lineage it is. We have specific SNPs to tell you what drug
+resistance it is and all of that. And we've got to port all that now to the long
+reads. So it's been a field that's massively exploding outwards. And now a few
+of us are trying to work to kind of bring it back in line and say, well, here
+are the things we want from a tool that does this. And the review was really
+trying to say, what are the tasks that we need genomic data to do? And then how
+would we know that a tool is ticked off to say that it does that thing? What is
+the database of SNPs you're using? What is the technology you're using? How are
+you calling a minority variant? Because a minority variant is very different to
+different people. Some tools say 90% minimum cutoff of the reads at that
+position to call it the majority. Others say 70. Others then are saying we only
+need two reads for a minority variant. Other ones are saying five reads. So
+we're trying to kind of say, well, here are some standards, you know, the rules
+help control the fun. And that's where we're going with the tools at the moment.
+And so what kind of questions would people like Danny and Susie like to ask of
+genomics? If you could have anything you wanted to back up your wet lab
+experiments? Well, I guess one thing I'm quite interested in, and I kind of
+tried to get a grant funded on this, but the MRC weren't as interested as me in
+it, was that question I kind of talked about before, which is, you know, what
+are the drivers of the evolution of drug resistance really in TB? You know, what
+sort of environmental conditions may drive that to a particular evolutionary
+trajectory? I'm kind of really, they've done some really cool stuff on E. coli,
+where you look at different sort of metabolic environments and you see that
+there's a different evolutionary trajectory. And I'm kind of interested, because
+obviously, when you're looking at human, it's really complicated and you don't
+know what the different conditions are. So I'm kind of I'm kind of interested in
+that sort of basic biology question, which may have significance, because
+obviously, if you could sort of break that evolution or, you know, in some
+manner, this might be an approach to making the drugs last longer with this kind
+of adjuvant therapy. So I'm kind of quite interested in that approach. And
+something else that's very interesting, I know Susie's very interested as well,
+is these mutations which actually allow strains of TB to survive for longer in
+the presence of drugs. And they might not make them resistant. They might just
+make them more tolerant. And then they have the ability to go on to become
+resistant. So those are kind of two things that I kind of wanted to kind of look
+at and I'm quite interested in. So has anyone ever looked at which genes are
+essential for the life of MTB, like using Trades or anything like that? Yes,
+there have been others. There's some studies by a group in Aberystwyth
+University who've looked at, they've used something called Trades, which uses a
+set of mutants and then they look at survival. They've looked at mycobacterium
+tuberculosis and also mycobacterium bovis, which causes TB in cattle and can
+also cause TB in humans. So yeah, that has been, that hasn't been published yet.
+Hopefully, you know, that should come through soon. But that would be really
+interesting. But there's multiple transposal library screens done in TB and
+macrophages and they're starting to do a little bit of macaque models in
+different, all sorts of different conditions. So there's a lot of information
+and a lot of arguments actually in the field about, you know, what then
+constitutes a good drug target? Does it have to be an essential gene? And that
+to me is always an essential, it's always conditionally essential because I
+always find that weird, right? So it's essential for life in a lab on the, on
+it's, you know, it's not really necessarily going to be what's essential in the
+host. So there has been a lot of those studies in a variety of different
+conditions. So Danny, anything else that you'd like to add from your wish list?
+Well, I guess answering that, that question about the evolution, the mutation
+rate of TB would be kind of interesting because I don't think we actually, you
+know, there was a study done where we really haven't, is that connected to
+growth rate or not? That would be kind of something with fundamentals that I
+think would also hasn't been answered in TB. What is, you know, what is that
+mutation rate and how does it differ inside the human body? So we have a lot of
+different lineages in TB. They don't have fancy variant names like we see in
+COVID. It's just one to nine. Mycobacterium tuberculosis is a species and we
+refer to it as mycobacterium tuberculosis complex. The diversity that we know of
+is growing and growing and growing. So up until a few years ago, we only knew of
+six lineages. Then a seventh one came out in Ethiopia. We found one, which we
+call lineage eight, then in Rwanda and Uganda. I was also part of.  the one that
+found lineage nine. So it's growing and growing and growing as you go along. And
+some studies have looked at the mutation rates of these different lineages and
+found that they are slightly different between some of the lineages. Tend to
+hover around the 10 to the minus six, 10 to the minus seven, which is per
+generation, right? So per replication cycle, but in TB, that is a very slow one.
+So we tend to average out at about one snip every three years if it's left by
+itself. So this makes it very difficult when you do epidemiology because you'll
+just end up with zero snips between two different strains. And then you have no
+idea if they transmitted to each other. What I will say is it seems to, from
+this is using the genome to figure out the mutation rates. And the difficulty
+there is that it's more accurate to say that we do near whole genome sequencing
+because we throw out about 10% of the genome at the moment in repetitive regions
+so that we have PPE and ESX genes and stuff like that. So we're throwing those
+out and there may be more mutations that are occurring in there. So the mutation
+rate isn't even across the whole genome. It might be that there's more mutations
+in some sections and less in others. So the genomics is helping us understand
+that, but because the mutation rate is so slow, we need data sets that go over
+decades in order to be able to tell that. And those are very, very rare. They're
+very, very difficult to capture those big data sets. So it's coming, but we just
+need large sequencing over longer periods of time to try to look at that for the
+mutation rate at least. Can I ask a question then? So what do you say the
+generation time is? Because that must be a massive fudge, right? So this 10 to
+the minus six, 10 to the seven mutation rate is based on a generation time of
+what? A day, isn't it, I think, or specifically? But that's in the lab, right?
+Yeah, yeah, exactly. And I think from some mice studies, it's also from that.
+But this is the difficulty that we have with micro-rectume tuberculosis, is that
+we don't know as much of the fundamental biology as I think people assume we do.
+When I came into the field in 2014, I was just like, oh, so we know all these
+things. And they were like, no, we don't know any of those. I'm like, but this
+has been around for so long. Having come from the HIV field, I was like, how do
+we not already know these things? Like how to grow it in the lab? So we work
+primarily on meninges five and six, which are only found in West Africa. They
+grow micro-aerophilically and not aerophilically like the other tuberculosis
+ones. And we found that this is due to a lot of different things in their
+genome. So to get back to the first question you had, we can look at the genome
+in order to say, well, in central metabolism, it seems to be a little bit
+different. But testing that out is very, very difficult because you can test it
+in the lab, but lineages five and six grow even slower in the lab. And it
+doesn't always represent what we see in the patient, for sure. Well, in the
+patient, a lot of growth is in the macrophage as well, which Danny's done some
+really cool stuff looking at what TB eats within the macrophage. And then you've
+got the level of heterogeneity there as well like what macrophage are you
+looking at? So within the lungs, you've got alveolar macrophages. You'll have
+naive cells coming in. So you'll have this huge heterogeneity in the macrophage
+population. Then you've got TB grown within that. And then there's extracellular
+TB. So there's this huge sort of variation as well, just to throw another
+stunner in the works. Yeah, I'm curious what if, I mean, a macrophage isn't a
+very pleasant place to be. What does it eat? It's worse than that. It lives in a
+phagosome. So it's living not just within one membrane, but then it goes and
+lives in the phagosome. So the very thing that's made to actually kill it. And
+the kind of, I mean, there is a reasonable amount of different nutrients in that
+phagosome that it can eat. But the kind of dogma is that it's mostly eating
+sterols and fatty acids. Basically what the macrophage does is in response to
+TB, it produces loads of sterols and that affects the immune system. So there's
+a bit of a thing that we always puzzle about is it eating these things as a sort
+of protective thing or does it really have to eat them? Certainly if you stop it
+being able to eat fatty acids, it doesn't survive very well in a macrophage.
+Yeah, it does have access to a number of amino acids in addition to that. Yeah,
+I mean, TB is very fatty because it's got this bonkers cell wall. I don't know,
+there's a famous paper, what is it called? That lazy bacteria. Yes, it eats and
+it copes itself in, a lot of its genome is dedicated to genes involving fatty
+acids, biosynthesis and fatty acid metabolism. But yeah. That's more or less
+been my strategy for coping with lockdown. We do. Genomically, we've tried to
+look at this from comparative genomics and we look between the lineages and we
+see differences like in B12 and the use of pyruvate and all of this is
+important. But a difficulty with tuberculosis is we don't have a lot of
+neighboring species to compare it to that we have a lot of information. So we
+have the mycobacterium genus, but most of the research has been done on
+mycobacterium tuberculosis. And as we can see from the discussion, even that's
+not giving the fundamentals. So we don't have a lot of nearby other pathogens
+that we can do comparisons to because most of the nearby pathogens are the
+environmental opportunistic pathogens of the mycobacteria. And they've all just
+been based on the assumptions of what we know in TB. And then you have to go
+pretty far to find another pathogen that maybe we know a lot about. So it's a
+lot of fundamental stuff that needs to occur to generate that data by itself.
+And by interrogating more whole genomes, we're able to get to that stage. And
+there's some really cool things, like for example, BCG and TB, we found
+metabolic differences that you can't actually explain by the genome, probably
+not what we wanna hear on this podcast, but that actually BCG has the same
+genes, but there's obviously something that's also happening, which means that
+BCG, despite having the right genes to grow in whatever it is, is behaving
+differently. So work is moving to the transcriptome level and the proteome level
+now. So we're getting there with the genome, we're starting to move towards long
+reads and finding gene differences and stuff. And now some people are getting
+that money, thankfully, to start looking at transcriptomes. But we tried to do a
+transcriptome, work for something else on TB, and we're like, oh, we'll just
+gather all the public data sets of it. And it was just crickets. There just was
+no public transcriptome data really to work with. Now we need more people to
+generate them so we can start at least generating ideas of where we think things
+would be different. Now I wanna just touch on that. The mycobacterium genus is a
+pretty mixed bag of all sorts in there. I mean, you've got leprosy and you've
+got embovis that we've talked about. You've got ulcerans, you've got, what's
+that weird one, smeg, smeg, smegmatis? Yeah, it's just used a lot in the lab.
+But in terms of the mycobacterium tuberculosis complex, there's like a bunch in
+there. They're not something comparable. You can't, we can't borrow. I'm sure
+that it would be nice to work on some of these other organisms to at least get
+out of the category three restriction. So leprosy doesn't, you can't culture
+leprosy. No. So you need a lot of rabbits if you wanna work with leprosy. And it
+has a highly reduced genome because it lives intracellularly. Or squirrels, I
+think. I think maybe. I think red squirrels. Yeah, that's leprosy, yeah.
+Smegmatis is used a lot in the lab, but an example is this B12. A paper came out
+recently that showed, yes, smegmatis can do it. It can create its own B12, but
+tuberculosis cannot create its own. And they're still not even sure why, because
+a lot of the pathway is there in the genome, but it just doesn't do it at the
+end. It seems to import it. And then the questions we have is, okay, who is it
+importing from? Because there's very few other bacteria that are living in these
+phagosomes with them. So who's creating the B12 and the pyruvate and everything
+for the TB to- We made a genome scale metabolic model of TB. And recently I had
+a fantastically talented scientist who came from Columbia, and he basically
+curated all the genome scale. Because we made the first one at Surrey, and
+subsequently loads of people have made them. And B12 was really interesting,
+because if you give the in silico genome scale model B12, it behaves more like
+TB does. So in the end, we decided to let it make B12. And one of the reviewers
+comments was exactly what you said, we don't think. Of course, that paper was
+really clever, because all they did was just measure B12, didn't they? Why
+nobody ever did that before? But I guess that doesn't answer the question if
+there's in some special circumstances, TB can make B12, because it has the whole
+set of genes to make B12. It is completely baffling. So again, it's like a
+really fundamental, because B12 is really important for multiple pathways. But
+the comparative genomics to the other opportunistic or obligate pathogens in the
+same genus becomes a circular thing, because a lot of their genome based things
+are based on microactivity tuberculosis in the first place. Or there's just not
+a lot of people working on it. I can probably list you all the people who work
+on ulcerans like from a...  lab point of view already because I've already
+worked with them. So it's just not a lot of money in those as well either, so
+they can be difficult to do. Which would be the analogue then outside of
+mycobacterium that that you would suggest is the closest in terms of its
+behaviour? Behaviour in what way I guess? So one organism that was used to
+discover something useful was Rhodococcus. So Rhodococcus was used and it was
+the pre-work to discover that TB was able to metabolise cholesterol, which is
+quite a mad thing for a bacteria to be able to do. You know this great big
+carbon molecule and that pre-work was all done on Rhodococcus. So you know there
+is a group that do parallels, Rhodococcus is much more tractable in the lab. But
+other than that I guess sometimes I look in Carinibacteria on the genetic, I
+don't know if it's got you know for annotations for genes which are unannotated
+to see if there's homologues in Carinibacteria. We've started to use some
+containment level 2 mutants as well, which are auxotrophic mycobacterium
+tuberculosis mutants that are made by Bill Jacobs lab in New York. So we've
+started to use them because we look at a lot of microscopy, like live cell
+imaging of single cells. So that's impossible to do unless you've got really
+expensive equipment in the country, which we don't have. So we have started to
+use some containment level 2 just on a separate side. So your closest genera are
+Nocardia, Rhodococcus, Carinibacteria, Gordonia. They're the other ones in the
+same family. It's also pretty sparse around that area of the whole tree. But
+it's getting better as more money is going in and we're able to do the genomes
+better and then at least pose questions to then go back in. We just need more
+people to fund people like Danny and Susie to do the fundamental questions.
+Yeah, so Susie, I think we haven't crossed to you. What would be on your wish
+list then? Love looking at things at the single cell level. So I think a lot of
+the time by taking it, you miss out a lot of these really exciting individuals.
+You miss out a lot of these subpopulations that, like Danny was saying, are
+really important. So for me, it would be single cell genomics in TB and also
+single cell transcriptomics. So I know that's very difficult in bacteria, but
+I'd love to see more of that. I think there's a lot of people who are now
+preparing to try, not a lot, some people are preparing to try to handle that
+bioinformatically because the difficulties are this culture bias that we require
+if we are going to be doing things in the lab. So there's kind of two directions
+that bioinformatics is going in TB. One is really trying to work more in the
+clinical sample side and be able to do genetics and bioinformatics quick in an
+easy way that's reproducible in the clinic by people who don't use
+bioinformatics tools, which I'm sure everybody has problems in all different
+pathogens with that. Then the other direction is how do we make sure we have the
+entire genome? And how do we know that we're not just missing some sections,
+which means more closed genomes, more long weed genomes and the proper
+processing and DNA extraction for those. It's the same as it is in other
+pathogens. It just feels like it's a little bit behind in some ways. So Connor,
+yeah, you just mentioned bioinformatic tools for public health. Could you talk
+about what's happening in that space and particularly genomic epi? Transmission
+linking in tuberculosis has a very long and convoluted history. So you would
+start off with insertion elements and then patterns of insertion elements in the
+genome and then matching them between two different patients and seeing if it
+has the same pattern, then you would say it's maybe in a transmission cluster.
+The Spoligo typing that we talked about earlier with these CRISPR patterns, we
+have a VNTR pattern based ones that are in there called MIRU-VNTR. It can't just
+be called regular things. It always has to have its own mycobacteria in the
+name. And now we're using the whole genome. In the whole genome, the standard
+approach is to call SNPs against the H37RV reference genome, get the SNP
+distance between two different strains, and then if they're less than five or 12
+SNPs, you're saying that they're in some kind of transmission cluster. Some
+people then have moved to, let's say, back a step, potentially back a step to
+core genome MLSTs directly from the genome, mainly a group in Germany that are
+working on that and trying to do that for circulating strains. The SNP distance
+has become the primary way of looking at it. It works quite well to find out
+what your circulating strains are, but not so well when you want to know exactly
+who infected whom because of the problem of the slow mutation race. You could
+have zero SNPs in a whole group of people. So in Rwanda, we have a transmission
+cluster that has been there since the 90s, and it's 12 SNPs apart between most
+of the different ones that are causing most of the MDR-TB. So it's very slow
+mutations that are occurring in that time. We're moving more towards a Bayesian
+approach of looking at transmission-based, or some of us are, not all, using
+transmission approaches from Caroline Collin and Xavier Didele to try to say,
+okay, well, we think there's these numbers in between, which take into account a
+generation time and take into account an infectivity period, which can model
+better the mycobacterium tuberculosis ones. But we indeed, again, going back to
+what we said, is we need to be a little bit more specific on what is that
+generation time? What is that latent or infectivity period to try to better
+inform our genomic approaches for looking at transmission? We need that
+circularity of, we can do better with transmission, but we need to know more
+about the underlying way that it is transmitted to then come back up to it. But
+in general, the SNP approach seems to work quite well, because we don't have a
+combination, because we don't have plasmids that are going to mess up a lot of
+those things. So working in enterics from my background, you're always at
+loggerheads with some of the pre-genomic genotyping methods. So serotyping is
+kind of, there's always like a love-hate relationship between things like
+serotyping. How is things like spoligotyping for MTB? Is that generally
+consistent with what people would see in a phylogeny? Or do you all have the
+same kind of energetic enthusiasm about these methods that I do for other
+organisms? Spoligotyping is the one that persists for longest. And that is
+because it's less than a pound to do a spoligotype, and you can do 40 of them at
+one time. So when you're in a low resource country, you can bang out those
+spoligotypes really quickly and give you an idea of the lineages that are there.
+It will not tell you that if it's a transmission cluster, and that's difficult
+to try to get people to be on board with that, no matter how many papers I even
+personally publish about that. So it'll tell you very well that the main
+lineages that you have, lineages 1 to 9, and whether it's an animal one. But
+beyond that, it won't tell you. You have a lot of convergent evolution within
+those patterns. But again, there's the throw-up between accuracy and cost. When
+you're just trying to look at what are the main things that are circulating,
+spoligotype can tell you that. And what we're trying to get people to move
+towards is, you know, spoligotype everything, and then the patterns that match,
+maybe do something further on those ones. And if they don't match, maybe that's
+interesting as well, but that's two separate research questions. You know, if
+you have a new pattern, maybe we sequence that. And if we have things that are
+clustering a lot, maybe we sequence some of those to see if they are a
+transmission cluster. So there's a use for it, but it's not obviously going to
+be the be-all and end-all. I think what a lot of bioinformatics needs to do is
+marry those two together, of not say, don't do that, but say, there's a use for
+that. But it is not everything that it was five or ten years ago, but it can
+maybe point you in the right direction, like a serotype can maybe point you in
+the right direction, but it's not going to tell you what we thought it did. I
+mean, the issue with serotypes is sometimes you do have these edge cases where
+it puts two things together that really shouldn't be together. And is that the
+case with spoligotyping, or you don't really have that? Sometimes we'll put them
+together, but it's not as, we don't use this the spoligotype clinically as much
+as a serotype is done. It doesn't have this label of, now we treat in this way,
+and it has these characteristics. But we discovered lineage eight because a
+weird spoligotype came up in a routine thing. It just had none of the spacers
+that anything we'd ever seen before. And my boss, Barbara DeYoung at the time,
+she's just one of those people who has all the spoligotype patterns in her head.
+And she went, that's not a spoligotype that we know. And then we just sequenced
+it, and then it came up as a new lineage. So it has its use. That was just
+because we were going through. TB, thankfully, doesn't have this means this, in
+terms of a spoligotype pattern for most of them. What we are seeing more is that
+things like, like Susie had said, you know, Bovis has intrinsic pyrazinamide
+resistance. Kineti has that. And now we're working towards more a clinical
+taxonomy of, can we better tell you from a label, from a lineage label, what
+potentially is going to be the issue with the treatment. And that's something
+that I'm watch this space on, hopefully. I mean, I guess that's a silver lining
+there that you don't have that history, because so much of the serology and
+genotyping is baked into government policy for other organisms. And that is
+something you always have to keep fighting that they do have to wrap people on
+the fingers for trying to find the same MLST type and saying, like, oh, there's
+transmission between the cows and the farmhands. It's like, no, no, no, no, no,
+no. And this is for E. coli.  makes no sense. Back in the day I used to work in
+diagnostics the way we told if it was if it was bovis or or MTB is we'd have one
+LJ slope with pyruvate in it and one without and it was as simple as that right
+if it if it couldn't grow without pyruvate it was bovis and that's how you
+change the treatment and that gets back to the kind of resource limited it could
+come up with errors but it's cheap as anything right to say that's probably
+bovis and that's not and that's all you really want at the end of the day no
+definitely there's that definitely there's scope for for these methods and there
+always will be that they're useful and they tell you something informative it it
+becomes problematic when people tend to treat them as gospel and as kind of
+saying like you have this then you must follow this it must behave in this way
+it's like no it's it's it's a microbe it does what it wants you can't you can't
+categorize it also it takes but it takes about a month for them to grow on those
+slopes so we do need we do know we need the sequencing we need something before
+that because by that point the patient's already been given pyrazinamide and
+they've been on it for a month and you know so we need we need both we need we
+need the genetics straight away which are fast and which will tell us what's
+happening so any final comments from all of you anything you feel that has to be
+put out there in the community they have to be aware of well i guess for me the
+thing that we always say in the tb community that in the uk it's it's it's very
+difficult to get funding for research into tb and you know with a lot of the
+research funding being directed towards covid that we must not forget the other
+pandemics that are still going on and that's not just tb because you know part
+of the reason we we had such a difficult situation with covid was you know lots
+of people who worked on coronaviruses actually lost their jobs because they
+weren't considered interesting so i think if the if the covid crisis has taught
+us anything it's that we need a broad brush of research and it's certainly no
+time for complacency when it comes to mycobacterium tuberculosis and
+tuberculosis that would be my final so to add on to that what's interesting is
+that when the who released its top pathogen list mycobacterium tuberculosis
+wasn't on the list and that's because it's actually a star at the bottom that
+says tb is so far beyond all of these we thought it would just take up too much
+of the list but the problem is that the funding agencies go it's not on the list
+so we're told that it's not on the top pathogen list and we should focus on the
+top pathogen list where the who says oh everyone knows and it's like not
+everybody knows actually most people don't know that tb is killing as many as
+the entire rest of the list combined almost that was the same with the amr list
+as well wasn't it's exactly the same not on there it's not on the amr list
+either yeah despite it being half a million a year despite it being the top amr
+pathogen so yeah all right well that's all the time we have for today this is
+part of our ongoing series to talk deeply about a particular microbe and today
+we've been talking about mycobacterium tuberculosis i want to thank our guests
+today doctors suzy danny and connor for joining us and we'll see you all next
+time on the micro binfy podcast thank you so much for listening to us at home if
+you like this podcast please subscribe and rate us on itunes spotify soundcloud
+or the platform of your choice follow us on twitter at micro binfy and if you
+don't like this podcast please don't do anything this podcast was recorded by
+the microbial bioinformatics group the opinions expressed here are our own and
+do not necessarily reflect the views of cdc or the quadram institute

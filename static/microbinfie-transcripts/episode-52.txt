@@ -1,0 +1,389 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. Hello, and welcome to the MicroBinfeed podcast. Today, we
+are talking to a special guest about the situation of COVID-19 in Denmark.
+Things are changing very quickly, so I should mention that today is the 9th of
+March, 2021, and some of what we say may change by the time you hear this.
+Joining us today, our special guest is Mads Albertsen, who is a professor MSO at
+the Center of Microbial Communities at Aalborg University. Welcome, Mads.
+Thanks. I'm happy to be here. Okay. Let's get straight into it. We've talked
+before in the past about how getting into COVID was kind of like this phone call
+in the middle of the night. How did it start for you? How did you get roped into
+this? So basically, I was following it in the start of the year and I took it
+seriously, but didn't really know what was coming. But then in the middle of
+March, our prime minister closed down Denmark, sent me home from the university,
+closed all apps. And then I figured, can we do something? So I basically called
+one of my funding buddies, can I start using one of my big grants on this and
+all my people? They said yes. Then I called the hospitals I knew, and suddenly I
+had contact to the national lab that was doing this. And I said, if you can ship
+me samples, I'll sequence whatever you send our way. And that started over
+weekends, basically. So Monday, the university labs was opened again. I got in
+contact with our rector, got him to open based on COVID work. And five days
+later, we had sequenced the first genomes using the ARTIC protocol on nanoform
+in Denmark. That's amazing. So you were able to cut through the bureaucracy to
+get it done that fast? Yes and no. We're still in the bureaucracy right now, a
+year later, I would say. So we were able to sequence within a week, anonymized
+samples, test samples we got from the hospital. Then it took two weeks more to
+get the legal documents in place so we could actually help out the government
+lab. It's called Statens Serum Institute in Denmark. And it's not like we could
+do research on it, but we were able to act as like a deliverer of data to them.
+That meant we could suddenly handle all the sensitive information at our place.
+That took two weeks. In my mind, that was like ages, according to the lawyers,
+that was like world records getting that set up in so fast time. They were very
+happy. So we got started back then. And yeah, three weeks after we started, we
+actually had the first real sample sequenced where we could connect it to
+patient information. That's amazing. So, I mean, what were you doing before
+this? What was your day job? What was the project originally that you sort of
+co-opted for this? So my group normally does metagenomics and we play with
+nanopore. So we try to play with the next shiny sequencing instrument we can get
+our hands on and see what we can use it for. One of the big projects we had
+ongoing is what's called the Microflora Technica. We convinced a private
+foundation called the Grundsatz Foundation to give us, that must be like 4
+million euros, to sequence 10,000 samples across Denmark to figure out which
+microbes are actually present. So it's really like basic science. So we play
+with new methods, try to discover as many novel microbes as we can. And those
+people, so I have around 10 people on that project, we threw into COVID work
+back then. Did you get the publications out from that or did you immediately
+have to switch over and that's indefinitely paused? That's indefinitely paused.
+Getting back to it now. But yeah, there was a lot of nice high impact papers on
+the way, we hope, that hopefully still are there now when we are starting to
+slowly get back. Don't worry, everyone in the world has moved over to COVID, so
+you know, you're not missing anything. Yeah, I think that's fine. It's been fun
+to help out, but of course it's been a big hit to our normal research. And so
+how did you actually get started off? You're using MinIONS, did you have any
+other sequencers or was it just a room full of MinIONS taped to random
+computers? Yeah, so from Twitter, that's how it looks and that's also how it
+runs. So we have Illumina also at our place, but we mainly use MinIONS because
+it's very flexible for development work when we have to test things. And it's
+just a bit more fun to play with Nanopore normally. So that's where we got
+started originally. And so what do you do? Do you run 96 at a time on a flow
+cell or do you wash flow cells in between or how do you work? So what we do
+right now is we run everything in plates. So we have 96 positions, I think we
+have 88 samples on the plates. We pool two plates and divide it on two or three
+MinIONS at the same time. We do that to make sure if we have one bad flow cells,
+we'll still generate enough data. And then we start sequencing in the afternoon
+and then we kill it after we have generated 10 gigabases per flow cell or at 6am
+the next day. And that makes sure we can actually just deliver data. We use like
+one third of the capacity of the flow cell and then we just chug it out. It's
+too expensive to start to wash flow cells or do anything else compared to what
+everything else costs. Are you not saving up those flow cells for later on for
+all of your other normal projects? You can just use your 20 gigs or whatever on
+a flow cell? Yes, we are of course washing them and keeping them in freezers so
+we can reuse them. And we are also using them quite a lot. So if we have to test
+something, we just take a few old flow cells out and test it on that. So that's
+really convenient to be able to use it. It's really only emergency where we're
+using it to sequence real samples. We had a few times where delivery got stuck
+from nanopore or we had a lot of bad flow cells. We then had to go to the
+freezer and take those out and they work just as fine as normal flow cells. We
+just play it safe normally because it's not the sequencing cost that matters in
+these projects we run. It's such a small part of the cost. So you said you do 88
+samples on a run. So what does your plate look like? How many controls? How many
+positive, negative? So we have four negatives spread in the center of the
+plates, divided a bit out. Then we have one positive and we have two blank spots
+for measuring concentrations. The nice thing is that we get these plates so we
+don't do the RNA extraction. We get these plates from the hospitals or the
+national lab and they ship it to us then and then we can just take a plate, just
+chug it through without changing anything in the whole process. That's really
+convenient from our side that we don't have to touch anything. The room for
+concentration measurements is also in there. That is awesome because we get
+random plates from places, not even plates, tubes and stuff sometimes from many
+different diagnostic platforms. Some of them you don't have CTs, some of them
+you have to do extractions, that kind of thing. And my God, we'd love just to
+have plates of RNA, it'd be great. Yeah, that's really a privilege in that way
+that the national lab in Denmark, they handle all that in an automated fashion.
+So in Denmark, we have two test tracks. I think most countries have a healthcare
+track based on the hospitals, then we have a community track which is really,
+really large scale testing in huge labs on robots. And the flow from there is
+quite easy. Everything is done in robots. Positive sample is called, gets re-
+extracted in the normal format and shipped to us. But all the handling of
+samples from the hospitals is a manual process, but not done by us. That's
+really grateful for all the work that the national lab is doing. That's like a
+huge work to do that and we get the nice plates. I guess people maybe not
+realize just how big of a logistical challenge that is, like that is enormous.
+And I know in the UK, that's one of the huge blockers is just simply cherry
+picking out the positives from the mountain of negatives. And yeah, that is just
+a huge blocker and it has been a rate limiting step for the UK, which hopefully
+they're slowly solving, but it is a big challenge, particularly when you're
+operating at scale. It's a massive challenge. So fair play to your national lab
+for sorting that out. Yeah. I'm a bit curious on that because it sounds like the
+national lab already had this infrastructure in place to kind of do this work.
+So what were they fielding routinely? Was it just general everything or? Yes. So
+in Denmark, from the start of the pandemic, the hospitals were required to ship
+out all positive samples to the national labs. So in that way, it was actually
+set up that the hospitals already picked out the positive samples. So it's not
+the RNA we get from the samples, we actually re-extract the positive samples.
+Again, in the beginning, I was very surprised. Why couldn't we just get the RNA?
+But that's a logistical nightmare. It's much easier to actually get the samples
+itself than do re-extraction again. And so what's the turnaround time from when
+someone gets sampled to actually having a sequence? So from the community track,
+we have a medium turnaround time of five days. On the healthcare track, it's
+around 10 days. That's quite interesting. Why is it slower for healthcare?
+Because there's much more logistics involved. So this is done on a lot of
+hospitals in Denmark. It has to find the samples and ship it in.  If it's from
+the community's track, it's on huge robot farms that's located just next to the
+national lab and everything there is just automated. That's interesting because
+we have the opposite. Our healthcare, which is pillar one, is very, very fast
+and it can be sample one day, sequence the next. And it's a community bit that
+takes a bit longer, because samples have to go up and down the UK and God only
+knows where else. And then before they actually ever get to a sequencing center.
+And so turnaround times can be much longer, like in terms of weeks, like two,
+three weeks. Yeah. I see a local turnaround time is also faster. So we've set up
+the sequencing at all hospitals in Denmark too, so they can do local sequencing
+and they do local outbreaks and there they can do same day turnaround on
+samples. And they also do a high priority. But for the national surveillance, it
+is around these 10 days, medium turnaround time from the healthcare track. So
+how are your clinicians actually using the data for local outbreaks? I actually
+don't know much about that part. So we are more involved in the data generation
+and then the hospitals are using it for small local outbreaks. But right now in
+Denmark, it has really mainly been used as a national surveillance of B.1.1.7
+and also monitoring of variants of concern that has then been enhanced contact
+tracing on it. I think that's what we envy the UK for quite a bit, using the
+data a bit more actively on that part than we are in Denmark right now. Yeah, I
+know for outbreaks, it has proven useful, but it requires someone like one of us
+to actually interpret the data for them, because while they can look at
+lineages, it doesn't really tell them very much. It's when you actually have to
+dig in and say, this over here is at luster and that's not at luster, or you've
+two outbreaks here, or it's kind of one thing is split and now your staff are
+infecting staff and patients are independently infecting patients. It's proven
+to be quite useful, but you do really need that genomic epidemiology and those
+experts on hand to interpret the data. Yeah, we have a few of them in Denmark at
+the national lab, but as everyone else, they are overburdened with work. So I
+think they are in short supply. People can actually do that. And that's the main
+bottleneck actually for using the data. That's having more people who are very
+good at this, interacting with other healthcare professionals. So what do you
+think the future is going to be like now in Denmark? Now you've gotten
+sequencing into the clinic, which is what we've all been trying to do for years.
+Do you think it's going to continue? Is it going to just kind of fizzle out? I
+think it has really opened some doors and shown people what's actually possible
+today with sequencing capacity. That it starts to be too expensive not to
+sequence the cases. And we have the technology today to simply sequence
+everything. And I think we're going to move very fast on that. Denmark has
+already been okay at it. But I think now the local hospitals also start to see
+the value of doing this. And then the main bottleneck is, do we then have enough
+people who are actually good at this to make sure the data gets used? Because I
+can see, you know, in the future, people try and apply the same methods for flu
+and for just any viruses and bacterial outbreaks, you know, just in general, you
+know, as a matter of course, and that will be quite interesting. But then, of
+course, you can't have amplicon sequencing for every different virus and
+whatnot. It just wouldn't make sense. So it would really be down to doing
+metagenomics and microbial communities, which you are more familiar with than
+most. Do you think that would be a reasonable thing for hospitals to have, you
+know, metagenomic sequencing, just sequence a sample, and then you get an
+answer? Yeah, I think that that's given the cost of sequencing today, I think
+it's relatively cheap to actually do. And most people have the sequencing
+capacity to do it. So I think that could be something that moves into routine.
+But of course, what I've learned last year, that you need to have really robust
+protocols and procedures at the hospitals, and that takes some time to develop.
+We just develop something, and then we let others make it into some robust
+workflow. And that takes some time to make sure that's really integrated. So
+what I want to know is, you started off with the ARCTIC protocol, but then you
+tweaked it slightly. How did you tweak it? And why did you make the changes? So
+we started back in March. And our main problem was there, if I did back off the
+envelope calculations, we had 24 barcodes at that time, I would need like 100
+men in the lab to actually do these protocols. So the one thing we wanted to
+change was barcoding. So we switched to barcoding in the PCR, which is very easy
+with nanobar. I don't know why more people don't do that themselves. So that was
+the first thing we changed. And then at the same time, we wanted to use it as
+the capacity of the nanopore, and that's a bit better if you have longer
+amplicons. So we dialed it up to around 1200 bases to be able to push 30
+gigabases to flow at least. So that was the main changes, barcoding at the PCR
+step instead to allow for, I think we made 500 different barcodes or something
+like that back then. Did you use the nanopore PCR barcodes? No, we just made our
+own, put in 10 random nucleotides, and you have your barcode, and then you call
+it. So it's really easy to do. So I'm curious with the long amplicons, what
+we've noticed with some of the variants of concern is that the mutations may
+take some primary targets out of, you know, they don't work and you won't get
+any coverage in that area immediately downstream. Have you been seeing that on
+to your protocol? So we actually, so we use the Arctic primers too, we just use
+one third of the primers basically. And we do also see amplicon dropouts from
+time to time, not in the variants of concern currently, but if we see an
+amplicon dropout, it's going to have a larger effect because we miss a larger
+part of the genome. But on the other hand, it's also a smaller part of the
+genome sensitive or having mutations because you have fewer primers. Yeah,
+that's true. So there is a deletion that is causing some issues and they are
+bringing out an update to Arctic, just one extra primer to fix it. Yeah. So what
+we've done so far is we do rebalancing. So we add in more primers of those that
+seem to not work that nice. We had some issues with primer based dropouts back
+in November when we have all the mink variations, but they disappeared again and
+then our problems disappeared. It's really difficult to fix these problems
+because it depends on the current balance that actually circulates in general. I
+think the current Arctic primer seems to work quite nice still. So I've heard
+that the reason why Arctic goes for short amplicon lengths of about 400 is
+because it works better on high CT and degraded samples. What kind of effect do
+you see by increasing to 1200 or 1400? I think we compared around a hundred
+samples originally with the original Arctic compared to what we do. It was very
+similar results and that's basically what we've done so far. And you can see if
+we compare with what people do in the literature, we are at the same success
+rate more or less. We were also concerned, especially in the start, that we
+might miss a lot of the high CT samples, but it doesn't seem to be a big
+problem. I would assume that definitely smaller amplicons are better, but in
+practice it doesn't seem to have as big effect as I thought. Do you think it's
+because in Denmark you're doing the re-extractions much closer to the
+sequencing? I know with us, the RNA can be quite degraded sometimes and we just
+have to use the diagnostic, like the waste from the diagnostics and whatever
+comes out of the machine, that's what we have to use. And it might be sitting at
+room temperature for a while, there might be a freeze-thaw cycle, but actually
+you guys have a much more controlled way of getting those samples and maybe
+that's why you can actually go for these longer amplicons. Yeah, that's a good
+point. That could actually be one of the reasons why it works quite nice. And do
+you have a publication on this new method? We made a protocols.io back in April,
+we just haven't had time to do anything. It's a bit crazy. We had hoped to have
+like 10 major papers now on everything, but just haven't had time to do much.
+We're starting now to get a bit back to writing some of the things up we've
+done, so writing a bit more on the performance on the method and also what we've
+seen in Denmark. But it's first now and let's hope we don't get any new
+variants. So we thought back in November that we should start to now write
+things up, then we had all the mink variants in Denmark, then we started to get
+a bit relaxed in December, then we have the B.1.1.7 and yeah. So whenever I
+think we have to relax, we get a new variant, we have to... So speaking of mink
+variants, we've just seen an N501T pop up in Zimbabwe, which is quite
+interesting. Yeah, yeah. I would say long Amplicon protocols out there that also
+seem to work nicely. This is just what we've started doing and what we are still
+more or less doing. So what kind of scale are you guys operating at now? So
+right now we're doing 1000 samples a day, but in theory we can do around 2500
+samples a day. But we have to push. And we do two days in the lab per batch. So
+we start doing PCR and cDNA on day one, and then we do pooling, normalization
+and nanopore prep on day two. Do you guys work weekends as well? No, not unless
+it's really urgent. So we did in the start of January, there we said you ship
+everything, we'll just sequence it. And I think we did a couple of weeks with
+10,000 samples a week back then. That's more than most countries have done, you
+know, for the entire pandemic. So this is, you know, vastly bigger than Denmark.
+And you do it in a week. Yeah, it's quite nice. But also, as we talked about
+before, it really also comes back to how it's set up in Denmark on a national
+level with how the testing facilities and the sample prep. So if you got samples
+in a nice 96 world format, I think you can also push more samples. Now, just as
+a comment, like this seems to be a common story that anybody who's really he had
+successes on the back of long term infrastructure, long term investment in
+knowledge. Just a hint to anyone in policymaking out there. Well, you mean you
+can't just build this overnight and like America's trying to do? Yeah, you can't
+just pile of money at us. You can't just throw money at it. No, that seems to be
+the issue. I was just gonna ask, was your Christmas cancelled? Like our
+Christmas?  was over here. Our holidays were very reduced at least. So people
+were tired after our November where we really scaled up to sequence the mink
+related cases. So we had plans for going for a thousand samples a week instead
+of five thousand, but we powered through instead. We still had Christmas, still
+had a few days of holidays, but other than that we had a team in processing
+samples. And the data we generated around Christmas and New Year's, that was
+actually the data that was used to enforce stricter lockdowns in Denmark. So I
+think we also had an impact that we really stepped up and generated enough data
+that the politicians there take decisions based on that. And that's a really
+good impact, that's science in action, which must feel really good for you guys.
+You know, you're doing a bit of work and then you're seeing the effect
+immediately. It's not like you're writing a publication and waiting, you know, a
+few years to see will someone hopefully pick it up or cite it. Yeah, it's a bit
+strange that we actually see that this has an impact on the society as we do it.
+And of course the team is very proud that we are helping to do this, but it's
+also very special that so much emphasis is now put on these data. They actually,
+that we have a government that's quite brave enough to try to steer some of the
+country, basically. I mean, some of us said that over Christmas we were getting
+blamed for the whole thing. Do you really want to be known as the scientist who
+stole Christmas? But that's also how it is in Denmark. So we also start to have
+more people making a lot of noise and are not happy. And I also get funny,
+strange emails from strange people saying that this is our responsibility and
+there's no virus. But I guess this is what we have to live with. So based off
+what you're saying, it sounds like most of the organization goes to the National
+Reference Lab. And is that also applied to metadata, contextual data around the
+samples as well? How does that flow through from the hospital to you? Yes, so
+everything is going through the National Lab. It also keeps the national
+surveillance data for Denmark. That means that every single sample can actually
+be connected directly to a person. And that data can also be connected directly
+to the health record that can be pulled by the National Lab. So everything in
+Denmark is really directly connected to the data through the National Lab. And
+by coincidence, more or less, it's actually my group that then connects the
+genome data to all the healthcare-based data on our servers. And who manages the
+uploads to GISAID and the ENA in place of that? That was my fantastic PhD
+student, Thomas Using-Mikaelsen. He does all the uploads until now without any
+errors, more or less it seems. At least we have like a perfect record of dates
+as I've been following on Twitter compared to many other countries. I see art is
+doing up these beautiful graphs where you're showing, well, kind of shaming
+countries. You're very happy about them in Denmark. I know in the UK's case,
+sometimes you just can't get dates because sometimes samples would be slipped
+through the system. Or actually, sometimes you get the data sample collection
+with a person's date of birth. And it's like, well, probably not. We get a lot
+of strange samples in Denmark too. And we have around 50,000 sequences that's
+uploaded. We've sequenced 100,000 samples, I think around 20,000 of them,
+multiple sequences from the same person or things that, by one or the other way,
+couldn't be related to a proper sample. So we don't upload it. So we have a big
+filter in front that makes sure that the data we upload from Denmark is also
+quite representative of the pandemic. Awesome. And what kind of data are you
+allowed to share? Not much right now. So we are allowed to share data with a
+date that binned to a current week and the region where it was taken. And I'm
+not sure we are really allowed to do that by the lawyers. That has really been
+an ongoing discussion. How much are you actually allowed to share? And that's
+why I tried to say before that we are still discussing with the lawyers a year
+later on what we can upload and what we can do. And also how can we share, for
+example, data just back to the hospitals. That's actually also difficult because
+they take samples at the hospitals, but they also have a lot of community spread
+that's tested in the community track. But we cannot share those data with them.
+So there's still, I would say, a lot of strange legal things that needs to be
+sorted out to be able to use these data effectively. And I think that's
+hopefully for the next next pandemic. And that's hopefully sorted. It really
+took us by surprise. I think this time how difficult these things are. That is
+quite disappointing, because it is quite useful seeing the community data and
+the hospital data in context, because you can tell quite easily if this
+particular outbreak is related to community or if it's just hospital associated.
+You can see it advance nearly. Yeah, in Denmark we can also do it, but it needs
+to be in collaboration with the national lab then, because they're the ones with
+the correct level of access to data to be able to do it. But that's really a
+bottleneck that you need to then have like 50 more people employed at the
+national lab to just help with inquiries from the hospital. So I think that's
+one of the things that needs to be sorted, at least in the future. And we are
+working on it. It just takes ages when you have lawyers involved. So what are
+the next steps for your group as vaccination is rolled out? So that's getting
+out again of this basically. So when we started back in March, I set a hard
+deadline, say, we want to be out 1st of January again. And that point to the
+hospitals and the state lab needs to have taken over. Then we have a lot of new
+variants coming out. But now the deadline is summer, we want to be out. And
+that's also what we are setting up now. So the national lab is building
+sequencing capacity, and the hospitals also building capacity. We now have some
+of the big hospitals starting to see a sequence a much larger share. And that's
+what we are using the next months for figuring out how can we actually make sure
+that we can improve the surveillance actually. So I think bringing the
+sequencing even closer to the samples is going to improve the turnaround time in
+a good way. So hopefully we can land that nicely the next three months and help
+with that transition too. And you can have some summer holidays then? Yeah, I
+would like to be out before summer holidays this year. But of course, if it goes
+wrong again, if we get new variants because of the vaccines are popping up, then
+we of course here to help. But we hope like everyone else that this starts to be
+over by summer. And that we all can get back a bit more to normal life again. So
+who's taking over at SSI actually? That's also a bit undecided now which group
+is actually going to run it and if it's going to be together with tests in
+Denmark, so the big testing facility. And that's what we are figuring out now.
+SSI is figuring out how it's really going to set up. But once you have programs
+at this size, this is actually a quite big program. There's also starts to be a
+lot of political interest and people with big egos that wants to figure out how
+this is done in a proper way. So it's a bit more complex process getting it set
+up. But again, we are here to help and so that's really in place and hopefully
+it's going to be set up in a few months. So what are some advice for anyone, any
+country or any lab that wants to get started in this space? You know, just a
+couple of pointers. So I think one of the important point is to be inclusive, to
+make sure that you acknowledge the hospitals and all the people actually
+involved in this. Sequencing is one part, but you need to really have excellent
+collaboration and the whole like food chain from a sample is taken. So you
+actually get it acting on the data. I think that's been one of the big lessons
+in Denmark that we have really a good healthcare system in place already where
+these things are relatively easy to do. And don't neglect how much work you
+actually need to put in to get it to work. Then I think the other thing is make
+sure you solve all the problems that comes your way. I think one of the reasons
+why we've been successful in Denmark is that I have an awesome team behind me
+that solved a thousand problems that occur in projects like this. Just from
+primers missing in the lab to not being able to order reagents to figuring out
+how to buy stuff in Singapore or stuff like that because it's just not
+available. It's a thousand problems that's going to occur and you need to put on
+the hat saying I'm going to forget that it's a problem and they just solve it.
+On that inspirational words from for me, Mads, that'll be it for today. So
+that's all the time we have for and yeah, I want to thank Mads for joining us
+today. Very interesting. And thanks to everyone for listening. Thanks. Thank you
+all so much for listening to us at home. If you like this podcast, please
+subscribe and like us on iTunes, Spotify, SoundCloud or the platform of your
+choice. And if you don't like this podcast, please don't do anything. This
+podcast was recorded by the Microbial Bioinformatics Group and edited by Nick
+Waters. The opinions expressed here are our own and do not necessarily reflect
+the views of CDC or the Quadrant Institute.

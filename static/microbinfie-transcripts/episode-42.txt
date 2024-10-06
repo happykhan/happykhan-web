@@ -1,0 +1,575 @@
+This time in the Michael Finke podcast, we come from the Arctic Network and
+Climb Big Data joint workshop on COVID-19 data analysis, held on the 14th and
+15th of January, 2021. So just to introduce the panel members, or I'm actually
+going to allow them to introduce themselves, I'm going to chair and we're going
+to hear from Andrew Page from the Cordial Institute, Anya, who you met already,
+Will, who you met already, and Anna Price from Cardiff University. I'm just
+going to ask each of the panellists to introduce themselves properly and just
+maybe share a story about something about COVID genomics that's worked well last
+year, or perhaps has been a total disaster, whichever you fancy. So Andrew, can
+you say hello and just introduce yourself? Hello, I'm Andrew Page from the
+Kwarterm Institute in Norwich, which is in the kind of east of England, and I'm
+head of informatics and do bioinformatics normally. But for COVID, you know,
+we've been doing lots of sequencing for our little region, so working with like
+five different hospitals, and we've nearly sequenced about 10,000 samples now at
+this point. So some good things I think that came out of it are that we are
+talking directly to the public health teams, the track and trace, so, you know,
+people who in the local area will go knock on doors so we can feed them
+information and say, maybe this little cluster here is important, or kind of
+looks a bit odd, and they can go and track it down. And also working with the
+clinicians in the hospitals. So they might come to us with questions like, do we
+have one outbreak here? Or is it like 10 different random COVID cases coming in
+from the community? And we can, you know, give them a heads up, or maybe there
+is linked cases here potentially, and they can go and, you know, maybe do a bit
+more work, or not. It doesn't always work out. Often we find that the samples
+clinicians are most interested in are the ones that they haven't given us, so we
+can't sequence them, or that they have very high CT values, so there's a very
+low viral load, and of course, we've no genomes for that. Thanks, Andrew. Anya,
+do you want to reintroduce yourself and share an anecdote? Yeah, no worries.
+Yeah, I'm Anya O'Toole. I'm in Andrew Rambo's lab up in the University of
+Edinburgh. I was to finish my PhD last October, but the pandemic has sort of
+taken a precedent over thesis writing, so I'm still a PhD student with Andrew at
+the moment. Yeah, so it's been a busy year, I think, for everybody. I've learned
+a lot. Pangolin was the first sort of packaged tool that I wrote, and you know,
+sort of over the last year, me and Verity and other people in the lab sort of
+been coming up with other tools to try and make it as easy as possible for
+people who are generating the data to actually do outbreak investigations and to
+sort of get information out of it, and I think for me, Civit has been a really
+useful tool, sort of on my side and also from hopefully the user's side as well.
+As you know, there's been sort of install issues and stuff like that yesterday
+on VirtualBox. We've never really trialled that before, but yeah, it's been
+really useful because as I mentioned yesterday, at the very beginning last year,
+it was a very manual process of doing outbreak investigations. You know, we had
+people sequencing down the hospital, and basically I would get emails from
+multiple people asking, can I make a tree out of these sequences, and you know,
+it was just too much to juggle. So between me and Verity, we wrote this tool
+Civit, and it meant that actually the ability to do the outbreak report was in
+the hospital then, and you know, obviously there's been sort of development over
+the last few months, but for me, that's been really useful because it meant
+people could do it when they wanted to do it, and they wouldn't be waiting for
+me to do it as well, and I think it sort of brought that ability out a little
+bit more, which was really nice. So it's been, I think Civit has been a success,
+I think, it's still in development, so. Yeah, and you know, these tools have
+been incredibly useful, certainly in the COG project and also globally. I know
+they're extremely popular now, so it's really great that they can be made
+available in the way that they are. Okay, Will, do you want to say a few words?
+Hi everyone, I'm Will Rowe, postdoc in the next group. I was working on the
+Arctic Network grant before the coronavirus struck, and then now I've been
+working on this, mainly the pipeline, which we all have been using yesterday. In
+terms of anecdotes, I guess something good which has happened is, it's been
+really sort of positive and encouraging experience to sort of be a part of
+something where lots of bioinformaticians all come together to work on sort of a
+shared code base. I mean, I've been used to sort of siloed bioinformaticians and
+sort of going from start to finish product and just publishing a paper and that
+being it, but this is a much more sort of, I mean, it's more exciting, it's more
+sort of a natural way of evolving something where you've got lots of big,
+massive user base, lots of people say we want features and we want this or
+reports a lot differently. So that's been really sort of encouraging to just be
+exposed to sort of how I would like bioinformatics to work more in the future.
+So that's been really good. But at the same time, I guess you could see this as
+a negative in that you've just working at such a fast paced area. Lots of bugs
+are getting incorporated, which you've got to go and squash at a later date and
+stuff. So it's sort of a poison chalice really, but it's been, it's been a
+really good experience and it's nice to have something which is being widely
+used and be really grateful for everyone's feedback and future suggestions on
+sort of this pipeline and other software. That'd be great. Yeah. I mean, it's
+like the only software with no bugs is software of no users, right? That's the
+idea. I think you're right. The team spirit, particularly on the Cog project has
+been immense in terms of fast paced development, something we really want to
+open up more to the rest of the world, which is, you know, this workshop is
+aiming to facilitate that. So thank you, Will. Anna, do you want to give us a
+few words too? Hi, I'm Anna Price. I'm a research software engineer at Cardiff
+University, working with Climb and Supercomputing Wales. So I've been involved
+with two analysis at Cardiff in conjunction with Public Health Wales. So
+analysis of a new variant in Wales, and also we've been working on an analysis
+where we try to determine the rate of importation of cases from England into
+Wales. So my work is mostly involved analysis of the Cog UK metadata and the
+information that can be gleaned from this. So using the metadata to generate
+information on the geographic distribution of lineages and also using it to look
+at population characterisation. So in terms of things that have gone well, I
+think I have to highlight the efforts of Public Health Wales and the incredible
+amount of work they've done. I think just in the last week, PHW have sequenced
+over 2000 samples. That's an incredible effort in terms of things that have gone
+badly. I think I have to agree with Will in terms of having to work very quickly
+on software and sometimes bugs get introduced and things go wrong. So yes,
+that's been a little bit pressurised, but I think it's been a lot of work
+generated and a huge amount of data generated as well. It's been an interesting
+time. Thanks, Anna. So, OK, that's great scene setting. So I think we're going
+to try and turn this panel discussion into, you know, kind of set it up by
+theme. And the first theme is really to try and get a discussion going around,
+you know, what do you need? So, you know, we're really interested to know, you
+know, what the gaps are, what the challenges and the difficulties are. And on
+that theme, I'll take the first question from Christine. Hi, good morning. No, I
+just asked what would it be possible to get examples of spreadsheets and sample
+ID schemes that have been used to collect metadata from health care institutions
+and public health bodies rather than us reinventing the wheel where we are, we
+could adapt what's being used already. For example, we've, you know, we've
+started doing our own sequencing. We have a terrible sample ID scheme and I'm
+trying to force people to change it. And I would love some advice. And we got
+some advice, but it would be nice just to see something that we could adapt.
+Thanks. Great question. Who would like to take that question first? I can take
+it maybe. So with metadata, you can go a bit crazy on it. And one extreme might
+be phage have a metadata scheme, which is like the ultimate for if you really
+like metadata. But then on the other extreme, you have a very minimal. And what
+we found is that if you ask for too much, people don't give you anything or they
+give you like virtually nothing. So you have to be very careful in what you ask
+for and what is really, really important. We can provide like a sample metadata
+spreadsheet if you want. And we've had to put in like columns, you know,
+annotated for maybe office staff who might have to fill these in because
+computing systems can be maybe not joined up. I know in our local hospital, we
+have people who have to go into multiple different systems to pull stuff out
+because, you know, there's like 150 different systems in the hospitals that we
+support. And then say last week, someone changed how data was processed and we
+ended up having a team of four people just tracking down 200 individuals
+metadata, you know, and they spent a couple of days on that. So it can be quite
+a challenge. So if you do come up with a metadata scheme, make sure that you ask
+for the absolute minimal that you need to do your job. So that might be maybe an
+age, gender, that kind of thing. Collection data is very important. And just a
+few other small things.  investigating, you know, are people seriously ill or
+the healthcare workers location as well. But if you then dig way too deep and
+you start, you know, having like 200 different pieces of information people have
+to fill in, you're going to find out they'll take shortcuts or they'll just put
+in random boilerplate stuff. Yeah, so just to recap there, there are, so Andrew
+mentioned the PHAGE project, which is a consortium run, I think, out of Sanbi in
+South Africa. And you've published, I think, a basic metadata specification. So
+that's a good option. In terms of the COG project, Christine, we've published a
+paper or it's a preprint on our local database, which is called Majora. That's
+the one that collects all of the metadata up. And in there, there's a metadata
+specification that you could look at as well. So those are two options to start
+with. Let's take this question now from Laurence, who's asking if the panel have
+any recommendations about how to assess for intrapatient variability. So
+intrahost variation in SARS-CoV-2. And I think as a, so that's one question and
+a follow up question is, can it be done with the ARTIC protocol and can it be
+done on Oxford Nanopore specifically? So who would like to talk about intrahost
+variation in general first and then answer the questions about ARTIC and
+minions? I don't mind having a start at that. So personally, I think the jury is
+currently out as to whether there is significant interesting information in a
+typical SARS-CoV-2 infection, i.e. a quite short infection in terms of
+intrapatient variability. So you've got to remember where that variation comes
+from. It can come from the fact that someone could be infected by a diverse set
+of genomes, if you like. For example, in a situation where the transmission
+bottleneck is wide and there's lots of circulating diversity, you could be
+infected by multiple lineages or multiple strains at the same time. In our
+experience, we don't think that's very common. We don't think there is a wide
+transmission bottleneck in SARS-CoV-2. And actually, when we look into it, it's
+very unusual that we find multiple lineages in the same person or even much
+variability in the same person. In the context of a typical infection where you
+get infected, you hopefully don't get too sick, but you might get sick, but you
+recover within a week or two. That's not very much time for the virus to evolve
+much in the person. And that's what we tend to see in the sequencing. And
+although we do sometimes see what might be called co-infections, it's often
+quite hard to know if that's real or if that's a technical artifact from, let's
+say, two different samples getting mixed up in the laboratory process. Because
+we're often dealing with amplification of very, very small amounts of starting
+material, even the tiniest amount of contamination between samples before the
+amplification could result in that type of result. But we don't see it very
+often either way, whether it's technical, whether it's biological. The flip
+side, though, I would say is that there are now studies that are very
+interesting, looking at patients that don't seem to be able to clear the
+coronavirus quickly. So I'm thinking about situations such as immune deficient
+or immune compromised hosts, either through genetic reasons because of an
+acquired illness like HIV or because of cancer chemotherapy or other
+immunosuppressant drugs. There have been several case studies where in patients
+where SARS-CoV-2 is not cleared rapidly, where infections can go on for a long
+time, months. I think the longest I've seen recorded is about 150 days. In those
+situations, that's enough time for some appreciable amounts of diversity to
+accumulate in a person. And this might be accelerated by the host condition. If
+the immune response is not very good, it may give the virus a bit more of a
+playground to test out different combinations of mutations. And interestingly,
+the new variant that was detected in the UK, which is being called B.1.1.7, or
+it's got several other names now, and I can't remember them all. It's been
+speculated that virus, which has actually got a very large number of mutations,
+many more than you would expect over at this point in the epidemic, with
+evolutionary rates of about two mutations a month, it's got about 10 or 20 more
+mutations than you'd expect on that clock. And that was speculated to have
+emerged during a kind of chronic infection. In those kind of cases, intra-host
+variation is quite interesting. And so the second part of your question, and I
+don't know who wants to take this on, is can it be done with the ARTIC protocol,
+either on Illumina or Minions? We did actually publish a paper on looking at
+this specific question. Can you use ARTIC amplicon sequencing to look at intra-
+host variation? You actually can, but if you do a single sequence, a single
+replicate, if you like, if that's a thing, the frequencies are not that well
+correlated with metagenomics, just because of the sort of stochasticity
+associated with PCR. And this is particularly problematic at very low viral
+loads, very high CTs, because you are probably amplifying off one or two or a
+handful of template molecules, in which case you get a very poor frequency
+profile that probably doesn't make sense, because you can't find something at 5%
+or 10% allele frequency if you're amplifying off one copy of a molecule. It's
+simply mathematically impossible. We found that those results can be improved
+dramatically if you throw it, if you do replicate sequencing. So if you do the
+same, if you do the PCR three times from the same RNA, you get frequencies that
+much better match what you'd expect from an unamplified type of approach like
+metagenomics. And in regards to nanopore sequencing, well nanopore sequencing
+has clearly a much higher error rate than Illumina sequencing, we would say
+about 5%, but actually that 5% is quite unevenly distributed between different
+parts of the genome. In some parts of the genome it's actually much lower error
+rate, and in some it's much higher error rate, for example near homopolymers. So
+in that case, nanopore sequencing, the frequencies generally correlate well with
+Illumina and with metagenomics in regions where you have detected that there is
+variation. So if you know a priori you're interested in a particular location,
+it tends to correlate quite well. It's not very good for discovering low
+frequency variation down at the 1, 2, 3% mark, but at the kind of 25, 50% mark,
+it's quite good. Right, that was quite a long answer. Did anyone, any other
+panelists want to want to chip in there and disagree, particularly if you want
+to disagree with me? Well I'd just like to say that a lot of the variation, if
+you do just randomly look at a sample, it's probably going to be contamination
+or something like that. So you're probably 99% of what you're going to chase is
+probably going to be just simple little bits of noise. So maybe try and skip
+that one and leave it for the moment. Yeah, I agree. I think for a single you
+know, a single time point, single sample, single sequence, you know, the
+probability of finding things that are interesting is probably outweighed by the
+probability of finding things that are technical artefacts. I think that's
+probably, I think that agrees with what you're saying, Andrew. I think in the
+situation where you do have a long-term infected patient, multiple time points
+where you can track the trajectory of, you know, these intra-host variation, if
+you can see particular mutations going up in frequency or descending in
+frequency, that's much more stronger evidence that there's a real effect going
+on in that patient. Although several papers have been published talking about
+the use of intra-host variation for, for example, doing genomic epidemiology,
+I'm not actually convinced that it's adding a great amount of signal in terms
+of, let's say, resolving transmission chains. I don't think there's a very good
+evidence base for that at the moment, regardless of the protocol that you use.
+So I wouldn't get too bogged down with doing that. I'd much rather have lots of
+samples than have, than look very deeply into an individual sample, if that
+makes sense. John, do you want to ask your, or share your experience and ask
+your question directly? We were mandated to test COVID within my institution
+here. It's the International Livestock Research Institute. But before we gained
+that ability, there was only one institution that is the Kenya Medical Research
+Institute, through a collaboration with the Wellcome Trust that were mandated to
+do the testing. But since they are focusing on human research, they were given
+also the go ahead to sequence the samples. And mostly they have  data on G-sate
+and I've done that, the sequencing using MinION. But here in my institute we do
+have both Illumina and MinION, but a major challenge has been to convince the
+government to give us approval in order for us to sequence the samples, even
+though we do the testing. So it's taken quite an amount of time, but I think
+hopefully soon we will begin that. So my question is, how can we better engage
+the government or the ministries of health in helping us tackle these problems,
+especially when they become a pandemic like SARS-CoV-2? That's a really great
+question, I think. How do you persuade the government that sequencing is
+important and to support it? I mean, the UK has been in an interesting position
+because I think we started our coronavirus sequencing long before the government
+was interested in coronavirus sequencing. But the discovery of new variants
+recently has really changed the interest levels of government. They are much,
+much more interested in using this information, particularly as it relates to
+issues around travel corridors and travel policies. And of course, we have a
+situation at the moment where UK nationals are banned from traveling to many
+countries because of the potential for us exporting new variants. But we are
+also now imposing travel bans from countries in South America because of the
+Brazil variant and also from South Africa because of the variant that was
+discovered there. So this turns it very political very quickly. Would anyone
+like to comment specifically on John's point? I mean, it's probably worth saying
+in the UK, we've been building the groundwork for a long time. Nick will
+remember when he first started working with me, we used to just joke about the
+fact that Public Health England would never, ever do genome sequencing. It's
+just inconceivable. This was just a research tool. And we in our ivory tower
+universities would gloat over it, but we'd never get the public health
+authorities using it. But that transformation did come, it came unevenly. Some
+parts of Public Health England took to genome sequencing very easily, other
+parts not so much. But we'd already laid that groundwork in that we'd engaged
+with those people, they, you know, it was clear that it was a good thing to do.
+Obviously, there are issues about sometimes people don't want to know the answer
+as well. So if you, if you can prove that there's an outbreak going on in a
+hospital and the patients are catching it in the hospital, whether it's MRSA or
+COVID, the hospital authorities will say, well, we don't want to know that, that
+affects our reputation. And these issues are things where you have to say, well,
+you've got to step back from that petty business about your reputation, and have
+a system in place where actually these kind of things are mandated and that
+people have to share information. But it's yeah, it's, it's a slow process
+winning over opinion across and building that bridge. I mean, one of the things
+that is always at risk is the clinical academic interface, keeping people who
+are working in clinical practice, and academics talking to each other, and
+actually having people who are qualified in both areas, to be able to take what
+we find in the university environment as new methodologies and new approaches
+and findings and translate them into into the clinical environment, always a
+struggle to keep that that interface going. Sorry, no, I was just saying that in
+Trinidad, one of the things that helped us to get our Ministry of Health and
+Public Health Agency on board very quickly, was the assurance that we weren't
+going to be sending any samples overseas. So having that local capacity for the
+sequencing, we use the MinION, having that local capacity really helped us, they
+were not interested in, you know, having samples go anywhere else. And that that
+made a big difference. So I don't know if that's helpful to John. That's really
+interesting. I mean, one bit of practical advice from the UK, because I think
+other countries have got caught out here, where they've engaged in genome
+sequencing programs in public health, is to establish very, very early, ideally
+written down, and passed by the government, the principle of data sharing. So if
+you state in your protocol, your sampling protocol, and your sequencing
+protocol, that data produced will be submitted to public databases at the point
+of production, and get that, you know, at the point that you start your
+protocol, that will probably not be so controversial. Establish that principle,
+and I think the UK did this, get a lot of credit for sharing data, that makes it
+much harder for then governments to say, as Mark alluded to, that actually, we
+don't want this information getting out because of potential political costs
+associated with it. Once you've started sharing data, it's kind of hard to stop.
+But many countries maybe did it the other way around, started sequencing, and
+then sought permission to share data. And that is much harder, I think, to do.
+So that's just a practical point, if you're getting started up. I will add a
+simple comment that if you look, there's a nice WHO report that came out quite
+recently. I did link it in my slides. And that's very nice reading, because it's
+written and makes a good case for sequencing. And it's written in a way that
+policymakers can understand. So if you're looking for the words to make the
+case, that might be a good place to have a look and base some of your argument
+out of that. Thanks, Nabil. Anyone else want to contribute? I suppose you also
+need the political will as well from the very top. And that did help the UK
+quite a lot. Because I know, like, say, in Ireland, they got a huge pot of money
+early on. But then it took them six months before they were allowed to get
+permission to actually go and, you know, start doing the work, because they had
+to work out all the legalities. Whereas in the UK, they put in legislation,
+which made it a little bit easier to kick things off. Yeah, it's better for you
+to establish your genome sequencing, and be able to analyse it and be able to
+make recommendations to public health, rather than other people doing it. So one
+thing that you can suggest to government is that if you don't do your own genome
+sequencing, because of the still amount of travel that's going on, people will
+make inferences about what's happening in your country, through analysing data
+from returning travellers, let's say, or just making inferences on the basis of
+no data. So it's much better to have a data set of your own that you can see in
+real time, that you can analyse to make public health decisions. And I think the
+other thing that really is focusing the mind is the, as I mentioned before, the
+focus on the novel variants, and the potential link between these novel variants
+and increased transmissibility, and potentially evading antibodies. So, you
+know, potentially evading natural immune responses means it's extra important to
+know what variants, what lineages are circulating in your country, in order to
+try and, if you like, quarantine the more worrying ones, because these variants
+at this point have not spread globally, but left unchecked. We expect that they
+will. Okay, I'm going to move on to some other questions. Ben, do you want to
+ask your question? Yeah, I work as a clinical microbiologist in Scotland, and
+we've established sequencing locally for outbreaks. But I'm just keen to keep my
+skills up with bioinformatics. And I've done a couple of courses, like the
+Wellcome Trust ones, and some FutureLearn ones, but just really wondered if
+there were any more courses like this one that you're giving at the moment, if
+you could recommend them, that would be great. It's a very common question at
+the end of a bioinformatics courses, are you running any more bioinformatics
+courses? And I always wonder if that just means we've done it wrong, or it just
+means that... No, you've done it right, you've done it right, definitely. That's
+good to know. Who wants to answer that question from our panel? Great, Will.
+It's all right. Obviously, it's sort of a massive area, isn't it,
+bioinformatics, and so it'd be useful to learn a little bit more about what
+you're after. But in terms of someone who's new to bioinformatics and wants to
+be able to get a bit more independence in it, I can thoroughly recommend
+learning a pipelining language like Nexler or Snakemake. They have really good
+online tutorials available, which you can do in your own time. It's really easy
+to install them, and you can get some simple examples up and running really
+quickly. I'll paste a couple of links into the chat box as where you can find
+those. But if you're wanting more sort of like bioinformatics training, I guess,
+I mean, you want to start digging into writing some of your own stuff, maybe
+some basic Python scripting. Rosalind offers some really good training. So they
+sort of set really short problems, which you can have a go answering yourselves
+with any coding language. And that's what I used to learn bioinformatics. And so
+I can recommend doing that as well, if that's more what you're after. And as
+well as that, I think get engaged with the online community. Like if you want to
+start learning how things work and want a bit more guidance, most of these tool
+developers go out of their way to help you. So just go on to GitHub, tool you're
+interested in or want to learn to use more, raise an issue on GitHub, or they
+have online chat forums and things. So definitely worth just getting a bit more
+stuck in, in that sense. And that can really help you sort of move along in the
+bioinformatics capacity as well.  If there's anything in particular you want
+guidance or training on, if you could just stay and maybe we can be a bit more
+specific. I was also going to mention, so not an open source thing now,
+unfortunately, but if you're in Scotland, I've done quite a few of the Edinburgh
+Genomics courses, which you do have to pay for. But I remember when I was first
+learning to code and they, the sort of, I sort of taught myself and done some
+online courses before in Python and actually having a taught week long course in
+sort of, you know, formal Python learning was really helpful. And my coding
+improved quite a lot from that. They also do sort of Linux courses. They do
+various specific courses in addition to just the Python or coding ones as well.
+So I would recommend them, but unfortunately you do have to pay for them. So I'm
+going to be kind of virtual here maybe and say that you need to hire people who
+actually have the preexisting skills, because it can take years to get to a
+level where you are sufficiently skilled to analyze this kind of data. And a one
+week course might be a nice introduction or for you as a manager, you might be
+able to guide and direct other work, but in terms of actually doing it, you need
+to hire someone who's actually a professional in that area. Like I've been doing
+this like more than 20 years and I've been doing computer science for more than
+20 years and still, I don't necessarily think I'm an expert in this and, you
+know, when it comes to bioinformatics, particularly around individual pathogens,
+you know, these things are so specific and there's so many little gotchas and so
+many little quirks, it takes years and years and years to learn, I would say
+just hire someone who actually knows what they're doing and who can figure out,
+you know, where the best resources are and how to fix different problems.
+Otherwise, you know, you might spend six months, you know, faffing around when
+you could just hire someone who can, you know, do the same thing in two days
+because they, they are pre-skilled. That's a, that's a provocative perspective.
+I like it. And Joe, it's probably worth saying that SARS-CoV-2 is so new that a
+year ago, there were, there were no experts and arguably there are still, there
+are still no experts, but I know exactly what, where you're coming from. I'm
+waiting for the HR to put out the job descriptions that are like, you know,
+COVID bioinformatician required, requires three years of experience. Yeah,
+exactly. Anna, did you have any perspectives as a research software engineer?
+Yeah, I mean, just to expand a bit on what Will said about next flow and snake
+make, I think it's definitely important to pick one and sort of learn if you're
+sort of interested in writing your own bioinformatics pipelines and in terms of
+running other people's as well, because increasingly people are turning to next
+flow and snake make, there is actually a quite a good community around next flow
+called NF cool. It's probably worth a look because they've got quite a lot of
+interest in pipelines that might be interested in having a look at. Thank you.
+Yeah. And I do agree that, that these workflow languages are a really useful
+skill for any budding bioinformatician to learn. And also, I think Nabil made
+this point in his talk, there's a lot out there already, that's, that's pretty
+good to build off. So starting from scratch is great for learning
+bioinformatics, but for getting work done in a, in a high pressure environment,
+probably best to start with things that are well tested and, and ideally
+validated. We do have the SOPs that are, have been there since, since the start,
+since January on the Arctic website, and we can post up the links to those. The
+SOPs do cover setting up a lab, sequencing, and by initial bioinformatics. We
+also have some phylogenetic tutorials made by Anja and Verity that are focused
+around Ebola from training courses in the past that can also be adapted or
+looked at. So those are useful resources. It's, but I mean, there's clearly,
+that we could clearly put more documentation in. Did you want to talk about any
+of those at all, Anja, in terms of resources that are available? Yeah. So I was
+going to just mention about when we, a couple of years ago, Nick, I, and a few
+of the others from the Arctic Network went to Ghana and we had a whole week long
+training session where we went from sort of sample through sequencing, and then
+actually did hands-on, obviously in person at the time, bioinformatics teaching,
+and then sort of bringing people through the pipeline. And the thing that I sort
+of remember, I think it was really good. And I think people learned a lot from
+us, but I think part of the, the sort of, a lot of the time got sucked up
+actually on very basic bioinformatics. So it's one thing to run the pipeline,
+but actually even just knowing where you are when you're on the terminal, you
+know, knowing what directory you're in, knowing where your files are, these are
+really basic things that actually there's so many resources online that you can
+kind of familiarize yourself with. So I think doing a course and like being
+walked through these commands is great, but it's one thing to, to do that and
+maybe just be copying and pasting in from the, from the, from the notes, which
+works and it's fine, but I think actually even just independently, you can get
+some practice just by playing around and with, with the terminal and, and, and
+getting familiar with it yourselves. Definitely. So a question from Rach Toom,
+the question is how, how's the Arctic pipeline, Pangolin, Civit, how have they
+been validated for use? Is there a standard process you tend to use? Yeah. So I
+think Pangolin and Civit have maybe two different approaches. And when we, when
+we talk about that, so Pangolin, the actual data that goes into training the
+model in Pangolin is manually curated. So in terms of the input, we are visually
+inspecting it and making sure that, that this it's a sequence name mapped to a
+lineage assignment, and that's done by curating through the, the tree, or if
+people have generated sequences and sort of flag that they have their own, a new
+lineage or something like that, we can include it, and if anybody is doing
+sequencing and notices that they have a sort of cluster of sequences that they
+think should be a lineage, definitely flag it either on the GitHub, send me a
+message on Twitter and email anything. And we can actually try and incorporate
+it into the scheme. So you can get that lineage assigned in terms of validating
+the output. So we train the model and then we test and run all of the sequences
+and do 10 full cost validation of the model. And we get results about their
+recall, accuracy, precision for all different lineages. And different lineages
+do have some, some have better, some have worse recall, you know, so depending
+on how big the lineage is, if it's got snips that might be present in multiple
+lineages, it, it does vary, but on average, we're at about 98.6% accuracy for
+the lineage assignments. So, so it does vary and ambiguities and sort of missing
+data can, can kind of affect that themselves, but we're always updating and sort
+of keeping an eye on these things. In terms of civet, the input is that big
+tree. So this sort of validation goes along and sequence quality and stuff like
+that. It's all part of grapevine, which is being run by Ben Jackson on Climb
+Every Day. So the input itself, and actually civet in its, in itself is really
+just summarizing the data. So you have your input sequence. We match it to the
+closest thing in the tree, and then we summarize the information. So in terms of
+actual analysis going on, there's really not that much. It's more of a, and a
+lot of the things that we're using, they're, they're really well-validated tools
+already. So things like Minimap 2 by Heng Li, which is this incredible tool, you
+know, aligns the whole 300,000 sequences in a matter of seconds. So it's an
+amazing tool. So we are sort of combining really good pieces of software from
+various people and then summarizing it in a nice report, so that's sort of two
+different, two different kinds of processes for that. Thank you. Certainly
+different groups will tend to validate their whole process. So that's quite
+important. They'll want to validate the entire process, including the lab work
+and the bioinformatics and the answer. Generally with SARS-CoV-2, there isn't a
+huge amount of ground truth available for validation. So, you know, you can do
+things like sequence positive control material that's well characterized and
+check that you're producing the right variants. So for example, in Birmingham, I
+think we've done something like 130 or 40 sequencing runs of SARS-CoV-2 on every
+single run, we include a positive control from a isolated SARS-CoV-2 virus cell
+culture and a negative control. And so we would check on every single run that
+we're pulling out the correct set of variants and positive control and that the
+negative control is clean. But generally what we have to do for validation of
+pipelines is kind of cross validation. So sequencing the same samples with
+different, slightly different methods and comparing them. So for example,
+sequencing on Nanopore and Illumina and cross-checking that they give the same
+results is work that we've done in the past and also checking different
+protocols, metagenomics versus amplicons to check that that gives the same
+results. And we also have a kind of a more broad validation in the sense of that
+everyone in the co-consortium is throwing in data of different, from different
+places with different protocols that are brought together. And so that often
+throws up a very easy way of finding anything anomalous. So for example, if you
+identify a new variant, you know, we found examples where, for example, some
+pipelines like the Arctic pipeline will call correctly.  deletion, so that new
+variant is characterised by several short deletions in the genome, but other
+pipelines perhaps don't call that deletion correctly, call it as N characters or
+don't call it at all. That's a good way of doing kind of cross-validation.
+Will's also done a lot of work on the on the nanopore Arctic pipeline to make
+sure that it conforms to kind of modern software development practices and
+testing. Don't know if you wanted to mention that at all. So whenever we make
+changes to the Arctic pipeline, we check it against positive control samples
+basically to make sure that we haven't broken anything, but these are again sort
+of a standard set of variants we expect to find when we run in the raw data and
+want to produce a consensus genome. But on that note, particularly for those
+wanting to sort of implement bioinformatics practices and standardise them, I'd
+thoroughly recommend using releases, tagged releases of all software, doing it
+within controlled environments like Condor environments are great for this. Be
+cautious using anything which hasn't had a release because people can sort of
+pollute the code in the main branch on GitHub. So if you just go and pull down a
+GitHub branch, it may or may not work properly. It's always worth checking the
+build tests. Quite often they have a little badge there saying they're passing
+or failing. So that's a good way to standardise things. For the Arctic pipeline
+and stuff doing at COG, we use the stamped releases so we can version control
+the software all the way through. So if something does start to look a bit
+funny, maybe when we release a new version of the software, we can always roll
+back to a previous one until we've fixed any problems that might have arisen. So
+yeah, I can thoroughly recommend that as a standard practice to do if you're
+doing bioinformatics. Maybe just to set expectations though, it is a very
+rapidly changing area and there is changes in all the software on a weekly
+basis. And if you think that you can just freeze everything today and use that
+for the next two years, you're going to encounter a lot of problems because
+there is people constantly improving things, finding new things, putting it in
+place. And it's very rapid academic quality software being updated as fast as
+possible in response to the pandemic. I think that's a really good point,
+actually. Thanks for clarifying that. And also I think it ties into your early
+point as well, but you do need the sort of professionals to be able to sort of
+tell when you need to change your software if you like, and to sort of validate
+the changes which are taking place, whether or not there's something you want to
+incorporate in your pipelines, or if you should be sticking to a release which
+is doing something in particular. So yeah, very fair point. I might comment on
+that as well about the sort of software and then also the lineages releases. So,
+you know, if you have been doing sequencing, you'll have noticed that lineages
+get updated pretty regularly over the last three weeks, very, very regularly as
+we've sort of had a few various sets of variants flagged and we're sort of
+optimizing how we're assigning them. And that's one thing that we do as well
+that Will mentioned was that we tag not only versions of pangolin, so pangolin
+itself and the assignment method that it uses is one, but we also have tagged
+dated versions of the lineage releases. So if say you've done an analysis from
+back in March or April last year, really early on, the lineages that you may
+have assigned then will be very different from the ones that get assigned now.
+The thing is, if you want, all of the versions are still available online. So if
+you have done that analysis and want to replicate it, you can go back and, and
+use that version of the software and that version of the data, which all still
+exist. But if you want the most up to date information, definitely recommend
+using the most recent, both version of lineage of the pangolin model and also
+version of pangolin as well. So. Can I just caution, I've revealed a lot of
+bioinformatics papers for SARS-CoV-2 genomics. And one of the most common
+problems is where people use commercial systems, black boxes, and they think
+that, you know, the company is telling them, you know, this is all, you know,
+really great. You can just press the magic button. But these are the papers most
+often where you have very, very clear and obvious errors. And so don't be fooled
+by, you know, just dropping in a standard commercial system and thinking
+everything is fine. Often it may not be. Yeah, I think that's a really good
+point. And academic software gets a lot of stick, you know, that people, you
+know, the academic quality is not always thought to be that high, but the
+commercial software can, can sometimes be worse because it has the illusion of
+quality. People will, you know, it's nicely packaged. It works very easily. It
+produces an output very easily. And, and these are the features that people look
+for in commercial packages, you know, easy to install nice GUI, but, you know,
+they'll also just allow, you know, they will not, they'll not know that you're
+using the Arctic Amplicon scheme. They won't know anything about SARS-CoV-2.
+They'll just allow you to put in a fast Q file and spit out an answer, making a
+bunch of assumptions. And those assumptions are probably invalid until the
+developers that software understand how the field has progressed and understand
+how to deal with that data and make an update. So in a way, the, the commercial
+packages can sometimes be, as you say, that actually produce the worst results.
+In a few years time, they'll probably be the best, you know, but, but right now
+they're in a kind of, we're in a kind of transition period. Okay. That seems to
+have answered Rach's question, which is great. So I think we're coming to the
+end. We've had an hour of Q and A, and I think it's been really interesting.
+We've covered a couple of interesting topics. Then let's say goodbye. Bye from
+all the panelists. Thank you for attending and we'll see you on the Slack or
+somewhere else soon, I'm sure. Thank you all so much for listening to us at
+home. If you like this podcast, please subscribe and like us on iTunes, Spotify,
+SoundCloud, or the platform of your choice. And if you don't like this podcast,
+please don't do anything. This podcast was recorded by the Microbial
+Bioinformatics Group and edited by Nick Waters. The opinions expressed here are
+our own and do not necessarily reflect the views of CDC or the Quadrant
+Institute.

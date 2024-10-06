@@ -1,0 +1,285 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. So hello, and welcome to the Microbial Bioinformatics
+podcast. Lee, Andrew, and myself, Nabil, are your hosts for today, and we are
+joined again by Professor Mark Pallant, who is a professor of microbial genomics
+in the University of East Anglia and a research group leader at the Quadram
+Institute. We're continuing our trip down memory lane and reflecting on some of
+the exciting bioinformatics moments and lessons learned for bioinformatics in
+the 21st century. So Mark, welcome back. Great, thank you. Well, thanks for
+having me. Last time round, we left it just around the turn of the millennium,
+and it was an exciting time to be in microbiology because we were getting all
+these genome sequences and we were seeing for the first time the big picture,
+even with E. coli that people have been studying for the best part of a hundred
+years, half of the genes were not discovered until its genome was sequenced. And
+I got involved in that area, not just through the genome sequencing projects, I
+mentioned Campylobacter, but I was also involved in genome sequencing projects
+for Carinobacterium epitherii and an unusual organism called Tropharima whipli,
+which is an organism that causes a disease called Whipple's disease and lives in
+the small intestine and at that time could not be grown in the lab. There's a
+guy called Didier Raoul in Marseille, his team had actually managed to grow it
+in association with human cells. And we approached him and said, do you want to
+be involved in a Sanger lead sequencing project? And he said, no, I don't get
+involved in projects unless I lead them, would I be the lead? And the Sanger
+said, no, we don't do things that way. And so I managed to persuade a guy, David
+Relman, who actually was the one who, he was a hero of mine at the time. And one
+of the great things about a career in academic life is you do get to meet your
+heroes and sometimes you can get to work with your heroes as time goes on. And
+David had been the first one to show that Tropharima whipli was a distinct
+organism, it amplified 16S sequence and had actually given it that name based on
+the 16S sequence. And so he was up for genome sequencing it. And it took them 18
+months to grow enough biomass of this organism in the lab before they had enough
+DNA to sequence it. So the actual growth phase of the project took longer than
+the genome sequencing phase of the project. Luckily, in France, they set up
+their own project and I'm not normally nationalistic, but in this occasion, I'd
+like to say that the UK won and France came second place in that one. So, Mark,
+is this the guy who there's a bit of a scandal around him with COVID and the
+hydro? Indeed, it is the same guy. And I think that in life, there are often
+these people that stir things up and sometimes they create a lot of trouble and
+a lot of difficulty. But the other time they do create something new that wasn't
+there. And Didier Raoul is one of those people who had, his reputation has been
+severely tarnished during the COVID epidemic with his championing of treatments
+that don't work. But he was the first person to work out, or his group, at
+least, was the first group to grow this organism, Trophorhippoli, in the lab. He
+was also the group that discovered the Mimivirus, these giant viruses with huge
+genomes that have functions that overlap with bacteria, so completely blurs the
+distinction between viruses and bacteria. You know, that's Microbiology 101 is,
+oh, there's a clear difference between bacteria and viruses. It turns out there
+isn't, and that's down to Didier Raoul. He's also invented Culturomics, high
+throughput culture. And if you go to the databases and you look for the species
+epithet applied to bacteria that is most commonly used, it is Massiliensis,
+which is the Latin word for from Marseille, because his group have named
+everything that comes out of Marseille Massiliensis or Massilia or whatever. And
+there are hundreds and hundreds of bacteria that they've named. His contribution
+to science is quite astonishing. It's just unfortunate that he's just had these
+problems recently. And, you know, there are similarities with Craig Venter,
+which was a person upset a lot of people as well, even though we we do look back
+and say, well, he did he did progress the field by shaking things up. And yes,
+so we sequenced Tropharima whipleri. Interestingly, just in recent year, in the
+last year during lockdown, one of my old school friends from primary school, no
+less, got in contact with me and I hadn't seen him for nearly 50 years. And I
+said, how are you getting on? He said, oh, yeah, he's right. We'd had this heart
+infection with this very unusual organism. I said, oh, what's that? He said,
+it's called Tropharima whipleri. I said, oh, I know that organism. We sequenced
+its genome. It was like it brought it home to me that it's a very rare
+infection, but it affected someone I knew. And he'd actually he's just in the
+last few weeks relapsed. So, you know, it is an important infection. Anyway,
+what happened then was that I started getting interested in doing homology
+searching, similar to what I've done with urease, but looking at these new
+genomes. So suddenly we have this landscape of dozens and dozens of new genomes
+and we could analyse those genomes. We could see what's in them and we could
+start to make sense of it. One of the first such opportunities was I moved to
+Ireland. I took up a chair in the Queen's University Belfast, Northern Ireland.
+When I arrived, it was not long after the Good Friday Agreement that brought
+peace to Northern Ireland. And the British and Irish governments were making it
+very clear that they wanted there to be much more collaboration across the
+border. And they set up a research fund where people could apply for grants for
+research straddling Northern Ireland and Southern Ireland, the Republic of
+Ireland. And soon after I arrived, there was a guy who worked in Trinity
+College, Dublin, called Tim Foster, who was an Englishman who was famous in the
+field. But he was one of my heroes in a sense in that he pioneered the
+application of molecular biology to understand the way which Staph aureus causes
+disease. I contacted Tim Foster and I said, they set up this scheme that's
+supposed to be getting people working on either side of the border,
+collaborating with each other, but they're not going to check our passports and
+say, well, actually, we're British people working in Northern Ireland and in the
+Republic who are using this money. So why don't we see if we can tap into that
+funding? And he said, yeah, OK, why not? I said, well, what about we try and
+data mine the recently released Staphylococcus aureus genome? He said, yeah, OK,
+I suppose so. I said, anything you're particularly interested in? He said, well,
+we know that there's this enzyme called SORTASE, which is involved in targeting
+proteins to the surface of Staph aureus. These are so-called LPXTG proteins. And
+it would be great if we could mine that genome because we know some of them, but
+it would be good to know all of them that are in that genome. Do you think you
+could go away and do some bioinformatics to find all these? So I said, all
+right, I'll have a look for SORTASE and its substrates. And it turned out that
+the substrates had this particular motif, LPXTG, and they usually in Staph
+aureus were scattered around the chromosomes. And so I just took the SORTASE and
+I used a program called CyBLAST, which had just come into common usage, which is
+an iterative process. So you can do a BLAST search and say, oh, here's a load of
+homologs. And then you say, right, let's now build a model out of all those
+homologs to look even further into kind of homology space, if you like. To me at
+that time, CyBLAST became the equivalent of crack cocaine because you run a
+CyBLAST search and you see a load of things. You think, wow, yeah, that's good.
+Those are things I kind of know about. Well, there's a couple of things I wasn't
+expecting. You press the button and reiterate and then suddenly a whole load new
+things come in. Wow, I found a load of new stuff. Then you run it again and you
+find a load of new stuff. And it was like, wow, this is just amazing. And so I
+did this with SORTASE and I did it with the substrates as well, with the
+particular region of the substrates that is recognized by SORTASE. And I did it
+on Staph aureus and I found, I can't remember the exact number, half a dozen or
+more new SORTASE substrates. And Tim went on and patented all those and we wrote
+up a nice paper on those new, they did some lab work characterizing them in
+Staph aureus. But I thought, why stop at Staph aureus? We've got all these other
+genomes out there, dozens and dozens of them. Why don't I just run the same
+analysis across all of these? And I did. And that was one of those moments where
+it brings to mind, there's a guy called Alfred North Whitehead, who in the early
+20th century said the goal of every natural scientist is to seek simplicity, but
+mistrust it. And this has been a theme that you kind of think you understand the
+thing and it's all quite simple. And then it turns out when you look harder,
+it's not that simple at all. And so what I found.  found was that when I looked
+in other organisms, the sortase substrates weren't all scattered around the
+chromosome like they are in Staph aureus, they're actually usually clustered in
+a gene cluster with the sortase enzyme. In some cases, including in Staph
+aureus, in fact, there was more than one sortase. We kind of thought, oh, it's a
+single gene, single copy gene, it's doing a fundamental thing, there won't be
+multiple copies of it, but it turned out in some organisms, including
+Chloronibacterium diphtheriae, which I was working on the genome project for, it
+turned out there were multiple sortases and multiple substrates, and they were
+often multiple clusters with the two things together. And so it turned out that
+this was one of these things where you suddenly, by looking at the much wider
+genomic landscape, and carefully using these homology searches, you can come
+across things that you never anticipated. And it turned out that the sortase
+wasn't just sticking things on the cell surface. In some of the actinobacteria,
+it was actually targeting things to the surface and then making them into
+fimbri, gram positive fimbri. So it was part of the mechanism for building these
+fimbrial appendages that were on the surface of that particular group of gram
+positives. So that was one example where it was clear that if you do these
+homology searches, and you do them carefully, and you use all the data that's
+available to you, you can suddenly see a much wider landscape. I had a similar
+experience with a guy came to, by the time I was in Birmingham, he came and he
+said, oh, we've got this new test for TB that relies on an antigen called
+ESAT-6. It's a T cell test, and it's much more sensitive than anything else. And
+I said, so what is this ESAT-6? He said, well, it's the major antigen. I said,
+well, yeah, the bacterium doesn't make it to make an antigen, to be an antigen.
+That's just a side effect of interaction with the host. But what is its function
+for the bacterium? He said, I don't know. I'm an immunologist. I don't care. So
+I thought, well, I'll go and have a look and see what I can find. And I did side
+blast searches. And what I found was that there was a particular ATPase
+associated with the system in TB, in the gene cluster. And there were these
+substrates. And when I carefully did the homology searches, I found that these
+things were not just present in mycobacterium tuberculosis and other related
+mycobacteria, not even just in the actinomyces, which other people had kind of
+hinted, but they were very widely distributed. They were found in Staphylococcus
+aureus, in Streptococcus agalactii. They were even found in some gram negatives,
+which is a bit weird. Why on earth would they be there? And we still don't know
+to this day what they're doing in some gram negatives. But this opened up a
+whole new like, wow, these things are much more common than we anticipated. And
+there are many more systems out there. And in fact, one of the nice ironies was
+that the Sorte system I mentioned earlier, that was a great example of
+predictive science in that there's a guy, Olaf Schneewind, who'd seen all the
+LPXTG proteins and predicted that there was a specific enzyme involved in
+putting them on the surface that he called Sorte. And his wife actually,
+Dominique, was so interested in what I'd shown with the ESAT6 system, WXG100, as
+we called it, that she started working on that in Staphylococcus aureus and
+actually started researching that area. So that was quite a nice thing. I then
+got more interested in E. coli and did lots of work on E. coli, started working
+on type 3 secretion in E. coli, particular secretions around also flagella
+secretion. One of the things I found when analysing E. coli genomes, we kind of
+imagined that E. coli K12 was handed to us by God, if you like, as the model
+organism. It's this perfect organism. And it's not going to show any kind of
+hallmarks of degeneration or anything like that. What we found when we looked
+was there was a type 3 secretion system cluster, which was called ETT2, which
+appeared to be extremely widely prevalent in E. coli strains. But in every case
+we looked at, there were frame shifts and deletions suggesting the thing didn't
+function as a type 3 secretion system. And then we found, looking at the K12
+genome, that was this funny little flagella cluster of two flagella genes that
+were homologous to flagella genes from the main flagella cluster. But they were
+incomplete. They had no start codons, they had no promoters. It's just like this
+weird little scar. And then when we sequenced intra-aggregative E. coli genome,
+we found that in that position in the genome, there was a whole complete new
+flagella cluster, which we called FLAG2, that was present. And so the scar is
+present in all the E. coli, and just a small number of them retain the ancestral
+state. So as an example, where you look at K12, it's similar to what Darwin
+spoke about, vestigial organs in the origin species, but you get vestigial
+genes. And we'd seen that as people were sequencing genomes in Mycobacterium
+leprae, they found lots and lots of degenerated genes that were present there.
+But the idea that this happened in the most revered organism, E. coli K12,
+seemed a bit shocking. At the time, it seemed shocking. Now looking back, well,
+why do you expect E. coli K12 is just another organism? It's just another
+strain. So what? But that was very interesting. So for K12, I'm not an E. coli
+expert, but the experts have told me that it's a weird organism. And in
+contrast, you said it was handed to you by God. Wouldn't you have preferred
+something a little bit more representative of E. coli? Well, one of the things
+that happened early in genome sequencing days was that people said we should
+sequence the type strains, the strains that everyone's using, the model organism
+strains. That brought problems because the same is true that Salmonella typhimum
+LT2, many of these strains have been in the lab for a long period of time have
+been subcultured. The K12 even have been irradiated in its ancestry. And so
+there is this question, do they reflect the real world? It's a bit like the
+first human genome was largely Craig Venter's genome. And we don't want Craig
+Venter's genome to be the only representative for the whole of humanity. And so
+it became clear that we really need to sequence lots of strains. And Gordon
+Doogan, when he moved to the Sanger, he made that point that it was best to take
+fresh isolates that have been in the wild only recently and be minimally
+subcultured and sequence those alongside the lab strains so that you actually
+get to see things as they really are rather than the degenerative forms you see
+in the lab. And that was a big insight. And I did actually in those early days
+with Brendan Wren, we wrote a review for Nature where we kind of made this point
+that you've got to look at all this genome stuff in what we call the eco-evo
+context, the evolutionary ancestry of the strains you're looking at and of the
+species. So how does Yersinia pestis arise to become a very specific thing from
+a general background? Had mycobacterium leprae arise, all that sort of thing to
+become very specialised, but also the ecological context. So that many things
+that we'd say, oh, that's to do with virulence, they turned up in things that
+weren't virulent organisms, they were just commensals or environmental
+organisms, these things like the sawtases or the WXG 100 systems. And it became
+clear a lot of people at that time were recognising that you could use
+invertebrates as models, animal models, and you could even use amoebas as
+models. But actually, that's not artificial, because the struggle for life, as
+Darwin called it, between bacteria and eukaryotes goes on everywhere. It goes on
+in the soil, in the oceans, and most of it is between unicellular eukaryotes and
+bacteria. We, you know, complex metazoans are kind of an afterthought, that
+struggle. So that was an interesting kind of observation that came out of all
+that. The other thing that happened around that time was a guy from New Zealand
+called Scott Beetson approached me. He'd been working with a guy, Chris Ponting,
+and I'd worked with Chris Ponting. Chris Ponting taught me a lot about how to to
+do domain searches and homology searches in proteins. He said, oh, we've got
+this guy who wants to come and work with you. And I said, well, I suppose he can
+come and work with me. And I said, Scott, you know, okay, you can work. He said,
+well, I've got to put in this proposal for a Dorothy Hodgkin Fellowship. I said,
+well, our grants department can't work that quickly. He said, oh, well, I've got
+to do it. This is my one opportunity. So I called him and I said, would you take
+it? And they said, I suppose so. And I thought, can he actually write a proposal
+in a week? But he did, and he got it. And he came to work with me. And he'd been
+working on Pseudomonas aeruginosa in the past, with another one of the giants in
+the field, John Matic in Australia. And I said, well, you could work on that if
+you want, Scott, but you don't, now you've got the fellowship, you don't have to
+do what you said you'd do. And this great opportunity has come up because I've
+been nosing around on the back of this ET2 secretion system, and just looking
+more generally at type 3 secretion in E. coli. And what I've noticed is that
+there are these so-called effectors, which are the targets of these type 3
+secretion system. And everyone's assumed that they're all present or clustered
+in this one gene cluster called the locus for entrocyte effacement, because they
+think it's kind of a modular system, you just plug that into a cell and it
+becomes able to do type 3 secretion. But we've got hints that there are lots of
+these effectors that are homologues of those things, elsewhere in the
+chromosome. But you think you could have a look at this. And so he went and had
+a look at it. And to cut a long story short, by using homology, we managed to
+find dozens and dozens of new effectors. We tied up with Gary Frankel in
+Imperial, and Toru Tobe in Japan, and we're able to even show that many of these
+were actually secreted by the secretion system.  and this led to a vast
+expansion and led to a P&S paper in fact as well. But for me that was one of the
+most rewarding things where we actually tied the bioinformatics predictions into
+laboratory confirmation in a very coherent way and it was really quite exciting.
+So I had a question, a little bit before the E. coli you were talking about
+looking at the antigen on tuberculosis and you had to look into the function and
+everything. Do you feel like that might have like a tie-in or might be a
+predecessor to the efforts for reverse vaccinology in that whole field? Oh
+definitely. Reverse vaccinology was something that came in in the early part of
+the 21st century as well. On the back of those first tied genomes people going
+in saying well we can go out and we can do that. In fact that particular protein
+had been discovered before the genome had ever been sequenced. It just turned
+out to be one of the brightest antigens that was recognised by T-cells and
+that's why it was picked for this T-cell antigen detection test, the so-called
+ELISPOT test that was developed for TB. But to this day it's still not entirely
+clear what the function of that particular protein is. It seems to have all
+sorts of proteins and people have looked at it from many different angles and it
+seems to do all sorts of things and it's probably part of the secretion system
+as well. It turns out that that whole system is very complex and very
+multifaceted. All right and on that note I think we'll draw to a close. I want
+to thank our guest Professor Mark Palin for joining us today. Join us next time
+in the Microbinview podcast where we continue our journey with Mark. Thank you
+so much for listening to us at home. If you like this podcast please subscribe
+and rate us on iTunes, Spotify, SoundCloud or the platform of your choice.
+Follow us on Twitter at Microbinview and if you don't like this podcast please
+don't do anything. This podcast was recorded by the Microbial Bioinformatics
+Group. The opinions expressed here are our own and do not necessarily reflect
+the views of CDC or the Quadram Institute.

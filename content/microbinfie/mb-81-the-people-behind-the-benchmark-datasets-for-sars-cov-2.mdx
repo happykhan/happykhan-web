@@ -1,0 +1,55 @@
+---
+date: 2022-04-29 00:00:00
+title: MicroBinfie Podcast, 81 The people behind the benchmark datasets for SARS-CoV-2
+link: https://soundcloud.com/microbinfie/behind-sars-cov-2-datasets
+tags:
+  - microbinfie
+  - podcast
+---
+## Podcast Guests: Lingzi Xiaoli and Jill Hagey
+
+Join us as we welcome Lingzi Xiaoli and Jill Hagey to discuss their benchmark datasets for SARS-CoV-2. Discover more about their work at the following link:
+
+- [CDC SARS-CoV-2 Datasets on GitHub](https://github.com/CDCgov/datasets-sars-cov-2)
+
+For additional context, make sure to listen to our previous episode, which is part 1 of this conversation.
+
+### Featured Publications
+
+- **Bacterial Datasets Paper:** [Access the paper on PeerJ](https://peerj.com/articles/3893/)
+
+### Connect with Our Guests
+
+- **Jill Hagey:**
+  - Twitter: [@JillHagey](https://twitter.com/JillHagey)
+  - Personal Website: [jvhagey.github.io](https://jvhagey.github.io)
+
+- **Lingzi Xiaoli:**
+  - LinkedIn: [Lingzi Xiaoli's Profile](https://www.linkedin.com/in/lingzi-xiaoli-27b87174/)
+
+Be sure to follow and connect with them for more insights into their research on SARS-CoV-2 datasets. 
+
+Listen, learn, and engage with cutting-edge research in this insightful discussion!
+
+### Extra notes
+
+- **Data Collection and Challenges**: Jill and her team faced challenges in downloading and organizing SARS-CoV-2 sequence data. They initially struggled with bulk downloading due to limitations on certain platforms but utilized the Python package Selenium to automate web browser interactions, allowing them to efficiently collect necessary data.
+
+- **Automation with Selenium**: Selenium was used to automate the collection of metadata from various databases. Initially intended for continuous integration testing, it enabled the team to automate repetitive tasks and manage large datasets without manual intervention.
+
+- **Data Verification and Checks**: After collecting sequences, additional checks ensured dataset consistency, including verifying that all samples were sequenced with Illumina technology, were paired-end, and used Arctic primers. This verification was essential to maintain the integrity of the data.
+
+- **Metadata Consistency Issues**: The podcast highlighted issues with metadata consistency across samples. Disparities in how metadata such as Arctic version numbers were recorded by different users led to the need for careful manual verification to ensure data accuracy.
+
+- **Quality Control**: The team implemented a quality control (QC) process using SAM tools and the Titan pipeline. These tools assessed sequence quality, depth of coverage, and identified discrepancies, such as the presence of ends, amino acid assertions, deletions, and substitutions.
+
+- **Alignment and Variant Analysis**: Using Snippy and internal CDC references, the team compared SNPs across sequences to ensure that certain lineages had minimal genetic differences from the reference. They paid close attention to variations in the spike protein, crucial for determining lineage.
+
+- **Lineage Selection**: Samples were selected based on having the least number of SNPs and ambiguous bases. Lineages with minimal genetic variation from the reference sequence were prioritized to ensure accurate representation of variants of concern (VOC) and variants of interest (VOI).
+
+- **Defining Variants of Concern (VOC)**: At the time of the project's development, the WHO list of nominated VOCs was not available, so the team adhered to the CDC's definition for selecting lineages, using these criteria to focus their dataset on significant and relevant variants.
+
+- **Final Thoughts**: Important discussions centered around the complexities of standardizing metadata and sequencing procedures to create reliable benchmark datasets for SARS-CoV-2, emphasizing the need for automation and thorough QC in bioinformatics workflows.
+
+The speakers on the Microbinfeed podcast are Dr. Lee Katz, Dr. Nabil Ali Khan, Dr. Andrew Page, Lingzi, and Jill.
+

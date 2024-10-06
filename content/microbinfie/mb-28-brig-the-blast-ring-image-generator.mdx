@@ -6,8 +6,58 @@ tags:
   - microbinfie
   - podcast
 ---
-We chat to Nabil-Fareed Alikhan about the bioinformatics software he
-authored called BRIG, the BLAST Ring Image Generator.  Software:
-http://brig.sourceforge.net/  Paper: https://bmcgenomics.biomedcentral
-.com/articles/10.1186/1471-2164-12-402
+# Interview with Nabil-Fareed Alikhan on BRIG
+
+We had the opportunity to chat with Nabil-Fareed Alikhan about the bioinformatics software he authored, called BRIG (BLAST Ring Image Generator).
+
+## About BRIG
+
+**BRIG (BLAST Ring Image Generator)** is a bioinformatics tool designed for visualizing comparative genomics data. It utilizes BLAST analysis results to generate circular representations of genome comparisons, making it easier for researchers to interpret complex genomic relationships.
+
+- **Software:** [BRIG on SourceForge](http://brig.sourceforge.net/)
+- **Research Paper:** [Published Paper on BMC Genomics](https://bmcgenomics.biomedcentral.com/articles/10.1186/1471-2164-12-402)
+
+In the interview, Nabil discussed the development and application of BRIG in the field of bioinformatics, emphasizing its utility in visualizing genomic data in a clear and interpretable manner. BRIG has become a valuable tool for researchers studying the relationships between different genomic sequences.
+
+For more information, you can visit the software's website or read the published paper to dive deeper into the specifics of BRIG and its applications in genomic research.
+
+### Extra notes
+
+- **Software Development for Microbial Bioinformatics**:
+  - Discussion about the development of Brig, a graphical tool for visualizing genome comparisons.
+  - Brig allows users to input sequences in formats like GenBank, FASTA, and compares them to a reference genome, displaying results as concentric rings.
+
+- **Technical Features of Brig**:
+  - Integrated BLAST functionality which operates under the hood, without needing users to run it manually in the command line.
+  - Compatibility with both legacy NCBI BLAST and the newer BLAST Plus.
+  - Designed with ease of use in mind, reportedly having a well-written manual.
+
+- **Visualization and Customization**:
+  - Offers customization of visual elements such as annotations and thresholds.
+  - Known for its intuitive visual output, being publication-ready with support for SVG and PNG formats.
+  - Supports large-scale visualization, maintaining efficiency even with complex datasets.
+
+- **Development and Challenges**:
+  - Originally created using Java with a focus on GUI, influenced by familiarity and technical constraints at the time.
+  - Development involved significant optimization to handle overlapping BLAST results efficiently.
+  - Notable regret in lacking automated test suites, impacting the ability to implement major updates or changes.
+
+- **Input and Output Limitations**:
+  - The static nature of its visualizations prevents interactive exploration, such as zooming on specific regions.
+  - Dependency on a central reference genome limits the visualization scope, potentially missing features not present in the reference.
+
+- **Community and Collaboration**:
+  - User feedback played a critical role in iterative development.
+  - Development was kickstarted as a shared project challenge within a research group.
+  - Brig's unique selling point is its ease of use, attributed to community input and effective documentation.
+
+- **Future Directions**:
+  - Potential interest in re-implementing Brig with modern technologies for enhanced functionality, including possible command-line support.
+
+- **Additional Features and Ideas**:
+  - Handling additional file formats (e.g., BED, WIG).
+  - Interest in incorporating interactive elements for more dynamic analysis.
+  - The desire for adding features like alternative color palettes and fun easter eggs. 
+
+This discussion highlights the intricacies involved in creating bioinformatics tools, balancing between functionality, user-friendliness, and technical constraints.
 

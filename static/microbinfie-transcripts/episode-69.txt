@@ -1,0 +1,318 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. Hello and welcome to the Microbial Bioinformatics podcast.
+Nabil and Andrew are your hosts today, and this is our extended holiday special.
+What better topic for a fireside chat than bacterial taxonomy? There has been a
+lot of discussion about bacterial taxonomy with the recently announced changes
+to Phyla, and this has revealed a lot of misconceptions around taxonomy in
+general. One of our guests, Professor Mark Palin, approached us to try and weigh
+in and set the story straight. Joining him, we have a very exciting and esteemed
+panel to discuss this meaty topic. We have Professor Phil Hugenholz, who is
+Director of the Australian Center for Ecogenomics at the University of
+Queensland. We have Professor Ian Sutcliffe, who is a Professor of Microbiology
+at Northumbria University and Chair of the International Committee of
+Systematics and Prokaryotes. And Professor Mark Palin, who is a Professor of
+Microbial Genomics at the University of East Anglia and Research Group Leader at
+the Quadram Institute. So let's start right at the beginning. How did all of
+this taxonomy business get started, Mark? Taxonomy started, as we know it now,
+with Linnaeus, who was a Swedish doctor and a Swedish naturalist who looked at
+nature and could see what he considered a system of nature, a natural system out
+there. And he devised a hierarchical system of classification for plants and
+animals, where groups fit within groups in a very tidy fashion. And devising
+that system of taxonomy was one of his great achievements. The second great
+achievement was that he also overlaid over that a system of nomenclature. And he
+swept away a lot of the very confusing approaches where people described things
+in sentence-long descriptions. And his key achievement was that he came up with
+the so-called Linnaean or Latin binomial as a way of describing species, which
+we still honour today. So we call humans Homo sapiens and we call bacterium
+Escherichia coli. And so this was Linnaeus's great achievement. And we, by and
+large, stuck with the approaches that Linnaeus laid out in terms of taxonomy and
+nomenclature since then. Linnaeus was actually quite insightful, though. He
+didn't just look at superficial things. He realised that you had to look more
+deeply. And so he actually realised as he went along, he said, well, you know,
+bats are not birds and whales are not fish. He realised that they both belonged
+with the mammals. And it wasn't just a single characteristic like, oh, they fly
+and they've got wings or they've got fins and they swim in the sea. He was able
+to realise and even included humans in his grand taxonomy. In a sense, it's a
+great achievement there in laying out a framework. But he also set us a problem
+because what was the reason for all this apparent system in nature? And for
+Linnaeus, he actually wasn't a modest man. He said, God creates, Linnaeus
+classifies. He basically saw himself as, you know, God's right hand man in
+actually revealing the creator's hand in nature. But it took another hundred
+years or so for a British naturalist, Charles Darwin, to come up with an
+explanation for this system of nature. And Darwin obviously came along with the
+theory of evolution by natural selection. Within his theory of evolution, he
+came up with an explanation for patterns that Linnaeus had seen. He said, these
+are not just arbitrary patterns. I mean, if you look up in the night sky, you
+can classify stars into constellations, but they don't mean anything. There's no
+deeper meaning to them. They're just arbitrary gatherings of stars and so forth.
+Darwin said, no, this stuff we're seeing in the classification of nature
+actually has some real meaning. The real meaning is lines of common descent. So
+Darwin came up with the idea of evolution, the idea that things change, the
+biological world changes over time. But he also came up with the idea of a
+branching evolution. And he leant heavily upon the simile of a tree and
+described the evolution as like a tree. So let me just quote him, because I
+always like to quote Darwin. So he said, basically, the affinities of all beings
+of the same class are sometimes being represented by a great tree. I believe
+this simile largely speaks the truth. As buds give rise by growth to fresh buds,
+and these of vigorous branch out and over the top on all sides, many a feeble
+branch. So by generation, I believe it has been with the great tree of life,
+which fills with its dead and broken branches, the crust of the earth and covers
+the surface with ever branching and beautiful ramifications. So this idea that
+there's a tree and that things branch out, that that was a great innovation of
+Darwin. But Darwin also pointed out, well, actually, what this means is that
+classifications have to be genealogical. And so that was his key point. He said
+that basically, as we go forward, all true classification is genealogical. What
+we'd say now is phylogenetic, all true classification is phylogenetic. But
+Darwin was the one that made that clear, that this was the explanation and this
+was the goal of biological classification, was to recapitulate those
+phylogenies. Darwin got it right, but most of the people following Darwin didn't
+quite get it until the middle of the 20th century when a guy called Willi Hennig
+came along and said, actually, look, listen to this, that the goal of
+classification is to recapitulate the branches on the tree of life. It's not to
+sort of work out whether a thing has a particular, reached a certain level of
+complexity or has some particularly salient feature. This has been described as
+the battle of grade versus clade. So you can't have a thing called fish, can't
+have a taxonomic group called fish, because some fish are closer to humans than
+they are to other fish. So if you want to use the term fish, Pisces, you have to
+include humans and terrestrial vertebrates in that as well. And so that was a
+big change, a big sea change in taxonomy in the 20th century. And it's
+interesting if you look, Hennig had some big arguments with a guy called Ernst
+Meyer, who was one of the godfathers of evolution in the 20th century. But
+Hennig won. Basically, all taxonomists now go with Hennig rather than look at
+these kind of grades. And then the last person to mention is Woese. So Carl
+Woese was the one that brought all this into bacteriology by showing us that we
+could look at molecules and we could look at the sequences of genes in
+particular. We didn't start with sequences, but he started looking at the RNA
+fragments. But then he showed that you could classify bacteria using sequence-
+based approaches. And he came up with similar kind of insights. So he said, you
+know, if we look at lines of divergence, things like mycoplasmas, they're just
+one small branch within the gram-positive group. And the key point was he said
+that there was no such thing as prokaryotes, that bacteria and archaea shouldn't
+be joined together, they should be separated. That's me just giving you a very
+quick whistle-stop introduction. So Mark, I thought that I spent a decade
+working on prokaryotes. So what on earth has gone on there? When did it change?
+Well, it changed in the sense that when you look at the assumptions of
+cladistics, as Willy Hennig said, you draw branches and you look at how the
+branches fit together. And it is one of the assumptions of cladistics that you
+can't have triangles, you can't just say these three things branch out equally.
+You have to draw a line and say these two branched off first. And what we know
+is that eukaryotes are closer to archaea than they are to bacteria. So to group
+bacteria and archaea together, that goes against the rules of phylogenetic
+classification. So I guess you can, I mean, if we're allowed to use fish, then
+we're allowed to use prokaryotes. But it's a vernacular term. It's not a
+scientifically accurate term. It's not a term that should be used. And I guess
+all of us have to draw a line. Are we going to be precise and scientifically
+accurate all the time, or are we going to allow ourselves to use vernacular
+terms? So in one of our recent papers, we used the term non-human primates to
+describe monkeys. So Ian, you're on a committee with the name prokaryotes in it.
+So what has gone on there? Well, I guess I think it's largely a historical
+artifact. It reflects, I mean, it used to be called the International Committee
+for the Systematics of Bacteria, because, of course, if I remember.  i ddod yn
+ôl i'r archaea, ac yna, rwy'n meddwl, ar un pwynt ymlaen, pan oedd y
+dealltwriaeth o'r ddatblygiad o'r eicharioedd a'i gysylltiad â'r archaea cyn i
+hynny oedd yn ddeall ychydig yn dda, roedd, ac rwy'n credu, yw'n dal i fod yn
+ddefnyddio y grwpio o dynion sydd ddim yn cael nuclei gyda term unig. Ac felly,
+y term procarioedd, dwi'n meddwl, yn ddod yn ôl i'r archaea, felly procarioedd
+fel dderbyn benacolaidd, rwy'n credu, yw'n ddod yn ôl i'r archaea, na, rwy'n dal
+i'w ysgrifennu, rwy'n treulio amser fel examenol exon yng Nghaerfyrdd, yn gofalu
+cwestiynau a oeddant yn gofyn i ddatblygiadurwyr, oherwydd roeddent yn siarad
+am, rwy'n gwybod, mechanismau o dynion a rhenni yn ymgyrchu yn procarioedd, a
+oeddent yn gofyn am bacteria, ac rwy'n dweud, archaea, gwnaethoch chi ei wneud
+yn gwbl iawn o hynny, rwy'n gofyn, dyw hitchiog ym myd credw Colnom yn fy
+syniad. felly rwy'n credu ei fod yn Cadarnham, mae yn cyndeithasus i yw
+gyfeiriadwyr ac yn ydyw gwlawant mewn llyfr. Mae'r llywfa Bergydd wedi wyned yn
+lunio nhw fel archaeae a bacteria ymhelyth na procarioedd sy'n ymgysylltu
+ohonwn, rwy'n credu. Well, my old mentor inaugural pace has been the main flag
+bearer for getting rid of the word procarioedd, so in deference to him I have
+avoided using the term in titles of, and usually abstracts of papers that I
+write, but I agree with Ian that sometimes it's a convenient way, so you don't
+have to write archaea and bacteria all the time and people know what you mean. I
+take Mark's point that if you're using it when you actually mean bacteria, well
+that's no good, but if you actually mean bacteria and archaea and you, you know,
+it becomes kind of lumpy in conversation to use it all the time to spell it out,
+so yeah, that's kind of, I guess, we might as well say that bacteria are plants
+then, you know, that's how they used to be classified, so why don't we just
+call, only some of them, only some of them, only some of them, no, no, all of
+them, originally all bacteria are lumped in as plants, so it's just, I think
+we've got to be more precise in our way of thinking as we go forward. Ian, let's
+come back to you for another comment on that response to Mark and Phil. I've got
+to make one more point, if you're going to use the term prokaryote, people can't
+even decide how it's spelt, is it with a c or with a k, you know, just dump the
+term. Yeah, I think we have reasonable consensus on a k, but when I'm writing
+formally, most of the texts that I write these days, including a letter I'm just
+drafting on behalf of the ICSP, refers throughout to archaea and bacteria rather
+than to prokaryotes, and it's at the moment, I think, the International
+Committee for Systematic Prokaryotes, the ICSP, probably has bigger fish to fry
+than worrying about changing the p in its name to a and b. It'll be part of the
+Bachelor of History, though, won't it, because the seat code will take over.
+Well, one might argue that the bigger misnomer in the name ICSP is that it's not
+described as the International Committee on the Systematic of Cultured
+Prokaryotes, since, without jumping too far ahead in things that we may end up
+discussing, there is a prescription at the heart of the code and nomenclature
+that the ICSP oversees, that we can only validly name things that have been
+cultured and deposited in culture collections, and that is probably actually a
+more existential matter for the ICSP to be considering, and certainly one that
+it has considered recently. So, I mean, I guess in terms of sort of sketching
+out where we are in terms of what the ICSP does, I've given a number of
+presentations on this over the years, and it is interesting that there isn't a
+great knowledge of this. I mean, one of the things that I've just mentioned
+there is that the ICSP does a number of things, but its primary role, its
+driving role, if you like, is to oversee the maintenance and functionality of
+the International Code of Nomenclature of Prokaryotes, to use the P word again,
+and that is the primary purpose of the ICSP. It does also have some secondary
+functions, one of which is that the rules of nomenclature that are bound up in
+that code also require the ICSP to have a journal of record, which is the
+International Journal of Systematics and Evolutionary Microbiology, and so the
+ICSP is responsible for administering the, that journal is published by the
+Microbiology Society, it's actually owned by the International Union of
+Microbiology Societies, but the ICSP is the sort of third corner of the triangle
+that oversees the publication of IJSEM, and those are two major functions,
+interrelated functions of the committee. But I think that also illustrates a
+point that I think I wanted to make very early. One of the issues with taxonomy,
+and I was going to say the cross that taxonomists bear, but I think actually
+taxonomists bear two crosses. One is the unfair cross, this conception that
+taxonomy is utterly dictated by rules, and that is utterly, utterly false,
+because there is protected in the code of nomenclature is freedom of taxonomic
+thought. One person can classify things one way. Phil, for example, can classify
+Rhodococcus as a single genus in the GTDB. My freedom of taxonomic thought is
+that Rhodococcus can actually, should actually be split into several genera. For
+example, where there are rules is there are rules relating to nomenclature, and
+that is what is wrapped up in the code, the ICNP, that the ICSP looks after. I
+mean, the second cross that taxonomists have to bear, and indeed frequently joke
+about themselves, many people, including myself, like to start published
+articles by quoting a chap called Sam Cowan, who was practicing in the 1950s,
+who made a number of good pithy comments about taxonomists being their own worst
+enemies by making their sort of discipline area arcane and boring and
+essentially stamp collecting, and we do still carry that particular cross, and I
+think there taxonomists are probably guilty about not doing enough to to shed
+that particular perception of their work. So Ian, how can we modernize it?
+Because it seems like taxonomy has trailed genomics and hasn't caught up. So you
+mentioned things like having to deposit cultured strains into, you know, special
+collections and whatever, which obviously isn't possible for a lot of the
+organisms we're finding with metagenomics, and then there's a whole legacy of
+anyone being able to deposit anything in NCBI and it magically appearing into
+taxonomy as an official species or whatnot. So how can it be modernized? I've
+argued in papers published now over quite a considerable period of time, at
+least pretty much a decade or so, that the way forward, and indeed I'm not alone
+in this, many people believe this, it's just getting it adopted is the hard
+part, is that the future of taxonomy is as a genomics discipline. My personal
+belief is that any information that you might need to classify an organism is
+encoded in its genome, and there's necessary and sufficient information to come
+up with a robust classification is present in the genomes of organisms, and I
+think the way we can modernize by shedding the, frankly, it's a conservative
+tendency that sort of demands a lot of, frankly, trivial and irrelevant sort of
+phenotypic testing be done, which in its worst manifestation, and I can speak
+from the heart here because I looked up this morning, as editor-in-chief of
+Antony von Lernhop between 2009 and 2019, I personally arranged either the peer
+review and editing or certainly the final copy editing of more than 800 species
+descriptions, and one of the things that I can confirm, bacterial species
+descriptions, is that they are mostly appallingly dull, and they are sort of
+dull checklists of, you know, trivial phenotypic tests, one of the ones I always
+single out, not entirely fairly, is, you know, how important really is it
+whether one organism is positive or negative for cysteine or alamidase, you
+know, those kind of miniature biochemical tests, and so modernizing require, I
+think, shedding that approach to publication of taxonomic papers. We are still
+very much with a lot of taxonomists building careers from a one colony is one
+species is one paper. It's a sort of assembly line of you pick the colony off
+the plate, if it's 16s RNA looks sufficiently different to other known species,
+you do this battery of tests, and then you write it up in a six-page paper that
+requires an editor, it requires two peer reviewers, and it requires enormous
+amount of human energy and effort and time to get that paper published, and the
+reality is that most individual species are not that exciting. It's clear, if
+you look at what's written down, the rules are actually very few and far
+between. There's just a huge corpus of behavior that has sprung up, the way in
+which editors and peer reviewers interpret things, but none of that's, there's
+no official taxonomy, there's no official approach to taxonomy, and when we were
+working on the chicken gut a couple of years ago, we were working with a  Haran
+Oran is an expert on bacterial nomenclature. And I said, we've got a lot of
+uncultured things we want to name, but we've also got 30 things that are
+cultured and we want to name them. And he said, well, all it says in the code is
+you've got to provide a description. It doesn't tell you what kind of
+description. You just have to provide a, you have to say what the type strain is
+and you have to come up with some kind of circumscription. And so I just adopted
+a very terse description, which said, you know, it's basically, this is the type
+strain and anything else in the species has to fit within an ANI of 95%. And
+that went through peer review and it's published. We did have to deposit those
+strains to get them validly named. And that process is still ongoing. I mean,
+they've been deposited. It's getting the validation of the deposition is taking
+time, well over a year after we sent them off to the type culture collections,
+we're getting, we're finally going to get there in the end. But I think that
+it's clear, if you look at both taxonomy and nomenclature, what passes as
+practice are the opinions of peer reviewers and editors. They are not written
+down anywhere as rules that have to be followed. And we can take a blowtorch to
+this. You know, in a sense, this is like the reformation. A reformation is
+needed. We get rid of all that stuff and we go back to the fundamentals. The
+code says you have to do this. The code says you've got to describe the thing.
+Here's a description. You've got to provide a derivation of the name. Okay. You
+know, you just describe the derivation of the name. You don't have to go into
+all that arcane Latin and decide whether Petra is a Latin root or a Greek root
+or whatever. You just say from classical roots, meaning this and that, you can
+do all that. So I think that my view is that we should stop giving time to these
+people, these old style people. And if a journal doesn't want to publish a paper
+because it's got the wrong peer reviewers and the wrong editor, publish it in
+another journal that's more open-minded. Let's just go around the problem. This
+problem will be solved as these people retire and the new generation come in
+that just say, why do we need to do all that stuff about quillings and all that
+nonsense? We don't. It's nonsense. Yeah. I have a paper in IGSE last month
+making a lot of those points, it must be said. And I think actually one of the
+things I looked up earlier, and I think Mark may be familiar with this, but this
+is a title of a paper by a person called Susan Renner, who is a fungal
+taxonomist, as it happens. But the title of her paper from 2016, I think is a
+really useful answer in a single sentence to the question Andrew asked about how
+do we modernize. And Renner's paper is entitled, A Return to Linnaeus's Focus on
+Diagnosis, Not Description, The Use of DNA Characters in the Formal Naming of
+Species. And for me, that encapsulates in a sentence, with a sub-sentence,
+everything we've just talked about, that the genomic DNA is efficient and to
+allow the placing of taxa within a classification. And the description that goes
+along with naming things can be a very brief diagnosis. Mark mentioned the ones
+he used in his chicken microbiome paper. And we are starting to see papers come
+through that say, the classification of this or the novelty of this taxon is
+demonstrated by phylogenomic analysis, those kinds of statements. And that is,
+for me, speaking personally, is the information to accompany the giving of a
+name. Yeah, a short while ago, only a few years ago, our clinical colleagues
+used to be quite sneering when they said, oh, that's just a genomo species. As
+if, you know, oh, there's multiple genomo species of Acinetobacter. We can't
+distinguish them in the lab, so it doesn't matter. That's fundamentally to
+misunderstanding. Everything is a genomo species. And genomes have triumphed
+over, you know, the phonetic classifications belonging to baggage in the dustbin
+of history. And it's time to move on. That, you know, basically we're just
+making manifest Darwin's dream, Darwin's vision. And those who wish to look at
+phenotypes are the kind of people that would have said, well, really, we should
+be calling a whale a fish. Come on, it feels right, doesn't it? No, it doesn't
+feel right, it's wrong. And we should stop doing it. Genomes are the only
+measure that we use. I mean, we have to give Phil a chance to speak. We have to
+qualify it's not genomes. It's a subset of the genes within genomes that are
+useful for this purpose. And we do have this problem of horizontal gene
+transfer. If we imagine that these genomes were lorries, we're not classifying
+on the whole lorry. We're not classifying the cargo, we're classifying on the
+cab. The thing that, you know, the small amount that is actually classified and
+makes a sensible tree of life classification. But nonetheless, that is
+fundamentally a boiled down version of the genome. What about you, Phil? What do
+you think on all of this? Well, I agree very much with what's being said. I
+think it's actually a really exciting time to be in taxonomy. I do believe I
+have you on a record and the bill is saying, I have a tweet from you saying
+taxonomy is dead, let it die. I use that actually in talks, but I would say very
+much the opposite. I would say we really on the cusp of getting the job done
+properly. And there are a few growing pains as we've seen from the Twitter storm
+in the last couple of days. But I really am looking forward to getting a full
+description of the microbial diversity we share the planet with. And I think
+we're heading in that direction in a very strong way. I'm very positive about
+the whole thing. All right, excellent. I think it's time for a little break.
+We'll be back to talk more about the genomics side of things and how that
+integrates with this and some of these recent changes to the nomenclature that
+people have been discussing. I want to thank our esteemed guests, Professor Ian,
+Phil and Mark, and we'll see you in the next part of our holiday special on the
+MicroBin V podcast. Thank you so much for listening to us at home. If you like
+this podcast, please subscribe and rate us on iTunes, Spotify, SoundCloud or the
+platform of your choice. Follow us on Twitter at MicroBin V. And if you don't
+like this podcast, please don't do anything. This podcast was recorded by the
+Microbial Bioinformatics Group. The opinions expressed here are our own and do
+not necessarily reflect the views of CDC or the Quadram Institute.

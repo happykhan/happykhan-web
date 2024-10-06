@@ -6,9 +6,59 @@ tags:
   - microbinfie
   - podcast
 ---
-Preprocessing of sequence data in advance of de novo assembly is a
-critical step to improving the final quality of your assembly. We chat
-about read trimming, correction and filtering, collectively called
-'Read Healing'.  Software mentioned: https://github.com/sanger-
-pathogens/plasmidtron
+# Preprocessing of Sequence Data
+
+In advance of de novo assembly, preprocessing of sequence data is a critical step to improving the final quality of your assembly. This process involves several key tasks that are essential for preparing your data. Here, we discuss the methods of read trimming, correction, and filtering, which are collectively referred to as **Read Healing**.
+
+### Key Components of Read Healing
+
+1. **Read Trimming**: 
+   - This step involves removing low-quality bases from the start and end of reads to ensure that subsequent analyses use only high-quality data.
+   
+2. **Correction**:
+   - Error correction is employed to fix mismatches or erroneous bases within reads that could affect the accuracy of the assembly.
+   
+3. **Filtering**:
+   - Filtering involves eliminating reads that do not meet certain quality standards or length requirements, ensuring that only useful data is retained.
+
+### Recommended Software
+
+One of the recommended tools for processing sequencing data efficiently is PlasmidTron, which can be found on GitHub:
+
+- [PlasmidTron GitHub Repository](https://github.com/sanger-pathogens/plasmidtron)
+
+Ensure to explore the repository for more details on how to implement Read Healing effectively in your sequencing workflows. 
+
+By carefully preprocessing your sequence data, you can significantly enhance the quality and reliability of your de novo assembly.
+
+### Extra notes
+
+- **Preprocessing Sequence Data:**
+  - **Tools for Trimming Reads:**
+    - **Trimomatic:** Used for trimming Illumina reads as a preliminary step.
+    - **Das Scrubber & Dazzler Suite:** Used for PacBio data, identifies errors, and trims sequences.
+    - **Filt-Long:** Filters out low-quality reads.
+    - **Portchop:** Removes adapters and cuts chimeras, although it's no longer supported.
+    - **FastP:** An all-in-one tool for sequence trimming.
+
+- **Challenges and Considerations:**
+  - **Quality and Coverage:** Ensuring adequate sequence quality without losing important data due to trimming, especially when coverage is low.
+  - **Read Correction Risks:** Correcting reads may eliminate important minority variants, especially in Illumina reads. It can also affect assembly completeness by potentially losing plasmids.
+  - **Duplicated Reads:** Addressing PCR and optical duplicates, which could lead to biases in the data.
+
+- **Advanced Techniques and Tools:**
+  - **Read Merging for Overlapping Reads:** Merging reads can simplify assemblies and improve accuracy.
+  - **Read Correction:** While used primarily for long reads, this process is cautiously applied to avoid losing meaningful data.
+  - **Plasmid Identification and Challenges:**
+    - **PlasmidTron:** Identifies plasmids in sequencing data by analyzing k-mer distributions, especially useful in differentiating disease-related genetic elements.
+    - Potential issues with plasmid detection when they appear in similar abundance to chromosomes.
+    - **Spades for Plasmid Assembly:** Uses k-mer abundance differences to separate plasmids from chromosomes but can miss plasmids if the abundance difference is minimal.
+
+- **Subsampling and K-mer Analysis:**
+  - **K-mer Abundance:** Eliminating over-abundant k-mers may help create more even sequence coverage and improve assembly.
+  - **Subsampling:** Reducing high coverage data can provide clearer signals for assembly, avoiding errors that mimic real genetic variance.
+
+- **Final Thoughts:**
+  - Emphasis on careful data handling and preprocessing choices to maximize assembly quality and accuracy, especially concerning potentially impactful elements like plasmids.
+  - Continued development and use of specialized tools to address specific challenges in microbial bioinformatics.
 
