@@ -6,42 +6,40 @@ tags:
   - microbinfie
   - podcast
 ---
-# Phylogenetics with the Arborists Part 2
 
-## Microbial Bioinformatics
+In this episode we talk about models of evolution help estimate transitions between states (e.g., nucleotide mutations) and fit the evolutionary patterns to build phylogenetic trees.
 
-This chapter or section, titled "Phylogenetics with the Arborists Part 2," focuses on the field of microbial bioinformatics, particularly in the context of phylogenetics. Below is an outline or summary inspired by the title and context:
+## Guests
+   * [Dr. Conor Meehan](https://www.ntu.ac.uk/staff-profiles/science-technology/conor-meehan)
+   * [Dr. Leo Martins](https://quadram.ac.uk/people/leonardo-de-oliveira-martins/)
 
-### Key Topics
+## Types of Models
+- **Broad Categories**: Models can vary based on:
+  - Transition probabilities (e.g., from one nucleotide to another).
+  - Covariance among sites (heterogeneity across sites).
+  - Specific models discussed include:
+    - **CAT Models**: Different implementations for nucleotide or amino acid data.
+    - **Gamma-Distributed Models**: Addressing rate variation across sites.
+    - **Best Model Selection**: Determined by model testing rather than a one-size-fits-all approach. The best model depends on the dataset.
 
-1. **Overview of Phylogenetics in Microbiology**
-   - Introduction to phylogenetic principles.
-   - Importance of phylogenetics in understanding microbial evolution and taxonomy.
+## Historical Context
+- **Model Evolution**: Discussion on the evolution of phylogenetic models, such as DNAML and Fast DNAML, leading to the development of RAxML and other software.
 
-2. **Tools and Techniques**
-   - Overview of software and databases used in microbial phylogenetics.
-   - *Sequence Alignment*: Methods for aligning DNA, RNA, and protein sequences.
-   - Building phylogenetic trees using various algorithms.
+## Specific Models
+- **HKY Model**: Favored for its complexity while providing an analytic solution.
+- **GTR Model**: Commonly used for complex datasets but can lead to overparameterization.
+- **Indel Models**: Need for models that account for insertion/deletion events, like TKF91/92 and Poisson-Indel models, highlighting that many current practices do not include indels in phylogenetic analysis.
 
-3. **Case Studies**
-   - Real-world examples of phylogenetic analysis in microbial studies.
-   - Exploring evolutionary relationships among different microbial species.
+## Recombination Challenges
+- **Impact of Recombination**: Acknowledgment that recombination complicates tree-building, particularly in recombination-rich species.
+- **Recommendations**:
+  - Avoid tree building with high recombination data.
+  - Consider phylogenetic networks to understand relationships better.
+  - Utilize tools like Bacter in a Bayesian framework for more accurate reconstructions.
 
-4. **Challenges in Microbial Phylogenetics**
-   - Addressing horizontal gene transfer.
-   - The complexity of microbial genomes and its impact on phylogenetic analysis.
 
-5. **Future Directions**
-   - Emerging technologies in microbial phylogenetics.
-   - The role of big data and machine learning in evolutionary studies.
+The best phylogenetic approach should involve careful model selection based on the data, consideration of recombination, and a focus on using models that accurately represent the evolutionary processes at play.
 
-### Important Terms
-
-- ***Phylogenetics***: The study of evolutionary relationships among biological entities.
-- ***Microbial Bioinformatics***: The application of bioinformatics techniques to study microorganisms.
-- ***Horizontal Gene Transfer* (HGT)**: The transfer of genetic material between organisms in a manner other than traditional reproduction.
-
-This content serves as an introduction or guide for those interested in the intersection of phylogenetics and microbial bioinformatics, providing insights into both the methodology and applications of this field.
 
 [Episode 12 transcript](/microbinfie-transcripts/episode-12.txt)
 

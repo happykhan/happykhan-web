@@ -6,9 +6,21 @@ tags:
   - microbinfie
   - podcast
 ---
-# Episode Discussion: Sequence Alignment Map (SAM) Format
 
 In this episode, we delve into the widely used **Sequence Alignment Map** (SAM) format. This format is essential for storing biological sequence alignment data.
+
+The episode focuses on the SAM format, a standard file format used in bioinformatics for storing alignment information between sequencing reads and reference genomes.
+SAM (Sequence Alignment/Map) was created by Heng Li at the Sanger Institute in 2009, and is widely used in combination with tools like BWA for aligning short reads.
+
+* SAM is a plain-text format for human readability.
+* BAM is the binary version of SAM, designed for faster processing.
+* CRAM is a compressed format, allowing for lossy or lossless data storage.
+
+These formats help manage the increasing data generated from modern sequencing technologies, especially short-read sequencing.
+
+Before the development of SAM, older alignment formats and tools like Fred, Frapp, and CONSED were used. These formats were clunky, non-parsable, and difficult to work with.
+The rise of Illumina sequencing and its vast data output (starting with 37 base reads) pushed the need for a more efficient and scalable alignment format, leading to the creation of SAM.
+
 
 [Episode 07 transcript](/microbinfie-transcripts/episode-07.txt)
 

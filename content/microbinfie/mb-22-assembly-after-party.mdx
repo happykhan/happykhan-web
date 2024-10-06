@@ -14,11 +14,41 @@ When you get an assembly, the fun doesn’t stop there. You then have to fix it 
 
 In this context, **scaffolding** refers to the process of connecting genomic sequences into larger, more complete units. **Gap filling** addresses missing segments in these sequences. **Polishing** improves assembly accuracy by correcting errors.
 
-**Assembly metrics** are used to evaluate the quality of the assembled genome. **Quality control** ensures that the genome assembly is accurate and reliable.
-
-**Genome structure** refers to the arrangement of genes within the genome, and **visualization tools** help researchers interpret and analyze these data. 
+* **Assembly metrics** are used to evaluate the quality of the assembled genome. 
+* **Quality control** ensures that the genome assembly is accurate and reliable.
+* **Genome structure** refers to the arrangement of genes within the genome, and **visualization tools** help researchers interpret and analyze these data. 
 
 For more comprehensive insights and detailed methodologies, please refer to the [socru tool](https://github.com/quadram-institute-bioscience/socru) and the [PLoS article](https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0004446).
+Here's a summary of the key points from this episode:
+
+1. **Post-Processing Steps**:
+   - Focus on improving genome assembly quality post-initial assembly.
+   - Common methods include genome scaffolding, merging assemblies, and polishing.
+   - Emphasize the importance of quality control (QC) and visualization tools to assess the final genome.
+
+2. **Initial Quality Check**:
+   - After assembly, map original reads back to the assembly to check for consistency.
+   - Use tools like **Reaper** to verify read mapping against contigs.
+
+3. **Assembly Process**:
+   - De novo assembly consists of two stages: generating contigs (overlapping reads) and scaffolding (linking contigs using paired-end or mate-pair data).
+   - Tools for scaffolding include **S-reads**, **Mira**, and **image2** for gap filling.
+
+4. **Polishing**:
+   - Polishing involves refining the assembly to improve accuracy. **Pilon** is a commonly used tool, with suggestions to run it multiple times for better results.
+   - Discussion on the use of **NanoPolish** for polishing Nanopore sequences, which has significantly improved in efficiency.
+
+5. **Quality Assessment Metrics**:
+   - Use tools like **Quast** for comprehensive quality metrics, comparing with simpler scripts like **RunAssemblyMetrics** or **AssemblyStats**.
+   - **N50** and **L50** metrics are discussed, with a consensus that no single metric can capture assembly quality entirely.
+
+6. **Genome Completeness**:
+   - Suggest using tools like **CheckM2** to evaluate completeness based on expected gene content.
+   - Discussed the importance of ensuring that certain genes (like MLST) are present as single copies in the assembly.
+
+7. **Visual Checks**:
+   - Explore total assembly length and consistency against expected lengths for known organisms to flag potential issues.
+   - Utilize tools like **Socru** for checking the order and orientation of ribosomal operons to validate assembly integrity.
 
 [Episode 22 transcript](/microbinfie-transcripts/episode-22.txt)
 

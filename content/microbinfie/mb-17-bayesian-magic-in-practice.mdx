@@ -6,22 +6,65 @@ tags:
   - microbinfie
   - podcast
 ---
-# The Dark World of Bayesian Magic: Part Two
 
 Join Dr. Conor Meehan, Dr. Leo Martins, and Dr. Nabil-Fareed Alikhan as they delve deeper into the fascinating realm of Bayesian methodologies. This part of the series continues the exploration of the **Bayesian** approach in various fields, shedding light on its applications and intricacies.
 
-**Speakers:**
+## Guests
+   * [Dr. Conor Meehan](https://www.ntu.ac.uk/staff-profiles/science-technology/conor-meehan)
+   * [Dr. Leo Martins](https://quadram.ac.uk/people/leonardo-de-oliveira-martins/)
 
-- **Dr. Conor Meehan**  
-  Expert in infectious disease modeling and statistics
+## Some notes
+- **Bayesian Models**: 
+  - Not a philosophy or religion, but a class of models based on conditional probabilities.
+  - Integrate various data sources for phylogenetic analysis.
+  
+- **Key Concept**:
+  - Bayes' Theorem: The probability of a model given the data equals the probability of the data given the model multiplied by the prior probability of the model.
+  
+- **Priors and Posteriors**:
+  - **Prior**: Initial belief about parameters before observing data.
+  - **Posterior**: Updated belief after incorporating data.
 
-- **Dr. Leo Martins**  
-  Specialist in ecological and evolutionary Bayesian analysis
+### **Getting Started with Bayesian Inference**
+- **Tools**:
+  - **Rev**: Recommended for beginners; simple tutorials available.
+  - **STAN**: Known for graphical models and flowcharts to describe interactions.
+  
+- **Resources**:
+  - **Taming the Beast**: An online course with tutorials for various skill levels.
 
-- **Dr. Nabil-Fareed Alikhan**  
-  Researcher in computational biology and Bayesian inference
+### **Building Bayesian Methods into Existing Work**
+- **Collaboration**: Encouraged to consult statisticians for guidance and validation.
+- **Simulation Techniques**:
+  - **Simulated Annealing**: Optimization technique for Bayesian models.
+  - **Approximate Bayesian Computing (ABC)**: Simulates data to approximate posterior distributions.
 
-Prepare to uncover the mysteries of Bayesian techniques and their powerful applications in scientific research. Discover how this statistical approach can transform data analysis, model relationships, and predict outcomes with a probabilistic framework.
+### **Interpreting Results**
+- **Convergence Checking**: Essential to ensure analysis is complete.
+  - Tools: 
+    - **Tracer**: Commonly used for visualizing convergence.
+    - **RWTY**: Computes distances between trees and checks convergence.
+  
+- **Estimates**:
+  - Most common output is the Maximum A Posteriori (MAP) tree.
+  - Programs like **Big Tree** help in visualizing uncertainties.
+
+### **Popular Bayesian Software in Phylogenetics**
+- **BEAST**: 
+  - Well-known for creating time trees with a user-friendly interface.
+  - Comes with tools for post-processing and analyzing convergence.
+  
+- **MrBayes and RevBayes**: 
+  - MrBayes is no longer supported; RevBayes is the recommended alternative.
+  
+- **Comparative Tools**:
+  - **LSD**: For creating time trees from maximum likelihood trees.
+
+### **Models in Bayesian Inference**
+- Bayesian models are used extensively for phylogenetic analysis, but they require careful consideration of priors and data inputs.
+- Understanding the differences between model outputs in Bayesian vs. maximum likelihood frameworks is crucial.
+
+Bayesian inference in microbial bioinformatics allows for complex modeling and integration of various data sources, offering a robust framework for understanding evolutionary relationships among pathogens.
 
 [Episode 17 transcript](/microbinfie-transcripts/episode-17.txt)
 

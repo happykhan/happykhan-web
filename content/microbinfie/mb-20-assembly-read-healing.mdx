@@ -6,7 +6,6 @@ tags:
   - microbinfie
   - podcast
 ---
-# Preprocessing of Sequence Data for De Novo Assembly
 
 Preprocessing sequence data before de novo assembly is a crucial step in enhancing the final quality of your assembly. This involves various techniques such as read trimming, correction, and filtering, which are collectively known as **Read Healing**.
 
@@ -16,18 +15,14 @@ Preprocessing sequence data before de novo assembly is a crucial step in enhanci
 2. **Correction**: Identifying and fixing sequencing errors that may have occurred during the sequencing process.
 3. **Filtering**: Discarding reads that do not meet specific quality criteria to ensure that only high-quality data is used in the assembly process.
 
-## Software for Read Healing
-
-One tool for improving assembly quality through these methods is [PlasmidTron](https://github.com/sanger-pathogens/plasmidtron), which can be found on GitHub under the Sanger Pathogens organization.
-
-By implementing these preprocessing steps, you can significantly improve the robustness and accuracy of your de novo assemblies.
+We also mentioned [PlasmidTron](https://github.com/sanger-pathogens/plasmidtron), which can be found on GitHub under the Sanger Pathogens organization.
 
 ### Extra notes
 
 **Key Points on Microbial Bioinformatics:**
 
 - **Data Preprocessing and Quality Control:**
-  - Tools such as *Trimomatic* and *Das Scrubber* are used to trim and preprocess Illumina and PacBio reads, respectively. *Filt-Long* and *FastP* are other tools mentioned for improving read quality.
+  - Tools such as *Trimomatic* are used to trim and preprocess Illumina and PacBio reads, respectively. *FastP* are other tools mentioned for improving read quality.
   - Challenges with data include low-quality bases and instrument errors, requiring smart trimming strategies like removing adapters and low-quality segments.
   - Read trimming strategies include determining cutoffs based on fixed quality scores (e.g., Q30) or average quality windows.
   - Overlapping reads can cause confusion for assemblers; techniques like merging overlapping reads to form singletons can improve assembly quality.
