@@ -164,6 +164,8 @@ def main():
     summary_assistant, tidy_assistant = create_assistants()
 
     makedirs(args.work_dir, exist_ok=True)
+    # Ensure transcript directory exists (now under public for direct serving)
+    makedirs(args.transcript_dir, exist_ok=True)
 
     for article in binfie_rss(rss_feed):
         dir_name = 'content/microbinfie/' 
@@ -215,7 +217,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Process some integers.')
     parser.add_argument('--rss_feed', type=str, help=f'RSS feed URL. Default: {rss_feed}', default=rss_feed)
     parser.add_argument('--work_dir', type=str, help='Temporary working dir. Default: podcast_episode_audio', default='podcast_episode_audio')
-    parser.add_argument('--transcript_dir', type=str, help='transcript text directory.', default='static/microbinfie-transcripts')
+    parser.add_argument('--transcript_dir', type=str, help='transcript text directory. Default now served from public/', default='public/microbinfie-transcripts')
 
     args = parser.parse_args()
 
