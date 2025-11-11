@@ -32,7 +32,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${libreFranklin.className} ${ibmPlexSans.variable} ${ibmPlexMono.variable}`}>
+    <html lang="en" className={`${libreFranklin.className} ${ibmPlexSans.variable} ${ibmPlexMono.variable}`} suppressHydrationWarning>
       <head>
         {/* Prevent dark-mode flash of unstyled content: set initial theme before CSS paints */}
         <meta name="color-scheme" content="light dark" />

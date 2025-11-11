@@ -209,6 +209,42 @@ th {
   .contact-box {
     position: static !important;
   }
+
+  /* Home page responsive */
+  .home-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .social-sidebar {
+    display: none !important;
+  }
+
+  .social-inline {
+    display: flex !important;
+  }
+
+  .picks-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Desktop: hide inline social, show sidebar, 3-column picks */
+@media (min-width: 769px) {
+  .home-layout {
+    grid-template-columns: 1fr auto !important;
+  }
+
+  .social-inline {
+    display: none !important;
+  }
+
+  .social-sidebar {
+    display: flex !important;
+  }
+
+  .picks-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
 }
 
 /* About page two-column layout */
