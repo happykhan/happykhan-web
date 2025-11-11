@@ -1,0 +1,483 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. Hello and welcome to the MicroBinfeed podcast. Andrew,
+Nabil, and I are your co-hosts today, and we are joined by Frank Ambrosio. I
+know Frank from CDC, but he is currently a contractor with Theogen. I caught up
+with Frank at a conference recently, where we learned that he is going to be a
+sort of traveling bioinformatician. Welcome Frank. Thanks, Lee. I want to get
+into your nomadic lifestyle, but first, to give everyone a sense of who you are,
+let's get to know what your non-nomadic life has been like. What all were you
+doing at CDC, and where were you living, in an apartment? Just to help us get
+into that, I'll kick it off with the first question here. How long had you been
+at CDC, and what was your focus at CDC? My story at the CDC is interesting. I
+was a member of several different laboratories while I was there. The first lab
+that I worked in at the main campus of the CDC was the Division of Tuberculosis
+Elimination under Jamie Posey, where I first got exposed to the way
+bioinformatics was done at an extremely large scale. I was still working in the
+laboratory. I was a lab technician slash microbiologist, and I was learning how
+to sequence on the nanopore device that had just started to hit the scene. The
+more I performed sequencing, the more I got interested in analyzing my own data.
+Initially, I had been handing off my data to the bioinformaticians and looking
+at the results with them after the fact, but I got really interested in how they
+were doing their analyses. They actually encouraged me to start doing it myself.
+I did. I found an old Linux computer that was hanging around the division, and
+got all the permissions and everything to start using it. Eventually, I was
+encouraged to start studying this academically. Turns out we have an excellent
+bioinformatics program just up the street at Georgia Tech. Without Jamie Posey's
+approval, I wouldn't have gotten to do that master's program while working at
+the CDC. Big thanks to Jamie Posey for making that possible. While I was working
+at the CDC, after the Division of Tuberculosis Elimination, I worked in the
+Biodefense Research and Development Laboratory under David Hsu, who really
+helped me develop my microbiology skills in the BSL-2. After that, I worked in
+the Strep Lab with Sophie Chichoua, Leslie McGee, and Ben Metcalf. They do a ton
+of sequencing. I mean tens of thousands of isolates a year. It was a little bit
+different to go from a lab that does a very small number of sequencing projects
+with extremely rapid turnaround time and extremely high consequences for every
+sequencing run, to this more surveillance-oriented, production-level laboratory.
+It was an awesome experience. I learned a lot from them as well. I also got to
+use the skills that David helped me develop in the microbiology realm, laying
+E-strips, doing MIC testing on various strains of strep. From there, I got my
+FTE, working in the Division of HIV-AIDS Prevention under Bill Switzer and Ells
+Campbell. That was actually a job I had been trying to get for a long time,
+working at the CDC. What does FTE mean for our international and non-
+professional people listening? That's a great question, Lee. FTE means full-time
+employee. What it really means is you have become a direct hire to the CDC.
+You're no longer a contractor. Getting your FTE, it was a huge honor for me. It
+shows confidence in you as a scientist. It was a huge honor. It was with the lab
+that I had been trying to work with for a while. This is a lab that develops
+MicrobeTrace, which is a tool I had become enamored with watching presentations
+on the big screen with everyone at the CDC campus. Awesome. That gives us a
+really good idea of who you are, where you've come from, which is amazing.
+Thanks, Lee. Maybe just along those lines, I don't think we interview a lot of
+early investigators, early researchers. Do you have any tips for aspiring
+bioinformaticians? Definitely. When trying to get a job at the CDC, I would
+encourage early career scientists to focus on applying to the contracting
+agencies. There are a ton of contracting agencies that work at the CDC. Often
+people don't realize that a job through one of them is actually a job at the CDC
+because of the rules about what they can put in the job description and
+everything. I would absolutely encourage early career scientists to take that
+route just to get as many applications in as possible in the areas that you're
+interested in working. Oftentimes groups will be entirely composed of
+contractors. So if you want to work for a very specific group on a specific
+pathogen, you might need to work for one of these contracting agencies. So don't
+focus on getting that FTE right out of the door. It will come with time. I kind
+of think of it like a martial arts belt promotion. You don't focus on the
+promotion. You just do the work and eventually you will get the promotion that
+you want. Any tips for technical aspects of learning bioinformatics and adapting
+to that field? Oh, that's a really good question. A year ago, I would have said,
+go and buy yourself a sweet MacBook Pro and get as much RAM and as many CPUs as
+you can possibly afford and learn the Apple terminal and all the commands and
+shortcuts and focus on that route of development. Today though, after having
+worked at Theogen, I would strongly recommend familiarizing yourself with a VM
+and particularly I would recommend a Google Cloud VM and syncing that up with an
+IDE like VS Code. And there's a lot of reasons for that. First of all, I have
+had the unfortunate experience of my battery dying while being in the middle of
+editing a script and lost some of the work that I was working on. Yep. That
+happened to me during grad school and it wasn't terrible, but that one
+experience was so traumatic that I started seeking out solutions to make sure
+that never happens again. Just automatic saving and stuff like that. When you're
+working on a VM and VS Code, everything is so seamless to push commits to GitHub
+that it's rare that I ever lose more. I haven't lost anything so far since
+taking that route. So I would strongly- Touch wood. Yeah. Exactly. Exactly.
+Exactly. Yeah. I would strongly recommend starting from that route because
+relearning your development environment, everyone has to do it a couple of times
+as they progress in their development career as you switch from one IDE to
+another, from one text editor to another. I guess that's not true. Some of us
+are still working in Vim, but by and large, you will lead smiling. By and large,
+you will eventually adopt an IDE. If you choose to go that way, I would
+recommend VS Code and the Google Cloud VM as a nice, easy starting point. Yeah.
+So how did you actually get into Tejan? So this brings me back to my FTE
+position at the CDC. So when I was working in the Strep Lab, I was deployed to
+the international task force of the COVID response. And there, I learned a ton
+about international bioinformatics. I was charged with developing the
+international sequencing capacity dashboard. So I got to see where are these
+sequencers being distributed and what is the landscape of sequencing capacity
+look like around the world? And part of what I realized is there's probably a
+lot of sequencing that people could be doing that they're not doing because
+they're focused on one pathogen. And that will grow with time naturally, of
+course, but that's where the seed was kind of planted that I wanted to
+participate in the international bioinformatics community. From there, I got my
+FTE with the Division of HIV AIDS Prevention, and I was almost immediately
+deployed to a local task force called the Toast Team. And the Toast Team was
+headed up by Lee Katz at the time, and it was a fantastic honor to finally get
+to work with Lee Katz. Lee actually presented during my first week at Georgia
+Tech during grad school. So from there on out, I kind of had my eye on...
+working with Lee in some way, shape, or form, and it finally happened. And then
+subsequently, two days later, he rolled off the task force and we had a new team
+lead, as is the nature of the pandemic response task forces. But I can check
+that off my bucket list of bioinformatics collaborations. Then being on the
+TOAST team, we provided technical assistance to state laboratories around the
+country. And a lot of these state laboratories had started using this platform
+called Terra.bio that's developed by the Broad Institute of MIT and Harvard.
+Immediately, I saw how this platform could be the graphical user interface for
+every bioinformatics pipeline in the open source bioinformatics community. I
+started having meetings with Kevin and Curtis from Theogen, and Curtis really
+opened my eyes to the power of Docker containers and how they could be used to
+string together tools that don't normally play nice together. And seeing how
+everything could be orchestrated on Terra with a click button interface, that
+really appealed to me as someone coming from the wet lab who had to go through
+the process of learning to do my own bioinformatics on the command line and had
+to install 15 different versions of the same tool to try and get all my
+dependencies right. Seeing how things could be deployed so easily to Terra.bio
+and how these long, complex pipelines made of various different tools could be
+accessed with a click button interface through a web tool, that really, really
+appealed to me. And I saw that Theogen was the group developing all the
+workflows for public health on Terra.bio. And I became interested in doing
+exactly that. And after a few conversations, I decided that was the move. And
+yeah, they were looking for people. I was looking to do exactly what they were
+doing. So it just worked out perfectly. So I wanna change the topic just a
+little bit because you are extremely interesting as an early researcher. You've
+gone through a lot of stuff. In response to what you said, it has been an honor
+to work with you also, even though our time was short. One of the really
+interesting things is that you want to kind of take your show on the road. And
+is it okay for me to say couch surf? You wanna do Airbnb and work remotely when
+many of us are basically career bioinformaticians and we have a stable home and
+we wanna, and you could have this stable home and everything, and you do. And
+can I just like kind of paint your apartment a little bit for the audio? You
+have a nice three panel painting on your wall, a map of the world, beautiful
+apartment with fireplace and a nice couch and everything. Why would you wanna
+leave all this behind? So yeah, that's a great question, Lee. One of the major
+sectors of growth we saw during the pandemic was actually home remodeling
+because so many people decided, if I'm gonna be here all the time, I'm going to
+make my home office amazing. And I kind of fell along those same lines. I now
+have two more screens than I had at the beginning of the lockdowns. And I have
+multiple laptops and everything here. I could do this job from here, no problem.
+But the reason I want to travel, the reason I want to go and do, as you said,
+couch surfing, Airbnb surfing around the world is the connections you make in
+the public health community are absolutely incredible. This brotherhood of
+people who are interested in promoting public health around the world, I haven't
+met a single person in public health who doesn't want to help everyone in that
+community. It's a really loving and accepting and warm and powerful community.
+And yeah, getting to go meet people in person is a very special experience. And
+I just want to do as much of that as I possibly can. Recently, I got to take a
+trip to meet some collaborators in Mozambique that we had been working with for
+seven weeks prior to the trip, learning genomic characterization, genomic
+epidemiology, and getting to meet them in person was, in one week, we bonded
+more than we had over Zoom in seven weeks. So just getting those opportunities
+to have a cup of coffee with someone, sit and have lunch with someone and talk
+to them about what their career interests are, you don't get that if all of your
+meetings are focused training sessions over Zoom. So yeah, I want to go meet
+everyone in person who I've been working with from around the world for the past
+three years. So give us like a little bit of a before and after that while
+you're stationed in Atlanta, you've had a routine over here. How do you think,
+how's your routine now and how's it gonna change? You can have a routine when
+you're living in one spot. Having a routine when you're on the road is you have
+much shorter periods of regular activities, let's say. So while I was in
+Mozambique, I had a routine, but that routine lasted 10 days. When I'm in New
+York, I have a routine, but that routine lasts just for the two weeks I was
+there. So for me, it's less about setting up this permanent established routine
+and more about finding a framework. Like what things do I need to do and how can
+I fit them all in? And I kind of see my calendar, my Google calendar as this,
+like I've stopped writing to-do lists and I've started just using my calendar
+and trying to fit in everything that I need throughout the day, whether it be,
+you know, going outside for a little bit or making food, making sure I take care
+of myself, but then also all the work-related responsibilities and socialization
+and stuff like that. So I really try to focus on using my calendar and planning
+for the week, planning for the month, planning for the quarter, and that makes
+it a lot easier to not have that routine. I don't need to worry about what I'm
+doing that day because my calendar will tell me. So are you planning to like
+live in a van or something as you travel across the US or are you planning to,
+you know, kind of live it up in Airbnbs and kind of cool locations around the
+world? So the van life movement has absolutely appealed to me a little bit. I
+actually know of one individual who is currently doing that very successfully.
+They just have a couple of hotspots and they live the van life. That would
+actually limit me to geographic regions that are connected by land. So, you
+know, it does appeal to me, but I would like my area of travel to be a little
+bit broader than just the Americas. So the Airbnb option, you know, most people
+hear Airbnb and they think giant house on the ocean. And there are a lot of
+options within Airbnb and many of them are more affordable. And, you know, you
+really don't need much if you're going to be out and about working in cafes and
+elsewhere. And that's really the approach that I've taken. So this is a good
+time to tell my story of my first travel while working with Theogen. It was
+actually during my first week of working for Theogen that I had to travel to New
+York. It was my first time traveling while working without taking any time off.
+We had not been issued Theogen laptops yet. So I had my work laptop that I had
+bought myself. It was a MacBook Pro. And I was very nervous because I had never
+made this work before. I thought that I had all the equipment, I had all my
+adapters, I had a mouse that I was bringing with me, a keyboard, and I packed up
+all my stuff and I stayed in a one room Airbnb. So it was just a bedroom. And I
+set up my laptop and everything when I got there and I was able to hold
+meetings. I blurred my background and made sure, and everything went fine. There
+was nothing to worry about. Initially, just hooking up to the Wi-Fi took about
+two minutes. As you know, when you get to a new place, you have to get that Wi-
+Fi password as soon as possible. But after that, everything went smoothly. We
+also had a Theogen hotspot on our work phone. So if anything went wrong with the
+Wi-Fi, I had redundancy. I also have my personal phone, which has a hotspot. One
+of the things that I discuss all the time with Kevin is redundancy, like where
+do you need to have redundancy? And the first one is with your internet
+connection. You can't just rely on one internet connection, you have to make
+sure you have some alternative method of hopping back on the call should
+everything go down. The next thing is your audio equipment. Everyone who's ever
+been on a Zoom call knows the struggle of audio equipment. And you want to have
+multiple options. I personally have my headphones that I'm wearing right now. I
+have a pair of earbuds and I have a microphone. So three different methods. And
+also I think it's nice to mix it up. Your ears can take a lot of abuse if you're
+just using the same headset every single day. So mixing it up definitely helps
+with the ergonomics of being on eight hours of Zoom calls a day. So yeah, while
+I was in New York, I worked from this Airbnb.  worked from the pizza place right
+down the street, which had their own Wi-Fi network. I worked from the coffee
+place down the street the other way that had its own Wi-Fi network. And, you
+know, there, when I went to visit friends, if I had to send an email, if I had
+to do something, I could connect to their Wi-Fi network. So having, having the
+the hotspots and having a little bit of confidence in the internet connectivity
+around the region that you're in, that that helps. So I'm sure it can be a bit
+lonely when you're travelling solo. So how do you avoid feeling disconnected and
+integrate properly with your company? And this, this was one of the major issues
+that I had at the beginning of the lockdowns. So I live alone, I don't have a
+pet, I don't have a dog or a cat. And living alone during those lockdowns was
+pretty rough. The opportunity to travel to me, it really led to more connections
+than I would have had just staying home. That being said, I developed some
+strategies that are still in place to this day. And first of all, you have to
+set times to talk to people nowadays, everyone is so busy, that if you want to
+have a recurring meeting with one of your friends, you should put it on your
+calendar. Like it might seem weird to be putting, you know, meeting with my
+buddy, Kevin, on your work calendar. But you know, it really helps to keep that
+regular checkpoint. And just have those those intentional check ins with the
+people that you care about. Additionally, if you get the opportunity to go visit
+your family, just do it. It you know, there's there's so few opportunities to do
+that nowadays. And I, I love going up to New York and seeing my family that is
+still living there. And I got to do that actually, my cousin got married
+recently, and I went up there for the first time in a few years, I got to see
+people and it's, it's one of those things that you you don't think about it
+until you're around those people again. And they're saying, wow, we haven't seen
+each other in three years. And you want to let that happen as as often as
+possible, go see your family, make sure that you're seeing the people who love
+you and see see them in person, if you can, you know, make sure your your timing
+your boosters and everything appropriately so that you're doing it safe. Take
+all the precautions so that you're not getting people sick. But if you can go
+see your family, do it. Much of what you're saying, Frank, I've heard other
+people who were remote working from before the pandemic, you know, the OGs, they
+would they would more or less say what what you've been saying. It's interesting
+during the pandemic time that we've, we've lost the the water cooler moments in
+work in life. And it does seem now I think we've forgotten how to do it. And you
+have to do this deliberate scheduling of of times with people to really ensure
+that you get the, you know, in quotes, casual conversations, they have to be
+formal in the diary now. Because yeah, people are coming and going all the time.
+Yeah, so related to that, I will often just put a meeting with one of my co
+workers or friends. That's just, you know, my name slash their name. And it's
+completely open. There's no agenda. It's what are your concerns? What are you
+working on right now? What are you doing? We haven't talked we haven't had that
+water cooler moment. And I, you know, I remember from my time at CDC, walking
+through the hallways, and seeing, you know, all of my friends who work there.
+And now, since I don't have that, I am kind of aggressive with my setting of
+meetings with people if you know, if you can't make a meeting, all of my friends
+know, like, just go ahead and reschedule it or reject that meeting. It's totally
+fine. I will not be offended. But I feel like it's important to make that clear
+to them when you start doing this. Because people see a meeting pop up on your
+calendar. And, you know, unless you've explained this to them, they might be
+expecting, oh, is this going to be a working meeting? Do I need to have an
+agenda ready for this meeting? So I like to just tell everyone, hey, I'm gonna
+put meetings on your calendar just to chat for 15 minutes about, you know, are
+there any concerns? Is there anything I need to know that's not in the normal
+scope of our work discussions? And I think that helps a lot. So I'm curious now
+trying to read between the lines of what we've been discussing so far. Let me
+place a hypothetical. If we didn't have this catastrophe of the COVID-19
+pandemic, do you feel you would be making this change that you're making now?
+The digital nomad, would you think you'd be trying to implement it now? Yeah, I
+see why it appears that the pandemic was sort of a catalyst for me wanting to
+embark on these journeys. But really, I've been focused on having a locationally
+independent occupation for a long time. It's always appealed to me the idea of
+being able to grab my laptop and go work in a cafe from anywhere. And one of the
+most important things I remember from early on, I had a professor in undergrad,
+who had described some time that they went and worked in Latin America, and they
+traveled around for a bit. And I was like, how did you work from six different
+countries in one year? How is that even possible? And they explained, you know,
+work visas, you have to come back to the States every so often and maintain your
+citizenship. And they gave me this rundown. I had never even heard of that
+lifestyle before. And this professor was very successful. They started several
+businesses along the way, and it just really appealed to me. So that's probably
+the first moment that I started considering the digital nomad lifestyle. But
+then I was in the laboratory. And I thought, you know, I love working in the
+laboratory. I love thinking inside the test tube and, you know, working with my
+hands at the at the wet bench working with a pipette and working with all these
+cool new sequencers and sequencing technologies. And but then we got a, an
+automated liquid handler. And this was the writing on the wall, I saw the
+automated liquid handler. And I was like, I am never going to be good as good at
+this, as this thing. I can only work so many hours in the day before my hand
+falls off. And this thing can go all day and all night. And that that's part of
+the impetus for learning bioinformatics as well was, you know, where can I be
+more useful than I am in the lab? If this sequencer or this liquid handler can
+pipette more than me and faster than me? Where can I be of use? And obviously,
+at the experimental design phase, that was important, but also the analysis. So
+yeah, once I started working behind the laptop more, I started really thinking,
+okay, I might be able to do this, I might be able to, you know, achieve the
+dream of locational independence. And once once I saw the goal on the horizon, I
+pursued it aggressively, I got the bioinformatics masters from Georgia Tech. And
+from there, it was just a matter of finding the right position, which I did at
+the agent. So if it's not, if what you're saying makes sense, it was something
+that was coming from before. Do you feel like there is a generational shift?
+Because for me, I feel like I'm in the middle, I got the worst of both sides,
+people who older professors were able to dig into a place and get tenure and be
+fine. And then younger folks, I mean, I don't know. Like younger folks, I see on
+the on, you know, my nieces and nephews, and so on. They they take to this, they
+take this, yeah, I'm working here for a year, I'm working here for two years,
+I'm moving around, I'm doing whatever, I'm having fun. And I'm like, I can't do
+either of it. This is this is ridiculous. Yeah, I feel with your with your peer
+group that this with it with people in your cohort, say, as you were stepping
+through, they also are more sort of easy able to cope this this transient sort
+of work pattern. Yeah, absolutely. I totally see that pattern. So I was born in
+1990. I was part of the first generation to have a cell phone in middle school.
+And the the idea of connectedness for me, I remember the days when you had to
+ride your bike down the street to see your friends. And then I remember getting
+my cell phone. And I remember thinking like, wow, I can talk to all of my
+friends all the time, nonstop from anywhere I want from now on. And now, you
+know, text messages used to cost like 10 cents a piece. So my mom didn't think
+that. But at the time, I thought that and then with, you know, AOL instant
+messenger came around and I, you know, I was fortunate enough to have a laptop
+at my home when I was first getting exposed to AOL instant messenger. And I
+thought, again, I am connected to everyone I want to be connected to all the
+time. And yeah, I kind of grew up with that mentality. And I guess, yeah, as as
+I learned more and more about these digital nomadic lifestyles, it there was
+nothing that there was nothing that scared me about giving up the home base. I
+really took to it. And I see it in some of my my family members who have
+purchased a house and they're building a life in their community. And they say,
+you know, how can you how can you travel around like that? And what about your
+friends? Don't you miss your friends and  Who do you go out with when you're on
+the road like this? And, you know, I make friends all over the world. I talk to
+my friends who I've known since middle school and grade school on the phone all
+the time. So I think the the social dynamics have really shifted in favor of
+just moving around and staying connected. So are you planning to give up your
+apartment or or sell it or what? Yeah, so the the eventual plan would be to sell
+off all the stuff I don't need, put some of my stuff in a small storage unit
+here in Atlanta, maybe use one of those mobile storage units like pods where you
+can have the whole storage unit shipped to another location and just go from
+Airbnb to Airbnb around the world. Now, I got to tell you, an Airbnb in Lima,
+Peru costs more than my rent does here in Decatur, Georgia. So it it's actually
+cost effective to stay in these Airbnbs rather than having an apartment. So my
+plan is I will keep this apartment through next summer. And at that point, it's
+going to be all traveling all the time. I should point this out. You might
+actually have when when when this one's Lee, I always pronounce the Decatur. Is
+that wrong? Yeah, we it's Decatur. Oh, my God. I've been pronounced you you win,
+Lee. For once, I've said it wrong. I win. There's a salmonella serovar called
+Decatur that I see from time to time. So you say I kept saying Decatur. We have
+a locality. We have a serovar here. Who discovered that one? I don't know who I
+don't know if if there's another Decatur, but the you know, it's probably a
+common city name, but there is a serovar called Decatur. We have a few different
+indicators in the U.S. And I and I don't know if anyone mispronounces it. I
+definitely hear the mispronunciations over. I don't know, like over tech support
+calls or whatever. That's hilarious. This is a tangent, but oh, my God, when I'm
+not going to give away if and when I can't give you so much. I can't give you so
+much grief about mispronouncing Norwich. I mispronounce it every episode now.
+It's great. I'm not going to give away if and when you're visiting, but like if
+and when you visit. You're reminding me, I'm going to I'm going to have a field
+day with you guys now. I'm going to try to bring up all the names. This is going
+to be great. No, but that sounds that sounds really well-formed as what you're
+saying, Frank, in terms of a lifestyle like it makes it does make sense when you
+when you put all of those pieces together. It does make sense. It is like it is
+it is sustainable and it is sort of sensible in a way. At the beginning, you
+sort of mentioned a lot of people of, you know, in terms of education and
+mentoring, and you would have been doing this all on site with within CDC
+positions. Now, how would that be possible in a digital nomad space? I mean, you
+touched on catching up with people over the phone and virtually. But to me, that
+seems to be possibly one of the weaknesses that you're not embedded with people
+for a long time to to get exposed to some great experience. Yeah. And, you know,
+this this was actually a concern of mine. I was very fortunate to be mentored by
+the people I was mentored by at the CDC and at every level. These are people who
+I all still look up to as mentors and would love to be able to see on a regular
+basis. I think one of one of the tactics that I've come up with for maintaining
+relationships is find a project to work on with someone that you want to
+maintain a relationship with. And and for me, forming relationships is much
+easier if we have a common goal and something something to work on every week
+and milestones to achieve. And one of the most recent collaborations I've worked
+on has been with David Hess from the Nevada State Public Health Lab working on a
+candida outbreak in that region. And, you know, David and I, we live like twenty
+five hundred miles away. It really would be impractical for us to see each other
+in person on a regular basis. But we have a checkpoint every week where we meet
+and we discuss the project that we're working on. And I got to tell you, it has
+been one of the most rewarding mentor mentee relationships that I've ever had.
+So I, you know, I haven't met David in person yet. We're actually going to meet
+for the first time in person at ASM NGS. So this is this is the new way is you
+can form these relationships digitally. You can maintain them by working on a
+project, working towards a common goal, and then you can meet each other at the
+conferences, which, you know, thank goodness for these conferences starting back
+up. I think that's, you know, going to be really helpful for facilitating the
+maintenance of these relationships long term. Well, you're speaking to the choir
+here, Frank. Actually, I think most of our interactions for the podcast with Lee
+over in the States is is totally online. And we only we only met up, what, at
+the other month, really. That's exactly as you're saying. So, yeah, no, I
+totally agree with that. I had one final question before we wrap up, and this is
+sort of throwing it open to everybody. What you're sort of talking about is this
+more agency model where you're moving around, you're working freelance, or I can
+see things like, say, with Theogen or with other companies or core
+bioinformatics services where you're sort of a gun for hire and you're kept on
+retainer within a group, but you're not actually embedded in the organization in
+a specific university or anything like that. I'm wondering how everyone feels
+about this. Is this what we're going towards as a working model for the field
+that we're sort of this gun for hire, working remote if needed, tapping in and
+out? One day you're working on one project. One week you're working on another
+project and switching around. Is that what we're moving towards in
+bioinformatics? Yeah, I I think that, you know, rather than looking at it as,
+you know, I'm just one person who you can hire to help with bioinformatics, I
+would be much less effective without the Theogen team behind me. And I think
+that really illustrates the model a little bit better is you have this team of
+bioinformatics scientists, genomic epidemiologists and then project coordinators
+who can very quickly come up to speed on a project and immediately start
+helping, start contributing. And we see this over and over again with our state
+public health lab partners. We can very rapidly start being effective with a
+project when we start a new collaboration with a state public health laboratory.
+And we kind of take the approach of a practitioner led research and development
+model. So anything that they're working on, we gear our entire development
+trajectory towards the needs of our collaborators. And typically what ends up
+happening is the needs of one collaborator meet the unknown, unforeseen needs of
+another collaborator. So we are we are developing in many different directions,
+but every direction that we develop programs helps multiple different
+laboratories. And I think that, you know, that kind of breaks the old model of
+having one bioinformatics scientist per group who develops all of their analyses
+and has to do all of the bioinformatics in a bubble. And now it's I'm working
+with genomic epidemiologists during the development path. So it doesn't get to
+the end. And I've developed this nice bioinformatics pipeline that the results
+of which I have to then interpret for the genomic epidemiologists by
+collaborating through the entire development period. We we make something that
+works for everyone. I mean, the agency for I feel like. This is it's almost like
+it's a kind of continuation of what we've been doing, unfortunately, Frank
+mentioned the FTE thing at the beginning of this. For better or worse, we hire a
+bunch of contractors or we hire fellows or whatever who are not actually
+employees of CDC, and that's to help us maintain flexibility and everything.
+And. And maybe this is just a continuation, I I kind of see a bright future
+where the Internet and all these technologies are kind of helping us find more
+and more intelligent people to help us on our missions. And and these people
+like Frank bid for a contract at CDC or. Or they can bid for a contract
+somewhere else. And and I think it's kind of when when it maintains flexibility
+like we've wanted for a long time while maintaining the expertise. I think it's
+I think it's probably a good thing. Yeah, I agree with that, Lee. I think, you
+know, I draw a lot of lessons from my time on the Toast team, seeing how, you
+know, you can you can have these collaborations between state public health
+entities that would have not interacted, if not for one central group bringing
+them together like the Toast.  team was. And like we do at Theogen in different
+ways. The Staff B community has been amazing at this. And I think that, you
+know, we should definitely acknowledge that they've been doing this the longest.
+They were the OGs of the state collaboration movement. But, you know, there's so
+much potential to that movement, just bringing people together for these
+collaborations. So what next? You know, in five years time, if we come back and
+talk to you, where do you expect to be? You know, is it going to be that you are
+leading your own company? Or, you know, you'll be running Theogen? Or, you know,
+what is your feeling on that? So I think Theogen is doing things the right way.
+I have no intentions of leaving Theogen. My role in five years will probably
+shift to a more supervisory management role. But for now, I'm just focused on
+making the connections around the world with public health groups that are doing
+good work, performing bioinformatics and, you know, want to learn the cloud-
+based technologies and the Docker-based technologies that we use at Theogen.
+And, you know, we'll take it from there. Anything I could do to help the global
+bioinformatics community, I'll be doing that in five years. We'd like to keep
+hammering the hard questions with you, but I think we have to wrap it up there.
+Can we check in with you later after you've had some time with them on
+Lifestyle, especially with Andrew's question, where do you see yourself like in
+five years? I am very curious where this goes to long term. Yeah, absolutely.
+It's been a pleasure talking to you guys. And, you know, anytime you want to
+have me back on, like I discussed earlier, whether I'm in Lima, Peru, or I'm in
+Sydney, Australia, you can, you know, put a put an hour on my calendar, and I'd
+be happy to chat. Awesome. Well, thanks for clearing up this amazing Lifestyle.
+Thank you to all the listeners for tuning in. And we'll catch you next time on
+the next episode. Thank you so much for listening to us at home. If you like
+this podcast, please subscribe and rate us on iTunes, Spotify, SoundCloud, or
+the platform of your choice. Follow us on Twitter at microbinfee. And if you
+don't like this podcast, please don't do anything. This podcast was recorded by
+the Microbial Bioinformatics Group. The opinions expressed here are our own and
+do not necessarily reflect the views of CDC or the Quadram Institute.

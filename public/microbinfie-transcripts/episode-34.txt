@@ -1,0 +1,311 @@
+Hello, and thank you for listening to the Microbinfeed podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. Hello and welcome to the Microbinfeed podcast. The
+fraternity of bioinformatics includes people with vastly different backgrounds
+and expertise. You can have a strong computer science background or trained as a
+bench microbiologist who later moves into bioinformatics. Today we're going to
+talk about the advantages and disadvantages of these different backgrounds and
+what people should be mindful of. To balance out this discussion, we have a
+special guest today, Phil Ashton, who is a bioinformatician at Malawi Liverpool
+Welcome Unit based in Blantyre, Malawi. Phil in particular moved into
+bioinformatics post-PhD, and he will be representing the wet lab perspective. So
+Phil, who are you and what do you do? Hi Lee, thanks for having me on, first of
+all. So yeah, so my name is Philip Ashton, I'm a bioinformatician at the Malawi
+Liverpool Welcome Institute, based here in Blantyre, in southern Malawi. I moved
+to Malawi to work on Salmonella typhi and invasive non-typhoidal Salmonella. So
+it was a bit of a return to the kind of home stomping grounds. I kind of worked
+on Salmonella genomics when I was based at Public Health England previously. And
+in between those two, I spent three and a half years in Vietnam working on
+fungal pathogens and tuberculosis primarily, a few other things in between. And
+so I've gone kind of from the public health bioinformatics perspective, I guess
+similar to Lee, to well, similar to all of you post-COVID, but especially
+similar to Lee, into the kind of academic role, just being a postdoc on a single
+project for a couple of years. And then I was a kind of the lead
+bioinformatician at OCRU for two years with a kind of remit to support
+bioinformatics across the unit as a kind of micro, micro version of Andrew, I
+guess. So then after two years there, my wife and I, my wife's a microbiologist
+as well, moved to Malawi, where I'm working again on a kind of single organism
+focus, Salmonella, lots of interesting studies going on, so I'm kind of just
+leading on the genomics there and exploring options for kind of future career
+independence. So prior to that, since we know you moved into bioinformatics
+post-PhD, what, what was your background on the microsite? So I just did a
+basic, my degree, undergraduate degree was just applied biology and actually,
+you know, retrospectively I can see that, you know, maybe it was preordained,
+but I had to make a bit of a fuss to like get onto a particular module called
+genomics, proteomics and bioinformatics while I was an undergrad, you know, and
+then learn about BLAST and things like that, that you do in undergrad courses on
+bioinformatics. So I did that. And then maybe that was one factor that helped me
+get a PhD. So genomics was in the title of my PhD, but what, what my supervisors
+actually meant was AFLP. I did my PhD mostly in the wet lab with a little bit of
+RNA sequencing, which again, I kind of had to make a little bit of a fuss to get
+in. There was due to be some microarray work in there. Wow. That's a dodged a
+bullet there, but basically as part of that, my PhD, there was this one chapter
+on RNA sequencing. I was based at Public Health England and basically I didn't
+have a clue what I was doing. So I went down to the bioinformatics group down in
+the, in what feels like the basement down at Public Health England, and
+basically bothered them until they let me use CLC bio to do some, some genomic
+analysis. So that was my, my kind of background, zero command line or scripting
+pretty much, you know, a little bit of R and things. A couple of times I'd been
+kind of tried to learn Perl. Someone at one of the biophysicians gave me a, one
+of the Perl, O'Reilly Perl books, but I got about two pages through one of
+those. And then the kind of big change came from my first postdoc where I got a
+job working with Tim Dorman. And then that was purely bioinformatics and kind of
+in at the deep end. Yeah. Basically from there I've been more or less entirely
+bioinformatically focused. I don't think I've touched the pipette in the last
+eight years. So were you there for the very first wave of bioinformatics coming
+into Public Health England? I wouldn't describe myself entirely as in the first
+wave. I was probably in the second. I think I can comfortably say I was in the
+second wave. So you know, Anthony Underwood and obviously John Green and Tim and
+Steve Platt and everyone that had been there for a little while before me, but
+yeah, I was there. I think the group, the bioinformatics group grew from yeah,
+six or seven to 10 or 12 during my kind of time as a bioinformatician there. And
+that was the time when they started just sequencing every salmonella coming
+through the door, wasn't it? Yeah. So that was my kind of job really. So at
+first I started with a postdoc working on E. coli 157. And then after that, I
+kind of started as a, I was quite lucky, I guess in a way I had a permanent job
+working as a bioinformatician supporting the salmonella whole genome sequencing.
+Yeah. But when we made the shift from a kind of hodgepodge of different micro
+microbiological methods to just using whole genome sequencing for everything. So
+that was an incredibly exciting time and you know, really fulfilling period in
+my career. You know, there's just something about when the phase, when
+everything's beginning, that actually you have a lot of freedom, you know,
+you're not so much constrained by how things have always been done. So you have
+a lot of freedom and you have potentially a lot of influence at a relatively
+junior stage in my career. So yeah, that was, that was a real kind of high point
+for me. Yeah. I think in the public health space, people still point to that
+change over in PHE and as a, as an example of what can be done with genomics in
+public health, even now, like that's, that seems to be a very strong legacy
+from, from what you all were setting up back then. Yeah. I certainly hope so.
+And obviously, you know, the continuing work of Tim and lots of other people in
+that, in that group. But yeah, just, you know, to talk about Salmonella for a
+minute, because I know it's an interest of Nabil's at least, you know, one of
+the big problems with public health, with sequencing for public health is that
+realistically you're looking at about a month, you know, two weeks to a month
+lag between the isolate being taken between, you know, the isolate being taken
+and the sequencing results being generated. So if there's a bunch of people who
+get sick at a restaurant because they've all had Salmonella food poisoning from
+some dodgy eggs, then it's not incredibly useful necessarily to have sequencing
+for that. But what it's, what sequencing has really enabled us to do is find
+outbreaks with completely different kinds of epidemiology. You know, there's one
+paper, there's one outbreak that's been published where there was these this
+contaminated feeder mice that people feed to their reptiles, the snakes and
+such. And lots of kids had got sick because you have the defrosted mice. And
+looking back, we'd gone, the outbreak had been kind of dribbling along for at
+least three or four years. And just kind of, that's the background against which
+we identify these outbreaks in restaurants and such. So really, you know, with
+sequencing, maybe it's still a bit useful for the restaurant type outbreaks and
+you can include it in your outbreak definition and everything. But you know, the
+background isolate, that's what I was, that's one of the things that I really
+thought that sequencing could kind of completely change the paradigm of how we
+deal with Salmonella in high income countries. So now we have about 200,000
+Salmonella sequence. So, you know, when do you have enough sequenced? Yeah, when
+you're doing it prospectively, when you're doing it for a public health
+intervention, then, you know, never really, you know, you still need those, it
+depends on your application, right? If you're, if you're doing research purely,
+you know, if you're doing evolutionary genetics or population genetics, then,
+you know, we probably have, if we stop now, then, you know, probably no one
+would cry into their evolutionary genetic software about that. But, you know, if
+you're doing prospective sequencing in order to inform public health action.
+then hopefully that's just gonna be the norm for the next however many years
+until the next generation of typing method comes along. Can I ask a silly
+question? From much earlier, you said that you started off in the basement,
+which I thought was funny when Andrew brought it up on an earlier, much earlier
+conversation. Is there just like a trend of basements back then? Or did you guys
+meet each other through the basement connection or what's going on with
+basements? There's a secret underground city of bioinformaticians in the UK.
+Yes. Yeah. It's like Milton Keynes, but just underground. So that's just a
+really, basically a public health England. They kept the bioinformaticians in
+this kind of slightly smelly office that was kind of tucked away at the back of
+the building. Wasn't actually a basement. It just had like an overhang outside
+and then a backup generator. So there was basically zero natural light and it
+felt like a basement and it smelled like a basement. So yeah, it just kind of
+jokingly referred to it as the basement. One more follow-up question to that is
+like, was there a time in that history where you guys moved out of the basement?
+Did you get to move out of there? So actually one thing that I thought was very
+interesting or is that so me and Tim were based in, we weren't in the basement.
+We weren't alongside all the other bioinformaticians. We were just the two, we
+were embedded within kind of the gastro bacteria unit. And this is the kind of,
+people will go back and forth on what kind of model they want. Do they want a
+hub and spoke model for their bioinformaticians, which is kind of what we had at
+PHE or at least me and Tim were a spoke and there's the big hub of central
+bioinformatics. Or do they want everything to be centralized? And personally, I
+think that the hub and spoke model is superior just because if you want these
+tests and these assays that we're developing, bioinformatic assay to be useful,
+then really it's helpful if the people developing it are in daily contact with
+the end users, with the microbiologists and the epidemiologists who will use
+those outputs rather than kind of being in the basement with the other
+biophysicians. I see the other side of the coin as well in that I once spent at
+least a month, a horrible month of my life writing a Python application that
+wrote an XML file to upload these 10,000 genomes a year to the NCBI pathogens
+portal. And then three months after that, discovered that one of the
+biophysicians downstairs had just spent the last month writing exactly the same
+thing. So, you know, it's just, that was a bit frustrating because I think I'd
+rather have, I'd rather have that communication with the microbiologists and
+epidemiologists. So given your background, what was your first project with
+bioinformatics and then specifically, and then what did you find challenging
+moving into that space coming from a micro, like a pure bench micro background?
+Kind of distinctly remember my first day in this new job looking at, it was E.
+coli or 157 genomes. And Tim said, oh, you know, just SSH into this server. And
+I was like, what does that mean? Yeah, I just had zero clue basically about the
+command line. And I, you know, when I'm training people now, I kind of try, I
+really try to kind of remember back to how that was and how that felt in order
+to kind of boost my empathy with the person I'm training, which sometimes works
+and sometimes doesn't. But I think that actually the best people to do training
+of complete rookies, maybe are people who've learned, you know, within the last
+two or three years, because they can still empathize with finding the command
+line confusing and not, you know, not kind of navigating a remote server kind of
+like second nature by second nature, which is that most people who've been doing
+it for five, six, seven, eight years. So that was kind of definitely one aspect
+that I found intimidating. But, you know, at that time I just had, I had kind
+of, and Tim was very like generous and I had like enough space to kind of learn
+all of that stuff on the job. And then the other aspect was kind of the Python's
+coding. And I just remember, you know, the first, I was writing this pipeline,
+which is just a series of commands, shell of a OS dot system calls in Python.
+And I know I'm not supposed to use those, but this was eight years ago. And then
+going home and that thrill of, you know, the next day logging on and seeing it
+all run for the first time. And, you know, all of these E. coli genomes had been
+analyzed and, you know, how kind of satisfying that was. And then obviously, you
+know, that was absolutely hideous code, would be ashamed to have now, but, you
+know, that's just kind of, it's good to remember where, where I guess we all
+started at one time. So you mentioned that the challenges was the basic sort of
+technical stuff around SSH and just basic programming. Was there any major
+concepts that took you quite some time to understand that people like Tim would
+just whiz right through and you're like, just conceptually, like, I'm not,
+you're not there with, you're not able to follow. Yeah. Like Tim was and is
+probably a better coder than me, but I guess, you know, you pick it up in kind
+of two ways, obviously one by just like learning and bashing your head against
+it, but also by being in that group of, you know, five, six, growing to like 10,
+12 other biophysicians, including some really great, really great people. And we
+used to have these Friday, like coffee morning, like round table things, people
+would just go around and say what they were working on. And that just helps you
+pick up like the lingo, right? The, all the terminology is like, okay, you know,
+gamers and, you know, like hash. So it was like, you know, KH had come out and I
+was really excited about that. And, you know, just kind of, you know, but
+hearing more experienced people talk about it as well, just kind of let you
+advance so quickly, so much more quickly than you could by yourself. And, you
+know, that's where also like Twitter and are we allowed to mention the S-L-A-C-K
+word? Yeah. Yeah. Yeah, Twitter and, you know, the Slack group, that's where
+they still provide a really important function for me now. Because, you know,
+I'm a kind of, there was a couple of other bioinformaticians in Vietnam. I think
+there's a few people who do genomics here in Malawi, but probably no one else
+who'd described himself as a bioinformatician. So, you know, maybe even in the
+whole country in Malawi. You're the only bioinformatician in the entire country.
+Well, I mean, I haven't asked everyone yet, but I'm not sure where they would be
+if they are here, because I'm not sure there's another one at MLW where I'm
+currently based. And I think we're probably the biggest kind of research center
+in Malawi, but don't quote me on that. So your lab meetings must be very
+interesting. In a way, you know, bioinformaticians, even when you work in the
+same building as biophysicians, then often you'll interact with them online
+anyway. So in a way I get to benefit from, you know, the things I wouldn't see
+if I was in, you know, a bioinformatics group in the UK, which is kind of the
+clinical and epidemiological sides of things, of infectious diseases in Malawi.
+And I can still get my, some at least, it's not the same as being in a
+bioinformatics group, but I can still get some of the same interactions on
+Twitter and on Slack. So how did you find going from like a public health body
+where you had access to basically any sample you wanted, all the metadata, all
+the PPI, to say academia where you don't have any of that and you know, you
+struggle to get samples and you have probably no patient information whatsoever.
+So I was really lucky actually. Well, lucky and, you know, kind of chose the
+projects that I did quite deliberately. In the, at least for the fungal work
+that I moved from PHE to do, the patients had been in clinical trials. So the
+metadata associated with them blew what was available to us at Public Health
+England out of the water. You know, you knew that their blood pressure, you had
+like a thousand blood pressure measurements for each patient and, you know, you
+knew how sick they were when they enrolled, how did they respond to treatments
+for all kind of 700 people in the trial. So that's really nice. And I'd highly
+recommend any biophysicians to go along to your local medical school, see who's
+doing clinical trials for infectious diseases and suggest to them that they, you
+could put in an application to do some sequencing together because they're so
+expensive.  to do, they're so well-characterized, you know, just having that
+sequencing data on just lets you, it's a kind of, you know, what they like you
+to say in funding applications, it's highly leveraged. You know, they spent two
+million quid on that clinical trial, so, you know, you may as well give me 100
+grand to do some sequencing. You keep answering a lot of the questions that I
+have, actually. I wanted to ask you what your support is like, and a lot of what
+you're saying is that you have to go online, basically, on Twitter, on Slack, on
+wherever, to kind of get support for what you're doing, right? Is your blog kind
+of like a therapeutic thing, too, in that regard? No, not really. Blog was
+mostly, definitely started out, you know, before I was really very good at
+writing papers. I wanted a kind of, something, a forum that would give me
+writing experience that was easier, you know, had a lower bar, lower activation
+energy than the whole paper-writing jamboree. And it's just something, there's
+just something about, you know, sharing, knowing that something's gonna be
+public, that, like, less so now, because I'm more confident in my work, but, you
+know, when you're a real rookie, you know, rather than just doing some aspect of
+the project and just, you know, writing it up in your lab notebook or whatever,
+if you turn it into a blog post, then you have that extra bit of peer pressure
+in the back of your mind that makes you double-check everything and kind of, you
+know, push the project to kind of a neat conclusion, rather than leaving things
+hanging. So that was the idea behind the blog originally, and now I just kind of
+occasionally use it to post, you know, how-tos and little bits and bobs, really.
+Do you see yourself as an academic or maybe a professional blind practitioner?
+Hmm, yeah. I mean, depends what kind of job I'm applying for, right? Well, you
+know, academic, as in, you know, applying for funding and teaching and all that
+kind of jazz, versus maybe more professional services. Yeah, no, I think I do
+see myself more on the academic side of things. Not sure the rest of the world
+agrees with me, but. So you want to keep your options open, that's what you're
+saying? But yeah, I would definitely go back and work at Public Health England
+again, but I'm not, and you know, a specific institute, or working at an
+institute like Quadram or something that has quite a tight focus on microbes,
+but I wouldn't be very keen to work in a kind of general university core
+bioinformatics support kind of role, really. I'd probably rather leave
+bioinformatics and go and do something else. And no, being more serious, yeah,
+you know, I think it would be nice to be back in a bioinformatics group. You
+know, I often think of how good it would be to spend even just like one month or
+a couple of weeks a year, you know, well, maybe not Sanger anymore, but, you
+know, Quadram or PHE or, you know, somewhere with a real kind of active core of
+biophysicians. So like a critical mass? Critical mass, exactly. Yeah, just, you
+know, you just learn. So much just by osmosis from being in those groups that I
+do miss. Well, we'd love to have you. And if anyone else who's as experienced as
+you wants to come and work in Quadram, you know, we'd have you as well. Everyone
+is always welcome. Obviously not now with COVID, but, you know, in normal times.
+Knowing what you know now, what do you wish you knew like before when you
+started? What would you go back in time and tell your past self regarding
+bioinformatics? Learn SnakeMate. How about learn how to use Galaxy and also
+learn how to program in Perl? Yeah, the Perl one for sure. Yeah, I think that if
+I was to go back in time and give myself one piece of advice, it would almost
+definitely be really engaged with a workflow language. You know, a lot of what I
+was doing at PHE was writing scientific workflows. And I just, you know,
+bootstrapped them together with Python. Whereas more directly using, you know,
+SnakeMate or NextFlow when it became available. I think that would have led to
+some great productivity gains. So on a technical level, I think learn SnakeMate.
+Today, if I was telling someone just getting started, they have to be quite
+strong with programming. You can't do anything reasonable with just mucking
+around in like a CLC workbench or clicking around. You need to start thinking
+programming, workflow management, have to operate at scale. I mean, yeah, if you
+want to work at stuff through Galaxy, then you can also push stuff through that,
+but you'd have to want to learn the API, BioBlend API as well to really get the
+most out of it. Actually, I would say interacting as much as possible with
+biologists is probably the key for me because I came from a computer science
+background. And of course, you know, you learn how to program and all of that,
+but actually the biology and the in-depth understanding and the quirks of all
+these different bugs, you know, it's something you really need to understand
+from an expert. Yeah, I think that's what Phil had from the other side, really,
+which was interesting was that knowledge. I get that I'm putting words in your
+mouth, but the knowledge exchange was crucial for you to get to where you are.
+Yeah, I think that- I mean, you're going micro to computer and then Andrew also
+saying the same, but in reverse. I mean, that seems really critical. And it's
+sad that you still have pet biopharmacicians who don't get that support. Yeah, I
+think being able to speak lab has definitely been very helpful in multiple parts
+of my career. I would even add on to Andrew's answer that like, if you're in the
+public health arena, not only talk to the biologists, but talk to
+epidemiologists or whoever else is in your area so you can get a more global
+understanding of what you're doing. Because I also agree, I wish that I learned
+more programming early on, but coming in with biology knowledge and public
+health knowledge is just so priceless. So thanks, Phil, for joining us today.
+We've gained a much better appreciation of the lone bioinformatician. I really
+enjoyed learning more about Phil and I hope you did too. Please join us next
+time where we dive deeper into Phil's story. Thank you all so much for listening
+to us at home. If you like this podcast, please subscribe and like us on iTunes,
+Spotify, SoundCloud, or the platform of your choice. And if you don't like this
+podcast, please don't do anything. This podcast was recorded by the Microbial
+Bioinformatics Group and edited by Nick Waters. The opinions expressed here are
+our own and do not necessarily reflect the views of CDC or the Quadrant
+Institute.

@@ -1,0 +1,423 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There's so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Andrew
+and Nabil work in the Quadram Institute in Norwich, UK, where they work on
+microbes in food and the impact on human health. I work at Centers for Disease
+Control and Prevention and am an adjunct member at the University of Georgia in
+the U.S. Hello, and welcome to the MicroBinfeed podcast. Today we're giving a
+rapid roundup of what's been changing for SARS-CoV-2 COVID-19 genomics. Things
+are changing very quickly, so we should mention that it's the 9th of March,
+2021, and some of what we mention might change by the time you hear this. Today
+we're putting a spotlight on COVID-19 in Denmark, and we're joined by a special
+guest, Mads Albertson, who is professor MSO at Center for Microbial Communities
+at Alborg University. Welcome, Mads. Thanks. Happy to be here. Let's get started
+with reviewing the latest changes regarding variants of concern. Well, first of
+all, there's some language difficulties here. Is it variant of concern, VUI,
+VOI, VOC? It's getting a bit confusing now because everyone is using different
+things and no one agrees on anything. So in the UK, we say VOC, variant of
+concern, VUI is variant under investigation. That's kind of like the initial,
+something looks a bit off here, and then VOI is variant of interest. And again,
+that's something like, we think there might be a problem here. I think really we
+need to do a bit of work to actually have a global set of words that we can use
+for these things because it's getting so confusing now. Everyone is confused
+because every group and every country seems to use different terms for different
+things to mean the same thing. We might need a number system, like declare a
+variant as like DEFCON 1 or DEFCON 5 or something. Yeah, but every country wants
+their own variants. And now it's become like this kind of token that you, like a
+badge of honor, you have to have your own variants. And these are kind of hype
+variants, people are calling them now. Like there's one the other day is B11318,
+which Finland have claimed for themselves, but as a Fin 7968, and yeah, they've
+claimed it for themselves, but they didn't really release the data. So, you
+know, they said, yeah, this is a problem, but then they didn't release the data
+to the world. So the rest of the world was looking and going, okay, yeah, this
+is a problem. It's associated with say, Nigeria, West Africa. It has some
+interesting mutations there, which may make it concerning. But Finland, you
+know, had already claimed it themselves. No one really knew that they were
+talking about the same thing. So it actually took, you know, a little bit of
+time to figure out what they were describing kind of abstractly was actually
+what we were seeing in the data in GISAID, but from other countries. I think the
+lesson there is before you announce a hype variant, that you actually go and
+release your data and then also declare it so that we can add it to the lineages
+correctly. And of course, the UK is now calling this a VUI, a variant under
+investigation. And so now we're up to eight, which is a fair few, but they seem
+to be coming thick and fast a couple of weeks, which is quite a lot, you know,
+compared to December where we only had two. In the UK, we've now got eight
+variants, eight different variants, which are of concern. Interesting. And
+they're calling it FIN796H. What happened to bird names? I wanted to do that.
+That's an American only thing. Just to understand, that's the only three
+variants of concern right now. There is B1351, which is the variant which
+originated in South Africa. Then there's P1, which originated in Northern
+Brazil. And then there's the Kent variant, B117. But actually the same mutations
+that are concerning are appearing everywhere. I believe there have been a few in
+the past week, which people have said these contain the same constellations
+mutations that we've seen in other ones, and they're now spreading like wildfire
+in different areas. There's a B1526, which is the New York variant. And of
+course, New York was hit heavily by COVID back in April. And now we have this
+variant spreading very, very quickly, which is E44K, and it's popping up
+everywhere now in the US, which isn't very good. I presume it's because there's
+still so much travel happening internally, domestically within the US, and it's
+allowing it to spread. There is also a new one I've seen, even newer, which is a
+B1324, which again is a US centred variant. And that's got a N51Y and PU, which
+is P681H. Now, I think really the issue, it's not a bad thing. It's more that
+genomic surveillance in the US is just ramping up very, very, very rapidly. And
+now you're starting to get a much better indication of what's going on as the US
+starts doing sequencing, whereas the UK has been doing this for quite a while,
+and Denmark has been doing it for quite a while. So we have a really good idea
+of what's within our populations, whereas the US has kind of been a bit blind
+because they're only doing, what, half a percent of all cases were being
+sequenced compared to like Denmark, where, what are you guys up to now? Do you
+sequence everything? Yeah, we sequence everything these days. I think we are 90%
+plus for most of this year. And is that attempted sequencing or actual
+successful? That's attempted sequencing. So we have around 70% of cases have a
+genome with less than 3000 Ms. That's awesome. That's so good. I think you're
+the envy of the world because you've got scale and you have very, very high
+rates, whereas the rest of us are kind of lagging behind. So fair play. In terms
+of lineages, what are you seeing in Denmark at the moment? So in Denmark, we've
+been watching B.1.1.7 grow. It's been like a bad movie. You can just follow and
+predict. So right now we have 80% in Denmark, but we have mostly other, it's old
+lineages. So some of the summer lineages that spread around, they're declining
+now. And then we have one of these variants of interest, or what we call them,
+called B.1.525. It also has E.484K. That's around a few percent in Denmark now.
+So we've seen around 200 cases of this. So that's the B.1.525. We've seen it in
+Denmark and a few other countries among Nigeria, I think. Right. So do you think
+that B.1.1.7 is going to hit 100% in your area? No, I think we'll always have
+small variants that lurk around, especially now we are opening Denmark again.
+What's been happening in Denmark is that we basically crushed all the variants
+until now. Then B.1.1.7 has taken over. But we are not crushed everything
+completely, so I think we'll still have these 5% of other variants that will
+circulate now that we open Denmark. But let's see. It's both scary, but also
+interesting to sit and watch what happens. Absolutely. We have some weird things
+here. We're reopening schools this week. We'll see what happens. Hopefully it
+won't be a boom, but they did get the number of cases down very, very much. Like
+so much that we're kind of stuck for work. You know, we don't have samples
+coming in the door, which is a fantastic thing. But we just feared what's going
+to happen in whatever a month or six weeks down the road if things ramp up
+again. If anyone out there is interested in what's going on in Denmark, there's
+a nice website for that, which is covid19genomics.dk. That has all of the
+breakdowns of all of the different lineages we're talking about. It's nice to
+see that a lot of countries have set up these dashboards. I think we mentioned
+the US one last week. I think every country is slowly making their own version
+of these sort of dashboards, making that data available for everyone. I presume
+at some stage we're going to have just like ECCDC or something like that
+dashboard or WHO dashboard and that's it. Every country will just have a clone
+of one dashboard instead of having 190 something dashboards. I did like a little
+bit of a survey with some companies over in the US and also just looking and
+seeing what's out there. I do see some common trends. Some people are using
+Tableau as kind of their dashboard and making it a really nice visual. Or else
+people are kind of breaking into some camps, like looking at MicroReact or
+Outbreak.info. I do think you're right. I think that people are starting to go
+into some groups. Yeah. Tableau is really nice for everything in general, just
+for data visualization. It's lovely. I'd highly recommend it. In Denmark, our
+site is simply just an Ama account file. What you see on the page, that's
+actually what we deliver to the government also. It's just online on our page a
+few days later. So this is like the basic breakdown and it's like an auto-
+generated Ama account file. Is that on your website that you can kind of go
+through it? So that's on the covid19genomics.dk. There's a statistics page,
+which is basically an Ama account file. There's a version of Nextstrain as well.
+So can I ask, in Denmark, have you seen eFord 4K coming into your B117 samples?
+No, not yet. I guess we're expecting it to come at some point, so we are
+watching it closely. Right now, because we sequence everything, hopefully we can
+stamp it out before it spreads. That's at least the point right now. So that's
+what we've been building up the last couple of months. Capacity to actually
+really do variant-specific stamping outs in the society, both with extremely
+high testing capacity, sequencing, and also search testing. Last week, there was
+search testing in areas with B117.  and 351 to make sure we can start trying to
+stamp out some of these variants of concern. And how successful has your search
+testing been? Because in the UK it hasn't, search testing just hasn't picked up
+the cases compared to just randomly doing community surveillance. I think it
+seems to work. So it's really highly intensive sequencing in blocks around where
+cases has been. So if there's been suspicion of community spread, they've done
+search testing to try to see if they can pick up the missing links. But so far,
+the majority of our other variants of concern has been related to travel
+history. And it seems like we've been able to stop most of those transmission
+chains. But let's see, there seems to be many more cases going around from the
+rest of Europe. So we also start to see many more imports. So it starts to be
+more and more difficult to keep them out. Let's talk some of the tools and
+resources that we've seen in the last few weeks that have come online. Following
+on from the discussion of the dashboards, outbreak.info is a great resource
+because it's just got a compilation of all this different data on cases broken
+down by geography or regions. You can find doubling rates. You can find all
+sorts of metadata available for download. And that's coming out from the NIH, I
+think, and Anderson's lab putting that together. I think the next one is pretty
+fun, which is something I spotted the other day, which is from David Clemens, a
+tweet from him saying that Galaxy is going to have a new public health community
+based around that. I think this is kind of in the similar vein of Galaxy
+Tracker, but I think it's going to be more opened up and allow a lot more people
+to participate in that. That'll be really good, having some standardized, more
+public health integration with what Galaxy provides. I thought it was just kind
+of funny. It says, please contact me if you want to join it. And I tried to
+contact and it says he doesn't receive direct messages. I'm going to email him
+separately though. I think Galaxy is a great area to go because it has such a
+deep history in bioinformatics and people know how to use it. There are large
+communities already that might be using it for public health, especially from
+FDA Genome Tracker. And I think it has a huge potential. It's definitely worth
+signing up. It's easy to use for biologists. So that's what makes it really good
+for non-technical people that can dive in. You don't need to spend days or weeks
+playing around with next flow pipelines or whatever. You can just click, click,
+click, and there you go. And we've had people with next to zero technical
+skills, just in an hour, they're flying with Galaxy. They can do assemblies,
+annotation, whatever. So it is really, really useful. And I think people should
+make better use of it. I don't know if this is something that you are
+knowledgeable with, but when I was trying to make a tool in Galaxy, it was XML
+based and you'd have to write the tool with XML. That's to add a new tool into
+the Galaxy repositories, but that's on the developer side that they have to do
+that. But once that's in the repo, then anyone can install it with a click and
+get down to using it. Yeah, yeah, yeah. But I mean, since we're a bioinformatics
+podcast, it's interesting to see. I think in time, they're going to simplify
+that down a bit and it's going to be a bit easier to do. Well, it only has to be
+done once in the world. One person goes, does a tool, that's it. And then
+forevermore, it's in a tool shed. You can click and it magically works or drag
+and drop and put into a pipeline. So it's a reasonable amount of pain, as long
+as people share their work. I think it's fun to use words like that, like pain,
+but I've made a very simple tool one time and it actually is very
+straightforward with the XML, as long as it's just a few parameters. I thought
+it was very nice. I think last thing, just to round up the new tools and
+resources that are out there, we've got a SaskOv2 Nextflow pipeline that's
+coming out from Johan Bernal and Varun Shamana and Anthony Underwood. I don't
+think it's deviating too much from what's available out there in the Nextflow
+pipeline for SaskOv2, but does have integrated into it, stuff for creating and
+visualizing trees. I think this is sort of an attempt to take you from start to
+finish completely, where I think at the moment, Nextflow pipeline is kind of
+like, they generate, they call the variants, they make the consensus sequences
+and then it's like, well, have fun. It's up to you now to kind of align it and
+go off and make trees or do whatever you want to do with it. So this looks like
+a one-stop shop kind of version of a workflow. And so that's up now available on
+GitLab. We'll put a link in the show notes if people want to have a look at it.
+So should we switch over to some publications? So the first publication is quite
+a bad one, unfortunately. It's a comparison of performance of different SaskOv2
+sequencing protocols. This single author paper, they've gone and just assembled
+some Arctic data with spades. Now, I know we've talked about this before, but
+you don't assemble Amplicon data. It doesn't work very well. And if you do,
+you're going to get terrible results. And that's exactly what they did. And they
+got terrible results. They got terrible in the fifties as well. There you go.
+And they had blindly downloaded the data from the archives. So this is a
+cautionary tale that you shouldn't just take data blindly from an archive where
+you don't know how it's been generated and how the method works. You're going to
+get bad results in that instance. In this case, the paper, I think, seemed to be
+more of an advertisement for the author's own method, own assembly method. So
+yes, please don't assemble. You generate consensus sequences. That's why people
+always talk about consensus sequences and not assemblies. And if people do
+occasionally talk about an assembly, usually they're just misspeaking and really
+they mean a consensus sequence. I can't agree more. I think it's important to
+demonstrate your tools out there in the literature. It's also important to kind
+of put it by your peers before publishing, that kind of thing, to catch some
+common sense things. Absolutely. There's a lot of really poor work in bioRxiv
+and medRxiv. But of course, hopefully once it's peer reviewed, it'll get rid of
+a lot of it or make it a lot better. Anyway, moving on. The WHO have proposed
+different definitions of variance of interest and variance of concern. And this
+feeds back into what I was talking about earlier, where we're all talking about
+different things. We're all using different words for the same things and no one
+has any consensus on anything. So the WHO are trying to fix that. I'm still
+seeing people use novel coronavirus-19 or nCoV-19 and hCoV-19. I thought we'd
+fixed all of that nearly a year ago, where we're talking about SARS-CoV-2. But
+people stick with their terminologies and they hardcode them into stuff. And
+that's that. Well, hCoV-19 is baked into JSAID. And nCoV as well. I'm surprised
+that's stuck around. There's no longer a novel coronavirus from 2019. We still
+call it next generation sequencing. And next, next generation sequencing. I'm
+thinking when they start talking about new variants, I was thinking, is there
+going to be a new, new variant and then a new, new, new variant? Perhaps. Yeah,
+the new variant stuff didn't last very long. It wasn't scalable. This is one
+paper that came from a group in New York. And the authors pool samples from 10
+patients together to obtain the consensus sequence for the SARS-CoV-2 genomes.
+And then they deposited those genomes in JSAID, as if, which doesn't have any
+way of distinguishing that kind of data from anything else. So that's
+problematic because obviously people are expecting for the genome to be from
+one, one sample from one isolation. That could look like, you know, there's a
+combination or people might take it seriously if there's any sort of, any sort
+of mixed snips in that. Might not be likely in this case, but that's just
+something that people need to avoid doing that sort of thing. This is a mix of
+ideas that just shouldn't have been mixed. Pooling and genome sequencing. At the
+beginning, you know, when they didn't have testing capacity, it did make sense
+to pool stuff to save some money and save reagents when you couldn't get any
+reagents. But in this day and age, you know, it's not really worth it. That puts
+it better in context. Okay. A lot of people were trying that to do mass
+screening was to just pull all the samples. Pulling samples for diagnostics
+makes sense to me. As you can, you can drastically reduce the number of tests
+logarithmically or whatever the adverb is you want to choose. That's great. But
+then like when you genome sequence, you don't want to do like a metagenome
+sequence of all different SARS-CoV-2. I don't think you do. Matt's given you a
+metagenomics background. What do you think of this? If you had a hypothetical
+study that was sequencing from pool samples? Seems very creative to do. And of
+course it needs a label on it. So then you need to put it in a, not in G-shape,
+but put it in a proper database where it can actually label this stuff that we
+can filter it out afterwards. Then it's fine. And I agree with you. It's
+actually a nice way to do mass testing, but not sequencing. I know in some
+places that they would have households say in the University of Cambridge,
+they're doing asymptomatic screening and they would get, everyone in the
+household would take a swab and then put it into the same physical tube. And
+then that tube would go off to be tested, or at least that's what they're
+talking about. And that makes sense, because then you're going to have a pooled
+sample from a household, but then you'd really want to go back to the original
+person or the original household and then sequence every single individual from
+an individual swab, but not the actual pool itself. Okay. So the next paper on
+the list is SARS-CoV-2 within host diversity and transmission from Tanya in
+Oxford. This is actually a really awesome paper. I saw her give a talk the other
+day. And so what Oxford use is actually hybrid capture rather than the ARTIC
+protocol, which is just a nice way to pull down exactly what you need. It has
+some limitations, so it doesn't work in high  CT samples, but they're able to
+actually see minority variants much more clearly than you can see in ARTIC,
+where an ARTIC has a lot of issues around that. But they can see minority
+variants, and then they're able to track these variants as they went through
+different people. And sometimes the minority variants they could actually see
+would get transmitted. Usually it would be the main dominant variant. Sometimes
+you get, say, two different variants being transmitted, the major and minor. So
+like a cloud of infection, which you see with other pathogens, which is super
+interesting. So this is a really, really major paper, and fair play to them, you
+know, they've done a huge amount of work on it, and I would highly recommend you
+go and read it. Often we also talk about some queries that have come up. So
+questions that get fielded to us, or we hear people asking around, and then we
+talk about them here. So this one is the fact that, what's the most up-to-date
+masking strategy for SARS-CoV-2 phylogenetics? I remember back when I was trying
+to learn SARS-CoV-2 assembly back in summer, that somebody hosted like a VCF
+file of the sites that you ignore, and I can't remember who it was. I think that
+that list is going to get bigger and bigger and bigger all the time, because so
+many of these variants are arising independently, and it's just going to cause
+chaos. You can see with the variants of concern, with N501Y and whatever, and
+E484K, they're all arising independently everywhere, and it just messes up
+phylogenetics. We don't do global trees anymore. It's just too much data, and
+it's too difficult to do. So we call lineages, and then we build sub-trees of
+what's of interest, then we build a tree of a specific lineage if you're looking
+for variants in there. So that avoids many of those problems that are maybe not
+solvable. I had a case the other day, actually, of lineage calling going
+terribly wrong. Colleagues told me, oh, yeah, we've got a P1 here, and
+obviously, alarm bells are ringing because the first in this particular country.
+People were getting quite concerned about it. But actually, digging into it, it
+was just that this was a particular region of the world which hadn't been
+sequenced very well. There's very few genomes at all from the entire continent,
+which is Africa. Actually it was a different story altogether. It wasn't that it
+was a P1. It was that this particular genome was 18 snips away from the nearest
+ancestor that had been seen. So nothing had been seen in between in this
+transmission chain since April last year. And basically, travel shut down. No
+one was moving by air. And so it cut off, and then it was just rumbling along at
+a normal clock rate and just knocking around. And by coincidence, we spotted it
+just because it was flagged up as a P1. But actually, it does highlight the
+dangers of when you're dealing with genomes from under-sequenced areas that you
+are going to have these lineages being miscalled, because the lineages are
+defined by basically what we see in the UK and Denmark and the US, where you
+have huge amounts of sequencing. But actually, there is a lot of transmission
+elsewhere in the world, which we're not seeing at all. We're not even getting a
+glimpse of it. And actually, it's only when it accidentally pops up in travelers
+that we actually see there's a problem. I think there is quite a few whales out
+there, big sea monsters that we haven't seen and are lurking below the surface
+that we're going to be finding as time goes on. By chance, we should find many
+of these if they are in high frequency. We may not either. And it may be quite a
+while before we see them. The lesson to be learned here is don't blindly just
+take your lineages. If it's an important lineage, double-decker mutations are
+there that you expect. In this particular case, there's like one out of about a
+dozen mutations that we expected for P1. And so it was clear it wasn't a P1,
+just based on weak data. So Public Health England now have a GitHub repository,
+PHE Genomics on Variant Definitions. And there, they actually list in the YAML
+what are the different variants or different mutations that define that lineage
+and what to look out for. So that's quite nice, actually, because it's machine-
+readable. And you can ingest that, and you can double-check exactly which
+mutations you expect for this given lineage and which ones are there. It can
+give you, then, an idea of is this a confident call of this lineage, or is it a
+probable, or is it kind of a low-quality best guess? So yeah, that's quite
+useful. Check it out. I know Lee has views on that. He thinks VCF is better. I
+have opinions, guys, on VCF and YAML. If you're going to define SNPs, I think
+that VCF is an awful format, but also it is the format to describe SNPs. And
+it's kind of awkward to put that into YAML, to me. And some people have already
+told me, well, YAML's better because it's freeform. But I would say that VCF is
+also freeform. It's just annoying because you have to define the freeform items
+up in your header first. I think the problem with VCF is it will get you 90% of
+the way there. But then that last 10% is probably going to take you months of
+shoehorning it in. And really, maybe YAML is a quicker way to get to the end
+results. Yeah, it's easier to get to the definition when you're writing out
+YAML. But VCF is the thing that actually works in all these other workflows.
+Other pipelines, other software actually read the VCFs appropriately, and
+they'll be able to use them appropriately. But if you want to use something
+standard like BCF tools, you can't import a YAML. Let's see which one wins.
+Maybe you'll just end up writing a converter between YAML and VCF. I know I'm on
+the losing side here, but I have a soapbox, guys. Mads. Mads, how do you QC your
+samples? So first of all, we run a lot of negative controls. So we run four
+negative controls per plate. And then we look for several things. We look for
+strange long branches. This looks weird. Then we look for the number of
+ambiguous sites, which indicates some sort of contamination. It could also be
+ISNPs or whatever you call them. So internal variation within the host. But 99%
+of what I've seen is contamination. So that's what we look out for most. Is it
+like some kind of standard software you're using? Or is it just pretty
+straightforward? So it's not even worth doing something specific? So we do,
+again, an R Markdown report that pulls in a tree and then puts SNPs beside it
+and shows so you can see the branch length. And then we manually QC everything.
+I've seen another thing to look out for is that, say you have a B117, and then
+at N501Y, there's actually the wild type. That's an indication that there's a
+major problem. Either you're miscalling it, or there's contamination because you
+shouldn't have the wild type if you've got all the other defining mutations.
+Unless something's gone totally wrong and it's gone and switched back or
+something, a reverse mutation. So are you saying, Andrew, that some of your QC
+involves just straightforward sanity checks too? So for important samples where
+people have queries, clinical queries, or where something is not right or
+something that's very important, we always do a manual check, which is me. I do
+a manual check, and I double check that the computer is actually working as
+intended. And mostly it works, but occasionally you'll spot these things which
+are odd. And you would say, OK, that's just an artifact, or that's
+contamination, or actually that is right, but people are misinterpreting what
+it's saying. You always have to look at the data, and that's the hard bit.
+Computers can only get you so far. It's that last bit where you really do need a
+human to eyeball everything. That sounds like maybe there's a war story in
+there, and I'm unearthing it. Every week I do reports for various different
+entities, and a lot of that just involves eyeballing data. So taking the data
+that's been produced by all the pipelines and sequencing, and then just munging
+it and making some sense of it, and sanity checking a lot of that as well. It's
+been made easier and easier and easier over time as stuff gets automated, but it
+does require a human to look at it. Particularly in the UK, or where we are in
+Norwich, in Norfolk, where we have such a high density of sequencing, we can
+then go and look at outbreaks, say within hospitals or care homes, or within
+small geographic locations. It is important that you do dig into it. I'm sure
+Mads used something similar, because you have very high density sequencing, so
+you can look at these things as well. Yeah, sure. We look at strange stuff, so
+it's not only sequence QC, it's also QC. Has the samples been switched around?
+Has plates been switched around? We've seen everything. So with QC, the 100,000
+samples now, we've seen everything. And even though it's at low rate, you will
+have cases where, by chance, two plates are switched around, and you need to
+spot that. And one of the things we do is we compare with the CT values. So for
+most of the daily samples, we actually have CT values also, and that predicts
+quite well the success rate. So I can actually see from the pattern of CT values
+on a plate if it has been switched around with another. And these things happen
+at scale. What's your cutoff for the CT, where you start saying it'll fail?
+Yeah, above 35.  and we drop way below 50% success rate, it starts to drop
+around 32. But it's a bit difficult to compare CT values, it depends on how it's
+actually set up in the country. Yeah, and some of the instruments actually
+don't, actually sort of have a burn-in where they don't report the first couple
+of cycles. So what we've been doing recently as well is where plates are
+questionable, we looked at the sex of the sample, and more or less we can, what
+about 90% accuracy you can tell if the sample is from a female? It's hard to go
+either way, but it does give us an indication of is the plate totally messed up
+or is it roughly in the right ballpark? And that's been quite useful by looking
+at the human reads within a sample, so the RNA and DNA that originally were in
+there. And Nabila is looking at me very strangely. In this particular case it's
+just, we had samples coming from a different lab that we don't normally deal
+with, and there were some issues with sample sheets, so we weren't very
+confident with the actual samples because this particular lab was telling us
+there were 97 samples on a 96-well plate. So that raised some alarm bells
+straight off. But yeah, we're using the sex of the person who provided the
+sample to look for things like rotations of plates and plate swaps. Wow. Are you
+thinking of any other markers? You do, actually, yeah. Surprisingly, actually.
+Now, it can be as low as just a dozen, but often you'll get a few hundred reads
+or a few thousand reads, so it's a fair bit, particularly because we sequence on
+Illumina and we can get 3,000 to 5,000 X for a sample, so actually you do get a
+fair few human in there. Obviously, we filter those out before depositing them,
+so those reads only ever stay within our institute and never leave the world, so
+it's not something you can do in a large scale. It's just something we're using
+as a QC check. Are you thinking of any other markers, you think? If you're
+putting your blanks in the same coordinates, you can obviously use that to check
+the orientation. Mads, do you have any war stories on this stuff? No, but we've
+seen it a lot, a mix-up of different sorts, so we've been running 100,000
+samples. I've seen a handful of it, and the most things we can actually spot,
+again, in the manual QC, for example, often we get plates that are not
+completely full, so we know some places should be empty, and then we can easily
+spot it from there, so we've had at least a handful of cases where we had to go
+back and revert it. Normally, we can actually just look at the data and then
+revert it automatically afterwards and don't have to re-sequence it, but you
+need to really take care. There's so many steps involved in these pipelines.
+Well, I think we have a really good ending with a high note from Mads there. I
+want to thank Mads for joining us today. Thank you all so much for listening to
+us at home. If you like this podcast, please subscribe and like us on iTunes,
+Spotify, SoundCloud, or the platform of your choice, and if you don't like this
+podcast, please don't do anything. This podcast was recorded by the Microbial
+Bioinformatics Group and edited by Nick Waters. The opinions expressed here are
+our own and do not necessarily reflect the views of CDC or the Quadrant
+Institute.

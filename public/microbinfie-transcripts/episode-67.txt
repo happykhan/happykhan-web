@@ -1,0 +1,361 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There's so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Andrew
+and Nabil work in the Quadram Institute in Norwich, UK, where they work on
+microbes in food and the impact on human health. I work at Centers for Disease
+Control and Prevention and am an adjunct member at the University of Georgia in
+the US. Welcome to the Microbial Bioinformatics podcast. Lee and Nabil are your
+co-hosts today. We're navigating the twisted world of bacterial taxonomy. We
+have some excellent guides to help us. Our guests today are Dr. Leydon
+Pritchard, who is a Strathclyde Chancellor's Fellow at Strathclyde Institute of
+Pharmacy and Biomedical Sciences at the University of Strathclyde, and Dr. Conor
+Meehan. Dr. Conor Meehan is an assistant professor in molecular microbiology at
+the University of Bradford. He specializes in whole genome sequencing and
+molecular epidemiology of pathogens, primarily mycobacterium tuberculosis and
+genome-based bacterial taxonomy. Welcome. Hi. Thanks for having us. So, every
+time we have new guests on the show, we ask an easy question like, what do you
+normally do for your work? And so, Leydon, what does it take for you? Other than
+administration, which is pretty normal in academia, I do quite a wide range of
+computational biology. For the last 10, 15 years or so, it's mostly been
+microbial genomics. Prior to being at Strathclyde, I was at the James Hutton
+Institute just outside Dundee, where I worked on plant pathogens and human
+pathogens, which were associated with plants, so E. coli and salad greens, that
+kind of thing. So there's been a lot of assembly, annotation, transcriptomics
+and diagnostics and that kind of thing. And that's really the diagnostic sort of
+things for legislations, where the interest in taxonomy came from and the need
+to get involved in taxonomy. And it's why Pioneer, which is possibly five people
+at the time I was working in this area, that's why that was written. But I'm
+also interested in molecular level and systems level interactions, so I was
+interested in how pathogens interacted with plants, and that now at Strathclyde,
+because I've moved more towards biomedical and industrial biotechnology, that's
+moved towards more medical-relevant pathogens in terms of environmental
+bacteria, and that's moved towards streptomyces. And I've even started working a
+little bit on human biology, looking at cardiomyocyte response to stress with
+metabolic modelling. Excellent. And Connor, we haven't had you on for a while,
+anything new with you? I guess I haven't talked much about the taxonomy side and
+where my background and interest is at the moment. So my first interest in
+taxonomy was I needed a project during my postdoc, and we had these
+Lachnospiraceae that were found in the human gut. And me and my boss, Rob Biko,
+at the time were like, this is interesting, let's look at these. So in a non-
+hypothesis-driven way, we did a data-driven way and then found that there was
+environmental niche differences in it. And the main taxonomy issue that was
+there was that things had been renamed so often that they were very difficult to
+find what was supposed to be in this genus and what wasn't. And now a lot of my
+work is on the mycobacteria. So coming from a clinical taxonomy point of view,
+what name should we use so that conditions can very quickly assign some kind of
+treatment to it? When should we change that name so that it is more biologically
+correct? When should we leave it so that it doesn't confuse people? So it's a
+very applied taxonomy that I kind of come from. Let's start off with a difficult
+one. So I wanted to ask both of you, I'm very confused when it comes to
+taxonomy. I understand a species for higher organisms, but what about a species
+for bacteria? I would start off by saying you probably don't understand how to
+define a species in a multicellular either. The first time I ever came across
+taxonomy was a lecturer, Grace McCormick, in my university in Maynooth where I
+was studying my undergrad. We were first years and she split us into a group and
+she said, come up with a species concept that covers everything, including
+bacteria and viruses. And we thought this would be easy. And now here I am 20
+years later or whatever, and we still don't have one. In multicellular, it tends
+to be about reproduction and whether offspring are then viable for further
+reproduction. And that's a very generally sweeping statement that does not
+involve any plants. I think across prokaryotes and multicellular organisms, the
+sort of abstract principle I fall back to is that there's some kind of
+recognisable, if not barrier to gene flow, at least some kind of discontinuity
+where it's not just a case where two organisms can exchange genetic material
+easily and have that progress into the next generation. And that's going to be
+defined differently for prokaryotes than it is for multicellular organisms just
+because of what they are and how they interact with each other to reproduce. As
+my background comes from looking primarily at genome sequences, I'm really only
+looking at the genetic material. I'm looking at the flow of that
+computationally. I'm not really looking personally very often at the larger
+biological picture. So I always picture it in terms of some sort of disruption
+or discontinuity in the ability to exchange genetic material. So if you want to
+define a new species, though, and you actually want to do what people think most
+taxonomists do, which probably is not even true, it is still primarily
+biochemical. There will be a suite of biochemical tests, and then you are saying
+this is the profile for this. It can grow on this. It does not grow on that. It
+has this kind of colony. It has these kind of morphologies, this kind of
+motility, all of these things. That still really is a basis for defining a
+species. We're moving slowly away from that. But you need to have that strain.
+It must be culturable. It must be deposited in two different collections. So
+there are the ATCC, and there are the other ones that are around, or the
+specialized ones for different species or organism groups. And then genetically,
+at the moment, it's still based on 16S. So to get a little bit into the 16S side
+of it, 16S has been around for 30-something, 40-something years now. And it was
+found by Carl Woese and others that if you use the sequence of this gene and you
+compared it, you would approximately get species groups that we already knew. So
+you have to remember that a lot of taxonomy is we defined these groups before,
+and then we use this marker to pull back those groups. So it was not done
+agnostically to create new groups. And it was saying that 97% cutoff of the
+whole sequence similarity, if it's within 97% of each other, this was
+approximately equivalent to a 70% DNA-DNA hybridization in the lab, which was
+approximately equivalent to the biochemically and physically defined species. So
+everything still came back to that original biochemical, physical way. But then
+we see these kind of groupings. And now what a lot of modern taxonomy is, is
+that true? What does that mean? What do we do with that information? And I think
+the historical aspect is really important, because what you described there, I
+think, as we knew that some organisms could be divided into species, and then we
+kind of almost retrofitted 16S back onto that to aid with a sort of quantitative
+classification, is kind of what we've done with genetics onto organisms, which
+we recognize as being distinct in historical terms. We knew that, say, cats and
+dogs were distinct from species, but we didn't really understand the genetics
+until relatively recently. And we've always kind of followed this historical
+trend, whether it's this categorization that we've made as humans and labeling
+of things in the environment and around, or whether it's taking the biochemical
+and phenotypic taxonomy of microorganisms and then trying to retrofit our
+genomic analyses onto that to try and make them match up with what we considered
+to be species previously. So taking that sort of broader philosophical view, I
+think there's always been a sort of historical tendency to try and remain within
+what went before. And that's true for, say, binomial nomenclature as well, where
+the binomial nomenclature is a particularly good way of describing the way that
+bacteria mix their DNA and divide and pool off into distinct reproducing groups.
+But it's how the Linnaeans evolved within culture, and we try to retrofit back
+to that. I would definitely attend your lectures if I could. I intend to go off
+on a philosophical side, because I used to work for Ford Doolittle, and that's
+what we would talk a lot about, is the philosophy of trees and how that tree
+then creates a nomenclature that is binomial, that then from that creates
+lineages. And what does it mean to be a lineage? Yeah, that was my Thursday
+afternoons. Tell me a funny Ford Doolittle story. I only know about him by name.
+I will tell you a funny one, which is when I worked at Dalhousie University in
+Canada, I was funded on a CIHR grant, which was to look at microbiomes in 2010.
+And actually, we had a work package on defining what is the reproductive unit of
+a prokaryote. And there is every answer, and there is no answer to that. But
+that was an actual work package that we had. We had philosophers that were built
+on that, and Ford was one of them, as he moves more into the philosophical side
+that he does a lot of now. And because Ford is Ford, and we kind of, you know,
+he is fantastic at everything, he would normally email us on a Monday and be
+like, pizza discussion Thursday. So I guess we 3pm had to be there to do that,
+and it would be a discussion around certain topics in order to do it. And we got
+there, and my other boss, Joe Belowski, who was there, who loved getting into it
+as well, we had a discussion on the concept of lineages. And the two of them
+were getting into quite a heated scientific argument about what it meant to be a
+lineage. And then I stopped them and was like, hang on, what do you define a
+lineage as? And Ford was saying that it was like a lineage in a family in terms
+of like a lineage of species, genus. These are the lineages that we're defining
+out, whereas Joe was defining a lineage as I followed this lineage through my
+parents and my grandparents, and it was proper philosophical that they were
+arguing and they were not even talking about the same thing at all. But I
+learned quite a lot about how to, why taxonomy is there as a useful term, but it
+should not be the be all and end all. And then now, June, typically you have
+what is a lineage, which is actually now slightly becoming a terminology in
+taxonomy, even though it's not properly defined. But lineages we hear a lot
+about in terms of people who want to make a clade sound more important than it
+is, I think, these days. I think it's a good way of putting it. One thing you
+said was we define species on biochems. And actually, I thought it was based on
+DNA-DNA hybridization, but it's actually defined on that assay, right? If you
+wish to put in a new species into the International Journal of Systemics and
+Evolutionary Microbiology, who publish these lists, so there is a list which
+comes out every, I think it's year, maybe two or three times a year, I can't
+remember, that say, these are the names of the species, and this is what it used
+to be called, or this is it, and this is its type strain. And if you want to
+publish that, you have to do it in a very specific way. And you can either
+publish it in IJSAM, and then it automatically goes into the list because they
+do all the approvals to even get the paper done, or you can publish it somewhere
+else. And if you have the right amend at the end, and it's been covered, they'll
+probably still put it into the list. Now, normally, what that means for a
+species is that you have to show biochemically that it is different from other
+species that are nearby, and that you use the 16S sequence in order to show that
+it is different from other species around it, with the 16S now being the proxy
+for that DNA-DNA hybridization. Nobody's doing DNA-DNA hybridizations and
+putting all that work in, we can just sequence the 16S. So it's the classic
+biochemistry has to be there, and normally some kind of phenotype that's going
+to define it, and that strain that you have deposited is classically going to
+show that, mixed with the 16S sequence, which has worked as the proxy for that
+genetics thing. That's how it currently stands for defining this. More
+frequently these days, people who submit to IJSCM are providing genome
+sequences. So we have moved, as reviewers and editors, to looking at ANI and
+digital DDH, and not just 16S. But certainly, if you don't have the genome
+sequence, 16S are similar. So the question of, you need all of the other
+biochemical tests, and you need that full description, and then you have a
+choice, one of either the genome, ANI calculation, or the 16S, and anything else
+you can possibly use, or the DNA hybridization, but no one does that. So the
+official regulations say that there should be a 16S tree, but I would say the
+vast majority of the reviewers really would now look for a whole genome and an
+ANI calculation. So for those who don't know how the ANI works, it is the
+average nucleotide identity. You get all the bits of the two genomes you're
+comparing, and then you get the percentage of how much of the nucleotides inside
+there are shared. And if it's over 95%, that is equivalent approximately to the
+16S cutoff of 97%, which is approximately equivalent to the 70% DNA-DNA
+hybridization. But ANI definitely works the best of the tools that we have at
+the moment for the species level. And I think, even though it's not a
+requirement, it's definitely strongly, strongly, strongly recommended if you
+wanted to get in. There's a whole lot of weeds in the calculation that we can
+dive into for how ANI is calculated by all the different methods you can
+calculate. One thing that follows on from this for me is, based on what all
+you're saying, and it sounds nice and specific, but then this means that, what
+do you do with metagenomic data? And what do you do with genomes assembled from
+metagenomic data? Because you then cannot classify them or integrate them into
+any such classification as much as people would want to. We are nodding
+profusely. Yeah. You certainly can't obtain a phenotypical biochemical
+distinction. I mean, this is all about cohesion and exclusion. So for things to
+be in the same species, they have to cohere, they have to share properties. And
+what we're typically asking for is that they are genomically similar, so 16S,
+DDDH, yet distinct from other things which are not the same. So we're looking
+for some kind of a transit. So that can be 16S percentage identity, ANI
+difference. And for phenotypic and biochemical tests, we're looking for things
+within the species to have the same response to those tests, and things that are
+not the same species to have a distinct response in at least one of those tests.
+You can't do all of those things for genomes that are obtained from mags, and
+you can't do it for unculturables either, because you can't do any phenotypic
+work on them. But there are a couple of different approaches have been proposed,
+but have been rejected by the ICSP, where it was suggested that we should take
+the route of allowing type material to include a genome sequence and not the
+organism itself in ATCC or some other collection. And that was rejected. So it's
+a formalism and a policy decision not to allow mags and unculturables to
+participate in this larger scheme that Kam was described of, so much into having
+an effective publication and being defined on the basis of both genome and
+biochemistry or phenotype. How do you personally feel about, and this is
+everybody, how do you personally feel about that? I think we're at a turning
+point in taxonomic history, and it will change eventually, even if not now.
+Yeah, I would agree. The real clinching point for a lot of people is that we
+know categorically that a lot of the microbes that we work with are not
+culturable and never will be culturable by themselves. That's just not, in the
+worlds of microbiomes that we see now, it's just not possible for a lot of
+things. And that is going to then just exclude a lot of things from the
+taxonomy. We know that there are a lot of entire phyla that are out there, and
+they have been kind of given special status where they say, we know that this is
+here, but we're not going to give it an official one, but we don't want to seem
+like we're living in the past, that we know that it's there, but without that
+cultural, you can't have it. We're just like, that's not, I don't think ever
+going to be possible. So I think eventually the genome will become a type
+material. And there are efforts to have alternative taxonomies. So what's also
+interesting about taxonomy is that there is one true taxonomy, and also there
+are 50 taxonomies, all of which are valid. And this is where people get very
+confused. If you change something in the official lists, that's what will get
+changed at NCBI. That's where people think of when they think of taxonomy. They
+go to NCBI, they've got their number, mycobacterium tuberculosis 1773. I can
+tell you that's his number. I look at it so much. You put that in and it'll give
+you the taxonomy. It'll tell you all the synonyms that it's been before, and
+it'll give you that whole tree of where it goes all the way back to the root.
+And that is essentially populates that NCBI list. But once something is named,
+except for very rare things, that name never goes away. So when they change the
+name from Clostridium to whatever it was, everyone will say you have to use this
+name, but actually technically you can use whatever name has ever been validly
+published for that. You cannot force somebody to use a new name. But in the
+reality is everyone wants to have one list and everyone wants to know what
+everyone's talking about. So they all want to use the one list. But if that list
+is not going to include things that are based on genomes only, people will start
+drifting off into other lists. For me, the point of taxonomy is so that I can
+say I work on this and you understand exactly what that means. And I don't just
+have to like give you a genome accession number in NCBI. I can say I work on my
+mycobacterium tuberculosis and you have a general idea of what that means. So it
+comes back to the philosophical thing of like, why have a taxonomy if everyone's
+not going to use one taxonomy? Just two comments on that real quick. I remember
+666 is Vibrio cholerae. And the other one is, at the bottom of NCBI's page, I do
+believe they give a disclaimer like this is not the official taxonomy. So I just
+wanted to hear a quick comment from you on that. So I didn't know that it was
+taken straight from the society. You can ask them to change things without that.
+So we found a mistake that there was a mycobacterium species that was in
+mycobacterium tuberculosis complex, where the paper specifically said that it is
+beside. So someone just put it into the wrong place. I don't know exactly how
+the background workings of it works. From my personal experience, what we had
+was the mycobacterium genus from 2017 split into five different genera based on
+a whole host of things, AAI, ANI, and some other things that are not overly
+important. That paper came out, that person put the proper amend records in, it
+went into the official list, and it was changed at NCBI straight away. And that
+was because it was a genus level paper. It did not take much. Maybe they also
+went to NCBI and asked them to change it. But these changes happen very, very
+quickly into NCBI. And even though it's not the official taxonomy, people look
+at it as official taxonomy. If people say what's the taxonomy, they go to NCBI
+and they look it up. That's the reality. This comes back to some extent to the
+sort of constrained by history view of taxonomy in the sense of those old names
+that have been superseded still persist in the literature. And if you go back to
+look at the literature, they're still there. So you won't find that original
+reference if you search for the new name. So I've got a paper from 2003 where we
+sequenced an organism and it's completely changed its genus now, but the
+original paper is still with the original genus assignment. And this touches as
+well on the difference between taxonomy and nomenclature. Where if we want to
+look at taxonomy as a correct description of evolutionary history and how
+organisms radiated, that's one thing. And the labels we put on them is something
+different. The label doesn't say what it is. So when we've corrected names, such
+as in Lineage A over here, this was genus X, species X. In Lineage B over here,
+we said this was genus X, species X. And we've renamed one of them. Both of
+those original identifiers will be in the historical record in the literature
+and will be in the databases. But only one of them is in inverted commas true.
+And if we treat those labels as the truth, as opposed to the underlying data and
+what the organism actually is as the truth, then we run the risk of greater
+confusion than we already have in taxonomy. We have the same Mycobacterium
+tuberculosis and Mycobacterium bovis are exactly the same species. They're just
+ecovars of each other, essentially. And then we have Mycobacterium africanum,
+which is two lineages.  are not even together on the tree, they have the animal
+lineages in between. But when we work on microbacterium tuberculosis lineage 5,
+if we don't put in brackets microbacterium africanum afterwards, they'll be
+like, people won't know. And I'm like, it's just more confusing. The difficulty
+we have there is that then clinicians think, I need to treat this differently
+because it's not tuberculosis. I need to find out what treats africanum. So we
+have all these like chimpanzee versions and other ones. And then so it's
+actually very confusing for vets who tend to be the ones who come, who find new
+species or find new lineages of existing species. They're like, oh, I have no
+idea how to treat this in this animal. And you're like, it's just TB. You treat
+it with mostly the regular things. There will be some differences between
+lineages, which we can get into, but sometimes naming can help and sometimes it
+can hurt. And then historically, you end up having to say it used to be this,
+which used to be this, which used to be this, which used to be this, so that
+everyone feels included. I think that's a great example of that tension between
+science as a way of understanding and categorizing and classifying and building
+from what we know about the world and science as a social activity where we need
+to explain to each other what it is we're talking about. And I think this comes
+back as well to the definition of species question you asked about, are we
+talking about speech in the sense of here's a label for an organism that we can
+both talk about and understand? Are we talking about species in the sense of
+this is a sensible biological division between this group of organisms and this
+group of organisms? And I think we flit between the two of them sometimes One of
+the classic examples for me is the E. coli Shigella problem, where basically
+it's a specialized inter-aggregated E. coli and it is embedded within the E.
+coli species. There is no doubt that it is not something else, but clinically
+it's a different thing. Clinically, Shigella causes Shigellosis. It's its own
+separate, practically it has to be treated kind of separately. And that's
+something, you know, we always make a joke like, ha ha ha Shigella, you mean E.
+coli. And it's like, yeah, but there is this sensitivity of like, what are we
+talking about? That's always the best example, because clinically you need to
+know straight away if it's Shigella, because the way that you treat that is
+quite different to the way that you treat E. coli in terms of the severity and
+how quickly you kind of want to get to this. So that's really, really important
+clinically. So it's about the end, you know, so your use cases, clinician, they
+don't care about the genome. They care whether it's Shigella or E. coli, and
+they don't, they're not like, well, maybe it should be, it's like, how do I
+treat it? Do I treat it this way? Do I treat it that way? Whereas like
+technically Salmonella and E. coli and Shigella are one species, but you would
+never do that because that doesn't help anybody to talk about their work and it
+doesn't help clinicians. So it helps nobody by being facetious. So the example
+of that, because I always come back to Mycobacteria, we went through the whole
+Mycobacterium genus and we reassigned some of the species into subspecies that
+had been separate before. But we have one, which is Mycobacterium marinum,
+causes disease in fish and Mycobacterium ulcerans causes very bad ulceration of
+the skin in humans. Mycobacterium ulcerans, when you do an ANI, because it only
+looks at the bits that are the same between two, which we'll get into later,
+these come out as being exactly the same species. But we said, we should not
+call these two different things because if someone has a marinum infection,
+it'll go away eventually. If they have an ulcerans infection, they could
+potentially die from that. You need these labels to be important. I think the E.
+coli and Shigella example is a classic because it is such a clear and excellent
+example of that tension between the need to name things clearly for societal
+benefit and human activity and the need to categorise. And an overdue attention
+to nomenclature confuses the two. And maybe we need parallel ways of identifying
+what organisms are. It was mentioned earlier, but I don't think specifically
+about other ways of classifying genomes than by nomenclature. And I thought you
+were going to mention UNCODE or SETCODE, which is a proposed, completely
+qualitative of the identity of organisms on the basis of their genomes. Maybe we
+do need to separate those things in order to clearly distinguish between the
+societal need for classification and our need to classify in terms of
+evolutionary history. My book bear will go in the opposite direction, despite me
+saying, coming as a clinical taxonomist, I'm like, it's important that we label
+things that are useful. But also it's like, I don't need you to publish 5
+million papers that each define a new lineage because you don't understand the
+difference between a clade on a tree and an actually important definition that
+people need to think about. Sometimes it's important that you say that something
+is new. And then sometimes you're overreaching in terms of giving things an
+importance beyond what is really there. And you see this a lot more in virology
+because these things become separated very quickly. So they see lots of
+diversity and say, this is a new lineage, but it doesn't actually do anything
+different. That's all the time we have for today. I want to thank our guests,
+Dr. Leydon Pritchard and Dr. Connor Meehan. We learned a ton about taxonomy. And
+so I think you earned your place for the show for next time. We'll go into more
+details. Thank you so much for listening to us at home. If you like this
+podcast, please subscribe and rate us on iTunes, Spotify, SoundCloud, or the
+platform of your choice. Follow us on Twitter at Microbinfy. And if you don't
+like this podcast, please don't do anything. This podcast was recorded by the
+Microbial Bioinformatics Group. The opinions expressed here are our own and do
+not necessarily reflect the views of CDC or the Quadram Institute.

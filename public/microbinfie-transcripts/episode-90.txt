@@ -1,0 +1,607 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There's so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Andrew
+and Nabil work in the Quadram Institute in Norwich, UK, where they work on
+microbes in food and the impact on human health. I work at Centers for Disease
+Control and Prevention and am an adjunct member at the University of Georgia in
+the U.S. Welcome to the Microbial Bioinformatics podcast. Nabil, Andrew, and I
+are your hosts today. If you haven't already, it might help you if you listen to
+the last episode discussing Whittle. We're talking about Terra.bio, an open
+source platform that manages genomic data and computational resources on a cloud
+backend. If that confuses you, stay to listen to the episode. Joining us to
+discuss Terra.bio is Dr. Joel Savinsky, the founder and CEO of Theogen Genomics.
+Dr. Savinsky has leveraged over two decades of experience in systems biology and
+has taken aim at transforming public health and infectious disease surveillance
+through an innovative implementation of NGS and bioinformatics technologies.
+During a three-year tenure at the Colorado Department of Public Health and
+Environment, he has led several initiatives to build NGS testing and
+bioinformatics capacity at the state, regional, and national levels. In 2019,
+Dr. Savinsky left CDPHE and created Theogen Genomics. Dr. Savinsky and his team
+now work with over 40 public health laboratories nationally and more than two
+dozen internationally in Africa and Asia, building bioinformatics capacity for
+public health. And also Dr. Danny Park, he is the group leader for viral
+computational genomics at the Broad Institute of MIT and Harvard. Over the past
+nine years, he has facilitated the conversion of research-grade viral genomic
+and metagenomic analysis pipelines to portable containerized cloud compute
+workflows that have been in use by collaborating genomics labs in West Africa
+since 2015. Dr. Park has also co-chaired the infrastructure working group in
+PHAGE, which is the Public Health Alliance for Genomic Epidemiology, which works
+to define standards and best practices for compute infrastructure for public
+health labs globally, and what is required of labs to support modern
+containerized bioinformatics workflows while maximizing the portability and
+reusability of these workflows. I'll get things kicked off with the opening
+question of what is Terra? Danny, do you want to give us what is Terra in your
+eyes? I can speak to that and, you know, I think it helps to clarify some of the
+different layers of things that are going on because it is a little unique. So
+Terra, in my mind, is actually the kind of, in a way, the web UI. It's the
+platform that most users are going to, most end users are going to interact with
+to manage their data, their compute, their pipelines, execute their work, and
+that type of stuff. Underneath all that is the execution engine and the
+languages that are, that are used in there. So you might hear about Cromwell and
+other types of things that actually handle the orchestration, but Terra is the
+glue. It's the thing above all that, that the end user will interact with.
+That's good. And I think, was that a design decision based off what we were
+talking about last time with Whittle of trying to keep things portable and
+modular? I think there's a big part of modularity in there and we can get into
+some of the things that I found to be unique about Terra in that kind of
+modularity space. The fact that it's execution engine, the actual software that
+interprets the Whittle dispatch, you know, spins up cloud VMs and like moves
+stuff around, but that's a standalone thing that you could run on a cluster, you
+could run it and, you know, but it's also not the only engine that runs Whittle,
+there's, there's other ones too, right? But that's somehow modular and separate
+from Terra, right? Or sorry, the, the overall kind of web layer that even some
+of the underlying bits of how Terra manages data or even moves the pipelines
+around are also modular. And there's a whole kind of set of APIs that are
+designed around those, not just at the Broad, but through that whole standards
+consortium around how to talk about data repositories, what they call tool
+repositories, execution engines, that type of stuff. Terra is kind of the glue
+above all that. And the pieces within it are meant like things you could break
+out and, and implement separately. Anything you'd like to add to that, Joe?
+Yeah. It's, you know, when I look at Terra, you know, I think about when I first
+became involved with workflow managers and working on the command line and all
+that was involved there. And then, you know, how, when you run something at the
+command line, where is it going to be stored and what directory and how deep
+down the rabbit hole do you have to go to find your results and things like
+that, or where Terra just creates this infrastructure platform around the
+Cromwell engine and also around some other Google resources to make, you know,
+cloud computing, workflow managing, containerization, much more accessible for
+mere mortals and, you know, adding not only an ease of use in, in visualizing
+through a GUI application and kind of point and click for those that might not
+be command line savvy to also adding in functionality for data management to
+capturing the results after workflow and organizing that in a way that could
+actually be useful for timely decision-making. So this is sounding very
+futuristic and quite different to what we're used to. I mean, the way you're
+describing it effectively, it's, you don't need to know or have compute because
+it's provided from a cloud backend. If you have the pipeline you want specified
+and whittled, you can just run it in whatever environment you want. You don't
+need to care about the execution engine, the thing that actually runs those
+tasks because Terra is doing it abstractly for you in the background underneath,
+under the hood. So effectively it's like, I have data, I spin this up, I insert
+data, I get out nature paper. I mean, that's the dream, isn't it? There's a
+little more in that last step there that you left as an exercise to the user,
+but yes, it'll, it'll get you up to the doorstep and you got to do the other
+bits there yourself. But this is cutting out the start where it's like, I need
+to buy server racks. I need to set up my, I need to, I need to, you know, I need
+to write the workflow myself because my architecture of my working environment
+is in a particular way. So I have to do it this way. No, I can't just use what
+someone else has done. All of that. You're just cutting that all out. And like,
+here's data. I'm going to get straight to work. And not only that, I was going
+to say is, is Terra allows you to cut out some of that sysadmin functionality of
+working with a workflow manager. So if you're working with workflow managers,
+whether it's Nextflow or Cromwell or something else, you know, there's a certain
+amount of configuration that goes on for the specific environment that you're
+working in. And with Terra, you know, you could just log in, create your
+workspace and you're off and running and you don't have to worry about that
+configuration because Terra is managing those resources for you. It really was
+designed for the end user kind of, I guess I would think it was like, think of
+the bench scientist, maybe not the informatician who's generated the data, knows
+what kinds of pipelines they want to run and they exist in some sort of form to
+them, either through a collaborator or off the shelf. And they just want to turn
+that into analyze results. They don't have to bring their own compute
+infrastructure or hardware or even their own tools necessarily. They just need
+to connect the data and the, and the pipelines together in the workspace. And
+from that, we've touched on a lot of generically, what is the problems Terra is
+trying to solve, but I'm interested from first you Danny, where did the
+conception of Terra and what was it trying to do at the beginning in its
+infancy? And then maybe we can bring in Joel to talk about like his perspective
+now in public health, where he sees it going as well. When Terra was created,
+you know, in the beginning, what was it tailored for Danny? Like, what was it
+trying to solve? I mentioned this last time I'm not in, I'm at the Broad
+Institute, but not in the group that makes it. So this is a little bit from the
+outside looking in, or at least the, the origin story that I'm aware of, but it,
+it was birthed maybe a little less than a decade ago, mostly out of human
+genomics and in particular cancer genomics, where there's just a lot of data and
+large size data. And a lot of it was, well, actually it's real origin kind of
+came, was motivated at the Broad because the scale of compute that needed to
+happen for human cancer genomics was simply outpacing our ability to grow our
+HPCs and server racks. Like we just could not add more servers. We actually were
+getting to the point we could not add more electrical power input. It was, and
+it just wasn't really making sense. And there was a couple of other things that
+weren't making sense. Why, why were we like sloshing around humongous data sets
+that had 50 copies of the same old humongous thing? And so again, these are
+things that are, I say a little bit as the outside looking in, because I'm not
+in human genetics, I'm not in cancer genetics. I don't have like 40 terabyte
+data sets to deal with. And I assume a lot of you don't either. I don't need
+5,000 cores of compute because my compute needs aren't at that scale. But I
+think a lot of what Terra and a lot of cloud compute platforms in general, not
+just Terra, you know, DNA Nexus, 7Bridges, all that type of stuff, a lot of that
+went to cloud to scale. And that was their motivation. For me, again, I work in
+a group that has had a long running priority in basically handing pipelines that
+we developed in our group to institutions kind of globally, particularly some of
+the folks who work in West Africa. So I had no motivation around scale. We
+didn't need bazillion terabyte data sets or that much processor power. I mean,
+there's a few things that eat some memory, but, you know, we could get that done
+on a cluster generally. For me, actually, it was more about kind of the
+portability piece, the fact that like there's two pieces. One is that I learned
+pretty quickly that.  web wrappings around a compute infrastructure, you know,
+like a nice web UI that gives them flexibility to do lots of different things,
+but actually abstracts away a lot of the command line stuff. I mean, that
+increased accessibility, not just overseas, but in my own group, right? Like our
+wet lab bench scientists didn't have to bother the informaticians for every
+little assembly or alignment or a little report that they needed. They could do
+it themselves. But also actually for our accessibility overseas, you didn't need
+to buy server racks. You didn't have to power those with UPSs and diesel
+generators. If you didn't have like reliable power, you could literally just, as
+long as you could upload the data, you know, your power could go out all day and
+all night, but like the compute would go on, right. And the data would survive.
+And, and especially for microbial stuff, it's kind of nice because cloud compute
+doesn't end up being that expensive because it's not actually that intensive
+computationally. It's partly about Tara, but it's partly about web-based
+platforms for cloud compute in general. The initial motivations came out of
+human genetics. It came out of scale. It came out of doing big things bigger
+than you could do in your own institution. But what's nice for us on the
+microbial side is that like, even if that wasn't our problem to solve, you know,
+we could benefit in a lot of the other ways, like portability to environments
+that didn't have a compute cluster or even stable power, that wasn't their
+priority, but it kind of happened to work out that the solution was the same in
+the end. And Joel, what about you in terms of using Tara in the public health
+space? What do you find the problems that Tara solves or is fit to solve really
+well? Yeah, that, you know, there's a, there's a few of them there because, you
+know, the, the first, I guess you could say four years of public health
+experience for me and trying to build biofrast capacity, we're really focused
+around training users at the command line, getting them on virtual machines,
+teaching them how to run scripts, find the results. And, you know, a lot of
+times you can have these courses or even just in time courses and teach people,
+but unless somebody's doing this every single day, they, they tend to forget.
+You're not getting the real full benefit of the training and the time that
+you're putting in there. And it's not something that's very sustainable unless,
+you know, that the laboratory has, you know, several bioinformaticists on staff
+that are constantly running these analyses. And in the U S maybe you have about
+a dozen laboratories that can do that, but then you still end up with, you know,
+another 40 plus laboratories that, that can't do that. For me, the, what Tara
+was really addressing was that, that need to get users away from the command
+line. Also a need for an open source solution where, you know, maybe the, most
+of the options you had to get away from the command line and get into more of a
+GUI. They were all mainly, so there's a number of commercial applications out
+there that you could do that. But they're very closed box where a lot of times
+you don't know what the algorithm is, how it's exactly being run, how it's being
+implemented. And so you, so not only do you need to get away from the command
+line, you need something, in my opinion, that's open source so that public
+health scientists can actually see what's going on. And then also, and this is,
+this is almost the hardest one, but you need a resource that's acceptable to
+government institutions, right? Because you're going to have to go through some
+type of IT approval and you're going to have to go through some type of
+procurement approval. And where Terra was able to address some of that is
+because it was on Google cloud and because Terra managed all the Google
+resources, you could generally get a IT buy-in because it was more of a software
+as a service in their mind. Like if they, if they wanted to put a label on it,
+software as a service where Terra was managing all those backend components, it
+was just a BYOB solution, as I call it, bring your own billing account, so you
+had to partner with some type of reseller for cloud to get a Google billing
+account. And then also from a data security privacy standpoint, we were able to
+have concessions where, okay, all the data that's going to be on there is a non-
+PII, non-PHI, and you can, you know, you could assure that and say, listen, the
+only thing that's going to be there is genomic data that is either already
+publicly available or will be publicly available based on, you know, grant
+deliverables. So Terra really that getting away from the command line, open
+source, and also in a very SOP driven fashion where once you taught users how to
+use Terra, which you could do very quickly, it becomes more of an SOP type
+procedure, which is what they're used to with their wet bench protocols, you
+know, you can follow an exact process to do an analysis and get results. So
+there is a one common thread I heard from both of you, which, which subtly
+worked its way in there is the fact that the amount of the demand on
+bioinformatics expertise far outstrips our ability to seemingly produce it, to
+supply it, and that seems to be one of the critical things Terra is providing.
+And a lot of other platforms, obviously, I mean, here on the channel, we love
+Galaxy or there's other tons of other options out there that to me, empowering
+the user to do their own work. And one, one quote we always say is you don't
+want everyone to have to be a sysadmin to get their work done, trying to move
+away from that. That for me was, was, was one subtle echo again, is that, yeah,
+we really can't produce bioinformatics capacity as quickly as we actually need
+it. Yeah. And I think there's two pieces to that, right? I mean, when I said,
+Oh, say I have a bench scientist in my own lab who maybe in the past would have
+to bug an informatics person to like, just do some basic analyses, it's not just
+that there isn't enough, you know, I wish I could hire more in petitions, it's
+more actually that I wish that informatician could spend their time doing
+something more useful than, you know, like what, why, like if I had the choice,
+they would be developing more pipelines or doing other kinds of things or
+running other analyses that require a little more thought than just kind of
+assisting everyone that in a way, I don't want them to simply be part of the
+analysis infrastructure, just a human piece, a cog in the machine, right? But
+the other side, and for us, this was a big part of a lot of our work in West
+Africa actually started out of the NIH and welcome H3Africa program. And a lot
+of that was about not just developing the capacity in a lot of these countries
+to have genome pathogen sequencing labs and genomics labs, but actually the
+ability to actually do all the analyses and the interpretation and that type of
+thing themselves. And so if you create a dependency on a human kind of
+informatician, if they don't have it in house, then you're actually creating a
+dependency across institutions or perhaps across countries that isn't
+necessarily the long-term healthy dependency that you want. Right. So that's
+part of why we were aggressively trying to push this into the hands of the
+people who actually, you know, the scientists who generated data knows best,
+like what they actually want to do with it. So better to kind of put it in their
+hands. And to me, Tara really increased the accessibility of the bioinformatics
+work that was being done by the bioinformaticists that were currently in public
+health. An example of this is the containerization and workflows that were being
+brought up for SARS-CoV-2 analysis, you know, that you could look at things that
+Kevin Liboud or Aaron Young were doing with Monroe or Secret, and they had these
+workflows designed on a chain of commands to different containers, and you could
+readily adapt their work using the Woodle workflow language, just some subtle
+changes in the, in the structure and then make it readily available to anybody
+that can get access to Tara. So it's really a way of increasing that
+accessibility of the work that's already being done for a larger audience and
+not requiring them to have some type of on-prem resource or an on-prem
+bioinformaticist to do things. I mean, Joel, you, I mean, part of your sales
+pitch as a company, you say like, Oh, we can get a new lab from in how many
+minutes or something like that? Like up and running. It can be 60 to 90 minutes,
+depending on the type of work that they want to get done. Joel, you've mentioned
+the S word, SARS-CoV-2, and we were, we also had Danny talk about human genomics
+and the big data problem that they were trying to solve, and that's sort of the
+part of the motivation for Tara to begin with. Let's talk about that. Let's talk
+about COVID-19, which I guess is the first microbial big data problem and where,
+and how Tara fitted into that story. That was a crazy time, but for many, many
+reasons, you know, that whole, you know, when the pandemic started in, in 2020,
+and then in February it was, I was working with a lot of different public health
+laboratories and then they became not accessible to me and the reason they
+became not accessible is they were dealing with a, a dumpster fire of specimens
+coming into the laboratory and getting up diagnostic testing to get a handle on
+what was actually going on with the pandemic. So I think in February, March,
+April, May, there wasn't a lot of conversation about bioinformatics and
+sequencing. And I thought, oh, this is really, you know, bad for business. You
+know, everybody's gone. The meetings are shutting down, but little did I realize
+it was kind of like one of those scenes before a tsunami when you're sitting
+there on the beach going, where'd all the water go, right? You know, as the
+water recedes and everybody goes out and then the water comes. And, and that's
+what happened in that summer of 2020 was programs like PulseNet and other CDC
+programs did a phenomenal job building up a workforce and infrastructure for
+sequencing, right? So all these laboratories nationally had all the, the
+sequencing capabilities they had to perform SARS-CoV-2 surveillance. What they
+didn't have was the bioinformatics or there was labs that had the
+bioinformatics, but it wasn't the majority of the bioinformatics. So you had to
+have something that was accessible to the, the average public health laboratory
+for them to take their sequencing results when surveillance started up in
+earnest that summer of 2020. To, to take those sequencing results, be able to
+analyze it on their own and start informing their leadership and decision makers
+as to what was going on in their region with the pandemic. And that's where, as
+I touched upon before, there was some workflows already available.  with Secret
+and Monroe, you know, that were written in Nextflow, but they were built upon
+the containers of the Staphy repository. And so those containers were freely
+available. New containers were coming on for Bader and Pangolin and a lot of
+other SARS-CoV-2 specific workflows in not too short a period of time. I mean,
+it was actually a really short period of time. It was Andrew Lang, I think did
+the first iteration of it, just wrote a little workflow looking at what Secret
+and Monroe were doing and just copying, you know, let's not recreate the wheel
+of somebody else's best practice here. Let's grab one of those workflows and
+just rewrite it and got a working workflow in Whittle, which, and this is a key
+thing about Terra too, is what's really unique about Terra right now, in my
+opinion, as to where this whole workflow management stands right now, is one is
+the workflow repository or registry that you can get through Dockstore. So it's
+not like you have to clone something out of GitHub or something like that. From
+within Terra, you can click on a workflow tab and say, show me all the workflows
+available, and it brings you to Dockstore. And you literally just click on the
+workflow to bring it in. So you know that you have this easily accessible
+registry of workflows. So we're able to put that workflow in that registry. So
+anybody who had Terra could access it. And then the other thing that is really
+important about Terra, and Danny talked about this, is the data management side.
+The fact that you have data tables within your workspaces. So the workspaces
+aren't used just as a place to bring in a workflow and launch an analysis. The
+workspace also manages your data and gives you the ability to share that data
+between collaborators. And so laboratories could very quickly upload their data,
+import in a workflow, say I want to run this workflow, click on the number of
+specimens they want to run it on, and then click run. And 40 minutes later, they
+had all their results laid out in a data table, whether it was 10 specimens, 100
+specimens, 1,000 specimens. And what's really great about this, and getting to
+the pandemic side of things, is there was instances where we could get a lab up
+and running in 60 to 90 minutes, right? Because all we had to teach them, and we
+were able to record it so they can go back and look at it because everything was
+done virtual at this time, is we'd get on with the laboratory, we'd make sure
+that they had Google credentials too, because Google authentication is used for
+Terra. We'd get them into their workspace and we could clone a workspace, which
+once again, it's that portable reproducible. We set up a workspace. We just make
+a copy of it, give it to them. The workflows could already be in there. And then
+all we have to teach them to do is say, this is how you upload your data into a
+Terra workspace, whether you're grabbing it from BaseSpace or whether you're
+grabbing it locally. This is the way you create your data table. And then here's
+the workflow you want to use. And then you click this workflow, you put in the
+input parameters, you select your specimens and hit go. And it's kind of very
+SOP bioinformatics there. When the analysis is done, they don't have to look
+through a directory structure for the results. It's actually populated in a data
+table. So they could sit there and look very much in a very bionumerics pulse
+net way of where you're looking for your experiment results. They could look at
+data tables where each row is a specimen and each column is a particular result
+or output from a bioinformatics algorithm in that workflow. And so it really
+helped bring on a lot of labs very, very quickly being able to perform their own
+analyses. Hence, why there's over 40 labs using Terra nationally right now. And
+it really addressed the needs of the end user. And that end user being the
+public health scientist that has an understanding of bioinformatics that is
+probably more on the wet bench side of things, but needs that easily accessible
+through a browser bioinformatics solution for their analysis and highly
+scalable. I mean, we've done runs where easily tens of thousands of specimens at
+once launching that on Terra. And once again, you have that cloud backend. Terra
+is exclusively cloud-based. So you have that scalability just baked in from the
+very beginning that you don't even have to worry about. So does that mean people
+didn't have to deal with any comma-separated files? They could just look at it
+straight in the browser? They didn't have Excel files, nothing? There's a tiny
+bit of Excel in there. So when you upload a data table in the beginning, when
+you set up your data table, you do need a comma-separated value. I think it's a
+tab-separated value. A tab-separated value form to upload to create your
+additional data table. And you can download all your results in that tab-
+separated value. But for the most part, you get away from that. Once you get
+your data in there, it's really nice because your data table is essentially, you
+know, a data table of strings, tab-separated value strings. But those strings
+are actually, for the most part of it, if it has to do with a file result, it's
+actually a pointer to a Google cloud storage bucket location, to an object in a
+storage bucket. And Terra, when it looks at that data table, it'll render those
+addresses as links. So if you want to download, you know, the BAM file for
+alignment, to look at something, you just click in the data table and you
+download that BAM file. And also what you don't see in Terra, which is kind of
+hidden, but you know, if you're a bioinformaticist is how to, all the backend, I
+guess you could say logging and auditing is still available in the Google cloud
+storage bucket where the execution directories are and where everything was
+done. So you could actually go in as a bioinformaticist and look at the exact
+command that was run in the bash script, right? You can actually look at that
+command and all the parameters that were given. So it gives this extensive
+detail on what was actually run, which makes bioinformaticists very comfortable,
+right? Because you could see everything that was done in the most minute detail,
+but it's still super accessible to all the bench scientists. So, and that's why
+it kind of took off in the pandemic was it was a solution that was available
+right now to provide public health labs with that infrastructure, with those
+tools to have situational awareness of what was going on with SARS-CoV-2 in
+their region and make decisions based on that. So I had one, one question, you
+mentioned data sharing between the different groups. Now, does Terra provide you
+sort of rich user access control for data? Because that's something that's not
+usually implemented or implemented rather poorly in other offerings, in my
+opinion. Yes, it does, especially from a public health perspective. And so we,
+we have multiple projects with different laboratories and some of them could be
+a, let's say a collaboration where you have multiple industry partners and state
+partners and county partners. And, you know, when you use something like Terra,
+because it's a centralized system and we can get into a whole other discussion
+between centralized and decentralized, but because it's a centralized system and
+you're using Google authentication, it makes it very, very easy to control
+permissions as to who can like view a workspace, who could actually compute in
+that workspace, who could add other users, who could share it, et cetera, et
+cetera. So there's a lot of granularity and hierarchy and the permissions that
+you could have for these different workspaces, which lends itself very well to
+multi-collaborator projects when you have to aggregate data across multiple
+sites in real time and perform very large scale analyses. Yeah. So yes, it has
+those great permissions. So I'm wondering errors will occasionally occur, you
+know, when you run stuff, storage will disappear, connections will drop, or
+maybe things run out of memory and that kind of thing. What does Terra do to
+counteract those or take them into account? Yeah. The major error we have is
+spaces and filenames. It's a bane of all our existence, but for the most part,
+the errors aren't that bad. And this is kind of, once again, the nice thing
+about having a system with workflow managers and containers is usually if one
+person's having an error, everybody's having an error and you can address it
+rather quickly. And so you could have a small team of bioinformaticists. And
+this is where I think Biogen's excelled in supporting workflows that we
+developed, that we made completely open source for everybody to use. But we can,
+you know, if you have 40 different laboratories using those workflows, errors
+are identified very, very quickly and they can be corrected very, very quickly
+because you can update something in GitHub, which immediately gets propagated
+through DocStore and into Terra and for a new version, which is another key
+thing of those workspaces is the versioning so that, you know, previous versions
+are always available. Laboratories don't have to change until they're ready to
+change, to re-verify for their own QC management requirements for the
+laboratory. But other errors, you know, this is where the collaboration between
+the Broad Institute and Biogen has been really useful is that we have a lot of
+access to the Terra engineers and different teams and even can get people like
+Danny who aren't directly involved with Terra to bug them and say, hey, there's
+something going on that, you know, when we have errors, they usually are
+identified quickly and resolved quickly. You know, and we also have another,
+we'd be remiss not to mention Christine Lorath from the Broad Institute who has
+been instrumental in these collaborations and, and helping out a lot of times.
+She used to be the first person we'd complain to. Now we have more formal
+channels and access to a wider group of people. But for the most part that
+there's rarely any connectivity errors. You know, you have the robust Google
+cloud backend supporting things. I think the vast majority of errors that we
+deal with, it's more syntax errors, you know, something wrong with the file
+name, something, a space. Do you have any fun acronyms for user error, like
+problem between keyboard and chair? Or the pepcac or something like that. Yeah.
+No, we, we just, well, I mean, and this is also the really nice thing is
+supporting. The approach we've really taken is everything's open source and what
+we want to promote is iteration. If we're going to fail, we want to fail early
+and often, and we want to have this practitioner led R&D where we really just
+want to open everything up. People use it and get the feedback as quickly as
+possible and improve it as quickly as possible. We're not afraid to be wrong.
+We're not afraid to make mistakes. We'd prefer not to. We prefer not to be
+wrong. We prefer not to be mistakes, but that's part of the process. And because
+we open things up so quickly and to so many people, we make things open source.
+Those are usually found pretty darn quickly. And usually it's by Andrew Gazorski
+in Nevada, who's an exceptional collaborator that uses everything that we build.
+And it's usually the first person to find an error or an inaccuracy and we love
+them for it. So, but I guess that does that answer your question, Andrew there?
+I guess maybe I come from a world where, you know, we use HPC a lot more and you
+get random PhD students, you know, will launch 10,000 jobs in a cluster and
+crash some random piece of kit that you've never heard of. And then your stuff
+goes down and, you know, you have to restart it and whatever. So it's great that
+Atera does, I guess, just by virtue of using the cloud, smooth over some of
+those. Yeah. One of the, so one of the things they say around here is that the,
+yeah, philosophically, I think when you pivot from on-prem resources, you have
+fixed pool of resources and you got to manage fair usage of it to cloud compute
+the, the naively people say, Oh, cloud compute is, you think of it as
+effectively infinite. You ask for as much as you want, and it's effectively
+like, you know, isolated from each other, but we always find ways to probe the
+limits of the infinite, you know, we discover some of the edges of those
+assumptions or the simplifying assumptions and those things get discovered over
+time. It's possible to run out of things. It's possible for, for some person's
+crazy work to impact the others. And those are always kind of like, Oh, we
+discovered something new about the system. I guess, you know, I was going to say
+that we, we, we broke in Tara a lot and, and it's made it better. And, and the
+Broad Institute has been really open and willing to cooperate and learn from us
+how we're using it, which is different than the way their traditional
+stakeholders have been using it. If they had a, in an academic sense or a
+clinical study sense, you have all this data that you're putting in at once, or
+things are much more organized and structured and public health does things
+differently. I like to consider public health, like the mail, right? It just,
+the specimens just keep coming, right? They don't stop. And there is no set
+procedure. A lot of times you, you have the data come in and then you have the
+metadata and other times you have the metadata and then you have the data come
+in and other times you've got to correct everything. So there was things that we
+were doing at scale in Tara that were, yes, the cloud is infinitely scalable,
+but say, you know, interacting with the cloud through a browser might not be
+infinitely scalable. So there, there was some learning curves there as to how
+public health wanted to use Tara. And then we did break some things and the
+Broad fixed them. Well, I mean, the scaling is on a different dimension, right?
+We're not working with thousands of human genomes, we're working with millions
+of tiny genomes. So discover a different way that the scalability needs to work.
+I mean, it's a bit beyond the scope of this particular topic. Maybe it's a more
+general kind of informatic kind of discussion point, but to your question around
+how do these errors get handled? I mean, there's, there's the user error.
+There's like the error in our code that we write and there's kind of errors that
+happen on an infrastructural level, but there are, there's a fuzzy space in
+between those, right? Like the spaces in the file name, a user error. So like, I
+guess I could harden my code to be more resilient to that. And so there's things
+you can do at the layer of like, I'm writing the pipelines to make life a little
+bit more fault tolerant for the user. But you know, so where's the
+responsibility like similarly, like you talk about like out of memory errors and
+stuff like, okay, well technically that's the fault of the folks who wrote the
+whittle that said this step needs that much memory. And maybe we should write it
+to actually say it needs that much memory. But you know, the Terra folks added a
+nice little, it's one of those common things where the Terra folks added this
+nice little like retry with more memory button that like you didn't have to bug
+the pipeline developer every single time. You just wanted to see if maybe that's
+all it was, you know, that type of stuff. So it's in a way it's like different
+modes of responsibility, but there is a fuzzy kind of boundary between each. I
+think we should start moving to the final points, which is the future and how do
+people get involved? We've actually kind of covered all of the perks of Terra
+just as we've been going along. Yeah. Well, I can, I can talk a little bit about
+kind of where it is and where it's headed, at least as far as I can see in some
+of the bits that I'm involved in. I mean, it is an actively evolving thing, you
+know, a few years ago, you know, what can Terra do and what can it not do? Well,
+I mean, in the past it was strictly a platform that would run pipelines
+described in Whittle on a Google cloud backend. And that's like what it would
+do. And if you want it to run it on Azure, if you want it to run some next flows
+or whatever, these are things that are just not within scope. It's because of
+various different grants and partnerships and priorities, its development team
+has ongoing, like a lot of those things are kind of actively evolving on the
+roadmap. When Terra was born several years ago, its main partnership was between
+the Broad Institute and Google Verily. So that's why all of it was really kind
+of baked into Google year or two ago. It announced a kind of new partnership,
+three-way partnership with Verily and Microsoft Azure and the Broad to bring it
+there as well. And there's all sorts of reasons for that, but you know, there's
+been active work under the hood. You can't yet spin up a workspace backed on an
+Azure bucket and compute resources, but within, I don't know, whatever period of
+time I'm not involved in their roadmapping, but like you will be able to. And
+there's some intermediate kind of checkpoints along the way. Presently you can
+run galaxy pipelines in Terra. It's not quite as smooth as it is in, is to run a
+Whittle, like you can't just quite click the import from doc store, but you
+know, it works for, for the folks who do that. Next flow is on the roadmap at
+some point. I know there's some like really alpha kind of, you know,
+experimentation with it, but you know, the idea is it's supposed to be a
+platform that can kind of generically work with a few different backends. One
+day, hopefully be better at being multilingual, manage your data, help you share
+your data, manage your compute backends. I know some of the projects that it has
+going with the NIH right now with DSI Africa has the ambitions of having some of
+that data locality and even compute, be able to work with on-prem resources in
+Africa. That's kind of a longer term timeframe and it's dependent on several key
+pieces actually being pulled off properly, but that's kind of like ambitions in
+the future. In the near term right now, today, what can a user do today? I mean,
+it is, it's Google and it's, it's Whittles and a little galaxies, if you know
+how to like tinker around with it. So Joel, anything you'd like to add to that?
+When thinking about the future, I think that with the past couple of years of
+this pandemic and terror utilization has taught us is, is this model of a
+browser interface workflow managed cloud backend model works for public health
+bioinformatics. Okay. And it works really, really well. So the, the idea now is,
+you know, how do we improve that? And what considerations do we have to take
+into account? And to me, you know, they focus around this whole concept of
+centralized versus decentralized resources, but sometimes you want all your eggs
+in one basket. Sometimes you don't. There's also the topic, which Danny just
+touched on about next flow. You know, we have a couple of different workflow
+languages that are predominant to having some better harmonization there, but
+would definitely work. And then some better data management capabilities. You
+know, that's one thing where Tara has excelled compared to other solutions is in
+that data management, just being baked into the solution right now. But even
+that data management can be improved quite a bit, especially in the context of
+public health. When you think about lens integration or reporting or something
+like that, that there's plenty of other improvements. The multi-cloud aspect is
+definitely something there too. Azure would be great. I think if you cover just
+Google and Azure, you'd cover 99% of the use cases. I do see a migration of
+public health towards using Azure resources. And I think a lot of this is driven
+by pre-existing contracts and familiarity with Microsoft products and enterprise
+solutions for Microsoft at the state level. So I think to adopt more Azure
+solutions could definitely help this. You know, overall, I think this is great.
+It's looking really bright. We're seeing a lot of other workflows being
+developed for other pathogens that are already being used. And I think we're
+going to have a lot of options. And I think we're going to see a lot of these
+solutions right now that may appear to be competitors actually complement one
+another and strengthen the overall public health system. So how does a listener
+get on board with Tara now after listening to us? They're so excited. How can
+they get involved and use Tara? Tara.bio. You just need a Google authentication
+and you can register for Tara online. And then there's plenty of training
+materials out there on how to use Tara and different workflows. Docstore.org is
+another resource for this. I guess we'll have to make sure we have all these
+links in the show notes. And then we could probably put some links to some of
+the theagin trainings that are publicly available and online resources. But
+there's already a lot of information out there. And the Tara group also has a
+lot of growth.  great tutorial videos on the basic functionality of, of using
+Tara. So there's already a lot of information out there. Just need a Google ID.
+And it could be as simple as just a free Gmail attached to some, like there's
+some mechanism for just some free trial credits and stuff like that, just to get
+your feet wet. And yeah, there's a lot of materials out there, especially for,
+you know, I mean, the Broad has a bunch for the human genetics use cases, the
+agent has a bunch of good ones for the, for the viral work and bacterial kind of
+use cases. And I think those give a flavor of what it looks like for the end
+user. Even if you don't use those specific workflows for those who are
+interested in writing or porting their own pipelines, there are a decent number
+of kind of materials out there on how to write your whittles, right? Lin Lang,
+it has a few, and there's a couple others produced by the Broad team as well.
+All right. So I think I'll throw open one wildcard question to both of you, and
+then we'll today's recording to a close. So in the background, we've kind of
+been hinting at cloud computing as a key way of underwriting a lot of microbial
+bioinformatics infrastructure. And from the way both of you are talking, you're
+seeming to feel like that's the way we're going to go. What do you say to that?
+Well, I'll start off and say, so when I got involved eight, nine years ago to
+help port our work to the H3Africa project, to the, to a lot of our
+collaborators in West Africa, I did not at the outset think that cloud computing
+was a, you know, I didn't think that that was going to end up being the strategy
+until I, we actually dabbled in it and saw users using it and realize actually
+this is the fastest, simplest way. And it checks a ton of different boxes. I
+mean, there's a whole perhaps episode you could get into around like things, you
+know, like security ownership, all the, all the usual concerns around it. So
+we'll leave those to some, some other time. I, but I do think for me, again, it
+was realizing that it wasn't about going to scale, it wasn't about going to
+petabytes, all the reasons why all the other people went to cloud first, it's
+actually about access and being able to increase access to the code and to the
+data. That's, that's the thing that really worked for us. I definitely agree
+with Danny on the, on the access aspect of things. You know, I've been a cloud
+evangelist probably since around 2009, the first time I fired up AWS and was
+able to do a two week analysis in two hours for $80. And it's like sold, like
+this is just the greatest thing ever. And, you know, in public health, I don't
+see how you don't go in this direction. And especially when technology has
+changed so quickly and, and infrastructure can be expensive to maintain. When
+you look at how you use cloud computing, you're, you're kind of going from a
+model where your computational infrastructure is no longer infrastructure. It's
+no longer capital equipment. It's actually a consumable, right? You consume
+cloud resources. You can budget for cloud resources based on the number of
+specimens that you're going to run through your lab in a week. And so I think
+there's this going to be this big paradigm shift in the way that compute is
+used, especially in public health for infectious disease surveillance, that it
+becomes a consumable and no longer capital and infrastructure. On the cost side,
+realizing that for microbial, how small it is, especially compared to the data
+generation costs. Yeah. And that's what we emphasize a lot. Yeah. It's like a
+couple of dollars per specimen for analysis versus a hundred dollars for data
+generation. All right. And on that practical note, I think we'll draw today's
+episode to a close. That's all the time we have for today. We've been talking
+about Terra.bio, an open source platform that manages genomic data and
+computation resources on a cloud backend. Please check the podcast description.
+There will be links to a lot of the resources we've been talking about today.
+I'd like to thank our guests, Joe and Danny, and we will see you next time on
+the MicroBinfee podcast. Thank you so much for listening to us at home. If you
+liked this podcast, please subscribe and rate us on iTunes, Spotify, SoundCloud,
+or the platform of your choice. Follow us on Twitter at MicroBinfee. And if you
+don't like this podcast, please don't do anything. This podcast was recorded by
+the Microbial Bioinformatics Group. The opinions expressed here are our own and
+do not necessarily reflect the views of CDC or the Quadram Institute.

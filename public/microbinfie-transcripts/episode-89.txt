@@ -1,0 +1,332 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There's so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Andrew
+and Nabil work in the Quadram Institute in Norwich, UK, where they work on
+microbes in food and the impact on human health. I work at Centers for Disease
+Control and Prevention and am an adjunct member at the University of Georgia in
+the U.S. Welcome to the Microbial Bioinformatics podcast. Nabil, Andrew, and I
+are your hosts today. We're talking about the workflow description language,
+WDL. Joining us to discuss WDL is Dr. Joel Savinsky, the founder and CEO of
+Theogen Genomics. Dr. Savinsky has leveraged over two decades of experience in
+systems biology and has taken aim at transforming public health and infectious
+disease surveillance through an innovative implementation of NGS and
+bioinformatics technologies. During a three-year tenure at the Colorado
+Department of Public Health and Environment, he has led several initiatives to
+build NGS testing and bioinformatics capacity at the state, regional, and
+national levels. In 2019, Dr. Savinsky left CDPHE and created Theogen Genomics.
+Dr. Savinsky and his team now work with over 40 public health laboratories
+nationally and more than two dozen internationally in Africa and Asia, building
+bioinformatics capacity for public health. And also Dr. Danny Park, he is the
+group leader for viral computational genomics at the Broad Institute of MIT and
+Harvard. Over the past nine years, he has facilitated the conversion of
+research-grade viral genomic and metagenomic analysis pipelines to portable
+containerized cloud compute workflows that have been in use by collaborating
+genomics labs in West Africa since 2015. Dr. Park has also co-chaired the
+infrastructure working group in PHAGE, which is the Public Health Alliance for
+Genomic Epidemiology, which works to define standards and best practices for
+compute infrastructure for public health labs globally and what is required of
+labs to support modern containerized bioinformatics workflows while maximizing
+the portability and reusability of these workflows. Thankfully. Congrats. That's
+awesome. So to kick off the conversation, I talked about WDL in the
+introductions, which is WDL. So please tell me, what is WDL? WDL is short for
+the Workflow Description Language or WDL. It's affectionately pronounced WDL and
+it's one of the languages that's commonly used to encapsulate bioinformatics
+pipelines in a way that's portable. It's also worth saying that the whole
+Cromwell thing and some of these things don't translate so well across the pond.
+I think WDL translates really well across the pond because Andrew just typed to
+us that WDL is a term used for pee in Ireland. So that was, I think we're off to
+a great start. Yeah. You'd actually say, it's more for children. Will you go for
+a WDL? There you go. You've learned something new today. I'm trying to think
+about how to translate this to an analogy, but it's not really working. There's
+probably a lesson in there somewhere. Anyway, back to actual WDL, the Workflow
+Description Language, what is this? Right. So the idea is a lot of computational
+pipelines, especially in the genomic space, consists of gluing together
+invocations of lots of different tools. You take the data and you run it through
+this tool and you run through that tool. And if you've kind of come to the place
+where you've learned how to containerize those tools so that they're at least
+executable in lots of different environments, then the question is how do you
+actually describe all the other little bits, right? There's the file format
+conversions in between each step. There's kind of, the file here goes from the
+output of that to the input of this, and you kind of plug it all together. So
+WDL is one of those languages that's meant to help folks describe how to glue it
+all together. It starts with the presumption that your tools are already
+containerized. And given that, how do the pieces come together? What are the
+other bits you have to call around, you know, before and after each step to get
+it ready for the next step? What's the flow look like? Does it have to break out
+and come back together? Are there conditions? That type of stuff. It does it in
+a way that's meant to be cross-portable across a few different execution
+environments. So that's what the workflow description language is. So if
+somebody gave me a WDL workflow and in it, I don't know, maps reads to the human
+genome, I could take that WDL workflow and run it like on my Raspberry Pi or my
+HPC? Presuming that those are platforms that can run Docker containers and have
+whatever hardware requirements it, like many of these languages gives you the
+opportunity to say, Oh, you know, some of these steps are memory intensive.
+You're going to need this much resource or that much CPU, maybe this much disk.
+So presuming that you're a place that you're trying to execute it on kind of has
+those abilities, then yeah, that's the idea. Is this something that you can
+potentially use maybe with like NextFlow, SnakeBake, that kind of thing? In a
+lot of ways, it solves kind of similar problems for this type of thing. A lot of
+folks may be familiar with NextFlow or SnakeBake. They all come at it slightly
+differently. In fact, and the other one you haven't mentioned yet is the common
+workflow language, which is quite popular in certain circles, that's CWL. But a
+number of these languages were actually kind of independently birthed around the
+same time, almost a decade ago, trying to solve some similar problems. I think
+there's a lot of commonalities in what each of them are trying to do. They all
+have slightly different unique features and how they do it and what it's like
+for a developer or for a user. So WDL, if I'm not wrong, that's the language
+specification. That's not strictly something that will execute the... So there
+isn't like a program I run called WDL that actually executes the scripts. Right.
+That's exactly right. Yeah. And in that sense, it's actually kind of quite
+different from NextFlow or SnakeBake, which have both the language specification
+and the kind of the execution engine all kind of tied together. WDL is more
+similar to CWL in that it is a language spec with the idea of multiple different
+implementations. And the language is thought of pretty orthogonally to the
+common implementations where you might actually execute those things. So there
+isn't a thing called WDL tool or something to run it. There are several engines
+out there that you could use. And that's part of what we can talk about in terms
+of its portability. WDL is actually kind of interesting because actually out of
+all of these, it's probably the most formally defined as a language spec. You
+can look up its formal spec on the OpenWDL GitHub page. There's a consortium of
+people who modify the spec, add features to the language and stuff, but it's not
+built on top of Python or Groovy or anything like that. It's a standalone
+language that's meant to be parsed. So who are the main consortium members? A
+lot of the consortium members for the OpenWDL consortium. It's a great question.
+I'm not actually deeply involved in that one. I think anyone who has interest
+and kind of participates by the guidelines can join that one, if I'm not wrong,
+but the most active members tend to be the folks who are invested in the
+implementation. So that will be people from the Broad Institute who operate
+Terra and Cromwell. There's the people from DNA Nexus who operate their platform
+and use WDL a lot. And the folks from CZI who run MiniWDL. I guess that answers
+my next question, which is what kind of financial support and backing is behind
+this? And it sounds like it's quite impressive with so many different large
+organizations involved. The investment in the consortium around defining the
+language, it's the people who are invested in the implementations of it, right?
+And they have their own reasons to be interested in that and invested in the
+success of it and making sure that the way that they want to extend the language
+is something that's consistent and portable with the other folks who are using
+the same language. So I want to step back and actually ask a more generic
+question now that we've sort of explained WDL very briefly what it's about. What
+is the benefit? What is the problem WDL is trying to solve, like generically
+workflow languages are trying to solve? Might not appear obvious to people,
+especially when they start looking at the documentation for WDL, they'll see
+that this is a very complicated specification of tasks. Why are we going to this
+level of complexity for bioinformatics analysis? Well, on that last note, I'll
+say that the documentation for OpenWDL is actually kind of targeted towards, you
+know, the people who maintain the language spec and that type of thing. I tend
+to go there just as a language reference, but it's, you know, not actually
+intended for the users of it per se, more of the folks who implement the engines
+around it. But the, the problem it's trying to solve is inherently one of
+portability. It was born around the time a lot of different folks were working
+on kind of the cloud implementations of compute for genomics pipelines. And
+inherently at that point, once you were lifting things out of everyone's
+research clusters and kind of institutional set of tailored scripts and things,
+you know, if you're going to put in the effort to move things to the cloud, you
+might as well put in the effort to make sure it's done in a way that the next
+time you move again to something else, you don't have to.  rework all that type
+of stuff. So a lot of the portability concepts were kind of baked in from the
+beginning. So I wanted to ask Joel because you're a fan of WIDL, right?
+Absolutely. What's your take on WIDL? How do you interact with it in your work?
+And why do you see this as something to invest your time in? Yeah, no, it's a
+good question. And from a public health perspective, especially over the past
+five or six years, it's been really satisfying watching things get to the point
+where they are right now. And this isn't necessarily a WIDL specific answer.
+It's more of a workflow language specific question. And on your previous
+podcast, you chatted with individuals, Kelsey and Aaron and Curtis and Kevin and
+others, and talk about staff being containers. All along the goal for
+bioinformatics and public health is to make things more standardized,
+reproducible. Danny just talked about portable, scalable and easy to use, kind
+of those five main topics. And when I started in public health six years ago,
+the only standardized bioinformatics we had at the state level was bionumerics
+through PulseNet. And as we started expanding to other pathogens or wanting
+alternative pipelines to some of the enterics for local use, you started seeing
+bioinformaticists come into public health. We were doing things kind of the old
+way. I think Nabeel, in a previous episode, you talked about the way
+bioinformatics was done 10 years ago and the way that it's done now. Well, five,
+six years ago in public health, we were doing things the way bioinformatics was
+done 10 years ago, every place else. We were doing a lot of custom scripts.
+We're using a lot of on-prem resources or just starting to use virtual machines
+in the cloud. And one of the projects I was involved in when I was at Colorado
+was, it was kind of like a primitive workflow management and containers where we
+said, okay, and I can remember this too. It had to do with LiveSet, right? And
+we wanted to run LiveSet and LiveSet, sorry, Lee, it was a bear to install from
+scratch on a system and definitely suffered from the, it works on my machine
+kind of syndrome. We wanted a way for other laboratories to use LiveSet and not
+have to go through the, I'll call it process, the process of installing it
+themselves. We essentially fired up a virtual machine on Google cloud and got
+Lee to install LiveSet on there and then made an image of it. And then we would
+distribute that image to colleagues to run LiveSet, which essentially for those
+of you who don't know, LiveSet was used for enteric surveillance and looking at
+phylogenetics. And this was kind of the beginnings of where public health
+started to recognize the power of this modularity and portability. And, you
+know, with the VMs, we had a way of standardizing things. We had a way of making
+it reproducible and in some way portable in the sense that if you had access to
+Google cloud, you could have access to these VMs, but it definitely wasn't that
+scalable. And it certainly wasn't easy to use because you still had to be a card
+carrying bioinformaticist or have extensive training on the command line to
+successfully run a lot of these things. So where workflow managers come in is
+they, and it's not only workflow managers, it's also the containerization. So
+where you had a number of public health scientists with Curtis and Kevin and
+Kelsey and Jake from Minnesota and all that really started contributing to the
+StaffB Docker repository, which has been discussed on previous podcasts. And
+once you had this repository, this registry of containerized algorithms, then it
+really allowed leveraging of workflow managers to not only standardize and make
+portable and reproducible workflows, but to also make them very scalable and
+easy to use. So yes, I I've been a huge fan of Whittle and I know, and later
+we'll get into Terra, which is where I think some of these workflow manager
+languages really blossom is in that type of context. But yeah, it, it really
+helped solve those five topics of being able to expand bioinformatics. Can I
+take a moment to defend myself on liveset? Sure, sure. You have right of reply,
+Lee. I'll just say, I'm going to say you're right. It's harder, it's hard to
+install. You know, I, I don't know if I know anybody that successfully installed
+it. I'm, I'm done with my defense. No, I mean, and that was a huge thing,
+getting liveset into a container in the Docker repository. I mean, that was
+fantastic because then, you know, you, I, I think in another episode, someone
+talked about, you know, having this, I think it was with Robert Petit, you know,
+having the sysadmin aspect of being a bioinformaticist and, you know, yeah, some
+people might enjoy that. I never enjoyed it. Right. Because it was, it was all
+peripheral to getting work done and asking interesting scientific questions. And
+so if you can remove that sysadmin aspect of things, which workflow managers do
+a lot of, then you get to do more of what you enjoy. As I said, all those stupid
+biopearl things. Yeah, you got to cut that. So there was, there was one day on
+our Slack board, Joel, where, where you said, when are you gonna make liveset
+V2? And I forgot how the conversation went, but I eventually made a, what did I,
+I made a, I made a meme with here lies Lee Katz, never made liveset version two.
+Well, it wasn't even liveset two. It's like liveset, you had to make sure you
+used version one point, like 1.4 F. Yeah. But it's a, it's sort of an inside
+joke that with liveset, they, they really, they've been, and this is, this is a
+problem that's never going to go away, a problem slash solution where, where
+quality management, everything, it takes over everything and you have to version
+everything. And I thought I fixed it. So it's almost like saying like final,
+final, final on your, on your document that you submitted as a manuscript. I
+had, I had patch number 1.1. Now it's no, I fixed one little thing. Now it's
+1.1.1 and now it's 1.1.4. Oh no, someone found a bug. Let's, let's call that
+version a, and I started poking at the management system a little bit. And I
+said, well, here's your version. We finally finished it. Well, and that was a
+great time in, in, in public health bioinformatics. And that gets back to, you
+know, the, the origins of staff B, which have been discussed before and, and
+Heather Carlton's role in that. And I think, you know, we jokingly say, Heather
+said, stop bugging us. And no, it wasn't Heather saying, stop bugging us. I
+mean, Heather is an amazing scientist and always willing to help. I think what
+she recognized was that there were several bioinformaticists starting to join
+public health laboratories at the state level, and they didn't know one another,
+but they knew her and they kept reaching out to her. And she suggested, you
+know, I think it was a while because this had to be back in, wow, around 2017,
+January, I think. And, and she just suggested, I think on one of my calls to
+her, she's like, you know, I'm, I'm having a number of other bioinformaticists
+ask me similar questions. You know, you, you guys should meet up and chat and
+talk about things. And I think at the time it was, you know, Kelly Oakison and
+Kevin Libwood and Sean Wang were like the other three that were asking her lots
+of questions. And I think our, our kind of official get together was that APHL
+meeting in 2017, because we had virtually been chatting a lot and then met in
+person in 2017. But yeah, so, so Heather didn't say stop bugging us. I think, I
+think she just recognized that, you know, that there's stuff going on. There's
+unique challenges at the state and you state public health bioinformaticist and
+staff B should start chatting with one another. We finally got the story. I'm so
+satisfied. We've touched a little bit on WIDL as a language specification that's
+separate from its implementation and the differences of that with say Nexlo and
+Snakemake. But I was wondering what makes both of you really excited about WIDL?
+Why do you use it? Or why did you buy into it versus other workflow languages? I
+can tell you why I ended up there. So one thing I should preface, actually, I, I
+do work at the Broad Institute in the infectious disease program, but, and, and
+WIDL and Terra, which you'll hear about later, also come out of the Broad
+Institute, but completely different groups. I have actually kind of no
+involvement in its origins or its ongoing development. And also actually, I had
+no particular loyalty to it kind of going in. It's, it's kind of a chance, or
+it, it turned out that it's the language and the platform that we ended up
+adopting in our viral group for a number of reasons. But, but actually for, for
+me personally, because a lot of my priorities in our research group actually
+have to do with making sure that the experience that we have in our group
+computationally is equivalent to a lot of our collaborators and the folks that
+we work with, that everyone else can kind of do the same things we can do. I
+actually wasn't necessarily looking to be using something out of the Broad
+Institute, but you know, the reason we ended up there, I mean, I remember like
+five, six, seven years ago, I was trying to figure out how to formalize a lot of
+our pipelines in a way that would be more portable. I remember thinking at the
+time, I mean, these are the early days for, I mean, many of these languages
+exist at the time, but in, in more kind of earlier primordial form perhaps.
+Right. And so I wasn't terribly committed to anything back in say 2015, you
+could kind of tell, Oh, there's going to be something good in a couple of years.
+I actually feel like at this point, there's many, there's multiple good kind of
+things that, you know, back then we're still kind of in their early days, but so
+I didn't really commit too much, but I think it was probably a year or two after
+that, maybe 2016, 2017. I think what tipped the balance for me, I, I had been
+partnering a lot with a commercial cloud vendor called DNA.  nexus in the U S
+they, they just happen to be one of the, I think maybe one of the oldest
+commercial genomic cloud compute vendors they're more used for, you know, kind
+of big cancer projects and prenatal screening and other kind of, you know, that
+type of stuff. We were working with them since say 2014 to expand compute access
+to our partners in West Africa. And so actually a lot of our, our collaborators
+were using their, and at that time we were wrapping our pipelines and their kind
+of proprietary in-house pipeline language wasn't easy for us to do. We needed a
+lot of their hands-on help to do it. Cause it's their own kind of thing. But
+after a Whittle had been around for a few years, when we saw DNA nexus adopting
+it actually, as, as their kind of interoperability language, they started
+writing parsers that would, you know, pipelines and Whittle and, and turn them
+into something that could run on their platform, mostly by compiling it to their
+in-house language. Now they have that for CWL and next flow as well. But, you
+know, at the time when they came out with for Whittle, I think that's when I
+realized, oh, this is actually more than just a Broad. And all of this seems to
+actually have legs kind of in a larger global way. And now it actually looks
+like it's portable enough to like legitimately really run on more than one
+place. And so that's around the time. I started porting a lot of our viral
+pipelines to that language. Cause I realized, oh, this is how, well, first of
+all, it became the primary way we deployed our pipelines on DNA nexus at first
+Tara later, but also even just running stuff on the command line, you know,
+whenever we need to get quick stuff done in-house as well. So I just had a look
+there and I see that you've got a parser is implemented in Scala, Java, Python,
+which is quite a, quite an array actually of quite a variety of parsers for
+language, which is kind of cool. And I think it shows the success of it. It's
+not just a one-hit wonder. I'm not involved in that, but you know, a lot of the
+original parsers. So that the Broad team that works on Tara and its underlying
+engine called Cromwell, a lot of that stuff's written in Scala, a lot of the CZI
+stuff, MiniWiddle and so forth is written in, in Python, I believe. And once all
+that whole ecosystem kind of came into place, I for our, just our viral stuff,
+our CI kind of builds on GitHub and stuff, we just ran everybody's validators
+and, and, and kind of automated tests just to make sure that like, oh, it'll run
+on the Scala implementation and it'll run on the Python implementation. And, you
+know, every once in a while you, you discover some edge cases where something
+wasn't cross-portable, but actually it's surprising how much out of the box, you
+know, and that's the thing, I think an informatician, you know, if we get into
+some of what makes it different, not necessarily like better or worse, but just
+different, an informatician who works with Widdle and works with Nextflow and
+works with Snakemake will realize there's kind of a spectrum of flexibility for
+the pipeline developer, you know, Snakemake gives you a lot of power. You can
+write input rules in pure Python and do a lot of stuff like just in the, in the
+make file, right? They'll find Widdle actually quite limiting. It's a, it's a
+hard specification of a language. There's a very limited set of things you can
+do, but in compared to a lot of these other things, you know, you, you can spin
+a Docker, run anything that you can run inside that Docker and you can plug
+files together. And you're not allowed to kind of make too many assumptions
+about file paths and things like that, because that's all like non-portable
+stuff, but in those limitations, it creates more portability. When the developer
+is forced to assume that you can't like, you know, that the file is going to be
+accessible in some shared directory or something like that on your NFS mount
+there, that means that the implementation can. Abstract away a lot of that back
+and you can put it on a cloud bucket, or you can put it on your local laptop and
+it'll all run the same. So in a way it's interesting for the developer, it's
+going to be, feel more limiting, but it makes it easier to run in many places.
+What about you, Joel? Where, you know, I think we've touched a little bit, but
+is there anything you want to add, add to Danny's response? For us, the choice
+of Widdle more had to do in, in how it could be applied. And, and that gets to
+the, the Tara story. If it was a different workflow description language, even
+though that is Widdle, if it was any workflow management language, our choice is
+essentially driven by, you know, the, the environment that we could run it in to
+assist public health. And then also quite often your choice of a path to go down
+is quite often by who you're collaborating with. And when Theagin Genomics
+started, one of our first partners was the Massachusetts Department of Health
+for their bioinformatics regional resource where Danny and the Broad also had
+the workforce development work to do there. And we started interacting a lot.
+And that was the same time containers were blossoming and just starting to get
+to workflow description languages. And even though Widdle and, and Tara and all
+had been around for a while, sometimes you have to be ready to hear things that
+there there's a timing and a rightness to, to things happening. And, and that
+happened, you know, probably in that summer of 2019 into the summer of 2020 in
+interacting with the Broad Institute, interacting with Danny and learning more
+about the way that they were performing their bioinformatics and then
+recognizing how that could be applied to public health. That's all the time we
+have today. I'd like to thank our guests, Joel and Danny, and we'll see you next
+time. Will you be able to join us in a couple of weeks? Absolutely. Sure thing.
+Really appreciate it. See you then.

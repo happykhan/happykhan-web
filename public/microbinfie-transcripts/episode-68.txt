@@ -1,0 +1,571 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There's so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Andrew
+and Nabil work in the Quadram Institute in Norwich, UK, where they work on
+microbes in food and the impact on human health. I work at Centers for Disease
+Control and Prevention and am an adjunct member at the University of Georgia in
+the U.S. Welcome to the Microbial Bioinformatics podcast. Lee and I are your co-
+hosts for today, and we're again navigating the practicalities of bacterial
+taxonomy. And we have some excellent guides joining us again. Our guests today
+are Dr. Lee, who is a Strattide Chancellor's Fellow at the Strattide Institute
+of Pharmacy and Biomedical Sciences in the University of Strattide. Dr. Connor
+Meehan, who is an Assistant Professor in Molecular Microbiology at the
+University of Bradford. So, welcome to you both. Thanks for joining us. Thank
+you. Thank you so much for having us. It's been a while. So, we were discussing
+last time a lot of the theoretical and almost philosophical issues around
+bacterial taxonomy. I think this episode would be good to dip into some of the
+more practical problems it is when we take taxonomy, as we previously described,
+as something that is born out of antiquity almost. And then how do we integrate
+that back in with genomics and what we're learning from genomics data, which
+often is at odds with the classical taxonomic definitions. So, I think what one
+of the first questions is, GTTB is incredibly popular. Donovan Parks is the one
+who drives a lot of that, who was a PhD student when I was the postdoc working
+with Ford. So, all of our taxonomy stuff comes from all these kind of
+discussions with Ford Doodle and stuff. And then it's been an amazing amount of
+work that goes behind that, and it just got updated. I think it's like now it's
+defined as a database, not just as a concept, that this is something that will
+now be continuing on. As you say, potentially a new paradigm. I think GTTB is
+the first big, working, effective and widely used sign of where things are going
+in terms of whole genome classification. It is, you know, it's a new paradigm,
+genomes being the maximum amount of useful quantitative information that you can
+get from all of the heritable material. And as we were discussing last time,
+where we don't have phenotype or morphological information or any other
+characteristics to go off, we only have genomes. We have to find a genome-based
+way of classifying and identifying organisms. And GTTB is right at the forefront
+of that. What's the secret sauce here? What has it done differently in its
+definition? So, it may not be the first, but it's definitely the most widely
+seen of where it's not trying to go back to that biochemical DNA-DNA
+hybridization and try to find something that goes. Here are the genomes. Let me
+build a tree based on these core proteins that are present in all of these
+genomes. And then let me define some rank that go in there. So, we have
+obviously the phylum and the class, et cetera, that are in there. And it uses
+this normalization to try to say, in general, we see this split in the tree is
+at this genus level that we've called a red, R-E-D. And all the splits that are
+at this distance from the root, we're going to call them a genus. And all the
+ones that are at this distance from the root, we're going to call them a family.
+And so, it's a normalization way that is expandable, that you can add in extra
+things, and it'll give you what that ranking is. Now, what it turns out, most of
+the genera that were there fit within that. And most of the families that were
+in there do fit within that. So, actually, whatever we were doing before, in
+terms of defining it, has some basis in genomes and some basis in phylogeny. So,
+this is really a phylogenetic-based taxonomy, instead of trying to always rate
+it back to a phenotypic-based taxonomy. I think it's moving away from
+nomenclature as well in a really useful way. So, one of the things that comes up
+in presentations I've seen is that of all the taxa in GTDB, about 80% don't have
+valid names. And GTDB is kind of notorious for having reclassified some
+organisms and produced names that didn't follow the nomenclature and the
+prokaryotic code, causing a few arguments. There's more of those. Thankfully,
+when the mycobacteria was split in five, the GTDB said it should all be one, and
+that was front and center on my paper. I'm glad they could resolve it in that
+case. Yeah, that was good. But there are some other ones I can't remember
+exactly, but definitely where they split it, and not everybody was happy about
+that split. It comes back to the usefulness versus the biological, quote-
+unquote, truth. And the use of Latin as well, going back to the historical
+overview of it, the nomenclature. Some of the Latin derivations of the names
+were different to those that would have been used in terms of prokaryotic code.
+And I think GTDB is a useful and welcome step away from having nomenclature
+govern what's acceptable in terms of taxonomy. I think we're only going to move
+further in that direction. Yes. But how do you feel about the sticking with
+phylum order class genus? Because I would have thought that with the huge amount
+of genomic information we have, we could look for where the natural breaks and
+discontinuities are. We don't need to be constrained by that old set of
+taxonomies. So I think that's where it's going to go. What the GTDB allows is
+for a lot of meta-analysis for people who want to ask those kind of questions in
+the phylogenies. I'm thinking about Tom Williams and doing those kind of, what
+does it mean to be a phylum? And now you have all the data that's out there, and
+then you can really define them. And then it's a, where is taxonomy useful? And
+where is this something where evolution took a turn and that turn was not
+reversible? And that has defined this group in some way. So I don't know what's
+going to happen with that, but I'm not clever enough to do those papers, but I
+look forward to reading them and then going, oh, that was really simple. So in
+terms of those higher ranks, what is interesting that I think a lot of people
+don't know is that because it's my first lecture in introductory microbiology is
+taxonomy. And I say, these are the ranks. So everyone takes it as gospel. But
+the definitions of those ranks is not a definition. The official definition of
+genus is it is the rank above species and the rank below family, and that's it.
+There is no other way that it is defined. But if we think often when people say
+a certain genus name, those that work in it go, oh, clearly it's because it has
+this. Its cell wall is this way, or it has this set of processes or infects
+these certain things or lives in these certain environments. But there is some
+kind of potential rank and grouping that's there, but whether it's a sampling
+bias and we haven't just sampled everything around us, which we see much more in
+virology, or whether there truly is a biological separation of these ranks, I
+think is still to be seen. That's a great point. All of those, all
+classifications, well, many of them are based on a real undersampling of what we
+now know the biological diversity is. And to have those set in stone and define
+where subsequent classifications as we sequence these organisms go, I think it's
+probably something we could revise usefully. And having, I keep raising the
+point, but having a qualitative approach to this and having those kinds of
+categories for organizing how we look at genes, distinct from how we refer to
+them in terms of cases like E. coli versus Shigella, where we have the societal
+need for clear, distinct names that mean something for real purposes, whether
+it's pathogenicity or whether it's utility in an industrial context. I think
+it's fine to have those parallel schemes, but we need to not be beholden to
+nomenclature. Am I saying that too much? Every time you mention it, take a
+drink. For those of you listening at home. It's illiterate, I am not getting
+drunk. So in theory, since we're going to talk more technical on this one and
+not go back too much into the philosophy of it, what the GTDB and a lot of other
+people are doing is trying to give a technical way to at least define what we
+see and to be disputed. So a lot of work has been done on defining the species.
+And the way that it really is done probably by most people now is you have all
+of the species that are out there. You have your new genome that you think is
+the type for what you're working on. You calculate the ANI, the average
+nucleotide identity between them. There is not just one way to calculate that.
+There is fast ANI and other ones that will give you slightly different, but
+almost the same answers. And then if it's 95% or above, it's the same species.
+And if it's lower than that, it's not. We tend to give it a little bit of a 94
+to 96. And in theory, a subspecies is 98. Not always kept that way, but that is
+one way to do it. There have been ANI barriers that have then been created for
+the other ranks. They don't hold anywhere near as well. There's a lot of
+overlap. Even part of that is because the genera are all defined differently.
+And part of that is because it's just a nucleotide identity. When you have back
+transitions, it doesn't hold up the further back in evolutionary history you go
+because of your back mutation issues that we spoke about on the genetics podcast
+that you can go back and listen to. Yeah. Even in identifying homologous
+regions, which is most of the time what you're doing with ANI, there's kind of a
+limit of 70 to 80% identity for any pair of aligned homologous regions. Just
+algorithmically, you can't detect distinction from random identities lower than
+that. So one of the things you can use to get around that is coverage. So what
+you're looking for, very similar homologous regions, but you're looking for how
+much of each genome is covered. And one of the things that seems to arise from
+that is that you can get quite high ANI scores, so percent identity, but you get
+quite low coverage values, 30% or below, which seems to be a reasonable way to
+distinguish between members of the same genus and members of the same species.
+So you're looking for high ANI identity, but you're looking at relatively low
+coverage.  use 50% because if you're sharing less than half of your heritable
+material, maybe you're sharing more than half with something else that isn't in
+this comparison. So I tend to be fairly conservative about that as a rule of
+thumb. But there's a really good paper out, I'm forgetting the author, I should
+probably look that up, where they looked at a number of different groups and
+looked at ANI identity and coverage, and depending on the groups, somewhere
+between 30 and 50% coverage seem to be a good delineator of same genus but not
+the same species. So a lot of work has been done on the species level and now
+work is being started to done on the genus level. So that's been something I've
+been working more on because in mycobacteria, as we spoke in the last one, you
+got split into five different genera. And most people, this had been done by
+some authors and other groups, but then they touched a group that's special to a
+lot of people, which is the mycobacteria, because of the amount of clinically
+important strains that are in there. And it's kind of seen as being one of the
+most clonally, it doesn't have a combination, kind of everyone's like, how is
+this not a genus? This is one of the definitions of genus that we use, because
+it's defined by this mycolic acid cell wall, it's very clearly separate from all
+the things that are around it. And it splits up when you use something like
+average amino acid identity, the amino acids equivalent of ANI, AAI. But the
+difficulty is that there's not a lot of other ways to define the genus, but now
+people are really working on this. So Roman Barkow had a great one that we used
+in our paper for showing that it was one genus, where you have the average
+nucleotide identity and the alignment fraction between things that are
+bidirectional best hits. So you're essentially using BLAST to say these two
+things are equivalent. And then what is that alignment fraction between the two
+of them, then you can kind of create this inflection point on your XY graph of
+ANI alignment fraction. And that tends to say, you do that to the type species,
+for the genus. And then you say, if it's closer to that one and further from the
+type species for a different genus, it's probably all one genus. So we've got
+very good technical things coming in for species that's moving up towards genus,
+but nothing is really above apart from the GTTB way to go family and above.
+Hopefully people will start looking at that more now that you have the genomes
+and we can do some interesting things around that. I think that speaks to a
+general trend as well, which is that when we look at ANI and other measures, and
+we have these threshold cutoffs, 94 to 96% identity, I think all of these single
+measures, not adequate really to describe the distinctions between species and
+other groups. And moving to a combination of identity and alignment fractional
+coverage is one way to move towards two measures in ANI. But having the mycolic
+cell wall, taking multiple gene trees and looking to see where the consensus is
+for sort of last common ancestor with it for multiple genes, not looking at a
+multi-gene tree where you concatenated sequences, but looking at them
+individually. All of these lines have ever useful to help support or refute the
+assertion of a species boundary on the basis of ANI or some similar single
+measure. And I think that for robust species classifications, we're going to
+have to take those approaches. Obviously, we can't do that for the complete set
+of sequence genomes. So we're still going to have a bit of conflict, even if we
+do go forward to a completely qualitative and computational way of classifying
+these organisms. I want to change tack a bit now that we've been talking about
+the complexities of going species and above, let's talk about species and below.
+Simple things like how do we then define a strain? What is a strain versus an
+isolate versus a culture versus a variant versus a lineage? Are these something
+that we can define and we can talk about? I get in trouble for using strain and
+isolate interchangeably in my papers by the other authors on those papers. So
+definitely it's not an easy topic. What I would say is taxonomically,
+officially, if we go back to official, there is no definition below species
+apart from subspecies. And even then that's quite dicey. But the term variant or
+lineage has no official nomenclature standing. Anybody can create a variant.
+Anybody can create a lineage. So it's more about trying to decide on what it is
+that you're trying to convey with that. Isolates tends to mean, we took this and
+we sequenced it directly from the sample. So the sample is from the soil, let's
+say, and then the isolate is exactly what you did really without culturing it in
+between. And then the strain is what came from that isolate potentially when it
+was cultured. That's one way of thinking about it. And I'm sure there's many
+people who are listening will be like, that's not how I would define it. And
+that's also true, the difficulty there is. Please add us on Twitter. Just go for
+it. Let's start to play more on it. To be internally consistent, I try to use it
+that way. Clinically, I was saying this is directly what came from the patient.
+And then this strain is what we've been using that maybe is a laboratory strain.
+But people also define strains as like wild type strain, as these are
+susceptible and related, or they share some kind of virulence pattern and are
+related. So the word strain is often the difficulty. I think people kind of know
+what they mean when they say isolate, and they kind of know what they mean when
+they say lineage, and then strain is used in both of these places. I'd say in
+conversations, I've heard it used not necessarily interchangeably, but
+differently by different people, as well as there being no real taxonomic
+definition, there's no formal definition. I don't think everybody uses it
+entirely consistently, but I think I've got the same kind of general feeling,
+the same sort of head count and gonna, that the isolate is that the physical
+thing that you took as a sample to some extent, and that you sequenced, and the
+strain is the lineage that comes from that, everything that shares it as a
+common ancestor. So if you've got a strain in the fridge or the freezer, then
+what you sequence 20 years later is possibly not what was originally in there.
+So you're sequencing that strain, but you're not necessarily sequencing the
+isolate, which was the physical sample that you took from the field or the
+planet 20 years ago. And I tend to try to avoid the word variant as much as I
+can, just because we use variant to mean mutation at the same time. And there's
+already enough confusion between a variant and a mutation in terms of that
+technicality, but then trying to use variant for the whole thing. It's
+interesting having lived to COVID and then being involved with the COVID
+analysis and seeing the evolution of the term variant, because it's like, yeah,
+anything with a single step difference, that's a variant, right? But some
+variants are more variant than others, like, you know, they're the same, but
+they're not the same, because then you're interested, well, then which one
+should we be concerned about? Variants of concern, variants of interest. And now
+we've got this tiered level of how panicked should we be about every given
+variant. So I would tend to avoid using the word variant now in the same way I
+would have tend to avoid using the word pandemic, because I'm sick of hearing
+it. Yeah, so I mean, viral taxonomy is a whole separate thing that we could talk
+about for a long time. And I'm definitely not an expert. There are people at the
+Quadrant, especially, who are much better at that. It used to be this term
+subtype that was used. If people work in HIV, there are a lot of subtypes of
+HIV. And then that term is kind of no longer being used. Because then it was
+circulating subtypes and circulating recombinant subtypes, and all of these
+kinds of things. And virology, they've moved in towards variant. And I think now
+with SARS, people are moving more towards the term lineage. And in bacteria,
+there's also a move towards the term lineage. How I often like to think of a
+lineage is, if we look back at this in a million or 2 million years, we'd say
+that's where the species came. There was enough of a separation going on that I
+can trace that back to what was a lineage inside one species at some time. There
+should be some kind of difference that we care about, that is a monophyletic
+group being on the phylogenetic tree, but also has something that differentiates
+it from everything else in terms of its virulence, in terms of its ecotype or
+infecting, whether it's host range or environments or something like that. But
+it should have something that you can define outside of a set of SNPs. And
+virology taxonomy is really leading the front with that kind of thing, because
+they evolve so quickly that they get lineages. They get multiple lineages in a
+year, as we've seen, whereas for bacteria, you're waiting thousands of years for
+these kind of things to really come apart enough. And then obviously, if you're
+going from salmonella, you've got a virus, and what does that mean in relation
+to a lineage in relation to phylogenetics? And it can get more complex there for
+sure. I'm certainly no expert on viral taxonomy, but watching what's been
+happening with COVID has been fascinating, and it's really affected the way I
+think about how we should approach bacterial classification and nomenclature.
+It's, as you say, really compressing what we're seeing bacteria into a very
+short timescale, and there are direct analogies to be drawn in terms of lineages
+and what really counts as being distinct, which has changed what I think. And
+we've seen that in the pandemic, as you say, we started out with variants of
+concern, but then using the word variant is so close to the variation that
+people then just got freaked out when any variation occurred. And then you're
+trying to get into an evolutionary background of like, oh, but is it due to
+selection pressure or genetic drift? And then media is like, I don't care about
+any of that. Tell me whether I should be like in a lockdown again. A lineage
+should be generally because there's pressure and in terms of selection that's
+occurring there. And we see that now with the alpha and the beta and the delta.
+And we see that with bacterial lineages where there is some separation and
+virulence normally within a species, but taxonomically it's not defined yet
+because it's really dependent on what you care about inside of that species and
+what should be reported to the clinician or the environmental officer or
+something that you need to care about this. Or like you said to us before with
+Listeria, the opposite direction where you actually want to be grouping a lot
+more things together because we care if it's any of these things. We don't want
+to go down to the minute level. We actually want to care about the thing that
+causes the disease no matter where it comes from. Could you just contextualize
+the Listeria story you were telling us earlier? That was probably before we
+started recording, but this discussion in terms of, in the context of public
+health, which is all things for me, but I mean, when you look at Listeria, I
+think it has an ANI of like,  like 92% across all lineages. It has four
+different lineages, one through four. Lineages one and two are more associated
+with disease with people. Three and four are associated with animals. And even
+though three and four cause way less disease in people, it's still all grouped
+together. And that's, I would say that's primarily because of regulatory
+efforts. If you find any one listeria in food, then it's been subject to recall
+and public health actions, probably the same over there in UK. And it just, it
+makes me think, okay, we have an academic versus a pragmatic definition. We have
+an academic definition of around 94 to 96%. I like how you have a little wiggle
+room, as you said before, versus 92% across the species. But pragmatically, it's
+for the greater good to make sure that we just don't have listeria in our food.
+And a lot of taxonomy comes down to that pragmatic. And now I think people are
+trying to come at it from a biological point of view. But where I think a lot of
+taxonomists often sit now is saying, okay, I know you want to destroy the system
+and put in a new system. But for a lot of people, their entire living depends on
+knowing the system very quickly, being able to regulate it and all that. And I
+know I come back to mycobacteria a lot, but one of the reasons that we did the
+genus paper was because we were contacted. One, we were the mycobacteria
+collection. Did we have to now change our name to be the mycobacteria and the
+mycobacterioides? But it also was the diagnostic tools that are used by Public
+Health England, by the CDC. They say that they detect mycobacteria. And if they
+no longer detect mycobacteria, but actually detect 5-genera, did they have to
+spend, did these companies have to spend thousands in regulatory ones to have
+the inserts of their products changed? So it came down to, we did that for a
+biological reason, because I was like, this is not right, but really it's driven
+by a pragmatic reason of do we have to change regulations to say that this is no
+longer this? And that has huge, wide ranging implications. Yeah, there are
+essentially three branches of taxonomy. There's classification, there's
+nomenclature, and then there's identification, which is where legislation meets
+taxonomy. And not just in terms of the validation, demonstration of test
+accuracy that you bring up, but also trying to get new legislation through if
+organism names change. Changing policy is a slow process. Changing legislation
+is slower on most occasions. If you needed to put into law that you suddenly
+needed to quarantine all imports of potatoes that contained these 5-genera
+instead of the single genus, it would take quite a long time. And during that
+time, you're at risk of introducing a number of phytosanitary threats. So the
+very practical and applied nature of taxonomy really comes out with that
+legislation. And also when you talk about public health as well, it reminded me
+of pathovals, which we use to discriminate below species level in pathogens,
+which reflects the susceptibility or otherwise of plants on exposure to the
+pathogen. And that might be mediated by the presence or absence of a single
+effect that gets detected by the host plant. And there really is no great
+genomic distinction. Certainly you call these organisms the same species, but
+they might differ quite drastically in terms of where they cause disease.
+Historically, they've been classified as pathovals and considered to be
+different. And they represent different threats. And we need a scheme that
+accommodates that and allows us to name them clearly so that we can structure
+legislation and the societal effects of those organisms. So I don't want to
+belabor the point too much, but the example I always give about taxonomy when
+it's like, nobody cares until they care. And the example I give normally is the
+polar bear and the brown bear to everybody are very, very different bears. And
+this has massive wide ranging because the polar bear is protected and the brown
+bear is not protected. They are the same species. And recently it was shown that
+they are the same species. But if you do that, and this was nearly caught on by
+governments, they were like, oh, so then we don't have to protect the polar bear
+and all the money that we put into it because it's no longer a species to be
+protected because it's now part of the brown bear, so it's fine. So it's nobody
+cares until they care very much so that the polar bear was just going to
+potentially lose all of its protection because it was decided that taxonomically
+then they're different. So it's an area where the technicality, to come back to
+what we're talking about here, the technicality is really coming along of how we
+define it, but we're trying to bring along with that an insurance that it
+doesn't override the practicality. Technicality needs to support the
+practicality in both directions. And if we come back to COVID, obviously the
+lineages are very different in terms of epidemiology, but in terms of public
+health, one could argue that they're the same. We should be doing the same
+things to protect ourselves from alpha that we do from delta, which is mask
+wearing, et cetera, et cetera. But people think of them now as completely
+separate things. People think of COVID in 2019 and COVID now as not being the
+same thing at all. And that's really about the taxonomy because we've said
+delta. We don't call it SARS COVID, we call it COVID and we call it delta. It's
+still the same thing and we should be applying it in the same way. So
+technically how we define these lineages, I think is going to become a big area
+of research going forward because now we really see in public health how those
+definitions can have very wide ranging impacts. I want to change tack if that's
+okay, since we've talked about different technicalities. I want to talk about
+some of the tools that people can use to apply taxonomic principles to their
+genomics for bacterial genomes. We've touched on ANI and we've touched on AAI,
+so average nucleotide identity, average amino acid identity. What else is out
+there? Oh, there's more than one version of ANI and it does matter which you use
+because they can give different results. And if you're applying a threshold,
+they can put you on side or over that threshold. There's digital DDH as well,
+which is actually worth discussing in the context of ANI because there are some
+limitations to both of those approaches which they have in common. So digital
+DDH was intended to essentially model actual in vitro DNA-DNA hybridization. So
+if you go to the GGSC sites, put your genome in, it will go through a model
+which was fitted to outputs from DNA-DNA hybridization. One of the problems with
+doing that, in my view, is that when you compare outputs from in vitro DNA-DNA
+hybridization and you look at the actual level of genome identity in the
+pairwise comparison, there isn't a strong mapping. You can fit a straight line
+through it, but it's got quite a lot of variation, particularly at the lower
+end. And if you're at 70% DDH from the in vitro measurement, you could still be
+up at 95% genome identity when you do the pairwise comparisons. So fitting a
+model to try and predict, to me, always seems like trying to hit a very broad
+target and people tend to take single numbers that they get from a computational
+tool and believe that that number is accurate. Now, a lot of the time, it does
+give you values which are in line with what you'd get from other methods like
+ANI, but I'm always a little cautious about using it because there isn't this
+strong relationship. There's a strong mapping between DDH and ANI. ANIB,
+versions of ANI that use BLAST, try to emulate DNA-DNA hybridization in a
+similar way, but what they do is they fragment the genomes that you're trying to
+compare. So they chop them up into arbitrary sections. Usually it's, if you
+follow the original paper, it's fragments of about a thousand nucleotides and
+they look for homologous regions between the query and the subject genome, but
+they're looking for a minimum match along the length of the, which means that
+you could be losing some information about homologous regions when you make your
+comparison. This results in a difference between the ANIB approach using BLAST
+and the ANIM approach, which uses MoMA and tries to identify the maximal
+homologous regions, particularly when you get down to low percentage identities.
+Above 95%, they're usually very close, so not really that important, but the
+further you get away and you're trying to look at distinctions that are beyond
+species level, I mean, it does start to matter more. And then FAST-ANI is an
+attempt to approximate average nucleotide identity calculations, which are
+obtained by pairwise alignment using K-mer approaches and MinHash. They do
+really good approximations incredibly quickly, but it's often difficult to get
+coverage information back and you can't see exactly which bits are aligning. And
+if you've got a small set of genomes, sometimes it's useful to just have the
+alignments there so you can go and look at them and see what's contributing to
+this similarity and if that's phenotypically or functionally important for you
+and your studies. As I was going to say, there's a lot to unpack there,
+especially if you're a student starting out and you're trying to get on top of
+these tools. I mean, those tools are definitely, when you want to do taxonomy
+work of defining things, then there is a whole suite that's in there and the
+nuances are in there, and obviously phylogenetics plays a large part in there as
+well. But I would say most people, when they think of taxonomy these days, it's
+I have my metagenomic sample and I want to get the taxonomy of what's in there.
+So practical taxonomy these days is centrifuge, mash, like trying to say, what
+is it and what do I care? You know, MLST and all of these things. I want to put
+a label on what my sample is and then I want to know what that label differs
+between these two different things. So practical taxonomy is taking all of these
+genomes that somebody else has put labels to and then finding out which of those
+labels should be applied to your sample. And I guess what myself and Leighton
+work on is trying to make sure that the labels that are coming at the top are
+the right labels that are going to come down to you and making sure that I'll
+make some kind of sense so that you can say that, well, I see this strain
+lineage species genus here and I don't see it here and that means something. But
+really when most people are doing taxonomy, they're running QIIME and certain
+such tools like that. And I think in the last couple of minutes, just wanted to
+ask about how both of your views on moving away, I suppose, from traditional
+taxonomy, but more to just a simple.  nomenclature problem of how do you define
+clusters and define groups that you can describe to other people and do it in a
+systematic way. This comes back to kind of what GTDB is doing for, doing for all
+microbes, but then what about within a species? I'm interested particularly in
+the work with genome archives, which is a whole genome database for classifying
+microbes. And it reminds me a lot of PHE's SNP address system, where in both
+cases you have this sort of threshold and then based on whether something was
+similar at that threshold, it would have the same identifier. And so something
+that shared a lot of different numbers would be closer, more closely related.
+Something that shared a lot of identifiers would be less closely related. Let's
+say that the right way around. And it reminds me of the, and then I'm going to
+throw in CGMST because I love CGMST. It has a similar sort of process that you
+can make distinct classifications based on that. How do you both, how do you,
+two of you feel about these tools and what's your experience? When I describe
+the work that I do, I often say, oh, I work on epidemiology and I work in
+taxonomy and I work on these different things. The reality is that I liked
+cluster things. And then when it's transmissions that I'm clustering, they call
+it epidemiology. And when it's everything above that, then people now say I'm a
+taxonomist, but it's essentially the same thing. When I'm doing my epidemiology,
+I'm trying to look for clusters that are meaningful and separate from other
+things that has an actionable thing at the end. Is this transmission cluster in
+this place? And it is different from this transmission cluster in this other
+place. And therefore we can say something about that. But epidemiology is just a
+public health version of taxonomy. There I said, but if you enjoy working on
+defining different clusters, then you're essentially doing some kind of taxonomy
+with data set that you're working on. And then every, and then it's just about
+what's useful. So the SNP address works really well because everybody knows what
+they mean when they say that. And when I say transmission cluster, everyone kind
+of knows what I mean by I say that I say how it's defined, but then once I've
+defined it and everyone agrees that the way I've defined it as a valid way to
+define it, then we can just move on with our lives. So it's just about creating
+a nomenclature that's going to work. And it just happens that the binomial
+system is the one that is taught at the university level. So we're all ingrained
+into us to have that as researchers. But I think the rise of MLST and especially
+CGMLST is defining the taxonomy of epidemiology, which is what we're kind of
+doing a little bit more now. What does that mean? And then that grows somewhere
+into a lineage. And that's where these two things collide, where
+epidemiologically we've defined these lineages. Honestly, they're transmission
+clusters that have grown around the world. And now we've decided to put what we
+think of as a classic taxonomic label onto that. And it's all just a spectrum.
+What we're trying to do with Genome Archive is really what Colin was describing
+in terms of having that framework for where you can identify a location for your
+genome or set of sequences that you've obtained from your sample. It's one of
+many possible and valid and useful frameworks. And it's grown out of Lynn's life
+identification numbers, which were proposed by Boris Vinatsa and Lynwood Heath,
+who are both at Virginia Tech. And the way I think of it is that it's a
+hierarchic subdivision of genome space. You've got this abstract space, and
+every individual genome is a point in that space and is in some way addressable.
+And what we're trying to do is define volumes of space that enclose these
+genomes. So you can say which genomes are in which space. So we have a label for
+those spaces. And you can kind of think of it as building a tree on the basis of
+a distance measure. So as a first pass, you could use ANI and calculate ANI
+distances and produce a distance tree. If you lie it on its side, so you've got
+your root on the left and you've got your leaves on the right, you can then put
+an x-axis in and take vertical lines which partition the tree at various points
+between the root and the leaf. And we can label those A, B, C, D, and so on and
+so on. And each of those partitions, you can then count from the top down to the
+bottom the number of individual groups. You can label those 0, 1, 2, 3, 4, and
+so on. But keeping in mind what the last classification was just off to the
+left. It's difficult to show without a whiteboard. I really want a whiteboard to
+show this. But essentially what it gives is a unique index at a number of levels
+between the root of your tree and the leaves of the tree where you can define
+essentially a place in the tree and label that consistently. That maps onto this
+sort of abstract space where you've got each genome as a point where these
+individual labels don't describe locations on the tree but they now describe
+like voxels, if you remember, sort of like graphics and computer games. So every
+voxel has its own label and within that each of the subgroups voxels has its own
+label and so on. And it drills down so you get down to an individual or at least
+indistinguishable genomes. And this makes it very much like a map grid
+reference, like an OS map. So if you had a label like, say, that contains 15,000
+genomes, that's like a big sort of grid that covers a country or a city. And if
+you drill down further over to the right, and you're getting closer and closer
+to individual streets and you're gradually grouping things which are closely
+similar and excluding things which are not quite as similar. In terms of the
+distance measure that you started out with, one of the issues that we have with
+that technically is going from the root of a bacterial tree where we can't reach
+that with ANI, as we talked about, getting to the leaves which we can't reach
+with ANI because you end up not being able to distinguish between individuals
+that are distinguished by single snips or you've got really closely related
+lineages in an outbreak. So what we're trying to do is take multiple distance
+measures and match them up so that these hierarchies are consistent. And we can
+use things like split k-mers down at the leaf end for outbreaks and we can use
+AAI at the root end for sort of phylum and order level distinctions. And one of
+the ways I like to think about it is that it's sort of a Rosetta Stone and a
+neutral reference. It's like when you're looking at a map of, say, a disputed
+border, like between England and Wales, that's shifted over history. But every
+point on that border has existed throughout the history where it's moved more
+towards Wales, more towards England. So you could take that point and a period
+of time you could say whether or not this is Wales or this is England. So it's
+got, for that individual label, a number of annotation states which are
+associated with it. So we can hang multiple different nomenclatures from the
+same framework reference. So we can label each of these divisions with
+phenotypic or host specificity or some other useful biological information that
+we know about. And if we have a volume, one of these labels, which contains
+genomes which all share the same characteristic, a new genome which you bring
+along and then finds itself in that volume, you might reasonably expect to share
+that characteristic. Or if a majority of the genomes in that volume share the
+character, you might expect them also to share that characteristic as a
+probability. And just as with grid references where, say, for Manchester, you
+wouldn't expect a square to exactly match Manchester. You could match Manchester
+to an almost arbitrary degree by specifying collections of grid references of
+large or small size and then grouping them together and saying my definition of
+Manchester is this. And it will describe the outline of Manchester almost
+exactly. And I think we can do the same with voxels in this sort of genome
+space. So we'd say this species consists of this label and also these other
+labels. And we would have a nice consistent frame of reference for that
+definition of that species at that point in time. And that could act as, say, a
+Rosetta Stone for translating between nomenclatures like uncode and set code and
+traditional binomial nomenclature and the historical references to nomenclature
+through literature. The other advantage, well, the Genome Archive project itself
+is trying to build this. And we want to build a usable resource which is
+available to all and also privacy focused. So for considerations such as
+indigenous rights, if there's any IP that you want to protect, we want to be
+able to allow people to not upload the exact genome sequence, so they protect
+the privacy and their rights to that organism and that sequence. So we want to
+have the interface such that you can process your genome locally in the browser
+and then the kera profile of that sequence is used to locate your organism
+within that space, which is something that you can really only do when you take
+this computational approach. It's a big and challenging project and it's really
+exciting. I apologize if I don't sound quite excited enough, but I'm optimistic
+that it's a step in the right direction for how we can consider organizing
+genome data and relating it to all of these tensions and conflicts in
+nomenclature and taxonomy and the different ways of viewing these organisms. The
+same way you can look at a tree and you can focus on the trunk or the leaves or
+a particular plane through the tree. There are so many ways of looking at this.
+This is only one of them and we think it's moving in the right direction. And I
+should say that this is, just give everybody credit, it's Boris Venatsa is
+leading it at Virginia Tech, along with Leonard Heath at Virginia Tech, it's
+Davis, my part's over here at Strathmore. And what we will do is, there are
+excellent posters for this up on Figshare, so we'll put a link to that in the
+show notes if people want to go and have a look and dig into this a bit deeper.
+I think we're almost out of time, so I have one final question for everybody
+when it comes to taxonomy. Are you a lumper or a splitter? I'm a splumper.
+That's a binary that doesn't actually really exist. Sorry. Sometimes lump,
+sometimes splitter, it depends. I'm quite pragmatic about these things. I might
+sound like I'm ideologically driven too. When it comes to taxonomy, it's more
+about, are you a...  biological purist, and you want only the biology to drive
+it, or are you pragmatic with it? And I think a lot of taxonomists are quite
+pragmatic of saying we should lump when it's important and we should split when
+it's important. Oh, fair enough. Okay. Well, that's all the time we have for
+today. I want to thank our guests, Dr. Leighton Pritchard and Dr. Connor Meehan.
+We've been talking about vaxillotaxonomy and some of the practical genomics
+tools available. And we'll see you next time on the MicroBinti podcast. Thank
+you so much for listening to us at home. If you like this podcast, please
+subscribe and rate us on iTunes, Spotify, SoundCloud, or the platform of your
+choice. Follow us on Twitter at MicroBinti. And if you don't like this podcast,
+please don't do anything. This podcast was recorded by the Microbial
+Bioinformatics Group. The opinions expressed here are our own and do not
+necessarily reflect the views of CDC or the Quadram Institute.

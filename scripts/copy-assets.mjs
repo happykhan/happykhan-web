@@ -7,8 +7,7 @@ const pairs = [
   { src: path.join(root, 'content', 'posts'), dest: path.join(process.cwd(), 'public', 'posts') },
   { src: path.join(root, 'content', 'microbinfie'), dest: path.join(process.cwd(), 'public', 'microbinfie') },
   { src: path.join(root, 'content', 'pages'), dest: path.join(process.cwd(), 'public', 'pages') },
-  { src: path.join(root, 'static', 'papers'), dest: path.join(process.cwd(), 'public', 'papers') },
-  { src: path.join(root, 'static', 'images'), dest: path.join(process.cwd(), 'public', 'images') },
+  // Static assets are moved permanently by scripts/move-static-to-public.mjs
 ]
 
 async function copyDir(src, dest) {

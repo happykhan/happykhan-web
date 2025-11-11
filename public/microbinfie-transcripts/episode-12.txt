@@ -1,0 +1,410 @@
+Hello and thank you for listening to the MicroBinFeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. Hello and welcome to the Microbial Bioinformatics podcast.
+This week we continue to talk about phylogenetics, and again I am joined by Dr.
+Conor Meehan. So Dr. Conor is a lecturer in molecular microbiology at the
+University of Bradford. He specializes in whole genome sequencing and molecular
+epidemiology of pathogens, particularly mycobacterium tuberculosis and genome-
+based bacterial taxonomy. And we're also joined today by Dr. Leo Martens, who is
+the head of phylogenomics at the Quadram Institute Bioscience. He enjoys
+developing and implementing tree-based models, so some of his are BioMC2, GNOMU,
+TreeSignal, and there'll be links for those packages in the show notes. He's
+only recently moved to working with bacteria. Previously, he worked with
+viruses, eukaryotes, but from a modeling and theoretical perspective. So thank
+you both for joining me again on the show. Thank you. Thanks for having me. All
+right, so let's get right into it. One of the critical decisions in
+phylogenetics is picking models. And so I think for a lot of us, models are very
+complicated. So let's just go very broadly. What are the various models
+available for phylogenetics? So I will start by saying why we need models. So
+models of evolution are there to help with the estimation of transitions between
+states, and that can be mutations from one nucleotide to another, or from one
+amino acid to another if you're using protein models. And a lot of them is,
+again, to help model multiple substitutions at a single site and try to, as
+closely as possible, fit the evolutionary patterns and pressures that would
+shape the process that creates the tree at the end. So I've often heard it
+described as it doesn't have to be perfect. It's like the London tube map. It
+should be accurate enough to get you all the information that you need, but not
+so overly detailed that it's specific to only one set of analysis. Yeah, that's
+a nice way of summarizing. So yeah, and then I think, and then on top of this,
+you have usually when you see the models written down, you have the plus G plus
+I plus something. And so once you describe this instantaneous transition from
+between the states, and then you can also say that maybe the rates themselves,
+they vary along the tree. And so this class of models are called covariant
+models. And you can also say that they vary across the sites. And so these are
+the, I think a general term for them will be cat or category models. And we have
+heterogeneity models, I would say. Yes, heterogeneity models, but it's
+heterogeneity between the sites, because you can also have heterogeneity between
+the branches. Between the branches, yeah. Yeah. And so for instance, the
+heterogeneity between the sites, we have, if you look at the software, you can
+have, I think, four different ways of parametrizing them. So they have similar,
+so for instance, the famous one is the cat model from RaxML that is different
+from the cat model of FiloBase. And then at some point there was some, anyway, I
+won't go into the details, but they are different. And you also have the gamma
+distributed models or the usually based models, which, so this is in statistics
+called a random model. That you'll say, I don't know what's in this site, I
+don't know what's the rate on this site, but it can belong to some rate that
+follows a gamma distribution. Okay, so the cat doesn't mean concatenate. No, it
+means category. Okay. And it's because there was a, so historically, can I go a
+bit? So historically you had DNAML, which is the package from Felsenstein on the
+Philip package. And then I think it's Gary Olsen who wrote a version of it that
+was called Fast DNAML. So it basically, it was just an algorithm change and the
+program became faster. And then he also wrote a program that called DNA Rates,
+where it tries to estimate for each site what would be the optimal category. So
+what would be the optimal rate? It's like a multiplier. I think in Bayesian
+models you can see this as a multiplier. And then RaxML, I think the first
+versions of RaxML were based on Fast DNAML and DNA Rates. And so they imported
+the name cat from the DNA Rates. But then I think at the same time, it was
+Nicola Lactirau who was developing a phylo base and then they also have this
+category model. But then it was an amino acid based model. And so the category
+is a category for the equilibrium frequencies of the amino acids. Because I
+think the idea was that if you look at the protein and then if you look at
+different sites, so different sites, they can tolerate a different set of amino
+acids because some of them are in the membrane, some of them are exposed. And
+then they say, well, maybe what changes between the sites in a protein is they
+allow an amino acid. So they change the equilibrium frequencies. And that's the
+phylo base category model. So I said I wouldn't go into details, but I am. So I
+would say how models are built and also how maximum likelihood works in Bayesian
+can be quite complicated. But Paul Lewis does fantastic introductions to how all
+this works on phyloseminar.org, which is a seminar series run by Eric Mattson.
+He did, I think it was a two part series showing all this kind of stuff. So if
+people really want to know how maximum likelihood works and the probability that
+goes into Bayesian and all these model selections and how the models are built,
+I suggest looking at Paul Lewis's lectures on that. We can link to it. Yeah,
+we'll link to that. Yeah, that's a good idea. OK, but which is your personal
+favorite? DTR? HKY, of course. HKY? Come on. No, OK. So there are two reasons,
+one personal and one. So the personal one is that I did my PhD with Kishino,
+which is the K from HKY, Segawa Kishino Enya. And but the second one is because
+this is I think this is the most complex model that you have an analytic
+solution for it. So you don't need to solve the eigen, you know, the eigen
+system every time you want to calculate these rates. I think it practically
+doesn't change that much. It might get on a one percent, zero point two percent
+faster than using a DTR. Yeah, I did my PhD with the general from from GTR.
+Well, I did my PhD on HIV, which always needs a GTR model because of its such
+massive complexity and mutations. So I just started with that. And I subscribe a
+little bit to, which is where I guess we'll get into it, that
+overparameterization of a model is not anywhere near as much of an issue as
+underparameterization of a model. So it's sometimes difficult to justify why you
+would not use GTR. And a lot of people subscribe to that way of thinking.
+Anyway, both of them are wrong. So both are wrong. Just about how wrong you are.
+So which is the best model? I mean, you set that one up. Which is the best one?
+Okay, the best model. The best model is whichever model test tells you that it's
+your best model. So you have to do a model selection, because the best model,
+it's data dependent. So you have to, once you have your data, and then you have
+to apply a battery of tests, and then you'll see which one is the best model. In
+practice, this doesn't make a difference. As Connor mentioned, it doesn't, you
+know, it's very hard to justify one over another based on the, on what you want
+to do, right, with the tree. Actually, the fundamental difference we talked in
+the last episode about IQ tree and Raxomel doesn't make a difference. But the
+people who make them fundamentally think two different things about models,
+because IQ tree will do a test of all the models and then pick the right one and
+go forward. Raxomel uses GTR, and that's it. You can now explicitly tell it to
+use other ones. But Alexei doesn't seem to think that you need to pick anything
+but GTR and has kind of said that on multiple occasions with Raxomel as far as I
+know. Are there any other more weird bespoke models that are sort of in common
+use? Birth or death model or a whole bunch of different things? Yeah, so there's
+one model that I think people should be paying more attention to, but I think
+there's not much going on there, which is, it's called Thorn, Kishino and
+Felsenstein. So it's TKF91 and TKF92 models, because they incorporate the indel
+process. So they incorporate, they model explicitly how indels go into the
+alignment. That model is the basis for doing alignment and phylogeny
+constriction at the same time, like Bali Phi and things like that. Yes, exactly.
+Yeah. The problem is that it's quite complicated to calculate. And I think with
+the first one, with the 91, they had a tendency to create very long indels, and
+then they had to fix that. And then that's why you have the TKF92. To try to fix
+that. And if you write down the like of the equations, you can have, you know,
+indels from  zero to infinity and so at some point you have to anyway it's hard
+to calculate and so far people didn't didn't feel the importance of it but I
+hope you know more people are going to be interested in this in this kind of
+models because there's another one a more recent one is called I think Poisson-
+Indell process yeah which is also similar to this I think it's a simplification
+of this I think that's an important point that people might not be aware of is
+when you construct phylogenies you generally do not include insertion or
+deletion events or missing data or missing data it is always just the base
+substitutions at a specific place yeah so I'd say for model selection or sorry
+model implementation working on nucleotides where you have no indels or missing
+data that realm of research is I would say done extremely well the next levels
+are really including indels and very good ways to deal with that and then going
+on to codon models and protein models where if you're doing tree-of-life
+reconstructions which they're probably knows a lot more about than me it's on
+the protein level and those models of substitution are a lot more complex yeah I
+think when you look at coding data usually I don't know it might be easier to
+you know to remove or to handle indels usually the practitioner knows how to how
+to handle that but then when you look at three of life when you can know coding
+regions you have to be more more careful because there's a lot of information in
+the indels there okay and then following on from indels and weird models and
+there's always an issue of recombination yes I said the R word recombination
+which is absolute poison when it comes to phylogenetics or at least that's the
+that's the feeling so how what do we do with a combination in our tree how
+should we deal with it is there does it is there models to deal with it do we
+have to do something as we've been talking about with our initial data what's
+the best plan of attack for this if you wanted to start corner yeah the harsh
+answer is you probably shouldn't be building a tree if you have a lot of
+recombination so if you work on a species which is recombination rich like local
+Darius through the malai or something its genome has been estimated to be about
+70 or 80 percent resulting from a combination then if you remove all that
+recombination which is what most people do with RDP if you're picking the noise
+the signal yeah you can use clonal frame ML fantastic program for the EVA to
+remove it from bacteria but if you've removed 75% of the data what are you
+trying to get from that tree and I'm harping on all the time about it but like
+why are you building a tree and there you need to start going towards
+phylogenetic networks which is a much more underdeveloped fields so you can use
+something like splits tree to try to find out the network of how everything's
+connected and you'll probably just find everything's connected to everything
+because recombination is so rampant or try an a Bayesian framework like from
+Timothy Vaughn he has Bacter yeah Bacter inside of beast which will work on some
+genes and get you the ancestral reconstruction graph recombination graph sorry
+to tell you what where the recombinations occurred within the timeline of these
+but yeah recombination is difficult most people put their hands over their ears
+throw it away and then don't think about it anymore but I think it's where
+actually most of the info interesting stuff is happening because that's where
+your antimicrobial resistance is coming from that's how you know what bacteria
+or viruses are in close contact with each other because they recombined in some
+way so I think we need to develop more tools that don't throw it away and
+actually start to use like utilizers yeah I think yeah I think that's a that's
+the sad truth if there's a lot of recombination then you shouldn't be searching
+for a tree you should be looking for the set of trees to the to the network I'm
+not sure if splits tree is the is the answer so because you know if you anyway
+you can describe the set of trees that it can give you this the set of trees
+that best describe your data but this doesn't come from the fact that different
+regions in the genome or you know in your alignment can come from from different
+apologies I don't know I'm not yeah I would I think might be you might be
+wanting to look more at forest based things where they're trying to see if
+across a set of trees you always get the same groupings so even if they're
+recombining they're always recombining together or they're more closely related
+in terms of the recombination events yeah that's not the way comics and
+phylogenetics at that stage yeah so the way that I see is if recombination is
+rare so that there's a there's a Goldilocks number here when recombination is
+rare compared to the substitutions and then you assume that you have enough
+signal to have trees along your genome which means you can find the trees and
+the breakpoints where the where the tree changes along the genome so for
+instance this is what they do for a viral recombinant forms think so in the case
+of influenza we have this reassortment so you know the breakpoints but you
+assume the trees are different but then if recombination is very very common
+like if you take a human population a human sample so recombination is much more
+common compared to the substitution rate and then there's no way you're gonna
+get a tree and then it makes no sense to talk about a tree unless you could have
+a tree of each one of the sites in this case there are methods under the
+coalescent so although you can you forget about the tree but now you can still
+talk about the populations about the recombination rate the substitution rate
+and in the population and then there's some methods that are something between I
+think they're more non parametric which is like good beans and clonal frame and
+then so and some other methods that try to remove sites which have an excess of
+homoplasies or regions that appear to have an excess of substitutions which are
+all based on the idea that it's something doesn't feel right within that that
+tree yeah I agree with all that yeah that's a lot to unpack so you have
+basically you have a combination in terms of what most people think of what
+recombination is within gene recombination and that is quite difficult to work
+with then it's like maybe building the tree really isn't what you should be
+doing it's doing a lot more comparative genomic methods and figuring out from
+there if it's whole genes being transferred from one to the other then you can
+build those individual gene trees and try to find those lateral gene transfer
+events with an AU test or something like that and these are two completely
+different ways of going about and they have different implications for the
+bacteria itself yeah let's follow up on that because we sort of so far been
+mainly talking about we've been mainly talking about a sort of super matrix a
+point where you where you've got you're sort of treating your whole genome core
+genome snips as one gene you're putting all you're mashing it all together using
+that sequence on itself which is one way to do it and I don't think we've
+touched on a super tree a super tree and so what is that and I think I think
+most people are more more familiar with the former what is a super tree approach
+how does that differ to what you would normally do saying RaxML with all of your
+core genome slips and would that be more tolerant of the combination or some of
+the problems we've been talking about okay so I I think that the last the last
+question is harder so if it can handle recombination I don't know but just to so
+just to give an overview because I like super trees I like distance between
+trees I like to I like to look at trees because usually the trees is something
+that we are very bad at interpreting because if somebody gives me two trees I
+cannot tell if they are similar or not they are only similar or not related to
+something to some distance so what are you looking what what makes them
+different what makes them similar and so super trees are methods that when you
+have historically is when you had incomplete information so when you have so
+friends for one gene you only have for a few species for a different gene you
+have for different species and then you want to like concatenate the overlap
+this these trees and have one that has information about all the all the species
+but I think nowadays we are using the term more loosely and I like that it's
+when you have a collection of trees how to summarize this this information so
+for instance one of the most successful methods in this tree of life methods
+called astral and astral is I consider it a super tree approach because it takes
+the individual trees from your individual genes and it tries to find a tree that
+it's optimal with regards in this case to the to the quarter distance of all
+your of all your trees so in theory maybe if you describe the if you describe
+your problem as a recombination so if you can have the recombination distance
+between your trees and a species tree maybe you can have maybe you can you know
+kind of help solving the the recombination problem by having by finding the
+species trees by finding the trees the super trees that minimize this
+recombination disagreement with your particular with our individual trees I
+don't know yeah again if it's if it's a lateral gene transfer event of whole
+genes super tree methods I think tend to do better so you can also build super
+trees with a subtree prune and regraft approach which Chris Whidden had put out
+a few years ago and build super trees that way and they tend to do much better
+with these lateral gene transfer events but again when it's a within gene
+recombination that's when it gets really really difficult and I don't think
+either method is better for those is that training is that pruning approach
+available or implemented in a package that's ready to use or is it something it
+is yeah so I have so I have to stop here I'm waving my arms because there's an
+implementation of fangorn that I did because I did this a long time ago I
+implemented it's not it's not the proper SPR distance but it's an approximation
+to the SPR distance that works very well when the distance is not very large but
+when the distance is not very large you know the trees are completely unrelated
+so if you if you use fangorn for our there's a there's  an SPR distance there.
+It was because the lab that I worked in before, which is Robert Biko in
+Dalhousie in Canada, it was Chris Whidden who was working with him and doing his
+SPR, so it's all on Rob's website as far as I know still. Or now, I think he's
+now working for Eric Mattson and they're doing stuff there. Yeah, but that's the
+kind of people who are doing that stuff as well now. Yeah, yeah, I think the
+first papers that I read with this, you know, associating this SPR distance with
+recombination were from Robert Biko. Yeah, good people. Yeah, thank you. So
+alright guys, let me change tack a little bit. Out of all of what we've been
+talking about today, are there any particular areas we need to watch out for,
+particular data sets or particular problems where tools really struggle that
+require, you know, out of all of your wisdom and expertise that people should
+know about and should be aware about? Yeah, I think for me, it's not about the
+tool, but it's about the user. So I don't have a problem with the tools, but
+with the users. We should be very careful that as we accumulate more data,
+because we have this thing that we want to have the tree, we want to find a
+single tree, or we want to describe something and we want a point estimate, but
+we don't have point estimates in life. And so I think we should start thinking
+about seriously about the diversity of data, about the uncertainty. You know, if
+you have ten genes, these ten genes might give you a different story, and you
+shouldn't, you know, you shouldn't lose your hair trying to find which one of
+the genes is telling you the truth. You know, it's like the Japanese movie
+Roshomon, you have five people telling a story, it's five different stories, but
+the facts are the same. Don't spoil it, Leo. Don't spoil it, Leo. But this movie
+is from the 50s. If you haven't watched Roshomon, don't watch it anymore. No,
+please watch it. I very much like Roshomon. Please watch Roshomon if you haven't
+seen it. But you know, I think that's the thing. So if you have a large data
+set, if you have a lot of genes, a lot of samples, they will tell you different
+stories, and you have to listen to all the stories that they are trying to tell
+you. A tree with a thousand faces, by the way. For me, it's that a lot of these
+methods were built for complete information, gene-based phylogenies, and the
+mathematics that goes into building these ones is way beyond my comprehension.
+It's for people much smarter, and it's difficult to build, and they just finally
+are getting to the point where they were good for genes, and then we all moved
+to whole genomes, and then we all now wanted to try to shove this whole genome
+data into programs that were not necessarily built for that. So my pet peeve,
+which anybody knows me, is ascertainment bias correction of SNP data. The
+programs are built assuming that you've put in all of the data that you know. So
+you have your gene sequence which has constant and variable sites, and people
+putting in SNP trees, they're just going to be wrong. So it's about correcting
+for that, putting in your constant sites, and then a lot of that has issues
+because we have repetitive regions. Whole genome sequencing tends to not always
+be whole genomes. It's actually whole genomes minus all the repetitive regions.
+So it's understanding that the data you're putting in may not always be complete
+in the same way that the program is expecting it to be. So on trees based
+primarily on SNPs, what kind of errors are they going to introduce? For me, in
+my experience, I find that often if I run it with all the information and just
+the SNPs, I often find the topology is more or less correct, but my branch
+lengths are rubbish. Yes. So going back to the models that we talked about, two
+things that will go into something like an HKY or a GTR model is the rate of
+transition between the different nucleotides, but also the frequency of the
+nucleotides that are seen. And if you just put in the SNP data, the frequencies
+of these four nucleotides will most likely be incorrect because you haven't
+accounted for all the constant sites and how many A's or C's or G or T constant
+sites there are. So if you're working on tuberculosis like me, very high GC
+content, whereas the variable sites may be very high AT content. And then you'll
+get completely wrong model of evolution, which will give you completely wrong
+branch lengths. But there are models that do try to try to estimate this or work
+around it. Yes, you have the Lewis model that will do a single estimate
+recalculation without any extra information. You have the Felsenstein-Astutamus
+bias correction where you just tell it all the number of constant sites. And
+then you have the Stamatakis supposed one, which is where you tell it how many
+A's, how many C's, how many G's, and how many T's were constant sites. And you
+just, if you put that in with your SNP data, it almost definitely will give you
+the correct information. Almost. Although myself and Leo did discuss this a
+little bit, and you should actually just put in the entire genome. Okay, so
+generally you can work around it, but try it, but don't. Don't just use SNPs by
+themselves. You need to either put in the entire file. You need to be putting in
+the constant sites as well. Yeah, yeah, and so I think a reality check is if you
+have 10,000 genomes, but then you only have, I don't know, 100 SNPs, can you
+actually have a tree of 1,000 tips, you know, given that you only have 100 SNPs?
+Probably not. And so I think that's a reality check. Maybe you don't have enough
+data there to distinguish between one tree and another. It needs to be
+phylogenetically informative, for sure. Yeah, exactly. So a lot of, because I do
+a lot of clinical phylogenetics, things that are used for diagnostics are almost
+definitely not the things that can be used for transmission, because diagnostics
+is very low amount of variation, and transmission you want as much variation as
+possible. Yes, that's always something that I wrangled with when talking to
+clinicians going from a microbiome, from a more purist microbiology background,
+is methods, the more SNPs the better. The more discriminant power I have, the
+better it is. And then the question comes back to, yes, but you're not
+reflecting the species, you're not reflecting evolution anymore. You're
+introducing some other information. And so this tree has all the information in
+the world that you can feed it, all the data you can feed it, rather, but it's
+not informative. It's telling you the wrong thing. But this comes back to what
+we were talking about, where it's really important about the question, and yes,
+in some cases, yes, discriminant, you just want to see the different, you want
+to put these apart with as much information as possible, introduce as many
+variable sites as possible, regardless of where they're from. And you just want
+to say, is this the same or not, which is fine. So what is the next big thing
+for phylogenetics? I think we'll close with this question. Where to next? And I
+think we've sort of touched on it, but I'd like to hear a summary from the two
+of you. What's the next big area? What would you like to see, and what do you
+actually think is going to come next? For me, because I moved from viral
+phylogenetics and molecular epidemiology into bacterial ones, and the vast
+majority of programs, especially Bayesian programs, just cannot handle the vast
+amount of data that's in bacterial genomics, with all these levels of different
+types of recombination, but also just the size of the genomes and the size of
+the data sets that we're coming out with. So 10 years ago, a data set of 20
+isolates was enough for a paper, and now it's like, oh, you only had 400
+isolates, and then you're trying to build something with 400 isolates with
+either a lot of variation or not a lot of variation, and I think that's maybe
+the next step is scaling up a lot of Bayesian analysis to be able to handle
+larger and larger data sets, whether that's even possible. The other thing that
+I think is the next big thing is, it's been done a little bit, which is
+alignment and tree estimation at the same time, as opposed to doing a two-step
+process where you align all your data and then you build a tree, or
+alternatively, actually doing completely alignment-free phylogenetics using
+hidden Markov model approaches, which are very new in trying it that way. Yeah,
+I think, yeah, I agree that I think alignment phylogenetic coestimation is the
+next big thing. I think something like, there are a few software available. So
+PASTA and SATE, I don't remember which is older, which is newer. I think PASTA
+is the newer version. I can give a link later. Yeah. And I think it's for
+alignment, but since they construct the tree at some intermediate steps, then it
+might help a lot in this coestimation. So SATE does an alignment and then builds
+a tree and then redoes the alignment based on that tree. Based on that tree,
+right, until it doesn't change, right? Yeah. Or something like this. Yeah, okay.
+Yeah. And then there's some, I think there's another software called PHMM3,
+which is, I think it's what you mentioned about the hidden Markov model. And
+also PROPIP, which is based on the Poisson-Indell process was, I think it's
+being done. I forgot his name. It's Maria Nizimova. Yeah. In Switzerland. And so
+I think they are using it to do the alignment, but also it helps in the tree
+inference. And I hope there's going to be much more of this in the future. And
+another thing that I would be happy to see more often, and I think it's the next
+big thing, it's whole genome alignment. Yeah. And how to use whole genome
+alignments for phylogenetics, for phylogenomics. Yeah, replace my answer with
+that answer. That's definitely the best answer. Yeah, I think it was mentioned
+in the previous episode, right? And yeah, in genome graphs, I'm looking at you
+because I think that the big promise of the whole genome alignment, it's with
+the genome graphs as well. All right. So I think that's more or less the time
+we've got for this session.  Any final words from either of you, too? Understand
+your data, and then build your tree from there. I would like to just mention one
+paper from 2017, where they show that just, I think I have the name of the paper
+here, contentious relationships in phylogenomic studies can be driven by a
+handful of genes. And it's Nature, Ecology, and Evolution, 2017. And in this
+paper, they show that, so the PI was Anthony Rojas. Of course, yeah. Yeah, and
+then they showed that if you look at a tree of life size alignment, so they have
+several data sets. And they show that in these data sets, just by removing a few
+genes, you can have a different phylogeny. And removing a few sites from a few
+genes, you also have a different phylogeny. So I always think about this, and
+there's a nice figure in this paper. I always think about this figure from this
+paper, when I think, when I have a data set, and then I think, maybe I'm
+removing that one that is going to change the topology. And so, yeah, I think
+it's a, you won't sleep well for a few days after reading this paper, but it's
+quite interesting. I think it's a. All right, that's fantastic, OK. And so,
+yeah, to end on a high note. End on a high note, that's fantastic. All right.
+Everything's a lie. I want to thank my special guest, Dr. Leo Martin. Thank you.
+Dr. Conor Meehan for joining me today. And I'm Nabeel Ali Khan, and this has
+been the Microbial Bioinformatics Podcast. Thank you all so much for listening
+to us at home. If you like this podcast, please subscribe and like us on iTunes,
+Spotify, SoundCloud, or the platform of your choice. And if you don't like this
+podcast, please don't do anything. This podcast was recorded by the Microbial
+Bioinformatics Group and edited by Nick Waters. The opinions expressed here are
+our own and do not necessarily reflect the views of CDC or the Quadrant
+Institute.

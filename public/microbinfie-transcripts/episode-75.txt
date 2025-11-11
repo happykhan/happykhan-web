@@ -1,0 +1,406 @@
+Hello, and thank you for listening to the MicroBinFeed podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. Hello and welcome to the Microbial Bioinformatics podcast.
+Andrew, Nabil, and I are your co-hosts today. Peer review, for better or worse,
+is the process where we quality control publications in our field. The reviewers
+usually work as volunteers and spend a long time reviewing manuscripts. I
+struggle with reviewing papers, and it can take up to 10 days for me to go
+through a manuscript. So today, I'm opening the discussion to Andrew and Nabil
+to ask, how do you rapidly review a bioinformatics paper in 10 days or less? Go!
+So, what do you want to know? I want to know, how do you just, like, rapidly see
+a paper that's worth actually reviewing, or how do you find the paper that needs
+to be rejected in five minutes and stop wasting your time? That's my first
+question. So when I get a review request coming in, right, hopefully it will
+have the abstract so I can have a quick look. But if it's a really, really bad
+paper, okay, I don't fully review it. I'll have a quick scan, maybe of the
+abstract and the intro, that kind of thing. And then I will push it back to the
+editor and say, listen, this is a car crash. You need to do an editorial, a desk
+reject, and don't bother, you know, wasting any reviewer's time. And in most
+cases, actually, the editors will just reject at that point, or they might wait
+for a second person to say, this is terrible, terrible paper. And that's where
+it's glaringly unsound. And there's nothing anyone can come back and say will
+redeem it. But then the next level down from that would be where you actually
+have to go and write up a review. And you don't necessarily have to review the
+whole paper. If there's fundamentals that destroy the paper and the data, then
+you just got to be upfront about those and say, listen, I know you've done
+experiments with no controls. Everything here is unsound. All these claims
+you're making are just potentially wrong. And that's a straight reject. You
+don't have to go through all the little nitty gritty details. Obviously, people
+like bigger reviews or more feedback, but that's only if you've got time. So
+that's kind of my first level of reject. But I don't even accept a lot of the
+reviews that I get sent. I get sent quite a lot of review requests. Straight
+off, I don't like to review for Elsevier because they leech off free labor from
+academics to make billions. And so that's not a company I review for. I always
+offer and I say, listen, if you're prepared to pay the full economic cost of my
+time, I will absolutely review this paper. Like a thousand dollars, whatever,
+they never come back to me and say, yes, I live and hope maybe they will pay me
+someday. That makes my life a little bit easier because I don't have to review
+those. But then the next step then will be, say, society papers and people I
+know or have heard of or that kind of thing. And I'd usually accept those
+because they're non-profits, they're people clearly active in the field who know
+what they're doing already. So they're unlikely to submit stuff that's going to
+be just wasting my time. And then finally, if I just happen to have time at that
+exact point to review other papers, I will. And I'll say yes. But if I don't
+have time and I'm overworked, I'll just reject straight out. What I don't do is
+accept a paper and then don't get around to it. That's just it's not fair to
+anyone. So it's either then or not at all for those kind of papers. So that's
+kind of my initial screening. Oh, and then the final thing is if they make it so
+difficult for me to log in to review a paper, to even get the paper in the first
+place, again, I'll just reject it. You know, I don't want to have to remember a
+login that someone else has set up with a different password and then click
+through 20 different screens asking me for lots of personal information as a
+reviewer. That's just insane. Just to get the paper, to review it. Ideally, the
+people asking for the review should send you the paper or at least have a link
+so you can download it and not make you jump through 20 hoops to do this free
+work for this commercial company. Sorry, I'll get off my high horse now. I feel
+I feel the need to put an extra incantation of this does not reflect the
+opinions of my employer. That was a high horse, but I appreciate that. It's
+quite honest. I have memories of my advisor. I don't know if he listens or not.
+Just getting truly upset at the services that you mentioned and just kind of
+rage quitting for the day on those because, I mean, they don't well, at least
+back then during my PhD, they didn't make it always easy. I think that they've
+been making it easier. No, they're making it harder. Some journals will let you
+log in with Orkut IDs, which is great as a reviewer because they only have one
+log in, but usually you have to jump through hoops just to accept a paper. OK,
+so that was the answer to how you might find a paper to reject really quickly.
+Does any of that resonate with you also, Nabil? I've had like a couple of the
+ones Andrew's talking about was you just read it and you just go, this is no,
+like they just they have no idea what they're doing. And you do have to push
+back on the editor sometimes because sometimes the editor is handling a
+manuscript that isn't their expertise and they're not able to make that
+assessment. So they, on the strength of the cover letter, I don't know, they
+decide to send it out for review and it really shouldn't have gone out for
+review. And that's fine. Like that happens. So yeah, if it's really that bad,
+then yeah, just push back on it. So that saves you a lot of time. The way I
+approach a paper is if it gets sent to me, there are certain journals I won't
+review for anymore. I don't agree with what they do. So I don't, I just say, no,
+I'm not doing it. I will be more likely to accept it if it's from a scientist as
+the editor who I know of good research and or the authors I know of, I'm aware
+of what they do or whatever, then I'll have a look at it. Or the abstract is
+super duper interesting. I've always been disappointed with that. Like you read
+an abstract that's really amazing and then you get the manuscript and go like,
+this actually isn't, they've kind of oversold it a bit. It's like, oh, okay.
+This is a bit by the numbers, whatever, but usually those aren't that bad. So
+usually they kind of honeypot me in and I, I go through and I just like review
+the whole thing when I probably shouldn't, I should probably figure it out
+sooner that it should be rejected. Yeah. So let's say I've gotten past that
+point where I've seen something that isn't, sometimes I get offered to review
+things that are just something else, something random in computer science, like
+encryption protocols for genome sequences. And I was like, okay, no, like this
+is, I mean, I can see why they would think I could do that, but no. But once
+it's gotten to that, or once it's from a journal that I don't think is just
+outright predatory or something like that, and I get it and I read it, my first
+thing is to check the results. I don't read the intro unless, unless it's a
+field that I'm a little, little fuzzy on, but I will just go straight to the
+results if it's like a genomics, microbial, whatever thing, and just go through
+those really quickly and just see, and then flick back to the methods and see
+like, is the methods, so how's the cards, any publication? If the base layer of
+the methods and the results just don't make any sense, there's no point fine
+tuning their grammar. There's no point fine tuning their discussion. There's no
+point saying you've forgotten to cite people in the introduction because it's
+just, it's wrong. It's just wrong. So you just say this is wrong, the methods
+are wrong, results are wrong. Any inferences based on those results cannot stand
+because it's fundamentally technically as an issue. So you just say that, and
+it's just like, that's it, I didn't read the discussion because there's no
+point. Usually when I review a paper, I'll break the comments up into multiple
+sections. So I'll have a major comments, which are kind of showstoppers, minor,
+which are optional, and then just kind of typos and minor little tidbits. But
+like Nabil, depending on the paper, I'll have a first pass and then decide,
+should I proceed to a full in-depth review or not? When it goes in depth, I'll
+look into like the supplementary material and see have they got accession
+numbers and are the accession numbers real and are they accessible? I'll go to
+sometimes quite insane levels of double checking things because that's all you
+can do. You can't repeat the sequencing experiments they've done, so you have to
+look for these other proxies. And I know I've looked up for some papers like
+information and stuff like that and then wondered why is there disconnects, this
+kind of stuff. So you can go into it in quite detail and go down rabbit holes,
+but you don't usually have time. And usually the best you can hope for is just
+to try and make sure the paper is reasonably sound and anything more than that
+is a bonus. And then after that, you do get a lot of papers where it's great
+that they've done the work, but it's been done a hundred times already and it's
+more like a master's project. And that's great for some journals.  they don't
+accept that at all. So you have to know the type of journal you're reviewing
+for. And for other journals it's fine. So you have to change, as a reviewer, you
+do have to change your expectations of what to expect from authors depending on
+the journal. So if it's plus one, then anything that looks remotely like science
+and is technically sound is fine. And if it's other maybe journals, which are
+more niche, they have different sets of criteria, and you just kind of have to
+keep an eye on those just so that your review reflects that, because in some
+journals they'll say, okay, there has to be some novelty, whereas in plus one,
+there doesn't really need to be novelty. It just needs to be good, solid
+science. And it can be negative results and this kind of thing. So you have to
+know what you're actually reviewing. And that takes a little bit more work
+sometimes for some papers, because they don't fit in nicely into any box. And
+then other papers are just absolutely awesome. And you don't want to give
+authors extra work to do, because maybe that work might take them two years to
+complete these extra experiments or little tweaks when it's not necessary. And
+that's what really annoys me with some reviewers, because often when you do
+review, when the editor sends out the decision, they'll CC or BCC you, and you
+can see what all the other reviewers said. And often I disagree absolutely with
+some of those reviewers. And on a few occasions, I've gone back to the editor
+and said, listen, reviewer three is a complete idiot and does not understand the
+field and has made these major mistakes and has asked them to do silly things or
+rejected for silly reasons. And it's clear they don't have the expert knowledge
+and you should ignore them. So fighting the corner of the author sometimes. And
+it's interesting because well, everyone is fallible. And as a reviewer, you need
+to understand that you're one cog in the process, but you can feed back these
+things. And I'm sure editors will appreciate honest opinions, as long as you're
+not saying silly stuff because you don't like the person or you don't believe in
+vaccines or something like that. Yeah, those are great points. Yeah, I think
+following on from that, it's you have to pay attention to the scope in which
+you're operating in. And that's a good way to save yourself a lot of time. If it
+is a kind of plus one journal where it is just based on technical merit, that's
+all you're assessing. So you don't need to comment on anything else. And that
+makes your review really easy because you just go to technically it's fine,
+done. Other journals I've had to do, they explicitly ask you to comment on the
+novelty of the work and how it fits into the field. And you have to make that
+statement if you don't know. That's another thing. If you don't know something,
+just say you don't know. Just say they've done laboratory experiments. I don't
+do laboratory work. I can't assess it. I can't assess. I don't know that much
+about E. coli. I can't assess this aspect of the work. I can assess everything
+else, but not this. So I defer to the other reviewers or do something else. Just
+don't ask me on this part. That's okay. And that saves you from agonizing over
+sections that you may not necessarily know about and you don't kind of have to
+fudge it. Just be honest. Just give your honest opinion, as Andrew's saying. And
+understand the scope of where you're reviewing for the set scope. I was just
+going to say, one thing I'm guilty of sometimes is checking like MedArchive or
+BioRxiv to see has someone actually uploaded a paper there already. And then you
+go and you have a look and see, basically, is it any different? And has anyone
+actually read the paper? If it's been up for a year and it's in a totally
+different journal's format and no one has read the paper in that time, then
+you're thinking, okay, well, what's wrong here? Has this paper just been shopped
+around 10 different journals and the authors haven't taken anything on board
+from previous reviews? Or have they substantially changed their preprint and
+made it better and whatever from the original preprint? And that can give you
+actually information, which it kind of, it's not in the submission, but it does
+give you other information, whether you should waste your time or not doing
+review, because no point if you are like the 20th reviewer to look at this paper
+and the authors haven't taken anything on board, they're just chancing their
+arm, then is there any point in you actually going to do a full in-depth review?
+I think one thing that's sort of on the flip side of that is often reviewers
+will make this mistake where the commentary that they make isn't necessarily
+objective problems with the work, it's just that the work wasn't done in the way
+they would have done it. They wouldn't have done that experiment, they wouldn't
+have done that analysis, they would have used this tool versus that tool. They
+stonewall a paper but they don't necessarily give like an objective reason why
+this thing is not suitable and they sort of say, well, if it's my way, it's my
+way or the highway. That's not your role as a reviewer and I'd see like when you
+see open review, because you always see the other comments from the other
+reviewers, right? So when you see that and then you're like, oh no, and that
+takes a lot of time as well. That's like, it's a waste of time to do that, just
+don't go down that at all. It doesn't help anyone, no one's asking for it and
+it's a waste of your time to try and think about what else, what would you done
+in that? You're not them, just keep it objective and you can keep it quite
+focused. On the flip side of that actually, often authors are terrible at
+selling their own work and you read through a paper and you review it and then
+you're like, hang on a second, this comment they've made on page 21, this is
+like the key result for the entire paper and it's amazing and it's something the
+community really, really needs and they haven't even mentioned it in the
+abstract. I mean, what are they playing at? And you highlight that as a reviewer
+and it's nice when you find these things, well, you shouldn't be finding them,
+but it's nice when you're able to tell an author, your work is even better than
+you kind of expected it. Yeah, no, that's also true. People do undersell a
+little bit. They can get so buried in a project that they don't see the big
+picture. So there is an opportunity to point that out. Or maybe they think, oh,
+everyone will see supplementary figure 4b and know that it's like an amazing
+results. Well, actually. Yeah. I'm sort of guilty of that. I had like this
+amazing figure and in our Haiti cholera paper, or maybe a few of them, but like,
+we could only limit ourselves to like three figures and other times that we
+published this, it is hard to get the perspective until their review sometimes.
+So maybe going away from, from the negative part, like how, how to quickly
+reject the paper in 10 days or less, maybe, maybe the review itself. So you guys
+have come up with some points already on, on how to actually make that read.
+Some of my questions are basically how do you go through the review efficiently?
+How do I not flounder for two days on a review? How do I just write it up in a
+morning? Well, how do you normally read a paper Lee that's been published? I
+usually read all of the introduction and then I quickly I move on to methods.
+How'd you guys do this? And I basically, actually, yeah, I'll read it straight
+through and I try to do that quickly as a once over. And then I'll go back more
+carefully and gather my thoughts. So it's like a second reading. And that takes
+a long time, especially if I have to go back and like verify that they,
+especially if it's like a software paper, like verify that the software works,
+if they're publishing on that or verify that their accessions are online, like
+there are certain checks that have to be done. So that, that second pass takes,
+takes much longer. Yeah. I also always reviewed a code. If there is code, I did
+find one time, like a 300 line bash scripts and it's full of like just print
+statements and stuff like that. And that was a pipeline. I had one that was
+supposed to be a software tool and basically it just used another software tool
+inside it and changed the output of it. And they were saying, this is a new way
+of doing things. And it's like, well, no, it's not a new way. It's not a new
+fantastic algorithm. You're just running this with custom parameters and fine
+tuning the output. That's not, no, that's not the same thing. So that was fun.
+So it is very important to check the code. If you're reviewing a bioinformatics
+paper, if they don't provide the code, that is an immediate reject from me. I
+might make comments about the manuscript, but I will always reject a paper
+without code for software. So this just reminded me of a paper actually, that
+someone else saw it, they didn't review it, but it's in plus one and it's quilt
+plots. And it's basically heat maps. Someone went and rebranded a heat map. No.
+Don't know how that got past peer review, but there you go. It happens. It
+happens more than you think kind of thing. So out of your method, I'd do it
+differently. If I'm reading the intro, I'd only read the last paragraph because
+the last paragraph is the one that says here we aim to blah, blah, blah, da, da,
+da, da, da, da. Right? If that paragraph does not make any sense to me, because
+they're saying words I don't get, like we're looking at operon blah, da, da, and
+we're doing this with something, something. And I don't understand that system
+at all. Then I will go back and read more of the intro. But if I kind of get
+like, oh, here we're doing this, this, this is like, okay, fine. Sure. Then I
+would go to the results. I come to the figures first. I never read the body
+text. I read the figures first, get the gist. I will then skim the body text
+results. If there's anything that looks a bit complicated, like requires
+knowledge of parameters, then I will skim the methods to make sure that that's
+okay. If they say that they've done genome assembly and it says shovel there, I
+don't go back and fuss on it. And if it doesn't matter for the result, there's
+no point like fussing about methodology if it doesn't really make a difference.
+And then, then I'll skim a bit of the discussion and that I'll do in about.
+half an hour to one hour, I will leave the paper alone, I'll go away and do
+something else, usually I'll skim it at night, like an hour, or I'll skim it in
+the morning or something, have breakfast, have a coffee, lunch, something,
+something else, do some work, I don't know, whatever, then come back to it
+later, and then do the second stage of what you're talking about, which is the
+review. But I've already, because you need to kind of, this is coming back to
+Andrew's point, like they don't structure, often authors don't structure the
+paper with the ideas in a way that one thing leads to another, and they don't
+necessarily set up what they're trying to do at the beginning, so you have to
+kind of be aware of all of the results and the method to then be able to say
+what are they actually trying to do, and then with that knowledge then you go
+back through it and then you go, oh okay, this is what makes sense, it's like a
+film you have to watch twice, because you don't catch everything the first time
+around, all the little twists and the little like, there's all these little
+precursors and foreshadowing, oh my god, scientific writers love to have
+foreshadowing in the work, they don't, just tell me, like you found blah, like
+this is the point, you found blah, no, we have to like, we do this analysis in
+this data set, it's like okay, here's all the figures of the analysis, whatever,
+and then we find out blah, half of those figures don't really matter for that,
+it's not really driving that point, so you have to do, so I always find that
+first pass really helps me. I was listening to a talk by a well-respected food
+microbiologist in our field in the US, I won't name names, and he has a nice
+German accent, almost like the Schwarzenegger accent, and he had in his talk, as
+I tell my students, this is not a murder mystery, don't make me wonder what it
+is, just tell me, and I love that the professors are out there telling their
+students to get off of that and to actually tell people what they're writing
+about. It's very difficult to unlearn that, because when you go through school
+and you go to English class, literature class, and you're writing like, you're
+taught to write like an assignment, like a creative writing assignment, like a
+story, and this is not that, this is a technical document, and it's just meant
+to communicate the information, so just do it clearly, concisely, spoil it as
+much as you like, basically nobody, except for you it sounds like, reads a
+manuscript from start to finish. You do? Yeah, a first pass all the way through,
+and then at the end of that, a quick first pass, then I will decide if it's a
+really bad paper or a really good paper, or somewhere between, usually it's in
+between, but if it's a really, really bad paper, then I don't want to waste any
+more time, because it's not one thing usually that's wrong in a bad paper, it's
+usually a lot, it's usually every, every paragraph has some kind of car crash in
+it. Okay, usually I skim, I skim very light, and then I kind of iterate and get
+deeper and deeper. I want to give credit though to people who have taught me in
+the past, it's, it's not for lack of trying, I just, I can't get myself into, to
+reading fast, everyone tells me to go to the figures first, just big disclaimer
+there, so that, that all the people who've come before me don't, aren't yelling
+at me behind their, their podcast devices. So where I find the most egregious
+offences is actually in the methods, and I read those in detail, particularly
+for Bonfimax papers, because quite often that's where people, they can't hide
+behind flirty language, either they put the stuff in or they don't, and when
+they say they're using, they did this Bonfimax thing, they used some ancient
+version of an assembler that no one has used in 20 years, then, then there's a
+problem there, or they've used, they've got short read data and they've used a
+long read assembler, or something like crazy, some crazy stuff, and that's where
+they can't get away from it, or if they have, I don't know, they've used some
+obscure sequencing platform, I don't know, like PGM or something, and then
+they've gone and used like a Nanopore software to analyse it, or they've
+forgotten that these things have error rates, and they haven't accounted for
+that, or they've gone and reinvented the wheel badly. So yeah, the methods
+really, you can't hide there, that's, that's a good place to really identify if
+a paper has been done well and is sound, or is on shaky ground. Yeah, totally
+agree. Totally agree. Methods sections are super important for the fidelity of
+the work. And if you can dismiss it on that, that's it. Nothing else matters if
+the methodology is wrong. And then what would you put in your letter back to the
+editor? I didn't read the rest of the paper, the methods are shaky, reject?
+Something along the lines of major errors, this is technically unsound. And here
+are the major problems. And it's usually going to be a few bullet points,
+because there's usually going to be car crash everything. Like, for example, I
+reviewed a paper recently using 16s data. And there were no controls, there
+were, they were using 16s to identify species level data, and 16s, like, it
+doesn't work down to species, everyone knows that. And if they're making these
+mad assertions and whatnot, then they're on very, very shaky ground. There's no
+replicates, they're like, there's so many things are wrong. They had, they spent
+a lot of time reinventing, like a very basic pipeline. Like classifying reads
+isn't a hard thing. There's a million pipelines out there, you don't need to do
+it again. Anyway, yeah. I think for me, that's custom homespun stuff. These
+days, for most of what we do is a bad sign. It means they don't know the
+literature. And it means that, and it's sort of like, not only am I having to
+review the result, and the interpretation of that result, I now have to think
+carefully about is the out the method that they've used, the thing they've just
+created themselves even sound. The methods are really good way of pulling a
+paper apart. And making sure everything's good. I had one not that was more
+subtle to Andrew's example that I reviewed recently, where the methods were
+fine, actually, like the basic method, like they've done genome assembly,
+they've done alignment, they've done this, this, this, this is like, okay, fine,
+this is all good. Figures are fine, heatmaps, everything's fine. Then they
+wanted to say things they wanted to make correlations between this host and this
+and this operon and that and so on. And there, the paper didn't explain how
+you're sort of like, okay, if this gene is one, what basis is this gene present?
+On what basis is this association? Like what's, you're saying it's in a
+significant amount of the genomes of the cultures? How, okay, define
+significant, like you can't, you can't just say the words, do never just throw
+the word significant around in a scientific paper. Because it's like, well,
+statistics, everyone's ears perk up at p value, like, like, don't don't
+randomize, like null hypothesis, randomization tests, like, come on, you just
+you just begging for for something with that if you say significant, but that
+was it. And then I just went through everything. It's like, okay, you've you're
+making claims, you have no real analytical basis for that. And it's like, I
+don't know what to say. Everything else is fine. But then then you just junk,
+you just say, well, your discussion is no good. Like, what do you want me to do?
+You can't say those things. I think I got some good tips on how to how to be
+fast on this. I'm learning from you read the figures first if the method also
+read the methods in that first pass right away. If it's shaky, then it's shaky.
+And yeah, those two those two have to pair. So that's like stage one, clear
+that. And I think Andrew agrees with that, like stage one, clear methods and
+results. Stage two is then the discussion and whether the interpretation makes
+sense or not. And then, then it's everything else is up to code is the structure
+of the paper makes sense. Are they talking about the thing? Are they really
+emphasizing the things you think are important? Are they missing things? Is the
+introduction citing what it needs to cite? Is it introducing the ideas often,
+they jump into the results, and they don't explain like, why are we interested
+in this secretion system? Like what is this doing in the first place? How is it
+different? Like that's not even in the intro. So you need to comment on that
+afterwards. And then, and then this is a separate thing I might even do if it's
+a big paper, I might do a third pass, which is a completely separate process of
+grammar, accession codes, the table, the callouts for the tables are right, the
+figure legends are right, the figure legends are detailed enough, supplementary
+material, the tables are all formatted nicely, I can read them, I will kick a
+fuss if someone tries to send a table, like a table list of strains, and it's
+like a Word document that's been converted into a PDF, I'll take no, make it an
+Excel sheet, it is a pain in the ass to try and go back and try and like copy
+paste accession codes out of a PDF Word document thing. I had, I think the
+comment I left on the last one I did was, for the love of God, don't, I didn't
+say that for the love of God, I said, please, please do not, please make your
+figures, including the supplementary ones that you submit separately, the say,
+an A4 page, keep them all the same size, because it is impossible to review a
+manuscript, where if the body text is an A4 page, and then the figures attached
+to it at the bottom are the size of a billboard. Oh, it's, it's the huge, that's
+messy, too. It's like, you can't, it's like, it just makes my as I'm saying,
+like, it makes my life really difficult to try and go backwards and forwards.
+Because you zoom in 100%, and then you have to zoom into like 10% to see what's
+going on. And there's really no reason for it if you're using like Inkscape.  or
+illustrator or whatever to make your powerpoint or whatever to make your figures
+you don't it's really not just be nice to the reviewer so that's like yeah but
+that might be part three of going through and just putting those comments in
+yeah let's do let's do award stories on this later on they're not they're not
+that bad these days i don't know i i'd sound too much we'd sound too much like
+grumpy grumpy old men complaining about what mistakes people make in their
+manuscripts we'll get there one day page numbers include page numbers that's
+nice all right i'm gonna cut you off before we talk about font sizes and
+everything this this was good i really appreciate it andrew and abel thank you
+so much and i hope this helps everybody else too have a good day thank you so
+much for listening to us at home if you like this podcast please subscribe and
+rate us on itunes spotify soundcloud or the platform of your choice follow us on
+twitter at micro binfy and if you don't like this podcast please don't do
+anything this podcast was recorded by the microbial bioinformatics group the
+opinions expressed here are our own and do not necessarily reflect the views of
+cdc or the quadram institute

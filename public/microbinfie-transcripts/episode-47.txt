@@ -1,0 +1,405 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. Today in the booth, we're joined by a special guest, Leo
+Martens, head of phylogenomics at the Quadram Institute, and their arborist in
+residence. And then there's myself, Andrew, and Nabil, and everyone is now
+working on SARS-CoV-2. So that's what we're talking about today. We'll be
+focusing on some of the latest mistakes and issues you need to know about for
+SARS-CoV-2 analysis. So Andrew is head of informatics. Do you want to talk about
+some latest gotchas and issues? So I suppose I'm going to bounce this off to Leo
+first, right? You know, someone asked me today, I've got one step missing and it
+changes the lineage assignment completely and utterly. So what is going on and
+how do different methods work and, you know, how can I massage my data to make
+it look like it should? Well, I think one of the causes for this might be that,
+for instance, spangling is based on the machine learning approach. It's a
+decision tree. And so what they have is they have a big table. So their labels
+or the classes are the lineages. And then they have the parameters then define
+what is a lineage. And these parameters are SNPs in particular positions. If
+you're missing one of these or, you know, a few of these indicative features,
+which are the SNPs, and this is going to change the way that the decision tree
+handles the classes. So maybe your SNP is the one that defines or helps defining
+one of the lineage. And so by missing that or by missing a group of SNPs, and
+then it might go in a completely, you know, different direction in the decision
+tree. There are other ways of classifying your sequence, but they might also be
+sensitive to missing data. For instance, if you have your sequence and then you
+search for the closest sequence in a database. So you have a database with the
+sequences that you know the lineage for them. But now you have your query
+sequence and then you ask what's the closest one in that database. But then, of
+course, closeness doesn't take into account the phylogenetic position. And so
+maybe it's close because some, let's say some irrelevant SNPs are the same. But
+that SNP that would make the difference that is, you know, helps defining the
+lineage is not there. It might be missing data. And so you might also be in
+trouble there. Maybe the way to solve that is to actually look at your sequence
+in the tree. So you do an alignment and then you do a, you know, a phylogenetic
+inference. And then you look at your query sequence where it's positioned in the
+tree, because good phylogenetic methods, they can handle missing data better.
+And in this case, you would see that even with our missing data, you know, your
+sequence is somehow closer to that cluster that is labeled as lineage something.
+I think this is what Lama does. And you can also use, you know, if you want to
+do it by hand, you can do it with IQ3. It's like a phylogenetic placement. So
+you give the tree minus your sequence and then you give the alignment with all
+the sequences and then you look where it is in the tree. But I think that's what
+Lama does, if I'm not mistaken. I guess sometimes I have to admit, I do this by
+eye and by hand and just look at the SNPs. You know, if you've got a cluster and
+there's something a bit iffy, I will go in and eyeball the SNPs. And that is
+quite useful because often you can see, okay, there's one SNP or two or, you
+know, one of the region missing here and it's throwing things off, but the rest
+look fine. And it does reinforce that you shouldn't just blindly trust
+algorithms. You should sometimes, you know, go in and actually have a look,
+particularly if it's an important sample or whatnot, or you have other
+epidemiological data, which tells you otherwise. And yeah, so look at your data.
+Yeah, yeah, exactly. And then look at the tree. So, I mean, I'm biased, but I
+say look at the tree because if you'll see that there's a long branch there, or
+even if you just look at the pairwise distance, it might be classified as let's
+say B1, but then you have a distance of, I don't know, five SNPs to the closest
+sequence in the database. And then that might be something going on there,
+right? You didn't sample enough, or I think that's how they discovered the B117
+that they look at. They realized it was a cluster and this cluster had quite a
+few SNPs compared to all the other ones that in the same lineage. And some other
+epidemiological evidence, of course. Yeah, I mean, this is a general problem
+that you always have with clustering and classification, ruling things in,
+ruling things out. It's not really a solved problem. And I don't know, I always
+ran into it with genotyping and MLST data, it's a massive pain trying to just
+flatten your data and make it into these little buckets for people to access
+more easily. So maybe moving on to something associated, which is naming
+lineages. So Lee, how on earth do you name lineages? You know, are you going
+with the UK schemes or with the US next strain schemes or what? I think a lot of
+times I see the states, I'm just, I'm talking about this kind of from an
+outsider coming in still. So I'm still learning, but from the outside, it looks
+like the states are mostly using pangolin or pango lineages. And I guess we're
+trying to separate pango from the animal so that we can be more proper or
+something. And then, and I've seen people use variants of concern also. I'm
+still getting into the weeds a bit. I'm figuring out for myself, what are you
+guys doing over there? We're heavily invested in the pangolin lineages, you
+know, since they have come from our consortium and they're awesome. But it does
+get kind of a bit difficult when you get into the constellations of mutations of
+concern. And then it just becomes horrific because say in the UK, you have
+B.1.1.7, which is the UK variant, the Kent variant, variant of concern, blah,
+blah, blah. So lots of different names. But basically, eek has independently
+emerged multiple times throughout the tree, which is a problem because it's not
+like a distinct lineage, which is emerged. It is, you know, kind of multiple
+parallel emergences. Currently the thinking is we'll just call it B.1.1.7 plus
+eek, you know, is the way to describe it, you know, because you're saying it's
+got this mutation rather than a single point mutation occurring and then it's
+spreading everywhere. And you know, that has some kind of evolutionary history.
+So it's getting more complicated by the day. So that's confusing to me. Like
+what, how do you call it eek? Like, where does that name come from? I've heard
+it a few different times, but I don't, I don't think I've heard in depth, like
+why it's called eek. It's a replacement in the spike protein in the position 484
+from an e to a k. And then this replacement you write down as e484k. But instead
+of saying e484k, you say eek, you know, just look at the first one, the last
+one, and you hope that there's not another one that also starts in an e and ends
+with a k, because then you're out of nicknames. If it's in a p lineage, then you
+can call it peek. So the thing is, is there's a difference between B.1.1.7 plus
+eek versus regular eek, and then B.1.1.7 on its own is its own thing as well,
+right? So what I'm worried about is someone, this particular combination being
+flagged, and then people just looking for the spike protein mutation and then
+freaking out about it. It's like, no, no, no, no, it's not the right background.
+It doesn't, it doesn't work like that. You can't just use the spike to name
+everything. Can I ask one more question, because you're an arborist and we have
+you here. So you could have eek multiple times in different lineages. Are we
+seeing some kind of convergent evolution? Yes, I think they're not, they don't
+claim yet that it's convergent evolution because they don't know what's the
+cause for this. But yeah, it's been observed several times. I think the most
+recent one was, I don't know, this week, last week, they observed eek in
+B.1.1.7. And if you look at these three, there are three main lineages or
+variants of interest and two of them. So it's the P2 and the other one is
+B.3.5.1, which was the one first seen in South Africa. So these two had the eek,
+but the B.1.1.7 didn't. But now this week, they found out that there was a
+B.1.1.7 that has. So I know it appeared again. And the other two of interest. So
+the B.1.3.5.1 and P.1.1.7.  P1 or P2, they also had, you know, and they are
+quite different. So yeah, this is a case that it's appearing again. So far, they
+can only claim it's a homoplasy, you know, it's appearing again and again, but
+they still don't know if it's because of convergent evolution or for some, you
+know, it's just random or drift. I guess it takes some time to empirically
+untangle what these mutations are actually really conferring for the virus. And
+there was a bit of hoopla this week in the UK where they identified lots of the
+B1.351 which originated in South Africa and the UK community transmission. And
+so they've gone for a surge testing, kind of going door to door testing people
+and trying to kind of contain and stamp it out in eight different areas in the
+UK. It's kind of difficult. Certainly we can only really at the moment detect
+that variant if you genome sequence it, you know, because of everything else we
+said. And so I'm guessing there's a lot of genome sequencing coming down the
+line just to see how much of it is in these eight different areas in the UK
+we're doing surge testing and you know, whatnot. But if it is just to contain
+EEC, well then it's kind of, you know, you're trying to hold back the ocean and
+that's going to be a problem I think if it's independently emerging in other
+lineages as we've seen it. I guess to just to come back to the original
+question, how to name these things. So my feeling is that don't. If you feel
+tempted to give a new name, the first step would be to go to the site called
+Lineages that we discussed last time. There's a link there that you can suggest
+a lineage. And then the first thing that you'll see is that there's some rules.
+So they say, what factors suggest your sequences form a new lineage? And then
+they say, well, you know, they might, they have to cluster in the global tree
+with good support values, input struct values. You also have epidemiological
+support, introduction in a novel, in another geographic region. And if you, if
+you, if your new sample satisfy all these conditions and they might think about
+suggesting a lineage and then you click, you suggest to them. And in the
+meanwhile, I think this is what happened to the P2 lineage. So the P2 lineage
+wasn't born P2. So I think the first time when they published, I think it wasn't
+biological. They didn't call it P2, they call it, it was B1.1.28 and then eek in
+parentheses, you know, E484K. And so if you look at the, in the first
+publications, that's how they referred to what we now know as P2. So I think, I
+like this. I think that they, you know, they did a very reasonable thing. So I
+know the history of that and P2 came about to stop journalists from being
+confused because there, so someone had made a mistake or had misspoken and the
+media picked it up and it was like, Oh, you know, there's lots and lots of what
+we now know as P2 in the UK, you know, there's a few cases and that freaked
+everyone out and, you know, the press went wild and they had to kind of convey
+this message simply that, okay, calm down here. You know, it's actually
+something different. We're calling it this, don't worry about it. You know, the
+one you really have to worry about is P1, which I don't think we've seen in the
+UK yet, have we? Check on the COV lineages site. No. So we haven't seen that
+and, but we have seen P2, sure we've seen P2 even in Norfolk, which is, you
+know, not, not exactly on the routes directly from Brazil, is it? Well, you're a
+resident Brazilian, Leonardo. No, no, I don't think so. So I think this, the P2
+is the one that spread quickly in Rio and they, it was, it was of interest
+because it was a case of reinfection. And then they shown that, I think the
+person was infected twice by B1.1.28, but it, you know, although they were the
+same lineage, they were quite different from each other that it could say that
+it was a different one, but no, I don't think there's, there's direct roots. No.
+Actually, while you're talking about co-infections, I read a paper the other day
+and they had found lots of cases of people being infected with two different
+lineages and I was like, this sounds interesting. And of course the press were,
+were interested in it as well. And it had been widely reported, but I looked at
+the paper and like, there's no mention of controls. There's quite a lot of CTU,
+CT snips, like 53% of our snips are these, these snips. And as, as we know,
+these are kind of signs of degraded RNA. And that sets off alarm bells to me
+saying that, well, maybe some of the samples or, you know, maybe some of these
+mutations you're seeing are actually just degraded RNA and not a real signal.
+And they found quite a lot of, in their genome sequencing, they found quite a
+lot of co-infections they called them, but I would call it contamination. And I
+strongly suspect that this group were just sequencing, maybe not, not the
+cleanest, or maybe they weren't following the protocols exactly what rang alarm
+bells as well for me was that they have their own bioinformatics pipelines that
+they've written from scratch, which is always a red flag because, you know, this
+stuff is hard. There's a lot of nuances and they just made a slight little error
+somewhere as well as messing up the, the sequences. I've seen some very poor
+quality sequences, not ours, but others. And the primary reason for that
+explained to me was they just didn't get it into the freezer fast enough. You
+know, this, this is, you know, dealing with RNA, it's a fragile, fragile thing.
+And yeah, you've got to always be vigilant. I'm just wondering, is that a
+standard QC thing, looking for bias in base substitutions? I always do it as a
+standard QC myself, just to gauge, is this an extreme outlier or not? I think
+Torsten was the one who originally told me to have a look at it. And he had just
+a very simple way of doing it. Yeah. I mean, it'd be one of those things that
+can be nice just to bake into any, any pipeline. Now, of course, CTU mutations
+are legitimate and they do happen, but just not at the vast high rates that you
+sometimes get. I mean, we used to use that for ancient DNA. That's how you knew
+ancient DNA, because it was degraded in a very specific pattern. And then
+fragments would be shorter as well, wouldn't they? Yeah. Fragments were always
+shorter. And you always had a, you always had the edges, the edges of the
+fragment were always had this weird, you know, bias. Okay. So another question
+that came up during the week was, do you, if you're doing Nanopore, Arctic
+Nanopore base calling, do you need a GPU? And the answer is yeah. So a lot of
+people around the world are getting into Nanopore, but maybe they are from
+resource constrained environments and they don't necessarily have stuff around.
+So people were asking, could they just use the fast base calling mode? And the
+answer is maybe avoid it, you know, because in SARS-CoV-2 every snip counts and
+the errors are mostly random, but not always random. And so, yes, you need to
+use a GPU to get the highest possible quality data out there. Luckily, most
+gaming laptops will probably have enough power to do real-time base calling for
+you with HAC mode. So that's high accuracy. And if you can just beg, borrow,
+steal a GPU card or a gaming laptop, there's probably many around. You'll save
+yourself a lot of time because if you do CPU based calling, it takes like a
+million years and you know, you don't want to do that. You want to get the stuff
+in and out. If you want to do in the cloud, well, that can be difficult if you
+don't have say reliable electricity or internet. And yeah, you can't
+necessarily, you know, upload vast quantities of data to a GPU in the cloud. It
+also gets very expensive, very quick. So get a GPU card, make sure it's like an
+NVIDIA, even an old one will do like a 1080 or whatever. You don't have to go
+for like the mega Bitcoin miner type GPUs, you know, a slightly cheaper one will
+work, but it has to be NVIDIA. Yeah. Just kick the kids off Minecraft. It
+actually pains me. You know, I see my kids watch these YouTube videos of
+Minecraft and you know, sometimes they'll pop up like the specs of the machine
+they're using. And it's like, my God, you know, that guy's, probably spent two
+grand on a graphics card just to play Minecraft. That's insane. But then I think
+back to when I was younger and I was thinking, yeah, okay, yeah, I probably
+would have wasted money if I'd had it, you know, on a gaming machine. I don't
+know. I used to, used to have people program games onto their graphics
+calculators way back when. Yeah. They play some snake on your mobile. What
+happened to that? But moving on. So you've been running into some issues with
+logistics as well, Andrew. Yeah. So we've got a collaboration with Zimbabwe and
+we've been running into logistical problems because so many borders are now
+closed, you know, trying to send, say, nanopore reagents from the UK to Zimbabwe
+is quite difficult because dry ice, you know, it lasts a few days, but it won't
+last two weeks sitting in a warehouse in Stansted airport, which is what
+happened. And so we've had thousands of pounds of reagents destroyed because we
+haven't been able to actually get stuff, you know, urgent stuff, which we paid
+extra to ship actually out to the countries we need them to go to. We can get
+dry stuff out, you know, stuff that can go room temperature. So we've sent out
+like laptops and nanopore device and whatever. And interestingly, logistics is
+just insane. Like for, for shipping goods, you know, stuff goes all over the
+world. It seems, you know, even when you send it out the door in the same, in
+the same van, but.  Logistics is hard and we don't necessarily know how to solve
+it, you know. If we want to spread sequencing around the world and do it in
+country, we need to be able to ship this stuff. Border closures and flight bans
+and whatnot really don't help in getting this stuff around the world. So we
+don't have a solution to that, but it is a challenge and it's eye-opening seeing
+all of the challenges, even for the very simplest of things that goes on. So
+another question we had was, can you look at recombination with the Arctic
+Protocol? And no. And the reason is that, so the Arctic Protocol, you know, you
+get chimeras in it. So you've got two different random bits joining together,
+you know, it's PCR. And what ultimately happens is that if you are sequencing on
+nanopore, you have the barcodes on both ends. And if you look for the barcodes
+on both ends and you make, you know, you have a very tight window of how long a
+read should be or how short it should be. You get rid of most of these chimeras,
+you know, straight off the bat. When you do Illumina, unfortunately, you're
+looking at much shorter fragments. You're not going to necessarily, you're not,
+well, definitely not going to have the adapters and barcodes at both ends or the
+amplicons. And so, you know, you're dealing with teeny tiny windows into the
+amplicon. And if you see a chimera, if you see recombination in there or signal
+recombination in there, you can never be sure, is that just a chimera or is it
+real? And you can't use this kind of data. Well, you can't use a nanopore, you
+absolutely can't use an Illumina, but you're going to see a lot of an Illumina
+and you're even more blind and in the dark. So the end result is if you want to
+look at, say, recombination and that kind of structural variation in SARS-CoV-2,
+you have to use metagenomics or, you know, maybe hybrid capture and do de novo
+assemblies. You can't go back to consistent sequences and that kind of thing. So
+make sure you use the right technology to answer the question that you're
+asking. Yeah, no, I should mention with the Oxford nanopore, you do need to run
+it with required barcodes at both ends for Minnow and the different tools.
+That's definitely a requirement. Otherwise, yeah, you are going to pick up
+chimeras and you're going to get all sorts of, they're not real chimeras,
+they're all artifacts, but you're going to get that down the garden path if
+you're not filtering against that. And then if you stare at the data long
+enough, you know, you'll see all sorts of craziness going on there. You'll see
+like maybe 10 of these things stuck together or you'll see, you know, barcodes
+in the middle and all this kind of stuff. So it's not just, you know, barcodes
+at the end, it's, is there barcodes in the middle as well? And so that's why you
+set a maximum length on the reads, you know, to be just a bit bigger. Yep. One
+of the things I saw kicking around as a discussion point was a simple question
+around how to annotate VCF files and just see what the mutations are actually,
+you know, encoding. And different people suggested different things, but one of
+the nice solutions is to look at CovGlue, which we'll put a link to that in the
+show notes, which has a table, a catalog of all of the different replacements,
+insertions, solutions that are there. So you can just put your sequence in and
+find out all the information about what those variants are going to do. It's
+kind of like a, it's kind of like an intro scan, but, but not for SAS Cov. So
+yeah. Have a look at CovGlue. It's got all of that information there for you to
+play with. If you want to run it on your own, on your own machine, if you've got
+a faster file, you can put that into Nextclade or if you've got a VCF file, some
+people use SNPF, S-N-P-E-F-F to figure that out. But between the three different
+resources, you should be able to sort of annotate your mutations without too
+much problems. But yeah, it's not something obvious on how to do that. There's
+also a very nice Python script by Ben Jackson called Type Variants. And I think
+it incorporated into Pangolin, CVET, which gives you basically the coordinates.
+So if you have an aligned genome, so you know, a genome aligned to the reference
+genome, and then it can give you the amino acid replacements. And yeah, it's
+pretty nice too. And it's very small. So I think you can even incorporate into
+your own software. So that's easy to add to your Sage and Nextclade workflow or
+whatever you're doing. Okay. So in some, I suppose, more general news, I saw on
+Twitter that Emma Hodcroft has gone through all of her detailed maps from
+Nextstrain, looking at the variants of concern, and then just kind of picked out
+community spread. She's like, oh, it's there, it's there, it's there, you know,
+it's really wonderful. Like she's kind of got this Star Wars, use the force kind
+of mind, you know, she's able to spot community spread before, you know, other
+people are spotting it, which is quite interesting. And it's quite telling that
+there is just a lot of it around. This is not just something that countries have
+been able to contain, but it, you know, it's spread very rapidly. And these
+variants are everywhere. And it's probably not one introduction, or we know it's
+not one introduction in many cases. And often in cases, it's like lots and lots
+of introductions, and it's only by countries doing lots of sequencing, they're
+actually identifying that, you know, lots of it has got in and, you know, the
+horse is long gone, you know. Yeah, Nextstrain is great for that. And keep an
+eye out on Emma Hodcroft's Twitter. Yeah, if you want the latest and greatest
+information, she's definitely one person to follow. And in, I suppose, local
+news, Quadram has sequenced 10,000 genomes, in fact, actually more because this
+week, they put on another 1500. I mean, that's predominantly what we've been
+servicing in our local area. It is absolutely awful that we've gotten to that
+toll. But in terms of the scale of the lab, and the hard work that everyone has
+put in, it's just absolutely amazing. So most of it has been local Pillar 1,
+they call it, so that's stuff coming to the hospitals, and stuff of clinical
+concern. And then we have some national samples. So it's people go to drive up
+testing facilities, it's called Pillar 2 in the UK, and or have tests at home,
+they post them off. It's some of those. And then we have a thing called the
+REACT study as well. So that's where people, households are randomly chosen
+around the country, and they get them to send back swabs, and they see how much
+in a very structured manner, how much coronavirus is out there, how many
+households have a positive member in them. It's random and happens differently
+every, every month. So you know, you do get a very, very good idea of what's
+there. And so we're sequencing the positives from those so that we can now get
+an understanding of what lineages are there, and answer questions like, you
+know, when was B.1.1.7, or whatever it's called, the Kent variant? When did that
+actually, you know, start being picked up in these national surveys? And so
+yeah, we'll have more answers on that in the future. Yeah, it's amazing looking
+back. Remember, I don't know, maybe this time last year, people were saying,
+this doesn't change very much. Why bother sequencing it at all? Well, actually,
+I said that as well at the time. I was like, well, you know, they're really into
+sequencing, it's not changing much. Yeah, how wrong I was. Well, we're thinking
+actually, maybe it might help with stamping out outbreaks, you know, little
+outbreaks that might bubble up, you know, later on in the future. We didn't
+necessarily believe that it would be just this kind of car crash it is. But
+there you go. Yeah, it's one of those things you hate being wrong. And well, we
+should end on a happier note. So we'll switch over to this article from Nature
+News. Scientists call for fully open sharing of coronavirus genome data. So
+that's a little op-ed piece that they that, yeah, that support Nature News,
+pretty much asking that everyone do the right thing and get the data out as
+quickly as possible so we can get on top of this. I suppose there's a bit of
+politics there, though, in that, you know, you have the competing databases
+INSTC, which is NCBI, EBI, and DDBJB, DDBJB, yeah, sorry. And then you have
+GISAID, which is run from Germany. And so you have these competing, I suppose,
+ideas, fundamental ideas, you know, GISAID, I suppose, protects the data a
+little bit more and has more built in protections, the idea being that it makes
+it more likely that hesitant people will be will share data. And then INSTC is
+very much more CC by so it's like, you know, let's just share data as quickly as
+possible and make it as open and easy to share, which is great. So my only
+concern is that INSTC is a bit slow to actually getting data out there. So it's
+not necessarily as useful for public health surveillance. Great for
+retrospective academic research and for going back later. But certainly it is a
+little bit of an issue. And that's why people are continuing to use GISAID.
+Yeah, I mean, regardless, I think the the critical issue is the, I don't want to
+say politics, but it's just the nature of the ethics around the sharing of data
+and making sure that people who produce it get what they need to get out of it
+and the people who need it get what they need to get out of it. And in a way
+where everyone can can be happy and interact with each other. I mean, we've had
+that luxury in Cog because it's all within the consortium that we're able to
+establish what and everyone is able to speak sort of in a safe space and
+everyone kind of knows each other and it's all sort of nice. But in an open
+world, like we need to have those sort of we need to have a kind of generic
+framework like that where we can.  put our data out there and know that it's
+going to be used correctly. And I mean, it's not just the thing of being
+scooped. It's a thing of, I can't imagine if we put out some genomes tomorrow
+and then someone else use it in an analysis, which said something horrible. And
+then people come and point at us saying like, well, you guys generated this
+data. So you're the ones responsible for this work. Like, no, it's not, that's
+outside of our remit of us putting the data out. You know, these sorts of
+questions are, it's a difficult problem of sharing data. So maybe to give an
+idea, I looked at 25 papers recently and 15 of them don't have any raw data
+available, like raw reads, that's just insane. Like that's a very low
+percentage. And if you don't have the raw reads, you can't really reproduce any
+results. You know, you have the genomes, consensus genomes or assemblies, but
+those aren't necessarily correct or, you know, methods slightly change over
+time. So you really need to go back to raw data and to have such a tiny, tiny
+percentage being reproducible is just shocking. So. And GIS aid has only the
+consensus sequences, right? So that's, that's one of the issues that we could
+talk on. Now you think that everyone submits to GISAID, but no, unfortunately
+there is a sizeable percentage is about 20% of studies that I I've seen don't
+actually even bother to submit to GISAID. And we found that as well with some
+countries who've approached us for help, you know, they're sequencing, but
+they're not actually making the data public. So they're, they're taking all the
+data that everyone else in the world is producing to provide context for them
+and lineages for them, but they're not actually sending it back the other way
+saying, well, this is what we found as well. So, you know, it works both ways.
+I'll get off my high horse there. Yeah. I mean, it's not putting the, not
+putting any data out. Is this not odd? Sorry. I can't, I like to play the side
+of people's privacy and, and then get, and people and protecting people who
+generate data, that's really important. But if you're not putting anything up
+and then expecting us to help you, well, sorry. Anyway, on that note, we should
+probably wrap up. Yeah. So that's all the time we have for today. We've been
+talking about some of the latest tips we've picked up about SARS-CoV-2 analysis.
+And hopefully this catches you up as well. And yeah, so special thanks to Leo
+for joining us today. And we'll see you all next time. Thank you all so much for
+listening to us at home. If you liked this podcast, please subscribe and like us
+on iTunes, Spotify, SoundCloud, or the platform of your choice. And if you don't
+like this podcast, please don't do anything. This podcast was recorded by the
+Microbial Bioinformatics Group and edited by Nick Waters. The opinions expressed
+here are our own and do not necessarily reflect the views of CDC or the Quadrant
+Institute.

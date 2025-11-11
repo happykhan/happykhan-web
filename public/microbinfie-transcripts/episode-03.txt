@@ -1,0 +1,219 @@
+Hello and thank you for listening to the MicroBinfeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There's so much information we all
+know from working in the field, but nobody really writes it down, there's no
+manual, and it is assumed you'll pick it up. We hope to fill in a few of these
+gaps. My co-hosts are Dr. Nabeel Ali Khan of Enterobase, GrapeTree, and
+BrakeFame, and Dr. Andrew Page of such works as Plasmatron 5000, Rory, and
+Gubbins. I am Dr. Lee Katz, and you might know me from my Tree Making Pipeline
+Mastery or my SNP Pipeline Live Set. Both Nabeel and Andrew work at the Quadram
+Institute in Norwich, UK, where we work on microbes in food and the impact on
+human health. I work at the Centers for Disease Control and Prevention and am an
+adjunct professor at the University of Georgia in the U.S. Let's begin the great
+podcast experiment. Nabeel, do you remember how we were discussing why I think
+shuffled FASTQ files are better? Yes, I do remember, and I disagree. I think I
+like my FASTQ files separated out. It makes my map analysis so much easier. I
+like it because you just have one file per genome, but everyone criticizes me
+because as soon as you run it through some pipeline or any software like Spades,
+it just splits it anyway. I actually don't like how everyone keeps it split, but
+I know that it comes off that way from the sequencer. Well, I think we've got
+to... Actually, hang on. We've got to step back a bit because we haven't
+explained what a FASTQ file is. Maybe there is a single bioinformatician out
+there who doesn't know. So, Lee, what is a FASTQ file? FASTQ file is a file that
+contains the DNA sequence and the quality string for every single read of a WGS
+reset. I probably did not explain that very well. Yes. Well, I'd say it's a
+glorified text file that has the nucleotides that came off the machine and the
+confidence the machine has when they called it. That's really well said. Thank
+you. And it's not bread and butter, isn't it? I mean, I'm working with them
+every day. That's how we transfer data. And actually, I think now that's more or
+less the primary data we saw. If anyone ever asked us how we did our analysis,
+that's what we go back to. And it's amazing to think that it's such an ad hoc
+sort of file format, really, with such humble beginnings. But this isn't really
+the first format, is it? There are other kind of failed formats. What were some
+of the first ones? There were propriety formats like SFS for things like 454
+data would come in SFS, but that was including the actual flows of the machine.
+But then that wasn't for every technology. No, I guess not. So, I mean, after
+doing 454, after doing that, I started coming across the Illumina files, FASTQ
+files, and it totally made sense to me. It was a lot easier to work with. Moving
+on to Ion Torrent, they gave you the option of either SFF or FASTQ. And I think
+everyone basically stuck with FASTQ files. I really haven't seen an SFF in the
+wild for the last five or 10 years. Yeah, so this is like the gold standard, but
+we'll have to explain how the base encoding works. But there was a time where
+you weren't sure what type of FASTQ file you were dealing with, if you weren't
+careful. But for some reason, someone decided they would start... The base
+qualities were encoded as ASCII characters. Do you know why that is? No, I
+actually didn't know why. Probably easier to encode it than just having these
+long strings of integers. Because I've seen people write it out as straight sets
+of numbers and it looks terrible. Yeah, I agree. I've seen that too. I've seen
+people... I still have seen as late as last year, somebody had a script to
+encode it back and forth. And I guess it makes sense if you're not used to it.
+But I feel like I've been staring at them for so long. I've been like a
+character in the matrix. Yeah. So if you were looking at a string, what would
+tell you it's a good read? What kind of characters would you be looking for? I
+really like how if it's low quality, it gives you a bunch of pound signs and
+exclamation points. So it looks like it's cussing at you that it's so bad. But
+then if it's really good, it's like the letters A through I, and it's like, I'm
+really good. I don't know if you know, but that only applies to Pred64 encoding
+where they started the offset. So PredScore0 is ASCII64. That's the only time
+it'll happen because if it's 33, it'll start with different characters. Right.
+So I can't remember actually what Sanger encoding started with, but I know it's
+offset by 33. And I don't even know why they switched it over. Yeah. So Sanger
+Pred33 starts with all of your special characters, then integers. And 64
+actually starts with the at symbol and then capital A. Okay. Okay. So if it was
+really, really old, it was 64 data, like five or 10 years, you wouldn't see your
+curse letters and you wouldn't be able to tell. You'd see the cap letters and
+think everything's fine. That's right. Yeah. We don't have to worry about that
+anymore because I think unless it is very, very old sequencing data, which you
+should probably just repeat if you're still dealing with it, it's going to be
+all Pred33 now. Yeah. And we've even kind of gone on from FASTQ to making other
+enhanced formats. Like we use BAM all the time, which is Sequence Alignment
+Format. And it describes, it's more than just raw reads, right? It describes
+where reads are mapping against a reference genome. We use a CRAM format. I've
+never actually used that before, but people are like raving about that. People
+like it a lot. I think if you go the full hog with it, you can get it to a tenth
+of of the original file size, which I think is probably the best compression
+ratio you're going to find. But it always comes back to the problem that you
+have to then give it to someone else, and then they have to figure out how to
+work with this file. And so you always wind up coming back to FASTQ because
+that's just what everyone knows. Yeah. So we just always use, just use FASTQ
+files. And I feel like the only wiggle room we have is just to compress it with
+a dash one to dash nine, depending on how you feel that day, so that it still
+fits in your pipeline. I used to experiment a little bit also with sorting the
+FASTQ file to see if you can achieve a better compression. Have you ever done
+that? No, I know that Brian Bushnell of the BBMAP fame wrote one tool called, I
+think it's Crumpify or Crumpify or something, where they would re-sort the FASTQ
+and then that would make it more amenable to LZN compression. But then obviously
+the problem is that if you do these sort of approaches, you'll sort of, you'll
+introduce this weird sample bias into your reads, where for some weird reason,
+maybe all of those that start like A, like with long poly A's will suddenly all,
+they'll be at the top. And then you'll maybe accidentally see, you know, start
+introducing some weird bias when you're doing your mapping. Agree. I actually
+had a really weird effect of this one time because we simulated some reads in a
+recent experiment and we were trying to see what effect the level of ambiguities
+had on SNP calling. And so we introduced ends to our FASTQ file up to like 5,000
+or something. And it turned out because the way the simulator works, we
+introduced all the ends of the beginning of the genome and there was definitely
+a weird subsampling bias. And so I think when you're doing things that depend on
+positions in your genome, you have to remember to even randomize them just in
+case something like this happens. Yeah, but I mean like by default it is random
+as it comes off the sequencer I suppose. So I can imagine someone naively just
+taking, grabbing the first million lines thinking they've got like 200 odd
+thousand reads that are random and it's not and that's, yeah, you could get into
+a bit of trouble. Absolutely. I actually had to spend a lot of time looking at
+the Illumina FASTQ headers. Like I don't think that those are immediately
+obvious until you start looking at Illumina documentation, but it's like, it's
+extremely descriptive. It's like machine name and it encodes the positional
+information and which channel it's on and which tile it's on and all this other
+stuff. So I kind of appreciate and kind of even hate sometimes how complicated
+it is, but it's all up in that header. But Lee, you remember one particular
+issue Illumina used to have with tiles. Yeah, I guess that one tile or another
+might mess up. Maybe it was a bubble and it would just just give you really low
+quality in that area and so you might have to correct the reads in that area or
+you might have to filter out those reads in that tile. So when you say bubble,
+you mean like literally an air bubble on the flow cell and because it's a camera
+taking a picture of something. I mean, you've all had that before where it just
+doesn't focus properly and you can't. Exactly, a literal bubble. A little
+bubble, like a bug in a computer. Yes. Yeah, that's kind of funny because the
+word bug, I'm sure you already know this, comes from a moth in an old computer.
+That was like the original story. Back when computers were made of vacuum, they
+were the size of a room. Yes, I guess we have bubbles. I remember, yeah, you can
+find it online where they actually staple the moth to the report. This is the
+bug.  Yes, I bet you know the story better than me. So binning also occurs on
+some FASTQ files, especially on the more modern machines, like the NextSeq,
+where they take the quality scores and they don't have a continuous zero through
+40. They basically, I forgot what the increments are, but like they'll bin the
+quality scores. And so you can have, if you did like a histogram of your quality
+scores in FASTQ files, it would be like, you would see three and six and nine,
+all the way up to like 37 and then 40. And I actually don't like that way. I
+felt like we got some inconsistencies when we looked at it on the Nextera. So we
+try to avoid that now. I forgot how the lab is avoiding that. I mean, the
+quality scores are already log-scaled. I mean, you're throwing a lot of
+information out. Yes. You're sort of saying that something within several orders
+of magnitude is in the same bucket. Yeah, I agree with that. And we just try to
+avoid binning on quality scores at all costs. I guess I don't want to trash the
+companies that are doing that. So maybe we can move on from that topic actually.
+Yeah. We can talk about the publication. So I think if we're talking about
+FASTQ, nobody really wrote a specific, like it was like invented. They just use
+it internally and then everyone just wound up using it because that's what was
+there at Tanger. And then there's a paper that came out in 2010, nucleic acid
+research by Peter Koch and others, where these guys had nothing to do with
+actually creating the format. They just were used to passing it. So they wrote a
+spec sheet as a paper of what FASTQ actually was. Oh, wow. So a lot of people
+cite this publication for FASTQ because there's nothing else to go on. I don't
+even remember the original person who came up with it. I guess it's the stuff of
+legends at Tanger. Yeah. From Jim Mullikin. At the time when Koch put out this
+publication, they point out that there was no official description of what the
+format actually was. And the closest thing was what was on the BWA website. And
+that wasn't very complete. So they got the paper out that describes it. That's
+important. It is important. So now we've talked about like so many basics on
+here. Do you want to talk about like what tools are used for manipulating? I've
+been using my own for the longest time and I don't know how I got so far without
+seeing that people are using just SAM tools or another thing called SeqTK. And I
+never got myself into SeqTK, for example. What kind of like are your essential
+fundamental tools for manipulating FASTQ files? I usually write my own dirty
+scripts to work with it because I assumed it was just a four line format so
+relatively easy to copy, just look at it four lines at a time. But apparently
+you can get multi-line. You can get multiple lines. You can break the sequence
+of the quality scores up with line breaks. So then that's not going to work. But
+they thought of that by having in the plus sign. Yeah, so when I parse it with
+Perl, I literally start setting a variable for ID and another variable for
+sequence. And then I literally have another variable called plus sign because I
+had no idea what that was for. And then I would never use it. And then another
+variable for the quality cigar string. And I suppose after talking with Andrew
+Page that the plus sign was just to help parse it. And that was it. But I feel
+modern tools can just parse that without that extraneous line now. Like we don't
+really need the plus line. At one point, actually, I noticed that when you get a
+FASTQ file off of SAM tools, maybe it doesn't happen anymore, but maybe several
+years ago, you would get a multi-line FASTQ entry. And I complained about it on
+BioStars or something. And Heng Li himself came on there. And he said something
+like, I never said FASTQ was a four-line entry format. And so I wrote a parser
+to change it to a four-line entry thing. So I would never have to worry about
+that in my code again. I would always parse it with that script first. Just to
+clean it up, just to make sure. So you'd basically just take out all the line
+breaks out of the sequences and compact it back down again. I think what I did
+was I read the ID line, and then I would read the... And then you knew that
+ended with a new line. And then I would read the next line and count how many
+characters that was. So the DNA sequence is that many characters. Then read the
+plus line until the new line character. And then I would read the correct number
+of characters for the quality score. Yeah, because they have to be the same
+length. And because it wasn't reading into a line-by-line buffer, the script was
+kind of slow. So you didn't want to always run that script, but it was useful
+for cleaning it up. And I'm still frustrated by that comment from Hengli. It's
+like, I never said it was a four-line format. No one ever said it was a four-
+line thing. That's why the plus sign is there. Killed me, but that's what it is.
+I mean, we've talked about a lot of stuff that happened in the past with
+problems, but I'm running into new ones dealing with PacBio data and even some
+Nanopore data, which still use the Thread encoding and they're still using
+Thread 33, which is fine, but they have scores all over the place. Often the
+PacBio ones are higher than what is possible with what programs are expecting.
+And they just freak out. They just think this is not valid. Okay. You said it's
+Thread scores on those instead of like the plus 33? It's just they keep going
+higher up. So like a Thread score for 33 will stop at 75, I think. So most
+programs are expecting up to Q40 and then PacBio gives you something back, which
+is like Q50 or more, or somewhere in the middle. And then your program's like, I
+don't understand. But a lot of programs are hard-coded to expect up to Q40. I
+never understood limiting yourself at 40, actually. What if you actually say
+that you are better than that? Then why can't you say that? Well, I mean, what
+you're saying is, if you're saying Q40, you're saying one error in 10,000 bases?
+That's the error rate? I mean, after that point, do you really care? Well,
+actually I appreciate it because I like when they say there's like one in a
+million and that way you can say, okay, there are very few errors in my 5
+million base pair genome. Okay, I'm sorry, but our time is up. Nabil, you made
+some really good points on there. We had some good conversation, but I don't
+know if like we changed our point of view on different things, if we like Sanger
+versus Fred scores versus any other encoding better or worse, but hopefully we
+achieved our goal of helping the listener learn a little bit. And I don't know
+like what you did, but I drank like three cups of coffee to get hyped up for
+this. What was your preparation ritual? Just water, just water. I mean, if I was
+on coffee, this would have been going a million miles a minute. Yeah, I made
+like this huge French press this morning and my wife had like a cup of it. And
+then I think I had the remainder of this huge container. Yeah, and I feel a
+little jittery too. You didn't do anything, you did really well. You have a good
+energy. Well, anyway, we were just here to shoot the breeze and record some of
+our thoughts in podcast format and we're testing that out. And I think we
+accomplished that. All right, well, yeah, I'm Nabil Ali Khan. And I'm Lee Katz.
+Thank you for listening. If you like this podcast, please subscribe and like us
+on iTunes or Google Play. And if you don't like the podcast, please don't do
+anything. This podcast was recorded by the Microbial Bioinformatics Group. The
+opinions expressed here are our own and do not necessarily reflect the views of
+CDC or the Quadrant Institute. Thank you.

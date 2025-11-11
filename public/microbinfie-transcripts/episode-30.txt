@@ -1,0 +1,433 @@
+Hello, it has been more than a year since we started the podcast and we wanted
+to record this special episode on the origins of the podcast. How do we meet?
+Why do we do it? How do we do it? So to kick us off guys How do we know each
+other? You want to start Andrew? Yeah, so I guess I first met Nabil many years
+ago at a hackathon randomly in Warwick and actually that was the first place I
+learned to play the game Pandemic which is quite relevant for these days But
+anyway, we had a hackathon for MRC Climb and that's how we got to know each
+other, you know And following on from that we met at various different events
+over the years, different hackathons, conferences You know, you just bump into
+people but it was a very small world and also then out of one of those
+hackathons A slack group was set up and we kept in touch And then Lee, I think I
+know you from that slack group as well yeah, I was very fortunate you guys
+invited me as I think the first American On that one so I was able to get in
+very early. I'm very fortunate. Well, we had some Canadians. Does that count?
+Okay, fine so I wasn't the first North American actually, but First person from
+from my country. I appreciate that the token American Yeah, as Andrew said
+that's that's how we met and I think I met you Lee It was some Enterbase
+PulseNet work and I was trying to get in touch with the bioinformatician behind
+CDC who knew Stuff of what was going on with the data. They were submitting to
+the short read archive yep, and and I got your email and I think I was more or
+less disappointed Because I didn't know enough to help solve the problem But we
+started off a good email correspondence And then when we started the slack board
+when I was invited to the site where you all started I saw you on there. We were
+able to talk more on there Yeah, I mean we I think we had a lot of discussion
+backwards and forwards on some of the cgmst snip stuff and all of that so Yeah,
+and so that was that was like several years ago and we only actually physically
+met last year at AVPHM So it's been it's been a mostly virtual cyber
+relationship That's random because you know, we had a paper together, you know
+in what 2017? Yeah, so we hadn't actually met I mean, it's it's often that you
+know your collaborators on a paper and you don't meet but I think we work pretty
+closely All three of us on that one And yeah, never met Lee at that point And
+that paper grew out of a just a random slack discussion it was a Was it a horse
+race between all the different MLSC pieces of software see which one actually
+works which doesn't You know and kind of test them in and out and then we'll
+throw all of our knowledge into one little paper And then bang a few weeks
+later. We had something Yeah, pretty much It was a great paper. Thanks for
+getting us together on that In fact, I think we went so quickly that the CDC
+clearance couldn't even keep up Yeah, so in all of our different discussions and
+so on there's often these conversations through virtually on slack or physically
+at the bar or whatever where you Meet up and you talk and you have great ideas
+and one of those is the MLSC paper that actually turned into something but then
+there's a lot of other ideas that just sort of don't get discussed a lot of
+secrets a lot of tips and from that we wanted to capture that and that's where
+We wanted to have a format where we could actually put all of these different
+ideas into Something that had some permanence that other people can learn from
+as well as we as we learned And there's so much information out there, you know
+You've got reddit and bio stars and loads of different places to find
+information about mathematics But it's all totally distributed and there's so
+much insider knowledge That everyone just kind of assumes, you know But most of
+it isn't written down at all And you just have to embed yourself within the
+community for quite a long time before you actually realize What's going on and
+what all the nuances are so having a podcast format or something like that does
+really really help Yeah, I mean originally I think we wanted something written
+down like a blog or a zine like a little magazine print pdf thing I suppose it
+was just a lot of effort to kind of draft something. It was too formal and It
+was difficult to draft something that we could Write up and turn around pretty
+quickly because things change pretty fast as well and so we we settled on the
+podcast format because it at least allowed us to Discuss go backwards and
+forwards have guests on and have a dynamic discussion because often at a
+conference That's really where you learn the most is when you grab someone a
+coffee and you ask them about something and they tell you something That wasn't
+in the poster that wasn't in the seminar and that's where the penny drops and
+you realize ah That's how I do this for my work so even before that we had a
+virtual lab talk series that Lee and myself were chairing and I was uh, we would
+Do it live over zoom and then we'd take questions Uh live as well for the
+presenters But we would also record it and put onto youtube So that was kind of
+our dipping our toes into the water for our first kind of Public engagement
+spreading the knowledge, but it was quite difficult to keep that up, wasn't it?
+Yeah, that was really fun. I gotta say and um, we can get into that more later
+with our conference We did but it was really fun. It was we would record about
+Two three different talks at a time separate them out put them on youtube and we
+have a nice youtube list Where anybody can go back and listen to the talks now?
+so we got a yeah, we did dip our toes into how to Record and and get people
+talking best One interesting phrase that I got from unibill from this This is
+just kind of an aside is that you say meet space and I like that phrase a lot
+Yeah, meet space hardly any meet space interaction these days but I think I
+think with the virtual lab talks what proved to be from the outside looking in
+was part of the difficulty was It's it's a formal seminar. So people were trying
+we're always giving published results or polished talks and part of it is and
+that that's really important that that we disseminate that kind of knowledge,
+but But then it sort of discourages the casual conversations. We were having in
+the in the slack or at meetings and so on We are all people who love podcasts
+actually Even before we started this. So what podcasts kind of Are influential
+for you guys? So for me, I really like the bbc podcast. So the curious cases of
+rutherford and fry And then there's the infant monkey cage. So kind of sciencey
+podcasts But then you know, I also like the more True crime and history as well
+What about you lee? I think I got my my toes wet with with things like from npr
+like how I built this or planet money But also there are the science podcasts
+like science friday also food safety talk And I and I also had one that was done
+by a friend called The newberry tart and she just talks about kids books on
+there I really like the way that those speakers organize their podcasts and I
+and I like the topics I think for me I actually don't listen to that many
+podcasts. I don't listen to any regularly actually I just even listen to our
+podcast sometimes And I haven't subscribed at least on spotify. Well, that's
+good. That's good first step But but I do consume a lot of I do consume a lot of
+content on on youtube Which has which is and a lot of that format is basically a
+video version of a podcast Where someone's just talking about a topic and that
+was reassuring for me because that kind of showed me that no matter what you
+want to talk about if you Have something interesting to say you will find an
+audience absolutely, and I think one of the key points of this podcast is that
+we wanted to have a niche and serve a little niche because We we don't want to
+do a general like microbiology podcast or general bioinformatics podcast because
+those things exist already You know, we wanted to have a narrow focus basically
+Our little area and what we enjoy doing ourselves and what we would talk about
+if we're out after a conference or over a cup of coffee, whatever so That was a
+key category we wanted to fill yeah, that's always the frustrating thing is that
+the devil is in the details and when you try to zoom out and you talk about
+Bioinformatics even if you say weed mapping it's different if you're doing human
+versus microbe versus other organisms and then that Vagueness you have to
+introduce to keep it accurate then means that you don't you can't say anything
+definitive and it sort of Gets a bit dry But here we can really take a
+particular problem and tease it apart and talk in depth about something And with
+and that's our background of course as well I think it'd be really hard for us
+to field bioinformatics if we were talking about bioinformatics generally with
+Would say what happens in human populations or something like that God, that's
+too hard. You know, it's a massive genome. Yeah, and it's like diploid like this
+is that kind of redundancy is unnecessary And then you get into plants my god,
+you know, you got wheat and it's crazy number of copies of everything Yeah There
+are other bioinformatics podcasts out there that I listen to and the topics on
+there I listen to them because I don't know the topics and  and they teach me
+stuff, like the bioinformatics chat. My hat's off to you all, other people who
+do these other podcasts that these other niches that I just cannot cover, that
+we can't cover. Yeah, definitely bioinformatics chat is worth a listen. That was
+one that I put on every now and again. So how did we kind of prepare for our
+format? You guys have some thoughts on that? Well, I think we geared up for a
+few months beforehand, you know, we really needed to talk ourselves into it.
+That's true. Lee, did you talk to anyone in the social media space? Well, I
+talked to a couple of people that I knew are podcast hosts. I ran into Ben
+Chapman from Food Safety Talk, for example, at the International Association for
+Food Protection meeting in 2018, I think, and he gave me, he was more than
+gracious, he gave me so many tips, and we just talked over beers and meat space,
+and he didn't even mind that I was taking notes in Slack and typing them to you
+guys as he was talking to me, and he just gave me so many good tips. One of the
+tips was, you know, just have an ongoing Google Docs folder or an instant
+message as we're talking and recording, so that we have this alternate method of
+communication and something to read as we're going, which is exactly what we
+have right now. Yes. I talked to my friend Jenny Law, who hosts the Newberry
+Tart podcast on children's books, and she just kind of went over their flow, how
+they might edit things, and just kind of that space. I talked to my brother who
+works in social media, hi Jeff, and he gave me some good tips some ideas for
+what to do, he gave me feedback on our first recording and editing, some good
+tips. And the boring part that I had to go through was CDC ethics. So I think
+for maybe half a year, maybe up to a year, I went to CDC ethics and described
+what I was going to be doing, how can I clear this, make sure that I'm not
+saying the wrong things, what are the wrong things to do that I need to avoid.
+They actually codify what the ethics are, and I have to sign it, and my
+supervisor has to sign it, and all that stuff. So it's in writing, and I renew
+it every single year. But the danger is if I express something over here, and if
+we didn't have the disclaimer at the end of every episode that these are not the
+opinions of CDC, and despite that, even if I went, you know, overboard and told
+you things like aliens are reading our minds that... Careful now. Yeah, I'd have
+to be incredibly careful not to say the wrong things on here. So CDC ethics,
+with a capital E, really helped me prepare for that part. Oh, and I really have
+to thank the communications people across CDC who have helped me with this,
+including Alex Mercanti, Brooke Aspinwall, Lucianne Draper, and Brian
+Katsiewicz. I'm sure I'm forgetting other people, but thank you so much. Yeah, I
+guess myself and Nabil were in a smaller institute, and we don't have that kind
+of level of clearance that's required. More or less, people are just happy that
+we're doing any public engagement at all. And I was like, yay, great. So I've
+seen some things. I can't remember if it's from Sanger or from Quadrant, but
+there's like one episode podcasts out there that were like started and never
+finished. So I'm sure they're like more than happy that we've continued this.
+Absolutely, yeah. And it always looks good on ResearchFish. I put in every
+single episode into ResearchFish, which is for showing impact against grants. So
+it makes a big, long, nice, bulky list. That's amazing. Do you have any other
+things, Nabil? Oh, well, in terms of preparing for this, I just read a lot of
+content. I mean, Lee, you dug out a lot of articles about podcasting, and there
+is a lot of material out there. Just have a look how to start up a podcast kind
+of thing. And that's where I went with it. I didn't talk to anyone in
+particular, but I mean, between the both of you, it seems like we had a lot of
+input from elsewhere anyway. And then, of course, we also recorded quite a few
+before we even launched. Yeah, so I think this was all Lee's idea. I don't know
+where you got this inspiration for this, but you came up with this idea of
+having a pilot episode and like a season, like we sort of actually went through
+a rough run-through of what would an episode look like, what would the content
+be, what would we say, what would a season of like a set of episode six, we
+picked six episodes, what would they look like, what would the content be, what
+would the release schedule be, you know, all of this, all of the kind of bits
+and bobs that you'd need to flesh out. We had that on paper, an outline before
+we started. Yeah, I got all that from the blog that you mentioned. I can't
+believe I forgot to mention the blog, so I really dug in. And once we decided to
+start off the podcast, by the way, even before we decided that for sure, like
+that was an idea that you guys brought up, and I was just like, I don't know. I
+went to my brother who works in social media, and he's just like, yes, nobody's
+doing this kind of stuff, it's an open space. And I'm not doing this for money,
+right, like we don't get any money from this, but he's very business oriented,
+and he was saying things like, yes, this is such an open market, and he was
+using business terms like market on me. And I was like, you know what, if it's
+an open market, then maybe it's just like an open place where people can learn
+bioinformatics tips from us. And I wasn't sure about that, but it turns out that
+we do have a good niche. So I'm very happy that we did this. And of course, we
+don't make any money off this, yes, there is zero money, zero advertisement,
+zero funding agency for this. But if someone wants to buy us a coffee, they can.
+Yeah, I'll accept a coffee. And then from that blog, I mean, they had all sorts
+of tips, like how to structure it, like is your podcast going to be an interview
+style? Are you going to have this kind of style? And we went through the
+different options, and we decided that a good back and forth between co-hosts
+was the right style. And you mentioned also that we went ahead and recorded a
+whole season. Do you remember the first episode we recorded? Yeah, it was a bit
+of a car crash, wasn't it? Yes. It was actually the FastQ episode, so we didn't
+release it first, but it came out, I think, third, was it? I think so, yeah. And
+we just chose like a very dry topic, just something to, as a practice, that we
+could just throw away if we wanted to. Yeah, it was the throwaway episode. But
+we released it anyway, you know, if we'd done all the work, we might as well
+release it, you know? Yeah. I promise we haven't proved though since then. No
+one really complained about the FastQ episode, except that the audio quality
+wasn't fantastic, because that was obviously the first edit we'd done, and we
+hadn't sussed out the best methods for recording. Just as a pro tip to anyone,
+you can't fix, there's very little you can fix in post if your initial audio is
+pretty trash. So just buy a decent microphone to begin with, you'll save
+yourself a lot of hassle. I don't know how much yours is, Lee. Mine isn't too
+much, it's just a basic car toy USB thing, it was about 50 pounds. I think you
+got a shotgun mic for about 30 bucks or something? Oh no, not 30 bucks, but
+maybe on the same range of 50 pounds, but in dollars. So I think it was
+somewhere between 50 and 100 dollars. And I mean, part of this is to help
+promote my activities also at the Center for Food Safety and UGA, and so I was
+able to get that with my adjunct membership grant from UGA, from the University
+of Georgia, which I really appreciate. And of course I'm on a blue Yeti
+microphone, recommended by Nabil. It looks good. It is, it's great. Andrew is
+showing off his microphone on the video. Okay, this is my son's one. He got it
+for Christmas so he could podcast, but I'm borrowing it. Yeah, the Yeti was the
+YouTube influence because that's a YouTube streamer favorite is the Blue Yeti,
+and people will argue one way or the other whether it's any good or not, but you
+know, for the price compared to other things, but we're happy with it, I think.
+I mean, that one in particular was bought because it's unidirectional, so it was
+good for interview style meetings or when there was two, three of us in a room
+or something like that. It was very good, yeah, and the sound quality is
+amazing. And you can really hear it, you know, as time goes on and when we have
+these better microphones and we have better editing techniques that the quality
+has improved. I know the first few were possibly a little ropey, though, some of
+the feedback we got, but things have gotten better, I assure you. Maybe we
+should just junk the first, you know, few episodes and rerecord. Believe it or
+not, they're still, they are still our best fairing episodes. The What Software
+Not to Write is, and part two, is like our best episodes, most listened to
+episodes. And then it's Torsten's episode, which we recorded out in the hallway
+by the cafe at work. So, you know, there were people coming and going, and that
+still people really enjoyed the content. I mean, basically, as long as your
+audio isn't sort of distractingly bad.  you can get away with it, I think. And
+that was at a food safety hackathon that we had in Quadram, so there's a good
+dual use of podcasting and hackathon at the same time. Once we got all this
+stuff together, these ideas, we got together the equipment, Andrew, how did we
+actually start up in digital space? So I signed up with SoundCloud, and we
+needed a place just to host the actual files and then create an RSS feed to
+syndicate. And that just seemed to be the easiest way, pay a few pounds and off
+you go for the year. And then you get an RSS feed, and from there you can then
+pass that URL around to different services and register it with your Spotify,
+Google, iTunes, all the rest. And it seemed to work quite straightforward. You
+know, it wasn't that hard, I don't think. There was a bit of reading around,
+finding out where you put stuff. But I think once you get into something like
+iTunes, then virtually every podcast app just seems to magically work and
+magically find the podcast. If people don't know, when you go to iTunes or you
+go to Spotify, the sound, the audio itself isn't actually on any of those
+services. They're just picking it up from somewhere else. And that is just
+through an RSS feed as Andrew's describing. And someone has to go and tell all
+of these different syndication services, here's an RSS feed for a podcast that
+the service needs to pay attention to. So yeah, you just go through, it's not a
+difficult thing. It's just a form. You have to obviously have an account at each
+of these places, and you just have a form that you fill in giving the RSS feed,
+and then that gets picked up. I think initially we covered quite a few of them,
+but even as we went on in the first run of episodes, people were saying, oh
+yeah, I wanna listen to it, but I don't see it on app XYZ. And then it was a
+matter of just digging out the process of having it picked up on that service.
+But a lot of them do just eat whatever iTunes is distributing as well. So I
+think now, I think we've got pretty decent coverage across all of the major
+syndication services. But that is like a weird step that it was sort of
+confusing how that actually works internally. I actually had to read something
+to figure out what is going on. I'm glad you figured all that out because that
+was beyond me too. And I'm not the biggest social media expert out there, but
+you guys advertise pretty well on different platforms also, right? Before we
+started. Yeah, we got the word out. Twitter, Biostars, Reddit, Slack, Facebook,
+you name it. I'm sure we hit it. And also amongst our friends. And then I know
+my institute, the Quadram, put out a blog post and a news item on it as well. So
+we got a bit of, we got the word out. And luckily it didn't flop. People did
+actually listen. And then we did one more thing also. Nabil kind of got us set
+up on the Google Cloud for us to start storing our things. That was fairly
+straightforward. Just a straight Google Drive folder. Doesn't have to be- With
+subfolders for each episode as well, to keep it nice and organized. Yep. And
+special places to keep new ideas and snippets of other potential ideas and
+things like that. You do need something to keep it a bit organized. So once we
+had all that set up, how did we start off with a pilot on the first season?
+Well, we had to Google doc a load of random ideas and I'm sure we haven't done
+half those yet, but we just had a big brain dump. And then we started trying to
+expand them and sort them and see which ones would do first. And so we chose
+fast queue files and the history behind those. But even though I proposed this
+episode, I didn't want to speak on the episode. So you won't hear my voice on
+it. That's right. I forgot about that part also. We decided back then, we
+decided on a two person co-host format based on that blog. And we were going to
+say that you were in the control room or something. I'd be like the overlord in
+the background. The silent partner. Yeah, but I think it's much better with
+three of us talking. I think this is good. It's a bit of fun. Yeah, I mean,
+that's something for people to consider if they're making their own thing on how
+that works because some people just have the gift of the gab and they can just
+talk and they can just be a one man show and that's fine. And other people are
+quite happy with two. But I think for three, it works really well for us because
+we all have different points of views and we sort of bounce off each other
+pretty well. And it feels more like a party. No, I agree with that. I look
+forward to hopping on a call with you guys. This is really fun for me actually.
+So this is a party. So after we had our brain dump and we had, I think it was
+something like 30 episodes just ideas dumped out. We started off with six
+episodes, right? We had our pilot episode, but I don't know. We had to kind of
+package it up. So do you remember how we might've put together our first six
+episodes, the trailer? Like how did we come up with an idea of like a season?
+How often we would have an episode come out? Yeah, I think we fixed, we did that
+at the start because we weren't sure how much effort it was going to be to put
+together. At least for me, I found that was, it was quite good to at least make
+a commitment of, okay, we're going to make six episodes and we're going to flesh
+these all out and see how it goes and then start releasing them after some time.
+Another benefit for that is because we prerecorded six episodes that gave us
+some leeway to see how it was performing. And then we could use that feedback
+and then start already start on a next set of episodes while those were running
+out. We sort of structured it so that we'd had the first one, you know, we did
+the pilot. We weren't, that was sort of irrelevant where that was going to go.
+We led with two strong episodes and then we had Torsen's one as like episode six
+as a sort of season finale and that capped it off quite nicely. Now, I think
+that we're quite comfortable with the format and we're able to, we sort of, you
+know, now that we're comfortable with the format, we don't actually do that
+anymore. We sort of just generate, we just generate more and more episodes and
+keep adding those to the queue. But also we've gotten better as well. Like when
+we record one episode, we might actually, when we have one recording session, we
+might actually record two or even three episodes and we've gotten a little bit
+better with timing and when to cut things and move on to the next. And it means
+that we can do a lot more content in a short amount of time because no one
+really wants to listen to two hour podcasts of us just, you know, yammering on.
+I think what about half an hour, you know, is a nice thing to aim for. Gravity
+is the soul of wit. Yes. I've learned a better pace of speech actually and not
+to interrupt you guys as often. I know I'm still not perfect. We were just like
+this when we started where when you start speaking, you have a lot of ums and
+ahs and you speak really fast. And now, if you listen to us now, we talk quite
+differently. Sort of slow it down and take pauses. Let the words hang in the air
+for a bit. It's perfectly fine. And if there's any issues at all, you know, just
+stop, redo the line or stop and restate what you want to say because that'll get
+cleaned up in an edit or something down the line. So, what people or the kind of
+audio that people can't work with when you're editing is when they've said
+something really interesting, but it's buried because they said it too fast.
+They've said it with a lot of other extra bits around it, extra sentences around
+it. And so then the message is completely incomprehensible. That's something you
+can't fix on the edit because everything, all the audio is intertwined. You
+can't pull it back, pull it apart. So, I think in terms of us editing it, we
+learned what, how you should speak to make the editing easier. And then that
+sped up the process. It's sort of this feedback loop. Do you feel like you
+separate your ums by pauses now? Because I do. I definitely um less, I think.
+But no, but the ums are important because that's how people normally speak. So,
+you don't need to worry about the ums. We all have our different types of ums.
+Things like and, and so, and just quite a variety. It's not just um. Yeah, I
+think the one gap filler sound that people make that's the most irritating for
+listeners is the sort of click. Some people like smack their lips and have a
+click. Yeah, and so we did that. And that is really harsh on the ears if you're
+listening to it on headphones or something like that. So, that's the one that I
+religiously cut out of any episode for arm editing because that hurts. That
+hurts me. I don't know about both of you. I haven't come across it yet, but I
+would. I would cut it. So, to improve the audio quality, at the beginning we
+were, or I suppose middle of the way through, we were recording individually and
+recording our own tracks locally because that seemed to give much better quality
+than recording it over the web. But actually, I think now that we're using Zoom
+totally, it just seems to work a lot better.  And we get quite good quality out
+of it and we don't need to do multiple tracks anymore Yeah, I think they were
+totally comfortable with zoom I don't get nervous about whether or not it's
+gonna get recorded correctly or not. It just works now. It's great. I Was so
+nervous the beginning of this. Do you remember I super? Requested extra above
+I'm beyond requested that that we get an SOP For making edits on our recordings
+and no bill you you obliged me and made that so I appreciate it Yeah, no
+worries. I mean, um, I mean I tinkered with audacity before for the sound
+editing. That's the program we use but I don't think either you had too much
+experience with it and so we had a Description of the different methods we can
+use to clean up and so on and I put that into an SOP with screenshots and
+parameters that suggestive I could suggest and From that We you know, that's how
+we keep the editing consistent though as well We needed to have a sort of
+manifesto of that information And then of course we need to decide right now,
+you know who's gonna edit this episode I'll take this one on actually I'm okay
+with that Awesome. Yeah, that's I think that deciding who's gonna edit the
+episode is a hot potato It can take quite a lot of time I think particularly
+when people say like em and so and I and and all these kind of things a lot Or
+if you need to split things and whatnot Yeah, it depends on how much preparation
+we've done on the episode and how comfortable we are with the topic because that
+then Rolls into the recording and then that Has a knock-on effect onto the edit
+so If there's long Explanations of topics and we're arming and aring and we have
+to cut it over and over again Then that that's also a pain to edit downstream
+But you get better over time. Basically, that's the take-home message here. It
+doesn't doesn't matter I think if I think about the first couple of times I did
+the edits for the first season. It was maybe it took me more than two hours per
+episode and Now I think I can push through it in about an hour hour and a half I
+Might actually we might actually be able to cut two episodes in an hour and a
+half Wow, it takes me like three hours now still I'm still learning I guess Is
+there like a major? Lesson that you learned after a year of podcasting invest in
+a decent microphone, I Mean initially do the pilot play around with a few
+episodes Get a feel for the content and make sure that that's a thing you want
+to do but when you're sure and you're serious just buy a decent microphone and
+Spend the time finding a very quiet room to record in like the number of rooms
+we have gone to in our building to try and find something without a hum or a Fan
+somewhere or a banging noise or I don't know toilet flushing whatever, you know,
+it's quite hard There's very few really quiet rooms in a busy building Yeah, you
+don't notice it in person but when you play it back to yourself with headphones,
+you can hear this tapping or something or other and It starts to become
+distracting Then you become paranoid about it my lesson is probably Is probably
+and make make my wife happier about kicking her out kicking her out of the cat's
+office For for two three hours at a time Yeah, I agree with having a quiet space
+and it's tough to get that Absolutely. Yeah, and it's harder now that we're all
+at home as well I mean, I've got two kids downstairs and they're not the
+quietest in the world Which room are you in during the pandemic times? I've got
+an office a little box room. They call it and in the UK So it's a teeny tiny
+bedroom Where you could fit probably one single bed and a wardrobe and that's it
+Okay, and which and which place did you decide on when you were recording a
+quadrant? Was it just was there a particular room? We have tried many many
+rooms. I think the best one was one of the large meeting rooms Yeah, one of the
+issues is if you're in a small office space, you will get an echo from the walls
+Which is something you've never noticed before if you're standing in a room
+speaking, but when you record it you suddenly realize wait There's this annoying
+reverb coming and it's coming from the wall So we opted for the largest seminar
+rooms because at least you didn't have that echo I mean, it doesn't help that in
+quadrant. They love glass and glass is a wonderful thing for reflecting sound
+You did try blanket over your head one time did yeah Yeah, there is what I can't
+remember which episode it was but I had a towel I had a towel over my head and
+the microphone that is a decent lo-fi way of Insulating if anyone ever wants to
+try it That's when I knew that you were taking it the most seriously It worked.
+I mean it definitely made an improvement. So it did Yeah, I was talking to a
+pile of blanket that whole time. It was funny, but very serious Which room are
+you in right now? I'm in my it's a third bedroom But it's much like a bar. It's
+not attached to another bedroom, which is nice But it's much like a box room. It
+could fit a single bed in a wardrobe and that's about it But since the mic is
+upgraded, I think I've gotten rid of the echo problems Yeah, that is a very nice
+mic and and I just learned that there is a word called box room in the UK I had
+no idea Yeah, so what they do is they squeeze in a teeny tiny room and then they
+say oh just a three bed or a four bed instead of a two bed Smart So probably
+doesn't exist in America where everything you know is bigger and better The I've
+learned this when I was house shopping The requirements are you have to have a
+window and a closet to list a house as having that extra bedroom Oh, they don't
+have a requirement like that here at a door Yeah, it don't make sense so our
+house is a four bedroom, but it has a Fifth room that is too small for a closet
+and I imagine it's a box room the way you described it And that's where I've
+recorded sometimes too. But today I'm in the basement Yeah, basements are
+unheard of over here. No free coming We're in tornado land over here in Atlanta.
+We have basements not all houses You see we have this single rain Basements
+wouldn't last that long You

@@ -1,0 +1,689 @@
+Hello and welcome to the Michael Benford podcast. We are having a holiday
+special today where we're going to watch Jurassic Park together and see just how
+the science has moved on in the past 30 years, because Jurassic Park was
+released in 1993. And if you cast your mind back to those days, they had a
+little bit on DNA and how they made the dinosaurs. So we're just going to watch
+it and see how it gets on. So Nabil is going to set the scene for us here now.
+But how did I get here? Well, let me show you. OK, so we're looking at the first
+clip where they are going on the little sort of interactive tour of Jurassic
+Park. And you've got this wonderful, this very Disneyland like amusement park
+set up. And they've got Richard Attenborough, David Attenborough's brother, as
+John Hammond, the eccentric park developer. Afternoon, John. DNA from what
+source? Where do you get a hundred million year old dinosaur blood? Shh. What?
+What? Oh, Mr. DNA, where did you come from? And this sort of implies he's going
+to be there doing this every single tour. Whatever, it's a work in progress,
+right? Whatever. It's just a prototype. Dedication. Yeah. So at this point, you
+can see Hammond's got his stick with the ball of amber. And inside the amber is
+a mosquito. Now, there is a scientific precedent for that. At the time, I think
+there was some publications where this could be done. And we'll have it,
+speaking of the others, what do you guys think? Absolutely. What I heard from
+trivia is that, actually, the mosquito is clearly male in the amber when they
+claimed that all the animals are female. So something's gone astray there. But
+tell us more, Nabil. Yeah, so I think Michael Crichton, when he wrote the book.
+So this is based on the book by Michael Crichton, Jurassic Park. And there were
+some publications about getting DNA, perhaps ancient DNA, out of mosquitoes
+entrapped in amber. So on the basis of that, what if it could be dinosaurs?
+That's the scientific premise of the film, that you could, what if we could do
+that? What would happen, kind of thing. I mean, that's about where the science
+starts and stops, as far as the film's concerned. And then after that point, it
+turns into a kind of slasher flick horror movie with these dinosaurs chasing
+after you. Lee, you have anything to pop in? I was thinking, just mentioning
+that with ancient DNA, people may or may not know this. It's just not the best
+quality of DNA to work with. So I appreciate that they talked about how
+difficult it was to work with. They said that there are gaps in it or something.
+Whatever their language was with it, there are gaps in the DNA. And I appreciate
+that reflects reality, that when you are trying to play with ancient DNA, it's
+really chopped up. In fact, there are both theoretical papers and then practical
+papers that have done, trying to look at ancient DNA and pull out as much of
+genomic material as possible for a number of different organisms. And what was
+known then by scientists, and I think they've made a point, the people, the
+scientists involved, who were adjacent to this type of work at the time, were
+very quick to point out, this is probably not something you could actually ever
+do because DNA degrades over time and it would not last 65 million years. So
+you're not going, we're not going to have Jurassic Park anytime soon. I'm really
+disappointed actually. Yeah, so you can't, and that was known even then. So 30
+years ago, scientists would have said, no, this is, it's not, I mean, I think
+the paper, there was one paper that came out in, I don't know if it was
+coincidence or someone did it deliberately, but there was a paper that came out
+on the day Jurassic Park released, which was describing how they pulled out
+intact DNA, I think it was 16S from the mosquito in amber and all of that for
+some insect for weevil, I think. And they dated that to some, whatever, tens of
+whatever, millions and millions of years ago. But that's a far cry from saying
+we're going to get an entire genome. That's a large ask. And so at the time, and
+even now, that's not really like a thing that you're going to do. I don't, yeah,
+that's just not going to happen. So I thought of one more thing too. So while I
+was looking at this scene, I'm not sure if we got to this part of the video
+actually now, but this made me go into the huge rabbit hole too, because they
+mentioned that there are 3 billion instructions in this code. And I was like,
+huh, that's exactly the same size as a human genome. Are they just confusing it?
+I think it's a flub by the, because for me, when I was watching this back and
+watching the whole film, it was really clear that someone had told them that a
+genome is 3 billion base pairs in size. And when they said that they meant a
+human genome, but in writing the screenwriter, whatever, that just sort of cut
+that bit for probably for pacing. I mean, if you're going to go there and give
+all the caveats, like, oh, a normal human genome, like a human genome is 3
+billion, it's like, it's sort of whatever. So they've cut like a lot of this,
+those numbers. So yeah, 3 billion is like a human genome, right? Yeah, so I
+started going to this huge rabbit hole. So I was like, three gigabases, sorry.
+So I was like, I started like looking it up on NCBI taxonomy, like, and I found
+that there's actually an entry in NCBI taxonomy for dinosaurs. And I started
+going through this huge rabbit hole and I was, I got really excited. Like maybe
+someone actually did this and I didn't pay attention. And no, like the only, the
+only genomes under dinosaur are birds. They've actually categorized, you know,
+all the bird genomes under the taxon dinosaur. Wow. Where does Sasquatch fit in?
+I think that's, I think I also was curious about it when you brought that up and
+I had to dig around it. And I think reptiles or amphibians are like one to three
+gigabases. They're a bit smaller than human. Could be wrong. Obviously there's
+going to be differences, exceptions and so on. But yeah, but still it's like a
+lot of genetic material to sequence, to kind of do this. So even at the time,
+this was not going to be possible. People said it wasn't possible and that
+hasn't changed. So yeah, you can't do dinosaur level genomes. We might talk
+about some other efforts that have tried to do more recent organisms in a bit,
+but yeah, let's get back to the clip. So Mr. DNA, this really great design
+character. Don't use it for anything. You should have borrowed it. So it sort of
+implies that it's 3 billion bases for the dinosaur, because you said 3 billion
+bases in the immediately short dinosaur picture, but I think they mean a human.
+So this idea is based in some element of fact at the time. The fact that you
+would have a mosquito that draws blood and it would be trapped in sap, that does
+happen. And you could extract something viable out of it. So I don't think,
+yeah, so that's a viable thing of it. There are obviously a lot of problems with
+extracting DNA from material like this. I love how the scientist is happily
+doing this without any eye protection, but whatever, because there'd be a stupid
+amount of dust being kicked up. It's like, there's so much of the film where you
+just go, that's just not realistic, but then it wouldn't look good on film. So
+what are you going to do? I mean, I can't imagine Jeff Goldblum as the
+mathematician, like Vox, my mathematician, what's that about? Why do they have a
+mathematician on this trip? Yeah. Is this like chaos theory? I don't know why.
+Let's talk about, let's touch on that. So he's a chaostician. His field of
+research is chaos theory. So that's why he's there. It's like- It doesn't make
+sense. To be honest, when you go and when I'm like, so you don't get a scene
+with, it's the name of Ian Malcolm, Dr. Malcolm, where like Jeff Goldblum's
+character, you don't get a scene where they explain why he's there. He's just
+there. He seems to have been the lawyer's pick, the blood-sucking lawyer's pick,
+as far as the script's concerned, of someone to bring along. I don't know why.
+It's not really explained, but then the pretense for everybody is really, really
+shaky when you think about it. So the grandchildren are there for pulling at the
+heartstrings, I suppose. I don't know. I don't know why you'd invite the
+grandchildren on something like this. You need people in peril, you know? Yeah.
+No, it all makes sense if you go, I want to, if you look at, so when I watched
+it and you look at the film, you say, okay, I want this to be a horror film
+where the park goes wrong, science goes wrong, and you've got this sort of
+Frankenstein that wants to think of these dinosaurs stomping around and causing
+havoc.  terrorizing people and eating them. Like, okay, great. And you want to
+get to that as quickly as possible. So the plot is very, very light in trying to
+build the contrived circumstance to put these people on this island. And we can
+talk about some of those contrivances in a couple of scenes as we go through it.
+But like, so why are the grandchildren there? Obviously, the grandchildren are
+there because it makes the plot stronger. That's more interesting with the kids
+there. But then there's like no real reason why they're there. There's no, if
+you look at Malcolm, there's no reason why he's actually there. There's no
+reason, I mean, the lawyer makes sense. Even the lawyer doesn't make that much
+sense because it's like, why, you know, no, why are they going to invest in this
+park if they have no idea what's going on? Wouldn't have a zoo expert there, you
+know, like someone who actually knows about real living animals. There's a
+safari guy. There's a veterinarian who seemed to be outshone by the Dr. Sadler,
+by Laura Dern's character. Like when they've seen the triceratops, like she
+comes and sort of takes over that whole thing, like, okay. Oh yeah, yeah. You
+paused the video here on, it's like a backdrop of just DNA sequences and
+nucleotide sequences with the character in front. And I'm just actually trying
+to look at it now and see, do they make any sense whatsoever? And I wonder what
+happens if you Google them or put them into NCBI and blast them, you know, it is
+just random, you know, ACGs and Ts or are they actually something that they've
+taken and broken up? They do seem to be quite random. So it probably I'd imagine
+is from a real sequence. What do you think? That would be fun to try out. It
+would actually back-translate the hidden DNA sequences from Jurassic Park. It's
+probably going to be like something like E. coli or Lambda or something like
+that. They would, I mean, we're talking about 93, so I guess you would have got
+GenBank on a floppy disk. Or in a printed book. Oh, okay. In a printed book.
+Yeah, they did print books. Yeah. I wonder up until what year. The printed books
+though, I thought were the protein sequences, was the DNA ever part of it? It's
+an interesting question though. Can you, well, can you find someone, one of
+these, I'm sure there's some old guy, you know, with one of these books of
+GenBank, all of GenBank printed out. Margaret Dayhoff? Margaret Dayhoff, yeah.
+Anyway, let's continue the video. Yeah, let's continue the video. They just
+explain this thing that the genome is full of holes and then they backfill it
+with, I love this. So they've got the geneticist looking at the genetic code
+using virtual reality. Yeah. I mean, that's still, I don't think that's happened
+yet as much as people. I didn't notice that there's a, there's a 3d model and
+the guy has like a VR glove. Was that? Yeah, he has a VR glove. So he's, yeah,
+he's got a DNA like chain and then he's rotating it with VR glove. And it looks
+like he has like a blast proof visor on as well for working with like, I don't
+know, liquid nitrogen? No, it's the guy from, who was doing the extraction
+before. So he's decided to put the visor on now for the computer screen, for the
+screen glare, I suppose, but forget wearing it when you're drilling into the
+amber. He has PPE for the computer. I mean, I don't know, computer screen
+radiation is pretty dangerous, right? So I don't know. But why are
+bioinformaticians doing their work in a wet lab? I have no idea. That's a good
+point. Well, it looks like a white boiler suit, not a white coat. I have
+absolutely no idea. I have no idea what these big ropes around his shoulders are
+either complete. I think it's just, yeah. We need some sci-fi, shove it in.
+We'll move on. The freezers and fridges seem to be, seem to have clear glass in
+them. Yep. Which is unusual. Have you seen clear glass fridges in labs, Lee? I
+don't think it would look really boring. If they did. It looks like a fridge
+you'd use for like soda cans, basically. Yeah. Somewhere. Usually in the lab,
+you'll have like a, like the door is like a blast shield. You don't have glass
+on it. It's like, it's closed off. You can't see through it. Yeah. But I don't
+know. But I mean, you're trying to make the shot visually appealing. So what are
+you going to do? And also there's nothing precariously stacked, you know, that
+no one knows what it actually is for the past 20 years. Everything has labels.
+Yeah. Or kind of a little bit of masking tape, you know, with a handwritten, you
+know, illegible letters on it. One thing that's really nice though, in the clip
+with the Mr DNA as he's explaining it is, I think they say the thing, oh, if you
+read the code for X every second for whatever, some period of time, it would,
+you know, it'd take you forever to read through it. It's nice to point that out.
+Like the amount of genetic material, like information encoded in your DNA is
+huge. So during the human genome project, the Sanger Institute had this kind of
+ticker tape tracker showing all the bases that were being sequenced live in real
+time. And they very quickly gave that up because the sequencing technology was
+capillary, just kept getting better and better and better. And it was just, you
+know, zooming past. Um, they do get a few of those things right in the film,
+which is nice. And I think for a lot of people, this was like the first
+introduction to genetics and, and a lot of this biology. So, you know, inspired
+people to, to think of this more as cat. Well, we'll carry on with the clip. We
+use the complete DNA of a frog to fill in the holes and complete the hole. And
+now we can make a baby dinosaur. So they're just backfilling with frog. Okay,
+great. Is frog even in taxonomy for dinosaurs? I have no idea. No, like a bird
+to be better, you know, like a sparrow. Yeah. It's, it's sort of odd because
+even in the film, it doesn't make sense because at the beginning, Sam Neill's
+character really stresses the fact that dinosaurs are more closely related to
+bird, which I think was like a kind of like a new idea that had come out and,
+you know, people were still on the fence about it. And so I think when he's
+describing the velociraptor, oh, look at the morphology of the skeleton, it
+shows that it's more like a bird. And the kid says something like, oh, it's just
+a six foot turkey. I don't know if this child or anybody has looked at large
+birds like a cassowary from Australia. And I don't think you would call that
+thing a turkey. You would, you would be pretty frightened if that thing came up
+behind you. Just if you're listening at home, Google a picture of a cassowary,
+Australian cassowary, and just look at that and go like, oh, yeah, I can, you
+can see the family resemblance. So it's got the it's the eyes that just do it
+for me. Oh, yeah. I've never seen it before. Yeah. Yeah. I mean, I don't think
+and they're huge, these these creatures. So, you know, but at the time, it was
+this thing of birds being birds, modern birds being more closely related to
+dinosaurs versus other species. And so they make that point in the beginning of
+the film. And yet in here, they're spicing it back with frog DNA for some
+reason. Obviously, that makes sense for the flaw of why they change sex later,
+which we might see in a bit. Yeah, actually, I mean, I might I might be getting
+ahead of ourselves, but like, these are scientists who seem to know what they're
+doing because they can grow up ancient beasts. And they don't seem to know that
+frogs can change their genders. They said it's a fail safe. And I just find that
+as a huge intellectual flaw. Like it was meant to be. I mean, there's so much of
+that's contrived because it's like you have to you're trying to do something
+fairly hard sci fi. And there's not you know, you have to bend, you know, the
+truth a bit for the story to work. Otherwise, the thing will this won't happen.
+This actually can't happen. What what what happens in the film? It can't. None
+of it can happen. Yeah. Not only the thing is like you can't get you can't get
+the DNA from the amber. You probably couldn't splice the genomes of a frog and
+the dinosaur and make it viable. You couldn't implant the embryo into the
+implant into ostrich eggs. I think that's what they show. I think they say they
+voice over and say, oh, we installed an ostrich eggs when they're doing the
+tour. That's, you know, that probably wouldn't work. The geneticist wouldn't be
+so stupid. No one would have Dennis Nedry as the primary like developer for this
+thing. And you wouldn't just like have any sort of fail safe. It doesn't make
+any sense. But if you but then there's no movie. Yeah. And it's a good movie. So
+it's like, OK, fine, I'm going to suspend my disbelief because I want this movie
+to happen. Well, just something to mention there a second ago, I think, was that
+they had gene sequencers, not genome sequencers. So were they doing a gene by
+gene? Yeah, they were. Yeah, I think they would have probably sang a sequencing
+back cloning of the genes and then walking along. And then when they can't walk
+anymore, they would have put in the frog stuff. I guess that's the process.
+Yeah, I mean, back back then, I think before 1995 or seven, like there wasn't
+even the concept of people doing shotgun sequencing. It was it was walking.
+Yeah. Yeah. So, yeah, I mean, but that could have been done. So John Hammond is
+complaining about the background track for some reason. But now we cross to this
+very this does happen.  I guess if you go to a zoo, like they do have these
+stupid exhibits and then you can peek in and see the people actually working on
+stuff. Yeah, I'd hate to be sad to sit there. I love the lawyer who starts the
+film being really antagonistic and then immediately sees that they're... Stuff
+it there, right? Yeah. He asks, are these characters auto-erotic? Yeah, auto-
+erotic? Yeah, that was weird. I think it's a flub. I think he means animatronic.
+Yeah, that would make more sense. Auto-erotic is a different thing. That's a
+Michael Hutchence thing, isn't it? You see, I heard the word, I heard him say it
+and I was like, did he say that? And then I just saw it on the subtitles there
+and yeah, he absolutely did. No, he absolutely says auto-erotic. He says, are
+the people auto-erotic? It's like, what? Now we've got to look it up on the
+Urban Dictionary to see actually what it is. Okay, on Reddit, on the Jurassic
+Park subreddit, someone says, why did he say auto-erotic? I've watched this
+movie, blah, blah, blah. And then people answered, it was meant to express his
+lack of knowledge and terminology. Another person said, I have always left that
+line to mean that Genaro is woefully ill-informed and attempts to sound smart,
+but uses the wrong word. Okay. Right. So, the whole thing of it is probably not
+safe for work. This is overwhelming, John. Are these characters auto-erotic? No,
+no, no, no. We have no animatronic theatre. Okay. Well, deliberate factual error
+by the filmmakers. How do you interrupt the cellular mitosis? I have no idea
+what that means. That's Shan-Leo's characters. Maybe a proper biologist can
+explain it, but I'm like, what are they even trying to refer to at that point?
+Yeah. Yeah. Now, at this point, the tour sort of derails and everyone just
+breaks out and decides we're going to tromp through the lab. It takes three of
+them to push that bar up, and then the old guy just gets up right away.
+Superhuman strength, I think. So, on the screen that they're looking at, it
+pans. So, as they get off the ride and they switch the lab, there's a shot where
+they pan over and if you screen, it's there for a second, but they've got
+this... I don't know what OS that reminds you of. It looks like Windows 3.1 kind
+of thing. I don't know if there's... It looks more like a really old Apple
+interface. Okay. That's actually a point I want to make. I keep seeing Apples,
+like OS 9 through the whole movie. And then later on, I know you're going to
+make this point, but she says it's a Unix system. No, but it is a... Oh, okay.
+The sysadmin stuff is a Unix system. No. Oh, yeah. The UI is like Apple, but
+yeah, that doesn't make sense. And you see the logo on the very bottom of the
+screen, can you work out from that what it actually is? I have no idea. I think
+they've just put a random something on it. Can't tell. That's really nice from
+the props that they've actually put some sort of weird logo on the screen. Yeah.
+There's so many bases on the screen, you can see ACGT if you really scrunch up
+your eyes. So you've got a 3D model, the computer model of the DNA structure on
+the right side, and then you've got the sequence on the left. I mean, that's
+great. That's a protein structure, isn't it? Is it? I can't actually see the
+base. So you've got like the ribbons and the barrel structures. Yeah. Oh, the
+picture. Yeah. Yeah. It's a protein structure. And it's DNA on the left side.
+Okay. I mean, it's there for a second. Nice visual thing. A couple of seconds.
+Let me pan over it. And now everyone's wandering into the lab without any kit. I
+mean, I guess this seems, because they have the eggs, so this is like the
+hatchery. So I guess that's okay. Yeah. But then why are they all wearing gloves
+and full boiler suits and everything? It's as if they want to be clean, but then
+at the same time, people wander around in their shorts. And why is someone doing
+the protein sequence stuff in this room, if this is where... I don't know. Oh my
+gosh, yeah. But you've got to fill the set with something. So whatever. Yeah.
+With ancient DNA, you have to have a totally clean room. Yeah. But then you
+wouldn't have the eggs here. Yeah. Because we're looking at these ostrich,
+presumably ostrich eggs, implanted with the embryo. Also do you notice how short
+the robotic arm is? It can only reach the first one or two eggs. Oh, I never
+noticed. Oh, it's Mitsubishi arm as well. You can see the barcode on it, but it
+can't reach the rest of them, so it can only turn one or two. So the dinosaur is
+imprinting on Hammond now. The animatronics of it still holds up for me. It's a
+bit cartoony, but it's like, I don't know, it's okay. Yeah. It's amazing. If
+they'd done it with all, what they do these days, all CGI stuff, it would look
+terrible. Well I guess they did a lot of CGI in this, it was one of the first
+big movies for CGI. It still holds up when they do the dinosaur scenes, it's
+sort of, you know, when you see the brachiosaurus or whatever, you're like. So
+no one not tries breeding because they're all female frogs. That kills me. I
+mean, yeah. Okay. I mean, that would work, but this is the problem. Like did
+they explain that with the frog DNA and that amphibians can switch? I think they
+actually say that later. They make a point of that. I think that's the reason
+why it's frog DNA versus birds. Because that's at odds with the plot, with the
+movie's own logic, it's sort of at odds with that. Why are you using frog DNA?
+Yeah. So one thing about that lab is it's not organized in a very sensible
+fashion, kind of benches are randomly at random angles within it, and it's a
+very clean one. There's no stuff, you know, in every space possible. So we'll
+cut back to Malcolm's line, because he then. John, the kind of control you're
+attempting is, it's not possible. Listen, if there's one thing the history of
+evolution has taught us, it's that life will not be contained. Life breaks free,
+expands to new territories, and it crashes through barriers painfully, maybe
+even dangerously, but, oh, there it is. Life will not be contained. He doesn't
+say, does he say life, like, you know, at some point he says life finds a way,
+but he says this throughout the film, he keeps trying to make this point, like,
+yes, but no. I mean, I think he's a bit too alarmist in his position, but when
+we see the lunch scene, it's like, sort of more obvious. He's more like a
+philosopher than a mathematician, really. I mean, he's called a rock star. I
+think he might be more of a, these days, like a science communicator, he
+probably just writes a bunch of books or something. A mathematician would have a
+podcast. You would have a podcast, like, yeah. Yeah. Mathematicians that I've
+met are pretty philosophical too, though. Yeah, but I don't know, do they look
+as cool? All of my friends who are mathematicians are good looking. Yes. Oh,
+wow. Okay. Well, that, well, I guess we can say that's realistic, right? I'm
+disappointed they didn't use any dinosaur. No, it's sea bass, apparently,
+according, earlier on he said, oh, we're having sea bass for lunch. Yeah. He
+keeps saying he spared no expense. He spends, yeah, he keeps saying it. I spent
+no expense, but then I cheap out on the IT part, which is like, yeah, okay.
+Yeah. So now the lawyer is like really pro this. He's seeing the dollar signs in
+his eyes of what all the money this is going to make. And then the scientists
+are like, this is a horrible idea. But I don't think the arguments make a lot of
+sense. So he says you're using, I think he says you're using genetics, which is
+the most powerful force on the planet, kind of, that's what Malcolm is saying.
+And you wield it like a kid who's found his father's gun. We've been, I think, I
+mean, not me, not us, probably, but our lab-based colleagues have been wielding
+this godlike power for like decades without any real issue, you know,
+fundamental thing in molecular biology. It's like, yeah, all of this stuff is
+like, people are cloning things all the time and bad things don't happen. Yeah,
+people do silly things, you know, and clone pets and things like that instead of
+actually doing any harm, it seems. But yeah, well, I mean, the techniques here
+aren't particularly dangerous. Obviously, trying to do it for dinosaurs is, the
+other, the issue is, you know, making this dinosaur thing, but the science isn't
+particularly unique or dangerous or abnormal. I wonder if we were to do it, how
+would you go about cloning dinosaurs? Would you start with, say, a bird and then
+try and kind of mutate it backwards towards, you know, the most recent common
+ancestors? So you take a group of birds or a group of animals and then try and
+get up the phylogenetic tree by trying to infer what is there and make some
+changes.  I don't know if I'd be able to do it. Even like thinking about it,
+like on the operon level, like if I'm missing a gene, do I include a gene of the
+most recent ancestor or the most, or the closest ancestor or what? Like, I
+don't, I would, I would definitely fail at this. Well, I guess people are doing
+with mice, you know, humanized mice, putting human variants into mice to then
+test. Yeah, but you're not going to turn that mouse into a person. Even if you
+keep like, you can, you can make one, you can do one mutant, one gene, one, two,
+I think at a certain point, just trying to cross in that many genes, it's just
+not going to work. The genome, the, the biology of the organism is going to just
+push back on you and say, no, I don't want to do this. Yeah. It'd be so many to
+change. Cause like, if you think about like, what's even closest to us on the
+phylogeny, like it's a 1% genome change. Like, are you going to be able to fill
+in the gaps of 1% of the genome? Or can you do it, can you do it like reasonably
+with microbes? Just, just like anything, you know, I mean, it's just a huge to,
+to do that. So that that's mind boggling. So the film is asking us to suspend a
+lot of disbelief to say that this is even remotely possible. And then like,
+there were a bunch of experiments like with Craig Venter, Ventner. Yeah, Venter
+did. Yeah. And I think after he like published like a, a totally in silico or,
+or it was a synthetic virus. I think that the journals banned it afterwards, but
+I can't remember what the fine print is. But what did the virus do? Because, you
+know, most things out there don't go and kill you. I remember when he, when he
+made a synthetic bacterium, like it had like his initials in it. So I guess it
+carried his name and that was his function. I don't know. But I think Malcolm's
+position is pretty alarmist though, saying that, oh, you can do all this thing.
+I mean, sure. Yeah. I love how they all start ganging up on, on Hammond on this.
+And he's, he doesn't expect it. Yeah. He gets really worried. There's cost
+projections in the back end of attendance on the screens behind them, which is
+interesting because no one's paying attention. The danger inherent in what
+you're doing here. Genetic powers, the most awesome possible power, servosleep.
+Okay. Sure. If I may, I'll tell you the problem with the scientific power that
+you're, that you're using here. It didn't require any discipline to attain it.
+You know, you read what others had done and you, and you took the next step. You
+didn't earn the knowledge for yourselves. So you don't take any responsibility.
+For it. You stood on the shoulders of geniuses, uh, to accomplish something as
+fast as you could. And before you even knew what you had, you, you patented it
+and packaged it and slapped it on a plastic lunchbox. And now you're selling it.
+You want to sell it. Of course I should. Didn't require any discipline to attain
+it. You read others what had done and you took the next step. That is literally
+science. That is literally any innovation is to take what other people have done
+and like do it. And you take this, but you do take responsibility for it. They
+mentioned there, um, about bringing extinct species back, like condors and stuff
+like that, that, that seems reasonable. You know, like we've got things like
+blue rhinos, whatever, and dodo's and, you know, should we bring those back?
+Maybe a step that's easier. Yeah. I mean, they make that point. Um, I think here
+is the thing, the crux of it is that you've taken the science and you've now
+commercialized it. And that is like, yeah, okay. That's probably too far, but
+then yeah. And that's where we're having retorts saying back, like our
+scientists have done things nobody's ever done. It's such a good line. Whether
+they could, they were so preoccupied whether they could, and they don't think of
+whether they should, and then having retorts saying, well, condors are going to
+extinction. And then, you know, you wouldn't have a problem with that. And then
+I think it is a good point. I think saying like natural select, like the
+dinosaurs were selected against because of a meteor is a bit of much, I mean,
+that's not very fair. I don't think I can ever evolve to the capacity that I
+could avoid a meteor hitting the earth. Yeah. Yeah. That was, that was a funny
+line to me, to us. But I mean, there is something, a seed in the, in the logic,
+but it's like, yeah, okay, whatever. It's funny to me too. The guy whispers to
+him that his kids just, his kids just arrived. He's just been alarmed by all the
+scientists and his kids just arrived on this island and he should be alarmed.
+And now he's excited that the kids are there, probably going to be in danger.
+Yeah. The kids, this is the best point. The point that for me actually makes the
+most sense is that this Laura Jones character, Dr. Sattler's pointing out, not
+only have they done dinosaurs, it seems they've put in plants from somewhere.
+They put in like, they've made a fake ecosystem of plants. I guess it's not, I
+don't think they're like ancient plants, they're from elsewhere, but it's like,
+yeah, you've made this fake ecosystem. And she says like, one of them is
+poisonous and you picked it because it looks pretty. And it's like, yeah, I
+mean, that is, that is a thing. Like, yeah, there is. It's interesting because
+not only, you know, obviously you've got the plants, which are not native to the
+dinosaurs, whatever, you have all the microbes that those dinosaurs should have
+had, all those bacteria, you know, in their gut and then all over them, helping
+them and they aren't present because they've gone off and evolved for millions
+and millions of years. So I wonder how that would impact the poor dinosaurs, you
+know, do they all have digestive problems? And the dinosaurs probably, the
+dinosaurs would probably not have any reasonable defense against modern
+pathogens. We see that sick Triceratops later and it's like, I don't think we
+ever find out what's wrong with it. It's just sort of sick. And we look at it,
+it hadn't eaten the poisonous plant. I thought that they found out like it might
+have, but yeah, they never fully resolved it. Like it was probably the poisonous
+plant, but they didn't resolve that. No, she said she looks in the poop and
+says, it's not the poisonous plant. So if we take her thing, because she's the
+genius, you know, she's the main character. So if you take her thing as gospel,
+then okay, it's not the plant. So what, what is it? I mean, we're never actually
+told this is sort of left. We forget about this because the T-Rex shows up and
+people start dying. Like whatever. I think in the book, they make some, this
+scene happens in the book and they explain, they have some rationale as to why
+this happens. Something, I think it's some, I can't remember. It's something to
+do with, they don't have the teeth to chew the plants properly. They can't chew
+the plants properly. So she's like sick. She can't, she's like malnourished. She
+can't like eat the plants. So all the dinosaurs are kind of full-size dinosaurs,
+more or less, with probably decades of growth. And how did they magically become
+full-size adults overnight? Because the park is only going for five years, or
+they only decided to do it five years prior. So what happened? Well, the park is
+five years, but they seem to be shipping, and we know this from the second film,
+but they seem to be shipping the dinosaurs from somewhere else. And we know in
+the second film, because they go there, it's like the other island, what's it is
+a sauna or something. And I think they clarify that later that this has been
+going on longer. So the park is five years, but the dinosaurs have been
+incubated and grown somewhere else for longer, but that's not explained in the
+film. So if all you're looking at the film, this makes no sense. And no one
+noticed the brontosauruses for the 20 years prior? They have the flying ones.
+It's like, what? I think, I don't know. I think they retconned this with the
+subsequent films, kind of plug all these holes and whatever. I mean, whatever.
+Yeah. T-Rex. T-Rex is there. Come on. The flying dinosaur. The pterosaurs are
+not dinosaurs, actually. That's a different part of taxonomy. I wonder if that's
+ever addressed. I don't remember the other films. I don't remember. I only saw
+the first two and half of the third one, and then I switched off. I can't
+remember. Have you not seen all the modern ones? They're very good. Even less
+science in them. I don't know if I can stand Chris Pratt being involved in all
+this. Oh, maybe later. I think less science, the better. I mean, the science
+here is fairly, you know, fairly thin anyway. But let's press on. So now we have
+Sam Neill makes his point. Man and dinosaur haven't ever coexisted. The 65
+million years between them, we have no idea what's going to happen. I. OK, sure.
+I mean, yeah. I think the dinosaurs are in more peril than we are. I think we'd
+be OK. Because I feel like we're in worlds where the invaders, you know, are
+susceptible to all the bacteria. Yeah, exactly. I mean, the thing I mean, we
+don't. Are we really affected by evolution? We can change our environment. We
+can do whatever we want. How much of it how much of that really applies here?
+Should we talk about the computer stuff? Yes. Let's talk about the computer
+stuff. I'll give it to you now. So take everyone take that like. That's.  odd
+what door security systems are shutting down this is in the computer lab it's
+amazing that he's got he's performing all the lines and he's just got the
+cigarette in his mouth and it's like if you've ever tried to do that it's a bit
+tricky yeah but like he's wearing a white coat doing his computer uh programming
+as you all do you know yeah fair enough but the whole cigarette thing that that
+is so like the offices were like when i did an internship you know 30 years ago
+people were you know smoking away you know while they're typing away in a
+computer so okay so maldon and sat go off to look for the kids or net go looking
+for the kids so we can actually see the code that dennis wrote set command set
+comment request d task what changes would you make or set error status if error
+equals zero evaluate some ridiculous uh regex well i mean four contains the
+branch or group four contains the branch if comment checkout comment project
+active request a comment before oh it's just for the code it's just for the um
+it's just sv it's for the code versioning and it's like it's got numbers uh what
+is it numbers followed by one or more number then you've got a to z so followed
+by a letter followed by well uh i know it's just um yeah it's like a commit code
+with the branch at the end and then it's basically codes it's just yeah it's
+like yeah it's realish code is basically request it just does what the comment
+above it says request a comment before we check the file out yeah that's what it
+does it just says make sure you've commented your your commits uh it is still
+possible that the checkout will fail because the latest type of their lastest
+should be latest revision on the trunk is already checked out for modification
+by someone else yeah okay fair enough i mean that's a legitimate thing you'd
+want to check and this screen that we're looking at before we were looking at
+mac os 9 within the lab do you think that this is more unix like this is the
+it's a unique system like this is literally the computer that uh the the child
+goes through later and says this is a unique system so you don't think it
+actually your os is not unix at all it's a mac looking thing to you right in the
+introduction to cyber the another podcast i listened to from vice they um they
+use that line it's a unix system i know this and i i'd heard it so many times
+because i listen to that podcast all the time but i never knew where it came
+from and it's only rewatching drastic park is like ah that's where it's from
+yeah i mean it's a great ui that i i mean it's not clear to me how much dennis
+wrote so it's like dennis wrote 2 million lines of code it's like okay but then
+they would have had uh you know they would have had other bits like like samuel
+l jackson's characters like you know there are other parts to this so what what
+i mean we can i guess i can say like how do they fix the problem right so dennis
+netty injects this horrible program that mucks up all the security systems yeah
+that he runs so the solution from samuel and jackson is like we need to
+basically do a code reversion back to a version that dennis hasn't touched sort
+of like a factory reset and then jumpstart all of the systems for the park again
+that's the solution so this is actually the correct code for the correct thing
+in the script i guess i don't think they do that at this point they come back to
+it later that's how but that's how like the the i think his name is arnold um
+samuel jackson character like fixes it but the thing is that implies that the
+bulk of the code base was not written by dennis every by wayne knight's
+character right because what would you revert back to so it means that most of
+it was written by other people and maybe dennis just wrote the security system
+stuff i mean if he wrote it on his own because it's implied he just did it
+himself um what are they reverting back to i think it's also implied that that
+dennis got corrupted like recently so like maybe he had legit code before his
+motivations are interesting so in the book the book is fundamentally different
+with the motivations because it points uh john hammond the park developer as
+like a bad guy who's only in it for profit and and not and he's not this
+whimsical richard attenborough character he's like oh i didn't realize how bad
+this could be um he's like deliberately like looking for profit and so he stiffs
+nedry on on the money as you would as people do for it projects the it project
+like blows out of proportion and um i don't think that then the nedry character
+in the book like knows exactly what's going on um and gets you know so and
+doesn't get paid properly and so that sort of encourages him to take to to do
+the theft of the mbos and whatever uh but in this it's like dennis is implied
+that he is been paid well and been played appropriately but he somehow
+squandered the money given and he's just been greedy and wants more and then
+john hammond's characters like which you know the john hammond character says no
+i don't want i'm not going to pay you more money if you've lost your money
+that's your problem we don't know how he's lost his money and that turns into
+taking it's like i think it's like a million dollars or something it works out
+to 1.5 million i got 700 i think the guy the the the competitor says i'll pay
+you half the money up front 700 000 and then some amount per mbo that you bring
+back for a total of 1.5 million so dennis has given this big sack of money at
+the beginning as a down payment to do this uh theft but it doesn't really make
+sense why he's doing it in this case like it's i mean presumably he's got debts
+and he's pushed into it but he doesn't seem that he just seems like greedy he's
+just doing it and this sort of runs at odds at malcolm's point which is like
+life finds a way he's like no life didn't find a way like if if the dennis nedry
+character hadn't sabotaged the park nothing would have happened everything would
+have been fine so life evolution or life or whatever it's not like life run amok
+it's like a human actor has abused the system so i don't know but whatever it's
+a film and there's a t-rex that eats people so you know whatever fine we'll just
+go back to that but and but i love the big execute button which we click here
+execute oh it's macintosh it says macintosh hd it does say that it does yeah
+yeah freeze it's got a trash but all the old osx trash icon and everything so
+they're running a max it's not a unix system it's not no it is a system okay it
+is a unix like system yeah yeah os9 was not based on unix was it better check
+that out lee oh no you're right it's modern versions are based in unix yeah yeah
+oh wow oh that's a revelation it's not a unix system so yeah this is just like
+based on whatever steve steve wozniak made and everything well there we go yeah
+so background desktop wallpaper is definitely not safe for work yeah it puts it
+in the base so he's got a one minute timer to so everyone is on the tour at the
+same time so this is how the plot the story really kicks off because it's
+coordinated with this so he says at the beginning like the dennis character says
+he needs 15 minutes 15 to 20 minutes to do this theft so um this probably would
+have worked out fine so what is his plan he's like going to shut down the
+security system for 15 to 20 minutes uh take the embryos drive to the dock drop
+them off and come back uh the storm that happens because this whole thing is
+happening while there's a big tropical storm happening was not expected actually
+that did happen in real life that there was a tropical storm and so a lot of the
+scenes they recorded of the storm are from a real hurricane well that's why it
+looks so realistic so now the samuel jackson character again smoking realizes
+that the locks have been like everything's unlocked dennis is saying that he's
+doing some sort of weird rebooting of systems so things will turn on and off
+don't worry about it turning everything off as well which is a bit silly really
+i don't see any reason why you'd need to do that but whatever oh one thing it's
+sort of covered in the lab scene but we didn't hear it um is why is there no one
+else on the park i thought that they were evacuating with the storm like they
+kept talking about no they they you hear it in the when they go into the lab
+they are told and it's before that sort of signal from before um that everyone
+has actually got scheduled sort of shore leave for that weekend and so they're
+all going to the dock prior and then they find out that the tropical storm is
+coming later so it just is a coincidence that the storm happened at the same
+time but basically everyone was going to go on shore leave for that weekend  And
+that's why there's nobody there. There's the, the point of the park is that it's
+all so automated that you actually don't really need, you know, you can control
+the whole park from that little room for three days. So it's like yeah whatever,
+this is apparently a thing that happens so it's like yeah okay fine everyone
+goes home for a couple of days. I don't know why you'd have only like what four,
+five employees for the entire park, even if that was the case. For this massive
+operation it costs millions. I know. But yeah, it's not they don't evacuate,
+it's because of the, they are scheduled shortly for the rest of the staff.
+Incredible. It's, it's like a couple of ADR, like couple of voiceover lines that
+that do it, and I only caught it because I was listening, watching this back
+otherwise you just have no idea. But yeah, so everyone's away. And this, this
+Nedry's thing was going to happen. He probably would have gotten away with it
+because it's like 15 minutes, drop the stuff off the dock, come back, say yeah I
+got lost on my way to the vending machines, and everyone's like well the systems
+are on and off, I'll fix it, I'll press a button and it's back, you know,
+classic sysadmin kind of thing to do. Get a coffee. Okay, keep going. Oh, and
+that's a Mac again yeah. Yeah. You can see the hurricane. Oh and you can see the
+Mac logo on the, on the box. Oh yeah there's a Mac on the, on the box on the
+tower. And you can see they've got very nice weather forecasting with the
+tropical storm information on the other screen. Great. I mean it's a lot of
+gooey. I don't know if anyone will bother with that much gooey. I don't think
+even now I'd bother with that much. So, some reason the embryos are in this. I
+mean it looks fantastic. This sort of. It looks like a liquid. Yeah, no gloves,
+and it would be very very cold. And it's just picked them up by hand. Those are
+frozen to a minus 230 degrees, whatever. P minus 80s, right, this is the minus
+80. That'd be fine. If it's liquid nitrogen it's like liquid nitrogen. Yeah. So,
+so the big freezers that we have in the lab are like minus 80 but then liquid
+nitrogen would be like minus two, if it's 230 then yeah that sounds about right.
+It's like very cold you don't touch it with your hands. Okay. Wouldn't it be,
+what couldn't just be like a dry ice. So this to explain this, I mean I don't
+know. That's for minus 80 kind of temperature. I don't, I don't feel like this
+is a realistic like holding device but it's a cool one. The cylinder. Yeah, I've
+never seen this like in the lab or anything, and it wouldn't, you'd want to like
+maximize how many test tubes you can hold in there and everything. Well that's
+quality not quantity you know, you just need a few. Yeah, and it's, and it's not
+like it's like labeled on the test to cool and then it has like velociraptor.
+It's not even like, you know, it's not a scientific name it's not like it would
+be the sample ID or whatever. Yeah, whatever. Yeah, like clone name is not on
+here or anything like that it's just velociraptor, but maybe, maybe, maybe one
+on there is is the sample name I don't know. Fine, we have we it's for the
+audience right. Yeah, I have one more comment on the refrigerator scene. Yeah.
+My wife and I had this debate because she is a microbiologist and Dennis has the
+barbershop can. And there's a refrigeration unit and he's putting all the tubes
+in it right. How long do you think that refrigeration can last, like even if
+it's at minus 80 and not minus 230 like, is that a realistic device. So in the
+film, the guy who gives it to him at the beginning says this last for 36 hours.
+I feel like, I feel like this is a film. We just spend our, our like realistic
+expectations and just believe them I think here, like how can you I guess if
+you, if you want to keep a frozen, and it just has to be below zero maybe that
+might be enough. I'm willing to suspend my knowledge here and just like allow
+this little can to to keep the can only has to last 20 minutes right because
+it's got to go with Dennis to the dock, and onto the boat, and you could say the
+boat, people on the boat have proper storage on the ship. So, you know, maybe
+you can get away with it. I mean, of all the nitpicks I mean whatever. We can
+move on. We're on the desk. So you've got for some, well obviously for this,
+it's a nice solution you got Robert Oppenheimer on the picture of him on on
+Nedry's computer to the side. That's the chap on the left. And it's a jolt cola
+on top. Jolt cola on top. There's a bottle of jolt. Oh great. Wow. Nedry hasn't
+turned up so it's not all the systems are off all the security. So the doors are
+opening but not everything. So they're sort of wondering why that is, because
+the Raptor enclosures are typing in the command line. Yep, typing in the command
+line. So for you mean you got all this gooey stuff and then all of a sudden you
+just got this text thing saying like locked. So the Raptors are still enclosed I
+think that's just for the pacing of the story because you don't want the Raptors
+out yet. You've watched like now as an adult watching the film there's so much
+of it that's just sort of trying to just put the plot in the right place, so
+that with just these one lines to kind of like anchor it properly. I guess that
+is a difficulty with translating from a book into a movie. I think so, because I
+think in the book there's more explanation of everything and it sort of makes a
+bit more sense. And here you're just like nope you got to keep going. It's just
+a fine it works really well. So Robert, yeah. Access security grid. I mean,
+okay. Access main security grid, I mean he doesn't know the command to get
+access. It's like those old text based programs where we have to explicitly type
+the, you know, the phrase of what you want to do, or otherwise it'll just bomb
+out. Yeah. Go east. Pick up, pick up child. Oh I miss those. And now you get the
+classic. Ah, you didn't say the magic word, which is, which is Wayne Knight's
+face on an Elvis cartoon, shaking his finger. Classic. It's sort of. I mean from
+if he's just written a part of the system we assuming like there are other
+analysts and other developers on this, it doesn't make sense that this would be
+like a problem, especially if you've got this version control code you just go
+oh yeah screw it I'll just roll it back and take you like five minutes. Right.
+Samuel Jackson comes up with like ages later, but that's how we're going to
+solve this but whatever. So, I've just put up the next clip here I don't know if
+you can see it. That's the Unix system. Yep. We got a reboot system. So, they've
+skipped ahead. Yeah. And they can can operate doors. I mean, yep. We get a
+glimpse of it. So the thing that she that she uses to navigate the file system
+is like a thing. It's a prototype thing, it's not like a production thing that
+anyone really used ever. Right. It's a unique system and I know this. You can
+get emulations of this, like you can get it for yourself. But the floor of it is
+the thing that you see in the film it takes freaking forever to just navigate
+the file system. Yeah. Yeah. That's how we do Unix navigation you know we wait
+for it to move around and the graph. So, the Unix is the directory is slash user
+slash USR. That's nice. So slash user slash park slash, you know, zoology slash
+something that's where she's the part so far. Visitor Center, and then somehow
+you just reboot that part of it, the file. I don't know. And then you're back,
+you're back to the Mac OS interface that's showing you all the doors are locked.
+Yeah. Everything works. Everything works. Can I do one tangent. Yep. This is
+from another podcast I listened to. I'm going to get to this part where Goldblum
+is lying down over here. Let me see if I can get this picture of him. So while
+Goldblum is lying down on the table is actually a tattoo that he has. Right. And
+the actor doesn't have a tattoo in your life. And there's no tattoo mentioned in
+the book. And I listened to this whole podcast about how they investigated how
+he got the tattoo. They basically came to the conclusion that Jeff Goldblum went
+rogue and had a tattoo for some of the filming and no one caught it. And so it's
+just like, it's just can and he has a tattoo. Okay, brilliant.  have to do that
+for any subsequent things for continuity right yeah yeah okay fair enough so we
+went we went through a bunch of reactions that we had there were so many more
+that we didn't even get a chance to get to but we wanted to spare you all on the
+length of this thing we think this is a fantastic movie we enjoy it a lot what
+do you all think tweet at us email us whatever um let us know we had a fun time
+watching this it's awesome thank you so much thank you so much for listening to
+the micro benfi podcast what do you think about our experiment tweet at us or
+toot at us and be sure to leave a good rating for us apple podcasts or wherever
+you listen

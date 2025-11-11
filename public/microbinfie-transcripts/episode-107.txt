@@ -1,0 +1,346 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. Hello and welcome to the MicroBinfeed podcast. Today we are
+talking about systematics, specifically SEC code, nomenclature code for
+prokaryotes described from sequence data. Joining us to talk about it are co-
+authors on the recent publication, Marika Palmer and Miguel Rodriguez. Marika
+Palmer is a postdoctoral researcher in the School of Life Sciences at the
+University of Nevada, Las Vegas, and Miguel Rodriguez is an assistant professor
+of bioinformatics at the University of Innsbruck in the Departments of
+Microbiology and the Digital Science Center. So welcome to you both. Hi Nabil,
+thank you. Thank you for having us. All right, so let's start off with something
+simple. I mentioned this word systematics. What is systematics? Let's give it to
+Miguel perhaps. Sure. Yeah, so systematics is a generic term to refer to the
+discipline studying the classification and naming of organisms, of biological
+organisms, and in general, the distinction is made between the actual
+classification of organisms, which is called taxonomy, versus the rules and
+regulations for naming those groups, or those taxa, which is called
+nomenclature, and the joint study of naming and classification of biological
+entities in general is typically referred to as systematics. Okay, good. So
+today we're not strictly talking too much on the taxonomy side, I guess, not
+really. So please don't get upset with that little bit of disclaimer out of the
+way. I wanted to ask you both actually, what do you do regularly in your work?
+What's your organism of choice or area of expertise? And how do you both know
+each other and got involved with this project? So first off, in terms of
+organisms that we work with, I actually don't work on a specific group of
+organisms as such. I've been fortunate to be part of collaborations that work
+with a lot of cultivated organisms, so typically from soil and oftentimes
+rhizobial cultures. So it would be nitrogen fixing bacteria that actually live
+in symbiosis with legumes. But I'm also part of a research group that looks at
+microbes from extreme environments. So in the research group of Brian Edlund, we
+kind of use a lot or spend a lot of our time looking at novel microbes that
+haven't been cultured before and try to cultivate them and also try to
+understand their ecology. So we basically work with bacteria and archaea. And
+what I'm personally most involved with is oftentimes an archaea from hot
+springs. But I've also actually started working more on the virome of extreme
+environments as well. So I actually look at some viral DNA and from a
+biotechnological perspective, what we can learn and what we can use from all of
+the genetic diversity out there. From my side, similar to Marika, I have an
+interest mostly in microbial ecology, so I don't really work with one specific
+organism, although I have been going back and forth for many years since my
+master's on taxonomy and genomics of Santomonas. So that's if I had to pick one
+organism, that might be the one. More recently, I'm working with the micro
+bacterium as well and some freshwater pelagic bacteriales also. But it might be
+Santomonas, the one that I favor. Yeah, I mostly work on environmental genomics
+of towards microbial ecology, the understanding of whole communities and whole
+microbial assemblages, rather. And we really we met with Marika through the
+C-Code group. We have actually never met in person. Wow, fantastic. So, I mean,
+Lee and I don't meet up that often either. So, you know, so since you mentioned
+both your backgrounds, that puts you and you mentioned C-Code, what is C-Code
+then and what is the problem C-Code is trying to solve? My relation to C-Code is
+mostly one of necessity. As I mentioned, I'm very interested in ecology and one
+of the foundational pillars of ecology is consistent systematics. And we have an
+issue in the field where we have learned quite a lot about a large number of
+species through their genomes for which we just don't have stable names. And so
+through that problem, I got I got interested first in taxonomy and later on in
+nomenclature and in the issues of stability of names, the stability of names. So
+basically, if you think about nomenclature as all that, it's often described as
+the language used for us to actually be able to communicate the diversity and
+specific organisms to make sure that we're referring to consistent things and
+that we're effectively able to communicate about those things. So in terms of
+the C-Code, this is basically a set of rules that governs how we form names for
+the organisms that are not yet able to cultivate or that we have genome
+sequences for that we can use as the basis for naming those organisms. All
+right. So I'm still wrapping my head around systematics versus taxonomy. So
+let's say you find new bacteria that you can only sequence. You can't culture
+it. It's in the lake. Do you give it a genus and species and you just you leave
+the family name up till later? So if you're able to actually so this comes into
+the classification, which the C-Code doesn't govern. So no code of nomenclature
+governs the taxonomy of the organism. So your taxonomic freedom isn't impeded by
+what any code of nomenclature gives as guidance for naming those microbes. But
+if you've used if you have a genome for an organism that you can or cannot
+cultivate and you want to name this organism because you have used whatever set
+of criteria that you think is logical and justified to show this is a new
+organism, then it can either be depending on what analyses you've done or what
+decisions you've made in terms of the taxonomy of that organism, decide to call
+it a new species. Or if it's sufficiently novel to be a new genus, you can give
+it a genus and a species name because you have to have a type for the genus that
+you're describing. And depending on how novel they are and depending what
+criteria you use, it could become a new family or a new order level lineage as
+well. And then you would ideally, I think, if you're sure in terms of what the
+taxonomy of that organism should be, ideally you should describe all of those
+intermediate ranks as well, up to the point that the last existing parent taxon
+exists. So if you have a sufficiently novel organism to potentially be the first
+representative of a new order, ideally you should describe the order, family,
+genus, and then the species, or at least name them if you're not providing
+descriptions for them, and then associate your order that you've now generated
+to accommodate that taxon to a parent taxon, so in other words, a class. That
+makes a lot of sense. So one of the questions, a simple question then, you sort
+of mentioned it, but just firstly, so what C code is trying to do doesn't step
+on the toes of taxonomic assignment like GTDB, for instance, right? I'm just
+going to say that. Yeah. Yeah. So just to reiterate something that Marika
+mentioned that is very, very important. So the principle one of the C code ends
+with nothing in the C code may be construed to restrict the freedom of taxonomic
+opinion or action. And that's, so that's right at the beginning. That's
+principle one. So the C code is meant to provide a stable system to generate
+names, but how those organisms are grouped, meaning how the taxonomy is
+developed, that depends on, of course, the authors and the peer review system.
+Nice. Right. And you both use this thing of, Marika kind of hinted on it and you
+keep using this word, stable naming. I mean, if I call you, I call you, I call
+you Miguel, that's stable. We're done, right? So why can't I call it, you know,
+cuties and just be done with it? So ultimately, I mean, no taxonomic system and
+rules that govern the naming, so the nomenclature would be completely static.
+or stable, because I think that would actually prevent scientific progress, but
+ultimately, what we aim to strive for, at least, would be some stability in that
+taxonomic system. But it's okay if we're not in full agreement on the taxonomy
+of organisms, as long as we have stable names for them. So ultimately, our
+taxonomic opinion might differ over time as we learn more information about a
+specific taxon, and then we might assign it to an already existing genus,
+transfer it to an already existing genus, or change the name to reflect our
+current taxonomic understanding of it. But ultimately, having the names in place
+to be sure that we're referring to a particular organism, that's the kind of
+stability that we're aiming for. So maybe it's a good moment to introduce the
+idea of the principle of priority. That really is what is at the root of the
+question of stability. So the principle of priority is a principle that has been
+developed across codes of nomenclature for different organisms to deal with the
+fact that our taxonomic opinions change, and there might be parallel groups
+working in the same taxa. And the main idea of the principle of priority is that
+any one taxon that is named would retain that name so far as that name is valid
+under a given code of nomenclature. Valid and correct. And on the other hand,
+one name that has been validly and correctly assigned to a taxon cannot be used
+for any other taxon in the future. So once it has been published, validly and
+correctly published, it's a reserved moniker for that taxon, and that is really
+what is allowing this degree of stability. That doesn't exist, or that didn't
+exist for uncultured prokaryotes between 2001 and the publication of the SIG
+code, because the code of nomenclature for prokaryotes required the deposition
+of strains into culture collections in two different countries. Yeah, so then I
+guess we should lead into the crib that people were using, which is they just
+named the things candidatus, which is a catch-all for anything that hasn't been
+formally assigned, and that's not regulated at all. So, right, so I could write
+a paper and say, I have candid, you know, Alikhani, and be done with it. And,
+you know, you could do the same, you could use a similar name and it could all
+be colliding and very, very confusing. Right, so what's the rationale, take us
+to candidatus as an explanation and how you see it, that as a problem. Yeah, so
+funnily enough, there is actually one regulation for candidatus, the only one
+that I'm aware of, and is that it cannot be assigned to organisms that are
+cultivated. If it's cultivated, you cannot name it candidatus, and we can talk
+about that later, but there are other reasons why the regulations of the ICMP
+might not be compatible with naming organisms, even if they are already
+cultivated. There are other reasons, but the problem with not having priority
+for these names is that we end up, and we have seen it in practice, we end up
+with a flurry of names that are all referring to the same taxa. So we have many
+synonyms, and we can potentially have also names being reused to refer to
+different taxa. So we have homonyms, which is really the main objective of
+nomenclature is to have one taxa on one name. That really is it. And of course,
+if we don't have, if we have synonyms and homonyms, that one job of the whole
+discipline is, well, goes. And the fact that candidatus isn't regulated in any
+way whatsoever, in terms of how names are formed or what you need in place to be
+able to name something, means that there are very many candidatus taxa, which
+don't have an actual species that it's associated with. So we could be talking
+about families or orders or classes, but we don't have an anchor point of a
+specific organism for that name. So there's, in literature, there's a lot, like
+a plethora of candidatus taxa that only refer to higher taxonomic ranks and not
+to specific species either. So if I now find species X, which actually belongs
+to class Y that someone described as a candidatus class at some point, there's
+technically nothing that prevents me from just giving it whatever name I want.
+And then ultimately, the name that's assigned to the class, like the higher
+ranks as candidatus names, kind of gets lost in literature and there is not a
+good track record of where those names have gone and what they are actually
+referring to. Maybe I can again introduce here another concept to expand on what
+Marika is explaining, and it's the concept of the nomenclatural type. Since we
+don't know a priori what biological diversity is like, and what will we find in
+the future, we have a really hard time naming it. Even if we knew, it will be
+hard just because there is so much biological diversity. But not knowing in
+advance makes it even harder. And so the genius idea behind most or all
+nomenclatural codes is that we can assign an anchor and anything that is similar
+enough to that anchor gets the same name. It's doing a heavy lifting here, but
+that's part of the freedom of taxonomic opinion. And of course it varies
+depending on the rank of the taxon. But it is a very clever idea that again goes
+sideways when we have something like a name of a phylum, but no specific anchor
+for it. There is no one representative of that phylum that means anything closer
+to this one organism, similar enough to this one organism, gets that name. If in
+five years we decide that there is too much diversity contained within this
+taxon and we want to split it, which one of the two parts gets the name and
+which one gets renamed? There is no way of deciding, no objective way of
+deciding. So that's why it's important to name things from the bottom up.
+Defining one type material or one nomenclatural type for the species and then
+from the species up to genus or family and so on. And really what we are trying
+to do here with the SIG code is simply saying that the type, the nomenclatural
+type of species and subspecies can be the genome. It doesn't have to be a pure
+culture deposited in two different countries, in culture collections in two
+different countries. It can be just their genome. So you mentioned that a genome
+could define the thing, the nomenclature, or it might be defined by how closely
+related it is and that term is ambiguous. So when someone defines one of these
+terms, are there a bunch of properties that they put in with that? So usually, I
+mean, when we're talking about species delineation or taxon delineation, people
+are free to use a variety of information to ultimately delimit that taxon one
+way or another. But I might believe genealogical concordance is the best way to
+circumscribe species and to look for species boundaries. So for cohesive groups
+that are analogous to species, whereas someone else might believe average
+nucleotide or identity should form the basis of all of those decisions. And
+typically in prokaryotic taxonomy, when we're talking about species delineation,
+it's often seen as a polyphasic approach. So you try to use a range of different
+information and get the consensus of that to ultimately delimit the species. So
+as more genome data has become available, we've progressively moved towards
+using genome data as the basis for identifying those species boundaries. And
+that's something that can be used for both cultivated organisms with genomes
+available and uncultivated organisms for which we have genomes available. So
+those are all really useful. Are those actually saved as something in the C code
+repository? Like this is the anchor and these are the properties that would make
+it similar to this anchor? Yes. So that goes back, that goes now to what we call
+the C code registry. So this, because we, in the C code, the C code is not tied
+to any one journal, which means all of the peer reviewed sites.  Scientific
+literature is a fair game and we cannot possibly scan all possible, all
+different proposals of taxa, of new taxa, taxa names. So we have, instead of
+tying the SIG code to a specific journal, what we have done is we have created a
+queryable repository that is called the SIG code registry. And in the SIG code
+registry, there are a series of minimum data, minimum information that is
+required to propose the name, a new name, and one of them is the description. So
+the description is the description of a taxon is where the circumscription of
+that taxon is located. Sometimes that can be extensive, two or three paragraphs
+talking about their ecophysiology and their metabolism and so on. Sometimes it
+can be a couple of sentences saying this taxon is circumscribed on the basis of,
+you know, GTDB, RED indexes or average amino acid identity or average nucleotide
+identity. And, and under no code, is there actually a requirement for, so under
+the SIG code, there's also not a requirement, an absolute requirement for an
+actual description paragraph or what has typically been called a protologue, but
+basically the evidence for the novelty of that organism, the idea is that that
+needs to be presented in the effective publication. So the actual paper that
+gives you the evidence that this is something new, that's the idea that at least
+in that paper, there needs to be sufficient evidence to be convincing that this
+is a novel taxon. And even though I might not necessarily agree with that
+particular paper, that's again, the taxonomic opinion where we need to draw a
+distinction between taxonomy and the nomenclature of it. I think Marika used
+here a term that maybe some of your listeners may not know, and it's effective
+publication. That's another important concept in the nomenclature of codes. The
+effective publication is the manuscript where the taxon is described, where the
+evidence Where the name is mentioned, where the name is given. Where the name is
+proposed, yes. Which ideally is all the science behind all the evidence of
+novelty of that taxon, right? It's the vehicle through which the authors
+described all the process. And that is also captured by the SIG code. One of the
+last requirement, the last mandatory requirement for the naming of an organism
+in the SIG code is that the effective publication is deposited in the SIG code
+registry. Yes. So I can't just name something and validate it without an actual
+paper being published on the novelty of that organism. Okay, so a couple of
+observations from that. It actually sounds that this is actually a really
+important problem. I suppose it sounds like a fairly common problem where if you
+have, say, a data set or you have data points sort of displayed on a chart and
+you're trying to do clustering on that, you often have an interesting problem of
+deciding where those boundaries are at a complex data set. And one tactic that
+you seem to be describing is to pick a centroid and base your clustering around
+that. And that seems to be a fairly effective way of doing it. And that seems to
+be what you're applying here, using a specific genome as that centroid. The
+other thing I'll point out is this issue of runaway naming is not restricted to
+naming species, but I'm sure people have encountered very weird, complicated
+problems with naming of genes, which doesn't have any such structure. You know,
+the gene, you'll read a paper and it'll describe an operon, you'll think that's
+very interesting. You'll read another paper in another species, it'll describe
+the similar operon and go, oh, that's kind of similar. And you're like, no, it's
+actually the same thing. It's just the same thing. They named it in Yersinia
+something, they named it in E. coli something else, and no one's actually
+bothered to go back and reconcile those namings. The people who work in the
+species know, but as an outsider, you're just going to get, you're going to have
+to figure that out on your own. So to me, this sounds like really important
+stuff to sort of address before it gets out of, I'm presuming that you're
+setting this up before it gets out of hand, before we have way too many genomes
+to deal with. It's also worth saying, I wanted to also say that when we're
+specifying an amenglytral type, it doesn't necessarily mean that it's the mid-
+weight organism genome of the organism. It doesn't mean that it's the most
+typical or the most average of that taxon at all. But yeah, if you were to
+cluster things based on average nucleotide identity or whatever, then using a
+mid-weight approach would make sense. But the type doesn't necessarily have to
+be a typical representative of that taxon. One of the things I wanted to ask is
+actually, this thing of this, the suggestion of using a genome sequence as that
+mid-weight is not necessarily that, it's not that controversial because in
+classic taxonomy, surely this is something taken into consideration, right? Yes.
+Yes. So all major journals of systematics have been requiring genomes to propose
+new taxa for very long time already. This is not something new. And in fact, if
+I may, in the ICMP back in 1966, the requirement for the proposal of a new
+species or subspecies was that you will designate a type strain, or in special
+cases, a description, a preserved specimen, preparation, or even an
+illustration. So we are really modernizing, bringing back that concept of
+freedom on what we use, that we use as the basic information we use, and
+modernizing it to include a very, something that happens to be a very stable
+kind of data that is also much cheaper to obtain today, which is the genome. And
+something that is routinely used for species delineation and delimitation in
+cultivated organism, as you said, in traditional prokaryotic taxonomy as well. I
+mean, that's something, genomes are cultivated under the ICMP, so the
+nomenclature or the code of nomenclature for prokaryotes, like we're already
+like validating names under that code using genome data. So it's not, Barney
+Whitman always says like, it's not revolutionary, it's evolutionary. It's an
+evolutionary change that allows us to actually use the data and the information
+that is appropriate for the organisms that we study. You mentioned this thing of
+prokaryotes, so it's a sequence and the difference of culture and non culture.
+Does the C code apply to everything, cultured, uncultured, and is it only for
+bacteria or is it for, how far does that scope extend? Yeah, so on the
+distinction of cultivated versus uncultivated, yes, the C code applies to all
+prokaryotes, whether they are cultivated or not. You can propose a new name
+under the C code, even if the name, the organism is cultivated. There are
+reasons why you may have a culture, but you may not be able to validate your
+name through the ICMP. One of them is if you have a pure culture, but that
+organism is fastidious, it's very difficult to grow. For example, it requires
+very high pressures or very low nutrient concentrations or something like that,
+or it just takes years to double. That means that realistically you won't be
+able to deposit that organism in culture collections, at least not anytime soon.
+So that's one limitation, even if the organism is already cultured. Another
+limitation is the application, the uneven application of the Nagoya protocol.
+The Nagoya protocol regulates access to genetic resources and the fair and
+equitable sharing of benefits arising from their utilization. And that
+regulation applies differently in different countries, and there are countries
+in which that regulation is a lot more strict, like for example, in Brazil, in
+South Africa, in South Korea. And what that means is that descriptions coming
+from these places will almost never be attached to the transfer of material to
+different countries, just because they can't, they just can't regulatorily. And
+in some of the countries, depending on the interpretation of those countries
+that are signatories to the Nagoya protocol, they might be allowed to export the
+culture to a culture collection, which the culture collection could effectively
+cultivate and deposit effectively within the culture collection, but then
+there's limitations on distributing those cultures to other researchers. And
+under the ICMP, there isn't a lot of room for that.  to be any restrictions like
+that. So even if you did deposit it, depending on which countries we're talking
+about, even if you ended up depositing your culture into international culture
+collections, there might be limitations on the actual distribution of those
+cultures afterwards, and then under the actual ICMP, they're not able to be
+validated, the names. Can I extend Nabil's question just a little bit more? So
+he asked about bacteria, but like, I promised you a ridiculous question before.
+So what if you found DNA in a mosquito in amber? What if you have a Jurassic
+Park experience here, and it might be a eukaryote? Under the C code, it's
+currently, the C code is currently to accommodate archaea and bacteria from
+sequence, using sequence data as nomenclatural types, but potentially in the
+future, I think under the zoological code, you can actually use DNA for
+describing the organism. So technically, if it's a eukaryote, and they got DNA,
+a Jurassic Park moment, they would be able to describe that organism under the
+actual, is it the IC, I don't know, ZN, ZN, the zoological code of the name. I
+don't know if it would be Z or Z for the majority of people. Oh, you can, you
+can go either way. Definitely, we definitely have an international audience.
+Yeah, that requirement, that requirement of living type material is unique to
+prokaryotes. So we really are only solving a very specific problem in
+prokaryotes. Nobody needs a living oak to name a new species of oak or a living
+tiger to name a new species. Or a mating pair. It would be the equivalent of
+having a mating pair to be able to name the organism. That you'd have to somehow
+maintain and keep somewhere. It needs to be viable going forward. Yeah, so
+that's unique to prokaryotes, that problem. Many thanks for coming along today
+and having a chat with us. Today, we've been talking about systematics,
+specifically SeqCode, which is a nomenclature code for naming prokaryotes
+described from sequence data. And talking to us has been Marika Palmer and
+Miguel Rodriguez. And you've been with Lee and Nabeel today, and this is the
+Microbinfee podcast, and we'll see you next time. The opinions expressed here
+are our own, and do not necessarily reflect the views of CDC or the Quadram
+Institute.

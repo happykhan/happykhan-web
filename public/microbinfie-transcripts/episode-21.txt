@@ -1,0 +1,323 @@
+Hi, and welcome to the Microbe Information podcast. I'm Nabil, your host for
+today, and we've had a lot of people asking us to talk about COVID-19. So we put
+together this special episode to talk about it. Dr. Andrew Page is joining me
+today in his capacity as head of informatics at the Quadram Institute of
+Bioscience. And we have a special guest, Dr. Justin O'Grady, who is a group
+leader at the Quadram Institute and associate professor of medical microbiology
+at the University of East Anglia. Both have been leading the SARS-CoV-2
+sequencing effort in our region, and so far the team has sequenced 1,500 SARS-
+CoV-2 genomes. So we'll be talking about how the UK effort is organized, what's
+been happening in the lab and how that flows onto the bioinformatics. I should
+mention that we live in Norfolk in the UK, which is a pretty small geographic
+region, which is about 900,000 people. So we have one genome for every 600
+people, which is probably one of the densest sequencing in the world. So first
+off, Justin, who are you and what do you normally do? I think you've introduced
+me quite well, but yeah, I usually work on medical microbiology applications and
+particularly diagnostics. I work on rapid detection of pathogens in clinical
+settings and also in food. So more recently, I've been applying clinical
+metagenomics, so metagenomic sequencing to clinical samples to detect pathogens
+faster than we currently do by culture. Just in case anyone's been living under
+a rock, what is COVID-19 and what is SARS-CoV-2 or H-CoV-19? Well, it's a global
+pandemic, it's a virus which caused this pandemic that we're currently
+experiencing in every country in the world. It started off in, they believe, in
+December last year. Some say maybe as early as November, and then it rapidly
+spread across the world, as we all know, and caused major disruption to our
+lives. What is COG-UK and how does that fit into COVID-19? Well COG-UK is a UK
+consortium of people who are trying to sequence the coronavirus genome. It's the
+Coronavirus Sequencing and COVID-19 Genome Sequencing Consortium from the UK.
+There are 16 sites across the country, and they're mainly academic labs, public
+health labs, and research institutes like the Quadram Institute and the Sanger.
+It covers the whole of the UK, so Wales, Scotland, England, and Northern
+Ireland. The idea is that we try and get as much coverage of all the regions
+across the UK as possible, and we try and build a tree, a family tree, of the
+virus here in the UK to try to show how it was introduced and how it has spread
+across the UK. We can also use it for more in-depth analysis to look at, for
+example, outbreaks in care homes or workplaces, et cetera, as the outbreak moves
+on. Okay, so how did you both get involved in all of this? Well, in March, I was
+on jury service and an email came in to Justin and I asking, did you want to be
+part of a consortium to do some sequencing of coronavirus? And I thought, oh
+yeah, sure, why not? And it came from a guy who shares my office 20% of the
+time, but he runs the Bonne Famille Extend in Public Health Wales. So it was,
+you know, reusing existing connections and building a consortium, and in
+literally no time, this entire consortium came together. And if you're not
+familiar with grants and that kind of thing, normally these things, you know,
+putting together a consortium would take months and months or even years. And
+this seemed to be, you know, a matter of a week or two. And to be honest, we
+started doing everything before even paperwork was done or signed, because this
+is obviously such an important thing to get done. What about you, Justin? Yeah,
+well, I got the same email as you did, Andrew, and then talked to John, our boss
+here, and then talked to Ian, the boss, and then we decided, you know, could the
+Institute deliver on such a program? And we decided we should do it, and it
+would be a good idea to get involved. But like you, I thought it would take
+time, and I thought this was an initial just tester from them to see would be
+interested. But what I didn't realize at the time was that a grant had already
+been written and submitted, and it was only a few days after we received the
+email that they had been awarded the grant. And then, you know, within two
+weeks, we were sequencing genomes. That's pretty fast. Yeah. Particularly for
+things like ethics and building all the connections and all that. It's just
+insane, really, when you think about it. And I think there's only possible
+because like you had a lot of existing connections into the local hospital. And
+for those of you who don't know, the Quadram Institute is based on a campus,
+which also has the regional hospital, NNUH, and it also has the medical school
+for the local university. So you know, within one teeny tiny little campus,
+well, it's a big campus, within one small little area, you have everyone you
+need to make a project like this happen. It was fortuitous in some ways that we
+had everything. We had the docs already joined for other projects. But yeah, I
+think what we had to do was go through the biorepository because that allowed us
+to put in place the ethics that we needed to collect these samples and start
+working them on them almost immediately, long before the official ethics for the
+study had come through the COG UK consortium from Public Health England. So we
+were able to get up and running very quickly through the virology department
+giving us the samples and the biorepository handling the samples and handling
+the metadata and anonymizing the samples for us so that we could proceed with
+work. So just to clarify, you both mentioned this biorepository and this
+interface with the hospital and our own research institute. What is the, like,
+how is the biorepository actually structured and how does that help? Well, the
+biorepository is an NNUH organization. So it is able to collect excess samples
+from laboratories and allow researchers to test those excess samples with an
+overall kind of overarching ethics that they have. So they're allowed, they
+allow us to gain access to these samples and test them. And then if we want any
+information on the patients or the patient's metadata, we would then need to get
+local ethical approval to get that information. All of the work that you're
+talking about is operating under lockdown conditions. How has that affected the
+ability to respond so quickly? Well, that's a good question. So the good thing
+from the analysis point of view, and I'll let Andrew discuss this, but you guys
+are able to work from home a little bit easier than we are. But from the lab
+perspective, we had to get people to volunteer to come to work. And basically we
+put out a call to ask people who would be willing to come and do some work on
+coronavirus sequencing. And we got a number of people responded to that, a
+number of people from my group, because they have a lot of expertise in this
+clinical sequencing area anyway. And so, yeah, we had to put together a bunch of
+volunteers who would be able to handle each part of the process that was
+required. The process would start with sample collection from the clinical
+virology lab, and then it would move, then the samples would be brought back to
+the Quadram Institute, where we would make cDNA and do PCR, and then we would
+move the samples to sequencing, and we had other people to do that job. And then
+the data that would then be sent to the bioinformatics team, and I'll let Andrew
+take over from there. There was a lot of people involved, there must have been,
+what, about 26, I think, at one count? So huge numbers everywhere. And then
+everyone needed to have backups just in case they get coronavirus, you know,
+because obviously that's a big risk as well. We did, we tried to separate teams
+at one point here. We wanted to have independent teams so that they wouldn't be
+working at the same time in the lab, so that there wouldn't be a chance, they
+were working in, shall we say, pods, so that they wouldn't give the coronavirus
+to each other. So if one pod went down, we'd be able to switch to another. But
+luckily we didn't have to make use of that because nobody got coronavirus except
+me. God help you. And was it bad, Justin? I've had worse blues, but there were
+more lasting effects, I would say. So, you know, I would even still sometimes
+notice a lack of energy or a breathlessness at the top of the stairs, whereas,
+you know, other flus would have, when they were finished, you know, you would
+have a couple of days you felt bad, but this seems to have dragged on a little
+bit with minor symptoms many weeks later. So you're very dedicated to the cause.
+Oh yes, yes, yes. That's excellent. So I'm going to turn it over to talk about
+some of these different wet lab methods you've been using. So if you're reading
+the literature, there are many different methods for sequencing SARS-CoV-2.
+Which did you pick and why? Well, we chose the ARTIC protocol, Network ARTIC
+protocol, for a number of reasons. The people involved in the study in the UK
+are the people who developed the Network ARTIC protocol. So Josh Quick, Nick
+Lowman, and others. So, and they were heavily involved in this ACOG UK project,
+so it made sense that we would use that protocol. But also, for many reasons,
+it's probably one of the best protocols there is globally. And in terms of
+sensitivity and specificity, it seems to be very good. So I guess that's why we
+chose this. And then it's a 98 primer pair tiling PCR approach. There are other
+protocols out there which use larger amplicons. So this one uses 400 base
+amplicons, whereas other ones use one KB or 1.2 KB. But they're not quite as
+sensitive. So I think it's a good combination between sensitivity and data
+yields that we get from either mino and flow cells or Illumina sequencing. And
+there's no opportunity for direct sequencing? It has to be through some
+amplification? Well, the virus was discovered using metagenomics. So there was a
+patient in China who had unknown severe respiratory infection, and they knew it
+was probably related to coronavirus, but their coronavirus, so their SARS
+primers, et cetera, weren't working. So they used metagenomics to sequence some
+samples, and they were able to detect and sequence the virus in that way. But
+the problem with that approach is that it wouldn't be as sensitive as a tiling
+PCR approach. So you would get genomes, full genomes from patients who had high
+viral loads, but you wouldn't from patients with lower viral loads. So the
+tiling PCR approach gives you more complete genomes from more patients. And so
+that must have introduced several issues into the lab. So what have you had to
+deal with in the lab in terms of the sequencing? Yeah, so you've got to, you
+know, the protocol itself is, it's somewhat laborious. It takes quite a bit of
+time, maybe seven or eight hours to go from sample to sequencing. You know,
+there are several steps along the way, and you have to have fairly robust sample
+handling procedures so that you don't mix patient samples up and you record them
+appropriately. But then there are challenges all the way along the protocol with
+the, you know, you're generating very high concentration coronavirus sequence
+and PCR products, then you're washing them and you're getting them ready for
+library, to make a library for sequencing. And there is a lot of coronavirus
+nucleic acids moving around the laboratory, and that can cause issues and
+headaches with contamination. So how much virus are we talking about? Like what
+kind of sequencing coverage does this translate to? Or are there any
+measurements of how much virus there is? So we get the sample from the clinical
+virology lab. So sometimes we get it just as in viral transport medium, we have
+to do RNA extraction ourselves. But a lot of the time we get the excess
+diagnostic sample that was tested by the clinical virology laboratory. And they
+have tested it using a qPCR assay and that is quantitative. So it gives you a CT
+measurement. And that CT measurement is related to how much viral copies were in
+the sample. And we would often, you know, if it's in the thirties, there are
+only hundreds, tens to hundreds of copies of the virus. And if it's in the
+twenties, there are thousands to hundreds of thousands of copies of the virus in
+the sample. We would know the concentration of the virus that's in the
+particular sample that we were testing. And the ARTIC protocol works quite well
+up to about a CT of 32, 33. So that's probably about a hundred copies of the
+virus in the sample. So the protocol works well to there, but still works above
+that. But the genome coverage reduces as you get fewer copies of the genome. Any
+tips for anyone listening at home to avoid, you know, different issues? What
+would you do differently if you had to do it again? Yeah, what you don't want to
+do is say waste a lot of sequencing effort, but you also don't want to bias your
+sample collection by only sequencing lower CT samples. So samples that have a CT
+below 32, you could put an artificial cutoff there and say, okay, I will only
+sequence samples below CT 32. But then you might miss some biology in the fact
+that you would only collect samples from patients who had a relatively high
+viral load. And these might be asymptomatic patients, for example. So you may,
+and imagine there was a certain lineage associated with asymptomatic patients.
+That's not the case to be quite honest with you. But we didn't want to miss any
+biology and we don't want to miss any biology in the future by putting a cutoff
+at CT 32. So I think what I might recommend for labs doing this, not to waste
+too much money on sequencing samples that will fail quality control threshold. I
+would say you might want to say after the RT-PCR is performed, that you would
+look at the concentration of nucleic acid by cubit and determine what it was.
+And if it was say below two nanograms per microliter, then you might decide you
+wouldn't want to run that sample in your sequencing protocol just because it's
+quite likely to fail at that stage. And I know that we've been using Illumina
+over Nanopore. And so why that decision to use the Illumina platform? It's
+really because throughput. Nanopore is flexible in terms of throughput. If you
+can kind of handle, so if you're only looking at samples up to about 23, 24
+samples per run, we were dealing with far higher numbers than that during the
+course of the peak of the outbreak in April and May. So we needed to sequence
+hundreds of samples per week. And the choice, it was easy really because
+Illumina sequencing is able to, once you get up to hundreds of samples, it's
+quite flexible in terms of how many you can add and the cost is appropriate and
+probably the right choice of technology if you're dealing with hundreds of
+samples, but you can see that to do several Nanopore runs to reach those kind of
+numbers using the network-oriented protocol, Nanopore protocol. So at this
+point, we've generated some sequence data. So I want to bring Andrew in a bit
+and talk about some of the bioinformatics involved. So Andrew, could you just
+take us through the basic bioinformatics workflow when off for COVID-19? Yeah,
+sure. So when the sequences come off the sequencers, you know, you could have, I
+think the highest we had was 384 in a single run. Then it's all hands on deck.
+And we actually have a Discord server running in the background where we all
+communicate all the time. So it's all hands on deck. When the sequences come
+off, they get processed through a pipeline. So if it's Nanopore data, then it
+has to get base called a guppy. If it's Illumina data, it goes through your
+standard BCL fast queue. And then we start doing some interesting work. So for
+Illumina, we use primarily IVAR. And that, first of all, has to trim off the
+adapters. So there's synthetic sequence for the ARTIC protocol to enable the
+tie-line PCR. And you have to mask that out. Otherwise, you're going to see
+variants, which may not really exist. It may just be in the actual synthetic
+sequence, not actually in the genome you're sequencing itself. So we mask those
+out with IVAR, and then you build a consensus sequence. Now we're just using a
+Nextflow pipeline developed by Tom Connor's lab, and we've tweaked it slightly.
+This pipeline just more or less does these steps for us. So we get a consensus
+sequence out the other end. You get a BAM file with the reads mapped back to
+consensus. And then we do some QC on these. So we want to see how much of the
+genome have we captured? Are there places dropping out? In a few cases early on,
+we had problems with an early set of primers, had problems where three specific
+regions would always drop out. But that's improved now that we've got primers
+from a different company. I think there's been a little bit of a fiddling with
+temperatures and stuff. We're doing all right. We never really get the ends of
+the genome, unfortunately. Just that's how it is. We like to see a reasonable
+coverage, but with amplicon sequencing, you get huge differences in coverage
+throughout the genome. It's just what you got to deal with. And as long as your
+algorithms can work with that, then you're fine. A big mistake people make is
+they just blindly take amplicon data and then go and assemble it or something or
+call variants directly from it without actually considering that this needs to
+be treated in a separate manner. Right, so then we have a consensus genome. Goes
+to Nabil for data submission to COG. Yep, so my major role in all of this is to
+take that data, have a look, have a poke at the QC for it. And then if we decide
+that the run is good, we submit that up to...  the General Cog UK Consortium. So
+they have a nice server where you send all your files and a system for uploading
+metadata that we've also collected from the biorepository and from the
+hospitals. And that then trickles down into GISAID, which is the central
+database that is storing all of the coronavirus sequencing across the world. And
+eventually it should be going into the standard repositories for sequencing data
+like ENA and SRA and so on. And just to note that only about 20% of genomes that
+get submitted to GISAID actually end up in the ENA or in GenBank, or sorry, the
+SRA, which is a bit of a problem because if you don't have the raw underlying
+reads, then there's certain types of analysis you can't really do. You can't go
+back and reanalyze data. You just have to take the consensus sequences or
+assemblies people have deposited in GISAID That's how it is, you know, you can't
+double check anything. For me, that struck me a little bit odd. I kind of just
+went with it, that GISAID only does keep track of the consensus sequence. And
+they do have their own internal QC where they go back and look if there's any
+abnormalities with the consensus sequence, like random frame shifts that they
+hadn't seen before and things like that to make sure that the data is valid. But
+the fact that the raw underlying reads are not available for the community to go
+back to and just double check everything's fine seems a bit strange. I have been
+wrangling with submitting our data directly to ENA and it's, as always, it's,
+yeah. It takes time. It takes time. How, what's the cutoff that GISAID puts on
+submission of sequence in terms of genome coverage? So their hard cutoff is 90%.
+They want to see 90% of the genome recovered as compared back to the reference.
+And within COG, they're happy to entertain things a little bit lower than that.
+So they take 50%, but even then we submit everything because for these high CT
+samples, you'll get pretty poor genomes, but some people I'm sure will want to
+do some analysis on that and they'll be able to pull out something from
+somewhere. Yep, so we religiously put up all of the data that we get hold of
+along with all of the CT values as well. We try to put up as much as possible so
+people can go back and do that QC. It's, it would be very difficult to figure
+that out if you only ever saw the good 90% consensus samples. I mean, it's a
+different question really when with that sort of data, you're not using it for
+an epitrace thing at that point. So I guess it's worth mentioning that it's not
+that straightforward sometimes in the bill in terms of duplicate samples,
+samples that have been poorly labeled and it can be difficult with the metadata
+to get it right before submission. So we always double check our data. That's
+true with any project of this scale. This definitely, as you both have
+mentioned, coming out so quickly means coming up with systems and new protocols
+and new avenues of sharing information very fast. And we've had to reinvent and
+solve a lot of these sort of problems of how we represent our data and check if
+the metadata is valid and so on. It does seem to be vital more than what we
+would normally do to get this right. And yeah, I think everybody's very much
+involved with trying to get this as good as we can. Yeah, I think working in
+genomics, sometimes it depends on your area, but often microbial genomics, there
+wouldn't be a great need for you to be reaching kind of clinical standards of
+reporting. And we work on clinical metagenomics and therefore have some
+experience in this area. But yes, certainly compared to sequencing foodborne
+pathogen genomes, et cetera, sequencing the coronavirus from patient samples and
+making sure that you report the data accurately and don't make any mistakes in
+terms of patient metadata is extremely important. And it's another step up in
+how you have to work with your data. It's quite interesting that quite a lot of
+people who traditionally worked in bacteria moved immediately into working on
+viruses because viruses is a teeny tiny little area and very, very specialized.
+So it is quite good that so many people were able to transition so rapidly over.
+Yeah, traditionally, like I only have done very, very little virology in my
+career. So this would be the biggest project I've ever done. And I don't
+maintain to be a virologist in any way, but it's the skills that I have in terms
+of microbiological sequencing were transferable from bacteriology to virology
+without too much difficulty, but I'm still not a virologist. None of us are.
+Well, we should mention that there are virologists and specialists within the
+consortium who handle that particular component. It really is playing to
+everyone's strengths. Yeah, well, we have a team of virologists in the clinical
+virology lab who support us in our understanding of the data. But in terms of
+the sequencing procedures and analysis procedures are not significantly
+different for a virus as they would be for a bacterium. So I know what next, you
+know, we're at the end of wave one. How are we going to do things differently
+for wave two? Yeah, that's something that's evolving all the time, I think so.
+So what we've been really trying to make sure that is that we don't go and
+sequence 1500 genomes and not do anything with the data. There was some really
+interesting work done by Oliver Pybus and Andrew Rambo, which was published
+recently in which Nick Loman was on BBC Radio 4 Today Show discussing. This is
+how many introductions of the virus were made into the UK and they reckon it was
+around 1350 separate introductions. And that's supposed to be probably an
+underestimate. So that's a very interesting application of the data that we're
+producing. But we need to now move from a kind of an overall understanding of
+what happened and how the virus moved into the country to using this data to
+help in the outbreak control programs that will run all the way across the
+country at various different public health agencies and local county councils.
+So I think that that's the next stage for us to start working with local county
+councils and PHE to use the data for if we expect and as we expect the second
+peak to arrive, that we would use the data in as real time as possible to help
+inform on public health interventions. This would be the canary in a coal mine
+that will warn us if something is going to miss or if things are calming down?
+Well, I think its strength is probably how you can demonstrate that whether a
+transmission in a certain setting is likely or whether it's not likely. So for
+example, if you had a school setting or a care home or a factory where there
+have been multiple cases of coronavirus, this is the way you can genotype them
+and figure out if you have transmission from person to person within that
+institution or it is separate introductions of that virus into that institution
+and they would require different public health interventions. So I think that
+is, it's going beyond just a positive result to giving some much deeper
+information on where the virus has come from or how it's spreading. So that's
+all the time we have for this episode. I'm Nabil, I was your host for today and
+I was joined with Andrew Page and Justin O'Grady. Thanks for being on the show.
+Thanks very much. We've been talking about coronavirus and the efforts within
+the Quadram Institute as part of CLOG-UK in combating and sequencing that.
+Thanks for tuning in. See you next time on the MicroBinP podcast. Thank you.

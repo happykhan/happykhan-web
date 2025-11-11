@@ -1,0 +1,352 @@
+Hello, and thank you for listening to the Microbinfeed podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. Over the past week, there's been a huge change in how
+scientists consume social media, and that's hit our fields with a tidal wave,
+more or less, and our very own Nabil is at the very center of this. So, Nabil,
+can you tell us what's gone on here? Okay, so what Andrew's alluding to is the
+migration of academics on Twitter to a different platform called Mastodon, and
+there's some interesting nuances and changes in that that I think we'll talk
+about as we go to the episode, but before we get started, I'll probably just
+explain what Mastodon actually is for people who don't know. So Mastodon is a
+free and open web application that runs on a web server. So it's like a self-
+hosted blog or maybe you've been to a bulletin board, a forum webpage or
+something like that. It's basically the same thing. It's just an application
+running on someone's computer somewhere. And the layout of the site is it's
+designed very much for microblogging. So small, short, condensed posts from its
+user base, very much like Twitter. There is, what makes it different though, to
+other sort of insular things that you might have run into like web forums and
+things like that, is that the different servers that people set up can actually
+integrate and communicate with each other. So if you're a user on one, you can
+look up a user on another and you can follow them or reply to them or read their
+content. So that's, but that's basically it. That's all that's happened. That's
+all that Mastodon is in a nutshell. I missed a step. Why are people migrating
+from Twitter? So I think this was on the backend of Elon Musk buying some
+fraction. I don't know what, how the ownership works, but he's bought some
+fraction of it and he's started to make radical changes. People don't seem to
+like Elon Musk for a variety of reasons. They seem to believe that Twitter prior
+to Elon Musk buying it was somehow maintaining free speech and some sort of
+something to do with democracy. I have no idea. And they fear that that's in
+jeopardy because of Elon Musk's involvement. I don't know. For me, it's a
+website where you post cat pictures and trash talk people, trash talk
+celebrities. It's a private entity. It has no, it's not a universal human right
+to be on Twitter, to have your freedom of speech protected by Twitter. Like,
+like that's, it's just a webpage. It's just a website anyone can make. And if
+you're a bioinformatician and a programmer, you're quite capable of making your
+own version of Twitter. There's nothing magic about it. I've been using Twitter
+since 2007 and I've found it very, very useful over the years for sharing papers
+with other scientists, particularly, and, you know, for actually interacting
+with the community. And I've made a lot of friends actually in real life through
+Twitter, which is a bit mad when you think about it, because it is just a, a
+random social network. Sunnabeal, where did this all come from? I know yourself
+and Duncan McCannell have set up your own server. Yeah. So on the back of all of
+this furor over Twitter, different people, including myself and Duncan started
+setting up, started playing around with Mastodon and we decided to set up our
+own instance. It was, I think Duncan said, you know, like, this is a thing, like
+people are playing with this. We should have a go. He bought a domain. I set up
+a virtual server and we just put up an instance of Mastodon in a couple of days.
+It's Mastodon.science, so M-S-T-D-N.science. That's the, that's the web URL. And
+we just decided to play around with it. We said, okay, well, this could be a
+technology. We always like tinkering with things. And we thought it'll be a
+place where some bioinformaticians, microbial genomics people, some
+microbiologists who are quite tech savvy would come and hang out and post some
+messages and share some memes and have a good time. And probably like 50 people,
+a hundred people, you know, like nothing great, but just something to play
+around with this technology. And in the back of my mind, when we were setting it
+up, I was thinking, this is really interesting as an exercise because, you know,
+playing around with it, seeing where this could go is you could use this. Let's
+say you have a conference. Let's say you have a, an organization and you set up
+Mastodon and you say, this is like a private social network, Twitter-like thing
+for your participants, for your employees, for your, for, you know, you could
+have it based around any type of organization or topic and just have a separate
+space for that sort of walled space just for those people. So I would be
+interested to hear if a research council uses it or a university uses it or an
+interest group. And our thing was an interest group around microbial genomics.
+That's why we set it up. And we weren't thinking it was going to be very big,
+but then something happened. There was some sort of stampede of people who
+wanted to get out of Twitter and try this out and find a separate space and
+connect with other people. And it wasn't just us. There were a number of other
+instances were set up. There's one set up called genomic.social, which is just
+for genomic science. There's one called coevo.social, which is for ecology and
+evolution. There's existing ones like vettyscience.org or scholar.social or
+scicom.xyz. And all of these instances, new and old, suddenly got a barrage of
+people trying to join up. I mean, at the moment we have about 2000 users that
+have signed up for just the instance I and Duncan set up, there's 2000 for that.
+But there's probably maybe several other thousand users that have joined the
+other instances around science. And a lot of scientists have just started to dip
+their toe into this and see, is this like a thing? Should we be playing around
+with it? And that struck me as really odd. You know, like, OK, well, let's just
+ride the wave and see what happens. So we just keep throwing more resources to
+the server. It's a virtual service. You can dynamically resize it. So I mean,
+you don't have me going to a cupboard somewhere and swapping out disks. I don't
+have to worry about that sort of thing. But it's dynamic. We can resize it well
+enough and things like that. And it's fairly manageable to just accommodate more
+and more people. So all right, fine. Let's see what happens and see whether it
+could work. It might not work. It might just crash and burn. Probably everyone
+will get bored or maybe there will be a core group of people that keep using it.
+I have no idea. But let's just try it out. What's the worst that could happen?
+So what are you up to on your virtual server? Like what are your resources? And
+how many users is that holding? So we've got almost two, at the time of
+recording, we've got almost 2000. It's a, oh, I've forgotten. It's a four gig, I
+think it's a four gig memory and four vCPUs, virtual machine that's running the
+most of the content, like static things, like all the pictures are being put on
+a object store bucket somewhere. It's not very intensive. I mean, the most
+expensive thing is actually getting a mail server that works. Sending emails to
+people has become incredibly complicated, it seems, because of the amount of
+spam out there. So there's a lot of controls to try and stop spammers. And that
+actually makes it difficult for an honest person like myself, who just wants to
+send an email to someone saying, hey, if you want to reset your password, just
+click this link or, hey, you've actually been confirmed for the website that you
+yourself signed up for. That's actually the most complicated part. But that's
+the resources that's going on in the background, really. It's all fairly light
+and easy. So how much is that going to cost? You know, like, is there a rough
+guide to how many thousand users and how much it's going to cost every month? It
+depends. It depends because it's not just the user count. It's actually the,
+because it's like a network that's integrating with other instances. It's also
+the amount of interactions and following they do for other users elsewhere,
+because you're spending this resource of trying to cache what other users are
+connected to. So it's not like a strict linear thing. I will say it's about,
+it's about a hundred pounds per thousand user to a point. Wow. That's quite a
+lot. And I guess that's not something that you realize. So when you use a free
+social network, particularly because, you know, they're making money off
+advertising and off your data. But that's, that's quite a substantial amount.
+Yeah. It is a substantial amount for one person to carry just like by the by,
+like just so everyone else can have fun. Yeah. I should mention the platform
+platform doesn't actually give you any system of.  adding in ads, even if you
+wanted to, not that I would, so it's all ad-free, but someone has to pay the
+price for running the server and yeah, it costs money. Yeah. So what is your
+model of, of paying for it long-term? I have no idea. Some people have been
+very, very kind to just chip in some money, which I really, really do
+appreciate. They know who they are, but yeah, I don't know. Most people for
+other instances that are longstanding, there are these sort of Patreon-like
+monthly subscription that sort of work on a donation basis. That seems to be
+what people tend to use. There is one, there are a few of these, which are more
+like very transparent and the design specifically for NGOs and charity sort of
+endeavors, like foundational kind of things, which are a bit more formal, but
+look very good in terms of transparency and things like that, so there are
+platforms to, to raise the money. So I'm not too worried about it. Well, all the
+financial concerns aside, I mean, this is really exciting and I've enjoyed it a
+lot. Do you have certain people that you were excited and surprised that they
+came on, or do you have certain toots, as they call them, that you liked? So I
+don't watch the signups for other instances, but I have noticed at least in our
+tiny, so this is one instance out of many where I'm seeing this just for, just
+for our own, but we've had a Nova Laureate join. You've had a lot of journals
+suddenly show up. I was surprised about that. I was surprised about the number
+of scientists from other disciplines who sort of hopped on it as well. And
+there's very interesting posts that I would not have seen on Twitter that I'm
+starting to see more, more of, so things from things, people from pharmacology
+or immunology or people from even history, things like that, who are rocking up
+and making accounts and posting content. And it is actually interesting to read
+what they're up to. I was never really subscribed to that in Twitter. Yeah. I'm
+sure you would never kick anyone off. No. I know that you've had some technical
+challenges, like I know the other day you had some kind of issue with pictures.
+Are these easy to deal with? Yeah, it's easy to deal with. You just have to get
+your head around. The problem is, is that there's so much, because the user base
+is growing very quickly, it's about, it was like two or 300 people a day jumping
+on. And then each of those would, would spawn a whole bunch of activities. So
+you had to be quite, what was happening in the background sometimes was that in
+the evenings, a lot of people would, would hop on and then basically the web
+server would have run out of threads, it wasn't able to keep up. It's, it's set
+up quite, it's, it's quite robust in the backend. It's not going to crash. It's
+designed in a way that, well, I'll explain the implementation and explain what,
+then you'll understand why things get stuck. So the server is written in a mix
+of JavaScript and Ruby. It's basically run as a web application with the
+Postgres QL as your database backend, and it has a Redis cache, which is sort of
+a in-memory cache of things sitting up front so that it can quickly serve
+content to people. This, if you're someone who's done web, this is, there's
+nothing bizarre or strange about it. It's all very standard stuff. There is a
+background process called sidekick, which sits there as a demon that takes on
+all of the sort of background jobs and processes it as well. So you've got that
+other background process running as well, but that's, that's it. You have your
+web server process, your sidekick, which is your background process and your
+database process running at the same time. You said it was a hundred pounds per
+thousand users, give or take, and that might explain it too. Like there's a,
+there's a process happening all the time or a few processes. The web server
+itself has processed about 1.5 million jobs in a week. It's doing a lot. What I
+didn't realize at first is because, because I see like us as users posting and I
+think, okay, well, there's not that much traffic, it's sort of chugging along.
+Okay. Then I, then you look at the backend and you realize, oh, wait a minute.
+That's, this is the problem with this is that it's, it's trying to replicate all
+of this content and pull content from all of the other instances. So it's
+spawning a lot of jobs, even if your user count doesn't change very much. So are
+you limiting which instances it communicates to, like just to like a little
+science one, or are you taking in everything? No, I'm taking in everything at
+the moment because a lot of people who are scientists have jumped on to more
+generic instances as well. So they're on, so the biggest instance is called
+mastodon.social. So if you hop on that, that's just sort of, but that's a free
+fall of anybody, anybody who's anybody who's just on it. And quite a few people
+in our community have jumped onto that and they've kept the account there. And,
+you know, I don't see a reason to drop, to block domains. I have started
+blocking domains, but this is not because of trying to limit the requests or the
+access, but because those, those, those instances, those servers are serving
+content that you don't want people to see. Oh, I don't think people would
+appreciate it. This is, this is the wild west of the internet. If, if you've
+been on the internet for a long time, you'll remember there is a lot of gray
+spaces out there that aren't safe and you need to be a little bit careful and,
+you know, because this is a decentralized network, they're also sort of, there's
+also, they're also sitting there in the background. I mean, you can find bot
+accounts and spam accounts and all of that on, on anything like Twitter or
+Facebook or whatever as well, but it's sort of more upfront, it's more upfront
+for me at least, because I'm seeing it as a, as an admin, I have to moderate it.
+So I've blocked a few pretty dodgy, pretty dodgy servers. Yeah. So people are, I
+think you said that we're migrating, people are migrating over from Twitter. Do
+you think that people are using it as a total replacement? Some people seem to
+have totally deleted their Twitter account and jumped over to this. I think
+we've got to unpack that. There's been a lot of bad will towards Twitter as a
+platform for a long time. A lot of people I think are quite tired. If you were
+someone like, like for instance, me, like I'm quite fed up with Twitter, if, if
+you were someone who joined Twitter circa 2007, 2009, because you were a
+professional, someone in tech, someone in science, Twitter was a very, very,
+very different place. It was just the people you could find, you could follow,
+those people would retweet and you would see their content. That was it. There
+wasn't any promoted content. There wasn't really any ads actually embedded in it
+that much. And you would just see the scientists. So you would hop on and you'd
+see your, you'd, you'd just see like scientists saying things. And then it
+became what it is, which is more of a news thing or a gossip channel, and that
+was more, started to get away from why we joined it in the first place. So,
+because on the back of that, I think a lot of people just said, yep, okay. This
+is a sign, there's somewhere else to go. I'm going to kill my Twitter account
+and I'm going to leave now because I've been fed up for years and I'm out. I
+don't think there's a single, this is like a singular event that's, that's
+driven people away. This is a sort of straw, final straw. Emma, why did you jump
+from Twitter over to Mastodon? For me, it's a little bit of hedging. It's, I'm
+not sure what direction Twitter might go, but the idea of having something that
+can't be fully controlled by one person that is more federated, that if one part
+of it becomes bad and you can shift that weight onto other parts, that seemed
+like a really good idea right now. So I'm still not really sure what's going to
+happen. I don't have any plans to leave here at the moment, but it seems like a
+good idea to have a backup. And it looks like you're actually in Hingston now. I
+know that background. I am indeed. Yes. What, what is the background? How do you
+recognize it? Yeah, that's pretty impressive. I'm just in like a corner. I
+worked in Hingston for a decade, so I've been there many times. The bricks are
+very individualized. We went over a lot of the, of the inner workings of
+Mastodon and how Nobile's running it and the costs and compared to Twitter and
+everything. And so it's really nice to hear your opinion. I think Emma raises an
+interesting point though, that there are plenty of other social media networks
+people can go to, right? We could have all gone to like LinkedIn or something or
+whatever. There's plenty of places you can go. But I'm interested in this, this,
+this is not like, Emma's not the first person to say that it's interesting that
+we've changed the architecture of the, of the platform, it's a decentralized
+platform. The power is in, you know, if like, let's say you get kicked off an
+instance, you can create your own instance and you can start participating in
+the network again. Like you're not, or if you don't like what an instance is
+doing, you can go to another one. So the power is, there's a power shift in the
+content you want to see and who you want to interact with that's not available
+in a centrally controlled platform, and I'm curious if that's for everyone, if
+that's why that has suddenly become really important or what, what changed all
+of a sudden? Cause that's always been there. That's how the internet always
+worked. The internet has always worked like that. I don't know if the internet's
+always worked. Like it's, it's meant to be decentralized. Right. So, but, but
+it's gone towards, yeah, like, like this aggregation of, of these sites, like I
+don't go to a zillion sites. Like I used to in the nineties, I go to like the,
+the five or 10 sites on my phone. It's weird. No, I think it's really strange. I
+mean, what is the internet? It's a bunch of.  of other people's computers
+talking to each other. I have like on the front screen of my phone, I have like
+Reddit, I have Twitter, but now I have Mastodon and I think that's great. Yeah,
+I read the Mastodon feed before I read anything else at the moment. It might be
+because I'm just trying to check if the servers crashed or not. I mean, I wonder
+if part of it is just that maybe we did need larger things to convince us that
+these ideas were useful and possible and accessible because I simply was not
+part of anything like Mastodon before Twitter or I mean, until 10 days ago. And
+I'm not sure that it's something I would have necessarily gotten into before I,
+before Twitter, which is very accessible, very easy to use, very well known,
+kind of showed me what can be done with something like Microplug. So maybe these
+bigger services have just done the hard work of introducing these ideas and how
+these can be useful and how they can even be revolutionary to a broader audience
+that we can then take that back. And we have the, I don't know, the interest to
+make it work in a more decentralized way, which does take a little more work. So
+you'd have to kind of know, is it's worth it? And maybe that's, I don't know,
+maybe that's how it will all go, that we learn that these things are cool. And
+then we decide actually we're willing to put the work in to make them ours.
+Yeah, I totally agree with that. I think if you weren't raised in IRC channels,
+you probably just, yeah, this would be your first time seeing that part of the
+internet. It's a delightful part of the internet and I miss it a lot, actually.
+It's good that people feel it, engaging with it and seeing the value there. And
+it is limited. It does have the quintessential problem. The first thing people
+complain about with Mastodon is the fact that it's very hard to find other
+people and search for things and locate content. And it's like, well, yeah,
+because on the old days of the internet, it was a skill to locate the good
+memes, to locate the good jokes, to locate the good website, the informative
+stuff, to be able to use a search. I don't know if people still get taught how
+to use a search engine in school, like how to use Boolean operators when you use
+a search engine, when you can sign up for a library training, get trained to use
+this at the library. But that was like a thing, like you had to know how to find
+the thing you wanted. And someone who was very, very good at it was actually
+very valuable. And that's where data aggregation is sort of this fundamental
+problem. And people might not remember that that's where websites like Buzzfeed
+or Reddit or Dig or Huffington Post or whatever got famous and got rich because
+they were able to do this very, very well. So I migrated over from Twitter quite
+easily and brought a lot of my followers and they were all on Mastodon as well,
+or a fair few of them. There's like websites out there where you can just kind
+of put in your Twitter stuff and it logs in, you put in your Mastodon handle, it
+logs in, and then it gives you a CSV file, which you just import and it
+magically finds, it doesn't find everyone, but it finds a few people to get you
+started, which is quite handy, particularly people who put their Mastodon handle
+in their profile somewhere. I find it nice to start from scratch. I make a fresh
+choice of who I want to follow. I've brought over my dozens of users. I've been
+pretty selective. I mean, being on the admin side, you're sort of the dungeon
+master. You wind up having to troll through all the stuff anyway. You don't want
+to read all the backstories, but it's just sort of there. You have to kind of go
+through it. You see all the emails and people signing up and you kind of go,
+okay, fair enough. Is this the end of Twitter or is it just a temporary flash in
+the pan and we'll all go back to Twitter in a few weeks, and we'll forget about
+Mastodon? Probably, I don't know. We'll see. I think it's introduced a lot of
+people to a different way of approaching social media. So it's a useful
+exercise. That sort of education is always helpful. I think it will change.
+There are mechanical things about how the Mastodon itself, but even others that
+use this sort of federated decentralized network, because there are actually
+other tools, other apps that will interact with the content. Realistically,
+there's a whole bunch of platforms that are stitched together with just like
+with API, RSS, API, JSON strings all over the place that are all talking to each
+other. But the problem is with that is that there's a good latency involved.
+Decentralized networks are always slow because you can't, for instance, you
+can't guarantee that the other thing that you're interacting with, you say, hey,
+can I have this post? And it doesn't respond. You just have to say, oh, well, I
+guess they're busy. And then you wait. And then, so then you go back and you try
+it again. So you have this latency with decentralized networks. And so that
+mechanically, it can't replace Twitter because Twitter is designed as a central
+fast resource. For instance, they could index all of their tweets and they could
+give you a really good search engine. You can't do that in a decentralized thing
+because you can't necessarily scrape all the data off every single server. You
+don't have the control over the content to really be able to do that. So it
+won't replace Twitter as a one-for-one replacement but it might fit certain use
+cases that people are looking to Twitter for, which is a bunch of academics
+slapping around and posting and complaining about papers, basically. I think
+it's perfectly legitimate for that. Any final words from Emma? I don't know. I'm
+maybe a little more optimistic. Certainly for me, the vibe that I'm getting from
+Mastodon right now is one that I really like. I feel like it's more like Twitter
+when I first got active on Twitter. And I think part of that is maybe just
+numbers. There's few people there, but I also just think that everyone there has
+kind of been... It's re-leveled the playing field a little bit. People are not
+necessarily feeling as driven by trying to get into the algorithms that of
+course dictate Twitter. But also it's Mastodon.science, it's what I'm on. And so
+it's a lot of scientists and that's really nice. It's kind of back to being
+about talking about science and science-related things. And that's what really
+got me falling in love with Twitter way, way, way back when. So I think it could
+really go both ways. I think Twitter itself, that's not... Whether that fails or
+not is not gonna have anything to do with whether or not Mastodon really
+succeeds. I don't think that's gonna be how that works, but whether Twitter ends
+up falling will of course have influence on whether something like Mastodon
+becomes even more successful. I think mostly Twitter's fate is gonna just rely
+on what crazy ideas they come up with and continue implementing. But there's
+been some pretty notable movement that I think that there was an article that
+someone posted recently that was about this kind of losing that final barrier of
+trust. And then everyone's just like, yeah, that's it, we're out. And I think
+that may be happening. So yeah, maybe that will lead to more people deciding
+that sure, Mastodon is not the same. It will never be quite the same, but maybe
+in a way that's good and better. That's fantastic. I think we'll have to end on
+that. So we were talking about Mastodon and thank you very much to Emma Hodcroft
+for her special guest appearance. And we hope that you will check it out in the
+future and maybe decide for yourself. Thank you so much for listening to us at
+home. If you like this podcast, please subscribe and rate us on iTunes, Spotify,
+SoundCloud, or the platform of your choice. Follow us on Twitter at MicroBinfy.
+And if you don't like this podcast, please don't do anything. This podcast was
+recorded by the Microbial Bioinformatics Group. The opinions expressed here are
+our own and do not necessarily reflect the views of CDC or the Quadram
+Institute.

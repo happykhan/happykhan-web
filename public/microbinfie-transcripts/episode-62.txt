@@ -1,0 +1,269 @@
+Hello, and thank you for listening to the MicroBinFeed podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. Hello and welcome to the MicroBinFeed podcast. Andrew and I
+are your co-hosts today, and we're talking about Campylobacter. We're hoping we
+can discuss some of the specific issues for bioinformaticians to keep in mind
+when studying this organism. Our guest today is Dr. Ozan Gongadou. He leads the
+Foodborne Enteric Pathogen Group at the London School of Hygiene and Tropical
+Medicine, where they study the physiology and pathogenesis of Campylobacter and
+other related enteric microorganisms like Listeria and Vibrio. He has a
+background in microbiology and computer science. He completed his PhD at LSHTM
+in 2011, and he's worked in a number of different projects continuing Campy
+pathogenesis and some omics as well. And he started his position in early 2019
+as an assistant professor and group leader. So Ozan, firstly, we normally ask
+the question, who are you and what is a typical day for you? Yeah, so thanks for
+having me on this podcast. So yeah, so my background is a microbiologist and
+computer scientist, and I've been at the school at London School of Hygiene and
+Tropical Medicine actually for a long time, since 2004. And I would say my first
+decade at the school was studying really the pathogen and physiology of
+Campylobacter, trying to understand the function of genes and their roles, often
+related to survival. And really, a lot of my research in the last sort of five
+years have moved from the sort of laboratory work to more applied work, because
+it's a really important aspect of Campylobacter research and shifting more
+towards next generation sequencing, whether that's whole genome sequence
+transcriptomics or metagenomics microbiome work. So a typical day these days
+involves doing, trying to find a little time to do some research, and that is
+often bioinformatics research. I have very little time, unfortunately, to go
+back in the lab. And currently, I have three PhD students and one postdoc, and
+they are doing all of the laboratory work in terms of pathogenesis and
+physiology. And yeah, the typical cycle of academia of trying to win, trying to
+get some funding to continue this research. So can you tell me about
+Campylobacter, right, because it's not a pathogen that is on the tip of your
+tongue. If a common person thinks about foodborne pathogens, you know, he thinks
+chicken, salmonella, that kind of thing. So where does Campy fit into that? In
+the early 2000s, when I started, when I spoke to people about Campylobacter,
+that I'm working on Campylobacter, most people hadn't heard of it. And you know,
+especially when you compare it to something like Salmonella, that a lot of
+people were aware of. And I think there's a few reasons for this. The disease,
+Campylobacter is typically self-limiting. So most people would contract it
+within two weeks. You may get diarrhea, you may get, you know, various symptoms
+related to diarrhea and gastroenteritis, but it would pretty much clear and pass
+out the system. The problem that we have is that there's a, first of all,
+there's a distinction between what we see in high resource countries and what we
+see in low resource, low middle income countries, low resource countries. So in
+high resource countries, it's typically acute bloody diarrhea, and it's more
+associated with an economic, economic implications of the disease. So a lot of
+people take time off work. And for example, in 2019, it was estimated that it
+cost the UK government 1 billion alone that year from people contracting
+Campylobacter. However, elderly people, immunocompromised people, they can get,
+they can die from it. And one of the issues is that most people don't go to
+report the infection. So whereas we see cases in the UK of like 50,000, 60,000,
+70,000 a year, it's generally believed that it's actually 10 times more than
+this. So it's up to like half a million or more. So what are the main routes of
+transmission then? So the main routes of transmission, pretty much in the
+developing, in the high resource countries, it's from contaminated poultry,
+contaminated avians, from food. However, just to, just to go back on the disease
+profile in low resource countries is very different. It's watery diarrhea. And a
+lot of children die from, from contracting Campylobacter. And just simply a case
+of lack of fluids, probably due to pre-exposure and the regularity of exposure
+in low resource countries. A lot of the time, it's much more environmental. It's
+much more from things like just water contamination. People don't get acute
+diarrhea. They would get what's acute bloody diarrhea. They would get more of a
+watery diarrhea. And so the disease profiles, if you like from high income
+countries and low income countries are different. And the sources of where you
+actually contract the infection are varied. I would say in the last five years,
+the UK government has definitely made a big push to educate people to be much
+more aware of what Campylobacter is. So definitely speaking to people, you get
+an impression that they are much more aware of this. A classic example they gave
+is there was a government campaign to say, don't wash your chicken. Don't wash
+your poultry when you get it out, when you take it out of the bag. And most
+people actually were a bit confused by that because naturally one would think
+you'd wash it to make it clean. The problem is, is that on the surface of the
+actual avian, the poultry Campylobacter resides heavily in numbers. And so there
+was a risk of it splashing around, you know, to utensils, to surrounding
+vegetables or tables, equipment and things like that. And so you actually were
+increasing the risk of Campylobacter passing, getting to humans. And so it was
+the advice was take it out of the bag and directly put this in the oven and cook
+the thing properly. And that does go a long way to actually minimizing the
+contraction of Campylobacter infection. So yeah, I would say definitely more
+people are aware of Campylobacter these days. I mean, how often would you expect
+to see Campy on a store-bought chicken? The problem we have, okay, a little bit
+is why is Campylobacter present in chickens in such high numbers? So it can
+actually be found up to 10 to the 9 CFU, that's a hell of a lot of, you know,
+bacteria colonies within chickens. And it doesn't necessarily cause avians and
+chicken harm. This is a, this is a bit of a conundrum. So there is a discussion
+point about whether is Campylobacter a commensal, you know, is it actually there
+happily residing? There has been some research in the last five years that have
+shown, depending on the strain of Campylobacter, the, you know, the genomics of
+the Campylobacter, what genes are present in the genome, the type of chicken and
+the environmental conditions, it, you know, Campylobacter within chickens may
+actually cause a similar disease or a disease profile within chickens. And so
+there's a discussion point as to whether it's classified as a commensal, but the
+reality is it's there in high numbers. So is there any difference between like
+organic chicken or free range chicken or just, you know, barren hens, that kind
+of thing? So that's a good question. The short answer is very difficult to
+answer that in a yes or no response. What I would say is that some of the
+research that actually we've been doing the last five years have shown that
+actually if you manipulate the environmental parameters, if you manipulate, for
+example, stocking density, which is the amount of chickens in a space, you do
+change, you do have a knock-on effect on the chicken gut microbiome in terms of
+microbial population structure and potentially also impact the levels of
+Campylobacter within the chickens. So it's very difficult to definitively say,
+you know, you need to do this or you need to do that. I mean, in terms of in
+terms of poultry welfare and things like that, it's obviously very important to
+have, you know, low stocking density and all of these welfare issues come into
+play. And obviously that has downstream effects on Campylobacter within the
+actual avians. So my understanding of the way chickens are reared for eating
+broiler chickens, they get an empty, like a chicken, I don't know what you call
+it, a barn. And then they shove in some new, you know, baby chicks, they grow
+them up. And then a few weeks later, they kill them all and then it's empty
+again. So how does Campy persist? You know, how does it get in there and spread
+and then keep spreading all the time? It's the sort of $64,000 question. So
+we've done some research where we've looked, and many other groups, when do you
+see Campy appearing in the chicken gut microbiome? Why do you see it? You know,
+why is it coming in there? There is some anecdotal information that says
+typically it appears within the two weeks of the chicken life cycle. And you're
+right. Typically, these chickens would be, for example, killed at day 35 for
+meat production. Now, a lot of the time.  What definitely has happened is, you
+know, in terms of controlling Campylobacter infections, yes, we need to study it
+within the laboratory in terms of pathogenesis and physiology, and then link
+that information to more applied research because what's happening in the
+laboratory isn't always what's happening in the farm. Yes, government policy
+needs to come into place to try to minimize Campylobacter coming into these
+farms. And I can definitely say from visiting some of the UK's leading poultry
+suppliers, I mean, just to get into these facilities, it was like going through,
+you know, a NASA system of security. It was incredible. And so then you start to
+question where is the Campylobacter coming from? Now, Campylobacter, one of its
+most interesting attributes is it is omnipresent. It is present throughout the
+environment. You can find it everywhere. And so this is a problem because even
+though it's got a relatively small genome, I think roughly 1.64 megabases in
+size, it's incredibly compact. There's very free space of, you know, it's all
+open reading frames throughout the genome. And it must have good genetic
+regulatory mechanisms to survive in non-ideal conditions. It's classified as
+microaerophilic, which means ideally it likes five to 10% oxygen. And we have in
+the environment approximately 19.2% oxygen. How is it able to survive in these
+conditions? This is the great Campylobacter conundrum. I would also touch on a
+little bit on Campylobacter in terms of why we've had difficulties studying it
+over the years. Why is it, you know, a lot of scientists, when they think of
+Campylobacter, it's a really fussy pedantic bacteria. And some of the reasons
+for this is because when you compare it to other bacteria like Bacillus or E.
+coli, it's not classified as a model organism. It hasn't had a very good
+convenient animal model over the years, and it's very difficult to grow. It can
+be quite fussy. And these attributes actually led us, it was one of the first
+bacteria to have its whole genome sequence. This was in 1999, 2000 at the Sanger
+Institute. And it was really interesting because it, again, we found a compact
+genome. It did not have classic secretion systems like type three secretion
+system, which was missing. More recently, our group has started studying, we
+found strains that have the type six secretion system. So we've looked into
+that. And it has, you know, I'll give you one story, one, you know, anecdote. A
+lot of people pre-2000 did not believe Campylobacter had a capsule. They were
+really adamant that it did not have a capsule around the actual bacteria. And
+scientists at the NSHTM actually showed that it does have a capsule. And I
+remember people apparently were speaking in a conference and the audience
+members were shouting and saying, I've worked on Campylobacter for 30 years and
+I've never seen a capsule. This is horrific. I'm leaving this presentation. Lo
+and behold, the genome sequence came out. There's your 25, 30 gene loci encoding
+for the capsule. Nobody said anything after that. It's clear, it's definitive.
+And some other key attributes that came out from that genome sequence was things
+like lipo oligosaccharide on the outer surface, you know, things like O-link
+glycosylation, addition of sugars on the flagella to help evasion of the immune
+system. And really interestingly, N-link glycosylation, periplasmic proteins,
+outer surface protein, which sugars being added to help functionality
+traditionally only found in eukaryotes. So this was something quite novel to
+Campylobacter. So really that genome sequencing did spawn a new era, I would
+say, of pathogenesis physiology research from 2000 onwards. So when you're
+talking about Campy, do you mean the entire genus or are you talking more about
+Jejuni? That's a good point. Yeah, so typically we're referring to Campylobacter
+jejuni. And the reason for that is that's the species that causes about 80%, 85%
+of infections within humans. There are some really other important species like
+Campylobacter coli, Campylobacter foetus and various other ones. But yeah, so
+typically we're talking about Jejuni. Is there any vaccines or anything or
+treatments for it that you can give to chickens to stop it in its tracks before
+it gets to humans? That's a really good question. And the vaccine discussion
+point is really interesting. I think there are some vaccines out there at early
+phase. I noticed that there's some research going on at NSHTM, for example, that
+look at animals zoonotic type vaccines. I think a lot of the time it comes down,
+it's two issues. First of all, it comes down to cost. There's no way to justify
+giving a vaccine to, for example, putting it in the chicken feed or the poultry
+feed to an animal that you're gonna sacrifice or kill in 35 days. So there has
+to be a real cost. A lot of these things come down to cost. But the other side
+is what I mentioned earlier. This is the interesting point. You only need 100 to
+500 colonies to come into contact with a human and that human will contract an
+infection. Can a vaccine work efficiently when there is 10 to the nine colonies
+within a chicken? So even if you did bring that, even if the vaccine was
+efficient and you did bring that number down to like 10 to the five or 10 to the
+four, it's still there and it's still potentially giving issues to humans. And
+so when we look at really dealing with campylobacter, I think maybe like almost
+a one health approach is needed. So you need that laboratory pathogenesis
+physiology and you need the vaccine potentially, you need government policy and
+you need education to customers and consumers to cook the chicken properly. So
+is campy present in like wild birds and things like that? So if you vaccinated
+all the chickens, would you still have major problems then with just wild birds
+flying around causing issues? Exactly, that is the case. Campylobacter is
+omnipresent within the environment it is present in wild birds as well. And
+there's been a number of studies on this and this links to what happens in low
+resource countries because in low resource countries, you don't always get that
+state of the art high throughput manufacturing process for chicken even poultry
+production. You do backyard markets, you do get peri-urban type markets and
+these all have a role in the zoonosis process. Yeah, I'm curious following on
+from that, is there evidence of carriage in water for campy? Yes, big time. So
+here's another anecdotal story. In high income, high resource countries, we do
+see a peak in the summer of campylobacter. Now, there's a few hypotheses going
+around for this. One that, you know, it could be due to lifestyle. So for
+example, people do more barbecues, they may not be cooking their chicken
+properly, there may be some contamination at that point. But you also see in
+terms of, you know, humidity, water droplets, swimming pools, this kind of
+thing, puddles even having campylobacter. So in the U.S. there was an outbreak
+of campylobacter infections of people doing a, I'm not sure what the exact name
+is, it wasn't a triathlon, but it was something like tough mother or something
+like that. Iron man? No, tough mother's the thing, yeah, yeah. Tough mother? I
+can't remember the exact name. And there was an outbreak, or a number of people
+contracted campylobacter that was believed to be because there were a number of
+puddles around this course or whatever it was that had campylobacter within the
+water. And so this is the kind of thing that can happen. And it's quite
+interesting because that's definitely linked more to sort of a lifestyle type
+aspect. I don't think we have a clear definitive answer as to why the numbers
+are increasing in the summer, in high resource countries at least, but I know a
+lot of people are looking into that kind of research. Yeah, I'll just clarify
+with the tough mother thing. That's quite, that makes sense because the tough
+mother thing I think is, it's sort of that bootcamp obstacle course where you're
+climbing over stuff or you're jumping over things with ropes and the water pits
+behind it for you to fall into. So yeah, that would be very muddy and very wet
+and people would be jumping in and out of water. Exactly. What about vaccinating
+humans? You know, if we can't do chickens to humans, is there any vaccine
+candidates out there, particularly for low resource countries? I'm not sure how
+close we are to that if I'm honest with you. I know people are working on this,
+but again, it comes down to cost. It's not an area that I have expertise. Okay,
+maybe I'll tell you the answer. I think the vaccine candidates they've had so
+far cause Guillain-Barre disease. Apart from gastroenteritis, one of the issues
+that can happen if you contract campylobacter there is approximately, I think
+the numbers are like one in a thousand chance that you could get post-infectious
+neuropathy. So those are where the bacteria outer surface mimics the human
+gangliosides within the human. And so you actually get an autoimmune illness. So
+your body attacks yourself and you can get paralysis. And there's a variant of
+this Miller-Fisher syndrome which is paralysis of the eyes. One in a thousand
+doesn't sound a lot, but when you see the numbers globally of how many people
+contract this, this is an issue. And there were famous stories about famous
+footballers that were contracting it. I think the one I remember is Marcus Babel
+was a famous German international playing for Liverpool that contracted it and
+he was paralyzed for nine months. And so if the vaccine is causing potential
+risk of GBS, Guillain-Barre syndrome, then that's definitely a problem and a no-
+go area. And I think that's, from my understanding,  one of the reasons that the
+strategy up to now and the cheapest strategy was potentially to give this to the
+poultry in terms of potentially lowering the numbers within the chickens. There
+is an interesting discussion point there actually about the poultry in that some
+researchers have actually said that maybe the presence of Campylobacter does
+actually lead to a, I wouldn't say necessarily healthier, but metrics of the
+chicken look better when Campylobacter is present. There's been some conflicting
+reports about that, but some people with a huge sample size, huge N, have
+actually observed this. So it comes back to the point of, is Campylobacter a
+commensal? And that is a question that at the moment is not answered, is
+unanswered. Okay, so that's all the time we have for today. We've been talking
+about Campylobacter and just giving a brief overview of this organism. And we'll
+be discussing specifics that bioinformaticians need to keep in mind when
+studying this organism. Our guest today was Dr. Ozengongadu. He leads the food
+enteric pathogen group at the London School of Hygiene and Tropical Medicine.
+And we're really happy to have him on the show and we'll see you next time.
+Thank you so much for listening to us at home. If you like this podcast, please
+subscribe and rate us on iTunes, Spotify, SoundCloud, or the platform of your
+choice. Follow us on Twitter at Microbinfee. And if you don't like this podcast,
+please don't do anything. This podcast was recorded by the Microbial
+Bioinformatics Group. The opinions expressed here are our own and do not
+necessarily reflect the views of CDC or the Quadram Institute.

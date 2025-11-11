@@ -1,0 +1,9 @@
+The MicroBinFee Podcast, a new podcast where we have conversations about
+microbial bioinformatics. I am joined by my co-host Nabil Ali Khan and Andrew
+Page, and I am Lee Katz. So what do the words micro and binfee mean? It's a
+shorthand for microbial and bioinformatics. On the MicroBinFee Podcast, we will
+have topics like the history of bacterial genotyping, how to write better
+software, and what not to write. And we will have some guests. Yeah, everywhere
+I go, people know me as the procker guy, and I'm okay with that. Having a paper
+doesn't mean much if no one's cited it. So please subscribe to MicroBinFee on
+iTunes or the podcast platform of your choice.

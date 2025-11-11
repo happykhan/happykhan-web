@@ -1,0 +1,501 @@
+Hello, and thank you for listening to the MicroBinFeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There's so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. So I'm Andrew. I'm at the Microbial Bioinformatics Hackathon
+here in Bath, and I'm joined here by a few guests. Torsten. Hi, I'm Torsten. I'm
+from the Doherty Institute in Melbourne, Australia. Hi, I'm Finlay McGuire. I'm
+at Dalhousie University in Canada, and the Shared Hospital Lab in Toronto. And
+I'm Christy Horan, and I work at MDU in Victoria, Australia. Okay, so just
+before this, we were talking about, you know, some interesting things you've
+come across, and you had one involving PDFs. Could you tell us? When I first
+started as a baby bioinformatician at MDU, I started having to validate AMR
+versus phenotype. I came across a fantastic, very large data set that I was
+going to use, but needed to get the phenotypic metadata so that I could compare
+to the genotypic results that we were seeing. And the only available information
+I could find was a PDF. So not like a database or anything, or access database?
+No, no. Not even a spreadsheet. It was a PDF with very useful information in it.
+And so I had to learn how to parse a PDF of 10,000 samples or so into a
+spreadsheet, and then put that into some sort of useful format to compare to all
+of the genotypic results we were seeing. I must admit, it did occur to me that
+maybe I might have taken up a job I might not actually want in the future, after
+having done that earlier in my career. Well, at least it wasn't handwritten, you
+know, that would be many times worse, like. No, I think that's the only way it
+could have been worse, is if it was actually handwritten. Yeah, absolutely. And
+what about your phen? I mean, I think they have now added a different approach
+now, but I think until relatively recently, one of the only ways to get all the
+cut-offs for antibiotic susceptibility tests for MICs to categorical cut from
+one of the large providers was as a large set of PDF tables. They were all
+inconsistently formatted as well, slightly differently. It was almost impossible
+to automatically rip out, it was quicker just to take down the data. So, was it
+ever manually made, like in Word or something like that? No, it was definitely
+extracted from Excel, it's just they were distributed as PDFs. That's nice. I do
+remember submitting stuff to a journal, you know, like session numbers for
+thousands of samples, you know, and then you click, you know, build PDF and it's
+like a 300-page submission. I was like, maybe you shouldn't do that, you know?
+My main PDF story, though, is in that kind of disconnect, as bioinformaticians,
+you know, we generate these datasets, generate these reports, and often there's
+some sort of spreadsheet report, but there's usually a PDF report with nice
+figures in it, and I assumed that the spreadsheet was being used and
+automatically ingested into, you know, an electronic medical record or what have
+you, until a feature request came in of, the final summary table in the PDF,
+could I make the font size bigger? I was like, what? Sure, I can make the font
+size bigger, but why? Oh, when we print it out and type it into the system, the
+font size is a bit small so people can skip rows by accident when they're using
+the ruler to mark them. So we made the font size bigger and it reduced our error
+rate in data creation. Yeah, that reminds me, actually, one time I was asked to,
+we had this phylogenetic tree which had 2,000 strains in it, and I was asked,
+could you print that out? And they were like, this is too big to print out, but
+anyway, we were forced to by, you know, an academic, and then it turned into,
+you know, this thing that was, you know, a metre wide by, like, a few metres
+long, and we took a photo of it, actually, because it was so impressive, and
+that was just to get it slightly big enough so you'd get, like, size 8 font, you
+know, to be able to read these strains. Yeah, we were not asked to do that
+again. But you had something similar as well. Oh yeah, I mean, first, there's a
+picture from, like, first week of my PhD with some phylogenies long, and so I
+was looking at the evolution of folate by gene fusions in the eukaryotes, and
+eukaryote tree of life polarisation stuff, and yeah, they were such large
+phylogenies that they were basically stuck into the ceiling, and they hung to
+the floor, and my PhD supervisor just would work his way down them and go, that
+shouldn't be there, that shouldn't be there, and mark it up, and then we had to
+go back, check the alignment, we did a few rounds of that. Yeah, anyway, thank
+God we have better tools now, you know, you can zoom in on trees and all that
+kind of jazz, like, Jesus. Click on ancestors. Yeah, yeah, interactive. Run out
+of RAM. But actually, you know, just looking at the overall structure of a tree,
+it does help a lot, because often you can see areas, you know, screwed off,
+like, usually things are crazy, and you think, yeah, that's not right. Yeah.
+Torsten, what about you? Yeah, in a similar vein to what you've described here,
+I'm thinking back to about 10 or years ago, where we started working with a
+large external organisation, and they had a computer scientist guy, he didn't
+really have any experience in biology, but he was getting involved in a material
+project, and he loved k-mers, everything to him could be done with k-mers, you
+know, he just discovered them and thought they could do everything. They can't.
+And so we were working on Salmonella, I think, and he decided to do a dot plot
+of all Salmonella in GenBank versus all Salmonella, using k-mers as like an
+identity measure. Yeah. So a very diagonal dot plot, right, not a lot of stuff
+outside, but we had a person to person meeting at the end of the week, and he
+pulled out his briefcase and took out this piece of paper with lots of sticky
+tape on it, and then he proceeded to unfold it all over the conference desk. It
+was A4 sheets, about probably 30 by 20, printed out, and he sticky taped them
+all together. And he laid out this dot plot in the middle of the desk and said,
+oh, here's all the genomes compared. And literally, it was just a diagonal with
+a few, you know, there were some repeat elements, there might have been some
+little bits off the diagonal, and this was his grand presentation to us all. And
+we all just looked at him dumbfounded and didn't know what to say. I remember a
+PhD student, and he was, he had 700 genomes in his data set, and he went into
+Artemis, into like this genome viewer, and looked at all 700 manually to look
+for a particular region, and was like, are you sure you want to do that? He was
+a human blast. Eyeballed 700, which, okay, you eyeball a few, you know, to make
+sure things are going right, but that's when you use a program to automate
+stuff. Yeah. Yeah. So then during COVID, we found things that were really
+annoying, not really annoying, but inconsistent with date formats. You get every
+single possible date format in the entire world came into our lab, because every
+system, I put it slightly different, you know, like the year is two numbers, the
+year at the beginning, the year at the end, and no one ever knew what was
+consistent or not, and you had to kind of go and manually reformat it in the
+spreadsheets. The U.S. date system versus the rest of the world is one of our
+pet peeves. Yeah. And if you're lucky, the date in the column is actually the
+date it's meant to be, let alone the format. That's only if you're lucky. Yes.
+Data collection, data sequencing, date of birth of the patient. Which one is it?
+Yes. COVID wasn't around, you know, in 1921. Yeah. No, there's a lot of those.
+And, you know, with the Kogu K project, I know that so much of it, like they go
+back and they say, okay, this, you know, variant did not exist before this time
+period. And then, you know, you find all these samples. And what you find
+actually is that some hospital systems recycle ID numbers. And so after a
+period, because they've gone around the counter, and then that means that
+actually, you know, the metadata is associated with the wrong samples because
+you're consistently updating the metadata for different systems. And so it's all
+wrong. And you only notice it when you find variants that you absolutely know
+didn't exist. Speaking of hospital IDs, speaking back to COVID as well, we had a
+hospital ID which referred to the patient as opposed to how many times they've
+been sampled and sequenced. And I was sort of just doing some sanity checks on
+the data because I'd noticed that was only like two different case IDs, two
+different hospital IDs in the data set. But they're all either blank or
+3,200,000. And then I realized what had happened was that the hospital IDs are
+10-digit numbers that start with 32 because it was 2020, something to do with
+three is our state code or something. And Excel was converting them to
+scientific form and rounding them. So any number 32001269 became 3.2E08. The
+next patient was 3.2E08, 3.2E08. Everything was rounded and converted to
+scientific form. And yeah, this kept happening over and over again.  In Excel,
+it seems you cannot turn off this automatic conversion, as far as I can tell.
+So, unless they manually went each time to the Excel spreadsheet and forced it
+to be a string type, it would always get converted to exponential form. So, one
+way I found out you can prefix cells in Excel with a single quote, and that will
+treat it as a string literal and sort of avoid this, but when these things are
+coming from other sources, you can't do that automatically. But then if you're
+going to process that with a script, you don't want those single quotes in there
+to mess things up. Well, I think when you export from Excel, a single quote's
+not in there. It's used at the entry point to say that this is a literal, and
+then when you export it back, it stays as a literal. But, yeah, messy. I mean,
+we're all familiar with Excel and date formats, but this was one that I hadn't
+really encountered before. So, always put a letter at the start of your ID codes
+to avoid this problem, is my advice. Yeah, and we found that some hospital
+systems, the same systems were sold to multiple different hospitals, and so it
+wasn't globally unique, say, for the U.K., and so you'd have the same namespaces
+effectively, which is a real, real pain, because then you'd have the hospital
+identifiers, which we weren't allowed to have, because they're pseudonymized,
+and then you had the patient, like the NHS numbers, which we weren't allowed to
+have. So, we were using identifiers which were not globally unique, which is a
+problem, and so then you had to go and combine it with patient age and data
+collection and all these other things to try and make sure you had the right
+patient. And on many occasions you had to re-upload data, because it would get
+overwritten then by other systems, which would fix the metadata, and, yeah, it
+was a bit of a pain, a huge pain. But then paperwork was another problem as
+well. At one point, there was a change in how systems work, and instead of being
+automated in APIs, it turned into, OK, for small sample numbers, up to about 20,
+you'd have to send a piece of paper with each tube, and then that became a huge
+time-consumer. If you have 20 pieces of paper for 20 samples, that's not
+scalable at all, particularly when people are overwhelmed. So then those got
+reversed. There's all these little changes that have downstream consequences
+that people don't realize. Anyway, I'm going to stop before I get sued or
+something. I think it was, I mean, obviously, by informatics, we were very busy
+during the pandemic, but I think there were definitely times where I certainly
+got utterly disconnected by quite how much labor at a certain stage was in the
+lab process. Like at the height of the pandemic in the shared hospital lab, I
+think we had something like 8 to 10 people full-time just putting caps back on
+sample models, because they were coming off automatically on the machine, but
+they had to be resealed for disposal or storage or whatever. There was so much
+labor in that step, where it's like, oh, I just get the data that you have, and
+the workflows do all the work. You get stuff, and you find that the quality of
+data is really poor, and you say, oh, could you repeat that? And they're like,
+no. There's no physical sample left. We dispose of them because we physically
+don't have the freezer space to store the samples after a day. I mean, I was
+taken by surprise by the, like I thought, okay, there's been a few QC failures
+in this run that could do with a resequence. And over a certain number, it was
+generally less effort to rerun the entire plate than rerun a small subset. And
+just that scale of sequencing and economy was just a bit alien from the more
+academic side, where you're trying to make, you're trying to scrape every
+sequence you can out of your funding or whatever. Yeah, I know the cutoffs for
+us were certainly very strict in terms of number of contaminated reads or number
+of reads in the negative control. That was vastly stricter than we've ever done
+in academia ever. It's the tiniest, tiniest bit, and we're just redoing a whole
+plate, which is a lot of money. It's huge amount of time and effort. But now
+we're finding that random coronavirus reads will just pop up everywhere in every
+city, even though we haven't done anything since April. It's just a building.
+Everything is just contaminated. All the reagents coming in have a tiny bit of
+contamination. And you can tell because, say, if it's from internally, it's 400
+base amplicons, and it's very clear that that plant does not have coronavirus,
+particularly now that it's a 400 base amplicon. I think we'll be forever seeing
+COVID contamination in all our data sets. Don't worry about all these very
+sensitive, culture-independent data sets. With PTC in them. Yeah, we'll be
+declaring every patient has died from COVID. Probably should reassure that these
+are COVID amplicons, not functional viruses. These are just sequences.
+Contamination floating around in the air. Yeah. Yeah, yeah. I'd say most labs
+are fully contaminated with aerosolized COVID by now. Anyone who touched COVID,
+like, yeah, it's just jam-packed everywhere. And all the companies that make the
+positive control material is, you know, they're jam-packed COVID everywhere.
+Turns out DNA is really small. Really? And common. It gets stuck in the nitty-
+gritty corners of the lab. Yeah. There's not much you can do, you know, once
+it's there. It's hard to get rid of. It's the new Salmonella. For us, Salmonella
+was cropping up in everything because it was our most commonly sequenced thing.
+Like, not at high levels, small levels, but it's there. But then you get people
+doing these low biomass samples and finding microbiomes everywhere. It's like,
+oh, the brain microbiome, you know, whatever. It's like, are you sure about that
+one? Just like a lot of the big marine microbial eukaryote things, we often
+would find different Malassezia species all over the world. And it's like, I
+mean, yes, there are. It's a diverse group that might be everywhere. However,
+your dandruff is also all over the world. But there was a long-term discussion
+about the kind of everything is everywhere hypothesis being more related to the
+fact that, you know, the people sampling were going everywhere. Yeah, yeah.
+People licking their fingers or... Well, we've had that particular COVID, you
+know, like the person collecting the sample, you know, often that was a problem,
+you know, because, you know, you get CTs and maybe 37, 38. And you wonder, is
+that real? Or is that just because they walk from one room to the next? You
+know, like to start to sample people and maybe it's a tiny bit of COVID lying
+around from positive patient. All these marginal cases. Anyway, does anyone else
+have any other anecdotes? I was just, just keep thinking about dates and Excel.
+Merging those two things together is just fraught. Yeah. I'm always getting
+asked about a particular output that our tools generate. And the date apparently
+is always wrong. But only on one person's computer. And because it's not my
+computer, I can't reproduce the error. So if anybody has any insights into why
+dates and Excel could be wrong, email me. Yeah, I believe dates are stored in
+the Excel file in a kind of machine-independent form, like number of seconds
+since 1900 or something like that. 1970, Unix epoch. Unix is 1970, but I thought
+Windows used a different thing. And the setting on your computer describes what
+date format to use. They've left their format as U.S. They don't always export
+as U.S. Have they come from a country that uses a different date format to
+Australia? Honestly, I don't know. And I've sat down and tried to figure it out
+with them. And apparently every time they open it, it's wrong. Try it? Yeah, I
+think look at their English dictionary settings and whether it's English
+Australia. Or English U.S. It could be a version thing as well. Like there's
+always quirky things going on. Yeah. But speaking of bad metadata, you just made
+me think of Gazade. Be careful there, Naeem. Obviously validating metadata is
+important, and Gazade doesn't validate metadata. And it's quite interesting. I
+was just fascinated by the columns in Gazade looking at them. I was curating
+them to clean them up for our own so we could compare our data to Gazade. And
+the gender column, male and female, I realize that lots of cultures in the world
+obviously don't use the English words for male and female, but they do start
+with the letter M. Most of the words for male in— Irish is the opposite way
+around. Menor is a woman, and fer is men. Well, the Irish used English
+nomenclature, it seems, in Gazade mostly. But yeah, I couldn't believe how many
+different languages were represented in the gender column. Also the age column
+was sometimes written as 101 years, or it might be 13 months, or all sorts of
+random things. So yeah, validate your metadata, people. The sequencers were
+fascinating as well. And I don't think I never realized quite how many rebadged
+sequencers were sold in different parts of the world. Really? I found, I think
+it was in— I think it was Malaysia had clearly had— the IonTorrent had been
+rebadged and sold under a different name by a different company that was in the
+dataset. Emma Griffiths, when she was doing the metadata specification work, did
+a lot of work looking at some of the weirder things that turned up in those
+columns if you looked down at them and broke them down. No, I believe IonTorrent
+has been resold and rebadged a lot in Southeast Asia, pushed into public health
+labs as a rapid solution for amplicon sequencing. I just met someone recently
+who wanted some help from a country in Southeast Asia, and yeah, they're using
+IonTorrent for COVID. Very unusual. It was the sample prep, I think, they really
+became very popular, because the IonChef sample-to-sequencer kind of automation
+thing.  think was one of the reasons why it was as popular as it is. But I think
+some private companies are selling it like a turnkey solution and rebadging it
+as something else. So these people that are using that solution just call it
+what the solution's called, not necessarily what the specific instrument is
+called. That's mad. Managed ones have to, particularly an organization renowned
+for being very high tech and the latest technologies, they'd have to spend a lot
+of work persuading them not to do microarray in IonTorrent in the mid-2010s. So
+our microarray is in storage. You know, we were building four years ago the
+microarray into storage permanently. But yeah, people periodically say, oh,
+well, we spent so much money on that, maybe we should pull it out. It's like, or
+not. But going back to GISAID, I mean, the metadata is a bit crazy. You know,
+often you have travelers and they're not counted as travelers in the database.
+So you just see the country and then you don't know, you know, it's very, they
+should annotate that this person is not from that country, but they're traveling
+from somewhere else. To be fair, the people submitting the sequence may not be
+able to access that metadata from the public health unit anyway. Whether it's
+worse to have it there or we're missing metadata or not have it at all, I don't
+know. Absolutely. But at least people were making their data public. I went and
+reviewed loads of papers for COVID and I found that I couldn't reproduce most of
+them, you know, a big chunk of them because there was no accession numbers or
+links to the data. The data, say, raw reads weren't released. Maybe they just
+released the consensus sequences or there wasn't metadata or there wasn't the
+pipelines used to process the data. Everything's missing, you know, in one form
+or another. So there's actually only a tiny number, maybe 30% of the papers were
+actually looked reproducible. Now, I didn't know were they reproducible, but,
+like, there's a big, big problem there. Well, and then the other challenge that
+I ran into was versioning. I don't know whether it's been solved subsequently,
+but versioning of sequences in GISAID. So if someone updated a sequence, the
+accession didn't change. Really? So, yeah, you could have the same, you have
+different sequences under the same accession. So it was all silently updated. I
+don't know if they added a version more subsequently, but that was certainly an
+issue last time I dug into it. Yeah, it's part of processing GISAID, so I
+filtered it down. I encountered this duplication problem as well. The original
+record would just stay in the database as well, so it was there twice. Yeah. I
+mean, maybe GISAID isn't the best thing for this type of data. You know, maybe
+you should focus on NCBI and EBI. But I mean, but I mean, it's one of the things
+that, beyond, you know, arguments about data sovereignty, which are important
+and always worth discussing, which GISAID obviously kind of spends a lot of time
+leading the discussion thereof. But one of the driving factors, I think, behind
+the use of GISAID was, you know, it's a very simple structure. You upload your
+spreadsheet, you upload your sequences, it's there. The problem is that
+structure doesn't represent the complexity of the actual data, which is what the
+more complex structure of your bioproject, your biosample, your SRA, your
+records are all linked together in the multiple different databases. It's way,
+like, even with the best wizards, it's always going to be a more complex process
+to integrate your data into because it's a better representation of the data,
+and the data is that complex. And that's why you need to hire bioinformaticians,
+computer scientists, and people to manage your big, important datasets. Keep us
+employed forever. Michael Bentley podcast, maintaining jobs, securing and
+providing for petitions. Yes, we need to have complex systems so that we can
+have jobs. And no GUIs, no. That was Twitter the other week. Oh yeah, no GUIs. I
+mean, GUIs, I agree in some cases, GUIs can help, like, say, if you're, say
+you're a wetlaps artist, and you just want to do a bit of analysis, and I think
+Galaxy's very good, and a lot of people in Quadromena are now using Galaxy for
+analysis, and you have people who don't know the command line are able to go to
+assemblies, they can find AMRDs and phone plasmids, and that's fantastic. They
+can go in self-service. They don't need to use my team at all. But then,
+obviously, there comes a point where you do need to do stuff on the command
+line, which is most of what I do, to be honest. I'm always amazed at the usage
+statistics for some of the online tool portals, like card RGI via that portal,
+like, they've actually got some data that they're going to be releasing, like
+the live usage, and it's wild how heavily it's used. I mean, I know myself,
+like, if I need to do a little blast, like, I'll just use NCBI blast against NR.
+It's just quick and simple, and I don't need to worry too much about, is the
+database up to date? You know, do I have to do blah, blah, blah? It's just
+straightforward to use. But there's definitely, and I think, again, even during
+the pandemic, with things like Usher and stuff like that, definitely some public
+health groups out there where using the web portal is the workflow, manually
+taking the data, putting it in the web portal, copying down the data, like, that
+is the workflow that this is being done using. I have found, like, some of the
+workflows, sorry, some of the web pages were quite good, like Nextslade. I found
+this fantastic, and I throw it in simply because you can take a screenshot of it
+and say to people, listen, this is why I think your data is contaminated, or
+this, you know, you can clearly see big blocks are missing here, and you can't
+list this data. And, you know, it's a good way of visualizing and showing other
+people where there's issues. And you don't have to write it. And I don't have to
+write it either, yeah. Or if you just send someone a list of SNPs, you know,
+it's meaningless to them. Or just if you condense it down into lineages, it's
+not much use either, because you don't get, of course, subtleties of, you know,
+within the data, you know. If important applicants are missing, then that
+changes things a lot. Yeah, I think I've realized that us as bioinformaticians
+who have access to high-performance computing and command line environments, and
+we're the minority. Most of the world is generating fast, new data in their
+labs, and these online web services and portals are like extremely highly used,
+as Finley just said, with RGI. Obviously, the Danish Center for Genomic
+Epidemiology, all their tools are massively used with millions of jobs run every
+year. And yeah, I think that they have their place. And without them, a lot of
+people wouldn't be able to do anything, so yeah. It's interesting the drive
+towards, like a lot of these tools, like MaxClade, actually executing on the
+local machine. And all the compute is actually being done locally, rather than
+via the browsers. I did not know that. The browser, yeah, the browser's acting
+as an execution engine. Oh, brilliant. Yeah, that's the next big thing, I think,
+is client-side computation. And everyone's got a multi-core laptop now, and the
+new web technologies, such as WebASM and WebWorkers and stuff, allow highly
+parallel, fully, running on bare metal, essentially. The WASM is converted into
+local, off-page, just-in-time conversion, really. It's not even compilation.
+It's really a one-to-one conversion between WASM and the local, native
+instruction set these days. So, yeah, there's gonna be, I think somebody already
+demonstrated bacterial genome assembler running in a web browser. Seriously?
+Will Rowe did a belt check for that, I think. He's gone into private industry.
+Yeah, he has done. I was over at his house the other day. Client-side
+computation is gonna be a big thing, I think, in the next decade in
+bioinformatics. Yeah. And Rust, and all these up-and-coming languages can cross-
+compile to WASM, so it's gonna be even easier and easier to get native code
+running on a web client. It's amazing. So some of the challenges is the bugs can
+be very hard to debug. If there's an issue with someone's, much like, even the
+very personalized system, it's very hard to track down what's going wrong
+sometimes with WASM. But, you know, in bioinformatics, it can take many days or
+weeks to track down stuff as well. Yeah. Particularly if stuff isn't tested, or
+written very well, or commented, or it's an obscure little, you know, bug.
+Right, so we've covered dates. What else, what other kind of interesting, quirky
+stories do you have? That we're allowed to talk about? That we're allowed to
+talk about, you know, you might have to, you know, not name names. Well, I can
+give you an old story. I don't know if I've mentioned this before on the podcast
+series here, but many, many years ago, I went to a sort of a meeting, and it was
+at the start of genomics when Roche 454 sequencing was all the rage. And I went
+to this meeting, and one of the people was talking about, you know, their 454
+run for their bacterial genome that they were working on, how they spent six
+months curating their data. And I didn't quite understand what they were doing,
+what they meant. And it turns out that they put all their 454 reads into a
+spreadsheet, went for quality values in column two, and the sequence in column
+one, and then manually looked at all the quality scores, and then in column
+three, put a trimmed version of that read. And they would work on this every
+Friday for six months until they managed to trim all the reads. Then they
+exported those reads and used them for other analysis. And they still had
+homopolymer errors. So I was dumbfounded. I just could not believe that this was
+a high-level person as well. I was quite proud of their work. And as we all know
+here sitting around this microphone that could have been done by a simple tool
+in five minutes. And this person spent six months, one day a week of their life
+manually trimming reads. But they looked busy. They did look busy. Yes. When the
+boss was coming, they didn't have to switch to a fake spreadsheet because they
+had a spreadsheet in front of them. And unfortunately, they couldn't get away
+with that. You know, often people, if you look busy enough, you can get away
+with it for a long time, you know? It's important work, if your manager doesn't.
+how big or small the task is. I admire them for their persistence, it must have
+been boring, especially after the second month. Or therapeutic, depending on
+your perspective. Or maybe he went into a zen, or she, went into a zen mode. Or
+maybe they did it for five minutes and then they wanted an excuse to not do any
+work for a few months. But it was their own project. So it's just the slow
+bioinformatics movement. Slow bioinformatics, I like it. Have you ever
+encountered problems where, you know, a bioinformatician misinterprets something
+because they don't understand biology, or that DNA has more than one strand?
+Well, honey, you should say that. I was just thinking of a tool a while ago I
+encountered. It was a tool for doing in silico PCR, and you'd give it a left
+prime and a right prime and it would search your giant genome for that amplicon.
+And I was running it and it was giving me results, but I couldn't figure out
+what was going wrong, it wouldn't return all the results. And then it finally
+hit me that, oh, maybe they're not checking the second strand. So I went back
+and looked at the results, and yeah, all the coordinates they sent back were
+always, you know, the first coordinate was smaller than the second one, so it
+was only positive strands. So I emailed them and said, oh, I think you're
+forgetting to check the second strand. And they said, oh, oh yeah. And they
+eventually fixed it, but it just makes me wonder how many sort of these strand
+bugs, and how many out by one errors. We all had the old, did we start counting
+at one or did we start counting at zero, and these sorts of bedfalls versus GFF
+coordinates and so forth. I wonder how many bugs are still out there related to
+these problems. And you were telling me earlier that, you know, the start of a
+gene can change. Yeah, I have to admit, as the author of Prokka, how
+embarrassing it is to, when I first started in genomics, you know, I asked about
+a gene and they told me about this start code on business and this end code on
+business. And so I wrote this whole database, web database system for annotating
+genomes manually and curating them. And then they let me know that start
+positions can change, and my whole model was based on, like, unique keys
+involving just the stop code on, and things like that. So basically I had to
+live with this broken system for the next 10 years because it was too hard to
+change. Yeah. Yeah, and I think the one for me was, I just thought all bacteria
+had circular chromosomes and there was one chromosome in a bacteria. I never
+realised that there's always exceptions to the rule, and so some bacteria are
+not circular. Did you know that? And some bacteria can have more than one
+chromosome. Well, I think you should say that the first bacteria I ever worked
+on had two chromosomes. Vibrio? No, it was Leptospira, and yeah, it had one 3
+megabase line and a 300 kb. And it was a genuine chromosome, it wasn't a
+plasmid. Anyone else have any weird misconceptions about bacteria? I was, I was,
+by doing the weird microbial eukaryote route first, I was well prepared for the
+weirder, like, so the organism I did my PhD on, Paramecium brasserii and
+alveoli, has two nuclei. It has a somatic nuclei and a germline nuclei. The
+somatic nuclei is about 800 ploidy, and is basically expression profiled, so it
+has all these intronic elements spliced out, and there's a bit of shuffling of
+exons and stuff like that, you know, it's about Oxytrica does that as well. And
+then it has this germline nucleus that's diploid and using sexual reproduction,
+but is riddled with these intronic elements, like these invasive intronic
+elements. So whether the second nucleus evolved because it became such a mess in
+the germline, it's one question, but it doesn't bother with mitosis. Like by
+doing, it doesn't bother chromosome segregation and mitosis, but this
+macronucleus, it just randomly pinches somewhere near the middle, and the ploidy
+is so high, it just about balances out the dosage. So like, and this is, this is
+a, this is a serial, this has endosymbionts, it's a serial phagotrope, it's,
+there's big, there's big DNA viruses in the system, like, it's a zoo, this
+organism, a single set of organisms. So nothing bacteria has managed to throw at
+me yet has stood up to the wildness of some of the microbial eukaryotes. I've
+heard of some eukaryotes, like they'll have different ploidy at different points
+in the life cycle. And I just blew my mind, you know, Jesus Christ, like we
+assume everything is like human, or things like bacteria, but then you get all
+the weird stuff that's out there in life, and it's just totally crazy. Like
+every rule is broken. Wait till I tell you about plants, Andrew. Is it wheat
+that doubles its genome every now and then, and it just, then it just has twice
+as many chromosomes for a while, and then half, it jettisons half its genome at
+random and continues on and just goes back and forth, I believe, yeah. I'm glad
+I don't work on plants. But talking of bacteria-related, it reminds me of
+Neisseria gonorrhea, which is interesting in that I believe that each cell has
+between four and five copies of the genome in it. It doesn't have a single copy
+of its genome, and I think the understanding is that this genome is pretty
+clonal, but there is sometimes some variation, and that copies of the genome
+within the cell can recombine with each other within the cell, intracellularly.
+So it's fascinating, because an offshoot of this is that, so there's five copies
+of the genome, and then each of these genomes has five copies of the 23S
+ribosomal gene, and there's a well-known mutation in gono that confers
+resistance to some particular antibiotic. It's a SNP in the 23S gene. So think
+about it, we've got five copies of the genome, each has five copies of the 23,
+so we have 25 copies of the 23S gene in this cell, and one or more of those 25
+copies can have this SNP. If you have one copy of the SNP only, you're a little
+bit resistant. If you have 25 copies, it's strongly resistant. There's this
+linear dose response with the number of SNPs. So I don't think there's a tool
+yet that kind of does a good job of measuring this particular SNP. So I know
+that that's a thing that we've noticed is that, you know, we've had AMR tools
+that predict genes, and now we're looking at AMR tools that predict SNPs, but we
+need the tool to actually try and estimate the copy number of that SNP as a
+proportion of the total cell, and we can't do that with an assembly. You have to
+go back to the reads. And you need a specialist tool just for that species as
+well. Well, it's a generic, it's a generic problem, right, finding a major
+allele fraction in the data set, because you don't really need to know, you
+don't need to untangle all these assemblies to do this. You just have to look at
+the read depth on the 23S gene and kind of come up with a proportion. I don't
+know if there is a specific tool. Maybe Areva can do it. I'm not sure. Christy,
+could Areva tell you this sort of information? Areva could give you the fraction
+of reads covering the 23S, but I don't think it would give you that in
+proportion to the rest of the genome. It would just be in comparison. Well,
+actually, as long as that's a proportion within the data set, that's enough to
+know its potential. But doesn't Areva force one allele? Yeah. So if there's only
+one step, that's okay. But it aligns the reads back. I think in its very
+extensive output format, there is probably a column which tells you exactly what
+you need, if you can find it. No, Areva is very, very well written in that
+regard. That's a very common problem with 18S amplicon sequencing for microbial
+eukaryotes because they often have multiple copies which have divergence from
+one another. So how do you tell whether it's two different related species or
+one genome where you have your amplicon sequence variants? It's the same
+bacteria. If you look at 16S, often the intracromosome variation is greater than
+the variation between the species. It's just crazy. Really? Yeah. For some of
+them, we had some strep ones. What you do is you just take long read assemblies
+and then you take the 16S and map them. You draw a file in a tree, then you see
+what species they are. You can just visually see and it's like, oh yeah, okay,
+that's totally wrong. That's wrong. That's wrong. Because you can't use 16S for
+calling species. Does anybody in the wet lab know that? Genus is a stretch and
+usually a wishy-washy. But yeah, no, it's a problem. Don't use 16S, there you
+go. So thank you very much for joining me today, Kristi, Finlay, and Torsten.
+Thanks for having us. Thank you so much for listening to us at home. If you like
+this podcast, please subscribe and rate us on iTunes, Spotify, SoundCloud, or
+the platform of your choice. Follow us on Twitter at Microbinfee. And if you
+don't like this podcast, please don't do anything. This podcast was recorded by
+the Microbial Bioinformatics Group. The opinions expressed here are our own and
+do not necessarily reflect the views of CDC or the Quadram Institute.

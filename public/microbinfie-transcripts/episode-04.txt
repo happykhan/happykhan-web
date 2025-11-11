@@ -1,0 +1,305 @@
+Hello and thank you for listening to the MicroBinfeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There's so much information we all
+know from working in the field, but nobody really writes it down, there's no
+manual, and it is assumed you'll pick it up. We hope to fill in a few of these
+gaps. My co-hosts are Dr. Nabeel Ali Khan of Enterobase, GrapeTree, and
+BrakeFame, and Dr. Andrew Page of such works as Plasmatron 5000, Rory, and
+Govens. I am Dr. Lee Katz, and you might know me from my Tree Making Pipeline
+Mastery or my SNP Pipeline Live Set. Both Nabeel and Andrew work at the Quadram
+Institute in Norwich, UK, where we work on microbes in food and the impact on
+human health. I work at the Centers for Disease Control and Prevention and am an
+adjunct professor at the University of Georgia in the U.S. Today we're going to
+be talking about surveillance platforms, reference lab characterization,
+bacterial profiling methods, and just kind of overall the mechanics of how we
+talk to each other. So in the past, people have used a number of different
+approaches to sort of define different types of microbes that they're seeing out
+in the environment. So there's such approaches like plasma typing, phage typing,
+or serotyping, which is sort of based around susceptibility or like
+morphological changes, or there are other approaches which are based around
+genotyping. So such things like postural gel electrophoresis or MILVA, which is
+looking at microsatellites, or MLST, which is looking at multiple housekeeping
+genes across the genome. Yeah, so I find this a bit odd because I come from the
+NGS era, like I'm an NGS boy. I only came to genomics in 2011, so all of this is
+like really obscure to me. I've never done any of this. I'm a computer
+scientist, so I haven't learned it in university, but it's really fascinating
+because it still lives on. These are classic techniques which have stood the
+test of time. Yeah, so a number of these sort of tests, like for instance
+serotyping, at least for Salmonella, still is a gold standard for reporting. And
+things like MILVA, I think they use internally within the ECDC for reporting.
+PFG, which I think is still in use as well. They're all very ... The idea with
+these methods, for a few of them, is they're supposed to be very quick or very
+reliable methods of just defining what sample you've got so you can tell someone
+else. But at a very high level, yeah? But at a very high level. And a lot of
+these methods don't strictly correspond to what you would see if you were
+looking at the whole genome, since they're based on the idea that you're looking
+at phage typing, which is you're infecting with different phages and seeing how
+the cells react to it, doesn't strictly have anything to do with the overall
+phylogeny of a genome. But I suppose it does allow you to rule some things in
+and out of an outbreak. If you've got a hospital with two different types
+circulating, then you can have a rough idea, okay, it's not one big outbreak,
+it's two or three. Exactly. And before, you only really had Sanger sequencing as
+a method, so this was good enough. Yeah, it's still good enough even today to
+use for just that sort of simple application. I suppose it's one step above just
+going to your doctor and you cough and he's like, oh well, this is probably
+staph aureus. You're thinking, how on earth has he come to that conclusion just
+by one cough or some vague symptoms without actually doing a proper diagnostic
+test? I'd say some of these tests are quite robust. It's sort of interesting
+with some of the methods, again with PFG, it will give you fairly high
+discriminant power because it's taking all of the DNA that's in the chromosome
+and doing the restriction digest on it. And that fanning pattern, it's a pan-
+genomic measure of the genome. And that's good, high-fidelity data that you can
+use. And you can share the banding patterns that you've generated are
+consistent, the protocol's consistent, so you can show that to your friend and
+that can make sense. And I've seen trees built with PFG, how do they compare to
+when you do whole genome sequencing? Yeah, if we're talking about data, if we're
+talking about genomes or strains that are very closely related and you're trying
+to say if it's more or less identical, maybe you can comment on how comparable
+the PFG is to say like a clonal complex or serotype or some other normal
+measure. Yeah, those are good questions. So PFGE is really tough to link back to
+WGS. I don't want to scoop anybody, but I just know that there is some research
+right now trying to compare PFGE back to WGS. Unfortunately, it's not like a
+one-to-one because PFGE cuts in certain spots in the genome, but then that's not
+at a defined restriction site. But that's not a hard and fast rule because
+certain things like methylation might block the restriction enzyme. And so you
+can't just predict the bands actually from a complete genome. That said, another
+question you had was how do we make trees out of PFG? And it's actually very
+simplistic. Usually the restriction enzymes are picked so that you see about 15
+different bands on the gel per genome. And it's basically a distance matrix
+between different genomes where you have a distance of either 0 to 15 bands. And
+so that distance matrix can be turned into a tree. A lot of times that tree
+corresponds with what the WGS tree would be, but then other times it would not.
+For example, Salmonella Newport can probably be turned in, which has basically
+certain PFGE types, would actually turn into about three different, I think,
+three different WGS clades. And you can go from there. PFG can be blown apart in
+WGS clades, or different PFG profiles can be collapsed into one WGS type. It's
+kind of interesting. There's a few publications I can think of that discuss some
+of the differences between PFG and whole genome sequencing can be because of
+different, say, phage that have infected a strain. And then that adds different
+genomic content, which then alters the PFG banding pattern. And that might
+accidentally leave you to think that it's more closely related to one other
+strain than you would to the one that it's supposed to be. This would be like as
+if you just, say, took every single SNP or took every single gene and considered
+that as part of your tree, and it'll give you a funny result. You can get the
+same sort of problem with PFG. So I know that in the U.S., especially with
+PulseNet in the early 90s, they started using PFGE. Were they doing things like
+MILVA in Europe? So from what I remember reading, and I might be wrong, but I
+think MILVA is the standard reporting method between different nations within
+the ECDC. Okay. So they would flag as soon as that, if someone's like, oh, we're
+seeing the same MILVA type several times, they would send a broadcast out that
+this is what's going on. This is what they're seeing. And they'd ask, has anyone
+else seen the same thing? And I think in the literature, you'll see that, yes,
+they select, they actually select based on MILVA. And then that is used to
+inform what they will then go and look in deeper with, like, say, whole genome
+sequencing. Yeah. You know what? We actually use PFGE and then as a secondary
+analysis use MILVA when we were selecting which whole genome sequences to use
+for the Haiti Cholera Project. When we were trying to use genomes early on 2011,
+2013, to look at that outbreak. And it's sort of a chicken and egg problem. You
+have to know what the diversity is before you run WGS, at least back then when
+resources were tight. And so we actually sequenced a diversity of PFGE and MILVA
+types. But then this sort of brings us to the question of, this is still, I
+mean, you were using it back in those days, but you're still like the standard
+today, more or less. And why, what is the stopping points between moving from
+this to whole genome approaches then? We're slowly moving forward on that. We, I
+think that we have officially flipped the switch now so that labs are supposed
+to be running whole genome sequencing. They aren't being stopped from running
+PFGE, but we are coordinating on WGS now, at least for a few different
+organisms.  Which organisms did I eat? We started with Listeria in 2013, which
+we were expecting something like 1,600 isolates from various agencies per year,
+but it was a bigger feat to go to Salmonella, which is in the tens of thousands,
+and I believe that's the same over there with you guys. It was more difficult.
+We had sort of a tipping point last year where we were getting more WGS than
+PFGE, and I think now we are getting basically majority or hopefully virtually
+all WGS on Salmonella, and hopefully also on Escherichia, although I'm not
+totally up to date on that. And are those all made publicly available through
+the NCBI? Yeah. All of our labs are now submitting directly to NCBI, and so you
+can see those in the bioprojects on ncbi.nlm.nih.gov slash pathogens, and you
+can see under contributors which bioprojects people are contributing from.
+Sometimes just because of patient confidentiality, we are masking, and so you
+can't really... These are anonymized, so we can at least use it for
+surveillance, but you can't track it back to the patient. And then through the
+collaboration between NCBI and ENA, those genomes are being constantly
+synchronized between the two agencies, and so they are downloadable from each
+database. So really, what is the difference? Why do we even want to share or
+talk about surveillance for different microbes? That's a great question, Nabil.
+We use these different profiling techniques for things, especially like linking
+outbreaks. Even back when we only had seven genome LST, these were being used to
+describe which organisms had the same sequence type, and we could tell... We
+could incorporate that into an outbreak definition like this. For example, a
+fictitious outbreak might have all of sequence type 11 and must be found in this
+boarding school where everybody was sharing the same airspace, and so that might
+be a meningitis outbreak. So it was important to know at least the seven genome
+LST at that time, but it didn't have as good resolution, and obviously WGS does
+a whole lot better job. A lot of other things can be derived from just using
+profiling. You can profile, for example, virulence genes, and a subset of that
+might be... You might consider a subset of virulence genes to be antimicrobial
+resistance genes, and so those could be determined just from analyzing the DNA
+of the organism. I don't know. Certain things like seven genome LST might help
+you define what the host niche is. For example, meningococcus sequence type 32
+for the longest time, if you found that in the US, I know that that would be
+something that was almost definitely from the northwestern region of the US.
+Some of my PhD work that just stuck with me for years. Yeah, I think in terms of
+host niche, definitely like geographic, different serotypes of E. coli,
+particularly for enterohemorrhagic E. coli is found in different locations
+around the world with different sort of clinical prevalence. Same thing applies
+with phage typing for a lot of species. You can see for some cases, certain STs
+are certain, any of these genotypic measures will put them into certain animals
+or certain environments as well. You can find a lot of literature where people
+have just gone through with these typing methods and then tried to correlate it
+back to where they found it and in what context, whether it was part of an
+outbreak or whether it wasn't. A lot of that still holds, I think. I think we
+should be fair on it, even with whole genome sequencing coming and redefining
+everything. A lot of the gems that come out of those old papers are still true
+or still make sense. Yeah, I guess they are gems because it's like, I feel like
+now we're kind of like tied into WGS and we want to look at everything WGS and
+why are people looking at phage typing. But when you read these old papers, it's
+like, you read about the phage typing and that really does help out. Actually,
+there was a, for plasma typing, do you guys know the story of the Rajneeshee?
+No. Tell us. There was an outbreak that was kept secret for years, actually, in
+northwestern United States. There was a city where there was an Indian cult
+called the Rajneeshee and they wanted to basically give everyone food poisoning
+on the day of an election and take over the town. They would be running and they
+would take over the town. This was actually the first case of a bioterrorism
+attack in the U.S. They had cult members working in like 15 different
+restaurants or something and they decided to poison the food on the same day.
+And what happened? I think that they basically didn't get the incubation time
+correct and everyone got sick on the wrong day and they still were voted out of
+office and they were still investigated later. So tying this back into the
+conversation, they actually figured out who caused the outbreak through plasmid
+typing. They found that the Rajneeshee ordered an ATCC strain that had a unique
+plasmid in it and they compared the plasmid of the outbreak versus ATCC and who
+bought this strain and they looked in the basement of basically this cult
+compound and found it incubating in there. So that's pretty clever the way they
+traced that back. So that was kept secret for years and I don't even know when
+it was made public. I'm sure we can look that up. My co-PI when I was in grad
+school told me about it and I didn't quite believe him. And then I saw it on one
+of my favorite shows, Forensic Files, and somebody at CDC who I know very well
+was interviewed on there and he was describing it. So I know that that's public
+now and there's a whole Wikipedia article on it and everything. I think that
+that's all to say that plasmid typing and phage typing, just like you were
+saying Nabil, is incredibly useful. We want to do everything WGS, but we have to
+understand that these classic methods really were very useful. And what about
+things like multituff? Are you guys using that in the US? We are using it, but I
+don't want to comment too much on it myself because I'm not involved in it too
+much and I don't know much about it. I do know that it's incredibly useful.
+There's an expensive machine, but when you look at each sample, it costs
+something like 10 to 50 cents for each sample to run it. It's incredibly useful
+too. In the UK, actually something they use a lot is antibiograms. So just what
+grows and what doesn't, just the antibiotic resistance profile. And they use
+that in hospitals just to track different outbreaks because they will have
+different antibiotic resistance profiles and they can tell what's in and what's
+out. It's kind of a neat way of doing it. Although we're going back to Louis
+Pasteur days. How do you mean it goes back to Pasteur days with that?
+Essentially, if you're just growing up some bacteria on a plate and then seeing
+what grows, what doesn't grow, that's quite old school. Yeah. Okay. But it
+works. It's very definitive apart from intermediate. That's cool. Okay. So next
+in our notes, we wanted to talk about the federation and data sharing in pre-
+genomics land. For example, how do we coordinate across institutions and
+internationally? And I feel like what I'm going to do, what I'm about to do is
+be very U.S. centric. And I hope that you guys step in and tell me what else is
+happening in the rest of the world too. So I can say that pulse net is a major
+way that we coordinate across institutions and internationally, at least across
+laboratories. Pulse net basically started officially in 1996 based on an
+outbreak that I believe was in 1993 in the Western region of the U.S. There was
+a fast food chain that is named, but I won't name it here. There's no point in
+pointing fingers on this podcast, but there was an E. coli outbreak. There was
+basically hamburgers that had sugar toxin producing E. coli and they weren't
+being cooked all the way sometimes. And basically little kids were getting
+really bad E. coli. I think Oregon, Washington, California, I'm forgetting one
+more state, I believe maybe it was Novato started coordinating and they created
+kind of the seed behind pulse net. And over time it became more centralized in
+Atlanta at CDC. And so over time, more and more states.  came on board.
+Presently, there are more than 80 labs in the US for PulseNet. And PulseNet
+itself has grown out of the US to create an international consortium called
+PulseNet International. And so they do coordinate, they've historically
+coordinated with MILVA and PFGE as standard reporting systems. They've used
+Bionumerics kind of as the platform for coordinating these results. And at that
+time, PulseNet was one of the largest platforms and movements and whatever you
+want to call it for syndication. Well, I'd like to know, how does PulseNet fit
+into GenomeTracker? GenomeTracker is this really awesome initiative put forward
+by FDA. And it's a post genomics initiative. Whereas PulseNet, even its name
+gets its name from PulseGel electrophoresis. It is a pre genomics platform. So
+PulseNet was basically is basically coordinating with PFGE patterns, and is now
+coordinating with WGS workflows. GenomeTracker was FDA's initiative to get their
+their local laboratories on board for sending them WGS and for analyzing it
+centrally and for uploading it to NCBI centrally. GenomeTracker has used NCBI as
+its platform. GenomeTracker has recently expanded to Galaxy Tracker, which is
+based off of Galaxy. Galaxy is awesome. That's what we're using here at
+Quadrant. Okay, how do you guys use it? I'm always for everything. It's, it is
+the way forward. I think it's a great system that just works for if you want to
+build a bioinformatics workflow, you know, you point and click. And it's very,
+very scalable. It works in a cloud or works in a local HPC cluster. And we're
+using it with a system called IRIDA, which is a Canadian, originally a Canadian
+system for infectious diseases. Nabil knows probably more about this than I do.
+Yeah, so IRIDA, we're using that mainly for the data management and launching
+some simple, some of the simpler standardized pipelines to, to that resource.
+And the idea is that you'll have your data on IRIDA, which you can then link
+into Galaxy and then do more advanced complicated workflows that you that a user
+generates themselves. So it gives a good flexibility of standard issue results
+that you can sort of the reliable results. And then you might want to go and do
+your own bespoke thing to follow up from that. So between the two, you've got
+that you've got the flexibility to kind of go to either avenue. Are you guys
+making any like custom workflows that that could turn into something more
+centralized with you and your partners? Well, we're putting that up on GitHub at
+the moment. That was what I was working on today. Yeah, so slowly, slowly, we'll
+have more of our pipelines, like readily available. So people can, we can always
+point to that of this is how we do our analysis. And then they can actually just
+download it and use it themselves within these within these frameworks. And
+also, it's a great way for labs around the world to share validated workflows,
+or published workflows, you know, there's nothing worse than reinventing the
+wheel. And I guess that's one way we can all collaborate and share our
+Bonformatics knowledge. That's great. And so I don't know if your repo is
+private at this time, or if you'd like to publicize it here. What, where can
+people look at your code for this? I'll add to the show notes. And I think that
+you guys were just at a galaxy tracker conference. Yeah, I'm just back from a
+galaxy PI meeting. So galaxy is huge community. And it's the major players be
+Penn State and Johns Hopkins and Freiburg University. And everyone got together,
+I think there's about 25 PIs in a room, just discussing the future directions of
+galaxy, you know, it's been around for a while. And it's going from strength to
+strength, there's 10s of 1000s of people using it on a daily basis. So it's it's
+fairly well established out there. And a lot of companies use it as well. So
+some of these fancy websites to go to would for commercial companies actually
+are just running galaxy underneath and open source tools. And you can get all
+the same functionality, essentially, just by going and downloading galaxy or if
+you want to try it out, there's different containers. That's cool. And so also
+tying it back to kind of kind of our wheelhouse for kind of, I would say kind of
+genomic epidemiology, are there any like main tools that you guys looked at
+during your conference or that you look at now at quadram? Well, the system
+we're using is Irida, what is this integrated rapid infectious disease
+something. And it's, it's basically built for genomic epidemiology from the
+point of view, you know, bacterial pathogens. And that's what we're using it
+for. But we're kind of extending it into the next generation, third generation,
+allowing it to support like nanopore impact bio and that kind of thing. So
+there's a lot of tools out there and you can drop stuff in and get working very,
+very fast. It's amazing. It's democratized the bioinformatics analysis of
+bacteria. And anybody can jump in fairly quickly and start doing high quality
+research and outbreak investigation. That's cool. So do you think that quadram
+and several, several other places are jumping on Irida? It's a Canadian project.
+And, and I know that they have been trying to broadcast it out. Yeah, they have,
+they do have some, they do have a slowly growing user base. There are a couple
+of chaps around outside of Canada who have started to use it for some of their
+projects as well. Okay, we have it installed at CDC too. I need to use it more,
+but it is an awesome project. I agree with you. You know, one more, you named
+all the universities. I remember actually, Emory University had James Taylor,
+but he moved away a few years ago to Johns Hopkins. Yeah. So he's one of the
+main guys at the Galaxy conference as well. And he is at Johns Hopkins and he's
+still leading the Galaxy project there. And it's gone from strength to strength.
+Yeah, it's a huge loss for us in Atlanta. What can you do? Nothing. But I do
+know the University of Georgia as well uses Galaxy quite extensively as well.
+Oh, wow. Were they represented at the conference? Oh, absolutely. They were.
+Yeah. That's great. University of Georgia is really excelling now in
+bioinformatics. It's always excelling. Sorry. But it's going it's going better
+in bioinformatics now. Well, you work there, don't you? Or you're an adjunct?
+I'm not at the main campus or any campus at all, really, but I'm an adjunct
+associated with a satellite campus, which in that campus is associated with food
+safety. So the main campus is, I think, an hour east of Atlanta. The campus I'm
+associated with is an hour south. So a little call out to the Center for Food
+Safety at the University of Georgia. Well, this has been a great conversation so
+far going into the history of typing and covering topics such as PFG, MLSC,
+plasma typing and PulseNet right up to the present day with Genome Tracker. Join
+us again, where we will continue on this journey into the history of genotyping.
+Thank you all so much for listening to us at home. If you like this podcast,
+please subscribe and like us on iTunes or Google Play. And if you don't like the
+podcast, please don't do anything. This podcast was recorded by the Microbial
+Bioinformatics Group. The opinions expressed here are our own and do not
+necessarily reflect the views of CDC or the Quadram Institute.

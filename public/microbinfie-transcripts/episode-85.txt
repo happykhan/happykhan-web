@@ -1,0 +1,362 @@
+Hello, and thank you for listening to the MicroBinFeed podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention, and am an adjunct member at the University of
+Georgia in the U.S. So hello, and welcome to the Microbial Bioinformatics
+podcast. Nabil, Lee, and myself are your hosts for today, and we are joined
+again by Professor Mark Palin, who is a Professor of Microbial Genomics in the
+University of East Anglia and a Research Leader at the Quadram Institute. We're
+continuing our trip down memory lane and reflecting on some of the exciting
+bioinformatics moments and lessons learned for bioinformatics in the 21st
+century. So let's continue our conversation with Mark. Now then something
+strange happened. I'd kept in touch with Nick Loman over several years. In fact,
+he'd even helped me set up my server when I arrived in Belfast. And I'd applied
+to get funding to build more databases on the back of our efforts with CoDubase
+and KNPDB. I'd had a smart guy called Roy Chowdhury been working on this
+CoDubase for many years. And I got this funding for a project that we called
+X-Base, which was to apply that sort of thing across the board to all sorts of
+genomes. And so I was looking for a smart bioinformatician, and I said to Nick,
+I said, look, I've got five years funding here. Why don't you break out of your
+medical career and come and do a PhD? You've got plenty of time in those five
+years, you come on the payroll of staff, so you wouldn't have to pay PhD fees,
+only like 500 for the whole thing. And you can return to medicine with a PhD.
+And it turned out that he said, well, now is the right time to jump out of
+medicine because the UK government made a complete mess of career progression
+for junior medics at that time. There were far more people in training than they
+provided jobs for. And so Nick said, yeah, all right. So I persuaded him to come
+and work for me again. And so he moved over to Birmingham. And just around the
+same time, that next generation sequencing, or high throughput sequencing as we
+might call it, perhaps more accurately, came into view. And so that was a really
+exciting time as we suddenly, we started looking at Moore's law applied to
+sequencing and thinking what in 2025, which is when I'm 65, how much did it cost
+to sequence a genome? I remember we got a ruler, we said, oh, it costs 25 pence.
+And we were just joking, it can't be true that you could sequence a bacterial
+genome for 25 pence. But I think we will be able to sequence a bacterial genome
+for 25 pence in a few years' time. It's down to a few pounds. But we were there
+at the beginning and we got involved through a collaboration with George
+Weinstock. I'm still talking to all my clinical microbiology colleagues, I still
+had a clinical academic role there. And we had particular problems in an
+organism called Acinetobacter baumannii in the hospital. And I said, maybe we
+could track the spread of this thing by sequencing its genome and see how they
+relate to each other, sort of draw an evolutionary tree of the strains within
+the species that come out of our hospital. It might work, it might not, let's
+just have a go. And so we did that, George sequenced three isolates, we were
+able to call out some SNPs between them. And it was the first paper looking at
+gram-negative genomic epidemiology. A very smart person called Sharon Peacock,
+who'd actually been on the same scheme that Gordon Dugan had done for PhDs for
+medics, had actually got into the Sanger and pipped us to the post doing genomic
+epidemiology of Staph aureus, they had a paper out. But we were the first ones
+to do it on a gram-negative, and we ended it with three, but it was proof of
+principle. And we then went on and did a much larger study a few years later,
+where we tracked the spread of an outbreak strain and sequenced over 70 genomes
+from patients and so forth. But that was a thing where we started getting into
+outbreak genomics and looking at what we could deduce from genome sequencing by
+using that approach. And it just so happened around 2010 or so, this new wave of
+progress came in where it wasn't just next generation sequencing, it was
+benchtop sequencing became a possibility. And three platforms came to market
+around the same time. So there was the 454, 454 junior, that selects the
+sequencing and transmogrified into Illumina sequencing and they had the MySeq.
+And then there was this newcomer called IronTorrent that came on. And
+IronTorrent launched a European-wide competition saying that if you win this
+competition, you can have an IronTorrent for free. And it belongs to you as an
+individual, not your university, you as an individual. And I said that we could
+use IronTorrent to sequence our acinetobacters and track the spread of this
+deadly multidrug-resistant pathogen. And they swallowed my Blarney and gave me
+an IronTorrent. I won an IronTorrent, I went to La Salle to collect the award
+and I got an IronTorrent. I said to Nick, you know, nobody's ever used this
+thing before, see if you can work out how to handle the data coming off of it.
+And so we started playing around and said, yeah, I think I've got the pipelines
+working. And just at that time, there's this terrible outbreak in 2011 in
+Germany of E. coli H4, sugar toxin-inducing E. coli in Germany. A group in
+Germany collaborated with the Beijing Genomics Institute, BGI as it was called.
+And they had got an IronTorrent and they sequenced the outbreak strain on an
+IronTorrent and released the data into the public domain. And so I said to Nick,
+I said, look, that data's there, have a play. I went off on holiday and he had a
+play and I came back and he said, oh, something marvellous has happened. I
+analysed that data, I released it into the public domain through this new
+communication tool called Twitter. And loads and loads of biopetitions have all
+said, yeah, they're interested and they've re-analysed the data, they look for
+antimicrobial resistance, they've looked at how close it is to other strains.
+It's like a crowd-sourced analysis. Wow, that's really interesting. I said, but
+we're academics, we're not interested in our profile on Twitter. We need a peer-
+reviewed publication on this. How are we going to turn it into a peer-reviewed
+publication? I thought, well, we could write this up as a letter to the Lancet.
+So I got some other biopetitions involved in it and we started writing it up as
+a letter to the Lancet. Around the same time, I contacted the guy in Germany who
+was heading up their efforts to analyse the outbreak and control the outbreak, a
+guy called Martin Epfelbacher, and said, you know, we know a lot about E. coli.
+We know a lot about genomes and bioinformatics, if you need any help, let us
+know. And he came back and he said, no, I think we're all right. I thought,
+okay, well, that's not an opportunity that's gone. I suppose we'll leave it. And
+so I set up an opportunity with John Wayne, who was working at Public Health
+England. I said, we can analyse one of the British isolates from this outbreak
+and why don't we do it on the three different platforms available to us? So the
+Iron 12, which we've got, the 454 Junior, which you've got, and we could
+probably get a MySeq as well. And so we did that, and we did a little analysis,
+and this is when Nick Loman came to his own. He went away and he did all the
+analysis and he came back pretty much with a ready paper, publication-ready
+paper, which we published. And we showed effectively that both the Iron 12 and
+the 454 had this problem with homopolymers. Their accuracy wasn't quite good
+enough, whereas the MySeq was much, much better. And that paper has now been
+cited over 1,500 times, it's my second most highly cited publication, and the
+Illumina reps used it as a way of flogging their MySeq for the years that were
+to come. But while all that was kind of bubbling away, I suddenly got this phone
+call at 10 o'clock one morning by Martin Eppelbacker saying, look, I want to
+talk to you about this genome analysis and this paper we're trying to get put
+together. Can I speak to you at midday? I said, you can speak to me now if you
+like. He said, no, no, but we do need your help. And so I waited two hours until
+he phoned me back at midday. And he said, oh, they'd sent their paper in to the
+New England Journal of Medicine, and it had been OK in some aspects, but the
+reviewers didn't like the way that the genome analysis had been done by their
+colleagues at BGI, and they didn't like the way the paper had been written up.
+And so could we help? And I said, well, I can help you write the paper. And I
+got this guy, Nick Loman, who could redo the genome analysis. And he said, yeah,
+there's a snag there. And I said, why? He said, it's Tuesday today. We have to
+get this back to New England Journal by the end of Thursday. I said, I accept
+your challenge. We analysed the genome, I rewrite the paper for you in less than
+48 hours. I said to Nick, I've given you a challenge, Nick, go away and analyse
+this genome and weave in all your stuff about the open source genomics as well.
+And we did it. And so we wrote the paper and it went into the New England
+Journal. I said, the condition of me doing this is I'm a senior author. And Nick
+Loman is one of the first authors, joint first authors. And they said, yeah, all
+right. And we got the paper accepted in the New England Journal. So that was one
+of those things where we were in the right place. We'd lined up the things, you
+know. I'd won the Iron Torrent. I had managed to recruit Nick Loman. We got Nick
+Loman to analyse the Iron Torrent data. So we just lined up. So when that
+opportunity came, we could seize it. And that's that saying of Chance Faving the
+Prepared Mind. If you've got the wherewithal and an opportunity arises, you can
+jump on it. I have a couple of comments. I mean, not really questions, because I
+agree. It's an older story, but it's a keystone part.  of our history really
+now. We couldn't have done like all this without it. I came into foodborne
+infectious diseases in 2011 and this was like, I mean, there were a couple of
+things going on, like there was a cantaloupe outbreak in the US, but like
+immediately there was this E. coli outbreak. And then Nick posted on Twitter.
+From my perspective, I just thought that was just weird. Like I did not know how
+to handle Twitter. I think around then I went ahead and signed up for an
+account, but didn't do anything with it. And it was just fun from the US side,
+at least from my perspective, just to touch my toe in this and watch what was
+happening. Yeah, yeah. No, it was a very exciting time. I mean, it was a
+horrible time because it was an absolutely horrible outbreak and multiple
+deaths. And there were deaths, you know, as we sometimes see with COVID and in
+otherwise fit and healthy young people who just happened to be infected by a
+pathogen. It was terrible. Yeah, I can't underscore that enough, but it was
+awful. I feel like one other thing that maybe you didn't touch on as much was
+how much the genomics played in figuring out what the pathotype of this thing
+was because it was such a complex pathotype, right? Yeah. Yeah. So the
+interesting thing was that we, going back to that statement, I said, seek
+simplicity and distrust it. People working on type three secretion in E. coli on
+the lean COVID system would say, well, it's always present in sugar toxin, sugar
+toxigenic E. coli. It's part of that repertoire of virulence factors. It needs
+to cause disease. And therefore it's very important. And we'd always say that
+that's why we have to study it. And then this thing turned up. It didn't, people
+have been kind of categorizing E. coli into different path of ours. And this
+thing sort of straddled the boundaries. It was kind of sugar toxigenic. It had
+some of the things that you have in interactive E. coli, but it didn't have a
+lean coded type three secretion system. So it basically blew out the water, this
+simplification that we've made of, oh yeah, this is part of it. So it was again,
+a very illuminating thing that we always fall into this typological thinking
+that we can nail things down by simple categories. And then it turns out nature
+and evolution doesn't play by those rules. It just mixes and mashes and does all
+sorts of things. So it's kind of exciting. So this was a lot of fun for me
+because I was a doctoral student at the time working on anterohemorrhagic E.
+coli. And my feeling after reading a lot of the literature leading up into this
+was people's opinion. It had become incredibly dogmatic about pathotypes,
+particularly for anterohemorrhagic E. coli. Paper after paper, just saying, you
+know, if you didn't have the lead, we didn't care, you know, it was it was out
+of the water. And it's a lesson that you have to learn and learn again. I mean,
+around that time, I wrote a book called The Rough Guide to Evolution. And there
+were all these quotes that people had said about Darwin, this and Darwin, that,
+you know, Darwin and Marx and all that. And you scratch beneath the surface,
+where is the evidence trail for that? And you find that actually, there isn't
+one, it's not true. In fact, there was a quote that was attributed to Darwin
+about it was not the fittest, but the organisms that are most adapted to the
+environment that survived something along those lines that Darwin never said.
+But there's a in the US, there's an august institution, I think it's on the west
+coast somewhere that that had that engraved in marble, basically, when it was
+shown Darwin never said that they look totally silly. So you know, you always
+have to question the evidence trial. And it goes back to the early days of
+genome sequencing, where when you say that this protein coding gene encodes a
+protein that does this, where's your evidence trial. And often, you get this
+very messy situation where someone would do a multi search of that protein, one
+of the domains in that protein would have to something, and then that thing
+that's had something that's got to hit something else, but they didn't actually
+share a domain in common. And you just get this misannotation, all sorts of
+problems like that. One thing I'll also add that was really exciting was as it
+was rolling out on Twitter, you had rather than as a student, you normally saw
+this, you normally saw results at this detail, at this level of of scientific
+rigor being presented to peer reviewed papers. And then all of a sudden, you're
+reading about the the entire aggregative like femoral genes on Kat Holtz blog
+that she did with with with Nico Petty. And then you're reading the the tree on
+someone else's website, then someone's tweeting stuff about comparison with all
+of the existing I think David Studholm comparing it with all the other E. coli
+existing E. coli genomes. It was a crazy time. Yeah, it did. It set the
+precedent for what came afterwards in terms of outbreak control, open science,
+you know, putting up pre prints rather than waiting until things been accepted
+in the journal. And obviously, Nick and you and Andrew Page and many others have
+adopted those approaches during the COVID pandemic. And I think that the event
+that Nick kickstarted way back in 2011, it has borne fruit big time since then
+in all these initiatives. I can't speak for Andrew and Nick, obviously. But for
+me, this this outbreak reading about it sticks in the back of my mind when
+approaching COVID. So a little while after we've had that New England Journal
+paper come out, I said to the collaborators in Germany, who would never actually
+met face to face, I said, look, we'll come over and see you. So we went over
+there and we shared some champagne with them. And I said to them, what we got to
+do though, show people we're not just a one trick pony here, what can we do now,
+that convinces people that we've got something to say, and that we're cool guys.
+And we said, what are our unique selling points? And I said, well, we're pretty
+good at this kind of genome analysis stuff and bioinformatics, I suppose. And
+they said, well, we got a freezer full of fecal samples. So I said, Oh, okay,
+I've got an idea. Why don't we just sequence the fecal samples? Why don't we
+sequence your fecal samples that you've got, and see if we can detect the
+outbreak strain in those fecal samples? You know, it could be a kind of
+diagnostic or clinical metagenomics. Why don't we try that? I said, it's a bit
+of a long shot. And what I thought to myself was, well, if the dog were up until
+that time, again, one of these dogmas was that E. coli was a bit player in the
+in the gut microbiome, you know, less than a percent. So I said, you know, we're
+not going to see, you know, it'll be the bacteroidetes and the Firmicutes making
+up most of this. But we'll have a look. And if we even if we detect the sugar
+toxin gene, that's still a hit, isn't it? You're achieving a diagnosis by
+metagenomics. Nick Loman went away and did it, looked at it, came back and said,
+I've got 20 fold coverage of the outbreak strain genome. In this one, I've got
+50 fold coverage of the outbreak strain gene. And what turned out to have
+happened against our expectations is, although in the normal gut microbiome, E.
+coli is a bit player, during these episodes of infection, it undergoes a massive
+bloom and takes over the microbiome, becomes the predominant organism. And so we
+were able to get the whole genome of the outbreak strain from these analyses and
+establish that you could do diagnostic metagenomics on the human gut microbiome.
+And in fact, I met David Relman shortly afterwards, who was a key player in the
+in the human gut microbiome project. And he said, I found it to you, we spent a
+lot of time thinking about methods and protocols and getting it so that we can
+analyse the healthy gut microbiome. But you've just come in here and said, why
+don't we use this as an approach to diagnosing disease? And none of us have kind
+of thought of that yet. So hats off to you. So, so that was that was cool. And
+around the same time, I thought, because we'd had that success with
+metagenomics, a guy came up to me who I'd worked with, was working with, called
+Dave Minican. And he said, Oh, look, we do, we want to do some ancient DNA work
+on TB. I've got some bison bones that go back over 10,000 years, I think it's
+got TB in it. I said, Well, that sounds very precious sample. I said, I'd be
+happy to have a play and do it by metagenomics, not mucking around with PCR and
+stuff. But if we can detect by metagenomics, that'd be cool. And so I said, you
+know, is there another sample that we could we could analyse that will be more
+less precious? And he said, Oh, yes, I, we can get access to some, some, well,
+some, some mummy samples, some samples from 200 year old mummies from Hungary.
+And he put me in touch with a guy called Mark Spiegelman, who is a surgeon who
+actually sampled these 200 year old mummies using a fibre optic endoscope and
+took samples under sterile conditions. I said, Well, we'll take some of that
+material and we'll just, I said to my postdoc, go and just extract some DNA and
+sequence it. If we get a couple of reads of TB, that will be something, you
+know, but I'm not expecting much out of this. She went away, she came back and
+said, Well, we've got sevenfold coverage of the TB genome. What? 200 year old
+sample and you've got complete genome sequencing? Yep. And so we went back and
+we got more of these samples. And we ended up getting over a dozen of these 200
+year old genomes out. And again, it was one of those moments where overturned
+all your assumptions. Because the bioinformatician, Martin Sargent, who's doing
+the analysis, he said, I was having trouble trying to work out what strain this
+was, what's the closest strain. But then I realised that in the pipeline I was
+using, it was saying that if a thing wasn't represented, positioned by a certain
+70%, it was just masking that. But when I removed that mask, it turns out that
+in many positions here, there's 50% of one thing and 50% of another. And so what
+we've got is two strains mixed together, closely related strains, but two
+strains mixed together. So what? You can't have TB twice, you can't get infected
+with two strains. You only get it once.  you know, some cost over you, unlucky,
+doesn't make much sense. But I went back and searched PubMed and it turned out
+that actually, there was a literature that says you can have multiple strains of
+TB. And it turned out that back then in the 18th century, the majority of the
+patients we analyzed had more than one strain. And when you think about it and
+you overturn your assumptions, if everyone was living in crowded accommodation
+and everyone was coughing over each other all the time, why on earth would they
+only get infected once? You know, that was very exciting. And around the same
+time, an archeologist who I used to have a drink with in the bar in Birmingham
+had been talking to me and I'd said to him, why don't we do some ancient DNA
+analysis with you? And he finally came to me and he said, yeah, why don't we, I
+want you to do some of this stuff. And I thought, oh, you'll give me a Pharaoh's
+finger or something like that, something really exciting. I said, what have you
+got? He said, I've got some mud, some sediments from beneath the sea, kind of
+from a Neolithic transition. And I'd like you to look for sheep and goat DNA
+because that would be the first sign of the Neolithic transition. If you can
+find those in the environmental DNA, that would be really cool. And at the time
+I was moving to Warwick and there I met a guy called Robin Allaby, who was a
+plant microbiology, a plant genomes person, but he also done some work on
+ancient DNA. And I said, look, I'm a bit busy. Do you want to take this on? He
+took it on and he came back and he said, well, I haven't found the sheep and the
+goat, but I found wheat. And wheat is as much a sign of the Neolithic transition
+as sheep and goats in this context. So this is pretty cool. I said, wow, okay.
+And he wrote it up and he managed to get it published in Science. So we got a
+science paper on presence of wheat in the British Isles 8,000 years before
+present, which is considerably earlier than everyone suspected. That's about
+2000 years earlier than suspected. And that suggested that there were these
+sophisticated social networks linking the Neolithic front in Southern Europe to
+the Mesolithic peoples of Northern Europe. So it was kind of, that was pretty
+cool. And then finally, in terms of metagenomics, I got into the chicken gut
+microbiome around the same time, did a first analysis of that. And Martin
+Sargent, who was working for me, he said, oh, I've done all this metagenomics. I
+said, we'll do some of it by 16S, but we'll do a bit of shotgun. He did the
+shotgun and he said, oh, I've done this kind of cool thing. I said, what's that?
+He said, I've assembled genomes from this shotgun metagenomics data. And this
+was before people came up with the term MAGS. This was back in 2012. He said,
+yeah, I've kind of binned the reads using the tetranucleotide frequencies and
+I've got all these genomes. I said, oh, that's pretty cool. So we wrote that up
+and that became a very highly cited paper. And then to cut a long story short,
+I'm still doing the same sort of stuff on the chicken gut today. And what has
+happened is that we're discovering so many new species that I thought I've got
+to name all these new species. It's not good enough just to call them bin 28.
+And that took me into a whole other line of work of naming microbes, which then
+led me into getting involved with the WHO to name the SARS-CoV variants of
+concern. So I've been busy with these lines of work over recent years. We've had
+a couple of other metagenomic kind of forays. We looked at the critically ill
+patients in intensive care unit. And we found a similar thing to what we'd seen
+in that E. coli outbreak that during these abnormal episodes, you get blooms of
+pathogens. So we were seeing multidrug resistant pathogens coming up at 80 or
+90% of the biomass in patients in the intensive care unit who'd received
+multiple antibiotics. Which again, I couldn't believe it when I first heard it.
+I thought, yeah, they'll increase a bit. They won't take over. But in some of
+them, they were over 90%. You know, the whole microbiome is wiped out and one
+organism takes over. So we found lots of interesting things through
+metagenomics. So I just wanted to ask a final question about what is the future
+directions then since you've seen so much change over time. So what have you
+seen or read recently that reminds you of those early days as something new and
+exciting in the same way microbiology was new and fresh? What's cutting edge
+today or what do you see as the next foray for us as a field? Okay, so what I
+have been surprised again, those moments of surprise are the things you live
+for. When we started sequencing the chicken gut, we discovered 800 new species,
+well over 600 completely new species and several that hadn't been named. And I
+was just like, this is the most abundant vertebrate gut microbiome on the
+planet. You know, more chickens than humans. Such a commonplace setting, but
+we're seeing this remarkable microbial biodiversity undiscovered. And if you
+run, typically we've done this with pig, we've done it with horse. If you take a
+new context, samples from that new context and you run them through pipelines
+like Kraken that compare them against what we already know, you end up with up
+to 80% of the reads being unassigned. Some people have used the term func for
+function unknown genes. I would argue that here, it's not just function unknown
+genes, it's func in a different sense. They're phylogenetically unknown genes,
+func with a PH because we can't even assign them to a taxon. We don't even know
+where they come from. And it just shows us that we are really, there's this huge
+ocean of discovery out there because we're up one or 2% in terms of the number
+of microbial species that we have actually genome sequenced and characterized.
+And so there is huge potential to discover new things. We will discover new
+forms of life, we'll discover new branches. They're still discovering new phyla,
+bacterial phyla. There is so much more to discover just through what you might
+say is a brute force stamp collecting of just sequencing lots and lots of
+things. And obviously we are approaching the stage where we can do the
+sequencing definitively and properly, where we can get single contact genomes
+out of metagenomes by using long reads and binning approaches. So the voyage has
+really only just begun. I mean, we're 2% of the way there in terms of really
+just mapping the genomes and understanding the genomes of the microbial world,
+let alone understanding all their functions. So yeah, the future is very bright,
+I think. All right. And on that note, I think we'll draw to a close. I want to
+thank our guest, Professor Mark Palin for joining us today. We've been talking
+about some of the bioinformatics highlights from his career, gleaning some
+advice and thoughts for the rest of us. We've gone all the way from the start
+all the right way through to the current day and a little bit into the future.
+And so that's all the time we have for, and we'll see you next time on the
+MicroBinfy podcast. Thank you so much for listening to us at home. If you like
+this podcast, please subscribe and rate us on iTunes, Spotify, SoundCloud, or
+the platform of your choice. Follow us on Twitter at MicroBinfy. And if you
+don't like this podcast, please don't do anything. This podcast was recorded by
+the Microbial Bioinformatics Group. The opinions expressed here are our own and
+do not necessarily reflect the views of CDC or the Quadram Institute.

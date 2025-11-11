@@ -1,0 +1,257 @@
+Hello, and thank you for listening to the Microbid Key Podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody really writes it down. There's no
+manual, and it's assumed you'll pick it up. We hope to fill in a few of these
+gaps. My co-hosts are Dr. Nabil Ali Khan and Professor Andrew Page. Nabil is a
+senior bioinformatician at the Center for Genomic Pathogen Surveillance,
+University of Oxford. And Andrew is the Director of Technical Innovation for
+Theogen in Cambridge, UK. I am Dr. Lee Katz, and I am a senior bioinformatician
+at Centers for Disease Control and Prevention in Atlanta in the United States.
+Hello, welcome to the Microbid Key Podcast. We've got Costas Konstantinidis.
+I've known Costas for almost 20 years now, I think, actually, from Georgia Tech.
+So we have a good relationship. I'm going to put out my bias there right away.
+It's been a pleasure knowing him. He's one of the most friendly professors I've
+ever known. It also turns out that he is one of the originators for ANI and a
+whole bunch of metagenomics stuff that we'd like to talk about too, but maybe we
+can get into ANI first. But welcome, Costas. Hi, Lee. Hi, Andrew. Very nice to
+be here. And good to see you again. So can I ask, we have never met, unlike you
+and Lee. So what's your background and how did you get into the field of
+metagenomics and ANI and this murky world of environmental metagenomics? Yeah,
+so I'm originally from Greece, as you can tell from my very Greek name, which
+Lee pronounced it very well. I did my undergraduate in Aristotle University in
+Thessaloniki, studying, actually, plant protection, agricultural sciences. And
+then towards the end of my degree, I wanted to do, I decided I wanted to do
+graduate studies, but my family could not afford it. And so I almost, you know,
+signed up to go to the army because for the Greeks, you have to serve the army
+for two years. And then, you know, the last month, basically, before graduation,
+one professor came to me and said that there is a nice fellowship for somebody
+to study in the US for four years, the Vuyukos Fellowship. And so I applied for
+it and I was granted the fellowship. And that's how my dream became true. And
+then, you know, I had my money, my own money from the fellowship. So it was easy
+to start with almost any professor because I was a free ride for them. And so I
+asked a few of the previous Vuyukos fellows who to work with. I wanted to study
+soil microbiology. I had realized that we know a lot about plants, how to
+protect them, how to grow them, fertilizers. But the soil microbiology was an
+unknown thing. That was for my undergraduate degree, the summary. And so I wrote
+to Jim Pizzi and a couple other people and Jim accepted me. And that's how I
+came to the Michigan State to do my PhD in East Lansing. And then how they and I
+started, etc. This is also an interesting kind of story. So this is now 2000
+when I started my PhD. So that's the very early of the genomics. If you
+remember, the first microbial genome was sequenced in 96. The first E. coli in
+97. 2000, 2001, we had the first three E. coli to do comparative genomics. So I
+realized that, you know, this is an upcoming field. And actually, my project
+was, I needed to size the genome of some Bulkoderea species using pulse fields
+and electrophoresis, which probably is obsolete by now. But basically, it was a
+nightmare, you know, to try to get these large chromosomes sorted on the PFGE.
+And so that's when I started talking to Jim and said, Jim, you know, sequencing
+is coming up. Maybe that's another way to do it. And of course, Jim, you know,
+he's very, he was very much into it from the beginning. He sent me actually to
+the Institute for Genome Research, the TIGER. TIGER doesn't exist anymore. But
+TIGER did some of the very first microbial genomes. And so I went there for an
+internship over the summer. That's how I learned how to do the sequencing
+analysis, etc. And then I came back to Michigan State and start working with
+genomics from then. That's how I ended up working on the genomics field. And
+then they and I was, they and I was an idea we developed during my PhD. And it
+was from the need to be able to distinguish between these closely related
+Burkholderia strains that we had in the lab. And I was trying to size the
+genome. And, you know, I try a couple of the original things, like, for example,
+the 16S identity that was and still is a big thing, but it didn't resolve them
+well. And so at that time, a visiting postdoc, Johan Goris from Belgium, from
+the taxonomy group in was visiting Michigan State. And Johan was very good at
+doing DNA, DNA hybridizations. And then talking with Johan, I don't know, over
+coffee one day, we said that, you know, the DNA, DNA hybridization is such a
+great method that has been very influential, etc. But it would be nice if we can
+see what correlates best with the genome so we can distinguish closely related
+strains. And that's how we came up with the A&I idea. Basically, we try a lot of
+the things, a lot of metrics from the genomes that we thought were useful back
+then, like, for example, GC content, the gene content, and A&I was the best
+predictor, the best metric that correlated with the DNA, DNA hybridization.
+That's how we started the DNA, the A&I work. That's awesome. So all my PhD was
+basically on the isolates from soils. And, you know, I realized that, OK,
+isolates are good, but it's very important to see in what context they leave the
+metagenome. And the metagenome was, you know, that's when it started, 2004,
+2005. That's where the first metagenomics papers came out. And so I realized
+that I wanted to study also what happens in the whole community. And that's how
+I decided to do my postdoc in metagenomics. And there were only three or four
+labs back then. And I wrote to Ed DeLong at MIT. He was at MIT at that point.
+And that's how I ended up there and specialized on metagenomics to working in
+the deep sea first with Ed and then expanding on other environments. So that's
+more or less my story in the early, early years. I have so many questions.
+That's such a good introduction, I think. So can I ask, right? ANI is used
+basically to define species these days with genomics, but what do you define a
+species as? It's controversial, by the way. Right, right. So as you may have
+seen in the recent publications we have, what we really observed later on was
+when you take all these genomes and you compare against themselves, there seems
+to be an area of ANI that is very low frequency. And that's between 80%, 85% and
+95% ANI. So basically, if you take all the genomes from NCBI or EBI, et cetera,
+and you compare them, there is a clear gap of ANI around 85% and 95%. And we saw
+the same thing in natural populations with metagenomes. So I am convinced by now
+that this 95% ANI is a good proxy for species because basically the natural
+pattern of diversity shows that there is a gap around 95%. And sometimes it's
+not 95%. Sometimes it's 98% or 92%. The SAR11, the most abundant organisms in
+the sea, they are usually more diverse within the species. But it looks like
+there is this natural gap. And not only us, others have observed it too. And so
+I am convinced right now that that is a good approximation for species. That's
+based on the natural patterns of diversity. And what I want to say that is more
+recent of the press, we have a couple of papers that are coming out now in MBI
+and Nature Communications that we saw that there is an ANI gap within species
+that we didn't observe before. And I can explain to you why. But the bottom line
+is, you know, look them up on the internet. They should be available in a couple
+days, weeks. And they show that there is an ANI gap within species. And I think
+this is useful to define the subspecies units. For example, genome of us, that's
+how we call them. We decided to call them and also strains. So basically, I
+think the natural patterns show that there are some gaps that we can use to
+define species and they seem to be correlated well with the organisms within the
+class to be more uniform and distinct from other organisms that are in the same
+sample or in the same habitat. Right. So I do a lot of work, obviously, on my
+genomics as well. And I find it quite difficult because you look at NCBI, right,
+where a lot of people say this genome is this species and are classically
+defined. They may be defined 50, 100 years ago based on phenotypic
+characteristics. And then you have, say, GTDB, which is.  going off basically A
+and I, and they're saying, actually, that's not a species, or they're split in
+these different ways. And they're coming up with all these novel ways of
+chopping up the species boundaries. And so what, how do you think the future is
+going to look, certainly, let's say NCBI and the kind of gold standard
+taxonomies, are we going to have to redefine all of these classically defined
+species based on what genomic information we know? So, for example, Shigella and
+E. coli is a classic example, you know, or, say, Mycobacterium tuberculosis
+versus Mycobacterium bovis, which are 99% identical, you know, should we go and
+redo everything? Or should we just kind of say, okay, we know this works? Right,
+so the difference or the discrepancy has to do with traditional, like, for
+example, if I take the Shigella example, you mentioned, so Shigella apparently
+has a very different antigen than E. coli, and the doctors saw that, and they
+decided to name it quite differently. And because that antigen is so important
+for the clinical diagnostics, it is maintained until today. But today, you see
+that actually, it's very closely related to the traditional E. coli, somebody
+can say it's a genome of E. coli. And so I think looking forward the future, I
+think it's important to realize that, that genomically they are so similar, and
+understand also where the differences are coming from, which I think we have by
+now, we have understood that. And if you are asking me, you know, how to proceed
+in the future, I think my view would be, yes, I think it will help to rename
+some of these, but also keep the keep the diagnostic thing, which is important
+for the clinic somehow. So maybe as a clear genome of a subspecies of E. coli,
+but with a clear defined, you know, phenotype. And so the discrepancy is mostly
+because of these traditional names that still exist that were based on different
+methods. And I believe what has been named the last decade or so, it's quite
+consistent with the genomics that there's not so much discrepancy. So it's
+mostly these, you know, organisms of medical importance that have been named
+historically that they show the discrepancy. And I know that the medical field
+is very hesitant to do changes. I think scientifically, it makes sense, but it
+also makes sense to somehow keep, you know, these diagnostic phenotypes that
+distinguish these groups of organisms. So, so they are useful for the clinic and
+so on. I kind of have the opposite problem because, well, I have both, I have
+both problems, right? So, so like Shigella, it's an E. coli basically on the, on
+the genomics, but, but then there's, there's the other side of the problem too.
+Like when we look at something like Salmonella, it's a species, but like our lab
+has found that the species barrier is like a 92% ANI, I think. This paper is
+actually going to be out by the time we put this recording online, I think. But,
+so, so I can't remember the, the exact ANI threshold, but like Salmonella is so
+diverse. And then you can look inside of it, Salmonella enterica, and those
+subspecies barriers that you were talking about, we see lots of those, they're
+like distinct places, different thresholds to define like the different
+subspecies within it too. So it's like clinically, like we want to keep
+Salmonella enterica what it is. We don't want to change it, but, but genomics,
+like in the, in the phylogeny are showing that, that there are distinct lineages
+or subspecies really of Salmonella. So Lee, I, I am not very familiar with the
+Salmonella, so I don't want to say more about it, but I guess what I'm trying to
+say is that I think we need to look at the natural diversity of these organisms
+and see what the patterns are and go with them, like, you know, to name them
+species or subspecies. I am convinced by now that in nature, they form these
+clusters that we can actually recognize with the genomic tools. And ANI is just
+one of the two other approaches also give very similar results generally. And I
+think I like that because it doesn't have the limitations of the older methods
+that lack that resolution. So I think going forward, I think things look pretty
+good in my view that, you know, we can reliably distinguish the clades and
+subclades with the genomics tools. And the other thing I wanted to say is that,
+and I hope people realize that, you know, one number doesn't apply to
+everything. This is biology, this is organisms, but they have very distinct
+ecologies, very distinct lifestyles. So we shouldn't expect that, you know, 95
+ANI will apply to all of them. And that's why I think it's important to look at
+the diversity in the genome we study and see what the patterns are and keep in
+mind that maybe for different organisms, the gaps in diversity will be in
+different regions of ANI or another metric. Absolutely. It's incredible how much
+people want to conflate the genomics versus like the clinical outcomes of like
+what we want to finally call the species. So like, like Shigella is a great
+example. I like that example. So it's like, there is a distinct clinical outcome
+with it. It needs to be defined as different species, but on the genomics level,
+like it's incredibly similar to E. coli. I think it's tough to figure that out.
+Yeah, I agree. Except if you look at the diversity of Shigella genomes, they are
+separated from what is called E. coli. There is an ANI gap there. They make a
+distinct clade on ANI or another tree. So yes, genomically very similar. If I
+remember well, the ANIs are around 96, but there is a clear distinction. There's
+a small gap there that distinguishes them from E. coli. So I think if people
+want to name it a different species to keep the medical importance, I think the
+gap justifies that. Just maybe they need to change the genus name to be a
+Ceresia, not Shigella that makes somebody believe that it's so different. No,
+it's not. It's actually very similar. But there is a gap, and that's what I'm
+trying to say, that sometimes you need to look at the data and decide where the
+gap is, see where the gap is, and maybe that's your clade. And whether to name
+it species or not, it will depend on aspects like this, you know, the medical
+importance. And I'm okay if they want to name it, you know, I don't know, E.
+ceresia flexneri and so on. And I think GDDB, that's what it does. I remember
+they were doing that a few months ago. Yeah, it causes all sorts of problems,
+because like, I use GDDB as like the taxonomy for building some databases. And
+of course, then our public health customers are like, hang on a second here now.
+No, we want this called Shigella, not something else. So, you know, it's that
+difference between the academic taxonomies and the practical clinical phenotypic
+taxonomies that have been around for a long time. I want to say something about
+this. So ASM organized a session in the micro conference. Was it last year or
+the year before? Anyhow, they invited me to represent maybe the ecology and
+taxonomy, but it was in a clinical session, like it was more the clinical
+microbiologist. Bottom line is, we are talking different languages, we are in
+different worlds. They even have their own journal to do the naming, which is
+isolated from the rest. And I think that doesn't help. And I think we need to
+talk more to each other. And maybe ASM has a big role to play there. Because I
+think there is common ground. And I think we all benefit if we communicate more
+between the clinical field and the more traditional, I would say, taxonomy and
+ecology. I think there's not so much talking there. And I think that's a
+problem. So I noticed one of your publications is on SeekCode. And we actually
+interviewed some other people who are involved in that project as well. So I'm
+wondering, what do you think of that for naming new novel species and genus and
+whatever? Point of information just for you, Andrew, really quick is that
+Miguel, the person we interviewed, was in Costas' lab. Oh, actually. OK, great.
+So this is Miguel Rodriguez. He's a former student and postdoc. And he's an
+assistant professor in Innsbruck, Austria. He's a great guy and a great
+scientist. So SeekCode is another, to make things more complicated, there is
+another issue. And that has to do with the traditional taxonomy. So the ICNP,
+that basically rules the names of the microbes. The problem of ICNP and why
+SeekCode emerged is that basically, for uncultivated taxa, they don't give a
+stable name. They don't keep track of them. Now, recently, with SeekCode, they
+start doing that. And I think that's in a good direction. But basically, to make
+things simple, if I have an uncultivated taxon, and I want to give it a name, I
+have to name it Candida to something. But then if somebody isolates that
+organism, they can deposit the isolate in the cultural collections.  and propose
+a completely different name, whatever they like. So overwrite the name I gave to
+my candidate that was taxa. So that's what I mean, the traditional taxonomy, the
+ICMP, the National Code for Non-Negligent Prokaryotes, that's what it stands
+for, doesn't give priority or even regulate the uncultivated taxa. And so me and
+many others, among the founding members of C-Code, propose that we need to
+recognize the uncultivated taxa. They are real things. Sometimes they are even
+more important for what we do. And the big problem was that in order to give a
+stable name, you need to have a culture and deposit it to two cultural
+collections. And so that's not possible for the uncultivated taxa. So we propose
+instead, especially Barney Whitman from University of Georgia, he proposed that
+the genome sequence can serve as the type material to go with that name, like
+instead of depositing a culture, depositing a genome. And so the ICMP voted on
+that and rejected that proposal for their own reasons. And that's a big
+controversy there. I'm not sure if we're gonna go there. It might take us a lot
+of time, but the bottom line is that what triggers C-Code, and now C-Code is up
+and running, and people that work with uncultivated taxa, they can name them
+under the C-Code and give them stable names, as long as they have a good genome,
+like a high quality genome. So I do think C-Code is the future because in this
+era we are with all these genomes and our effort to describe the diversity that
+is in the environment, I think the C-Code is the only one that can scale up
+basically. So, but it's, right now it's antagonistic to the traditional ICMP.
+And again, I hope there we talk more to each other and we have one system, one
+united system. In the future, right now we have two systems and that's not
+ideal, I think. So this has been an awesome discussion with Costas from Georgia
+Tech and from a lot of other places, as we've learned. And this was one of the
+most natural, most engaging conversations. And I really do appreciate that. I
+mean, you guys are great hosts. So I think kudos to you as well. Thank you so
+much for listening to our podcast. If you liked this podcast, please subscribe
+and rate us on iTunes, Spotify, SoundCloud, or the platform of your choice.
+Follow us on Twitter at MicroBinfy. This podcast was recorded by the Microbial
+Bioinformatics Group. The opinions expressed here are our own and do not
+necessarily reflect the views of CDC, or the Center for Genomic Pathogen
+Surveillance.

@@ -1,0 +1,267 @@
+Hello and thank you for listening to the MicroBinfeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There's so much information we all
+know from working in the field, but nobody really writes it down, there's no
+manual, and it is assumed you'll pick it up. We hope to fill in a few of these
+gaps. My co-hosts are Dr. Nabeel Ali Khan of Enterobase, GrapeTree, and
+BrakeFame, and Dr. Andrew Page of such works as Plasmatron 5000, Rory, and
+Gubbins. I am Dr. Lee Katz, and you might know me from my Tree Making Pipeline
+Mastery or my SNP Pipeline Live Set. Both Nabeel and Andrew work at the Quadram
+Institute in Norwich, UK, where we work on microbes in food and the impact on
+human health. I work at the Centers for Disease Control and Prevention and am an
+adjunct professor at the University of Georgia in the US. Okay, in this episode,
+we're going to talk about bioinformatics software that no one's asking for.
+There are a lot of existing software packages out there. More often than not,
+the new tool you want to write already exists, or a new tool cannot effectively
+improve. So what we want to do is identify areas of peak bioinformatics. This
+episode is kind of more like a literature review in disguise, but maybe more of
+a casual conversation, and we're going to explore several subject areas. We'll
+talk in general terms. There's always a scope for a very specific use case.
+Generally, software is not needed, in our opinions, or I guess you guys will
+correct me. If there are a plethora of existing tools, the problem is more or
+less solved, or it has been shown to be unsolvable, the underlying technology or
+problem is now obsolete, or also maybe it's superseded by other methods. Yeah, I
+think we've all encountered this before, where you get a PhD student and they've
+been tasked with, you know, writing up a new tool for assembly or for mapping or
+something like that, and you say, well, you know, why are you doing that? Or
+they've been told, go and look at 20 assemblers and come up with the best one.
+Well, that just seems to be a little bit of a waste of time because, you know,
+if you do a bit of a lit review, you'll find the answers immediately.
+Biopharmacist doing a lit review? That's crazy. Yeah, no, I mean, obviously, we
+all dive in and reinvent the wheel, but it's a lot easier than actually going
+and reading papers. But that's sort of the point here, right? We want to just
+touch on some of the major topics and just say what's state-of-the-art and point
+out what's actually not required anymore. So I think one of the first areas, I
+think the lesson to begin with is microarrays. Oh, yeah, like these went on for
+way too long. I remember like back in 29, 2010, and, you know, all the large
+sequencing centres were pretty much putting their microarray sequencers in the
+skip. I don't know what that is in the US, but more or less everyone switched
+over to RNA-Seq. However, if you look at the number of papers, right, the number
+of papers using microarray peaked four years later in 2014 at 82,000. And even
+still to this day, in 2018, there's 42,000 papers using microarray, which is
+incredible. This is a technology that's long, long dead. No big sequencing
+centre is actually looking at. But, you know, what you don't want to do is get
+caught in this long tail of science and research where things are long dead.
+And, you know, the technology is now used by your grandparents as a Christmas
+present by 23andMe. But, yeah, and people are still running tools for it, which
+is even more shocking. You know, all the tools have been written and probably
+the people who wrote them are retired at this point. So the underlying question
+here is, are short reads going to a similar changeover? Well, I'd argue kind of,
+yeah. And you have to keep an eye out for these things, otherwise you'd be
+caught doing long tail science. So I think one of the, we don't want to get too
+bogged down in this particular topic, but I thought one good place to start
+would be alignment. So basic local or global alignment. This is a very, very old
+computer science problem. And there's a labour written for almost everybody by
+now. If you think about multiple sequence alignment, which is probably the most
+complicated problem in this space, the tools that everybody uses are things like
+MAFT and MUSCLE, and they were written in 2002 and 2004, respectively. I don't
+think we're going to suddenly see a new method that's going to change that,
+unless you're very, very bright. But enough of that, let's talk about something
+a bit more meaty. Well, what do you use for alignment? Well, I'll be using
+MUSCLE, MAFT, or BLAST, or that's it. If someone asked me multiple sequence
+alignment, I'm going to be using those two tools. All right. Well, I'd argue
+that PRANK is quite good, although PRANK is MAFT underneath. Well, there you go.
+Yeah. So new tools, but it's still fundamentally the same algorithm. I've had
+people show me alignments with MUSCLE, and they're just trying to align their
+whole genome, their whole genome assembly, and it never works. Oh, it doesn't
+work. People are still doing that. Well, just to be clear, multiple sequence
+alignment is a different problem to whole genome alignment. So we're talking,
+these are tools where we're talking like a few KB, and they're all like a
+singular sequence. Like a gene. Like a gene, or something like that. If you want
+to do an entire genome, then you've got to think of things like MOV, or Sibelia,
+or MUG-C, which are a little different in their construction. Yeah. Totally
+worth mentioning those. I don't think I've seen it recently with people doing
+that, but they always run into that problem, and they say, like, MEGA is still
+hanging on me, Lee. What's going wrong? It's like, what are you aligning?
+Anyway, I'm glad you mentioned MOV and all those guys. Well, again, those are
+still quite old, relatively speaking. I think MUG-C came out in 2011. Give or
+take, but yeah, around there. And it's just so hard to improve them, but I guess
+Parsnip in the harvest package is really good, too, for that kind of stuff. Yep,
+that's another one. I think that would be probably the most recent one I'm aware
+of that people would use widely. So just looking ahead with genome assemblers, I
+guess – so there was this paper in 2011 that came out that compared genome
+assemblers, and I don't have the name in front of me. Oops. So it's Zhang et
+al., 2011, A Practical Comparison of DeNovo Genome Assembly Software Tools for
+Next-Generation Sequencing Technologies. And 2011, in terms of genome assembly,
+is quite old, actually, but I thought they had a good comparison in here. And in
+2019, I would say that right now we're looking still at some assemblers from
+that time – Spades and Velvet, for sure, and a newer one that came out in 2018
+from NCBI called Skiza. So I was just going to say, Velvet hasn't really been
+updated in years because the guy developing it disappeared off to do other
+wonderful things, but yet it's the backbone of many pipelines, and yet it can't
+actually work – or it doesn't work very well for much longer reads that we have
+now coming out of Illumina. Yeah, I think Illumina was the hot chemistry at the
+time, and it's still widely used, but we have to look at long read now, too.
+Absolutely. So now we're looking at things like HGaP, and I hope I'm pronouncing
+this right. Fly. I've never heard it pronounced. Canoe, raw, and unicycler. And
+I would say a lot of assemblies that I see people are using HGaP or Canoe. I
+don't know – what are people using around you guys for long read assembly? We've
+been playing around with Fly, and it does pretty well. I've done a lot of HGaP
+assembly, like thousands of them, with corresponding Canoe assemblies, and I can
+honestly say Canoe is better than HGaP. I haven't tried it, but in terms of
+unicycler, I find that to be very, very good as well for bacteria. But
+ultimately, it all comes down to how good your data is, and all of these
+algorithms under the hood use similar kinds of things. Yeah, and I mean, in
+terms of the scope of what if you wanted to write a new assembler for either
+short reads or long reads, what else is there to solve? Or what different angle
+is there? Well, there is people who question that. I know there's groups around
+the world who have their own in-house assemblers, you know, and they never
+really – they published them or no one ever used them or whatever, but there's
+no point in writing a brand new assembler since nothing really has changed. It's
+tweaking. Like, do you remember that Spades blog post? Skiza was beating the
+pants off Spades, and Shovel was doing much better assemblies than Spades, and
+then it just turned out that if you tweak a few parameters at Spades, more or
+less they all come out with similar results. I was really surprised by that blog
+post because it basically came out of nowhere saying  That they admitted their
+faults and you don't see that all the time Yeah Well, it's good, you know, but
+at the same time space came eight years ago. Was it what six seven years ago?
+Yes, but I think they Keep changing the internals a lot to keep a current Even
+in terms of just assessing which is the best assemblers is quite different
+difficult I tried to do this in my young days and basically Between versions you
+would have enough difference that you suddenly whatever point you want to make
+it It's gone. It's obsolete and So I can't imagine trying to write an entire
+assembler That's you can say that it's fundamentally going to perform out
+outperform the others at the moment Yeah There was an assemblaton paper wasn't
+there where the famous erka I think was the best assembler But I seem to
+remember the guys running the assemblaton were from the same True I didn't know
+that. Yes, Salzburg so another mainstay of analysis about of our analysis
+toolkit is a short read mapping and I would say that short read mapping is
+pretty pretty much solve problem you have a Multitude of options BWA bow tie to
+BB tools you can even just use blast if you if you really want to there's small
+which is from the Sanger published It's it's well used though. I've seen it in
+plenty of publication Do you feel like it's bespoke Hey, well, it's
+fundamentally is a different method compared to BWA bowtie, you know So it's
+good for some things and it's not good for other things But the big drawback
+there is that it is not published and that puts a lot of people off Do you do
+you know? Whether or not it will be published or is it kind of left where it is?
+I I know there was a publication being around but they wanted to get into high-
+impact journal however, they struggled with that because you know It's enough a
+little bit too long and then the people developing and moved on to new and
+better things And that is a problem as well. You know, if you look at them If
+you look at minimap to know sorry BWA men That was initially meant to be
+publication and they get rejected because it was no longer novels and now it's
+sitting there on bioarchive Archive and it's you know Just pulling in vast
+numbers of citations, which proves that whichever editor rejected it was really
+really silly Yes Difficulty in publication Should be taken as a lesson. I
+suppose but these things aren't really novel. That isn't that much scope unless
+you're hangly Yes, yeah, I'm not sure he's a person anymore With With mini-map
+to he did put a blog post out recently where he said mini-map to is much better
+for long reads But ultimately BWA is better for short reads and do not use mini-
+map to for short reads Yeah, and so a similar Topic after this once you've done
+your read mapping is then you're varying calling and again, there's So many
+different tools if you're using snippy from Torsten Seeman internally, that's
+using freebase if you use something like the PHE Snip pipeline called Phoenix
+that's using GAT K. There's VIP off a viral variant calling as well That's just
+I used um, I Used freebase originally for the for the Haiti cholera outbreak
+actually, um, so it's like the predecessor for my snip pipeline live set and We
+didn't we decided not to use it eventually in the polished pipeline because I
+got frustrated. It wasn't Producing a snip call or base call for every single
+site It was only looking at variant calls and I settled on their scan to instead
+The last again, yep, I think Vasco 2 is also a popular one So more or less
+there's no point in redoing it because ultimately it's not calling It's all
+about just fine-tuning the parameters. You want to put in you know, how many
+aliens you live or What kind of coverage or whatever? Tweaks more or less and it
+doesn't matter which application you use. You're still make those tweaks. I
+mean, yeah, you can Filtering filtering you're ultimately filtering on your
+pileup and There's plenty of existing options for it I just yeah Yeah, exactly.
+I think you're doing something wrong if you try to make your own color Your own
+mapper, but the important thing here really is the underlying data So if you get
+a really good reference of close to your your data Then you're gonna get much
+better quality simple, you know And that's what people sometimes forget they
+just take whatever reference happen across or they've got in the back pocket
+Whereas they should be, you know delving in and choosing something a little bit
+better Yeah, I actually did like a little study with a student at the Public
+Health State Lab at in Virginia and they wanted to do a little study on how
+close a reference should be on a SNP pipeline actually and um, and They decided
+ah, I'm forgetting off the top of my head It was either 15 or 50,000 SNPs
+different from a bacterial reference genome started really skewing our results
+50 millions of fair distance Yes, it was something like expecting But that's
+what you're looking at You know if you're trying to look for this immobile
+genetic elements from an outbreak you need something that's in the outbreak as
+your reference ideally Yeah, I feel bad for not remembering those results it
+turned into I think a master's thesis There's also this this blog post that I
+think is just hilarious from the science web Where it says every single
+bioinformatician to come up with their own Remapper by by the year or whatever
+and it was just so funny to me So I put a little URL in the in the show notes
+for that Yeah, there was a there was a time where everybody had their own
+aligner Yeah, every PhD and even postdoc would write their own variant colon
+pipeline. Probably still do in some places. I have I actually do have my own
+variant caller on github. I haven't deleted it, but I should out of
+disembarrassment So actually yeah, the thing that brings all of these together
+is workflow managers and the kind of glue that binds everything and Ultimately
+people very quickly get beyond bash scripts and you know kind of dodgy bits of
+Perl and they go for a workflow manager and I remember for years working on a I
+suppose a an in-house special it was probably available bespoke software, but
+ultimately only one organization where we used it and You know that organization
+multiple bespoke pipelines Just for running stuff. But luckily nowadays, there's
+a lot more options that are, you know widely used like snake make work next flow
+galaxy back in the thing and My favorite is galaxy at the moment, but I know
+what are people have different opinions the veal I Don't mind galaxy It's got
+comparable functionality to next flow or snake make Yeah, I suppose the
+advantage is galaxy is more point-and-click. Where's next flow? It's it feels to
+me more like programming where you have to sit there and kind of craft something
+So you have more more power, but at the same time it is not as user-friendly
+either way all platforms are specifying expected input expected output and some
+Module or command in the middle Like snake make Well next to other similar
+market markup as well Well, actually what I really like my next level is the way
+you can integrate containers in it and it's literally just here's container and
+you can have every single tool in a different container and It's the ultimate in
+I suppose computer science nerd. Um, I personally love this kind of high-level
+architecture, but obviously the downside is that uh, it can scare a lot of
+people and Quite quickly, but it does give you so much power and flexibility at
+your fingertips a few years ago I would have imagined that we'd be here doing
+that Yeah, actually of the you know, the innuendo project in Europe they're
+using next flow and and Containers for their for their flows for their
+workflows. I Thought that was very interesting Yeah, I've heard some people
+using be pipe Yeah, a few people at CDC are using be pipe. I haven't got my
+hands too much into it Um, it's a it is a really cool Java based command-line be
+pipe But be pipe is a really cool Java based workflow and you put in rules I
+would say it's similar to how you're describing snake make. Oh No job, oh my
+god, that's that's like I remember back from my undergraduate days I'm learn
+Java and all the pain involved in there. Well, that's likely better than C It's
+not that bad. No Java 1.8 is definitely different to 1.4 Yeah back in the day
+But uh, I suppose if you're gonna die, would you send and One key thing that I
+would say is don't go reinventing the wheel for like say file parsers And I you
+know, if you're minding the parsing Across key file and you're doing something
+wrong or but  fast results or even, you know, a tab-delimited file, there's
+loads and loads of libraries out there, like, say, Biopython or CSB Readers,
+which can just read all of the stuff in for you in one go and give you a lovely,
+pretty object, and it sorts everything out. You know, it's doing it efficiently,
+and it's making sense of all the little edge cases that pop up with file
+formats, like with FastKeyFiles, you know, being more than four lines. If they
+are split, these libraries take care of all that for you. So, you know, don't go
+reinventing the wheel by doing your own parsers. I think you can get a bit
+faster. There's a reason why they're a little bit slower. Yeah, very good
+points. Yep. So one area that we're always working on is phylogenetics, looking
+at the relationships of our different genomes. And I think, at the moment,
+there's so many huge, monolithic groups working in this area that for a little
+guy to come up with a new algorithm is just not really possible. I mean, if
+you're gonna write a good phylogenetic tool, you're competing with VaxML,
+IQtree, Beast, RevBase, which is a replacement for MrBase. I mean, we've seen it
+that within this group, like FastKey is largely replaced by IQtree now. And for
+someone else, it's a saturated market. I really just don't see what else anyone
+can bring to the table. And then certainly if you look at RaxML, like these guys
+are fantastic. They really do delve into it and they compile it for different
+instruction sets, you know, to make the absolute best use of your Intel or AMD
+chips. Like, these are things you can't compete with. You know, you've got
+hardcore computer scientists and people who really, really, really know how to
+get the most out of a computer. And they've done a really good job and they
+continue to maintain these things. And if you think you can do better, well, you
+know, you're probably not going to. Speaking of code compilation, it's a bit of
+a segue, but I think with BWMEM, they've teamed up with IBM to squeeze the most
+out of the algorithms. Well, actually I've seen some companies are selling FPGA
+boards to do alignment and glass as well, which is kind of interesting, but you
+know, you have to go and re-implement the algorithms from scratch. So it's
+limiting at the same time. But if you get, say, a thousand-fold speed-up, why
+not? Yeah, but the amount of technical expertise to do that writing on FPGAs is
+well outside the scope of a single bioinformatician or a PhD student. Yeah, but
+if these are solved problems, and if they're so well-solved that you can just
+buy a board and plug it in, you know, there you go, there's your super-fast
+aligner. You know? Yeah, it's definitely the sort of space that's gotten away
+from us, I think. Yeah, good point. There's no Polsky from the world that's
+gonna be able to compete with that. Ooh. Thank you all so much for listening to
+us at home. If you like this podcast, please subscribe and like us on iTunes or
+Google Play. And if you don't like the podcast, please don't do anything. This
+podcast was recorded by the Microbial Bioinformatics Group. The opinions
+expressed here are our own and do not necessarily reflect the views of CDC or
+the Quadram Institute. Thank you.

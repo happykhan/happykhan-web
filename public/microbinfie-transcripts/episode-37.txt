@@ -1,0 +1,307 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There's so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Andrew
+and Nabil work in the Quadram Institute in Norwich, UK, where they work on
+microbes in food and the impact on human health. I work at Centers for Disease
+Control and Prevention and am an adjunct member at the University of Georgia in
+the U.S. Hello, and welcome to the MicroBinfeed podcast. We are joined today by
+Emma Griffiths for her second appearance on the show. She was one of the
+masterminds for the SARS-CoV-2 metadata in one of our previous episodes. Check
+it out if you missed it. We are also joined by Joao Carrizo, making his first
+appearance. Joao currently works with Biomir Yu as a bioinformatics data
+scientist, and in his previous life, he was a tenured professor at the
+University of Lisbon. Nabil and myself, Lee, are your hosts today, and so let's
+get into it. And we're talking about ontologies today. What are they? Why do we
+use them? To start us off, we came up with a little activity different from our
+other episodes, so Joao, if you wouldn't mind starting us off, could you tell us
+how to say, Good morning, all. I love bioinformatics. In Portuguese? Boas dias a
+todos. Awesome. And Emma, you volunteered to do it in French. I sure did.
+Bonjour à tous. J'aime la bioinformatique. And I'll do one in Spanish. Buenos
+dias a todos. Me gusta bioinformática. So, I asked the questions earlier, just
+help us get into it. Who wants to give us the first definition of what an
+ontology is? I can take a crack at that. Ontologies are a controlled vocabulary
+where all of the fields are organized into a hierarchy, and there are logical
+relationships in between all of the terms. And these different relationships can
+link information together in different types of ways. Some are more complex than
+others. Some are quite simple. So, ontologies are great ways to standardize
+information, structure information, and to query information. Joao, what's your
+hot take on that definition? I fully agree. I always prefer the shorter version.
+Ontologies describe objects and the relationship between objects, but I think
+Hema was right on the spot, because those relationships are complex. And even
+between two items or objects, you can describe several levels of relationships.
+And you can even describe relationships between relationships. So, relationships
+can become the objects themselves, in a sense. It's quite abstract in its
+essence, what an ontology is, but it also has a very critical, and I think one
+of the reasons that we need to use it is, like we discussed before, computers
+are dumb, right? Yeah. We just said in three different languages the same thing.
+How do we map the relationships between the things to a common meaning? For a
+computer, well, Google Translate can do, but it needs to know what those
+relationships are. And if it's direct translation, it's one thing. But if it
+gets into semantics and different interpretations, and particular expressions,
+then it's much more complex. Why should we care about, is there an ontology for
+hatred of ontologies? No, there's not an ontology for hatred of ontologies.
+There's ontologies for bad words. Ontology is pretty much for everything, and
+that's because ontologies aren't really a new technology, right? They're
+basically a way of understanding the existence, right? They're very
+philosophical. But they do have this practical application of being able to
+structure information. Many people have implemented ontologies for structuring
+information for different kinds of projects. From, I think, the U.S. Department
+of Defense, Google, lots of different companies and agencies have implemented
+ontologies. But the issue is that usually people use ontologies, like I've
+already mentioned, in an agency-specific way. And the way you design or build or
+architect your ontologies really affects the way that they can be used and the
+way that they can interoperate. So if you don't build or construct your
+ontologies in the same way, they don't work together. You still end up with
+these silos of information. Even though the information is structured, it's not
+structured in a compatible or interoperable way. There are efforts out there in
+the community to build ontologies in a consistent way. But maybe that's a bit of
+a deep dive for right off the top of the show. But yeah, why do you care about
+ontologies? Because, just because of that, because they're a way to create
+interoperability between datasets and between databases and between humans,
+actually. I don't think that we even need to go that further to need the
+ontologies. Basically, this is a microbial bioinformatics podcast. So I know
+that all the bioinformaticians love Excel sheets, right? So the thing is, if we
+would love to have the data well formatted in a way that is consistent, that we
+can process and understand exactly what each field is, we can do that inside on
+our own Excel sheet for the person that is doing it, right? But we cannot pass
+it in a proper way that is comprehensible. And we cannot query two different
+Excel sheets directly. So the ontology does what Emma said. We can, if we have
+ontologies that are truly interoperable, that means that actually you can cross
+the meanings and definitions between two different parts or fields together for
+extra value and knowledge. That's right. And I think that it also speaks to one
+of the points that you made earlier. It's the meaning of words, right? You can
+have the same word mean different things to different people. If you're trading
+spreadsheets between different agencies that represent different sectors like
+animal health and veterinary care and human health and the agricultural sector,
+the same words can mean very different things. And the computer doesn't know
+that, right? The computer only knows what you tell it. It's really that
+equivalency in meaning that's really important. It's not just text searching.
+Oh, yes. As you know, I entered in ontologies because of the little calling
+algorithms. Exactly because of that problem, Emma. Right? So it's, and my PhD
+was basically microbial typing. I know it's such an area for many of my
+mathematicians, but I'm okay with that. But the thing is people say terms and
+assume it's the same thing when it's not. It happens a lot of time in things
+like we have these strains or we have these isolates. Is it the same thing? Is
+the same thing in this context than the other? What level of knowledge does it
+imply having one thing or the other? It's different. But I think for me, the
+best antidote is if you define what is an allele or what is a loci. And this is
+the same not only for gene by gene methods, but also for SNPs. I remember that
+if you ask someone from human genetics what is a SNP definition, you'll get
+something different from microbial bioinformatics. And it will depend also from
+people to people and what programs they use. So the definition of what a SNP is
+can be very abstract. But if you want to know exactly what it means, I have a
+SNP in this position in this context, then it's tied to all the process that you
+obtain that you use to obtain that specific SNP, right? It's a more complex,
+it's the set of tools and parameters used that define that SNP. And if you're
+not using the same parameters or tools, then the definitions are not really
+interoperable between different researchers. That's right. And one of the things
+that I didn't mention in the definition earlier is that one of the nice things
+about ontologies is that every term is always really well defined. And you can
+disambiguate the meanings of terms using IDs. Every term in the ontology gets an
+ID. So if you know, one of the examples that we use when we give talks on
+ontologies is the usage of the word biscuits, right? If you talk about biscuits
+in the US and biscuits in the UK, they're two different things, right? A biscuit
+in the US is kind of more like what I would call a scone. But whereas a biscuit
+in the UK is like what I would call a cookie, right? So using ontologies, these
+are very different things, but you can disambiguate these items using IDs.
+Another example is, you know, we were helping to design an ISO standard for the
+use of whole genome sequencing for food microbiology. And we were responsible
+for the metadata section. And one of the issues that came up was being able to
+disambiguate what is a strain from what is an isolate, right? And if you start
+digging around in the public repositories and looking up their definitions, they
+don't provide much clarity on that. Being able to really articulate the meaning
+of the words is very important. Another example, when we were standardizing some
+metadata for an interagency project, I came across this one example and this one
+entry.  somebody had said that the sample was from animal layer crumb. And I was
+like, what? That must be the crumbs at the bottom of a bag of animal feed. So
+that's what I standard, that's, I rewrote it as that. And then the people came
+back to me and they're like, no, like this is wrong. And what it is, is animal
+layer crumb, it's, it's a special type of feed for chickens that are like layers
+as opposed to broilers. But if you don't have that specialized knowledge in that
+field, that's jargon, right? And, and we see metadata, it's full of jargon. So
+if you don't have that specialized knowledge, again, it's comes back to that
+meaning of words. You can really misinterpret what's going on. And it's that
+metadata that provides the context for interpreting your genomics information.
+So, you know, mistakes like that, it seems like semantics when we're talking
+about standardizing metadata, but it can have a big impact if it skews, you
+know, your understanding of what's happening in the real world. Oh, I totally
+agree. I think that basically, and you know, that Hema, for me, I consider it,
+it's the price that we have to pay to speed up things and move it to the next
+level. And okay, well, that's the other thing. So everyone always says, this is
+the price we have to pay and talk about ontologies like they're bad words. But I
+just, I love, I love ontologies. I love standardization. I mean, part of it's
+probably because I'm nosy and I just want to look at people's data. I find, I
+find the whole world of semantics and data structures fascinating. So I guess
+it's good that I'm doing that and you're not. No, no, I fully understand what
+you say because I always hated philosophy in high school, but actually I feel
+that, that ontology is close to philosophy. Oh, they are. Since we are all PhDs
+here, right? I finally understood while doing ontologies, why, why we are PhDs
+because, you know, it's the deep meaning of the terms actually has lots of
+repercussions downstream and sometimes on the analysis. And if you want to get
+the best data possible for some inputs, and then we have to have the things very
+well defined to avoid the very famous garbage in, garbage out. Yeah, exactly. I
+don't say it as the bad words. I always said that if, if ontologies work, it's
+the kind of thing that people won't even know that it's over there, right? It's
+like the TCP IP protocols or the web protocols are now the very, the zoom
+encoding protocols that should be in the background, gluing everything together.
+Is there, is there an analogy then? Like if, if there's, is there like an
+invisible ontology layer that I'm always using and I'm not aware of it when I'm
+doing bioinformatics? Well, when you use Google, they have a proprietary
+ontology. So you probably are using ontologies every day and you don't realize
+it. Like I said, they're implemented in all kinds of technologies and
+industries. It's just, it's, it's ontologies are slow in, into moving into
+public health. And so I think that's why a lot of us don't really know about
+them so much, but yeah. Most people see it, that's a huge overhead for
+organizing and putting the data in the right format. And in my experience, most
+people are just doing their jobs and they are doing that. It's assumed that that
+part needs to be done quick because if they're seeing patients, if there are
+nurses, if there are people doing the other job for them, this is just the
+other, the other thing, right? There's usually no payoff for the one doing the
+sample collection. It's all very well to have a wonderful ontology that us as
+data scientists can play around with and write wonderful papers and say all of
+that. But the poor sucker who has to fill that format in the first place, he
+doesn't get a look in on what's going on. It doesn't matter. So why bother? And
+I think that's still a massive hurdle. I fully agree. I fully agree because like
+I said, the end user needs, the thing needs to be transparent in ontology
+application. And I think there's even a layer on top of ontologies that things
+like natural language interpretation and disambiguation that can be done to ease
+that difficulty. But actually the use of smarter interfaces for data entry
+should also alleviate that overhead that you mentioned, Nabil. But I'm
+absolutely right. So what is the added value for the last, for the person in the
+field collecting the data for us to play with? That needs to be shown through
+the results and they should be also reported back to them and to say, look,
+thanks for you doing this right. We managed to do this, otherwise it would be
+impossible, which is sometimes very hard to achieve and almost utopic, right?
+There's a number of things that you just mentioned that really resonate with me.
+So the, you know, one of them is the whole chicken and the egg problem. To
+convince people that ontologies are useful, you really need a good use case, but
+to build up ontologies that are useful for people, you needed that use case to
+begin with to create a useful ontology, but then you need to be able to
+demonstrate to the people that ontologies are useful for them to provide you
+with a good use case. When we often talk to folks, we'll say, you know, we can
+build the vocabulary for you. We can work with you to help standardize your
+stuff. And they're like, well, what can, you know, what can you do? What, like,
+what can you do for us? And like, can you show us some examples? And we're like,
+well, I don't, what do you need? Tell me what you need. And then we can work
+with you to fix it. So it's kind of, you know, this vicious cycle of not having
+good examples for people, but you don't have good examples because, you know,
+you don't know what their issues are. So you haven't been able to solve them
+yet, but also coming back to this idea of metadata, kind of being a second class
+citizen and that everybody gets really excited about the genomics results, but
+metadata, people don't feel they get bang for their buck investing in the
+metadata side of things. I think that's a very old fashioned thing now of just
+producing a genome used to be worth something. That's a technical marvel. It's
+simply not. Generating sequencing data is completely useless without good
+contextual information. And I'm probably speaking to the choir by saying that,
+but just categorically, like you have to get better at this sort of thing.
+Otherwise we're going to just do very, very boring publications. Oh, yes. And we
+have also the question of scale, right? It used to be the case that you managed
+to sequence one or two or three genomes and publish based on that. And now we
+are just churning and churning genomes. So I think the metadata is actually more
+valuable, the genomic data per se right now, because now the genomic data is
+easy, but the metadata is hard. So maybe it's the next frontier. Well, I mean,
+if you want, if anyone wants a practical application of what this is like, next
+time you open up a publication with a phylogenetic tree on it, just put your
+hand over the side of the tree that has all of the little blips that show you
+what the country is, all of the color coding, just put your hand over that bit
+and just look at this spiky little figure of the tree itself and tell me what
+does that tell you? It tells you nothing. And that's what the sequencing data
+tells you. Without the contextual information, there is no contrast. There's
+nothing to say any linkage between genotype or phenotype. There's nothing to
+talk about what is going on in different niches. There's nothing to talk about
+what's happening over time. That's all out the window. And if that is not high
+fidelity data coming in, you're not going to be able to do it. You can't impute
+it after the fact. It just, you just can't make it up. I don't think it happens.
+I think slowly people slowly people have understood that you can't just magic
+this stuff out of thin air. You need to do better sampling and have these sort
+of systems in place to begin with. And we are seeing a change where people take
+this more seriously, but it's slow. Yeah. And I think that people tend to think
+of metadata as just like a sample came from a chicken, but it's really the
+methods as well. Right. So when you were just mentioning purpose of sampling,
+why was it for a cluster investigation? Was it for surveillance? Were you
+monitoring? Was it for an outbreak investigation? You know, that affects the
+samples in your tree and it affects the interpretation. I think we need to give
+metadata more street cred. And, you know, we often get together at conferences
+and we talk about the nuances of each other's tools. They're the genomics
+analysis tools, and there's never any mention of, of metadata tools. And that's,
+to me, that's like the other half of the problem. I know people, again, because
+ontologies and standards and things are kind of a bad word in the community. I
+know people, they're not going to put the butts in the seats, right? They're
+not, they're not sensations. That's interesting that you raised that, because
+you think that gene ontology, the famous or infamous go is sometimes the cause
+of that bad rep. I, well, no, I mean, I think if, if you have an experience with
+something that's tricky, you're going to obviously say, oh, this whole concept
+or this whole field is not garbage, but, you know, it's, it's, yeah, it's not,
+not as great. Right. But that's one example, right? Like how many aligners are
+there? How many, you know, we have lots of different tools for, for similar
+things and people enjoy hearing about those things, but all you know, is the
+gene ontology. Like you just, like you just asked me now, where are ontologies
+used in everyday life? And I, you know, I think they just don't get much
+attention. And so it's that whole thing where you, you don't experience them and
+you don't, you know, you don't see them in action. I think if, I think if anyone
+is going to, is going to get upset about ontologies, they have to then stop
+using things like keg or cog or, or even some of the.  the HMM databases like
+PFAMs and so on, which are all basically controlled language for describing gene
+function. And we very happily take our, you know, protein predicted genes and
+shove it into those tools and look at the comings and goings of the different
+categories and put that in, oh, it's a great result and whatever. All of that
+heavy lifting of structuring those networks was done by someone else. And that
+analysis that someone else, someone later is capable of doing is because someone
+took the time long before to get that to work. So, and we're building on top of
+it. We change the, you know, some of it's wrong. There's always issues. You keep
+changing it, you keep tweaking it as we learn more and more, but that's the
+platform and that's the power that you can get that if you just try to get some
+sort of order to your data before you get too bogged down with your different
+analysis. Yeah, and, you know, you're right. I think that all of these, you
+know, ontologies and community standards, they do build on top of each other,
+right? If you think of the kind of swirling free text system, there was
+originally, you know, every minimal metadata, minimal data for matching, every
+step improves the system, but you've got to have people using it and complaining
+about it and then doing something about it, right? And the other point to make
+is that, you know, ontologies are just, they're essentially files, right? Of
+instructions of how to structure information. You need a tool to implement the
+ontologies, right? Or you need to build the ontology into the backend of your
+system. And so, you know, I think that there is a heavy lift in using, I mean,
+you can use your ontologies just to standardize your metadata, right? That's
+still a heavy lift. Like going and converting what you've got in your database
+to this other standard, that's not trivial. That takes a while. But if you can
+have a tool that would do that for you, you can start to implement these things
+a lot easier. And what Joao said before about, you know, ontologies should be
+invisible and should be working in the background. That is absolutely true. Like
+you shouldn't have to think about ontologies. They should just be there working
+for you, but somebody has to have engineered them into your system or given you
+a tool to influence them. And I think we just don't have many people working on
+that right now. And that's why we don't have good things, right? I mean, you
+have lots of people working on the genomic side of things, but you don't have a
+lot of people working on the ontology metadata side of things. So, yeah. But I
+think that one thing that should be a warning is this is not a defining ontology
+is not the kind of thing that a single person can sit in a room doing it. It
+needs to be a collaborative effort of discussion between the persons using the
+ontology and using what you need to have agreement. And there's also that social
+aspect of having, you know, several humans to agree into something. That's
+always a problem. But it's an important activity because lots of the times if
+people disagree, that means that some things need to be disambiguated further
+and people have to understand that. So, but they sometimes feel that they are
+losing time just discussing things instead of putting into practice. That's why
+I like Nabil's examples. You're right. You know, we have KEGG, COG, GO
+ontologies. You have all this level of things that people could use, right? But
+they only use the part they, mostly the part they understand, which is kind of
+controlled vocabulary part. We now have the power to, if you are doing climate
+change and you have strain data, and if you can link climate data with the
+sampling location, with the strain location, with the genomic briefing, that
+strain of a strains in that location, things like that. And then you can only
+have to do that if you have everything very well defined and you know that
+everything is talking the same thing. Like we said, the computers are dumb,
+right? And we have to tell them everything. Hey guys, I'm gonna cut you off
+there. We're gonna talk about the practical applications next time. This has
+been a really interesting conversation. Tune in on the next episode for
+practical applications. Thank you all so much for listening to us at home. If
+you like this podcast, please subscribe and like us on iTunes, Spotify,
+SoundCloud, or the platform of your choice. And if you don't like this podcast,
+please don't do anything. This podcast was recorded by the Microbial
+Bioinformatics Group and edited by Nick Waters. The opinions expressed here are
+our own and do not necessarily reflect the views of CDC or the Quadrant
+Institute.

@@ -1,0 +1,571 @@
+Hello, and thank you for listening to the MicroBinFeed podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. Hello and welcome to the Microbial Bioinformatics podcast.
+Andrew, Lee, and myself are your co-hosts for today, and we're talking about
+something a little different. We're talking about how to develop an online
+presence to promote your science. Now often we think that this is something as
+simple as presenting one or two papers a year, and maybe presenting at a
+conference, and job's done, but there's a little bit more to it than that. On
+the other hand, if you talk to a lot of people who do marketing online, they
+have a very different view about the amount of effort you need to put in, so
+we're here specifically to talk about how to develop online presence as it
+applies to microbial researchers and bioinformaticians. We're all super busy, so
+what we want to talk about here today is really some simple changes you can make
+that will work passively with some big returns for you. So yeah, how to make an
+online presence, how can it help you, what works, what doesn't work. So let's
+start off with Lee and Andrew. I want to talk about what do you feel is
+different between when people talk about online digital marketing stuff, online
+presence, between say commercial space and academia? Well one thing I've noticed
+is commercial, they'll try and sell you stuff like there's no tomorrow. You get
+these sales guys emailing all the time, you get adverts in your face, you get
+constant bombardment, but you don't get that with research. It's very much
+passive, and it's like someone will spend years working on a paper and then
+silently drop it into the ether. And it may appear on PubMed, it might be in a
+good journal, but they do nothing to actually tell anyone that here I've got
+this great work, I've found this great thing, off you go. And they don't put out
+the major points, they don't say this is why it's great. I don't want to read
+like a 20 or 50 page paper to find out this amazing results buried on page 39. I
+want it upfront and I want to know it quickly and in nice, easy to consume
+format. So that's where we don't do very well in academia. We don't really sell
+our science, sell the work that we've done to other research and to other
+scientists. And we need to do a much better job at that. I would say in
+government also, you are part of the collective for better or worse. And I think
+everyone works really well as a team and you promote something, but it goes up
+on the CDC website. No one personally gets attributed, it's CDC saying this,
+right? So if you do like a lot of work towards something, then you're still kind
+of obscured and nobody knows that you did it, you're a faceless bureaucrat. So
+how do you locate a researcher? So it's different to how you would say, find a
+reputable carpenter or something, or look up someone or look up for a good
+restaurant or something like that, the way you do that process. How do you find
+a researcher? You're at a conference, you see a talk that you kind of like, or a
+poster you like, you want to find out more, but you're hiring, someone says this
+guy or gal does great work. What's your process? The premise is already that
+you're already involved in the community, right? So the first step is going to
+conferences or starting to read the literature, the thing that you like, and you
+find some kind of hook in there. And then if you do like somebody, then yeah,
+how do you look them up? I like that question a lot. I guess I usually start
+with Google Scholar. I don't know. What about you, Andrew? That might be my
+first port to call, not a charter named Google, not even Google Scholar.
+Hopefully they have a Google Scholar profile, which soon people don't, which is
+shocking really. But if you're talking to a librarian, they'll give you a
+different answer. They'll say, oh, well, you looked them up on Scopus or PubMed,
+you do this kind of search to look for this author in this organization, and
+it's much more targeted. Whereas Google can be a bit rough and ready, but it
+does usually find the person you're looking for. And then you might have to
+click in on Google image search as well. You know what they look like and their
+name, but they might have a common name, you know, when you've got to kind of
+go, oh yeah, that's the person I'm at the conference, yeah, that's definitely
+them. You might be biased for the library stuff, huh? Slightly, yeah. I've been
+hearing a lot about it from my wife. So everything that you guys have pointed
+out of where you would start with are things that a researcher can manage
+themselves very easily, actually. Everything sort of runs with a different
+account, but you just have a key chain of different accounts to manage
+everyone's interactions with things like Scopus or Google Scholar and so on. And
+it doesn't take that long to set up. I guess this conversation is already going
+towards, like, you should probably start having some kind of online presence,
+like some profiles. Yeah, I think so. But I like your previous point, Lee, like
+you're already in the community and you're already invested. And I think that
+for me is one of the critical differences between how someone who's marketing
+something to an audience, to a set of customers or clients, whereas we're sort
+of marketing to a set of peers who are in a community with us and they know
+about us or they know someone we've worked with or they know a cohort or they
+know whatever, and they can, we're already kind of, they always say, like, the
+first problem is you need to kind of establish or they need to be aware of you
+or they need to, you've got to get your foot in the door kind of thing. They
+have all this different lingo. And it's like, we already get, we get that for
+free. And really, it's just capitalizing on that when someone does want to look
+us up, because we're producing our work, like people see our papers, they see,
+even if you don't publish, if you're quite junior, still in PhD or whatever, and
+you might not have a publication out, there are outputs you're putting out,
+you're putting posters out in conferences, or you're putting your thing, your
+lab is doing stuff, your name is listed with your lab. So when they look up your
+boss, they see you, and they go, oh, this is this person, and they click
+through. And if that thing is like nothing, if there's nothing behind that, when
+they start clicking through, it's really disappointing for me. I find it very,
+very disappointing when I try to find out more about someone and this, even the
+basic stuff is just not available. Or it's just their name and their photo. And
+that's it. No other information whatsoever. Yeah. Name, photo, they work in this
+department. Okay. More often, not even, when I worked in Sanger for many years,
+they had a policy where they didn't list the staff on a directory, it was only
+the PIs. And that only changed much more recently, where then they started
+taking photos and having personal pages for each employee. So it's quite a,
+quite a different thing. So if you're, if you are like a first year PhD student
+in bioinformatics or related, are you kind of indicating that the first steps
+would be to make sure you get on the lab web pages, or if you're at a
+conference, make sure you get listed? I think if you ask people about, if you
+ask like a marketing person or online person or people who are interested in
+search engines, they will say the best place to put yourself is your
+organization's website, especially if it's an academic or government one.
+Because those in a search engine always rank highest. They are reputable brick
+and mortar organizations. They are trusted. So you want to associate yourself
+with that thing. They already have, and it's easy for PhD student or a
+researcher or anybody, because you already have a space normally. I know that
+they have profile pages. If you're part of a doctoral training program in the
+UK, they always have, they usually have a page for all of the students of that
+cohort, which you can kind of get modified. You can add to that profile. If
+you're a researcher or staff, they always have a staff, usually these days, they
+always have a staff page. If you look people up, 60% of the time it works every
+time, kind of thing. But that's the best place to start because that's the first
+thing that's going to come up. That's the first, and everyone's going to see,
+oh, it's Lee at Georgia. Like they're going to click on it. That's like, yeah, I
+believe that's a real place. I will click on the webpage and see, well, whatever
+you write there, that's like the first impression. So yeah, go for it. Make the
+most of that. And then if you do have publications, Google Scholar is probably
+the next easiest thing to do, because as soon as you sign in, it says, which are
+your publications? You click, click, and there you go. And then Google self
+promotes their own stuff in the search results. So someone's looking for a
+random paper, they will push your profile higher. Yeah. But only if you claim
+the profile. That's the thing I've noticed. If you don't claim the profile, it
+starts shifting down to the bottom of the first page. If you take control of it,
+it's like the top five easily. And it takes five minutes because you just have
+to verify your academic email if you want. And yeah, exactly. Just tidy up your
+publications and say, which are yours? And that's it. It automatically pulls in
+everything else from crawling it from PubMed or whatever. So you don't have to
+do anything once it's set up. And one of the good things actually about Google
+Scholar is if it finds different copies of your paper and different places are
+in the net, it'll link those together to make it as easy as possible for someone
+to find stuff. Because sometimes you'll get, even if you have an open access
+paper, the publisher will block it and demand that you  pay, I don't know, $50
+to rent for 48 hours, like some kind of blockbuster thing. But actually, we'll
+often link to the preprint, that kind of thing, if you have it. So it makes it
+quite easy to find papers. Yeah, it's really good. It's also really good for
+merging preprints and publications so that the citation count all contribute to
+one paper. I never thought about merging the preprint stuff with my
+publications. Okay, good tip. Yeah, it's really handy because otherwise, because
+then you add them up anyway. I think if you were ever going to talk about how
+many times has this been cited, you would include both the preprint and the
+final peer-reviewed paper in that count. So it just does it for you once you
+merge it. Something a lot of organizations push is the ORCID IDs, where you get
+a unique, big, long, random number that I never can remember. And then you're
+supposed to put that in if you're reviewing or if you're authoring papers, that
+kind of thing, and then it links backwards. It can be a bit hit and miss.
+Sometimes, some journals will take ORCIDs and automatically update everything.
+Other times, you have to go in and manually add it later on. So it doesn't work
+as easy, actually, as Google Scholar, but it is meant to be more curated and
+more stable. ORCID, I think, has backing from a lot of academic institutions.
+I'm not sure which publishing groups, but I have run into publishing groups that
+make it mandatory that you provide an ORCID as an author. I want to say Nature
+Publishing Group, but I'm not 100% sure. Anything which uses that horrible
+editorial manager backend usually allows you to log in with ORCID. I always
+talked about it as ORCID IDs, but now that you're saying it, it makes perfect
+sense. It's ORCID. I mentally say ORCID, but you started saying ORCID, and I was
+like, that's a cool name. I thought it is ORCID. They even color code the ORC as
+one color and the ID as another. I've always been saying it as ORCID ID. ORCID
+is good. I'm not sure what it's actually pronounced. Open Researcher and
+Contributor ID. Great. I'm sure that's a backer name. All right. I got it. On
+their FAQ, how should ORCID be pronounced? Answer, as an international
+organization, we have encountered many different types. That's the right way to
+say it. What is the right way to say its name? Is it ORCID or ORCID or SID, I
+guess? We are not that picky as long as you register and use your ID. But for
+those who want to know, ORCID has two syllables and a hard C. What?
+Phonetically, it is pronounced as orchid. I usually tell people it is pronounced
+like flower orchid, but spelled without the H. There you go. Orchid. I'm sorry.
+I win. All right. You win. But then it's ORCID ID then, so it's like double ID.
+Yeah, we'll add that to the show notes. Feel free to discuss amongst, yeah,
+everyone can discuss what the proper thing should be. Maybe we should put that
+as a poll. Or not. But yeah, ORCID is a bit fiddly sometimes. I like it because
+it sort of maintains a CV. It's good to keep track of things for yourself. You
+can add an extra information like your employment record, education record, all
+the dates for that. So when you need to fill in a form, you can just go and look
+at it. It pulls in the publications, but it also allows you to put in grant
+funding, awards, and peer review. It tracks peer review. Yeah. It's a new thing
+now that most journals are trying to get peer review acknowledged. They won't
+say which paper you've reviewed, but they will say this guy or this gal has
+reviewed for us, and you can have it linked to your ORCID. And so they'll update
+the ORCID record automatically if you let them. What's that? ORCID, right?
+ORCID. Sorry, I couldn't help myself. But I think that leads into another
+resource that I like. You guys might not use it called Publons. I signed up for
+it and I technically use it, but I don't think I've ever logged in. So I don't
+really know why I do it. Tell me why I do it. So this replaces Web of Science
+Researcher ID. So for the librarians out there, this is an account that allows
+you to manipulate what's shown on your Web of Science. Which is like a
+commercial company? Yeah. It used to be Voiders. I don't know who owns it now.
+Is it Thompson Web of Science? It's probably owned by Elsevier. It's one of
+those things where it's sort of owned a little bit by everybody, I guess. But
+what it is, is it's a citation database and it's a publication database. And I
+don't think we use it so much, but in other spheres, I know particularly like
+for social sciences, they use this database a lot to look up papers. And authors
+have a profile on it. And if you're someone who's not coming from specifically
+Elsevier and you're looking for papers or you're trying to find things like
+citation metrics about someone, you might be using Web of Science to calculate
+that. So it's good to keep an eye on it. So that's one thing that you get with
+the Publons account. But the main thing of the Publons account is that it tracks
+your peer review work. So when you review for a journal anonymously, you notify
+Publons, you just sort of shoot them an email, or you can, if the journal is
+hooking it into things, it'll come up any automatically. And they will add it to
+your profile. So you can show how many times you've reviewed for what journals
+you reviewed for. So now mine has, if you look up my profile, it shows you that
+I seem to regularly review for microbial genomics. So that's good to know. And
+for me, I forget, like I forget what I've reviewed. I just sort of do it. So
+then when I want to write like, oh, I'm like a scientist, and I do things that I
+help out with peer review, and I've done eight times for microbial genomics, and
+I've done a couple for nature communications, or look at me, I'm fantastic. It's
+great for that kind of fodder, which you need to add to applications. I mean,
+it's an important thing to do. Although you are giving your data away to a huge
+commercial company worth billions, so that they can then use it and sell it on
+back to your organization when a different format. That's the, that's the thing
+of being free. If you're not paying for it, are you the customer? Are you the
+product? Yeah, it is an interesting scholarly communications question. The
+resources there, it's handy. I think, yeah, that is a, that is a thing. Publons
+and this sort of thing is kind of has that commercial black box behind it, which
+is not as nice. I'm looking through it. I search for your name, and I search for
+my name as a nice interface. That's a really nice interface, and it's got a lot
+of nice metrics, which you can just copy paste into things. It says I've only
+reviewed four things, so I guess I have not been loading things into there. I've
+been doing, I've been doing thankless reviews, I guess. If the journal allows
+you to, you can have it linked directly to the ORCID, and you can bypass the
+whole Publons thing if you're not comfortable with that, that's fine. But either
+way, I think it's important that we sort of measure how much peer review we do
+do, because we do it for free. It's a community service. I spend, how long does
+it take you to review a paper? Five minutes if it's terrible. That's the right
+answer. I'm slow at it. Sometimes I'll just read like the abstract, and I'll go,
+there is not a chance that I'm going to review this, or it should be like an
+editorial reject. And often I'll tell the editor, just reject this straight out,
+and I don't bother actually doing any more of it. Do you guys not do that? I
+guess I just say no to the, I don't even accept the review if it looks terrible,
+I guess. Or if it looks outside my field, definitely. Like I'll get things that
+might be for foodborne diseases, which sounds like it could be my field, but
+then it's all about the serotyping part of the wet lab, and that's totally
+outside of my purview. So I say no. When I get those misfired to me, maybe I'm
+also avoiding really bad papers. I don't know. Yeah, I tend to do the same. I
+kind of screen, because they give you the abstract, and at least part of the
+author list. Not always. Not always, not always the author list, but the editor.
+And normally if I don't know the editor, and I don't know the journal, I'm like,
+and if the abstract doesn't jump out of me, I'll just say, look, this isn't, I
+don't think this is my thing. I think that this is a nice thing to do. If I know
+that it's terrible, but I know it can be improved, I actually do spend time
+critiquing and telling them what to do. And I don't have to, I can just reject
+it in five minutes, but I guess I'm being a little bit nice. Yeah, I think ones
+that you like, but they've kind of got the sort of 50-50, those take the
+longest, because I do try to critique them and help them out. I kind of want
+them to do well with it. But then that takes up, I usually do it after hours,
+and it usually takes me at least three hours per review. You're still faster
+than me. I take like two days. I'm so slow. I need lessons. Maybe another
+podcast, you guys can teach me how to do that. How to review, how to review a
+paper, or like how to lose a guy in 10 days, how to review a paper in 10
+minutes. Great title. Let's not forget that one. Let's do it. All right, we'll
+do that next time. Well, let's move on. I think there's other resources we can
+talk about. I mean, Twitter. Yay. Twitter. Twitter. I mean, when did you all
+start being on Twitter as a...  in that sort of research professional academic
+capacity. 2007. I'm what you call like an early adopter. Congratulations. I
+guess this is a lot outside of this podcast, but what made you decide to go that
+early into Twitter? One of my friends set up like an email service for, I don't
+know, news alerts. And Twitter at that time would send an SMS to your phone for
+like people you followed. And so that's why I set it up initially, get the
+tweets by text. Of course, Twitter obviously realized that this is horrifically
+expensive and stopped doing that very shortly after that. They were really lucky
+that they managed to, at that same point when they realized that they couldn't
+afford this anymore, the smartphones and having like this kind of always on
+internet became affordable and became like a thing. So, and mobiles were like
+powerful enough to have an app that shows something like Twitter. So they
+managed to transition without too much of an issue, but it was based around the
+size of a text message, which is totally anachronistic now because nobody
+doesn't do that anymore at all. I have a similar thing as Andrew when I started,
+but I started back in, I was still in undergrad. So we had to use Twitter as
+part of computing, learning about social media and all these different
+platforms. Interesting. So back to Twitter, how does it help you guys in
+revealing yourself to the world and broadcasting yourselves? How does it help
+with your online presence, I guess? Well, I suppose that's where I get all my
+papers from and preprints from, and I don't get them from anywhere else. And
+that's where I promote all my papers and stuff like that and podcasts and
+whatnot. It's kind of my link into the wider community that I don't necessarily
+know, but they can tune in if they feel like. Yeah, I agree. Whenever I have a
+paper at all, I'll push it out there and five people will like that tweet, I
+guess. I don't have as many people as somebody if I started in 2007, but some
+people see when I tweet. It's quality, not quantity. Yes. Are there other ways
+that having a Twitter helps you out? I think you get a lot of casual discussion,
+or at least you used to. You used to get a lot of casual discussion on Twitter
+about publications as they came up or discussion around, it used to be a good
+way to push blog posts and other materials, press releases, or whatever you've
+got floating around, or even like GitHub code, and you've done a project, you've
+done a release, you tweeted, whatever it is. Because people are on it, they're
+sort of thumbing through all of the, the doom scrolling through all of the
+tweets anyway, they might see your thing and click through. And there used to be
+some pretty heated discussions on stuff like what's the best read mapper and all
+that back circa 2000 and 2009, 2010 kind of thing. Are you thinking of a
+specific conversation? Cause now I want to know about it. No, no. Well, there is
+a like controversial papers in your field. Like there was that SARS-CoV-2 paper
+recently and they got published in MDPI vaccines. And that, you know, that got
+slammed on Twitter and then people piled in and then the journal retracted it.
+Yeah. I mean, if you want a modern example of where Twitter is powerful, you can
+look at the SARS-CoV-2 coverage, especially coming out of virological posts or
+what Dextrane puts up or so on. That's really powerful. I mean, that's where
+you're, if you want the skinny on what's going on, you can just look up those
+accounts, just keep track of those and exactly what's going on. That's good. And
+speaking of earlier, when you said you would link to like a blog post, I see
+people just doing whole threads on Twitter now and they put a little thread
+emoticon. I don't think people are linking to blogs too much anymore. I had a
+blog back in the day. It was andrewjpage.com and I had it for about 10 years.
+I've let it expired in the past few years. It's not something I do anymore. As a
+late tech blog, like for my PhD, I did lots of late tech and stuff like that.
+And so it was just random place to put all my scripts and it was actually quite
+popular, but then there was no need for it. I didn't want to maintain it. I
+didn't want to host it. And it just kind of disappeared, unfortunately. There's
+a few blogs, and I think blogs are really powerful, but I think we can discuss
+blogs like on its own, but there are a few that have persisted over the years.
+And that's like Phil Ashton has started up posting on his one again. Titus Brown
+always has stuff. Mick Watson always has stuff. The people have been doing this
+forever and they always release their information through these sites. And it is
+useful. And the only way I check them is if it shows up on the Twitter feed.
+That's true. But I guess we can talk about personal websites and blogs like as a
+resource and what you both think of that. I guess they persist. Even if you move
+jobs or whatever, your personal website will stay there and act as a portfolio.
+It's quite good when you're trying to hire someone and they do have a personal
+website that you can go and see and check out all the different projects, kind
+of all the different linked work that they've done often. It's kind of buried.
+It might be in GitHub, but it might be buried in 20 different repos. And maybe
+they've done one or two really good pieces of work and then the rest are just
+minor tweaks to existing open source software, but it can be kind of difficult
+to untangle those. Whereas if you do have a personal website, it can help
+signpost to those pieces of work. Your website, Andrew. Did someone buy it? It
+redirected to Volvo cars. Well, it could be worse then in terms of redirections.
+Yeah. I just got a blank page. Okay. That's probably better. So I think the
+personal webpage, the downside of that is it's a thing. It's your thing. You
+have to look after it. So things like you have a WordPress site and that can
+stay up for years, but those have, eventually they usually have some security
+vulnerabilities over time. They can get hacked and you can have weird things
+showing up when you don't really want them to. So it is like a thing, like it
+can be up, but you kind of still have to look after it. And it's coming back to
+what you're saying, Andrew. It's just sort of not at a point, it's sort of too
+much effort. It can be quite a lot of effort to keep something like that
+together. And it doesn't necessarily look that nice if the last post was five
+years ago and it's got all of like outdated information from two jobs ago or
+whatever. It doesn't look good. So it is like out of all of the resources we've
+talked about, I think that's the one I'd recommend the least because of the
+amount of overhead to keep it going. Well, thinking back about my blog, probably
+all the information is still valid now because LaTeX hasn't changed very much in
+the past 20 years. Yeah, there are definitely processes which sort of generate a
+static site, which is just very secure because it's very simple. And those I
+think is probably the best way if you're thinking of an implementation of how to
+do it. Obviously you need to know a little bit of how to code it up or what
+platform to use. The different ones for like whatever language, like Ruby or
+JavaScript or Python, that different, there's usually like a favorite one to do
+that sort of static site, but that would be the best way to do it. Seeing a lot
+of people using GitHub actually to host their personal web pages. Yeah, so
+that's running Jekyll and Ruby in the background. And then it's, but you don't
+need to know about that. It just takes your markdown files and then just renders
+something for you as long as you write it the right way. And that's free hosting
+to have that up. And it's like a static thing. And you can just put that, it'll
+be something, something.github.io and you just can point that. So it can be
+lcats.github.io. Yeah, so I actually really liked that a lot. It was really easy
+to set up actually for our podcast website. Yeah, for the podcast website, we
+use it for the MicroBimfy conference as well. It was super easy to do, free,
+it's there forever. So one thing you should do actually is sign up to GitHub if
+you are doing coding and doing Bonformatics applications, and just make sure
+that people can find it easily. Like don't have some random name, like, I don't
+know, lighthouseseagull52. You want something that people can find you maybe
+with your name. And then you can use your GitHub pages like a portfolio of your
+professional work that you've done over maybe multiple different employers. I
+know not every employer will allow you to do it. And then also within any
+scripts that you make, if those make it into Conda or whatever, make sure you
+put your name inside so that people know that you made this stuff. So when they
+do like dash help or dash H, that they will say, oh, this is Andrew's script or
+this is the paper he wrote which underlies this actual script. And maybe I
+should go and read it and cite it. That's a very simple thing you can do, but
+most people kind of forget that. Totally agree. Definitely like in all of your
+scripts you should have like dash dash help or even dash dash citation,
+something like that. Give yourself credit. Yeah, definitely. Definitely worth
+putting that up on all of your code. And also I'll add like, maybe people are a
+bit reluctant to put up code because it's not quite polished and it's not
+something that's designed for other people to use perhaps. It's like a dirty
+script that does some munging of data or something like that. It doesn't matter.
+If you're in a state and that's all you've got to show, put it up. It's worth it
+than having nothing. Something you're trying to achieve and by hell or high
+water, you've managed to do it. You write something that achieves it. That's a
+plus in my book. If you're able to do that.  basic as getting a job like
+honestly if somebody shows me that they've done a script and they've done
+something and they show and i'm not gonna go spy on them on google or something
+but if they have like a url going back to their script it lets me look at their
+script and it lets me see what they've done and lets me objectively judge that
+sort of going off topic but i think it's sort of this it's the devil kind of
+kind of situation like even if the person you can assess it like most people are
+actually much better than they think they are that's the first thing but even if
+they're not quite to the standard that's required for a particular role it's
+good like an employer will want to know that because they might still say like
+yes this person still has at least has demonstrated where they're at it's a
+technical sort of difference of where they need to get to but they've got
+everything else they've got enthusiasm they've got a good attitude they've got a
+good background on the on the rest of the science so that helps you make that
+decision and then that makes you more likely to to talk to them and take them to
+the next stage of the process if there's no information there's no judgment
+you're going to just say well i don't know i can't i have this project i have
+two years to do it i don't want to take a chance also when you're doing stuff
+publicly as you go along like other people can see it and that's a good thing
+because then maybe someone is looking for something similar or is going to
+design the same tool and then they go and contact you that's uh that's a bonus
+and two has better than one and you can maybe get in more publications or people
+can find you much quicker because it's established great point i think it's good
+in terms of transparency and honesty to just be like yeah it's not perfect but
+here it is this is what i can do and that's that's a respectful thing putting
+yourself out there that's a lot of courage like it means a lot if you see that
+so definitely for i know a lot of students tune in who don't necessarily have
+all these fancy programs just put the code up it's fine if it's some dirty r
+script that just does does some plots it's good to know that you can do it yeah
+we're still not reddit first there aren't a lot of trolls looking at your code
+right now so you can put it up and get actual constructive criticisms when you
+put it up and then something uh really self-promotional that i learned from
+nabil was to put the micro benfrey podcast link in my email signature and that
+has spawned uh hopefully a few people uh tuning in and finding it but it's such
+a simple thing and i hadn't it hadn't even occurred to me until i saw it in the
+bills email signature then i stole it and i need to do that great idea yeah i
+think that's a good tip for everybody people to thumb through that email
+signature and it's a good not don't go nuts i got an email today where someone
+had written they had like 20 different of these little pictures from the
+organization there's little pictures like blah blah blah excellence 100 years
+blah blah blah something i know like some people have to do that but that's like
+no don't go that don't go overboard don't write a thesis in the in every email
+signature but pick two links pick two links that are really important to your
+best foot forward kind of thing institutional website github or google if your
+organization website isn't up to up to par orc id github google scholar github
+or your twitter whatever whatever you use the most whatever you want people to
+kind of hit first and get their first impression of you pick the pick two of
+those links and and put them in there and people will click too it's like yeah
+it's a slow day you really got this email like yeah okay what's this about all
+right you put like little emoticons next to the url also or something no no i
+try to i try to keep my emails plain text if i can but what would you put like
+winky face no like okay that makes me question it now no like a microphone oh
+maybe there's a there's an emoticon and i think online presence all of what
+we're saying also applies in terms of cvs and applications for things so plug
+your github in your cv or in the or in your cover letter or in the tons of forms
+that the hr makes you fill out just put it in there it helps point to things to
+have it's it's a thing showing you have like a personality you have stuff going
+on and you've outputs that are not just purely academic like papers and stuff
+this is sort of a subjective question again would you would you self-promote
+like in at the end of your talk at a conference or in your poster hell yeah oh
+yeah okay depends on the talk but if you think about any talk is kind of an
+advertisement for something else because i mean unless you're getting like a
+nice one hour slot which you don't get i don't get you get 10 minutes you're not
+going to explain a paper in 10 minutes you're going to explain like one thing
+you're going to say this is great if you want more information click here's a
+tiny url click to the manuscript or whatever the opposite and i i usually get
+too much time and i don't know how to fill it up and so i usually shove in the
+relevant micro benefit podcast episode that we have because you always have one
+that's relevant to something are we getting to that stage already that's great
+we are yeah particularly for the coronavirus stuff it's like i gave a few talks
+recently and was always the last slide a second that slide is just here is like
+20 podcasts you can episodes you can listen to on this exact subject very good
+yeah literature github twitter one thing i used to do i still do is i put my
+twitter handle in on the title page for talks so be title nabeelfreedali khan at
+happy underscore khan and that's just like because if it's like a random person
+at a conference like that's easier for them to get in touch with me and we can
+have a conversation about what's going on in the meeting over instead of going
+to email which tends to get a bit lost or whatever that's my preferred form of
+contact now maybe twitter is not your preferred preferred form of contact you
+want to use email that's fine put that in i think twitter is better for that
+sort of scenario but whatever different strokes but put something that's the one
+thing we can learn from the marketing is like have this call to action always
+present the thing and then give somewhere else to go what's the most
+inappropriate place that you've seen someone advertise something most
+inappropriate place people are generally well behaved i think yeah i think
+academics haven't really figured that much out about all these soft platforms
+for promotion yet and they haven't figured out how to abuse them that much the
+one that sticks out to me in terms of self promotion where it's just not on is
+the sort of self citations of papers that just aren't relevant i've seen that a
+couple of times it looks really bad you know like because you cite one paper
+just make the point right so you cite the first one you don't cite every single
+paper you've done that says the same thing over and over again that's basically
+referring back to what you found in the first publication so it'll be like ali
+khan et al 2017 2018 2019 and you're like no no yeah that does look bad like no
+that's really bad but that's that's more traditional thing i think yeah it's i
+haven't seen too much gaming on on online platforms that much you made a really
+good point about getting this kind of profile that kind of profile online but
+they're usually dependent on citations and publications what do you do if you're
+just starting out and you don't have any publications yeah this is this is a
+tough one because ultimately as researchers our currency are publications and if
+you don't have one it's it's a bit slow it's it's difficult to kind of get
+traction you need to think about what you're actually trying to communicate and
+what you want people to be aware of and it'll depend on your career stage of
+what you want to promote right so if you're usually people who don't have
+publications are going to be like fresh out of phd young phd students or early
+early postdoc kind of thing what you want to promote you want to show that you
+have a bunch of interests you have a bunch of technical skills that you're able
+to communicate like you know pick which sort of thing you want to promote and
+then you can do things like if you're allowed to now this is dependent on what
+your organization and line managers and bosses say about this but you can
+publish your slides from presentations and posters online on services like fig
+chair it'll give you a doi so like a fixed link to it forever and you can put
+that on that institutional website or on the blog or whatever we've been talking
+about or tweet it out or whatever that you've done a thing and there's like a
+there's an output that someone can go to and that's a really easy one but do
+check don't just do it without people knowing you kind of have to check with all
+the co-authors that it's okay to do that but most people are usually pretty
+chill because you've already presented it at a conference anyway and it's just
+more promotion of that worst case if they're very cagey about it you might have
+to redact stuff like take the strain names out of the figures or something like
+that but there is like a path you can come up with that will allow you to show
+that you can do a thing without necessarily giving the game away other things
+you can do is we've been talking about blog content blog content was great it
+can be blog content can be a bit tricky because it's like if you're especially
+if you're younger you might they might feel like you're you're not able to just
+talk about the science that you do and maybe you feel that you don't have the
+experience to talk about big concepts of the field yet but you can just talk
+about a particular method a protocol how do you use a protocol what kit is good
+for this what algorithm is good for that compare assemblers whatever something
+really primitive  that you've kind of had a sketch at to how to go at for
+yourself and you can put that up. If you have a wet lab protocol or even a
+computational one, you can put it on protocols IO. That again is this online
+free service to promote protocols, methodologies. And that again gives you a
+DOI. That again is something that I think that actually gets indexed in Orkid as
+well. So that's like an output that you can just use. We've talked about GitHub.
+So yeah, scripts, get them on GitHub. If you don't like GitHub or you don't
+wanna use GitHub, you can use GitLab. You can, at a push, you can use Bitbucket.
+But it doesn't matter, get the code out there somewhere onto some sort of
+version repository. Then you might find out of all of that, for some reason,
+nothing you're actually doing is you can, everything is too sensitive and you
+can't put anything out. So no scripts, no methods, no nothing. You can, at the
+end of the day, like at least just write short reviews or praises for
+publications you've read. So just the kind of classic reaction video kind of
+YouTube content about papers. There's absolutely no original work that you're
+putting in. You don't have to say anything about what you're doing. Just talk
+about other people's work. Did you like it? What did you like about it? How does
+it help you? I've seen some really good stuff about that. Who was it who just
+put out a big thing about, someone had like a nice blog post about MASH and I'm
+forgetting right now whose blog I was reading. That's gonna kill me. Whose blog
+was I reading? John Lee's. No, it was Phil. He put out a good blog post about
+all that stuff. And it wasn't like he made original bioinformatics like
+sketching work or anything, right? But he was looking over it and seeing how it
+fit his purpose and it was a great article. Yeah, no, that one was really
+interesting. I read that one. There's another one about genome sketches from
+John Lee's which is also really interesting. Had no specifics about what he was
+doing but it was super helpful even just to talk like a toy example. How does
+this pull this thing apart? How does it work? And it can be just the same thing
+about any publication. It's just, I think the thing is is that you just want to
+show people what you're about and publications are a very easy way to do it
+because they can just see exactly how you've done a body of work. But you can
+kind of get a lot of stuff out there that doesn't have to be perfect. Yeah, so.
+But the one thing I think Andrew will advise to everybody is. Oh yeah, don't
+start a podcast. That's a lot of work and you'll just interfere with us and take
+away our audience. So we're happy to work with you though. Yeah. If you started
+another podcast, go for it. I would say go for it because, okay, fine. But it is
+a lot of work. It's unnecessary work. It is a fair bit of work and that's why
+there's not many of them out there because it's just, it takes a lot of time.
+Yeah, no, I think we discussed the production process in sort of a previous
+episode. If you're interested, you can have a listen to that and that'll give
+you some idea of the amount of work required. So hopefully that was interesting
+for everybody. We just wanted to talk about this. When we talk about online
+presence and when people in our organization prod us about it, we feel that it's
+very complicated and it's a lot of work. It's not our job to do it. And that is
+true. It is not our job to necessarily be pushing our agenda every single day,
+but there are some very simple tactics you can use. And we've gone through a lot
+of them in this episode that you can just make those changes. It will help other
+researchers find you, find your work. And who knows from that, what will come
+out, invitations to work on collaborations, to be co-funded for grants, jobs,
+just invited speaker spots, just all the list, come and wanna just hang out,
+just chat, it's okay. Come over, come visit. We'll talk sharp about whatever it
+is. So it's, but it's really important that you kind of improve your online
+visibility. And so that's mainly why we were talking about it so long today. And
+yeah, so that's it from Andrew, Lee and myself. That's it for this episode of
+the MicroBinfee podcast. And we'll see you next time. Thank you so much for
+listening to us at home. If you like this podcast, please subscribe and rate us
+on iTunes, Spotify, SoundCloud, or the platform of your choice. Follow us on
+Twitter at MicroBinfee. And if you don't like this podcast, please don't do
+anything. This podcast was recorded by the Microbial Bioinformatics Group. The
+opinions expressed here are our own and do not necessarily reflect the views of
+CDC or the Quadrant Institute.

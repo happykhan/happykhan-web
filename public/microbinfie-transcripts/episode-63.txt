@@ -1,0 +1,434 @@
+Hello, and thank you for listening to the MicroBinFeed podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. Hello and welcome to the MicroBinFeed podcast. Andrew and I
+are co-hosts today, and today we're continuing our discussion on Campylobacter,
+and we're going to this time be delving into some of the specific issues that
+bioinformaticians need to keep in mind when studying this organism. Our guest
+today is Dr. Ozan Gongadou. He leads the foodborne enteric pathogen group at the
+London School of Hygiene and Tropical Medicine, where they study the physiology
+and pathogenesis of Campylobacter and other related enteric microorganisms like
+Listeria and Fibrio. He has a background in molecular biology and computer
+science. He completed his PhD at LSHTM back in 2011. He works on a number of
+different projects, continuing Campy pathogenesis and somomics, and he started
+his position as assistant professor at LSHTM back in 2019. So hello again, Ozan,
+good to have you back. Hi, thanks for having me. So last time we were discussing
+a lot of the theory and the sort of context for Campylobacter, why it's
+important, and some of the nuances that are specific to it rather than other
+organisms. I think this time we're going to dive into the practicalities in
+terms of the bioinformatics and what someone jumping into this organism needs to
+keep in mind. So maybe we can start back with the genome. I think you mentioned
+last time that the genome was sequenced back in 1999 at the Sanger. What else
+can you tell us about the genome that makes it special of Campylobacter? And in
+this case, it was jejuni they did first. The first Campylobacter jejuni, it was
+the strain NCTC1116A, which a lot of people still use for their laboratory
+experiment. Relatively small genome size, 1.64 megabases, approximately 1654
+predicted open reading frames. And, you know, there were some key things that
+came out of this. There were some key loci structures identified for Lipo
+oligosaccharide for this capsule. It did not have classical enteric bacteria
+secretion system. So at the time, there was no type 3 and type 4. Subsequently
+down the line, some type 4 have been found in some strains on plasmids as well.
+And also the type 6 secretion system has been found. Some of the really
+interesting things that came out for this was the number, for example, of genes
+that contained homopolymeric tracts. So these are series of nucleotides up to 7,
+8, 9. What they can lead to is phase variability. So what that means is that if
+you're potentially encoding, you know, really long gene open reading frame, and
+those two open reading frames were actually on two different frames, what it
+could do was that the polymerase can actually make errors and it could stop
+halfway or continue encoding the whole two open reading frames. And so these
+were often found on structures such as the capsule on the Lipo oligosaccharide
+and they are, you know, believed to be mechanisms of giving diversity,
+essentially, for the bacteria to evade immune systems. So what is the GC content
+like of Campy, like that would allow for those homopolymer, polymeric tracts to
+exist? The GC content is approximately 30%. However, generally the bacteria is
+considered to be incredibly promiscuous and it will take up DNA. So even if you
+do a transformation experiments within the laboratory, you can leave, you know,
+amplicons, you can leave PCR amplicons and you can leave, you know,
+transformation natural on the bench overnight and there's a chance that it could
+take up your, yeah. So, and that, you know, that leads to some interesting
+questions because, you know, there are implications to that. Now, since then,
+there have been a number of different species and strains sequenced and we're up
+to, you know, you could probably download over 50,000 Campylobacter genomes now.
+I know some research that has come out recently looking at a number of different
+Campylobacter strains and I believe that the number was over 50,000. In terms
+of, you know, model reference organisms, you know, things like the EBI, for
+example, have, I think they have over 150, what I considered model well
+annotated reference organisms. A lot of these were back in the day came from the
+Sanger Institute. And so there are differences between strains. So the classic
+thing that we're studying and we're finding now in the type six secretion
+system, you know, this is quite, this is quite a big thing because historically
+Campylobacter has not had a mechanism to secrete defectors, to secrete proteins,
+to potentially damage other bacteria, to damage host cells or allow it to
+survive better. We found approximately that 25 to 30% of Campylobacter have type
+six secretion system. And this kind of resembles what we find generally in gram
+negative enteric and gram negatives in general. And so this leads to the
+question as to do bacteria that have type six secretion system, do they have an
+increased advantage in terms of competition, in terms of microbial population
+niche environment? So with such an extreme GCAT bias there, right, are these
+homopolymer tracks really just an artifact, you know, are they actually real or
+is it just because we've used short read sequencing and it's not very good with
+homopolymers, you know, and if there's five or six there, well, you can't really
+tell the signal because the signal hasn't changed in the sequencer itself. So
+are these just, you know, sequencing artifacts and how do you know they're
+actually real? Yeah, that's a good question. So, I mean, these were originally
+done with Sanger sequencing back in the day. And then more recently, I believe
+they have been looked at with long read sequencing. And it's an area that has
+caused a lot of headache to researchers, because if you're growing the bacteria
+within the laboratory and you're passaging it, you know, every three or four
+days with Campylobacter, you have to basically take it and put it on a new plate
+so it grows. Essentially, it's like looking after a pet. There is a chance, for
+example, that these genes that are within the capsule or lipolygosaccharide will
+change in terms of actual product, protein, transcription, translation. And so
+you potentially are changing your bacteria. Now, recent research from, for
+example, the Quadram Institute, they've created a software, I believe it's
+pronounced Tata-Huba, you may correct me, Tata-Juba, Tata-Juba, yeah. And this
+is an example of a piece of research that is based on analysing these
+homopoietic tracts in more detail. This isn't just a problem in Campy, because
+this kind of situation occurs in other bacteria as well. So I was wondering,
+right, you mentioned that Campy can suck up lots of other DNA very easily and
+it's very promiscuous. So would things like Tradis work well on this, you know,
+where you can put in some transposons and it can take it up easily? And can that
+tell us more about it? Yeah, I haven't personally done work on, done a Tradis
+experiment, but from what I've seen in the literature, Tradis experiments do
+work. And it's interesting, certain strains, for example, another classic
+strain, 81176, okay, which a lot of people use for experiments, does have
+plasmid, a plasmid, Pvia, Ptet. However, what you find is that actually, if you
+passage it, you can lose the plasmid, the plasmids can drop out. And this is a
+constant headache with laboratory experiments, because there's obviously
+tetracycline resistance on this Ptet plasmid in 81176. And if you're doing
+passages, and you're continuing your experiment, and then some of these plasmids
+have dropped out, that can have implications on the phenotypes that you see. So
+I've heard in the grapevine that there is phage that are associated with Campy,
+but they actually can't be sequenced with Illumina because of the epigenetic
+modifications, and you have to go and use other technologies. So it'd be
+interesting to know, how many of these sequencing projects have you undertaken
+with short-read sequencing that are missing, you know, that critical component,
+like you mentioned with passaging and plasmids dropping out, you know, are we
+missing other phage that have dropped out, and it's only with long-read
+sequencing that we're actually going to recover that, because they're actually
+able to sequence these molecules? Andrew, that's a great question. And the short
+answer is, I don't know. I'm not aware of that. I haven't heard it myself. You
+may be more up to date on that than I am. Yeah. So, I mean, it's interesting.
+What I remember is that, for example, the original genome, the NCTC1168 genome,
+I, as you know, back in 2005, actually went to the Sanger Institute for a year.
+And one of the, I think it's 2006, one of the reasons for that is we wanted to
+update the genome, okay? Because within that five, six years, since his original
+genome, original publication, there had been so much work that actually had
+updated and studied gene product functionality that I actually managed to update
+20% almost of the gene product functions, which is not pretty bad going for a
+five, six year time span since the original genome. And I think at the time, we
+basically published some work saying, you know, how important it is to obviously
+annotate genomes as well as you can, but let's not forget about the re-
+annotations. And this was pre-next-gen sequencing.  actually found is that even
+in that 11168 genome, there were CRISPR remnants within the genome, and some of
+the adaptive, I think, is it the associated or adaptive proteins that are linked
+with the CRISPR region that we identified and we actually annotated within the
+genome. So, yeah, in terms of the bacteriophage story, I'm not, I can't answer
+your question. I'm not, I'm not aware of that myself. Just a couple of other
+things that, that are quite interesting about, that have come about from the
+genome sequencing. So, I mentioned, for example, that historically, you know,
+secretion systems are not present within the genome. There is some research that
+actually shows, really interestingly, that the flagella, which historically is
+used for motility, actually secretes effectors. Okay, so there's a group in the
+US that has been working on this for quite a while, and they are, they are
+actually, their research is showing that the flagella can secrete effectors,
+acting as a secretion system, and obviously, this has implications in terms of
+bacterial competition and survival. Other things that came out, obviously, were
+related to Campylobacter in the genome, is why is it able to survive in this
+environment? So, there were a number of genes that were identified, genes that
+encode for enzymes that are involved in the breakdown of, for example, of
+reactive oxygen species, which are damaging to the bacteria. What about AMR
+genes? You know, that's the thing that's on everyone's mind at the moment. Yeah,
+it's interesting which angle you come from that, because there's been studies
+that, obviously, looking at genes that could be linked to AMR. Okay, so in
+terms, if you do a comparison of, you know, a thousand strains, and they're
+looking for potential SNPs, potential GWAS studies that could be linked to AMR,
+and it comes down to also identification of the genes that could be linked to
+AMR. So, just to go back on that, one of the points I wanted to make is, as
+important, and in terms of number, as the oxidative genes that were involved in
+the breakdown of reactive oxygen species, for example, was, and this is the key
+bit, I think, about Campylobacter, is the number of regulators, the number of
+transcription factors, the number of regulators that were found to be involved
+controlling those enzymes, those genes that encode for those enzymes in the
+breakdown of damaging products. And that's where Campylobacter, in terms of the
+genome, we've seen that it's incredibly complicated. It has a highly complex
+system, and being able to survive in these non-ambient conditions. So, these
+were some of the interesting things that came out from the genome project. So,
+it sounds like it's quite difficult to work with this in the lab. How far does
+the lab science really get you, and how much do you have to start thinking about
+in vivo, in studying Campy? We all need to understand the physiology and
+pathogenesis within the laboratory. And there are a lot of different
+experiments, you know, you can do a lot of mutational experiments, you can do a
+lot of phenotypic assays within the laboratory. Again, there are issues about
+convenient, good animal models. Interestingly, actually, there are, in the last
+few years, some novel murine models that are beginning to actually give a
+disease phenotype that you see in humans within mice. And it's based on the
+principles of, you know, administering a broad spectrum of antibiotics for a few
+weeks to these mice and giving, I believe, a low zinc diet, which can then
+apparently give the same disease profile that you see in humans. So, these are
+great, and we're learning more about the bacteria every day. However, what we've
+seen is that the situation in a real world scenario is very different, because,
+you know, the bacteria is present in the environment, and it's present in
+chickens in poultry in high numbers. One of the things we've tried to do is to
+say, how can we apply this knowledge that we have in the laboratory, that we're
+building on every single day, how can we apply this into the field, into real
+world scenarios, whether that be from low middle income resource situation where
+you have backyard markets or peri-urban markets to industrialized systems. And
+so, one of the areas that we've really tried to investigate is how the microbial
+population structure within the chicken gut microbiome is changing over time,
+and how can we infer information and knowledge from this as to why campylobacter
+is appearing typically in two weeks, and what are the sort of microbial changes
+that are happening pre and post, and try to understand, you know, the evolution
+of campy within the chicken gut microbiome over time. So, we barely know what's
+in the human microbiome, so surely there's very little research done on chicken
+microbiome, and is that what you're going to spend the next 10-20 years on?
+Yeah, so definitely, you know, the experiments we've done up to now has been
+with 16S microbiome metagenomic studies, and we all know the limitations that
+come with 16S studies. They are useful, but up to a point. And I think, you
+know, taking advantage of the third generation sequencing of long-read
+sequencing, PacBio, Oxford Nanopore, is definitely the way to go forward, so
+that we can try to appreciate, understand what's going on in the chicken
+microbiome. I think it's important that, you know, from our studies, one of the
+things that we've really taken advantage of is the metadata that comes with
+these experiments, and I think that's a key point. So, metadata in terms of
+environmental, you know, environmental factors, but also metadata in terms of,
+for example, if you're doing different kinds of experiments, where you're
+looking, for example, like prebiotics, probiotics, these kind of things, things
+like the chicken weight, the feed conversion ratio, things like histology, the
+immunology of the chicken. So, all of these factors come into play. Linking that
+with the actual sequencing information, I would say, is the way to go. For
+example, we found, even with our 16S studies, changing the feed of the chickens
+has a huge impact on the chicken gut microbiome population structure, and also
+the greatest amount of microbial changes were happening a day or two before we
+find Campylobacter, again at day two weeks. In a subsequent study, for example,
+we found real impact in terms of, we wanted to assess the different types of
+farms, the different types of parameters within these farms, how they not only,
+again, impact performance and microbial population structure, but what's the
+knock-on effect of that on Campylobacter numbers. And, you know, we found huge
+variation in terms of even adding such a supplement like Omega, which has been
+added into the feed, for example, of chickens as a performance enhancer without
+really understanding the reasons why, but what are the implications of that
+addition of Omega in terms of numbers for Campylobacter. And so, yeah, I think
+the availability of the technology in terms of next-gen sequencing, in terms of
+metagenomics microbiome with long-read sequencing, is the way forward. I think
+there's been over 150 studies in the last six, seven years that have looked at
+the chicken microbiomes with or without Campylobacter coming into the story. And
+they've all been with short-read sequencing. And so that can only get you to a
+certain level of understanding of appreciation mechanistically of what's
+actually happening there. Yeah. Yeah. I mean, if it's only short-read
+sequencing, you're going to be looking at it from a thousand yards. You won't be
+able to tell very much. Everything will be in 20,000 pieces and you'll only be
+able to make a rough guess, particularly since I'm sure many species in the
+chicken microbiome are totally unknown because they've never, they're probably
+not in humans, you know, all these commensals. Exactly. So the way forward
+definitely is with long-read, but just to re-emphasise, it's that metadata that
+really gives that extra additional information, depending on the experimental
+type you have. If you want to go for the natural infectivity studies, that's
+risky because sometimes you might not get full infection at the level you want.
+For example, we've managed to look at the impact using various aspects of our
+environmental data. How is the microbial population structure changing over
+time? And at one point, we was heavily based on competitive factors. And at a
+certain time point, there was a shift to linking to environmental factors and
+the environment in this case being potentially the chicken itself. Obviously,
+the chicken is getting more healthier and it can potentially impact different
+microbial population structure directionality. So this is an example where you
+have your microbiome data, but you link it with analyses that allow you to link
+your metadata into and try to infer different aspects of your structure. So
+where does this microbiome come from, right? Because my understanding of modern
+poultry production, certainly in the UK, is you have eggs are laid, they go to
+like a hatchery somewhere else, you know, they're hatched, and then the chicks
+go to another place to be reared. And so you've got these multiple different
+factories and cutouts. I presume they don't have a microbiome when they're on an
+egg. So where is this microbiome coming from? And how can it be so rich, you
+know, so quickly and so suddenly? So the ceca of the chicken, okay, of the
+poultry is where it houses the biggest number of bacteria. And that's where we
+obtain the genomic DNA to do experiments. You can also get it from things like
+the small large intestine, the duodenum. So there are various points along the
+pipeline. It only takes, you know, a few campy to get into that farm. And for
+that to get on within a chicken, and for that to spread by the feces, you know,
+that will spread and that farm, all of those chickens will potentially have
+campylobacter. And that's the problem. You know, the problem we have is how, if
+it's in the environment, how do you stop it from coming into a farm? And then
+the question then goes, well, if it's that difficult to manage that, to stop
+that prevention at that step, how do you then work?  the steps that you can take
+to manage it? And that's where some of those other things that we talked about
+earlier come in. So has anyone done any genomic studies, say looking at
+particular farms and saying, is it the same campy that comes in every time
+genomically? Or is it different? You know, is it just a constant flow in from
+the environment? Or is it just it's ingrained in the building infrastructure
+itself, and you can never get rid of it? So I would say most of the studies have
+been microbiome metagenomic studies, but because only recently has the long
+read, I'm not, I'm not even sure if there has been a chicken microbiome long
+read study. Andrew, maybe we need to do one. I think Mark Palin did the chicken
+microbiome using long reads. So if he's gone down to species level, then it's
+possible to disentangle that and see if there were different species. Clearly,
+we know the limitations with short read, and you know, you're most likely going
+down to genus level. So yeah, it's a good question. And we'd have to look into
+Mark Palin's manuscript to observe those results. Grant, it sounds like we have
+to have a joint project there to answer that question. Sounds good. I mean,
+anyone who wants to get involved, just get in touch. The other side of that is,
+if we look at the whole genome sequencing side of things, you know, there's a
+lot of sequences now available. I believe Arnaud Van Vliet has put a bioarchive
+study out where he's looked at over, I believe he's looked at over 50,000
+isolates of Campi. So this is good as well, because this is looking at the other
+side of things, the whole genome sequencing side of things. Comparisons in terms
+of location, phylogenies, and, you know, using really interesting and useful
+software such as Rory on 50,000 isolates would be fantastic. I feel like there's
+a gap in our knowledge. I feel like, for example, we haven't had those global
+thousands and thousands of strains, isolates, comparisons, those kind of
+studies. You know, Arnaud's is a really good one, I think. I'm not sure the
+exact number, but I think it's over 50,000. So I think that's one of the first,
+actually, that have really taken everything out there and done a comprehensive
+analysis on that. So I think we have historically been missing that kind of
+study in Campylobacter. So I'm curious about one aspect of this, which is we've
+been talking about the fact that much of the differences that drive Campy seems
+to be things that are regulatory or antigenic, that are obviously going to get
+missed in short read sequencing. But I'm curious, in your opinion now, having
+gone through the whole, gone through these genomes, seen all these papers, and
+then looking at some of the long read stuff, how much are we actually missing?
+Is it a case that to really get the picture, like you can have two Campylobacter
+that basically have the same chain content, but then behave very, very
+differently because of differences with homopolymers or differences in something
+else? Even when we compare the same strain, there are single nucleotide
+polymorphism differences. OK, so even if this is a case of we're not just
+talking about, you know, different continents, we're talking potentially the
+same lab because obviously passages change things. And that's why it's really
+important that when you do get your stock of bacteria, you make a significant
+stock of that because you don't want that variation to come in from you changing
+your your reference strain you want to be using for your project, the same
+bacteria. So how much, sorry, how much plasticity would you expect then in one
+of these experiments? Well, at the least you'll have, you know, snips up to
+potentially up to over 10 genes with single nucleotide polymorphisms changing,
+which you don't know if it's going to have a phenotypic effect. And there's been
+studies that have said we've looked at X amount of Campy and we've found that
+this is the core genome. How can you reliably calculate a molecular clock in a
+short time frame with a limited thing like that if you're expecting that much
+variation within the lab? And then does that not mean that to really understand
+Campylobacter evolution, we need to have long term sampling so that we can
+identify that aberrant variation? Because I'm assuming bulk of that does not
+fix. Yeah, I mean, what a lot of people do, this is what they do in the
+laboratory, right? They get their reference, they make a huge glycerol stock of
+that for the minus 80. And they will say for the next three years, I'm using
+this and I'm only going to passage it once or twice, because I don't want to
+introduce variation after passaging it, you know, and a number of times. And
+even by default, if you passage it, you can, if you passage it, for example,
+over seven times, you might even physically see a difference on the bacteria.
+This is what makes Campy difficult to work with these kind of attributes. What
+happens with like the NCTC type strains? Have they been passaged like 50 times?
+And are they the same as you know, when the the organism was first deposited?
+Yeah, so again, that can happen. And people have worked with, if people have
+ordered that bacteria from, I don't know, ATCC, or I'm not sure where else you
+can purchase it from. What they will tend to do is make a stock of this. And so
+you want to introduce as less variation as possible. It may be the case that a
+few years down the line, you're not able to replicate and reproduce the
+experiments, the assays that you preview, what you what you're expecting as your
+reference is not being produced. And at that point, it may be a case of going
+back to an older stock or actually reordering that bacteria from ATCC. But I
+guess this knowledge that we have now about all the changes of passaging, it
+wasn't necessarily known, you know, 10, 20, 30 years ago, when some of these
+strains were deposited in those archives. Yeah, I'm curious. I mean, we had
+this, we had a poke around with with some salmonella, and we were horrified to
+find that some of the reference strains were had one or two snips between labs.
+And that was that was an absolute debacle. And then by the sounds of this, that
+if we just told everyone to send us a bit of DNA from their type strain, we'd
+probably have a very, we'd probably have an entire cloud of variation there.
+Well, I remember looking at a Typhie CT18, which is like a type strain. And
+that's the strain where we have re-sequenced, you know, as a technical control
+was missing like a 20 kb flagellin, like genes, it was just crazy, you know?
+Yeah, this is a huge issue in not just Campy and other bacteria. The advice that
+we've always gone with is, when you get your stuff from, you know, NCTC or ATCC,
+or whoever you're buying it from, you make a significant batch of that that will
+last you for a good few years. And you basically do your assays and experiments
+with the early passage, because you don't want to introduce very SNP changes or
+variation. And, you know, a good indication is you need to have a couple of
+assays that are your default assays, which you think they should always be
+producing this data, you should always be seeing an OD growth of your bacteria
+at this time point at this level. And if you're seeing that kind of thing, then
+that's a rough indication. But again, there is a very good chance that some of
+those genes, you know, the odd SNP is occurring here and there. God, that sounds
+like unit tests for microbes. The test driven laboratory science. So I would
+say, you know, with the availability of this latest technology, of course, it
+gives another layer of understanding and a layer of accuracy. Something that I
+think we've discussed on emails a few times recently, is a lot of the time when
+you're doing whole genome sequencing, which short reads, you have this DNA at
+the end of it, which is not necessarily assigned to any part of the genome, and
+it could most likely be part of plasmids. Okay, that's a really interesting
+area. There's a lot of these, let's look at the circular genome, and they're not
+even analysing what's there in terms of this extra chromosomal material in terms
+of plasmids. You can get more information, as you mentioned in discussions
+previously from doing that with long read sequencing. These factors we really
+need to move towards considering them so that when we know that we're working on
+this bacteria, this species, it has this plasmid or it has these plasmids,
+because they will potentially have an impact on our phenotypic results that
+we're observing. I've observed that with other enterics that you can have very
+small plasmids that do just drop out with short read sequencing. It's not a
+question of even having the trash at the back of the genome, they just never
+show up. There's no reads apparent, it just never gets picked up in the
+protocol. So really, there is a lot more to be done with CAMPY, and we're really
+at the early stages of understanding CAMPY and its genomics, and we're going to
+be at this for many more years to come now. What I would say is that we've
+learned a hell of a lot in the last 20 years since that first genome sequence
+came out. We know a lot about functionality, we know a lot about physiology,
+we're starting to understand more and more of the intricacies, for example, how
+and why, how campylobacter can survive in the environment. I think what is 100%
+clear is because historically it's been a difficult bacteria to grow, and we
+haven't had a good convenient animal model. And allayed to that, you know,
+linked to that is all of these difficulties in terms of changes in genomic
+structure, even through passaging, you know, these things cause issues with
+CAMPY. And I think certainly things like long read sequencing, cheaper
+sequencing, that we can do sequencing,  more often, these kind of things will
+really help us in the future to try and get a hold of these issues. And
+something like that software, for example, to look at homopolymeric tracts in
+more detail is the kind of thing we need to basically have an explanation when,
+one, our phenotypic assays are not giving results that we've seen historically,
+and two, to ensure that our phenotypic assays are actually giving a correct
+phenotype, not caused by differences between strains, for example. Since you're
+touching on that, new bioinformaticians are moving into working on CAMPY, what
+are some of the things that they need to know? I mean, this issue around passage
+and being circumspective about your genomics is important. That's something to
+keep in mind. You don't normally have to worry about that with other organisms.
+What else is there for CAMPY? I think that there's just sheer variation between
+not only species, but even in strains. And I just think just to be conscious
+that sequencing a single campylobacter, it's no way representative, a strain is
+no way representative even of that species. And you will get huge variation, you
+know, for scientists, for computational scientists to come into the field,
+really to be aware of that, that there is this huge variation. There is this
+huge plasticity. Having that in the back of your mind, I think will go a long
+way in terms of helping you to analyse these genomes. Yeah, so you've already
+touched on TataJubas, one of the kinds of software you'd like to see coming out
+from bioinformaticians in helping with CAMPY, but what else is on the wishlist?
+What else can BIMFIs do? Yeah, I think bearing in mind, we have such an
+increased number of isolates and strains being sequenced all the time. Those
+large genomic comparisons are great. And the software, you know, software that
+can do those pan-genome analysis, we touched on one with Rory, those kind of
+software, they really help. In the lab, obviously, we need a better convenient
+animal model. And, you know, there can always be, you know, incorporation of
+novel techniques, for example, to make mutagens, mutants, mutagenesis, better
+and newer techniques. I think there's a lot of laboratory scientists, and I feel
+also that there sometimes is still a lag in the CAMPY laboratory field, that the
+historical people who work, for example, in pathogenesis and physiology, they're
+not necessarily adopting all the available tools bioinformatically,
+computationally available. And there is a lag. I'm hoping that the newer
+generation can have a sort of foothold in both bioinformatics and laboratory
+science. It's not always easy, easy to do that. But at the least, I would say
+that the next generation of researchers that come through, they will, at the
+least, are what I feel, what I've seen, more comfortable in a computational
+environment, so they can at the least incorporate these tools in their research.
+Okay. And with that, that's all the time we have for today. We've been talking
+about CAMPY labacter and the specifics that bioinformaticians need to keep in
+mind when studying this organism. Our guest today was Dr. Ozan Gongadou. He
+leads the Foodborne Enteric Pathogen Group at the London School of Hygiene and
+Tropical Medicine. And again, it's been really great to have you on, Ozan, and
+talking CAMPY. Yep. And we'll see all of you next time on the MicroBinfy
+podcast. Thank you so much for listening to us at home. If you like this
+podcast, please subscribe and rate us on iTunes, Spotify, SoundCloud, or the
+platform of your choice. Follow us on Twitter at MicroBinfy. And if you don't
+like this podcast, please don't do anything. This podcast was recorded by the
+Microbial Bioinformatics Group. The opinions expressed here are our own and do
+not necessarily reflect the views of CDC or the Quadram Institute.

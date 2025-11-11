@@ -1,0 +1,305 @@
+Hello, and thank you for listening to the MicroBinFeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There's so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Andrew
+and Nabil work in the Quadram Institute in Norwich, UK, where they work on
+microbes in food and the impact on human health. I work at Centers for Disease
+Control and Prevention and am an adjunct member at the University of Georgia in
+the U.S. Hi, everyone. It's Nabil up here in the editing booth. In this episode,
+we continue talking to Thuy Jørgensen and Kai Blin about developing new
+protocols and software to track SARS-CoV-2 variants of interest. Okay, so maybe
+taking a step back, right? In terms of CT, how does your method work as a CT
+goes up, as a viral load goes down, or the samples become degraded? So that's a
+great question. So CT, of course, is not just CT. So for example, the qPCR
+that's currently being run at DTU, it has seven dark cycles before starting to
+record CT. So this changes the CT value. So with this system, this has been
+tested by some of the hospitals to be around five normal cycles because
+annealing temperature is higher in those seven dark cycles. So that's about...
+So you have to... To the numbers I'm going to mention, you have to add about
+five cycles to get another setup. But so basically, we have about 90% up until
+CT30 with our system, CT35 with other systems that would translate to. And then
+it starts dropping off until... So we do 45 cycles of PCR in our PCR. And
+samples that have a CT of 35 in our system, so 42 in other systems, only succeed
+in 25% of cases. But those are edge cases, so extreme that they would generally
+not be called from the qPCR either. So these results, again, we have the luxury
+of not having to make the decision. We only report what we find. What's your
+cutoff for a positive? Do you say like a CT of 40, like maybe where there's one
+viron? Yeah, we do not have one. So all samples that show any threshold of any
+of the targets in the normal qPCR, we sang a sequence. And the overall
+efficiency, so the first batch of 195 samples we had, had an overall efficiency
+including 510 samples that only recorded one target in the qPCR. So we had an
+efficiency of 85% in our Sanger setup. Have you done any limits of detection on
+your setup? No. So, but we have tracked, we have some like, so we have the CT
+values of these samples and we have in the manuscript that will come out, we
+have a comparison of the CT value. If we got a result or not. I think it's
+pretty incredible that you might be indicating that your CT threshold might be
+very high, that you can detect very small numbers, kinds of genomes. Because I,
+just putting that in context, I mean, I think that a lot of people around the
+world have a threshold of CT 30 or 29 or something like that for genome
+sequencing or a company that I talked with even said that they had to go as low
+as like 26 or 24. So that's also like, depending on the qPCR setup, that can be
+different, but I understand completely because like our efficiency is not high
+either when we get to those CTs. The beautiful thing is just that it's so cheap,
+like it costs $5 to run a sample from end to end, including all classware,
+including everything. So we don't care if it doesn't work. We care if it works.
+Can I comment on something in the paper also along these lines? I mean, we, I
+guess we haven't gotten into the actual paper itself, but I really liked some of
+the language you put in there because you were, you were basically saying like,
+Hey guys, this is 2000s technology and it's the good stuff still works, the old
+stuff still works. And I, I really like how you kind of drove that home. And I
+think you're kind of driving that here in your language. Yeah. So that this was
+our approach. We have like my usual job. I haven't touched Sanger sequencing
+since I started doing my master's thesis in 2008. Like this is not normal for me
+to do Sanger sequencing. It's not my first or second or third choice. Like I do
+nanopore sequencing and Illumina sequencing, and I've done all parts of the
+process from extracting the DNA to pressing start on the Nexsec machine and on
+the, on the Minions. And Kai and I just discussed it and figured that this would
+be the simplest thing that would work. And then we tried it. I mean, we, I was
+actually a little bit embarrassed at first and we have also gotten some laughs
+because this is, there was somebody who wrote to me in joke, jokingly, welcome
+to 1995. And I appreciate that a lot. So contamination is a huge issue in our
+lab, particularly when you're doing so much PCR. And I'm wondering, could you
+walk me through how you handle your controls and how you detect contamination?
+Yes. So basically it's the same people who set this up as the people who work in
+the normal qPCR detection. So that means that they have all the, all everything.
+It's the same, it's the same reagents, it's the same people, it's the same
+rooms. So what we have is we have good separate physical separation of the
+samples. So the master mix is prepared in one room. The PCR is set up in another
+room. It is run in a third room and it is moved to new wells in a post PCR room.
+People who enter the post PCR room cannot go back to any of the other rooms. So
+like we have, like, like this lab is usually dealing with animal diseases and
+animal disease detection. So they are like, their customers are very, very
+dependent on them having a very clean set up and like the least possible
+contamination. The way that we then detect if those contamination is just to
+have four negative controls per sample that spread out randomly. And we have, we
+have never, we have seen individual, very rarely we see one position being
+called as either a mutation or no mutation, but we've never seen a full length
+sequence from a negative control. Contaminations happen like that's like that
+happens in absolutely every system, but about we have minimized it in a lot of
+different parts of this chain. And do you run a positive control? We do not run
+a positive control. We have considered running a high titer positive control,
+but we have not, we have not done that. So that's actually not part of that has
+been suggested by SSI as well, but it does not, we haven't implemented that now.
+But like, so as like, so in the PCR, the qPCR, then you will actually need to
+analyze a negative result. But if we get a negative result here, we don't
+actually analyze it. We only analyze when we get a call. So I think it's less
+important to have positive controls than it is in the qPCR. So how much does
+your method cost? $5 per sample, including everything. And it is simpler than
+any other workflow. There's no new machines. There are no, there's no new
+enzymes. There's minimal handling time and those minimal analysis. And there's
+almost no data storage because it's really only 300 kilobytes per sequence that
+we get in. So like there's no multiplexing, there's no demultiplexing, there's
+no assembly step. So a lot of the steps that usually take up a lot of energy,
+even though they're not being talked about so much, simply don't exist in this
+setup. So it costs $5 and it is so simple that anybody who can do a PCR test can
+also run a variant screen this way. And how much hands-on time is there? Setting
+up one PCR and spending five minutes moving some of that product into a new
+plate. Wow, that's really quick. Yes, it is very, very, very quick and easy
+setup. Thought about deploying this elsewhere. Has anyone been in touch? I mean,
+I know it's very new, but have you been talking to other people about maybe in
+just countries that are getting started with COVID? Yeah. I had a meeting with a
+representative from two African countries a couple of weeks ago where I tried to
+convince... They have Sanger sequencing in-house, both places in their COVID
+testing unit. And I tried to convince them that this would be... They could test
+all of their positive samples with no investment. And I don't know if they have
+actually started it, but I would love to spread the message. It's also like
+there's really no investment in starting this. And we scale to full production
+in less than a week. So it's really ridiculously simple. And anybody who has
+resources to do PCR test has resources to do this as well. That's awesome. Okay.
+So you've got your software in GitHub and you've got a paper coming out on, I
+presume, bioRxiv. Is that right? Unfortunately not. So bioRxiv said, no, thank
+you. So it's metaRxiv, which actually turned out to be a little bit of an issue.
+In Denmark, this type of study, because it is completely anonymized data, like
+there's no personal tracking information in it. So we do not need an ethics
+approval for it. metaRxiv does require ethics approval. So that means that I now
+have had to write an ethics approval statement and ask the Danish Ethic Approval
+Board to say that it's not necessary by Danish law. And then I need to state
+that in my submission to metaRxiv. Have you considered going to preprints.org or
+one of the other preprint servers? I have, but I have not done so. But I have
+considered that, yes.  itself is actually up on protocols.io. So between that,
+the GitHub site, and I think there's a page on SSI that has the software so you
+can run it, right? Yeah. You're pretty much, I think that that's all anyone
+would require to get started, right? I don't think there's any additional info.
+No, there's no information you need to get started, but seeing information on
+the actual calls, on the results that this generates, that is not either of
+those places. So like seeing that it works and how well it works, that will be
+in the pre-print. I did notice that there is this web app from SSI that seems to
+be running the software, making it available to anybody. Could you tell us more
+about that? Part of our idea here was to have a method that was sort of as
+accessible as humanly possible to get the whole thing off the ground, right?
+Because, I mean, as Tua said, we stood up the whole thing in like about a week,
+and that was sort of time that we could easily invest. But, I mean, I also know
+that usually when you want people to use a piece of software, then you of course
+also need to spend some time maintaining it. And it was clear that even if you
+just wanted to roll it out here in Denmark, it was going to get rolled out at
+the different hospitals and the different regional test centers and everybody.
+And a lot of these people don't have dedicated bioinformatics staff. So, I mean,
+all of the sort of getting set up, getting the dependencies installed and
+everything needed to be as simple as possible, right? So, I mean- Can I add to
+that, that just running it command line would also be a challenge? Like this is
+a barrier that some people are not going to make. Yeah, so we have the command
+line tool, and that's sort of what sort of I do all of the development on, and
+that sort of is also sort of my preferred way of running it. But it was clear
+that this was not sort of end user compatible for the people that we targeted
+this at. On the other hand, sort of my usual go-to solution for this would be to
+set up like a web service where you can just upload the data and run it. But, of
+course, that also comes with the challenges because, I mean, hospitals are
+rightfully squeamish about uploading patient sample data to some random website,
+right? I mean, we could have built something that works within Denmark that
+would be sort of compliant with all of the requirements by, I don't know,
+hosting it at SSI in some internal network or something like that. But again, in
+order to make it sort of more widely accessible, sort of, it was nice to have
+the option to go for another solution. And there's a small spinoff company from
+the SSI as far as I understand that basically builds like bioinformatics
+environments by sort of transpiling whatever software you want to use into
+WebAssembly. And then you can run the whole thing in your web browser. So
+basically they already had Bowtie and SamTools binaries available in
+WebAssembly. And then for this pipeline, what they had to do was to go and build
+a Tracy WebAssembly library. To get Tracy in. And then I think they also have a
+Python interpreter. I probably just have CPython transpiled to WebAssembly. And
+then that just runs the Python script. And I'm not sure how exactly their
+runtime works under the hood, so how they link the files and the input data and
+everything. But I mean, in the end, it's like the command line script that runs
+within the browser in WebAssembly and then just dumps out our standard output
+onto the screen and creates a zip file of all of the results that we have that
+you can then download. But I mean, the data never really leaves your computer.
+So it's really just the browser making the internal blob available via the
+download function. So basically you can go to the website. I mean, though that
+is at this biolib.com website, the actual data never leaves your system. But
+that's amazing. So essentially you, it's by opening the page, you're sort of
+downloading the app onto your, running it in your browser, but all the data
+remains on your system, which is fantastic. And I mean, this is space age kind
+of technology. Yeah, this is pretty amazing. I'm always, I mean, like the
+performance takes quite a bit of a hit doing this. So I mean, it takes like
+three to four minutes to run this on a hundred samples instead of like 10
+seconds, right? But I mean, for the convenience of not having to deal with any
+of the dependencies, and I mean, as a bioinformatician, you will know that sort
+of dependency handling is like the thing that you spend 80% of your time on, and
+then like you need to spend the other 80% on actually getting your job done. And
+here is sort of you take out like the dependency handling part of the work. And
+I mean, that's really super convenient. And I mean, it's not like the most fancy
+interface ever. It's just like a couple of input boxes where you can like put
+the zip file in and select what reference you want to use or something like
+that. And then you hit run and it comes back with a text box of the output,
+right? But I mean, it's workable and it gets you the results within a couple of
+minutes, which I mean, again, for the we're talking about an overall turnaround
+time of like around a day or two from, I mean, a bit more from swap to results.
+So I mean, three, four minutes of runtime for the software is really not a big
+deal. Yeah, so the company that set this up is called BioLib and I think they
+did a fantastic job. I think it's also worth mentioning that, guys, it's kind of
+the push of a button is kind of a joke in the bioinformatics communities, but
+this is really a push of a button. Like there's one button and you push it to
+start and then you get your result. So I think that the button says run, by the
+way. Yeah, I mean, it's obviously a very single purpose piece of software where
+you can do this, right? I mean, like the simplicity wouldn't scale to a more
+complex analysis pipeline, but like particular for this kind of analysis and
+given the fact that the people who usually run it are sort of not computer
+people whatsoever, like the training required is very simple because as Tua
+said, it's really just like push one button, wait a bit, your results are there,
+you like take them and put them wherever they need to be entered, done. You guys
+are like really scaring me with the one button thing. I know you're saying that
+it's really easy, but then something happens and then it's not easy. I mean,
+it's not for all pipelines, right? I mean, but for this particular one, you also
+don't have like a ton of options for the command line script, right? I mean,
+like there's a bunch of options that I basically built in because I thought they
+were kind of need to have, right? So we started out with only looking at
+specific mutations and I saw that a couple of samples, we had like mutations in
+the position, but sort of not from the amino acid to the, or not to the amino
+acid that people were interested in. So like the official sort of policy was we
+don't call them as we found that mutation, right? So, I mean, it's like the P681
+position has a couple of different mutations that are possible or I think it's
+that one. And there's like a histidine and an arginine or something like that.
+And like, initially we were only interested in the histidine. So if we found an
+arginine, we were not supposed to report that. But I mean, there is a command
+line switch that says, well, I expected the histidine, but I found an arginine
+instead because I thought it was neat. But that was sort of me not being able to
+switch off the scientist brain, I guess. For again, like for the public health
+angle of this, sort of like the use is very simple and like the less things
+there are to twiddle, like the less likely somebody is going to misuse it and
+get the wrong results, right? And I mean, at the end of the day, so from a
+public health perspective is sort of not isolating a person that should have
+been isolated or like not doing the contact tracing with sort of enough vigor is
+like worse and like false positives are less problematic than false negatives
+and some of that, right? So again, it's a bit different to what you usually do
+when you sort of work in science. Yeah, one more thing about what you said too
+is just, we might've talked about this like even last year on this podcast, but
+like WebAssembly is kind of the future, I think for a lot of stuff to make sure
+things run. And I think that would be an interesting topic to focus on another
+time. I think exactly for the reasons that Kai was talking about that you can
+deploy the app without getting around installation on a system, getting around
+dependencies and the date, and you can assure the user that the data remains on
+their machine is a huge boon for public health applications. Obviously there's,
+I think there's a lot of work in terms of making it more efficient and that's
+just down to writing a better port of whatever for the WebAssembly language. But
+you can write Rust, right Lee? So you can do all of it. I can do anything, yeah.
+Yeah. I'm magical now. I mean, it's really, really mainly interesting for the
+like external tools perspective, right? So, I mean, like if we had targeted
+WebAssembly from the start, I mean, I could easily have rewritten like the
+Python pieces of code that I currently have for Rust, but that still would get
+you only so much, like so far, right? Because again, we want to run Tracy, which
+is written in C. We want to run Bowtie, which is written in C++ and SamTools is
+in C++ as well.  well, I think. So like that, you also need to support. And
+again, I mean, it's also for all the compiled languages, it's still pretty
+straightforward to get some WebAssembly. I think like LLVM now has a WebAssembly
+target. So I mean, technically, you can probably get everything from there into
+WebAssembly very decently as well. I mean, I must say, I mean, personally, I'm
+more impressed that they could just run like random Python script in WebAssembly
+and that worked. And of course, also all of the being able to pass the data
+around. So I think they have a slight patch set on top of the original script in
+order to make that happen. So I mean, like the call outs to the external tools
+and where I use sort of pipes from Bowtie into some tools and stuff like that,
+they need to do something slightly different there. But there's a pull request,
+like a draft pull request on the GitHub repository that basically has there
+changed that. So I mean, we're not going to merge that because we still want to
+be able to run the standalone command line tool. But it's sort of out there in
+order to look at it and see what's happening. And of course, I mean, like all of
+the magic is happening in their proprietary back end. So I don't really know how
+that works. But I mean, it's pretty nifty. I fully agree. So actually, this is
+also the setup that we are using. So the biolib page is not only there for other
+people to use it. This is what the people who work in the pipeline day to day is
+using to analyze the results. So I think we have a couple of other installations
+as well. So I've talked to some people from, I think, Aarhus University who were
+setting up something else there. And they're running everything on a cluster. So
+that's where the Singularity images are coming from. Because they were like,
+hey, we'd like to run it on our cluster. And Singularity is the most
+straightforward thing to do there. So here's a Docker file. Can you please add
+it? And I mean, the reason why it's in Bioconda is because when Tua got started
+and we were playing with the prototypes, he was running on his Windows machine
+and Bioconda was the thing that he had set up. So it was just the easiest thing
+to make sure that he could go ahead and try a new version of the prototype if
+you could just go ahead and install all of the dependencies from Bioconda. And
+then, I mean, seeing how all of the dependencies were in Bioconda anyway, I
+figured just getting Bioconda set up so you can also install the tool itself
+from Bioconda was pretty straightforward. And I mean, Bioconda has this Bioconda
+bot that basically picks up new releases when I do one to PyPy and automatically
+does a new pull request. And I basically just need to go over and say, yeah, I
+did indeed release a new version. And I'd like to have that one in Bioconda as
+well. And basically just need to tell it, OK, it's fine. Merge the request,
+please. And then within however long it takes for them to build and roll out the
+new packages, it will also be available in Bioconda. So again, it's really, as I
+mentioned before, to add a new mutation that falls within our window, all we
+need is five minutes of work to go and open the editor, find the code, add a
+line into the dictionary of these are the mutations we care about, and then do a
+new release. And then within a couple of minutes, we have the new thing up and
+running. So I mean, it's really, from a software engineering perspective, it's
+pretty straightforward and not a lot of work. So I mean, that's nice because
+it's a side project, right? So it's an important side project, but it's also
+something I'm happy that I don't need to devote too much of my time to this. I
+think if I can add one thing before we end this, it's actually the scalability.
+I'm a little sad that I completely forgot to talk about that. But as Kai
+mentioned, this is like one sample costs a fifth of five samples. And it costs
+five times as much to run 25 samples. So all the other systems, they don't scale
+particularly well. You need a minimum amount of samples to press start on an
+Illumina machine. But this really, you can take whatever amount of samples you
+want, and it scales completely linearly. And it's dirt cheap. So that's all the
+time we have for today. We've been talking about SARS-CoV-2 and a new method for
+identifying variants of concern using Sanger sequencing. Welcome to 1995. I want
+to thank Kai and Thuy for joining us today. And thanks to everyone for
+listening. Thank you all so much for listening to us at home. If you like this
+podcast, please subscribe and like us on iTunes, Spotify, SoundCloud, or the
+platform of your choice. And if you don't like this podcast, please don't do
+anything. This podcast was recorded by the Microbial Bioinformatics Group and
+edited by Nick Waters. The opinions expressed here are our own and do not
+necessarily reflect the views of CDC or the Quadrant Institute.

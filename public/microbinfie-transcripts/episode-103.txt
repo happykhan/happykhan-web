@@ -1,0 +1,324 @@
+Hello, and thank you for listening to the Microbinfeed podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. Hello. Welcome to another Software Deep Dive, where we
+interview authors of a bioinformatics software package. Today, we're talking
+about Kraken, the taxonomic classification software, and in the hot seat are Dr.
+Jennifer Liu and Natalia Rincon. Jen is a staff scientist working with Steven
+Salzberg in the Johns Hopkins University Center for Computational Biology. Nat
+Rincon is a PhD student in biomedical engineering, also in Steven Salzberg's
+lab. There was recently a paper in Nature Protocols on which Jen and Nat were
+co-authors about metagenomic analysis using the Kraken software suite, and there
+seems to be a lot of tools that have been developed around Kraken. So today,
+we're going to deep dive firstly into Kraken itself and then into the wider
+Kraken cinematic universe. Let's kick it off with something easy for people
+who've been, you know, living under a rock. What is Kraken? What's the problem
+that Kraken is trying to solve? So Kraken was developed back in 2013-2014 to be
+a classification software. And for those that are not as familiar with the
+space, it basically means it's trying to take sequencing reads and tell you as
+specific as possible what those reads are. So it's going to assign them to some
+kind of taxon, whether it can assign them to a specific species, or if that read
+is DNA that's shared between different genomes across the taxonomic space, it'll
+assign them to a genus level or even sometimes just to a general bacterial
+level. So it tries to tell you what those reads are. So when someone wants to
+look at reads and they want to figure out how to classify them, why does someone
+choose Kraken over a different software? Like what are the unique selling
+points? So Kraken is, when it came out in the space, it was one of the fastest
+programs out there. One of the fastest, especially compared to BLAST. So a lot
+of people are very familiar with BLAST where you can just blast reads and it'll
+try to give you what it's matching. But because of the algorithm that it's
+using, which is exact matching, it's significantly faster and uses
+significantly, I would say, less memory space and it's just faster in general.
+And especially when you have millions or billions of reads, which you might have
+in any given sequencing experiment, it's just going to be a lot faster to be
+able to tell you what's in your sample. And I guess to add to that, I would say
+that for BLAST, you'd want to do like shorter sequences because of the speed.
+With Kraken, you can really do whole genome sequencing of like classification of
+whole examples. Other than just using BLAST on what else, what other tools were
+out there at the time? So if you look at many of the comparison papers that are
+out there today, you'll see that Kraken is often compared to Metafland,
+specifically MegaBLAST. There's other various tools that have also been brought
+up to compare to Kraken, QIIME being one, if we're talking about the 16s space,
+Centrifuge is one that was also developed in Steven's lab, but it kind of
+approaches the problem in a very different way. And so there are a number of
+comparison papers that I suppose will tell you various different results as to
+which program is actually better. And so I've learned to skim through these
+comparison papers, but not give them too much heed. There's quite a bit of
+debate that's ongoing, but I think that one of the things that is notable is
+that through all of these comparisons and as the space continues to evolve,
+Kraken continues to be one of the leading tools in the space. And so I consider
+Kraken to be a fairly easy to run suite. It's fairly fast and with the new
+improvements on it, it doesn't require too much memory. And I think it does good
+at classification and good at what it's supposed to do. You said you don't pay a
+much heed, but I mean, has there ever been some classifier that came out and
+you're like, they did a good job at that. I didn't address that or that did
+something different than mine, or that's a good idea that I should incorporate
+too. I think that there have been instances where I've, so I guess, for example,
+in the 16s space, there's a recent tool called EMEA that came out. And I think
+that because of the ways that the databases are structured and 16s is a whole
+different world in and of itself, I considered EMEA to be a pretty good tool for
+doing 16s classification, especially in comparison to Kraken. I think that
+there's still some bugs to be kind of figured out, but I think it's more on the
+database size rather than the tool itself. I haven't really found that Kraken
+itself as a tool and as a method needed to be improved upon significantly.
+Obviously, since its inception, one of the big things was decreasing the memory
+size of Kraken databases. And that's something that has been addressed in recent
+versions of it. So I don't consider, but the actual method itself of
+classification, I consider it to be pretty good in and of itself. I think that
+constantly we're looking at databases, we're looking at the increasing database
+size and just trying to make sure that runtimes and memory usage are limited.
+For those people who don't know, what would be the typical amount of resources
+required to run Kraken? So it changes by the day, it changes by the day based
+off of the number of genomes that are out there. And so the base for Kraken, it
+uses all the complete genomes in RefSeq, in NCBI RefSeq. And it's using the
+bacterial, archaeal, viral genomes plus human, currently GRCh38. And I think
+that originally databases were not significantly big, but I think that they can
+run on the order that years ago they probably ran on the order of like 50 gigs.
+But because of the increase in the number of genomes, the databases for Kraken 1
+got to 300 gigs. And so that's when we had to really kind of scale back and
+change the way that the databases are stored. And that's when Kraken 2 now
+addresses this and brings the database size down to about 30 to 50 gigs of RAM,
+which I think is fairly reasonable. But then also you have the options of mini
+Kraken. And so this has been a constant. So since the creation of Kraken, we've
+been aware that people are not always going to have 30 gigs of RAM on whatever
+system they're running Kraken on. And so they provided mini Kraken where you
+could say, OK, my system only has, say, 8 or 16 gigs of RAM. Can I run Kraken
+still? And so you can choose to make a database called a mini Kraken database
+where you specify how much RAM, how much memory you want this database to hold.
+And so it'll build the database in 8 or 16 gigs of RAM. This will decrease the
+sensitivity so you'll have more unclassified reads, but it still allows you to
+be able to run Kraken. And the only thing of note with the different database
+sizes is that if the database is smaller, you have less information that you're
+comparing against. So you'll likely have many more unclassified reads. So if
+you're really doing like an in-depth analysis, you'll probably need some
+external compute resources, but you can potentially run it like on your laptop
+or with limited resources. So while you're on the subject of databases, like my
+go-to at the moment is using the GTDB taxonomy with all the genomes that they
+pull in. Like what is your preferred taxonomy? For our own projects, we've
+always just gone with NCBI RefSeq as that's changed and evolved. But I know that
+some people do use the GTDB taxonomy, and I know that there are people that have
+built Kraken databases for that. Specifically, they do provide GTDB Kraken
+databases. And that's the other thing that is kind of useful is that we, through
+Ben Lang Means Lab, provide Kraken databases that are pre-built so you don't
+have to go through the process of getting the genomes and building them. And
+same with the GTDB Kraken databases. And so these are pre-built databases that
+you can just download and just run Kraken. Otherwise, you would have to build
+your own database, which for some people can just take a lot of time and be a
+little bit more difficult and run into other issues. I was wondering, who are
+the major people involved currently in the development process other than both
+of you? So Kraken itself was originally conceptualized and created from Derek
+Wood and Stephen Salzberg. And so I would consider this Kraken to be kind of
+Derek Wood's baby in a sense. It's been a project that he's been on since the
+beginning and a project that he's very, very involved in. Over the years, as
+we've.  kind of re-evaluated how Kraken reports things, and as Kraken itself has
+evolved and gotten better, other people have been involved in the process. And
+so Florian Breitweiser, he wrote Kraken Unique, which we'll talk about later.
+And he and Steven kind of evaluated or created this new version of Kraken, which
+was based off of the original Kraken. So it uses the same concept, but kind of
+gives you more information. Other people that are involved in the maintenance of
+this, of Kraken Unique, are Christopher Paukrant, who's now in Germany. And then
+Alexei from Steven's lab is still maintaining the software. Other people that
+also have now been involved is including Ben Langmead, who I mentioned, he's the
+one providing these Kraken pre-built databases. And he and Derek worked together
+to create Kraken 2, which is the main version of Kraken now today. Martin
+Steinegger, who's also on the protocol paper with us, he's the one that kind of
+headed the efforts for this protocol paper alongside me and Nat. And so I think
+between all of us, that's quite a large group of people that are going through
+this. I've kind of become the face of Kraken in a way, where I'll still be
+looking through all the GitHub issues and trying to help with this. But yeah, so
+a lot of us are now involved, and we're developing more and more tools and kind
+of things to assist with Kraken, and just trying to make sure that it's usable
+for everybody. And I guess the only thing I'd add was that Jen wrote Braken for
+abundance estimation, and you can use the Kraken output into the Braken output.
+And then I'm part of the newest editions of the Kraken tools, which is like the
+diversity ones. So after you have your abundance estimation, you can use, or you
+can easily find like alpha diversity and beta diversity, like within the same
+suite. So Nat, you're kind of writing the next edition of the newest twist on
+Kraken. What can we expect? What is the alpha and beta diversity? So those two
+are just more specific metrics for when you're trying to look at diversity in a
+sample. In the protocol paper, the first like section, we have like two
+pipelines sort of. The first session goes through just like looking at reads,
+knowing that you have two different diversity levels and being able to just have
+a quantitative metric for it, which is what alpha diversity and beta diversities
+do. And one is like within community richness, and then the other is more
+comparing between communities. That's nice. So I think I'll address the elephant
+in the room. Do you guys know where the name comes from? So I believe, and this
+is, I was not involved in the creation of this name. And so this is what I've
+heard from the people that were originally involved. So they created, they just
+chose Kraken. So it's not an acronym, but they chose Kraken as kind of a
+mythological creature. I think after the fact that the original Kraken relied on
+jellyfish, and jellyfish is a camera counting tool. And so you still use it in
+camera counting today, but the original Kraken, you relied on jellyfish to
+create the database. And so it kind of wanted to go off of that as like a sea
+creature kind of thing, and then make it more of a mythological sea creature.
+And so that's how they chose Kraken. But that's not an acronym, as far as I'm
+aware. And if Derek decides to let us know, otherwise, I'm sure you'll hear from
+him. Have you ever heard Derek say, release the Kraken? Many times. So he and
+Steven did write a paper recently on releasing the Kraken, where they kind of
+went through the process of creating the software and how they kind of
+conceptualized it in a way. Yeah, and this was a 2021 paper that they released.
+So once I've run Kraken, I've put my reads in and it's aligned to what's matched
+with the database. What are the outputs I can expect from the base Kraken? So
+base Kraken will give you two outputs. One is a very long text file, where for
+every single read, it's going to give you the read ID, whether or not it was
+classified, and then the taxonomy ID of like the classification, along with a
+breakdown of all the cameras. And so Kraken uses exact camera matching to try to
+tell you what's in your sample. But then it also kind of, for each read decides
+on, okay, this is what this read is, it belongs to this genus or belongs to the
+species. And so it gives you that very long text file, wherever every single
+line is a different read and with the taxonomy classification. But then the
+other output that Kraken provides, which I think is a little bit easier to read
+is the Kraken report, which gives you a breakdown of for every taxonomy ID, how
+many reads do you have. And so there's kind of two numbers that it gives for
+every taxonomy ID. And one is for that for that taxonomy ID, how many reads are
+classified directly to that ID. And then for that taxonomy ID and like tree, so
+for given us, so for example, if you have a genus, it's going to be like, okay,
+there's maybe like 100 reads that belong just to this genus, and I can't specify
+further what they belong to. But then it's also going to give you another number
+that's going to be larger. And so like, say, like, okay, there's 150 in this
+subtree. And so that would be like, okay, there are 50 reads that I can specify
+to species in that genus. But there's 100 that are just at that genus. And so
+that would be the 150. And I'm sorry, if that doesn't make a ton of sense. It's
+easier if you kind of like look at the report itself. Yeah. So in that, I think,
+I mean, that's just the count. How does someone interpret? Can someone interpret
+that report? So what would you say is a meaningful hit that a particular species
+is actually there? I mean, is five reads enough or 1000 reads enough? Or how do
+you guys interpret the report? I think it really depends on what the sample is
+originally. So we've actually found and this is the reason why we don't tell
+people to filter out initially, as we've actually found that taxons with very
+few reads can still be incredibly meaningful. And I think we found this when we
+were looking at brain samples, where we ran brain samples, we sequenced them,
+and we classified them with Kraken, and we looked at the reports. And we kind of
+compared the reports to each other and found that even there was one instance
+where one sample had very few reads, I think only on the order of maybe a dozen
+reads that belonged to a species, but that species was not found in any of the
+other samples. And so that kind of raised our flags a little bit. And it was
+just like, okay, well, this probably isn't a contaminant. And what can we look
+into further? And we found that that was a true pathogen, a true species that
+was in the sample. And that was really important for our downstream analysis.
+There are cases where you care more about just like overall what's in your
+sample. And so you might not care about those very few reads that are hitting
+these various species, but there are instances where you want to kind of look at
+all of them collectively. And I guess one thing that I'd add to that is that
+depending on what you're using it for, you might want to use Kraken Unique
+versus Kraken 2. So like, if we're doing infectious pathogen detection, like in
+the brain samples, and we've done it for these like corneal samples where we
+really are looking for a couple of reads that will say, or give us a candidate
+for a candidate pathogen as the cause of the infection. So we really are looking
+for 5, 10, 20 reads. But if you're really just looking at diversity in a sample,
+Kraken 2 is faster. Maybe it won't give you that sort of resolution that Kraken
+Unique will, but yeah. Great. Are you also kind of making a distinction between
+like Kraken 1 and Kraken 2 when you say Kraken Unique, because it's basically
+like counting k-mers versus comparing it on the minimizer level. So is that
+going to be something that gets in the way? Is that kind of what you're saying?
+So Kraken Unique is included now in Kraken 2. And so when we say Kraken Unique,
+we're talking about running... So there is Kraken Unique and there's Kraken 2
+Unique, and these are pretty much the same thing, same concept. And yes, they
+are k-mer versus minimizer. But conceptually, it just means that you're going to
+get a different column, an additional column in your Kraken report, which is
+going to try to count the number of unique k-mers or minimizers in addition to
+that, which can help validate that result, validate that count. Because what we
+found is that if there is contamination, either in the database or in the
+sample, the number of k-mers or minimizers is not going to reflect the same
+number of reads. And so you might have a lot of reads, but very few k-mers. And
+that probably means that there's some kind of contamination somewhere. Can I
+ask, in terms of the input data, what is the impact of, say, using Nanopore
+over, say, Illumina? And do you do things like check to see, like, if you have
+four universe reads for Illumina, you know, is it calling the same species for
+the same read? Is there anything like that? We typically suggest... So Kraken
+was built with Illumina reads in mind. And so it is kind of assuming that error
+rate. And so what people have found with Kraken with Nanopore reads, which you
+can run Kraken with Nanopore reads, but because of the higher error rate, there
+is a bit of a loss in accuracy when it comes to classification. So you would
+probably want to adjust parameters slightly. If you were building a database
+with Nanopore reads in mind, you would probably want a smaller k-mer size.  But
+we haven't quite figured out what that camera size might be, but it is giving
+you longer reads. And so there are more cameras in that read that you could
+classify against. And so it kind of is that balancing act of trying to figure
+out what the best parameters are. So that is actually a really important take
+home, because I've been using a database built for Illumina, but with Nanopore
+data. So I need to change things, I think. The interesting thing is that what
+we've found is because Nanopore chemistries have been changing so frequently,
+it's a lot harder to fine tune a Kraken database to a Nanopore dataset when the
+accuracy of those reads is constantly changing. And so Nanopore is a fairly, I
+would say comparatively new technology, and they're still kind of fine tuning
+the chemistry. And we work very closely with Winston Tim's lab, who is always
+testing new chemistries. And every time we think we might get close to the
+perfect parameters for Nanopore reads, suddenly the chemistry has changed. And
+so therefore the accuracy of the reads has changed. And so I will say that I've
+found that it's OK to be just using the base, the same databases for both
+Nanopore and Illumina reads. Just be aware that you might have slight
+differences in the classification because of the difference in accuracy. So I
+had, this is sort of a help desk question. So one of the questions I run into is
+sometimes reads are assigned to the root, but no further. And then sometimes
+reads are assigned, are unclassified. And so what's the difference? So for the
+reads that are unclassified, it means that it was not found in the database. So
+it didn't have any hits. If it's classified at the root, it means it had many
+hits. So we can put it at a more specific level. That's pretty, that's basically
+it. I think in that instance, for the unclassified reads, you might want to look
+into those further. And so you can extract out the unclassified reads and try to
+see what else they might hit, too. And so remember that the base Kraken
+databases are only like microbes plus human. And so you might have, say, some
+vertebrate DNA in there or some plant DNA that's not being detected. And so I
+think those are of interest. For the ones that end up at the root, I think that
+they end up being at the root because of contamination or just because of k-mers
+that may be shared between, say, vectors and human. And so those k-mers are just
+found across the taxonomy at such a distance that Kraken is saying there's
+nothing we can really specify those to. And so it might be a DNA that's found in
+both bacteria and human or something like that. And that will cause the reads to
+be at the root. And those just aren't very informative at all. So you said that
+some of them might be like vectors or something similar, kind of artificial.
+I've heard often on like people asking about the KITOM. I think this also comes
+from Andrew sometimes. Have you ever seen someone use a KITOM Kraken database or
+something similar to make use of that? I don't personally know much of that. In
+our databases, we always include a vector database or vector sequences as well,
+just to make sure that Kraken is detecting them. It's not going to confuse them
+for something else. But apart from that, I don't know much about the KITOM.
+Yeah, like you might give the KIT, like the vectors, like a different taxonomy
+ID, just a little bit under the root or something. Have you? OK, I guess you got
+the answer to that one. Yeah, they have their own taxonomy ID, as I believe
+synthetic sequences is what Kraken specifies them as. So just to get nerdy for a
+second, what language is it all written in? It's a mix of Perl and C++. That's
+brilliant to hear. I wouldn't have guessed. It's, I have talked to Stephen about
+this previously and not to make anybody feel old, but he says it's a bit of a
+generational difference, Perl versus Python. I think that for many of our tools
+that we're now developing today, we're writing them in Python and not in Perl.
+And so I guess that the generational difference was sometime between Derek and
+us. So what is actually written in C++? Which bits? A lot of the database
+building, the database building and the database. So I think just Perl is just
+used for some of the basic stuff of processing the inputs. But C++ is used for a
+lot of the database building and the compacting of all the sequences and writing
+of the bytes and stuff. And so Kraken databases are very specifically designed
+to be able to fit all of that genome information into a very small space. And so
+a lot of that heavy memory management stuff is written in C++, yeah. And the
+classification itself, because it is going to need to read in all of that
+information and be able to search through it in a short amount of time. Yeah, I
+had a little bit of an appreciation of the Perl in there when I was looking at
+it one day and it was like actually editing the jellyfish database. And I was
+just like staring at it and learning from it that day. And I don't know if I
+totally absorbed it, but it opened my eyes that I could actually edit a binary
+file like that and insert the taxonomy IDs. It was cool. Which features are you
+both most proud of regarding Kraken? I think for me, it's just the simplicity of
+the classification algorithm. It's just like using exact matching of k-mers has
+the exact matching of k-mers seems like such a simple concept, but it spawned
+out this whole Kraken world of tools that are very widely used because it's a
+tool that's very fast and very good at what it does. Yeah, so that's basically
+what I'm most proud of. And then for me, it's probably just like being able to
+be part of this community, right? Joining this lab and sort of getting led by
+Jen to, I don't know, help continue the Kraken world. I don't know. That's
+awesome. All right. Thanks, everybody. Today, we've been talking with the
+developers, Dr. Jen Liu and Nat Recon about the Kraken software suite around
+Kraken, the taxonomic classification software. I think we'll have a little bit
+more to do on the next episode, so stick around. See you next time. Thank you so
+much for listening to us at home. If you like this podcast, please subscribe and
+rate us on iTunes, Spotify, SoundCloud, or the platform of your choice. Follow
+us on Twitter at Microbinfee. And if you don't like this podcast, please don't
+do anything. This podcast was recorded by the Microbial Bioinformatics Group.
+The opinions expressed here are our own and do not necessarily reflect the views
+of CDC or the Quadram Institute.

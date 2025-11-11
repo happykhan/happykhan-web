@@ -1,0 +1,455 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There's so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. Bioinformatics is rapidly evolving. For each new type of
+data we want to store and work with, there are often multiple different ways of
+storing those data. Most are not formally defined as you would find in more
+mature areas like engineering, and have grown organically to meet the needs of
+the community. This makes interoperability often challenging and an open secret
+in bioinformatics, that we just spend most of our time converting from one
+format to another and another. So this is something that groups like GMI, GA4GH
+and Phage are trying to bring some cohesion to by bringing together
+international communities to, I suppose, make it a little bit saner by writing
+down all of these different file formats and specifications. So hopefully in the
+future there will be one format to rule them all. Yeah, FastQ seems like a good
+format to rule them all. Nabil, do you want to start off with FastQ? Well, we
+covered so much of it in a previous episode on the FastQ one, which people
+should listen to if they haven't already, but it's definitely become the de
+facto standard for sharing raw sequencing data around. Most tools or proprietary
+platforms will generate their own and then it'll be perverted back down into
+FastQ. So I mean, one of the, what was the earliest one, what would we call
+Sanger traces for capillary sequencing? I don't know. I just call them traces.
+Traces. Yeah. Oh, sometimes chromatograms too. Chromatograms. Yeah. And they
+really did look like some sort of like spectra, didn't they? You know, you had
+all the different base encodings just interwoven together when you open them up
+with the intensities for each base, with like sort of the reading for each base.
+Although you might know better than me, Lee, what are you supposed to do when
+you saw like a mixed signal, if that ever happened? Oh my gosh. So I actually,
+I'm trying to remember from like 10 years ago in my PhD that when you looked at
+the original FRED and FRAP papers, they, I cannot remember. I hope that somebody
+comments on this later. I think that they had to dive into statistics that were
+taken from seismographs, like from earthquakes. And they had to actually predict
+which base was the more dominant one at the time. And the separation of the
+peaks, it was really weird to me. That's crazy. And I'm not going to say any
+more on that because I don't want to overstate what I remember. It was really
+crazy. But in terms of the raw sequencing formats, the ones I've experienced
+recently have been PacBio have had a HDF5 format, and HDF5 is this, I suppose,
+container for general storing of huge datasets. And PacBio, you know, obviously
+we're using it because their files are getting bigger and bigger. But that was a
+pain to get anything in and out because you were stuck using their bespoke
+tools. And it's kind of a black box. There was specifications, but they're quite
+difficult to use. So ultimately, everyone would just take the data out as quick
+as possible, put it into fast queue and then move on from there. But luckily, in
+the past few years with the SQL 2, they went with, or with the SQL, they went
+with the BAM format. So that stores all the raw data and the methylation data
+and that kind of thing in BAM. And of course, once you have your files and your
+reads in BAM, you can do pretty much anything with it because you can start
+using SAM tools and all the different tools for processing BAM. So it makes life
+quite easy when people adopt a community supported format. I don't know if I'm
+asking you too much above and beyond, but how do they store the methylation
+data? I don't know that. Well, okay. So when you actually look at the SAM
+format, you can put in key value pairs at the end and they kind of bung them in
+there. So it's not ideal, but at least the data is there and you don't lose
+anything. So you can use that as your archiving format for PacBio data. That's
+awesome. But then you have Nanopore and they are using FAS5 and that stores all
+the raw events. And then of course, people then interrogate that, say with
+Nanopolish or whatever, or base callers, and they turn it into something people
+can use. I think a few years ago, or maybe even two years ago, when you would
+turn your events into base calls, you would increase the file size by 10 times,
+it was crazy. But now, luckily, people are working better just with the raw data
+and we don't have that overhead. Also, the Nanopore software is producing FASTQ
+files directly. So that's kind of what people want and it makes life a lot
+easier. Yeah, FAS5 should not be confused with FASt and the Furious 5. It is
+HTF5 though, as well, strangely. So it's like PacBio. Yeah, I thought the
+technical term for the individual trace, or what you would call traces and
+Sanger sequencing in Nanopore was squiggles. Squiggles? I've heard squiggles. Is
+that like wiggles? Wiggle files? No, not like wiggle files, squiggles,
+squiggles, because they do look rather squiggly, the readings. I'm sure there's
+people out there who can just look at them, look at the raw traces and then say,
+oh yeah, I know what that is. There are some publications called like squiggle
+kit, you know, things like that. It's a thing. Raw squiggle signals that come
+from Nanopore sequences. Brilliant. I refuse to say it. I say, I call them
+traces because I can't say squiggle with a straight face. I think I'll join you
+on that. But yeah, getting back to your point, Andrew, I mean, it's really, we
+become a little bit spoiled with the fact that we have these established de
+facto standards like FastQ or BAM that we can hop back to if we're not too happy
+with the proprietary format. And we can, once we've converted it, it's all
+flowing into our existing pipelines. I mean, I remember when I started, the
+first thing I had to work with was 454 data. And you had the SFFs, which were
+binary encoding of the intensities. It's basically like the pictures it's taking
+as it's sequencing. And then that would be assembled into the ACE format, which
+is for assemblies, which was both of these, both formats were 454s proprietary
+formats. And they had tools. The tools were nice to view it and look at it. You
+could look at them and it looked fairly good. But if you wanted to dig in and
+actually do your own sort of optimization, you wanted to go back and try and
+predict how to repair homopolymers or things like that. It wasn't fun. It really
+wasn't fun trying to work with that. I mean, Lee, do you remember the ACE format
+or the SFF format? Oh my God, yeah. I have a URL that I'll try to put in the
+show notes if I didn't have it on there already. But where I was inquiring into
+BioPerl and to BioStars, just how to convert back and forth. And it was a huge
+headache, huge headache. And I think it was about 10 years ago, actually. And
+then eventually I realized that there was a newer format called SAM format. And
+I was like, this is way better. And I switched over. I think one more comment I
+want to make on that, though, is like, I think a general trend here is that the
+formats that are proprietary versus those that were kind of developed in the
+community are the ones that the community tried and true and we keep going back
+to them like SAM format. Well, you've got, you've definitely got a bit of
+inertia now that you have such fantastic tools built around the SAM or BAM
+format that to redo them all again for some other new proprietary format doesn't
+really make any sense. It would be nice. But yeah. But the thing is, is that for
+all of the ones that we do tend to use in the community, it's a de facto
+standard. We don't have a standards, well, we don't have an official standards
+committee that decides what our file formats be for a particular type of data.
+Although at the moment, that seems to be a big push by a lot of organizations.
+Would you know any more about those, Andrew? I know GA4GH are trying to
+standardize things like varying calling. So VCF format and the SAM and BAM and
+CRAM formats, that kind of thing. So they're taking on this role.  having an
+established committee to safeguard the format and well to define it as well as
+people use it because often formats are just defined by what the software
+actually outputs or what software reads in you know and if you have a popular
+program well then you know that's what people are going to have to use whether
+it's written down or not. Yeah I remember because because people were relying a
+lot on 454 in those days you had to wrangle with that ace format and it was
+fantastic it had a bunch of headers that explained like the entire run do you
+remember Lee I'm going to bring you back and then they had they had they had a
+description a header then the sequence for the contig one after the other and
+then at the bottom there was a sequence there was a section that explained the
+underlying reads and then it had a call out to which contig they were from so
+would so you could get a lot of information you knew you had you know you had
+this you had the assemble contigs there that you could pull out and you knew
+where the reads were that were that were constructing it but this read very much
+like a flat text file that was more sort of like a laid out not not not in terms
+of file format it's not semantically similar but it had the same feeling as
+looking at a genbank file the sort of thing where it's got things over multiple
+lines it's got little uh header characters lines that start with this or the
+other to kind of designate what was going on and that was really difficult to
+pass especially if you're expecting to do things one line at a time you were
+like really taking me aback i i think i repressed all that that was an awful
+format ace format is dead yeah 454 454 and all of that is very much dead well i
+knew 454 was dead when i saw one of the sequencers in a car park underground
+covered in dust and i was like yeah i think it's gone now wow yeah i mean yeah
+not even with uh you can't do anything with it there's no reagents nothing i
+mean brooch has just stopped or life tech now has just stopped uh completely
+discontinued it i guess onwards to greater and better things so with alumina we
+have a bcl files which is the default output that uh the aluminum machines
+produce but i've never come across anyone who actually does anything with the
+bcl files other than immediately converts them into fast queue yes uh that's
+what i tend to do most days the bcl to fast queue program from alumina is quite
+quite nice you got some options for basic filtering and control of what's coming
+out of the machine but then once you've gone through that yeah it's straight on
+to the fast queues then you can and you throw the bcls away i can't it's been a
+very very long time i'm thinking maybe ga2 when people went back and actually
+looked at the bcl again after the high seats came out i don't think anyone ever
+bothered well i remember with the ga2 like there are eight lanes on it and i
+know sanger would run one entire lane just as a control just 5x just 5x yeah an
+entire lane for every single run it was lane 4 by the way lane 4 yeah lane 4 was
+5x yeah why why lane 4 i don't know it's just in the middle i think you had uh
+you had dropped the lane so the lanes you had slightly different qualities
+depending on which lane you were in i think the i think the ones on the edges
+gave you worse quality i can't remember but there was some funny business about
+uh yeah which lane you picked you get different you know your base quality would
+be quite different i mean this this is going back it was this was back when you
+really did like to go back to your raw output and look at it and think about can
+you improve the quality is there any sort of systemic error being introduced now
+i mean this is when you had you were dealing with reads of q20 q30 you know um
+and now it's like q40 q50 like if there's an error you don't really care you
+know you you it's quite unlikely that you're going to see it and you've got
+enough coverage that you're going to you can correct it interesting is there any
+reason to keep around the bcls i i honestly don't know then if you want to
+rebase call that's about it but i think we're so comfortable with the base call
+into limna has that no one really bothers yeah yeah the only thing you might
+want to do is you might want to go back and look at your indexes something like
+that you know like the bcs will be here i think the only thing you like really
+i'd go back to it is if this run was really really important and i was worried
+about bleed through on barcodes or something like that and i wanted to just sort
+of dig around and see what was going on there otherwise but you can scrub most
+of that information out you can get bcl to fast q to drop out all of the indexes
+and all of the quality scores so you know yeah you you know pretty much what's
+going on so another area with lots of file formats is genome annotation and i
+think the best format people are familiar with is gen bank but also you may not
+know there's also an embl format which is basically like gen bank except not
+yeah it's european um yeah european gen bank i don't know which one was first
+one must have come first one must have been circulated first i don't know which
+one was first i have no idea the way you know an embl file is that it's at the
+first uh the start of every line has a little um code that delimits what type of
+data is on that line so so 19 ft ft was featured ft was feature so you see ft at
+the start there's a feature line was contig or something did it have no i don't
+think and then there's numbers then for the sequence part yeah let's see the
+faster bit at the bottom was was numbered and i think so was the i can't
+remember what they had one for the main header and then the line length is a
+hard clip that is a 60 or 80 you just can't have any more characters in the line
+and then you have to wrap it around yeah yeah so that probably came first
+because that's literally like from the the mainframe terminals from the 70s
+probably probably even earlier yeah because you couldn't scroll you literally
+had 80 characters on the screen um that's interesting one more thing about em i
+always call it embl i had no idea that you pronounced it actually umble one more
+thing about that format is it's parsable that um that you do have those two
+letter codes with genbank they actually give you like a disclaimer that it's not
+the thing you're supposed to be parsing oh brilliant that's handy so why did we
+write all of those parsers for files if we weren't supposed to pass it i think
+it's just for like they always displayed it they always had it so we were just
+forced to do it but luckily there is different formats coming out now like uh
+for the past few years we've had gff and that's like gff one two two and a half
+three and i think three is what people are mostly using in our community and i'm
+not sure why but they are not necessarily back compatible so the parser for gff2
+may not work for gff3 if you've ever read the actual uh implementation which is
+used as the kind of gold standard it's written in pearl and it's a car crash
+it's like this huge section of code is for two this huge section of code is for
+three and not a car crash and you know in terms of coding it's just they're
+quite different formats but i think thanks to to procca and torsen seaman's work
+everyone has adopted one particular type of gff3 format in our community and
+that's the one where you have an extra fast faster file at the very end so you
+have the annotation and the sequence in the same file but technically that's not
+really the gff format that's like an add-in that artemis put in for the crack i
+always thought that it was part of the format no no it's it's like if you read
+the code it says like uh basically did this is what artemis does so have a keep
+an eye out for that and ignore everything below a line that says hash hash
+faster it's only meant to be just the annotations uh and and you're meant to
+have a separate faster file that that goes along with it so but gem bank have
+another file format now that i think about it it's a it's a gbf or something
+like that but basically it is it is gen bank plus the uh the assembly at the end
+or gff plus the assembly at the end oh yeah there's there's gen so yeah on the
+you still see it on the website actually if you try to download a sequence they
+have gen bank and gen bank full and there is a difference between the two i
+think well they used to be so this is where they have a gff file and the extra
+bit at the end and you can actually use that with a lot of programs that accept
+gff nearly because they have changed formats slightly they don't have the the
+hash hash faster line separating the the annotation and the assembly which is
+pain because that means for a software developer you have to put in yet another
+check to double check will this format work but actually the the most annoying
+thing is the the actual content of all these annotation files because no one
+agrees on anything no one can agree on do you start counting at base zero or
+base one oh yeah that got me that got me quite often interbase and intrabase and
+that's just it's such a basic thing you know and as a computer scientist you
+know obviously the first  thing in the pile is zero but you know not everyone
+thinks of that yeah and then you get on to things like the format the actual
+structure and hierarchy of how everything fits together so if you want to
+represent a gene in a annotation file you can have about 20 different ways of
+doing it depending on what the original software was to produce it so maybe a
+gene might point to some exons and those exons point to CDS you know you've got
+this hierarchical structure particularly if it's eukaryotes and then you can
+show in mRNAs and you can show in polypeptides and you can show in all these
+different things and the end result is that no one agrees on what a real gene
+model is there's many interpretations but of course if you're writing software
+to interpret this data you have to take them all in well thankfully on these
+they usually like have like a label like it's either like CDS or or something
+else like you kind of know what the track is and you deal with it differently
+it's a little easier for bacteria in that regard but some of the eukaryote
+annotation can be incredibly complicated crazy more like but even bacteria you
+know I know we're Prokka it says CDS which is great but other people would say
+well you know put an exon a gene even if it is bacteria yeah and there used to
+be some passes that some programs that would expect to see the gene feature some
+would expect to see the CDS feature some would expect to see both I think Prokka
+just has a flag where by default it only shows the CDS and you can flick it on
+and it'll do both whenever I looked at any old you know complete genomes gold
+standard genomes done with Sanger sequencing like you know you pick the k12
+E.coli genome it's got gene and CDS there and that's sort of what you expect I
+mean maybe we if we had more transcriptional data we might actually change or
+translational data we might actually change the boundaries a bit well that's a
+whole other kind of worms you know what is a gene what is a gene no let's not
+talk about that that's like the question my dad always asked me he reads an
+article in the news and he comes to me and he he has a discussion with me it's
+outside my paygrade it's whatever protocol tells you is a gene that's a coding
+sequence there you go that's a coding sequence whatever start to stop is is a
+coding sequence right surely there's no other way as in you know for me you know
+as computer scientists right just looking at the data blankly it's like a gene
+is the bit where there's nothing in the middle you know in Artemis so it's where
+there's no stop codons no that's an off an orphan open meetings being orphan and
+a CDS okay so an office well okay so people will this is very contentious
+actually we're probably I'm probably going to get into trouble but as far as I
+was taught an open reading frame is basically that when you open Artemis up and
+you see that little gap between all the black lines between the stop codons that
+is an open reading frame and that's very easy to predict you can just see it
+yourself if you wanted to have an off predictor to spit all of those out what's
+more difficult is to predict the coding sequence which is start to stop so that
+will exist within the off because obviously the the protein cannot extend into
+another open reading frame because then it would be broken by another stop codon
+and but it's difficult to predict the start because that tends to change it's
+not consistent and and you don't know if the you know which because it still
+uses that same amino acid within the protein itself so you don't know at what
+point does it actually start or does it extend further or what so that's
+difficult to know but there are two different things an orphan a coding sequence
+you do need to distinguish the two when you're when you're looking at these
+structures I suppose so and then of course there's problem that we've different
+translation tables you know from nucleotides to amino acids depending on what
+tiny little variant you're looking at most bacteria what translation table 11
+isn't it and then human viruses is one but then there's so many different edge
+cases you know like as a mitochondria is for it's terrible that I know a lot of
+stuff and then there's a you know there's a bit at least 20 different
+translation tables and if you pick the wrong one for your your bug you're
+screwed so are you trying to tell me Andrew that life has different file formats
+and different encodings and it's very difficult to work between them much does
+does art there's a life imitate art or art imitate life in this instance I've
+never thought about it but actually that sounds very right yeah there you go so
+we learn from we learn from the best we learn from from the organisms we study
+how to make our file just a complete hodgepodge of whatever works so blast is is
+similar to an annotation format but I I wouldn't really confuse it with that
+it's a it's not really a format that was made by committee it was it's a format
+that is the natural output of the program blast and there are 19 different
+formats 19 different formats that's just crazy is that we count that as a good
+thing or a bad thing that the program is so versatile it gives you whatever you
+want or should we be terrified that there's that many different ways to
+represent essentially the same information particularly since everyone just
+wants you know format 6 or m8 in the old version m8 that's what it was yeah I
+made so that oh I think I was reading last year I think from last year or might
+be this year last legacy is dead is that the washer you blast no no the old one
+the old the old 1991 the original blast because that used to blast plus was
+different to regular to old blast there was like a change of a period but now I
+think they're not made blast the legacy blast is no longer supported I think
+it's actually difficult it's getting increasingly difficult to find it and it's
+all blast plus now I used to use that legacy blast script because I myself for
+like for five years or something after blast plus came out I never wanted to
+switch over actually it had slight it gave you slightly different results
+because blast plus would kind of force you to use something more like mega blast
+in blast legacy so it you know it's a bit more aggressive with joining matches
+together and the legacy blast was well I don't want to say precise but it did
+just give you more nuance of what was going on because it didn't it didn't join
+things together as easily but so just to be consistent with what you had done
+before you kind of stuck with blast I stuck with blast legacy maybe two years
+after blast plus came out just because you really don't want the coordinates of
+your alignment to change just because you're using a different project different
+program and then your you know supervisor asked why has this shifted around in
+your table do you remember as well then washi blast which was another
+independent implementation and then after everyone who kind of moved over to
+blast plus they tried to commercialize it and they changed a name and then they
+basically had a spin-out company and of course that flopped totally because who
+wants to pay for blasts it's it's actually um it's it's public domain is it yeah
+I think so blast legacy was definitely public domain and I think blast plus is
+also released on the public domain anyway back to file formats file formats
+blasphemy oh my god because I've only ever used to them that the crunch format
+and then the tab format but have you ever used any others I've used the XML one
+as part of mainly for break actually because because at least at that time when
+I was developing it the XML format was the one that they recommended in the
+documentation would not change from version to version otherwise between
+versions they might tweak they said okay we might tweak things and that's the
+last thing you want to happen one on your program is like the file format you're
+depending on changes and then you have to go back and change everything so and
+most of these and I think that also is the case for most of these sort of bio XX
+or bio Python bio Pearl whatever libraries I think bio Python uses the XML reads
+that actually and works with that internally rather than the tab format well I
+never knew that I always just use a tab format and they haven't you since 2.2 30
+I think they allow you to add in extra columns that you want in your tab format
+yeah you can remove them or you know you get you can just specify the output
+because then it saves you that one extra skip or script or thing where you just
+cut out all the columns you don't want how did you know what I do yeah
+absolutely and and one more really weird thing about that crunch format though
+is again they advertise you should not parse that one you should use the XML one
+so well done of you it just saved me more hassle in the long run it is a nice
+format though the crunch because you can see it  And, you know, when you do a
+blast on a website, it does look visually, you can see, oh yeah, that makes
+sense. Yeah, there's a lot of that where a lot of these file formats seem to
+have, it was in a time when you would do an alignment or you would do a piece of
+work and you would be readily reading the output, the raw output, and it had to
+be human readable. And obviously, the crunch format is very nice to read. It has
+even I think it has the citation at the bottom, it has all the alignment
+information, all the little bars that join the bases that match together, but
+that is impossible to pass as a file format for a computer. I've never played
+with the blast JSON format. Is there a JSON format on the... There is, yeah.
+Yeah, I mean that would be much, should be much easier than XML to work with.
+That would be great. But just on blast, one of my big bugbears is the fact that
+when you put in options into blast, you have to use a single dash, which is
+totally against what most normal command line programs use where you do a double
+dash if you have a word and a single dash if you have a single character. Yeah,
+can you do single character? I don't think you can. It's like, so you always
+have to put dash query, you can't put dash queue. Or you can't put dash dash
+query, that would be the standard thing to do. Yeah, exactly. So I put in,
+actually only a few minutes ago, I put in like blast and dash dash help. I was
+like, if you want the help, please put in dash help. It's like, oh, for God's
+sake. Someone should write a wrapper script for this. Yes, to fix blast. I'll
+call it blast plus plus. So what do you do? You just take the command, replace
+all of the single dashes with double dashes? Yeah, to make it work. Or the other
+way around, you put, yeah, just to make it work, just translate it. Yes, find
+and replace all single dashes with double dashes, unless you see a single
+character. No, be the other way around. It's Andrew's writing the double dashes,
+which need to be converted to single. Oh, yes, you're right. I'm sorry. But, all
+right, yeah, we'll do it. We'll just put a new version of blast with this
+correction. But actually, going back to blast, it's nice to see a piece of
+software maintained for such a long period of time and so well. And fair play to
+those teams in NCBI. One format on here I see listed out here in front of us is
+it actually outputs SAM. Have you ever tried that? Yeah, that'd be fun. I think
+that'd be a really fun way to have it. That's really great they put that in
+there. Well, if we're going to talk about single sequence alignment, pairwise,
+one versus one, I think we'll have to talk about multi-sequence alignment. And I
+don't know how much both of you have played around with multiple sequence
+alignment. It was very, it was everyone who was, anybody who was anybody was
+doing that 10 years ago, putting a bunch of genomes together and having a look
+at all of the collinear blocks. Yeah, well, I've been using a lot for, I wrote
+some software called Gubbins and that took in a multi-fasta alignment. And then
+another piece of software I have called Rory that outputs multi-sequence
+alignment as well. So I'm very familiar with it. So I remember Gubbins, people
+would be trying to use move and things like that and it would have some kind of
+format called XFA, is that it? Yeah, extended multi-fasta, multi-fasta
+alignment. But yeah, there's so many formats out there just for something as
+simple as multi-fasta alignment. It's just crazy. And then the content inside
+them is also a problem as well, because multi-fasta alignment or multiple
+sequence alignment is not an easy problem. Yeah, and you had some very obscure
+rules, like the file format. You had a maximum limit on your taxa names, your O2
+names. Oh, I remember that. Yeah, it was like 20 characters or something. No,
+that's the extended edition. I think it was like 10. It's 10 and then extended
+is 30, yeah. Yeah, 10. And wasn't there a relaxed format as well? Yeah, there
+was a relaxed format to get around this, but a lot of programs would insist on
+the strict file format for a very long time. And then some formats would
+overflow, so you'd have interleaved sequences as you went down through the file.
+Oh yeah, they'd have an indent or something, but it would be basically
+interleaved. Yes. You're like, why is there indentation as if it's a body of
+text from a textbook in my multi-sequence file? But then some programs still use
+it. Like, is it RaxML still uses file format? I think, yes. Yeah, RaxML will
+still take file. And I think most of them will still take file. Yeah, I had to
+produce it for Quicktree, for MASHtree. So it definitely takes it still. And
+that format's been around for what, 30, 40 years nearly? I think 1980? Yes. I
+think it was... How far back can we go with file format? 1980. 1980. It is 39
+years old. That's scary, isn't it? That's very scary. October 1980. So before
+all of us were born. Yes, before all of us were born. Yeah. And the last stable
+release was the 2nd of November 2014. Wow. Anyway, my vote is for multi-fast
+alignment. It's straightforward. It's just faster files, but you have, you know,
+multiple ones and they all line up to the same length. How hard is that? Anyway,
+so Lee, have you come across a bolder IO format? Yeah, I have seen that a few
+times every now and then. I think that they used it with the Human Genomics
+Project, but please know that... Please don't quote me on that even though it
+will be recorded, but I'm pretty sure I saw that with that. It's also super
+useful for pipelining. I don't know if a lot of people have done this before,
+but you can basically use the bolder IO format, which has the records delimited
+by an equal sign and newline character on each side of the record. And it can be
+used to read one entry at a time and parse things pretty easily, actually. So
+it's more like the key-value pairs that people are using with this NoSQL stuff,
+but an olden-day version. So I encountered recently using Primer 3, and it seems
+straightforward enough. It's one of the easier formats to have to parse. Fair
+enough. How old is Primer 3? The manual says copyright 1996, by the way. Why
+isn't there a Primer 4? Well, I was looking at all the different Primer 3
+websites and Primer design websites recently, and they're all from the 90s. You
+know, you can tell a 90s website from a mile away by the colors and the frames
+and the way the textboxes are laid out and how unuser-friendly it is. So yeah,
+it's old. So were you for or against the bold.io format? I think it's grand.
+Having to parse it, it's very easy to parse because it's just key-value, and you
+know, you can do that very, very easily. There's not much more to it than that.
+Yeah, I do remember now I used it with Primer 3 also. I think that this can be
+extended, but it was so easy to parse that I agree with you. It was just key-
+value separated by an equal sign. I remember now. I'm sorry. Why not use JSON?
+It wasn't invented when Primer 3 was invented. Yeah, that's true. But actually,
+I came across a thing called Primer Search, and that outputs this really crazy
+format. It's like multiple lines. Some lines have nothing on it. There's no
+rhyme or rhythm. Well, there is, but it's just a pain in the arse to actually
+parse. So bold.io is much better. Ultimately, file formats are defined by the
+software developers who use and abuse them, even if there are formal
+specifications. Just like language, which is continuously evolving, if a popular
+software application introduces a variant of a format, then realistically it is
+in common usage and is part of an unofficial format standard. I think some
+interesting things that we looked at are proprietary versus formats made by
+committee. I think that's really interesting. And another thing that we did that
+was really interesting was which formats are more parsable or which ones are
+more human-readable. I just feel like it's gotten a lot easier. It's gotten
+better. And hopefully in the future we will find that universal file format
+where we don't, or a few, where it just suits everyone's needs. So let's not
+forget that ex-KCD comic, you know, where we need one universal format to rule
+them all. Thank you all so much for listening to us at home. If you like this
+podcast, please subscribe and like us on iTunes, Spotify, SoundCloud, or the
+platform of your choice. And if you don't like this podcast, please don't do
+anything. This podcast was recorded by the Microbial Bioinformatics Group and
+edited by Nick Waters. The opinions expressed here are our own and do not
+necessarily reflect the views of CDC or the Quadrant Institute.  .

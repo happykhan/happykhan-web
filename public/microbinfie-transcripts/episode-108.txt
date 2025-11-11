@@ -1,0 +1,485 @@
+Hello, and thank you for listening to the MicroBinFeed podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. Hello and welcome to the MicroBinFeed podcast. Today we are
+talking about systematics, specifically SEC code, nomenclature code for
+prokaryotes described from sequence data. Joining us to talk about it are co-
+authors on the recent publication, Marika Palmer and Miguel Rodriguez. Marika
+Palmer is a postdoctoral researcher in the School of Life Sciences at the
+University of Nevada, Las Vegas, and Miguel Rodriguez is an assistant professor
+of bioinformatics at the University of Innsbruck in the Departments of
+Microbiology and the Digital Science Center. Let's do something simple then. Who
+are the major people behind SEC code who's driving it? Obviously you two are
+involved, but who else are involved in the process and perhaps what's the
+governance like involved with this? So I would say that, I mean, I think
+everyone on the initial SEC code steering committee, so the team that started
+off with actually putting the SEC code together would very much agree that we
+would want this to be a community driven initiative ultimately, but there's been
+like a decade almost of papers on saying that we need to make an effort to try
+and accommodate the uncultivated organisms in a specific nomenclature. So there
+needs to be some rules for the naming of uncultivated organisms and that has
+been going on for maybe almost a decade. But ultimately Brian Hedlund and Anna
+Louise Reisenbach were the first, as far as I know, from the team to actually
+obtain funding for trying to relay a path forward for prokaryotic taxonomy and
+nomenclature specifically. And that is where the roadmap paper in Nature
+Microbiology came from to say that we either need to change the current code of
+nomenclature for prokaryotes to the ICMB to actually allow the use of genomic
+material or genomic DNA as a nomenclatural type, so actual sequence data, or in
+some cases there has been arguments for actual DNA in a freezer somewhere, but
+arguments for using sequence data as nomenclatural types, or as has been
+proposed before by several people of who Kostas Konstantinidis and Romano
+Salamora were very vocal on the need for an alternative or parallel code of
+nomenclature to accommodate the uncultivated if we were in a position to not
+change the ICMB. And that's basically the two paths as plan A or plan B, path A,
+path B, as was laid out in the roadmap paper in 2020. Ultimately, the steering
+committee, I think for the C code, I think various conversations during the
+workshops and in the different parts of putting the roadmap paper together by
+Alice and Marie, there were various points of discussion probably between Miguel
+and Kostas and probably between me and Brian Ware and Barney Whitman. So a
+couple of us probably had various discussions and ending up with who volunteered
+to actually start putting the C code together. So I think we're a reasonably
+diverse group of individuals who ended up with really ecologists, microbial
+ecologists, all the way through to traditional taxonomists who ended up working
+together on putting the C code together. But ultimately, we would like to have
+this community driven. And for that reason, the governance structures has been
+made public. And anyone interested in joining the C code community that has
+already done so, we're actually in the process of voting for the different
+officer positions within the governance structures. Yeah, so we had for the
+governance itself, we had a long process of discussion with the community on
+what the governance should look like. We had a long conversation publicly
+available in Slack channel on how this should look like. And we finally came up
+with a structure where we divide an executive board and then a series of
+committees and working groups. Some of these positions are elected by ballot,
+where all the members of the C code community can vote. And if you're interested
+in joining the C code community, simply go to ccode.de slash join and join the
+community as a voting member. We had a ballot voting already back in December
+for the elect positions. And then some of the other positions are not elected by
+the community, but instead by the members of the committees, which are the
+positions of co-opted members. And we're in the process of bringing these
+committees now to life. Some of these positions were filled indeed by members of
+the steering committee and the founding members of the steering committee even.
+But some other positions were filled by members of the community that were not
+part of the process, but that have been actively engaged and want to participate
+now. And we hope that going forward every year, we have more and more members of
+the community and ideally fewer and fewer members of the steering committee
+being part of the governance structure. With that, I mean, I want to ask more
+about where C code and the committee sits into the wider field in general. So, I
+mean, the first thing you do when you go to the website is you notice in the top
+corner that ISMI is there in the background. So what is ISMI? Where does that?
+That's like a separate society that is backing this, right? So it's not. So
+what's the relationship between ISMI, the journal, the society, but with C code?
+ISMI has been very generously providing support as an umbrella organization for
+the C code. They have been, for example, the hosts of our ballot voting back in
+December, and they have been providing a platform to support the development of
+the C code. The, there is really no, there is no obligation of the C code
+towards ISMI. So for example, if you want to be a member of the C code
+community, you don't necessarily need to be a member of the ISMI. So it has been
+a, it has been serving as an umbrella organization. They, they host, of course,
+the C code initiative website where we have our news and other outlets, but it
+has served as the springboard for the development of the initiative itself. And
+also because a lot of people who are interested in using the C code falls within
+the microbial ecology community. It was kind of like a natural, a natural point
+to jump off of is that international society for microbial ecology. So ISMI
+serves as a, as a kind of a natural post point for the C code. Right back, back
+in, back in the symposium, in the ISMI symposium, for example, in Lausanne, in
+Switzerland, last year, we had, we had quite a lot of space and time to discuss
+with the community of microbial ecologists, how this should look like. And we
+had an open round table discussion, for example. So these, these are the spaces
+and the persons that we are, that we have been very generously offered from the
+ISMI society. Then in terms of your question on journals, I think Miguel did
+mention it perhaps already, but ultimately the C code was written to allow any
+form of peer reviewed publication. So your manuscript in any journal would be
+able to be used as an effective publication for your registry in the C code
+registry itself and ultimately validation of the names if they actually, the
+genomes are good enough, good enough quality to actually pass all of the QC
+criteria. So there isn't a specific journal association with the C code as such.
+We have designed three paths of validation in the C code. And so there is a,
+there is a first path, which is currently our preferred path through which
+authors submit their proposed names.  to the C code registry and work with our
+curator team to propose as high quality as possible descriptions and names and
+etymology and syllabification and so on while they are preparing their
+manuscript. So in parallel to their manuscript the preparation. There is a
+second path which is a posteriori. Once the manuscript is already out then they
+just notify the C code. But we have prepared a third potential path which is
+working together with partner journals and we hope that for example both the
+Izme Journal and the Izme Communications Journal might be part of this journal
+partnership in which we have a more streamlined parallel revision of
+nomenclature as this as the peer review of the rest of the ecology or genomics
+or whatever it is the biology behind the papers. But yeah that's that's
+hopefully a future path where we would have that integrated system of
+nomenclature review and manuscript review simultaneously occurring through a
+single system but we're not there yet. That sounds very good. I wanted to ask a
+difficult question about competitor efforts. It's it is a mixed it's interesting
+to look at the author list for instance Donovan Parks who's associated on the
+and Phil Hugenholz on the GDDB side is like as one of the co-authors as well.
+And in the same paper you've got Ian Sutcliffe who's actually the chair of the
+of the actual traditional committee for naming prokaryotes. That's ICMP. So it
+seems like a very it seems like a group of people who should actually be arguing
+with each other have come together to come up with this but I was curious on
+your thoughts around that and if there's actually any genuine competitor efforts
+beyond this group of people involved. Yes so there is a as you mentioned there
+is a large contingent of people actually working with the ICMP right. Several
+people on the ICSP and the judicial commission well that were on the judicial
+commission of the ICMP on the secret. So we have Ian Sutcliffe we also have
+Ramon Rosalomora and Constance Constantinidis. So there is quite a large
+consensus in the community as we gather that that this is something necessary.
+Of course the devil's in the details right. Not everybody agrees on the any one
+process goes but there is quite a large consensus that there that there is a
+necessity to start regulating names for uncultivated prokaryotic taxa. And you
+mentioned the word competitors. So the way I see it there are three ways an
+author can go when dealing with a novel toxin. The first name the first way is
+trying to culture produce a culture representative submitted to two different
+collections and then trying to name it under the ICMP. We in fact hope that
+people will continue doing this this efforts and the way I personally see it and
+here I don't speak for all of the sick code but I personally believe that most
+scientists culture prokaryotes because that is necessary to do physiology
+experiments and a series to advance our knowledge on those organisms not
+exclusively to name them. That's really not the the big reward that some people
+believe believe it to be. There is a second option which is doing producing a
+very high quality genome a well annotated genome and going through the
+description using the sick code. So I guess in some way that could be seen as a
+competitive process right. Authors have to decide between one or the other but
+we have written the sick code in a way that is as compatible as possible with
+the ICMP such that there won't be any clashes between the codes and they can
+happily coexist and why not hopefully at some point merge back into a single
+system which was our hope all the way through with the what was called the plan
+A which was accepting genome as type material genomes as type material in the
+ICMP. And of course there is a third option which is just not caring about
+validation or like that yeah right you can for example give an alphanumeric name
+such as OP9 or SAR11 and you or you can use the concept of CANDIDATUS names
+which are unregulated in principle you could call something CANDIDATUS and
+that's fine. We hope by lowering the entry point by lowering the requirements no
+by democratizing the process of naming and by providing the user the authors
+with the tools to simplify the process of naming and the process of etymology
+and description and all of these in the implementation of the C code registry we
+hope that more authors will opt out of that third path and instead try to
+validly and correctly publish names. And as Miguel said obviously we would still
+be highly supportive of cultivation efforts and I think virtually everyone
+that's that was initially part of the C code steering committee and probably
+most people that's part of the governance structures would actually prefer a
+merger between the two systems at some point in the future and that's why we
+aimed for trying to keep that compatibility between the codes as far as we
+could. Okay so it's sounding less like complete it sounds less like competition
+and more like a fork of a code base and you're off doing your own thing with C
+code and hoping to merge it back at some point. Would that be a correct
+assessment? Yes I think thinking of it as a parallel route as opposed to a
+competitive route is hopefully. Of course the longer the the branch goes the
+harder the pull request but yeah. Well that's sort of how it goes but I hope but
+you can't but it seems clear based off your our discussion earlier that there
+must be a fork to support from sequence data from uncultured and so that's just
+how it has to be. Yes it got to a point that it couldn't be ignored any longer
+it was absolutely necessary. So I'm going to ask the mean question oh well we'll
+try it this way we've touched on this thing of the plan A and the plan B and it
+is mentioned in the paper I mean but it'd be good if if we went through with
+what that process of what happened why it went that way and I'm curious because
+even in the paper it says like the ICSP the international committee on
+systematics of prokaryotes for those at home they rejected the proposal so why
+would they reject the proposal it seems like such a good idea so yeah so can we
+talk about plan A plan B and then what was the basis of if you can if you can
+tell us what was the basis of that rejection. So as a short summary of the plan
+A plan B as you said the current code of nomenclature for prokaryotes which is
+the international code of nomenclature for prokaryotes is the ICNP and that
+absolutely requires at the moment that you have cultivated pure cultures of your
+strains deposited in two culture collections for a name to be validated and
+under the plan A path the ideal would have been to modify that existing code to
+also accommodate uncultivated organisms by specifying that as nomenclature type
+we can either use pure cultures or genome sequence data so that was the initial
+plan A route which I think most people would have preferred a single code of
+nomenclature that actually allowed us to use either type of nomenclature or type
+depending on what's appropriate for your organism. Plan B on the other hand is
+what we ended up doing and that was to actually establish a new code of
+nomenclature that would be operated specifically by using genome sequence data
+at the moment but DNA sequence data as the umbrella term or sequence data
+probably as the umbrella term as nomenclatural types for being able to name
+organisms. So this didn't happen overnight right so as Marika pointed out this
+has been a long time in the in the making of course already discussion about
+this started in the early 2000s basically since the requirement was used for
+these two culture representatives, culture representatives in two culture
+collections. It was formally proposed in two papers in 2015 one by Hedlund,
+Brian Hedlund et al and another one by Costas Constantinidis and Ramon
+Roselomora where they  tried to modify the concept of Candidata to incorporate
+SAGs and MAGs and to give them priority. Then it was formally proposed as a
+modification of the ICMP in two papers by Barney Whitman in 2015 and 2016, and
+with the existence of those proposals by Barney Whitman, the process of
+discussion within the ICSP was kicked off, and it wasn't until 2020, so four or
+five years later, that they finally held a vote on it, and the vote was no. So
+it took some time to get the discussion going and to get an answer, and the
+answer was no, and all the rationality behind that is published in a paper by
+Ian Sutcliffe in 2020. Ian Sutcliffe et al., other members of the ICSP, where
+the whole alley and the discussion was sized, but in brief, since we got a no,
+we needed, we got no recourse, right? We got no recourse there, and so the only
+alternative was to propose a parallel system that was discussed, again, at
+length with the community in different workshops. We had workshops that in total
+included registrants in the hundreds, I believe it was something like over 800,
+over 800 registrants from 42 different countries. So this was a wide discussion
+with the community for the proposal of this, of this final set of rules and
+recommendations that formed the C code. And I would also like to add that it's
+probably worth noting that even though we mentioned several of the initial
+starting team of the C code steering committee are actually members of the ICSP
+in various capacity, in all of these cases, and even for the C code steering
+committee when we started off with it, in all of these cases, it's a committee
+or a group of people with varying viewpoints and very different philosophies on
+things. So even though some of the members who are fully in support of the C
+code are on the ICSP, ultimately the vote that gets cast or the decision that
+gets made is a majority vote. And even if we have several people that are fully
+supportive of using DNA or sequence data as nomenclature types in the ICSP,
+there was still the majority that didn't approve that, that suggestion or that,
+that recommendation. So ultimately the no was a majority decision. And that is
+why there's various things in the C code, which some of us might not be like
+fully in support of every single point in the document, but ultimately it's a
+majority vote on specific efforts. And that is the result that gets put forward.
+Yeah. So this is just incredible that you guys have had this kind of
+collaboration. Some people are, when they get into publishing, they're
+competitors and some people are collaborators and you guys have really, have
+really done a good job. I think it's been a major effort probably on all players
+involved in the decision making, but it has been, again, there are various
+points that everyone on the committee isn't necessarily in agreement with, but
+yeah, I think we can move forward despite having differences in opinion on
+certain things. By the way, it hasn't been always easy to push forward this
+discussion with so many varied viewpoints. And honestly, it's not even easy to
+meet because we have time zones all the way from Pacific time to Brisbane time.
+So even meeting is hard, but it has been a very rewarding process for sure. So
+let's, I've been skirting around it, but there is for Miguel and myself, this
+odd oddity that there's the PAL nomenclature system, which basically while we've
+said that members of the traditional code are, you know, working together, this
+is something totally out of left field that Miguel and I were involved with. And
+how do we reconcile that just as a matter of point? Yes. So to give a little bit
+of context to your listeners, Mark Palin, Nabil and myself have this recent
+paper where we proposed arbitrarily formed names for 65,000 tags currently
+described on the basis of CTDBs methods for which a genomes exist and for which
+maybe some representative isolates may exist. We don't know. So there is, that
+is something that is not necessarily a beloved product within the SIG code.
+There is a group of people within the SIG code that strongly disagree with this
+kind of what the media in the, in the German speaking world have dubbed a mass
+baptism, a mass baptism of prokaryotes. And so, so this is, this is an
+interesting discussion, I think. And so right now there is a small part of the
+SIG code that introduces the requirement for distinguishable roots in the form,
+in the formation of names. So that might mean that the names that Mark Palin,
+Nabil and myself have made, at least the majority of them might not be, might,
+cannot be validated as of right now under the SIG code. But I myself believe
+that arbitrary names are perfectly fine so long as names are easily easy to
+remember, to recall and they are stable. So there are mechanisms in the SIG code
+that allow also for modifications of the code itself. Hopefully that's something
+that, that we can use in the near future. So I, I mean, I don't necessarily
+agree with all of the arguments within the, the larger team or disagree with
+various aspects, but I can give some insight into some of the arguments as to
+why some people might not be in favor of this mass baptism, as Miguel said. So I
+think the first issue that many people felt is pretty important in terms of the
+use of data that was not generated. So naming on mass might prevent the naming
+by people who are actually working on specific organisms or co-cultures or
+generated genomes, that they're still in the process of studying and some of
+them might actually be trying to actively cultivate those organisms and
+ultimately try to validate names that they assigned to those organisms under the
+ICMP, as opposed to, so there would be people with data in the databases that
+wouldn't even be in support of the SIG code. So on this mass baptism front, it
+doesn't differentiate between where the data comes from and whose data you're
+using ultimately to get to that point of naming. So there are of course, a lot
+of arguments where there's more than enough data out there and there would be
+enough data for everyone to work with. And as we're generating new data, it
+might not be a problem, but I think that's also, as far as I understand why
+there was mention made that there would be a delay in trying to register these
+names if the SIG code were to be changed to actually allow arbitrarily formed
+names. And then there's also an argument for the memorability of the names
+themselves. So there are arguments to be made that when words refer to a
+specific thing, whether it is an arbitrarily made name, but is rooted in
+something that we as humans can associate with a specific meaning that those
+names tend to be more memorable than randomly made names. So there is an
+argument for that as well. And I think those are probably the two main
+arguments. There are also some of the people on the various committees that feel
+that mass naming isn't particularly useful and that names should only be
+assigned to organisms that we're actively studying or getting a better
+understanding of. So that's one of the arguments as well. And as I said, I might
+be in agreement or disagreement with various points, but I think those are
+probably the three main arguments against the mass baptism as far as I
+understand. That's fine with me. I'm not going to say anything after that. I
+will give a statement from the discussion that we aren't proposing these as to
+have any priority. And if anyone has a better name and they do work on it,
+they're more than welcome to replace them. That's not an issue. It is coming
+back to a, again, this practical thing of, and if you go to the paper, there's
+some of what the GDB IDs look like. They're pretty impronounceable and pretty
+unmemorable to just sort of have an easier handle. That's the way I see it, but
+I'm fairly pragmatic. Mark might have a more stronger view of how things should
+be done, but that's my take on it. As somebody outside of this nomenclature
+system, or both of them, are you guys incentivized to give a sort of kosher name
+to, I guess I'm mixing religions with the baptism, with the... Mix them, mix
+them, it's fine. Are you incentivized to give like a kosher name?  name to one
+of the mass baptism species, or whatever you want to call them, so that it gets
+imported to C code if there's more. Like if somebody's studying one particular
+thing, would they want to give it a better name from your system and just import
+it to C code in the right way? Ultimately, I think the way that the names were
+formed currently means that there isn't necessarily distinguishable roots from
+any language. So those names wouldn't be able to be registered and validated
+under the C code as it currently stands. Unless the C code is modified, right?
+Unless the C code is modified. And by the way, that allowing for arbitrary names
+is something that all other code of nomenclature out there does. This is unique
+to C code, and it was introduced out of an abundance of caution, trying to make
+the C code a little bit more conservative before it's taken up by the community.
+But hopefully now that we have the governance structures in place, then the
+community can start chiming in and deciding what is best for moving forward the
+discipline. And yes, I completely agree with Nabil, that even in the absence of
+distinguishable root from an existing language, something like SICC09 or
+B1Z10-29 is way harder to remember than something like Afabana or Oferarkota. So
+Afabana, it's a word that sounds like it could exist. So we're just bringing it
+into existence. I don't know if I also mentioned it clearly enough earlier, but
+along with the arguments for some people feeling that all organisms don't
+necessarily deserve a name until we actually start studying them, there's an
+element to the argument that having an alphanumeric identifier, like Miguel just
+said, as opposed to a name, makes it obvious that those might be good candidates
+for studying if you were to want to do a taxonomic study. I'm not necessarily in
+agreement with that, but that is one of the elements of the argument. You're
+both being incredibly diplomatic, and I'm sure people can then appreciate the
+amount of, can appreciate how the actual discussions were behind closed doors in
+the C code group, because you're both being very, very diplomatic here on the
+podcast. I will mention that what I think we're all allied in the effort, in
+essence, even though this paper kind of goes things in a different way, in that
+trying to point out that if you have 65,000 possible taxes sitting out there in
+the wide world, the traditional method of culturing 65,000 of them and putting
+them in a repository is not really going to make much sense. And that's really
+the wider matter around this publication for me as well. And I think we can
+agree, at least everyone in this group here can agree on that. Listeners might
+be out there saying like, no, you can't. And we'll actually discuss that sort of
+problem in a minute, actually, we should probably get on to that sort of issue
+just to wrap up. But before that, I had a funny technical problem. So we're
+saying about a genome, you need a genome, right? As your sort of holotype, I
+guess. But how much genome do you need? Can I just give you like 16 S and just
+be done with it? There's going to be an entire standards working group, or there
+is an entire standards working group within the governance structures. So we
+started off with pretty high standards in terms of what would be required to
+serve as a nomenclature type, which is more than 90% completeness and less than
+5% contamination. But this can be estimated with whatever method is appropriate
+for your organisms or whichever favorite algorithm for estimating completeness
+or contamination is yours that you would like to use. Ultimately, there was also
+a very large discussion on whether 16 S should be absolutely required in the
+genome as opposed to recommended. Because we obviously know that there's a lot
+of information associated with the 16 S and that allows actual existing 16 S
+taxonomies and genome based taxonomies to kind of be able to cross talk, if you
+will. Ultimately, just the 16 S would not be accepted as a nomenclature type in
+the C code as it is. And we also have that the 16 S needs to be recommended, but
+not required because we know with actual binning of metagenome assembled
+genomes, there might be difficulties in actually recovering accurate 16 S
+sequences for your particular organism of interest. And rather than force that
+as a requirement where someone might go fishing for a 16 S and associate an
+incorrect 16 S with a genome, we decided to leave that as a recommendation
+through a majority vote again. Ultimately, the way that the C code is written
+currently, those requirements on genome quality is kind of seen as an appendix
+to the C code. And that's what we're currently going with in terms of quality
+standards. But potentially in the future, depending on the groups that are being
+worked with, or depending on what would be appropriate methods for species
+circumscription in some organisms, that could potentially be adjusted depending
+on the group. But ultimately, this would be something that is established
+downstream. We anticipate not soon. For example, some obligate intracellular
+parasites might be really difficult to obtain a full genome for, but you can
+easily get like a couple of housekeeping, 10 housekeeping genes or something,
+potentially depending on the different committees within the governance
+structure that could be up for consideration as potential nomenclature types.
+But we're definitely not there yet. So currently we're at the point that we
+really want very high quality genomes as nomenclature types to ensure that we're
+not introducing too much flexibility that would end up breaking down as opposed
+to building up this system. I'm glad to hear that there's this sort of, you're
+being very conservative of what's included. And this extends back to the, to
+including the names, because once you let trash into your database, you can't
+get it out. So it's really good to hear. Yeah. And then Nabil, you prefaced your
+question by saying it was a technical issue and I would like to address the
+technical part of it. And technically we are currently not able to accurately
+estimate completeness or contamination for many types. We have, we can provide
+some estimates on the basis of, for example, presence or absence of some
+conserved genes, which is the approaches that CheckM1, CheckM2, and MIGA all
+implement. But definitely there are taxa for which that just doesn't work,
+right? We have, we have deep branching taxa, like the organisms in the CPR and
+pathocybacteria or pathocybacteriota. We have also, we have also endocymbionts
+that have highly reduced genomes and that are really for real missing genes that
+we don't expect any bacteria or archaea to be missing. And we also then have the
+problem, the piploid bacteria, right? We have this fantastic new, organisms that
+are, have been described like Theomargarita magnifica, for example, where we
+have so many coexisting genomes, basically, so many chromosomes, not always
+identical within the same cell. So we can realistically obtain estimates of
+thousand percent contamination for a perfectly good well complete genome. So
+that's why we have set up this dynamic structure of review on, on the shoulders
+of the standards committee, standards working group. And that being said, the
+actual acts of registering your, your name in the C code registry requires you
+to add those estimates at the moment into your registration. But there's also
+room for, if whatever reason your organism doesn't get estimated accurately in
+terms of completeness or contamination of whatever methods would be employed,
+there's space to actually describe that to the curators of the registry
+themselves. And ultimately those decisions then gets, if it's, if it's
+significant enough, it would probably go towards the reconciliation commission
+and the standards working group to be discussed. Alternatively, if it's a small
+enough consideration that needs to be made, then the curators can ultimately
+discuss that and make a decision on it. There's one little topic I wanted to get
+to for the last couple of minutes. I wanted to ask one of the classic problems
+with taxonomy and nomenclature historically is this issue of providing accuracy
+of taxonomy and naming, and then the practicalities and the history we have of
+descriptions based off things in the real world. So clinical presentations and
+things like that. So how, I don't know, based off what you're describing C code
+at the moment probably isn't directly running into this problem yet, but do you
+see this as an issue?  coming up? Is there some future proofing in mind if you
+see it as a problem to address this issue? The way I see it, the C code is in
+fact preemptively providing a solution to that potential because if we run into
+that issue of, for example, describing new taxa that may have clinical or
+environmental implications that can run into regulatory issues, for example, and
+those names are proposed as candidate names, the regulatory agencies will not
+have a way of stably referring to those taxa and uniquely referring to those
+taxa, which is important. It's important for regulatory agencies. So the way I
+see it, the fact that names can actually, for names of uncultured organisms,
+uncultured prokaryotes, can have priority and can be stable even in the absence
+of a culture representative under the C code is the future proofing I believe
+you're asking for, yeah. And additionally, because your actual taxon delineation
+process is based on the genome, the genome, the core genome at least, and the
+genome as a whole that serves as a type, is it going to change going forward? So
+it could be a system where biovars or pathovars or things get assigned to
+specific organisms based on their accessory genomes, but their actual taxonomic
+placement in terms of phylogenomics is not going to differ over time. So that
+kind of provides a little bit more stability than what we've seen historically
+in cultivated microbes. And by the way, pathovars, serovars, biovars, all of
+that is not really regulated under either the ICMP or the C code, but currently
+already regulatory agencies use genomes or at least parts of genomes to define
+these groups that are being regulated. So it is already happening. It is already
+being based on genomes. So the last question we had just to close up is, are we
+going to see some C code accession codes in publications and how do we recognize
+a C code minted name versus the others? Yes, maybe I can answer that. The C code
+has a provision for how to report lists, what we call registered lists in
+publications. And it's, we assign a unique accession number that is prefixed by
+C code slash and then an alphanumeric that is just meant to provide a uniform
+way of referring to that list that might contain one or more names. We of course
+encourage people to report that accession number in their publications, just
+like people already report the accession numbers of, for example, genomes in
+genome collection, you know, repositories and databases or metagenomes or
+sequences in the sequence read archive, for example. And for your, the second
+part of your question, how do you distinguish them? So there is a two-pronged
+answer to that. The first one is that in common usage, names will be in
+principle indistinguishable, just like names of plants are in principle
+indistinguishable from names of animals or names of prokaryotes. It's just a
+Latin or Latinized binomial name that is italicized and that's it, that's it,
+right? There is no way of distinguishing between them unless you know more about
+that taxon. In a formal, in the formal reporting of a name, we recommend a
+specific way of referring to types, to nomenclatural types. In the ICMP, the
+recommendation is to use superscript capital T. We recommend using a superscript
+capital TS, just to make that distinction of what, what nomenclatural type is
+described under ICMP versus under C code. But again, that's only for formal
+description of, of, or, or formal citing of, of names. She's, for example, very
+commonly used in the taxonomic world in, for example, phylogenetic trees, right?
+You will see in phylogenetic trees, some strain with capital T and now see also
+strains or genomes with capital TS. And I think this would be particularly
+useful for papers that have names that they, that are either validated under the
+ICMP themselves, or that the author is intending to validate under the ICMP and
+names validated under the C code. So in those cases, you would be easily able to
+differentiate between the ones that we have cultures for in the ICMP as a
+superscript T and the ones that we have genomes for that would serve as a
+nomenclatural type being indicated with a TA superscript. Many thanks for coming
+along today and having a chat with us. Today, we've been talking about
+systematics, specifically C code, which is a nomenclature code for naming
+prokaryotes described from sequence data. And talking to us has been Marike
+Palmer and Miguel Rodriguez. And you've been with Lee and Nabil today, and this
+is the MicroBinfy podcast, and we'll see you next time. Thank you so much for
+listening to us at home. If you like this podcast, please subscribe and rate us
+on iTunes, Spotify, SoundCloud, or the platform of your choice. Follow us on
+Twitter at MicroBinfy. And if you don't like this podcast, please don't do
+anything. This podcast was recorded by the Microbial Bioinformatics Group. The
+opinions expressed here are our own and do not necessarily reflect the views of
+CDC or the Quadram Institute.

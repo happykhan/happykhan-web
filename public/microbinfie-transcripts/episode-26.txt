@@ -1,0 +1,452 @@
+Hello, and welcome to the MicroBinfy podcast. Today we are interviewing five
+members of the Phage Consortium, Emma Griffiths, Ruth Timmy, Duncan McCannell,
+Andrew Page, and Abiyal Ali Khan. I am Lee Katz, your host today, and
+disclaimer, I am also a part of Phage. As we all know at this point, COVID-19,
+caused by the virus SARS-CoV-2, is really bad. But these five members of Phage
+will tell you how they are addressing a difficult problem with SARS-CoV-2.
+First, let me introduce the five members. Emma Griffiths is a research associate
+at the University of British Columbia in Vancouver, Canada. She is embedded at
+the BC Center for Disease Control. She leads the metadata harmonization for the
+Canadian COVID genomics network called Pankogen. Ruth Timmy is a research
+microbiologist at the FDA Center for Food Safety and Applied Nutrition. She
+leads the FDA's open genomic surveillance network for foodborne pathogens called
+Genome Tracker. Duncan McCannell is a research scientist at the CDC's Office of
+Advanced Molecular Detection. He helped to establish Phage. Andrew Page is the
+head of informatics at the Quadram Institute and is part of the UK's COVID-19
+Genomics Consortium, where they have sequenced over 1,600 SARS-CoV-2 genomes.
+Nabil Ali Khan is a bioinformatician at the Quadram Institute and metadata
+wrangler for Quadram's SARS-CoV-2 efforts. Thank you for being on the podcast
+today. According to the World Health Organization, as of this recording, there
+have been more than 16 million cases of COVID-19 around the world and more than
+600,000 deaths. There have been about 12,000 genomes of SARS-CoV-2 uploaded to
+the INSDC collaboration and 75,000 to GISAID. However, this does not mean that
+uploading the metadata itself is so straightforward or even standardized. This
+is one area that Phage is addressing. So first, Duncan, what is Phage? Thanks
+for having us today, Lee, and all. So let me start by saying that the need for
+flexible, reproducible, accessible, and interoperable bioinformatics is quickly
+becoming a defining problem in infectious diseases and public health. What do I
+mean by that? If you think about a lot of the large laboratory-based
+surveillance programs like PulseNet, the development and standardization and
+deployment of these laboratory technologies on the wet lab side is pretty well
+understood and well defined. But increasingly, as we roll out technologies like
+genomics, they have a significant bioinformatic component, a significant data
+management component to it that many public health labs, regardless of setting,
+are just not equipped to deal with. And these shortfalls in infrastructure and
+workforce capacity are both critical and widespread in public health, regardless
+of where they are in the world. Most labs just don't have access to a dedicated
+team of bioinformaticians. They don't have access to system administrators. They
+don't have access to cloud resources, necessarily. And moreover, a lot of the
+bioinformatic tools that we rely on are either really customized and open source
+or they're proprietary. So there's really no middle of the road. And oftentimes,
+getting a system running reproducibly across multiple laboratories is a huge
+challenge right now, especially if you're trying to do it year over year in
+something that's sustainable. So a couple of years ago, we sat down with
+colleagues at the Gates Foundation and colleagues at Fred Hutch to start
+thinking about how we can improve access to public health bioinformatics. And we
+interviewed a bunch of different groups from across public health. And through
+these conversations, we put together 10 general principles to help improve
+openness and interoperability in public health bioinformatics. Last spring, this
+sort of culminated in bringing together a few dozen scientists from all over the
+world to talk through what would be required to build a better and more open
+bioinformatics ecosystem. And one of the models that we came and keep coming
+back to was the Global Alliance for Genomics and Health on the human genomics
+side. This is a consortium, essentially, that formed around a lot of the human
+genomic studies with a realization that there needed to be some effort toward
+building common standards, common languages for interoperability, common APIs,
+those sorts of things. We actually approached GA4GH to see whether they'd be
+interested in building some microbial work groups around the work that they were
+already doing around standards, because that's really what we felt we needed.
+And while they were very supportive of our efforts, they encouraged us to branch
+out on our own. And we also looked across the public health ecosystem generally
+to see what had already been out there. And there are a number of groups either
+focused in specific areas that had started at least thinking about standardized
+and some of these principles of openness, but there really wasn't any traction
+or forward motion on a lot of them. So we wanted to try and address that. So at
+the end of this, we came up with the concept of PHAGE, or the Public Health
+Alliance for Genomic Epidemiology, which is really based on the concept of how
+do you inculcate these ideas of standards? How do you build a more open, more
+interoperable ecosystem for the public health tools that we use and we rely on?
+How do we make it more sustainable? How do we figure out how to prioritize where
+we should be putting our resources? And how do we ensure that as a global
+community of laboratories and innovators, that we can apply these technologies
+where they need to be applied and do that consistently? As of now, so we
+established a secretariat that's at the South African National Bioinformatics
+Institute in Cape Town, under the leadership of Dr. Alan Christoffels. It
+started out a little bit slower than perhaps we thought. We had a kickoff
+meeting, or we actually kicked off PHAGE at the Grand Challenges meeting last
+fall in Addis Ababa and had planned to start spinning up the various working
+groups and a lot of the activities over the spring. Obviously COVID had other
+plans, but even so, a lot of the work groups have already started to meet.
+There's a lot of passion and interest around this. It obviously gives us a very
+concrete problem to work on and a real good example of where these sorts of
+standards and efforts make sense for us to come together on. Even though we're a
+little slower than I would have liked, it would have been wonderful to have a
+lot of these standards in place, or at least the foundations laid about six
+months before we did. I'm really grateful that the teams have come together and
+started putting a lot of these pieces in place because I think they're really
+going to be useful, not only for this response, but for global public health in
+general. You have a really huge mission, huge background. Do you divide that
+into different working groups, or how does PHAGE work exactly? We've actually
+mirrored it very closely to the model that GA4GH uses. GA4GH has what they call
+work streams, which are essentially different areas of focus. Then they have
+essentially what they call driver projects, which are through lines, through
+those different areas of focus. You have the technical working groups working on
+different areas. You have a general concept of these large-scale projects that
+help tie a lot of those concepts together and ground them in reality. We took
+very much the same model. At the outset, we established eight working groups. We
+established the one that we'll talk about today, which is data structures, one
+on infrastructure, one on bioinformatic pipelines and data visualization, one on
+training and workforce development, one on public sequence repositories. Users
+and applications, we wanted to make sure that we were focused on making sure
+that this was user-centered design and that we were taking a lot of the
+downstream applicability of these approaches in mind. Reference quality and
+validation, and ethical data sharing, because a lot of these concepts are really
+tied together. We're really talking about the tools to share information, share
+data, reference quality control and validation, and ethical data sharing,
+because a lot of these concepts are really grounded in that. How do we ensure
+that the global public health community has access to the tools to analyze their
+data, the ability to share their data, and how do we put an ethical framework
+around how we do that? Not to berate you too much on phage, but let me ask you
+one more question. How is phage focusing on the fight against COVID? I just
+described eight different working groups. There's probably three or four of them
+that have formed, and the others are still in some of the early phases of
+starting to coalesce. Data structures is probably the furthest along, and I'm
+glad that we're going to be talking about the work that's been done there today.
+I think we'll definitely dig into that in the rest of the podcast. On the
+infrastructure side, the infrastructure team has been putting together, one of
+the tangible outputs is they've been putting together a survey tool to reach out
+to the various public health entities to really get a sense of what their
+bioinformatic capacity, what their bioinformatic resource needs are. They're
+using SARS-CoV-2 just as a basis for that, but really, we're trying to
+understand the global access to cloud services, how much technical capacity
+there is out there, different options when it comes to platforms, availability
+of open source, those sorts of things. It really will give us a good global
+picture of capacity in the context of COVID-19. The other is the Bioinformatic
+Pipelines and Data Visualization Group has met a few times. Obviously, there are
+many different pipelines and tools out there for analyzing SARS-CoV-2 data. One
+of the things that they're looking at is how they can...  can not only help
+develop some reference pipelines for people to look at, but also to essentially
+have a phage approved, or essentially something that the global, the general
+community has looked at and has determined is going to be a workable solution,
+so that we have at least sort of a reference standard for how we approach that.
+Thanks, Duncan. OK, so I'm going to turn over to Emma. You're the chair of the
+Data Structures Working Group. Can you tell us a little bit about the work
+that's being done in your group? Yeah, sure. So first of all, thanks for having
+us here today, Lee. It's really great to be able to have a chat with you guys.
+So as you know, how data is structured, how it's organized, managed, and stored
+can really impact how it can be used and integrated with other types of data.
+And one of the most critical barriers in public health genomics and
+bioinformatics, as Duncan has already really eloquently pointed out, is the lack
+of interoperability between data sets and tools and systems. And that lack of
+interoperability really inhibits the exchange, comparison, analysis, really the
+consistent interpretation of data. It also creates data silos. It increases the
+need for workarounds. And it can basically have a lot of detrimental impacts on
+the efficiency of public health responses. So the Data Structures Work Group is
+really focused on developing and promoting data structures, like different data
+models and data standards, for microbial sequence data, for contextual data, for
+analytical results, and metrics. So it's really through this work that we hope
+to improve the transparency, the interoperability, and the reproducibility of
+public health sequencing workflows. And Ruth, who is in the Data Structures Work
+Group? Is it just you guys? So Lee, thank you so much for having us. We have 22
+members right now in the Data Structures Work Group. It's still growing. The 22
+of us come from about nine different countries. Several folks from our group are
+parts of large consortia that are using sequencing of SARS-CoV-2 for national
+surveillance. To mention a few, includes SPHERES in the US, CANCOGEN in Canada,
+COG-UK for the United Kingdom, and then others from Latin America and African
+Sequencing Network as well. So we have a nice representative of folks
+contributing to the global surveillance. And some of the challenges particularly
+pertinent to the work we're doing in the Data Structures Work Group involve the
+collection and integration of contextual data. Contextual. Andrew, can you fill
+me in? What did Ruth mean by contextual data? Is that like metadata? Yeah, like
+metadata. OK, so you need to know a lot of stuff about samples to make them
+actually useful. And without the contextual data, there's no point really in
+doing much analysis because you won't get too far. You can probably type some
+genomes, but it's only when you can overlay extra information like where samples
+were collected, what part of the world, what age the person was, when they were
+collected. All this, you can actually go in and use that somehow to do some
+analysis. It might be to estimate the number of introductions into an area and
+link that back. So maybe did this person go skiing in Italy and then turn up
+with a particular genome and then that explodes in the country? Or was it simply
+that you're looking for signals maybe to link back to the severity of disease?
+But you need to know basic information before you can do very much with that.
+Good, OK. And Emma, what work is the Data Structures Working Group doing
+specifically to contribute to fighting COVID? Right, well, there's a wide range
+of information required for COVID surveillance that necessarily needs to come
+from different actors in the sort of surveillance spectrum. So from those that
+are on the front lines collecting samples, those that are processing samples and
+doing the sequencing, those people are not necessarily the same as the people
+doing the bioinformatics. And those people are definitely not the same as those
+using the information to answer biological questions or to make decisions
+regarding public health measures at different scales, be it local or regional,
+provincial, national, or even at the international level. And so all of this
+information, all these different bits and pieces of information, are really
+distributed. They need to come together from a lot of different places. And
+these bits and pieces of information need to be shared. The right information
+needs to get to the right people. And right now, that's very difficult.
+Logistically speaking, with time constraints, personnel constraints, a lot of
+different types of information have different privacy or practical or ethical
+concerns. A lot of times, these different bits and pieces of information are
+encoded using different formats, different structures. So basically, integrating
+data and sharing data right now for COVID surveillance and public health
+investigations and interventions is very difficult. And so our goal in the Data
+Structures Work Group was really to create a specification that we, in our
+collective experience, because as already mentioned, there's a lot of us that
+are working in large consortia for sequencing SARS-CoV-2, so that in our
+collective experience, we believe that the essential information for performing
+a lot of this surveillance and public health work is all centralized in one
+place in a standardized way so that it can be more easily integrated for
+analyses and shared as needed. So that's our top priority right now. So given
+the ways that you guys are fighting COVID, Ruth, what's in the specification? We
+have released a set of documents on a GitHub repository. The main specification
+is, for most people, utilizing the specification will be spreadsheet-based.
+Within the spreadsheet, we have fields for tracking and collecting information
+about the sample, keeping track of sequence identifiers, accession numbers that
+received back from the repositories, fields that describe samples and sample
+processing, attributes for host and host exposure information, sequencing and
+bioinformatic methods, and also keeping track of author names for attribution of
+various different contributors. We also break these fields down into what we
+consider to be essential or required fields. And so we have a color code for
+this. And we also have a set of fields that we highly recommend and then a set
+of fields that we consider optional. And so when you're, as a user, when you're
+filling out this metadata, so you would do this as far as just tracking all the
+metadata that you have associated with your samples. And at this point, all the
+data are private, right? This is just a spreadsheet that you're keeping track of
+internally. So as you go through and populate it, you'll have picklists with
+controlled vocabulary. We don't have any pretext options. This is really helps
+with the standardization. And along with this guide, we have a really great
+associated reference guide that gives you definitions and guidance for how to
+think about populating these metadata fields. And then we also have an SOP with
+more instructions and kind of an example of, if you had this kind of data type,
+how would you walk different users and different stakeholders through the
+process? And lastly, we have a set of repository submission protocols hosted on
+another platform called protocols.io. And this will walk users through how to
+take the metadata that they can release publicly and submit it along with
+sequences to their repository of choice. And so those protocols walk people
+through that process, ensuring that the metadata ends up in the right place in
+official biosample databases for the INSDC. And so those are really great
+protocols for folks that are not familiar with the submission process. So given
+the protocols and the GitHub site and everything, are we gonna have those in the
+show notes? Yes. Yeah. That's awesome. All right, so Emma, what makes the
+specification different than existing standards? Okay, well, let me start by
+saying that there are a lot of great contextual data standards that are already
+out there. The issue is that many of these standards try to incorporate as many
+different use cases as possible. And they're largely pathogen agnostic. And this
+is to make them as broadly applicable as possible. So they're not really
+tailored to SARS-CoV-2 and nor are they really tailored to public health. So
+this specification that we are creating really attempts to incorporate as many
+existing standards as possible while addressing gaps and including guidance
+really with a public health focus. But like what? Right, right, okay. Well, so
+for example, Ruth mentioned that we have included a reference guide as part of
+the specification package. And that includes things like mitigation strategies.
+for issues around re-identifiability for example. And so one of the pieces of
+guidance is you know if you're dealing with issues around collection dates you
+you can add jitter. And also the the reference guide also really highlights
+potential concerns for data handlers and data stewards when sharing data, things
+like that. So we also have mappings of our fields to existing standards like the
+project and sample application standard. This is by the NIAID funded genomic
+sequencing centers and bioinformatics resource centers. Also the minimum
+information about any sequence and minimum information about a genomic sequence.
+So those are then mixed in the MIGS packages by the genomic standards
+consortium, that sort of thing. So we're mapping to these existing standards so
+that you can see exactly how our specification aligns with these standards and
+how it differs. So I really just want to stress that our specification isn't
+meant to be like a panacea, but we do hope that with this public health focus
+and a specificity for SARS-CoV-2 that people can find it useful. You said the
+word jitter before, what is that? Right, so I like adding date, so if you have a
+collection date, changing that collection date by adding a day or subtracting a
+day or adding a couple of days or subtracting a couple of days. So that's what
+we mean when we say adding jitter. I like that that's a new term for me. Thanks
+for clarifying. Ruth, how does the spec align with the submission requirements
+for public repositories? Does your experience with GenomeTracker come into play
+here? Yeah, definitely. Lessons learned from other large genome-based
+surveillance networks can be applied here to COVID. So when you mentioned
+GenomeTracker, for folks that don't know, GenomeTracker is a very large
+sequencing global network for foodborne pathogens. And this program has had a
+lot of success in this open genomic epidemiology space with a focus on public
+health, providing actionable data on a daily or weekly basis for public health
+folks. And so there are, within GenomeTracker, we have many large networks
+submitting bodies like PulseNet, Public Health England, we have Australians, we
+have Canadians, all feeding into an open space. And we had little coordination
+between these different large efforts outside of, but we do have, a core
+metadata standard. And this standard enables this analysis interoperability that
+you've heard this word a couple times. You know, across this database of now
+nearing about a half a million isolates. So we have here this similar structure
+with SARS-CoV-2, where we have many different, very diverse submitters
+submitting to public repositories with minimal coordination between them. And if
+we can all agree on a minimum standard for the metadata, then we can really have
+a global interoperable surveillance network. And so I'd like to make the point
+that doing this work in a public space with diverse contributors, and by that I
+mean, public health labs, academia, we have a lot of industry folks sequencing
+right now, is still a fairly new for public health folks working in the disease
+surveillance space. This is really only a new paradigm that's popped up in the
+last 10 years. So for the COVID community, there are two main repositories
+supporting this effort. There's the INSDC, where we have no restrictions on the
+data usage. And then we have GISAID, where there's some restrictions around data
+usage. And so our metadata spec maps really well to each of these formats or
+platforms. And this provides submitters a lot of flexibility, depending on their
+comfort level of releasing data for reuse downstream. And it also, as Emma
+mentioned, harmonizes with existing metadata standards. So for example, if you
+were to view the metadata through the lens of the INSDC, and it looks like an
+extension of the NCBI pathogen metadata package. So all those kind of core
+fields that are used for other pathogen surveillance networks are the same. And
+then we have an extended version for the page for this specific use case. That's
+incredible. So Nabil, I haven't asked you a question, you've been largely silent
+on the podcast for a while. Thanks for your patience. It's always a good thing
+if I'm quiet. So here's a provocative question for you. Is the goal of the
+specification to get people to share all of their data? No, no, no, no, no, no,
+you don't have to worry. People using the specification can share just what they
+only what they want to share. I mean, the real goal is to get different types of
+information into a single format structured in a standardized way. We give
+guidance for people who own that data how to do that. And then the sharing is up
+to the user or the data steward how they want to distribute that now. Some of
+this information can be shared with public repositories, as we've been hearing.
+And some of it you may want to share with trusted partners and collaborators
+like members of a sequencing consortium. And some of it you might want to keep
+for yourself for your own private local analysis. So there's nothing in the
+specification that prohibits you from doing all of that. But the really
+important element is that the data is structured in your hands from the
+beginning, so that you can share it in the future for research or surveillance
+purposes if you choose. And you don't have to frantically try to do it later
+down the line when when nobody remembers how things were collected. It just puts
+power back into your hands of having something systematic. What a relief. So you
+mentioned several times that the specification is geared towards public health.
+Andrew, you're involved in COG UK as well as public health related genomics
+projects at the Quadram. What is actionable about this for public health? So
+what we do is every single week, everything we sequence, we upload to one
+central repository in the UK. And all of the other sequencing centers in the UK
+do that as well. So I think we're up to about 16 sequencing centers now. And all
+of that gets put together to give a real time or near real time map of what is
+happening in the UK, which lineages are active, which ones are not. What is a
+lineage? Well, that goes back to some work Andrew Rambo and Ong Ngo Tul have
+done, which is to give like a genotype to different mutations so that you can
+track what is similar and what is different within an area. And we can see, is
+this lineage maybe a problem only in public health and say care facilities? Or
+is it a problem in hospitals? Is it a problem in the community? Or is it just if
+you have an outbreak, is it multiple different outbreaks happening
+simultaneously and you have a hodgepodge? All of this is important information,
+because it allows you to then take action again, to take action to hopefully
+knock out that outbreak. We also find with lineages, we get hidden links. So we
+found between say care facilities within a wide geographical area, that the same
+exact same virus, same lineages were circulating. And that would indicate that
+maybe there's people moving between these different care facilities. And that's
+a problem. Or it could be just delivery workers, you know, delivering to all
+these same buildings. But the outbreaks within those facilities were just in
+many cases, just a single lineage that expanded rather than multiple different
+lineages, versus say the community. If you look at what's circulating in the
+community around those facilities, you might have a dozen or two dozen different
+strains in circulation. So it gives very important information. And it'll be
+really important for the second wave of infections when it comes. Well, that is
+the first wave doesn't stop. Certainly in the UK, we've gone down gone from in
+our area, we serve about a population about a million people. And we were at the
+height of the epidemic getting about 50 cases a day coming into local hospital.
+And that's gone down to maybe two or three a week. So that's quite good. But we
+are quite certain that it's going to go up at some point, maybe in a few weeks
+or a few months, who's to know. And hopefully, we'll be able to detect that as
+quick as possible, and then hand information back to the track and trace the
+contact tracing people so that they can hopefully find the hidden links go and
+investigate and knock out those transmission chains. That's incredible. So we
+talked about clinical Nabil, is this whole metadata standard focused on clinical
+tests only? Or are there different domains? So the specification was written
+around clinical data, it's the majority of the samples out there, it's our first
+priority, but it's not our only focus. So the specification is robust enough to
+describe other contexts that you would be interested in, sort of things that
+you'd be interested in for any pathogen, say, trying to track different
+environments. So recording whether a sample was from sewage or door handles or
+air ventilation shafts, people are very interested in understanding how the
+drought virus can be transmitted to  surfaces or environmental features. And
+then looking at different hosts, so pets, livestock, wild animals, and so on.
+And different specimen sites. So people are interested in what tissues allow the
+virus to persist. So can it be found in breast milk? Is it sexually transmitted?
+What is the viral load in saliva or blood? And that information can be used to
+develop a less invasive diagnostic test that we know. So it's important to
+record all of this kind of information. I mean, we have one sort of very
+specific use case that we've made the specification allow for, which is sampling
+bats in museums. I think Ruth has the specifics of that one. Please do tell.
+Yeah, sure. Thanks, Nabil. There's a global consortium of museum curators that
+are building out a stack to be able to do broad-based surveillance of
+coronaviruses in museum specimens. So you can imagine the research potential of
+understanding the background population kind of reservoirs that exist in animals
+around the world. And we have a lot of that historical data captured in museum
+specimens. So that's a really neat use case that will be fun to see fleshed out.
+It's really awesome. So going back to the specification, Emma, what if my new
+controlled vocabulary term is not on your list? Mm-hmm. Oh, Lee, I'm so glad you
+asked that question. We happen to have an entire protocol for adding new
+controlled vocabulary. So as Ruth already mentioned, as part of the
+specification package, we have an SOP. So new users, it will provide new users
+with instructions for how to get started. And also the SOP describes how to
+source new standardized terms directly from different relevant ontologies.
+Because we recognize that we can't cover everything that people want to
+investigate. And Nabil just listed a whole variety of different things that
+we've tried to take into consideration by curating the literature and talking to
+our colleagues. But there's the whole world out there that people will be
+interested in investigating. And so we got you covered. We have a whole set of
+instructions for finding new terms. Awesome. And who is using this spec so far?
+Duncan, do you know? One of the really powerful things about this has been that
+a number of people that have been involved in national sequencing efforts around
+the world really contributed or provided input on the development of these
+specifications. And we pass them through various repositories, various large
+international sequence repositories. And in doing so, I think it really got some
+consensus and some sanity checks on how this was being put together and what
+made sense to include, what made sense to set aside. Right now, there's
+obviously Cancogen. Emma's team at Cancogen has adopted this, the Canadian
+Sequencing Initiative. In the US, many of the SPHERES labs, SPHERES
+participating labs, have adopted this as well. Ostraka in Australia is in the
+process of looking to implement this. SANBI and Africa CDC, South African
+National Bioinformatics Institute and Africa CDC are circulating this to many of
+the African labs that are starting to sequence. And as part of the Global
+Emerging Pathogens Treatment Consortium in Africa as well. So it's starting to
+get some traction in a number of different groups. We're confident it's already
+got a fairly broad global appeal, but we'd really encourage others to kick the
+tires on it and try it out because we think it is a useful way of managing
+metadata around sampling. Great. So if I want to get on the bandwagon with my
+LIMS, Nabil, how can I integrate this into my own LIMS? Well, I do know there is
+ongoing work to integrate this into the BOAB LIMS led by Alan Christoffels at
+the South African National Bioinformatics Institute. And that is an open source
+LIMS for biobanking developed by African and European researchers. I think all
+the code for that's up on GitHub. So when they roll that in, that can just be
+pulled down and you can hop onto that or at least see how they've implemented
+it. Is that something that we can put in the show notes too? Yeah, definitely.
+We can put the link in the show notes for that one. Awesome. And Emma, you've
+had more international involvement in the creation of this spec. Can you tell us
+some more? So I think Ruth and Duncan have already alluded to this. Definitely,
+we've got phage members from all over the world providing input and feedback.
+And we have, as we've already mentioned, we've got phage members representing
+COG-UK, SPHERES, CANCOGEN. But we also have members in the data structures group
+that represent the Latin American Genomics SARS-CoV-2 network. Also, we've had
+people looking at the spec from the South African NGS Genomic Surveillance
+Network. So basically, we have collaborators from countries like Brazil,
+Argentina, Australia, Nigeria, South Africa, some countries in Europe like
+Germany, Portugal, Switzerland, and of course, the UK, Canada, and the US. So we
+feel like we have quite a lot of international contributions in terms of the
+sort of refinement and the generation of the spec. Cool. This question's for
+Ruth. How can people get a hold of the spec and the rest of the package? Sure.
+So for folks listening, we're going to provide a link to our GitHub repo. And in
+that repo, you'll find links to all the resources, including the metadata
+template mappings for those metadata to public repositories. And there's a
+really nice SOP for wrapping your head around this whole effort. And then we
+also have links out to this other platform called protocols.io, where you can
+utilize detailed submission protocols for the major repositories, NCBI, EBI, and
+GISAID. Okay. So Duncan, I'm at the edge of my seat. How do I start using it
+already? I'm so glad you're on the edge of your seat, Lee. As Emma and Ruth have
+said, there's a lot of materials that have been put together as part of this
+package. I'd recommend that you download the materials, read through the
+preprint. There's an SOP with the detailed instructions on how to get started.
+And honestly, we're always looking for feedback from users. So as you start
+going through it, if there are things that make sense, if there's things that we
+can iron out, if there are places where we need a little bit of additional
+documentation or a resource to help bridge, we're very, very eager to hear all
+of those things. We're really interested in input from the community and hope
+that this will be a useful resource, as we think it will be. Let me put this
+question out to the group. Are you guys publishing this at all? We sure are. So
+we, yeah, we are planning to publish this as a preprint. So that report will
+describe all of the materials that we've put together. That we've discussed
+today and provide all the links, how to get a hold of the materials, how to get
+started, how to start using the spec, how it can be used. Yeah. So that report
+will describe all of the things we've discussed today and hopefully a little bit
+more. Where can I look up for it? Are you doing like bio archive? Yeah. Yeah.
+Bio archive or med archive are probably our first targets. So stay tuned.
+Awesome. Thanks so much to our panel of Fage members, Emma Griffiths, Ruth
+Timmy, Duncan McCannell, Andrew Page, and Nabil Ali Khan. We have certainly
+learned a lot about the new SARS-CoV-2 specification. When you have a moment,
+head over to our GitHub repo, where we have links to the specification and
+submission protocols. Thank you all for listening to the MicroBimpy podcast.

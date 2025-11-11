@@ -1,0 +1,266 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There's so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention, and am an adjunct member at the University of
+Georgia in the U.S. Hello, and welcome to another Software Deep Dive, where we
+interview the author of a bioinformatics software package, and today we're
+having a chat about some of the software we've created ourselves, because behind
+all of our software are quirky details that never make it into the final paper.
+So today, Andrew is in the hot seat with Rory. So to kick things off, Andrew,
+what is the problem that Rory is trying to solve? So Rory just solves the
+problem of creating pan genomes for bacteria. It's a very simple problem, but
+when Rory came out and when it was developed, it was a really difficult problem
+to do at scale. People were doing pan genomes. Actually, maybe I'll start with
+what a pan genome is. So if you sequence a lot of bacteria, you do assemblies,
+you're going to get differences between those assemblies, and it might be mobile
+genetic elements or other random things like you might have plasmids, phage,
+integrons, this kind of thing. And this is fine if you just want to build, I
+don't know, a nice little tree, you might go and map everything back to a
+reference. But if you want to look at all this variation in the accessory
+genome, which is everything that's not in the core conserved part of the genome,
+then you need some way of interrogating it and seeing what's in common in these
+strains and what's different and that kind of thing. And then also people want
+to know what genes are actually in every genome in their set or nearly in every
+genome. And those are your kind of core conserved things, which actually define
+what this set of bacteria is. What makes a salmonella an actual salmonella? It's
+probably this collection of 2,000 genes or 3,000 genes that really define it,
+how it works, how it operates, how it lives and dies. Whereas there can be a
+flow of other things coming in and out that maybe help it to survive in
+different environments, but they're not universally required. It came about
+because within the Sanger Institute, they were struggling because they had these
+huge big sample collections, but they weren't able to actually pull out this
+information about the pan genomes very easily. What is accessory? What is core?
+And they're using tools like PanoCT and LSBSR and get homologs, this kind of
+thing. Another member of my group started off going and looking at OrthoMCL and
+seeing could he actually modify that? And now if you've ever used OrthoMCL,
+you'll realize that it's probably not the easiest software in the world to use,
+particularly when they moved to more recent versions using MySQL database. And
+it just created this whole nightmare of complexity. And doing something quite
+simple became quite difficult. It's fine for maybe eukaryotes where you've only
+a small number of samples, but when you actually have a huge data sets like with
+bacteria, it becomes a huge problem very quickly. And we looked back in the
+literature and found that, well, people weren't really building pan genomes
+bigger than maybe 80 or 100 bacteria, which is quite small. So we set about
+trying to build something that could actually scale to thousands or tens of
+thousands of bacterial genomes. So we can do these much larger projects. And
+that's kind of how Rory came about. Originally, it just had the ominous name of
+the Pan Genome Pipeline internally. And the scripts were just called Pan Genome,
+Create Pan Genome, that kind of thing. So not very well named, but it got
+through the kind of early stages. How did you switch to Rory then? Because when
+we started opening it up, we realized we needed a better name than just the Pan
+Genome Pipeline. So I had to make up a name. And the name I made up was Rory. So
+like Rory the Racing Car, which is a kids TV program in the UK, and it's in
+Australia as well. Yeah, it kind of stuck. But really, my son is actually named
+Rory, spelled slightly differently. So that's kind of where the name came from
+as well. Might as well, you know, choose something a bit obscure that isn't
+currently used in software and then use it, you know, because then people can
+look it up easily. They can type, you know, Condon saw Rory, that kind of thing,
+and get it quite quick. I do remember one time, maybe last year or the year
+before, and you showed me a picture of your son and you said, this is the
+original Rory. So I think I know who it's really named after. It's a good name.
+You know, it's a good Irish, Scottish name. And it's quite common in those
+countries. One more question about the name, though. Yeah. Yeah, I've heard.
+We're all at home, right? Is he like in the next room and you're saying his name
+a lot? Is he kind of perking up, you think? He's actually downstairs sick today.
+So yeah, he's probably listening in. How does he feel about having such a
+prominent software named after him? Well, I don't know. I think he's too young
+to actually understand, you know, that he's got a famous name. But maybe in the
+future, he'll come to the dark side and work in infectious diseases and
+bioinformatics, you know, and you never know. So did you choose that spelling? I
+guess I have one more question. Yeah. Did you choose the spelling? Because I
+don't know anything about Rory the racing car. I've never seen it before. Is
+that kind of an homage to the speed? Or is there some other meaning behind it?
+No, there's no other meaning. It was just son's name spelled slightly
+differently. OK. Racing cars go fast. And also racing cars go fast, you know,
+you know, it sounded nice. It was unique. You know, that's the main thing is a
+unique namespace. OK, we can move on. I can stop riffing on the name. Well, I
+mean, when when when did when did the development actually start? You're talking
+about 100, you know, large data sets, 100 genomes. I mean, that must have been a
+while ago. Yes, it started off like maybe 2013. So a fair while ago. And I think
+it was only published in 2015. And actually, it's only published as a two page
+bioinformatics application note. So actually very, very short. But I think the
+supplemental material was like 30 pages long as you do. And it was grand. Like
+people, main thing about it was that internally within the Sanger Institute,
+people were using it in a group. So it was, you know, written our own dog food.
+And we got some great feedback very rapidly. You know what people actually need,
+what they don't need. And so it had some extra quirks originally. So, for
+example, it could scale massively on HPC cluster. So the way the program is
+actually structured is a collection of scripts which kind of call each other.
+And then there is like job runners which run those particular jobs. And that's
+designed so that you can scale it out massively. But actually, after a while, I
+figured out that no one really did it that way. They basically said, I have, you
+know, 64 threads. Please run this on one machine with 64 CPUs. And that's how
+they ran it. They weren't using the power, the awesome power of HPC where it
+could scale to thousands of simultaneous jobs in parallel. So basically that
+whole functionality is still there, but it's kind of hidden away and no longer
+advertised. But I think it's the best part. I spent a lot of time trying to get
+that to work. Wait, I had no idea about this. So is that available? Is that like
+a secret thing that we can get to? It only works for LSF, which is what the
+cluster at the time used. But yeah, you can actually use it. But you don't
+really need to be quite frank, you know, because it's quite fast. One of the big
+speed improvements, actually, that I think is really awesome is using CD hit to
+pre-cluster all the data, because fundamentally this method and probably most
+methods, they just do an all against all blast of genes. So not too fancy. But
+if you pre-cluster all the genes first, you massively shrink down the amount of
+comparisons you need to do. So that massively, massively speeds it up. And it
+scales as well, because if you're comparing one species of bacteria, there's
+only so many genes, unique genes that are going to be in there, you know, unless
+you have contamination, of course. But there's only so many unique genes. So as
+you add more and if you're continually clustering, it's going to it's not going
+to increase that much. It's going to increase linearly rather than this massive
+n by n comparisons. So that improvement came from a guy I think called Feruz
+Yeltsin, who was actually trying to use it to speed up Orto MCL. He quickly
+abandoned that project, though, when he realized it was just difficult. What was
+the most interesting feature that was requested at Sanger to put into that, that
+maybe something unexpected? So there were a lot of features requested and, you
+know, most of them are put in. But actually, I tried to integrate a lot of stuff
+that Torsten had told me about, you know, so I made sure that Rory took
+Torsten's  Torsen's Proko tool as input and only Torsen's Proko tool because,
+you know, trying to take in generic GFF files or generic annotation files is a
+royal pain. All right. So I focused just on the one annotation tool that is
+really easy to use, which is Proko, and that's the only one that I wanted to
+take in. It worked really well and everything gets processed really easily. That
+solved a lot of problems getting data in. But, of course, you know, people then
+go and download data randomly from GenBank or from EMBL and they're like, oh,
+yeah, you know, I threw all of these different genomes in and I'm getting really
+weird results by randomly downloading them from the Internet. Well, actually,
+the reason is that they're all probably annotated with different tools,
+different gene predictors. They kind of slightly call genes slightly differently
+and that messes things up, you know. If you're going to analyze a set of
+bacteria, you really need to do everything up front the same and then analyze
+them in one go the same. You can't just randomly throw things together. Yeah,
+there's a slight tragedy in that, that for a lot of data sets, for the kind of
+analysis we do at scale, it's more important that it's consistent rather than
+having sort of nuance or accuracy involved. So, yeah, a lot of there's a lot of
+painstakingly good, detailed GenBank annotation that gets scrubbed off and
+thrown away and just you just use the generic one that's generated via RefSeq or
+you use the automated one generated by Prokka, which both are good jobs and
+they're consistent, which is what's important. But yeah, there's a lot of secret
+information that just disappears along the way. But then, I don't know, nobody
+finishes genomes anymore, do they? Why would you want to when you can now do
+nanopore sequencing and then just get complete genomes, you know, or lots of
+them in one little experiment? So what are the unique selling points of Rory? It
+is that it is very fast. It's very conservative memory, so it doesn't scale
+exponentially. It's scaled linearly. And it's been used in anger quite a lot for
+huge data sets. So I know people have used it for like 20,000 genomes and it's
+worked. Oh, another big selling point is that it's packaged up for a lot of
+different systems, so it's on Debian, so on Ubuntu, you can just type apt-get
+Rory or you can go to Homebrew or to Conda. You know, it's just it's widely
+available and quite easy now to install. It wasn't always easy to install, you
+know, originally, but now it is. Also, it's written the best language in the
+world called Perl. And it's actually I find it's well engineered. So it's
+written with Moose. So it's got tests and it's got like lots and lots of
+automated unit tests. It's got a you know, it's structured nicely. So anyone can
+pick it up and probably read and work out what it does. If you happen to know
+Perl, which is the best language in the world. I love hearing you say that. So
+wait, you actually switched. This is this is a an aside, I guess, but just
+because you invoked Perl, it is the best language. You still like that, even
+though you've moved on? No, I think maybe my heart is there because I worked in
+Perl for a fair while. So I know my PhD, I did all like Java and MATLAB and
+stuff like that. Then I moved on to Ruby and Rails for about a year or two and
+then into Perl. And it's like, oh, yeah, Perl or it was really getting back to
+Perl. And Perl is lovely. You know, I did lots and lots of years in that. And
+now, you know, I've moved on to Python. Python has its own pros and cons. But,
+you know, my first love, you know, proper love is Perl. Yeah, is Python really
+that lovable? It's a bit generic, isn't it? It doesn't have these funny
+idiosyncrasies that other languages have. It's quite pretty and it works, you
+know, perfectly indenting. What really gets me is, you know, when you have tabs
+and spaces and you mix them accidentally. Oh, yeah. In terms of how it's
+documented, the one thing that people keep coming back to is the FAQ. And it
+seems to be quite a popular thing. But any time I got an unusual request or
+request for support, I would make sure to update the FAQ when I was developing
+it. And there's a lot of random stuff in there. Like someone was trying to run
+the Perl scripts with Python. Didn't work, obviously. People often, you know,
+just throw in random genomes and then expect it to work or they don't read the
+documentation or they want you to go and analyze their data. Whole range of
+things. So check out the FAQ. It's a barrel of laughs. Yeah, I like there's some
+nice questions like I haven't done any QC on my sequencing data and the pan
+genome looks very strange. Answer, garbage in, garbage out. That is pretty much
+most common support request, usually by people who have been, you know, been
+handed a set of data. They're not bioinformaticians. They don't know how to
+analyze it. But their their boss wants a pretty tree or their boss wants the
+pretty results for nature papers. And they they just don't want to learn the
+complexity of our fields when actually, you know, you kind of have to like I can
+walk into a pathogen lab and start sloshing around chemicals without knowing
+what I'm doing. You know, I will be shot by health and safety. So it really
+comes down to you have to know what you're doing. And I would expect people to
+have a baseline knowledge and not just try and randomly run pieces of complex
+analytical software because they won't be able to interpret the results
+properly. No, and there's actually some really intelligent FAQ questions as
+well, which explain some really simple, basic theory stuff as well. Things like
+what? There's some very long branches in my tree. What should I do? Or there's
+one here that says something. Why is there a sudden increase in core genome size
+every hundred genomes? So, yes, that's basic mathematics. Unfortunately, that's
+another common question. And it's because a feature people wanted was I want to
+be able to say this is a core gene, even if it's only present in 99 percent of
+my genomes. Well, you know, that means that you're going to get these steps
+every now and again due to simple rounding of whole numbers. Unfortunately,
+yeah. Or you could just say, I want the core only to be made up of genes which
+are in everything. But the problem is that assemblers don't necessarily assemble
+everything and you get random contact breaks. So you have to allow a little bit
+of fuzziness. Can you analyze my data for me? Sure. Pay me a lot of money and
+I'll do it. But yeah, no, there's some there's some funny questions in the FAQs
+and and actually quite a few really intelligent, thoughtful ones in the FAQs as
+well. So definitely worth a read if anyone listening is interested.
+Bioinformatics ASMR. Don't laugh, we should do it. It'll be hilarious.
+Bioinformatics ASMR, what on earth is that going to be like? Stroke my genomes.
+I made a 10 second video of it one time. It's hilarious. I'll put it on YouTube.
+So it's been widely used in the community for a huge range of things. And I'm
+quite surprised actually how far the software has gone. It's got way over a
+thousand citations so far. And it seems people are using it like all over the
+world. I've gone to random conferences and people have been using it. So that's
+kind of cool. And it's used in a lot of public health labs as well, just for
+doing quick core genome analyses and that kind of thing and as part of
+pipelines. So it's nice to see the software being used. I haven't done updates
+on it for donkey's years because, you know, I've moved on. You don't get
+publications based on the stuff you did five years ago. And obviously that was
+in a previous job. So you have to continually move on publishing stuff,
+publishing tools and sometimes just leave the other ones to to survive on their
+own. But it is on GitHub. So if anyone wants to make changes or additions,
+they're more than welcome to. And, you know, I can merge those in. Yeah, there
+are a few programs out there now, like in the past five years since it's been
+published, lots of other new programs come along. In fact, there seems to be,
+you know, one a month coming out. So which is quite good. Things like Pop Punk
+and Paneroo I think is a new one as well. There's loads. And I'd say if Rory
+doesn't suit you, then check those ones out. Well, they're all benchmarking
+Rory. So they do say they're faster or better in different ways. So if Rory
+doesn't suit your needs, check them out. Are we going to do anything with Scory
+yet or is that another time? Oh, yeah. Totally forgot about Scory. Yeah, that's
+a great way of doing further analysis, like statistical analysis on your output.
+And yeah, that's a fantastic piece of software. I'd say check that out. So
+basically you can put in like these are your cases, use your controls within
+Rory and it'll kind of do this magic and pull out a million different stats for
+you. And yeah, so Scory is definitely one to use in conjunction with Rory. Do
+you know who's wrote Scory? Oh, it's a guy in Norway. Hola, Brindisland. I would
+say check it out because it's a fantastic piece of software. Can I do a bonus
+question for the premium users? What's the strangest use of Rory you've seen or
+what's the most unusual, most notable one? My God, honestly, I don't know. I
+mean, people have tried to build like pan genomes of everything gram negative
+and all this kind of stuff. You know, you're not going to find much in there.
+Well, in fact, well, that's one of the most common ways of seeing if people.
+having QC to data, you know, if they come back and they say, Oh, I've only got
+150 core genes. And it's like, well, you probably just tried to create a pan
+genome of everything in, you know, ground negatives or ground positives or
+whatever. And you probably have contamination in there. contamination is quite
+easy to spot actually, in Rory. And I use it as a quick check as well all the
+time. And, yeah, I don't know, people don't do the basics, they kind of skip
+over, they think, ah, sure, I'll just try all these methods blindly, see what
+comes out. But number one always is QC, QC your data, please. Good point. Right.
+Awesome. So thanks for the great discussion. We this was just a quick chat about
+some of the software we've created ourselves. And there's always some
+interesting facts about these different tools that came into being. And yeah,
+today we've been talking about Rory, which allows you to do pan, generate pan
+genomes. And you can check it up on GitHub. There's the paper out in
+bioinformatics. So yeah, follow up with that. Read the FAQs. And that's all the
+time we have for this episode. See you next time. Thank you all so much for
+listening to us at home. If you like this podcast, please subscribe and like us
+on iTunes, Spotify, SoundCloud, or the platform of your choice. And if you don't
+like this podcast, please don't do anything. This podcast was recorded by the
+Microbial Bioinformatics Group and edited by Nick Waters. The opinions expressed
+here are our own and do not necessarily reflect the views of CDC or the Quadrant
+Institute.

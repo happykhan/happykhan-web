@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+<title>Happykhan.com - Nabil-Fareed Alikhan</title>
+<link>https://happykhan.com</link>
+<description>Personal website of Nabil-Fareed Alikhan. Bioinformatician. Microbial genomics.</description>
+<item>
+<title>Five lazy tips for grant writing</title>
+<link>https://happykhan.com/posts/five-lazy-grant-tips</link>
+<guid>https://happykhan.com/posts/five-lazy-grant-tips</guid>
+<pubDate>Thu, 17 Aug 2023 00:00:00 GMT</pubDate>
+<description>I&apos;ve been meaning to write a comprehensive guide to grant writing but it&apos;s a tall ask. Here&apos;s a lazy &quot;5 tips for better grant writing&quot;.</description>
+</item>
+<item>
+<title>Introduction to MLST as it applies to E. coli</title>
+<link>https://happykhan.com/posts/intro-mlst-ecoli</link>
+<guid>https://happykhan.com/posts/intro-mlst-ecoli</guid>
+<pubDate>Sun, 04 Jun 2023 00:00:00 GMT</pubDate>
+<description>Multi-locus sequence typing (MLST) is a molecular typing method used to characterize bacterial strains, including E. coli. It involves sequencing multiple housekeeping genes and assigning unique allele numbers to variations in these genes. By comparing the allelic profiles, known as sequence types (STs), it becomes possible to infer the genetic relatedness and population structure of E. coli isolates. MLST has been instrumental in understanding the epidemiology, transmission dynamics, and evolut</description>
+</item>
+<item>
+<title>One Health as it pertains to antimicrobial resistance as it pertains to microbial genomics</title>
+<link>https://happykhan.com/posts/one-health-many-definitions</link>
+<guid>https://happykhan.com/posts/one-health-many-definitions</guid>
+<pubDate>Mon, 13 Mar 2023 00:00:00 GMT</pubDate>
+<description>After reading too many publications and proposals I do not understand the relationship between one health, and antimicrobial resistance and microbial genomics. I write this as an exercise for myself, hoping to clarify these concepts and their interdependence. This may be of interest to you too.</description>
+</item>
+<item>
+<title>Comparing Midjourney versions 3 and 4 for science themed images</title>
+<link>https://happykhan.com/posts/mj3-vs-mj4</link>
+<guid>https://happykhan.com/posts/mj3-vs-mj4</guid>
+<pubDate>Sun, 13 Nov 2022 00:00:00 GMT</pubDate>
+<description>Midjourney is a proprietary artificial intelligence program that creates images from textual descriptions. You interact with the Midjourney bot on Discord. There is a free trial, but ultimately Midjourney is a paid service. There is a choice of plans to choose from. There are alternative software such as the free Craiyon (formerly DALL-E Mini), and freemium DALL-E and DALL-E 2. There is also the open source (and free) Stable diffusion that you can run on your own hardware.</description>
+</item>
+<item>
+<title>A bioinformatician&apos;s guide to serovars and antigenic formulae in Salmonella</title>
+<link>https://happykhan.com/posts/binfie-guide-serovar</link>
+<guid>https://happykhan.com/posts/binfie-guide-serovar</guid>
+<pubDate>Mon, 31 Oct 2022 00:00:00 GMT</pubDate>
+<description>In the post, I will describe the basics of Salmonella serovar nomenclature. This post will act as a primer for bioinformaticians starting to work with Salmonella genomes, who are often at a loss.</description>
+</item>
+<item>
+<title>What is Mastodon?</title>
+<link>https://happykhan.com/posts/what-is-mastodon</link>
+<guid>https://happykhan.com/posts/what-is-mastodon</guid>
+<pubDate>Fri, 28 Oct 2022 00:00:00 GMT</pubDate>
+<description>(Skip ahead if you know how the internet works)</description>
+</item>
+<item>
+<title>How to use rMLST and its application to Acinetobacter</title>
+<link>https://happykhan.com/posts/rmlst-in-acinetobacter</link>
+<guid>https://happykhan.com/posts/rmlst-in-acinetobacter</guid>
+<pubDate>Sun, 09 Oct 2022 00:00:00 GMT</pubDate>
+<description>In the previous post, I describe rMLST (Jolley et al. 2012) as a ready and able alternative for species without existing MLST schemes.</description>
+</item>
+<item>
+<title>Downloading and installing software for the rMLST comparison</title>
+<link>https://happykhan.com/posts/supp-methods-for-rmlst-acineto</link>
+<guid>https://happykhan.com/posts/supp-methods-for-rmlst-acineto</guid>
+<pubDate>Fri, 07 Oct 2022 00:00:00 GMT</pubDate>
+<description>These are some notes for how to install software and fetch the data required for the rMLST comparison in Acintobacter.</description>
+</item>
+<item>
+<title>In support of rMLST</title>
+<link>https://happykhan.com/posts/support_for_rmlst</link>
+<guid>https://happykhan.com/posts/support_for_rmlst</guid>
+<pubDate>Sat, 01 Oct 2022 00:00:00 GMT</pubDate>
+<description>There is a follow up post where I dive into the usage of rMLST and apply it futher to Acinetobacter.</description>
+</item>
+<item>
+<title>Drawing phylogenetic trees with Microreact</title>
+<link>https://happykhan.com/posts/drawing-phylogenetic-trees-with-microreact</link>
+<guid>https://happykhan.com/posts/drawing-phylogenetic-trees-with-microreact</guid>
+<pubDate>Tue, 30 Aug 2022 00:00:00 GMT</pubDate>
+<description>I make a lot of phylogenetic trees, and I have used a lot of different programs. In this post, I want to show you how to get the most out of the online visualization tool, Microreact, so you can draw publication ready figures. We will make a figure like this:</description>
+</item>
+<item>
+<title>The process of transforming data</title>
+<link>https://happykhan.com/posts/the-process-of-transforming-data</link>
+<guid>https://happykhan.com/posts/the-process-of-transforming-data</guid>
+<pubDate>Thu, 25 Aug 2022 00:00:00 GMT</pubDate>
+<description>Continuing from last time, what is bioinformatics, we are discussing which topics we need to know to understand bioinformatics. As per our definition,</description>
+</item>
+<item>
+<title>Creating AI generated images at home with Stable Diffusion</title>
+<link>https://happykhan.com/posts/text-to-image-with-stable-diffusion</link>
+<guid>https://happykhan.com/posts/text-to-image-with-stable-diffusion</guid>
+<pubDate>Tue, 23 Aug 2022 00:00:00 GMT</pubDate>
+<description>Stability.ai has just publicly released an open source text to image AI that you can download and run on your local consumer GPU. From the github:</description>
+</item>
+<item>
+<title>Abstraction in computer science</title>
+<link>https://happykhan.com/posts/abstraction-in-computer-science</link>
+<guid>https://happykhan.com/posts/abstraction-in-computer-science</guid>
+<pubDate>Mon, 22 Aug 2022 00:00:00 GMT</pubDate>
+<description>You might have heard that the language of computers is binary (zeros and ones). You may have then wondered why when you using any of your devices there is nary a zero or one in sight. How do these devices that take our words and do anything useful? After all, a computer is a machine and has no understanding of anything.</description>
+</item>
+<item>
+<title>What do we truly need to know to do Bioinformatics</title>
+<link>https://happykhan.com/posts/what-is-bioinformatics</link>
+<guid>https://happykhan.com/posts/what-is-bioinformatics</guid>
+<pubDate>Sun, 21 Aug 2022 00:00:00 GMT</pubDate>
+<description>I work in the field of microbial genomics; we are interested in the genome of microbes. I specialise in using computers to analyse genomes. They call me a bioinformatician. These days, these skills are in demand. Sometimes people ask me what they would need to know to do what I do. I find it difficult to explain, because I did not do a degree in Bioinformatics. The field changes quickly, so it is difficult to give a firm answer.</description>
+</item>
+<item>
+<title>Advice for PHD students and tips for the rest of us</title>
+<link>https://happykhan.com/posts/phd-tips</link>
+<guid>https://happykhan.com/posts/phd-tips</guid>
+<pubDate>Tue, 05 Jul 2022 00:00:00 GMT</pubDate>
+<description>When I was a doctoral student, I actively asked anyone I
+could for advice about academia and being a scientist. It
+has been seven years since my doctorate was awarded and
+thinking back, these were the five single most useful
+quotable pieces of advice I received. These were either
+advice given directly given to me by my professors, or
+recounted by fellow students. Many of these topics are very
+complex. I will touch on them only briefly here.</description>
+</item>
+<item>
+<title>Conferences for microbial genomics, bioinformatics and microbiology</title>
+<link>https://happykhan.com/posts/my-wishlist-of-conferences</link>
+<guid>https://happykhan.com/posts/my-wishlist-of-conferences</guid>
+<pubDate>Sat, 02 Jul 2022 00:00:00 GMT</pubDate>
+<description>These are meetings that apply to my area of microbiology, genomics and bioinformatics.
+These include meetings I have attended in the past, and recommend. Or other meetings that I have heard that are good.</description>
+</item>
+<item>
+<title>Drawing phylogenetic trees in R (ggtree)</title>
+<link>https://happykhan.com/posts/ggtree-start</link>
+<guid>https://happykhan.com/posts/ggtree-start</guid>
+<pubDate>Mon, 27 Jun 2022 00:00:00 GMT</pubDate>
+<description>Here are some notes on how to use R (specifically the ggtree package) to draw phylogenetic trees. In this first section, I will show:</description>
+</item>
+<item>
+<title>The scientist&apos;s eight surefire steps to self sabotage</title>
+<link>https://happykhan.com/posts/self-sabotage</link>
+<guid>https://happykhan.com/posts/self-sabotage</guid>
+<pubDate>Fri, 24 Jun 2022 00:00:00 GMT</pubDate>
+<description>I saw an interesting video recently talking about Self Sabotage. It was talking about creative work generally,
+but I see a lot of scientists with these habits. They even tell me these are good habits! Without realizing
+that they are following the guidebook for &quot;How to Self Sabotage&quot;.</description>
+</item>
+<item>
+<title>The dark secret about containers in Bioinformatics</title>
+<link>https://happykhan.com/posts/dark-secret-about-containers</link>
+<guid>https://happykhan.com/posts/dark-secret-about-containers</guid>
+<pubDate>Thu, 23 Jun 2022 00:00:00 GMT</pubDate>
+<description>If you talk to your friendly neighbourhood bioinformatician (Binfie) these days, you might hear them mention &quot;containers&quot;, &quot;docker&quot;, and &quot;singularity&quot;.
+They&apos;ll talk about these as if these are the greatest things since PCR. I am not different; we&apos;ve talked about containers at length on the Micro Binfie Podcast</description>
+</item>
+<item>
+<title>Variations on map projections in R</title>
+<link>https://happykhan.com/posts/map-projections-in-r</link>
+<guid>https://happykhan.com/posts/map-projections-in-r</guid>
+<pubDate>Fri, 20 May 2022 00:00:00 GMT</pubDate>
+<description>In this example we will:</description>
+</item>
+<item>
+<title>Advanced map making tricks for R (projections, choropleths and showing specific regions)</title>
+<link>https://happykhan.com/posts/advanced-map-making-in-r</link>
+<guid>https://happykhan.com/posts/advanced-map-making-in-r</guid>
+<pubDate>Wed, 18 May 2022 00:00:00 GMT</pubDate>
+<description>In this example we will:</description>
+</item>
+<item>
+<title>How to make a map in R</title>
+<link>https://happykhan.com/posts/making-a-map-in-r</link>
+<guid>https://happykhan.com/posts/making-a-map-in-r</guid>
+<pubDate>Sun, 15 May 2022 00:00:00 GMT</pubDate>
+<description>I recently made a map in R showing our SARS-CoV-2 collaborations. I thought
+that it came out really well and maybe other people might want to make a map
+(about anything). Here I will show you how to make a map in R that shows which
+countries have a monarchy, as a simple illustrative example.</description>
+</item>
+<item>
+<title>What is Mamba</title>
+<link>https://happykhan.com/posts/what-is-mamba</link>
+<guid>https://happykhan.com/posts/what-is-mamba</guid>
+<pubDate>Sun, 10 Apr 2022 00:00:00 GMT</pubDate>
+<description>If you use conda, you should use mamba. What is mamba then? The website describes it as:</description>
+</item>
+<item>
+<title>How to install (with Conda) jupyter, R and R packages</title>
+<link>https://happykhan.com/posts/conda-install-r</link>
+<guid>https://happykhan.com/posts/conda-install-r</guid>
+<pubDate>Fri, 25 Mar 2022 00:00:00 GMT</pubDate>
+<description>Installing and controlling R and jupyter notebooks through conda is a much easier than installing it natively.
+I give a full explanation at the end as to why I do this way, but here&apos;s the method to start with.</description>
+</item>
+<item>
+<title>Easy resources researchers can use to promote a better online presence</title>
+<link>https://happykhan.com/posts/digital-platforms-for-reseacher</link>
+<guid>https://happykhan.com/posts/digital-platforms-for-reseacher</guid>
+<pubDate>Sun, 13 Feb 2022 00:00:00 GMT</pubDate>
+<description>Building an online presence can sound all very daunting, and you may think this means that you need to write a website, and start blogging, do social media, and spend lots of time on your digital persona. You do not. As scientists, we are lucky that there are a number of existing platforms that help us present the information I described (in the last post) as part of a digital introduction. I will outline the resources I feel are the most useful. They might require some effort to set-up but once</description>
+</item>
+<item>
+<title>Promoting a better online presence for researchers</title>
+<link>https://happykhan.com/posts/better-online-presence-for-researchers</link>
+<guid>https://happykhan.com/posts/better-online-presence-for-researchers</guid>
+<pubDate>Wed, 02 Feb 2022 00:00:00 GMT</pubDate>
+<description>Over the years I have attended a number of seminars and courses that talk about online marketing, networking and personal branding. I have so far found that although these methods are effective, they are based on a presumption - There is an ultimate transaction that occurs between you and your audience/client/customer. This can be to buy something, refer us to someone else, endorse us, love us, “like-comment-subscribe.” This is at odds with how scientists interact.</description>
+</item>
+<item>
+<title>Dirty python script to merge fasta files</title>
+<link>https://happykhan.com/posts/fasta-quick-cat</link>
+<guid>https://happykhan.com/posts/fasta-quick-cat</guid>
+<pubDate>Sat, 24 Jul 2021 00:00:00 GMT</pubDate>
+<description>Here is a Dirty python script to look in a directory, find fasta files (ext. &quot;.fa&quot;), and modify the header and merge them into a single fasta file.
+This will only look one directory down. It is not recursive. It won&apos;t even check if the directory records are directories, so it is pretty fragile.</description>
+</item>
+<item>
+<title>How zip up a folder of loose FASTQ files</title>
+<link>https://happykhan.com/posts/zip-on-hpc</link>
+<guid>https://happykhan.com/posts/zip-on-hpc</guid>
+<pubDate>Thu, 16 Jul 2020 00:00:00 GMT</pubDate>
+<description>The problem is to find all fastq files, and submit each one, one by one as a job to be gzipped.</description>
+</item>
+<item>
+<title>How to fix Singularity build has run out of space</title>
+<link>https://happykhan.com/posts/build-no-space</link>
+<guid>https://happykhan.com/posts/build-no-space</guid>
+<pubDate>Wed, 23 Oct 2019 00:00:00 GMT</pubDate>
+<description>You see an error message like this:</description>
+</item>
+<item>
+<title>Timed phylogenies with BactDating</title>
+<link>https://happykhan.com/posts/timed-phylo-with-bactdating</link>
+<guid>https://happykhan.com/posts/timed-phylo-with-bactdating</guid>
+<pubDate>Fri, 16 Aug 2019 00:00:00 GMT</pubDate>
+<description>You want to calculate the time to most recent common ancestor (tMRCA) and dates for internal splits for a given phylogeny.
+BactDating is an R package available at: https://github.com/xavierdidelot/BactDating</description>
+</item>
+<item>
+<title>Shortest passwordless ssh tutorial</title>
+<link>https://happykhan.com/posts/shortest-passwordless-ssh-tutorial</link>
+<guid>https://happykhan.com/posts/shortest-passwordless-ssh-tutorial</guid>
+<pubDate>Fri, 23 Aug 2013 00:00:00 GMT</pubDate>
+<description>I&apos;ve used this thrice in three days, so I&apos;m just keeping a copy for
+myself.</description>
+</item>
+<item>
+<title>BRIG in Action</title>
+<link>https://happykhan.com/posts/brig-in-action</link>
+<guid>https://happykhan.com/posts/brig-in-action</guid>
+<pubDate>Tue, 23 Aug 2011 00:00:00 GMT</pubDate>
+<description>These are some of my favourite BRIG figures from recent Open Access
+publications. They are all really amazing and go far beyond what I
+thought was possible with the tool. I did not make these figures; all
+credit (and kudos) belong to the respective authors.</description>
+</item>
+<item>
+<title>Getting tRNAscan to work on Linux</title>
+<link>https://happykhan.com/posts/getting-trnascan-to-work-on-linux</link>
+<guid>https://happykhan.com/posts/getting-trnascan-to-work-on-linux</guid>
+<pubDate>Sun, 21 Aug 2011 00:00:00 GMT</pubDate>
+<description>A friend/collaborator was having problems getting
+tRNAscan-SE to work on his
+Debian machine (I think it was Debian). We came up with a fix for it
+that I&apos;d like to share.</description>
+</item>
+</channel>
+</rss>

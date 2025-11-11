@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+<title>MicroBinFie - Happykhan.com - Nabil-Fareed Alikhan</title>
+<link>https://happykhan.com/microbinfie</link>
+<description>MicroBinFie podcast episodes and articles about microbial bioinformatics</description>
+<item>
+<title>MicroBinfie Podcast, 128 Haiti cholera outbreak with Christine Lee and Cynney Walters</title>
+<link>https://happykhan.com/microbinfie/mb-128-haiti-cholera-outbreak-with-christine-lee-and-cynney-walters</link>
+<guid>https://happykhan.com/microbinfie/mb-128-haiti-cholera-outbreak-with-christine-lee-and-cynney-walters</guid>
+<pubDate>Thu, 19 Sep 2024 00:00:00 GMT</pubDate>
+<description>- Vibrio cholerae has reemerged in Haiti in 2022.
+- The outbreak reveals genetic similarities to strains that previously circulated in the region.
+- We discussed Walters et al. &quot;Genome sequences from a reemergence of Vibrio cholerae in Haiti, 2022 reveal relatedness to previously circulating strains&quot;</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 127 Minimum spanning trees</title>
+<link>https://happykhan.com/microbinfie/mb-127-minimum-spanning-trees</link>
+<guid>https://happykhan.com/microbinfie/mb-127-minimum-spanning-trees</guid>
+<pubDate>Thu, 05 Sep 2024 00:00:00 GMT</pubDate>
+<description>Nabil and Lee engage in a brief exchange about the concept of Minimum Spanning Trees (MST) in graph theory, which is crucial for optimizing network design.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 126 Tree viz</title>
+<link>https://happykhan.com/microbinfie/mb-126-tree-viz</link>
+<guid>https://happykhan.com/microbinfie/mb-126-tree-viz</guid>
+<pubDate>Thu, 22 Aug 2024 00:00:00 GMT</pubDate>
+<description>Tree visualizations help us understand complex branching structures and relationships in data, especially in the fields of biology and phylogenetics. Here are some popular tools and platforms used for creating and viewing tree visualizations:</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 125 Kostas Konstantinidis returns to talk to us about ANI and metagenomics</title>
+<link>https://happykhan.com/microbinfie/mb-125-kostas-konstantinidis-returns-to-talk-to-us-about-ani-and-metagenomics</link>
+<guid>https://happykhan.com/microbinfie/mb-125-kostas-konstantinidis-returns-to-talk-to-us-about-ani-and-metagenomics</guid>
+<pubDate>Thu, 06 Jun 2024 00:00:00 GMT</pubDate>
+<description>In this session, Kostas Konstantinidis returns to discuss two important topics in microbial bioinformatics: Average Nucleotide Identity (ANI) and metagenomics.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 124 Kostas Konstantinidis talks to us about ANI and metagenomics</title>
+<link>https://happykhan.com/microbinfie/mb-124-kostas-konstantinidis-talks-to-us-about-ani-and-metagenomics</link>
+<guid>https://happykhan.com/microbinfie/mb-124-kostas-konstantinidis-talks-to-us-about-ani-and-metagenomics</guid>
+<pubDate>Thu, 23 May 2024 00:00:00 GMT</pubDate>
+<description>This podcast explores the evolving landscape of species identification, especially as genomic tools like ANI become central to understanding microbial diversity.
+For more information, please visit Konstantinidis lab website, enve-omics.gatech.edu.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 123 The Revolution of Hash Databases in cgMLST</title>
+<link>https://happykhan.com/microbinfie/mb-123-the-revolution-of-hash-databases-in-cgmlst</link>
+<guid>https://happykhan.com/microbinfie/mb-123-the-revolution-of-hash-databases-in-cgmlst</guid>
+<pubDate>Thu, 21 Mar 2024 00:00:00 GMT</pubDate>
+<description>In this episode of the Micro Binfie Podcast, hosts Dr. Andrew Page and Dr. Lee Katz explore the captivating world of hash databases and their usage in cgMLST (core genome Multilocus Sequence Typing) for microbial bioinformatics.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 122 GAMBIT  Genomic Approximation Method for Bacterial Identification and Tracking</title>
+<link>https://happykhan.com/microbinfie/mb-122-gambit--genomic-approximation-method-for-bacterial-identification-and-tracking</link>
+<guid>https://happykhan.com/microbinfie/mb-122-gambit--genomic-approximation-method-for-bacterial-identification-and-tracking</guid>
+<pubDate>Sat, 09 Mar 2024 00:00:00 GMT</pubDate>
+<description>GAMBIT (Genomic Approximation Method for Bacterial Identification and Tracking) is a sophisticated software solution designed for the precise classification of bacteria and eukaryotes. This software utilizes a targeted k-mer based approach to enhance the accuracy of such classifications.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 121 K-mers, Sourmash, and Open Source Software - More Conversations with Titus Brown</title>
+<link>https://happykhan.com/microbinfie/mb-121-k-mers-sourmash-and-open-source-software---more-conversations-with-titus-brown</link>
+<guid>https://happykhan.com/microbinfie/mb-121-k-mers-sourmash-and-open-source-software---more-conversations-with-titus-brown</guid>
+<pubDate>Thu, 01 Feb 2024 00:00:00 GMT</pubDate>
+<description>In this episode, Andrew Page and Lee Katz continue their conversation with Titus Brown, delving deeper into his work with k-mers, Sourmash, and open source software development.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 120 Scaling Metagenomic Search with Sourmash - Conversations with Titus Brown</title>
+<link>https://happykhan.com/microbinfie/mb-120-scaling-metagenomic-search-with-sourmash---conversations-with-titus-brown</link>
+<guid>https://happykhan.com/microbinfie/mb-120-scaling-metagenomic-search-with-sourmash---conversations-with-titus-brown</guid>
+<pubDate>Thu, 18 Jan 2024 00:00:00 GMT</pubDate>
+<description>In this final episode, our conversation with Titus Brown centers on his groundbreaking work in scaling metagenomic search using Sourmash. Here&apos;s an overview of the key topics discussed:</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 119 The Challenges of Microbial Taxonomy - Conversations with Titus Brown</title>
+<link>https://happykhan.com/microbinfie/mb-119-the-challenges-of-microbial-taxonomy---conversations-with-titus-brown</link>
+<guid>https://happykhan.com/microbinfie/mb-119-the-challenges-of-microbial-taxonomy---conversations-with-titus-brown</guid>
+<pubDate>Thu, 04 Jan 2024 00:00:00 GMT</pubDate>
+<description>In this episode, Andrew Page and Lee Katz continue their discussion with Titus Brown, focusing on taxonomy assignment in metagenomics. The episode touches on several key topics:</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 118 Real bioinformaticians react to Jurassic Park</title>
+<link>https://happykhan.com/microbinfie/mb-118-real-bioinformaticians-react-to-jurassic-park</link>
+<guid>https://happykhan.com/microbinfie/mb-118-real-bioinformaticians-react-to-jurassic-park</guid>
+<pubDate>Thu, 21 Dec 2023 00:00:00 GMT</pubDate>
+<description>In this episode, Andrew, Nabil, and Lee react to the depiction of bioinformatics and science as presented in the 1993 film Jurassic Park. We focused on several YouTube clips and additional resources as listed below:</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 117 From Math to Metagenomics - Titus Brown on Career Journeys and Software Solutions</title>
+<link>https://happykhan.com/microbinfie/mb-117-from-math-to-metagenomics---titus-brown-on-career-journeys-and-software-solutions</link>
+<guid>https://happykhan.com/microbinfie/mb-117-from-math-to-metagenomics---titus-brown-on-career-journeys-and-software-solutions</guid>
+<pubDate>Thu, 07 Dec 2023 00:00:00 GMT</pubDate>
+<description>In this episode of the Micro Binfie Podcast, hosts Andrew Page and Lee Katz interview Titus Brown about his academic and professional journey. The discussion covers his transition from studying mathematics and physics as an undergraduate to becoming a bioinformatician, specializing in metagenomics and software development.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 116 AI Authorship and Ethics in Academic Publishing for Genomics</title>
+<link>https://happykhan.com/microbinfie/mb-116-ai-authorship-and-ethics-in-academic-publishing-for-genomics</link>
+<guid>https://happykhan.com/microbinfie/mb-116-ai-authorship-and-ethics-in-academic-publishing-for-genomics</guid>
+<pubDate>Thu, 23 Nov 2023 00:00:00 GMT</pubDate>
+<description>The podcast covers an article co-authored by Andrew Page, which examines the use of GPT-4 in research publications. The discussion focuses on the authorship of articles generated with GPT-4 and explores the implications for academic publishing.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 115 Write-the  speeding up software development for bioinformatics</title>
+<link>https://happykhan.com/microbinfie/mb-115-write-the--speeding-up-software-development-for-bioinformatics</link>
+<guid>https://happykhan.com/microbinfie/mb-115-write-the--speeding-up-software-development-for-bioinformatics</guid>
+<pubDate>Thu, 09 Nov 2023 00:00:00 GMT</pubDate>
+<description>In our continuing conversation with Wytamma Wirth, we delve into the intersection of AI and coding, focusing on the use of language models like ChatGPT in programming. The discussion begins with how these models can streamline writing boilerplate code and how they assist in generating code snippets, unit tests, and even documentation strings. A significant focus is the integration of AI into code editors to enhance coding efficiency and reduce errors.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 114 Write-the  Automating Code Documentation ChatGPT</title>
+<link>https://happykhan.com/microbinfie/mb-114-write-the--automating-code-documentation-chatgpt</link>
+<guid>https://happykhan.com/microbinfie/mb-114-write-the--automating-code-documentation-chatgpt</guid>
+<pubDate>Sat, 04 Nov 2023 00:00:00 GMT</pubDate>
+<description>In this episode, we dive deep into the world of automated code documentation and conversion using ChatGPT, powered by the Write-the software developed by Dr. Wytamma Wirth from the University of Melbourne. Our guest, an experienced software engineer, guides us through the challenges and nuances of writing code documentation and the role AI can play in streamlining this process.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 113 Global Microbial Identifier conference with Ruth Timme</title>
+<link>https://happykhan.com/microbinfie/mb-113-global-microbial-identifier-conference-with-ruth-timme</link>
+<guid>https://happykhan.com/microbinfie/mb-113-global-microbial-identifier-conference-with-ruth-timme</guid>
+<pubDate>Mon, 18 Sep 2023 00:00:00 GMT</pubDate>
+<description>Location: Vancouver, Canada</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 112 Global Microbial Identifier conference with Will Hsiao</title>
+<link>https://happykhan.com/microbinfie/mb-112-global-microbial-identifier-conference-with-will-hsiao</link>
+<guid>https://happykhan.com/microbinfie/mb-112-global-microbial-identifier-conference-with-will-hsiao</guid>
+<pubDate>Sun, 17 Sep 2023 00:00:00 GMT</pubDate>
+<description>Andrew and Lee are attending the Global Microbial Identifier conference (GMI13) in Vancouver, Canada. During the event, they had the opportunity to speak with Dr. William Hsiao, one of the conference&apos;s organizers.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 111 Global Microbial Identifier with Finlay Maguire and Emma Griffiths</title>
+<link>https://happykhan.com/microbinfie/mb-111-global-microbial-identifier-with-finlay-maguire-and-emma-griffiths</link>
+<guid>https://happykhan.com/microbinfie/mb-111-global-microbial-identifier-with-finlay-maguire-and-emma-griffiths</guid>
+<pubDate>Sat, 16 Sep 2023 00:00:00 GMT</pubDate>
+<description>Location: Vancouver, Canada</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 110 ChatGPT  The Bioinformatics Calculator</title>
+<link>https://happykhan.com/microbinfie/mb-110-chatgpt--the-bioinformatics-calculator</link>
+<guid>https://happykhan.com/microbinfie/mb-110-chatgpt--the-bioinformatics-calculator</guid>
+<pubDate>Thu, 06 Jul 2023 00:00:00 GMT</pubDate>
+<description>Episode 110 transcript</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 109 AI Unleashed  Navigating the Opportunities and Challenges of AI in Microbial Bioinformatics</title>
+<link>https://happykhan.com/microbinfie/mb-109-ai-unleashed--navigating-the-opportunities-and-challenges-of-ai-in-microbial-bioinformatics</link>
+<guid>https://happykhan.com/microbinfie/mb-109-ai-unleashed--navigating-the-opportunities-and-challenges-of-ai-in-microbial-bioinformatics</guid>
+<pubDate>Thu, 22 Jun 2023 00:00:00 GMT</pubDate>
+<description>Episode Title: AI Unleashed: Navigating the Opportunities and Challenges of AI in Microbial Bioinformatics</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 108 SeqCode  a nomenclatural code for prokaryotes described from sequence data</title>
+<link>https://happykhan.com/microbinfie/mb-108-seqcode--a-nomenclatural-code-for-prokaryotes-described-from-sequence-data</link>
+<guid>https://happykhan.com/microbinfie/mb-108-seqcode--a-nomenclatural-code-for-prokaryotes-described-from-sequence-data</guid>
+<pubDate>Thu, 25 May 2023 00:00:00 GMT</pubDate>
+<description>We are back to discussing systematics and SeqCode, a nomenclatural code for prokaryotes described from sequence data.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 107 Systematics and naming of prokaryotes in the era of sequencing</title>
+<link>https://happykhan.com/microbinfie/mb-107-systematics-and-naming-of-prokaryotes-in-the-era-of-sequencing</link>
+<guid>https://happykhan.com/microbinfie/mb-107-systematics-and-naming-of-prokaryotes-in-the-era-of-sequencing</guid>
+<pubDate>Thu, 11 May 2023 00:00:00 GMT</pubDate>
+<description>Today, we are discussing systematics, with a specific focus on SeqCode, a nomenclatural code for prokaryotes described from sequence data. We are joined by co-authors of the recent publication on this topic:</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 106 Why on earth would you do a PostDoc?</title>
+<link>https://happykhan.com/microbinfie/mb-106-why-on-earth-would-you-do-a-postdoc</link>
+<guid>https://happykhan.com/microbinfie/mb-106-why-on-earth-would-you-do-a-postdoc</guid>
+<pubDate>Thu, 27 Apr 2023 00:00:00 GMT</pubDate>
+<description>Panelists: Dr. Emma Waters, Dr. Heather Felgate, Dr. Muhammad Yasir, Dr. Andrew Page</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 105 Mobile genetic elements panel discussion</title>
+<link>https://happykhan.com/microbinfie/mb-105-mobile-genetic-elements-panel-discussion</link>
+<guid>https://happykhan.com/microbinfie/mb-105-mobile-genetic-elements-panel-discussion</guid>
+<pubDate>Thu, 20 Apr 2023 00:00:00 GMT</pubDate>
+<description>Guest Chair: Dr. Muhammad Yasir  
+Guests: Dr. Emma Waters, Dr. Heather Felgate, Dr. Andrew Page</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 104 The Kraken software suite</title>
+<link>https://happykhan.com/microbinfie/mb-104-the-kraken-software-suite</link>
+<guid>https://happykhan.com/microbinfie/mb-104-the-kraken-software-suite</guid>
+<pubDate>Thu, 06 Apr 2023 00:00:00 GMT</pubDate>
+<description>In a recent episode of the MicroBinfie podcast, Dr. Jennifer Lu and Natalia Rincon from Johns Hopkins University&apos;s Center for Computational Biology joined us to discuss Kraken, a taxonomic classification software, and the associated software suite. As key members of the Kraken software development team, they provided insights into the evolution and functionality of Kraken and its surrounding tools.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 103 Release the Kraken</title>
+<link>https://happykhan.com/microbinfie/mb-103-release-the-kraken</link>
+<guid>https://happykhan.com/microbinfie/mb-103-release-the-kraken</guid>
+<pubDate>Thu, 23 Mar 2023 00:00:00 GMT</pubDate>
+<description>In Focus: Dr. Jennifer Lu and Natalia Rincon from the Johns Hopkins University Center for Computational Biology</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 102 Early days of MLST</title>
+<link>https://happykhan.com/microbinfie/mb-102-early-days-of-mlst</link>
+<guid>https://happykhan.com/microbinfie/mb-102-early-days-of-mlst</guid>
+<pubDate>Thu, 09 Mar 2023 00:00:00 GMT</pubDate>
+<description>- Ed Feil: Professor of Bacterial Evolution at the University of Bath
+- Natacha Couto: Data Scientist at the Center of Genomic Pathogen Surveillance, University of Oxford</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 101 One Health with Natacha Couto and Ed Feil</title>
+<link>https://happykhan.com/microbinfie/mb-101-one-health-with-natacha-couto-and-ed-feil</link>
+<guid>https://happykhan.com/microbinfie/mb-101-one-health-with-natacha-couto-and-ed-feil</guid>
+<pubDate>Thu, 23 Feb 2023 00:00:00 GMT</pubDate>
+<description>The hosts of the MicroBinfie podcast recently invited Dr. Natacha Couto from the University of Oxford and Professor Ed Feil from the University of Bath as special guests to discuss the concept of &quot;One Health.&quot; This comprehensive approach seeks to manage the problem of antimicrobial resistance (AMR) by addressing the use of antibiotics in healthcare, agriculture, and the environment. The ultimate goal is to improve health outcomes across all sectors to create a healthier planet.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 100 The 100th episode</title>
+<link>https://happykhan.com/microbinfie/mb-100-the-100th-episode</link>
+<guid>https://happykhan.com/microbinfie/mb-100-the-100th-episode</guid>
+<pubDate>Thu, 09 Feb 2023 00:00:00 GMT</pubDate>
+<description>In this special episode, we celebrate reaching the milestone of 100 episodes! We reflect on the fascinating journey of our podcast, discussing its history and exploring what the future might hold.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 99 Stories from the frontlines of bioinformatics</title>
+<link>https://happykhan.com/microbinfie/mb-99-stories-from-the-frontlines-of-bioinformatics</link>
+<guid>https://happykhan.com/microbinfie/mb-99-stories-from-the-frontlines-of-bioinformatics</guid>
+<pubDate>Thu, 26 Jan 2023 00:00:00 GMT</pubDate>
+<description>At the 8th Microbial Bioinformatics Hackathon in Bath, we had the opportunity to engage with a live panel featuring Kristy Horan, Torsten Seemann, Finlay Maguire, and Andrew Page. The discussion focused on bioinformatics from the frontlines.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 98 Nomadic bioinformatics with Frank</title>
+<link>https://happykhan.com/microbinfie/mb-98-nomadic-bioinformatics-with-frank</link>
+<guid>https://happykhan.com/microbinfie/mb-98-nomadic-bioinformatics-with-frank</guid>
+<pubDate>Thu, 12 Jan 2023 00:00:00 GMT</pubDate>
+<description>Interview with Frank Ambrosio: Nomadic Bioinformatics and Living His Best Life</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 97 Advances in sequencing technologies</title>
+<link>https://happykhan.com/microbinfie/mb-97-advances-in-sequencing-technologies</link>
+<guid>https://happykhan.com/microbinfie/mb-97-advances-in-sequencing-technologies</guid>
+<pubDate>Thu, 29 Dec 2022 00:00:00 GMT</pubDate>
+<description>In a recent episode of the Microbial Bioinformatics podcast, three experts—Andrew, Lee, and Nabil—came together to discuss the latest advances in genome sequencing technologies, focusing on developments shared at conferences and within the community.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 96 IMMEM XIII and ASM NGS conference roundup</title>
+<link>https://happykhan.com/microbinfie/mb-96-immem-xiii-and-asm-ngs-conference-roundup</link>
+<guid>https://happykhan.com/microbinfie/mb-96-immem-xiii-and-asm-ngs-conference-roundup</guid>
+<pubDate>Thu, 22 Dec 2022 00:00:00 GMT</pubDate>
+<description>We&apos;ve been busy attending in-person conferences such as IMMEM XIII and ASM NGS, so we thought we&apos;d share some of our reflections with you. We discuss topics like waste water surveillance, hybrid conferences, and metadata, among other things.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 95 Lost in Translation with Torsten Seemann</title>
+<link>https://happykhan.com/microbinfie/mb-95-lost-in-translation-with-torsten-seemann</link>
+<guid>https://happykhan.com/microbinfie/mb-95-lost-in-translation-with-torsten-seemann</guid>
+<pubDate>Thu, 08 Dec 2022 00:00:00 GMT</pubDate>
+<description>For the first time ever, all three MicroBinfies are together in person to record an episode. Joined by Torsten Seemann, we engage in a captivating discussion about how research, particularly in the realm of public health, can sometimes get lost in translation. We delve into our work with SARS-CoV-2 genomics and, somewhat unexpectedly, find ourselves chatting about geography and language. We hope you enjoy this special episode!</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 94 The great scientific Mastodon migration</title>
+<link>https://happykhan.com/microbinfie/mb-94-the-great-scientific-mastodon-migration</link>
+<guid>https://happykhan.com/microbinfie/mb-94-the-great-scientific-mastodon-migration</guid>
+<pubDate>Thu, 17 Nov 2022 00:00:00 GMT</pubDate>
+<description>Over the past few weeks, scientists have been transitioning from Twitter to Mastodon. Our very own Nabil-Fareed Alikhan discusses his experience setting up and running a Mastodon server called mstdn.science, which has become a new hub for scientists. Joining the conversation is Emma Hodcroft, providing an independent scientist’s perspective.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 93 Roary Troubleshooting And Issues</title>
+<link>https://happykhan.com/microbinfie/mb-93-roary-troubleshooting-and-issues</link>
+<guid>https://happykhan.com/microbinfie/mb-93-roary-troubleshooting-and-issues</guid>
+<pubDate>Thu, 10 Nov 2022 00:00:00 GMT</pubDate>
+<description>In this article, we delve into the process of how bioinformaticians handle bug reports and issues within their field. We&apos;ll outline common underlying problems, suggest potential solutions, and provide tips on how to file more effective bug reports.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 92 Avoid dependency hell and get up and running fast</title>
+<link>https://happykhan.com/microbinfie/mb-92-avoid-dependency-hell-and-get-up-and-running-fast</link>
+<guid>https://happykhan.com/microbinfie/mb-92-avoid-dependency-hell-and-get-up-and-running-fast</guid>
+<pubDate>Thu, 27 Oct 2022 00:00:00 GMT</pubDate>
+<description>Often, the hard part of bioinformatics isn&apos;t the analysis—it&apos;s setting up and installing all the software you need. Join us on this journey and avoid dependency hell. In the MicroBinfie podcast, the hosts discuss the struggles of installing, managing, and dealing with dependencies in bioinformatics software.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 91 What language should I learn?</title>
+<link>https://happykhan.com/microbinfie/mb-91-what-language-should-i-learn</link>
+<guid>https://happykhan.com/microbinfie/mb-91-what-language-should-i-learn</guid>
+<pubDate>Thu, 13 Oct 2022 00:00:00 GMT</pubDate>
+<description>The MicroBinfie podcast features hosts Andrew, Lee, and Nabil discussing the most suitable programming languages for bioinformatics. Here are the key takeaways from their discussion:</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 90 Public health bioinformatics on the cloud with WDL + Terra.bio</title>
+<link>https://happykhan.com/microbinfie/mb-90-public-health-bioinformatics-on-the-cloud-with-wdl--terrabio</link>
+<guid>https://happykhan.com/microbinfie/mb-90-public-health-bioinformatics-on-the-cloud-with-wdl--terrabio</guid>
+<pubDate>Thu, 29 Sep 2022 00:00:00 GMT</pubDate>
+<description>Presented by: Microbial Bioinformatics</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 89 What do we do with WDL?</title>
+<link>https://happykhan.com/microbinfie/mb-89-what-do-we-do-with-wdl</link>
+<guid>https://happykhan.com/microbinfie/mb-89-what-do-we-do-with-wdl</guid>
+<pubDate>Thu, 15 Sep 2022 00:00:00 GMT</pubDate>
+<description>In today&apos;s episode of the MicroBinfie podcast, hosts engage in a fascinating discussion about Workflow Description Language (WDL) with guests Andrew Sevinsky (@sevinsky) and Danny J Park (@DannyJPark). The conversation sheds light on what &quot;widdle&quot; means to Andrew and his kids. Joel also takes a shot at Lyve-SET, and there&apos;s an unexpected turn in the discussion.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 88 Sepia directors cut</title>
+<link>https://happykhan.com/microbinfie/mb-88-sepia-directors-cut</link>
+<guid>https://happykhan.com/microbinfie/mb-88-sepia-directors-cut</guid>
+<pubDate>Thu, 04 Aug 2022 00:00:00 GMT</pubDate>
+<description>Our summer holiday bonus includes an exclusive extended chat with Dr. Henk den Bakker, focusing on Sepia. Below are some useful links related to the topics discussed in the chat.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 87 Nextstrain, SARSCOV2 and dealing with a data deluge</title>
+<link>https://happykhan.com/microbinfie/mb-87-nextstrain-sarscov2-and-dealing-with-a-data-deluge</link>
+<guid>https://happykhan.com/microbinfie/mb-87-nextstrain-sarscov2-and-dealing-with-a-data-deluge</guid>
+<pubDate>Thu, 21 Jul 2022 00:00:00 GMT</pubDate>
+<description>Microbial Bioinformatics</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 86 What&apos;s next for nextstrain?</title>
+<link>https://happykhan.com/microbinfie/mb-86-whats-next-for-nextstrain</link>
+<guid>https://happykhan.com/microbinfie/mb-86-whats-next-for-nextstrain</guid>
+<pubDate>Thu, 07 Jul 2022 00:00:00 GMT</pubDate>
+<description>Author: Microbial Bioinformatics  
+Article Number: 86</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 85 Breaking the dogma with bioinformatics</title>
+<link>https://happykhan.com/microbinfie/mb-85-breaking-the-dogma-with-bioinformatics</link>
+<guid>https://happykhan.com/microbinfie/mb-85-breaking-the-dogma-with-bioinformatics</guid>
+<pubDate>Thu, 23 Jun 2022 00:00:00 GMT</pubDate>
+<description>We are joined again by Prof. Mark Pallen as he discusses his early experiences in high-throughput microbial genomics. Mark was delighted to have persuaded Nick Loman to join him in Birmingham. Together, they collaborated with George Weinstock to perform the first genome sequence analyses of Gram-negatives for genomic epidemiology, focusing on multi-drug resistant Acinetobacter baumannii.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 84 Bioinformatics in the noughties with Mark Pallen</title>
+<link>https://happykhan.com/microbinfie/mb-84-bioinformatics-in-the-noughties-with-mark-pallen</link>
+<guid>https://happykhan.com/microbinfie/mb-84-bioinformatics-in-the-noughties-with-mark-pallen</guid>
+<pubDate>Thu, 09 Jun 2022 00:00:00 GMT</pubDate>
+<description>Mark Pallen describes the excitement surrounding the field of microbial bioinformatics at the turn of the millennium, as scientists began to obtain genomes from model organisms and dangerous pathogens for the first time. He recounts collaborating with his hero, David Relman, on the genome sequencing of the unusual slow-growing organism, Tropheryma whipplei, in a race against a French team.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 83 A short journey into mobile genetic elements</title>
+<link>https://happykhan.com/microbinfie/mb-83-a-short-journey-into-mobile-genetic-elements</link>
+<guid>https://happykhan.com/microbinfie/mb-83-a-short-journey-into-mobile-genetic-elements</guid>
+<pubDate>Thu, 26 May 2022 00:00:00 GMT</pubDate>
+<description>We recently delved into the topic of mobile genetic elements in bacteria and found it quite challenging. Despite having a short discussion due to Lee losing power, we plan to return with a more comprehensive Part 2 soon.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 82 Bioinformatics moments before the millennium</title>
+<link>https://happykhan.com/microbinfie/mb-82-bioinformatics-moments-before-the-millennium</link>
+<guid>https://happykhan.com/microbinfie/mb-82-bioinformatics-moments-before-the-millennium</guid>
+<pubDate>Thu, 12 May 2022 00:00:00 GMT</pubDate>
+<description>In this episode, we talk with Professor Mark Pallen about the highlights of his long career, transitioning from a medical microbiologist to a bioinformatician.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 81 The people behind the benchmark datasets for SARS-CoV-2</title>
+<link>https://happykhan.com/microbinfie/mb-81-the-people-behind-the-benchmark-datasets-for-sars-cov-2</link>
+<guid>https://happykhan.com/microbinfie/mb-81-the-people-behind-the-benchmark-datasets-for-sars-cov-2</guid>
+<pubDate>Fri, 29 Apr 2022 00:00:00 GMT</pubDate>
+<description>In this episode, we welcome Lingzi Xiaoli and Jill Hagey to discuss their development of benchmark datasets for SARS-CoV-2.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 80 Benchmark datasets for SARS-CoV-2</title>
+<link>https://happykhan.com/microbinfie/mb-80-benchmark-datasets-for-sars-cov-2</link>
+<guid>https://happykhan.com/microbinfie/mb-80-benchmark-datasets-for-sars-cov-2</guid>
+<pubDate>Thu, 28 Apr 2022 00:00:00 GMT</pubDate>
+<description>We are excited to introduce Lingzi Xiaoli and Jill Hagey, who are joining us to discuss their benchmark datasets for SARS-CoV-2. You can find more information on their work by visiting their GitHub repository.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 79 StaPH-B  Stable containers for public health bioinformatics</title>
+<link>https://happykhan.com/microbinfie/mb-79-staph-b--stable-containers-for-public-health-bioinformatics</link>
+<guid>https://happykhan.com/microbinfie/mb-79-staph-b--stable-containers-for-public-health-bioinformatics</guid>
+<pubDate>Thu, 14 Apr 2022 00:00:00 GMT</pubDate>
+<description>Dr. Erin Young from the Utah Department of Health and Dr. Kelsey Florek from the Wisconsin State Laboratory of Hygiene join us to discuss StaPH-B containers for public health bioinformatics. It&apos;s essentially about making biology easier for everyone!</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 78 StaPH-B  state public health bioinformatics</title>
+<link>https://happykhan.com/microbinfie/mb-78-staph-b--state-public-health-bioinformatics</link>
+<guid>https://happykhan.com/microbinfie/mb-78-staph-b--state-public-health-bioinformatics</guid>
+<pubDate>Thu, 31 Mar 2022 00:00:00 GMT</pubDate>
+<description>Dr. Erin Young and Dr. Kelsey Florek recently joined us to discuss StaPH-B, a U.S. state public health bioinformatics group, and provided insights into the popular SARS-CoV-2 pipeline, Cecret.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 77 Genomics for a new era</title>
+<link>https://happykhan.com/microbinfie/mb-77-genomics-for-a-new-era</link>
+<guid>https://happykhan.com/microbinfie/mb-77-genomics-for-a-new-era</guid>
+<pubDate>Thu, 17 Mar 2022 00:00:00 GMT</pubDate>
+<description>Today, we’re discussing some exciting new developments in the area of comparative genomics. We are joined by Dr. Zamin Iqbal, a Research Group Leader at the European Bioinformatics Institute, and Dr. Grace Blackwell, who is jointly affiliated with the European Bioinformatics Institute, working in Dr. Zamin Iqbal&apos;s group, as well as in Nick Thomson’s team at the Wellcome Sanger Institute.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 76 What are the major challenges for getting AMR genomics into the clinic?</title>
+<link>https://happykhan.com/microbinfie/mb-76-what-are-the-major-challenges-for-getting-amr-genomics-into-the-clinic</link>
+<guid>https://happykhan.com/microbinfie/mb-76-what-are-the-major-challenges-for-getting-amr-genomics-into-the-clinic</guid>
+<pubDate>Thu, 03 Mar 2022 00:00:00 GMT</pubDate>
+<description>The integration of antimicrobial resistance (AMR) genomics into clinical settings presents several significant challenges. These were the focus of a panel discussion during the 7th Microbial Bioinformatics Hackathon, organized in association with JPIAMR, PHA4GE, and CLIMB. The panel comprised experts from various institutions:</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 74 SEPIA With Henk - Soup Or Salad  Yes!</title>
+<link>https://happykhan.com/microbinfie/mb-74-sepia-with-henk---soup-or-salad--yes</link>
+<guid>https://happykhan.com/microbinfie/mb-74-sepia-with-henk---soup-or-salad--yes</guid>
+<pubDate>Thu, 03 Feb 2022 00:00:00 GMT</pubDate>
+<description>In this episode of the &quot;Microbial Bioinformatics&quot; podcast, the hosts dive into the world of SEPIA with Henk, exploring the often-debated question: &quot;Soup or Salad?&quot; This engaging discussion looks at the components, concepts, and complexities associated with SEPIA and how it is used in the field of microbial bioinformatics.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 73 Bactopia and using workflow managers in bioinformatics part 2</title>
+<link>https://happykhan.com/microbinfie/mb-73-bactopia-and-using-workflow-managers-in-bioinformatics-part-2</link>
+<guid>https://happykhan.com/microbinfie/mb-73-bactopia-and-using-workflow-managers-in-bioinformatics-part-2</guid>
+<pubDate>Thu, 20 Jan 2022 00:00:00 GMT</pubDate>
+<description>We are joined once again by Dr. Robert Petit from the Wyoming Public Health Laboratory. Today, Dr. Petit is discussing BACTOPIA, a bioinformatics workflow designed specifically for analyzing bacterial genomes.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 72 Bactopia and using workflow managers in bioinformatics  part 1</title>
+<link>https://happykhan.com/microbinfie/mb-72-bactopia-and-using-workflow-managers-in-bioinformatics--part-1</link>
+<guid>https://happykhan.com/microbinfie/mb-72-bactopia-and-using-workflow-managers-in-bioinformatics--part-1</guid>
+<pubDate>Thu, 06 Jan 2022 00:00:00 GMT</pubDate>
+<description>We are joined by Dr. Robert Petit from the Wyoming Public Health Laboratory, who is here to discuss BACTOPIA, a bioinformatics workflow specifically designed for bacterial genomes.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 71 Bacterial taxonomy  Into the unknown, SeqCode, naming uncultured multitudes and renaming of phyla</title>
+<link>https://happykhan.com/microbinfie/mb-71-bacterial-taxonomy--into-the-unknown-seqcode-naming-uncultured-multitudes-and-renaming-of-phyla</link>
+<guid>https://happykhan.com/microbinfie/mb-71-bacterial-taxonomy--into-the-unknown-seqcode-naming-uncultured-multitudes-and-renaming-of-phyla</guid>
+<pubDate>Fri, 17 Dec 2021 00:00:00 GMT</pubDate>
+<description>In our latest discussion on bacterial taxonomy, we explore the innovative methods for naming the multitude of unnamed, uncultured organisms as well as the contentious issue of renaming phyla. Our expert guests include:</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 70 Bacterial Taxonomy   the grand vista is ahead of us</title>
+<link>https://happykhan.com/microbinfie/mb-70-bacterial-taxonomy---the-grand-vista-is-ahead-of-us</link>
+<guid>https://happykhan.com/microbinfie/mb-70-bacterial-taxonomy---the-grand-vista-is-ahead-of-us</guid>
+<pubDate>Fri, 17 Dec 2021 00:00:00 GMT</pubDate>
+<description>In our ongoing series on bacterial taxonomy, we explore how genomics has revolutionized this field. Joining us for this discussion are:</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 69 Background to bacterial taxonomy</title>
+<link>https://happykhan.com/microbinfie/mb-69-background-to-bacterial-taxonomy</link>
+<guid>https://happykhan.com/microbinfie/mb-69-background-to-bacterial-taxonomy</guid>
+<pubDate>Thu, 16 Dec 2021 00:00:00 GMT</pubDate>
+<description>Recently, there has been a considerable amount of discussion surrounding the updated classification of bacterial phyla. This has highlighted a number of misconceptions about taxonomy as a field. Today, we delve into the intricacies of bacterial taxonomy with insights from:</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 68  Bacterial Taxonomy  what is a species, what is a strain? part 2</title>
+<link>https://happykhan.com/microbinfie/mb-68-bacterial-taxonomy--what-is-a-species-what-is-a-strain-part-2</link>
+<guid>https://happykhan.com/microbinfie/mb-68-bacterial-taxonomy--what-is-a-species-what-is-a-strain-part-2</guid>
+<pubDate>Thu, 09 Dec 2021 00:00:00 GMT</pubDate>
+<description>Microbial Bioinformatics</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 67 Bacterial Taxonomy  what is a species, what is a strain?</title>
+<link>https://happykhan.com/microbinfie/mb-67-bacterial-taxonomy--what-is-a-species-what-is-a-strain</link>
+<guid>https://happykhan.com/microbinfie/mb-67-bacterial-taxonomy--what-is-a-species-what-is-a-strain</guid>
+<pubDate>Thu, 25 Nov 2021 00:00:00 GMT</pubDate>
+<description>In today’s exploration of the intricate world of bacterial taxonomy, we are fortunate to have two esteemed guests guiding us through. Our guests are:</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 66 Scholarly Communications for Bioinformaticians</title>
+<link>https://happykhan.com/microbinfie/mb-66-scholarly-communications-for-bioinformaticians</link>
+<guid>https://happykhan.com/microbinfie/mb-66-scholarly-communications-for-bioinformaticians</guid>
+<pubDate>Thu, 18 Nov 2021 00:00:00 GMT</pubDate>
+<description>Have you ever read a paper and wondered why the author buried their key result on page 39 of a 50-page paper? Bioinformaticians often struggle with effectively communicating their findings to a broader audience. This article discusses ways to enhance communication specifically for bioinformaticians.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 75 How to review a bioinformatics paper in 10 days or less</title>
+<link>https://happykhan.com/microbinfie/mb-75-how-to-review-a-bioinformatics-paper-in-10-days-or-less</link>
+<guid>https://happykhan.com/microbinfie/mb-75-how-to-review-a-bioinformatics-paper-in-10-days-or-less</guid>
+<pubDate>Tue, 02 Nov 2021 00:00:00 GMT</pubDate>
+<description>When tasked with reviewing bioinformatics or microbial genomics papers, it’s important to focus on several core aspects to ensure the research is robust, well-documented, and impactful.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 65 Genomics of Mycobacterium tuberculosis</title>
+<link>https://happykhan.com/microbinfie/mb-65-genomics-of-mycobacterium-tuberculosis</link>
+<guid>https://happykhan.com/microbinfie/mb-65-genomics-of-mycobacterium-tuberculosis</guid>
+<pubDate>Thu, 28 Oct 2021 00:00:00 GMT</pubDate>
+<description>We continue our series by examining a particular microbial species in detail. This time, we delve deeper into Mycobacterium tuberculosis, with a focus on bioinformatics, genomics, and typing.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 64 Mycobacterium tuberculosis  the forgotten pandemic</title>
+<link>https://happykhan.com/microbinfie/mb-64-mycobacterium-tuberculosis--the-forgotten-pandemic</link>
+<guid>https://happykhan.com/microbinfie/mb-64-mycobacterium-tuberculosis--the-forgotten-pandemic</guid>
+<pubDate>Thu, 14 Oct 2021 00:00:00 GMT</pubDate>
+<description>Welcome back to our series where we explore specific microbial species in detail. Today, we&apos;re focusing on Mycobacterium tuberculosis, often referred to as the &quot;forgotten pandemic.&quot; Our distinguished guests for this discussion are:</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 63 A dive into Campylobacter genomics</title>
+<link>https://happykhan.com/microbinfie/mb-63-a-dive-into-campylobacter-genomics</link>
+<guid>https://happykhan.com/microbinfie/mb-63-a-dive-into-campylobacter-genomics</guid>
+<pubDate>Thu, 30 Sep 2021 00:00:00 GMT</pubDate>
+<description>Our guest today is Dr. Ozan Gundogdu, here for a deeper dive into the foodborne pathogen Campylobacter and how genomics has informed the field over the past 20 years since the publication of the first reference genome in 1999. Dr. Gundogdu leads the foodborne enteric pathogen group at the London School of Hygiene &amp; Tropical Medicine, where they study the physiology and pathogenesis of Campylobacter and other related enteric microorganisms like Listeria and Vibrio.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 62 Campylobacter  the fussy little pathogen</title>
+<link>https://happykhan.com/microbinfie/mb-62-campylobacter--the-fussy-little-pathogen</link>
+<guid>https://happykhan.com/microbinfie/mb-62-campylobacter--the-fussy-little-pathogen</guid>
+<pubDate>Thu, 16 Sep 2021 00:00:00 GMT</pubDate>
+<description>Today, we have the pleasure of hosting Dr. Ozan Gundogdu, who provides us with a crash course on the foodborne pathogen Campylobacter. If you&apos;ve ever experienced stomach issues after consuming undercooked chicken, Campylobacter is likely the culprit. Dr. Gundogdu leads the Foodborne Enteric Pathogen Group at the London School of Hygiene and Tropical Medicine, where they focus on the physiology and pathogenesis of Campylobacter and other related enteric microorganisms, such as Listeria and Vibrio</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 61 Non FUNGIble tokens  you too can own BRCA1</title>
+<link>https://happykhan.com/microbinfie/mb-61-non-fungible-tokens--you-too-can-own-brca1</link>
+<guid>https://happykhan.com/microbinfie/mb-61-non-fungible-tokens--you-too-can-own-brca1</guid>
+<pubDate>Thu, 02 Sep 2021 00:00:00 GMT</pubDate>
+<description>In this piece, we delve into the intriguing world of NFTs (non-fungible tokens) and blockchain technology, examining in a light-hearted fashion how these could revolutionize the fields of genomics and bioinformatics. We even suggest a radical idea: replacing all central genome databases with our envisioned cryptocurrency, either BioBucks or perhaps GenomeCoin.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 60 Whats in a name  Salmonella and E. Coli</title>
+<link>https://happykhan.com/microbinfie/mb-60-whats-in-a-name--salmonella-and-e-coli</link>
+<guid>https://happykhan.com/microbinfie/mb-60-whats-in-a-name--salmonella-and-e-coli</guid>
+<pubDate>Thu, 17 Jun 2021 00:00:00 GMT</pubDate>
+<description>Today, we&apos;re diving into the world of some of our favorite enteric microbes: Escherichia coli (E. coli) and Salmonella. These bacteria play significant roles in microbiology, and understanding their naming conventions can help in grasping their complexities.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 59 - Microbe Moment Micro Binfie</title>
+<link>https://happykhan.com/microbinfie/mb-59---microbe-moment-micro-binfie</link>
+<guid>https://happykhan.com/microbinfie/mb-59---microbe-moment-micro-binfie</guid>
+<pubDate>Thu, 03 Jun 2021 00:00:00 GMT</pubDate>
+<description>Microbe Moment is a segment where Andrew, Nabil, and Lee answer intriguing questions brought to you by the Microbigals. For more information and to explore more microbial content, visit the Microbigals website at www.microbigals.com.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 58 - StaPH-B careers with Curtis Kapsak and Kevin Libuit</title>
+<link>https://happykhan.com/microbinfie/mb-58---staph-b-careers-with-curtis-kapsak-and-kevin-libuit</link>
+<guid>https://happykhan.com/microbinfie/mb-58---staph-b-careers-with-curtis-kapsak-and-kevin-libuit</guid>
+<pubDate>Fri, 21 May 2021 00:00:00 GMT</pubDate>
+<description>In this document, we will explore the professional journeys of Curtis and Kevin, highlighting their contributions to science and research. Relevant links to programs and fellowships are provided to give further context and learning opportunities.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 57 StaPH-B - Docker containers for Public Health bioinformatics Part 1</title>
+<link>https://happykhan.com/microbinfie/mb-57-staph-b---docker-containers-for-public-health-bioinformatics-part-1</link>
+<guid>https://happykhan.com/microbinfie/mb-57-staph-b---docker-containers-for-public-health-bioinformatics-part-1</guid>
+<pubDate>Fri, 07 May 2021 00:00:00 GMT</pubDate>
+<description>In a recent discussion, the team engaged with Curtis Kapsak and Kevin Libuit to delve into the details of StaPH-B containers. These containers are recognized as valuable resources for many researchers and developers.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 56 SARS-CoV-2 And Sequencing Spike With Sanger Sequencing part 2</title>
+<link>https://happykhan.com/microbinfie/mb-56-sars-cov-2-and-sequencing-spike-with-sanger-sequencing-part-2</link>
+<guid>https://happykhan.com/microbinfie/mb-56-sars-cov-2-and-sequencing-spike-with-sanger-sequencing-part-2</guid>
+<pubDate>Wed, 21 Apr 2021 00:00:00 GMT</pubDate>
+<description>In this segment, we explore a novel method for identifying variants of concern (VOCs), utilizing Sanger sequencing. We are joined by the developers of this method, Kai Blin and Tue Jorgensen, both affiliated with the Technical University of Denmark.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 55 SARS-CoV-2 And Sequencing Spike With Sanger Sequencing - Welcome To 1995</title>
+<link>https://happykhan.com/microbinfie/mb-55-sars-cov-2-and-sequencing-spike-with-sanger-sequencing---welcome-to-1995</link>
+<guid>https://happykhan.com/microbinfie/mb-55-sars-cov-2-and-sequencing-spike-with-sanger-sequencing---welcome-to-1995</guid>
+<pubDate>Thu, 08 Apr 2021 00:00:00 GMT</pubDate>
+<description>Today, we&apos;re exploring a novel method for identifying variants of concern by utilizing Sanger sequencing. We&apos;re joined by two of the authors of this groundbreaking method, Kai Blin and Tue Jorgensen, both of whom are affiliated with the Technical University of Denmark.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 54 SARS-CoV-2 In Canada and addressing data sharing and privacy</title>
+<link>https://happykhan.com/microbinfie/mb-54-sars-cov-2-in-canada-and-addressing-data-sharing-and-privacy</link>
+<guid>https://happykhan.com/microbinfie/mb-54-sars-cov-2-in-canada-and-addressing-data-sharing-and-privacy</guid>
+<pubDate>Thu, 01 Apr 2021 00:00:00 GMT</pubDate>
+<description>Join guest host Dr. Emma Griffiths as she talks with Dr. Finn McGuire and Dr. William Hsiao about the SARS-CoV-2 genomics epidemiology efforts in Canada.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 53 SARS-CoV-2 surveillance in Canada with CANCOGEN</title>
+<link>https://happykhan.com/microbinfie/mb-53-sars-cov-2-surveillance-in-canada-with-cancogen</link>
+<guid>https://happykhan.com/microbinfie/mb-53-sars-cov-2-surveillance-in-canada-with-cancogen</guid>
+<pubDate>Thu, 25 Mar 2021 00:00:00 GMT</pubDate>
+<description>Join guest host Dr. Emma Griffiths as she engages in an insightful conversation with Dr. Finlay McGuire and Dr. William Hsiao about the SARS-CoV-2 genomics epidemiology efforts in Canada. Discover how the scientific community is uncovering valuable insights to fight COVID-19 through cutting-edge research and collaboration.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 52 SARS-CoV-2 sequencing in Denmark with Mads Albertsen</title>
+<link>https://happykhan.com/microbinfie/mb-52-sars-cov-2-sequencing-in-denmark-with-mads-albertsen</link>
+<guid>https://happykhan.com/microbinfie/mb-52-sars-cov-2-sequencing-in-denmark-with-mads-albertsen</guid>
+<pubDate>Thu, 18 Mar 2021 00:00:00 GMT</pubDate>
+<description>Denmark is one of the leading countries in the world for SARS-CoV-2 genomic surveillance. Prof. Mads Albertsen discusses with us the intricacies of SARS-CoV-2 sequencing in Denmark, covering its inception, logistics, adjusted protocols, and key lessons learned throughout the process.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 51 SARSCOV2 Round-up 3 and updates from Denmark</title>
+<link>https://happykhan.com/microbinfie/mb-51-sarscov2-round-up-3-and-updates-from-denmark</link>
+<guid>https://happykhan.com/microbinfie/mb-51-sarscov2-round-up-3-and-updates-from-denmark</guid>
+<pubDate>Thu, 11 Mar 2021 00:00:00 GMT</pubDate>
+<description>In the past two weeks, there have been significant developments in SARS-CoV-2 genomics, as discussed with Mads Albertsen, particularly in Denmark. For the latest COVID statistics in Denmark, visit their statistics page.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 50 Atypical invasive non-typhoidal Salmonella in The Gambia</title>
+<link>https://happykhan.com/microbinfie/mb-50-atypical-invasive-non-typhoidal-salmonella-in-the-gambia</link>
+<guid>https://happykhan.com/microbinfie/mb-50-atypical-invasive-non-typhoidal-salmonella-in-the-gambia</guid>
+<pubDate>Thu, 25 Feb 2021 00:00:00 GMT</pubDate>
+<description>Invasive non-typhoidal Salmonella (iNTS) presents a significant public health challenge in Africa. To gain insights into this pressing issue, we spoke with Abdoulie Kanteh and Grant Mackenzie about their research efforts in The Gambia, particularly their use of genomics to understand the serovars in circulation.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 49 SARS-CoV-2 Tools and resources update</title>
+<link>https://happykhan.com/microbinfie/mb-49-sars-cov-2-tools-and-resources-update</link>
+<guid>https://happykhan.com/microbinfie/mb-49-sars-cov-2-tools-and-resources-update</guid>
+<pubDate>Mon, 22 Feb 2021 00:00:00 GMT</pubDate>
+<description>We are excited to have Peter van Heusden join us to discuss the latest developments in SARS-CoV-2 genomics, focusing particularly on the tools and resources available. Additionally, we will delve into the challenges of building and sharing data in large-scale sequencing endeavors.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 48 SARS-CoV-2 More Variants of Concern and updates from Africa</title>
+<link>https://happykhan.com/microbinfie/mb-48-sars-cov-2-more-variants-of-concern-and-updates-from-africa</link>
+<guid>https://happykhan.com/microbinfie/mb-48-sars-cov-2-more-variants-of-concern-and-updates-from-africa</guid>
+<pubDate>Sat, 20 Feb 2021 00:00:00 GMT</pubDate>
+<description>In our discussion with Peter van Heusden, we explore the latest developments in SARS-CoV-2 genomics over the past two weeks. This includes an examination of the growing list of Variants of Concern and recent advancements in African regions. Below are some key papers and resources that were mentioned during our discussion:</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 47 SARS-CoV-2 Rapid roundup and questions answered</title>
+<link>https://happykhan.com/microbinfie/mb-47-sars-cov-2-rapid-roundup-and-questions-answered</link>
+<guid>https://happykhan.com/microbinfie/mb-47-sars-cov-2-rapid-roundup-and-questions-answered</guid>
+<pubDate>Mon, 08 Feb 2021 00:00:00 GMT</pubDate>
+<description>In this roundup, we delve into the latest questions and developments in SARS-CoV-2 genomics. This information is based on discussions and data recorded on 5 February 2021.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 46 SARS-CoV-2 genomics resources</title>
+<link>https://happykhan.com/microbinfie/mb-46-sars-cov-2-genomics-resources</link>
+<guid>https://happykhan.com/microbinfie/mb-46-sars-cov-2-genomics-resources</guid>
+<pubDate>Mon, 08 Feb 2021 00:00:00 GMT</pubDate>
+<description>Stay up-to-date with the latest bioinformatics and genomics tools for SARS-CoV-2 research. Below are some valuable resources and tools to help you navigate ongoing developments in the field, as of 5 February 2021.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 45 Software deep dive  Enterobase</title>
+<link>https://happykhan.com/microbinfie/mb-45-software-deep-dive--enterobase</link>
+<guid>https://happykhan.com/microbinfie/mb-45-software-deep-dive--enterobase</guid>
+<pubDate>Thu, 04 Feb 2021 00:00:00 GMT</pubDate>
+<description>We had a chat with Nabil about EnteroBase, delving into the background of the project, the general benefits of the platform, and some of the peculiar quirks users might encounter. EnteroBase is an integrated software environment designed to support the identification of global population structures within several bacterial genera, including pathogens.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 44 How to sequence SARS-CoV-2 using the ARTIC protocol with Joshua Quick</title>
+<link>https://happykhan.com/microbinfie/mb-44-how-to-sequence-sars-cov-2-using-the-artic-protocol-with-joshua-quick</link>
+<guid>https://happykhan.com/microbinfie/mb-44-how-to-sequence-sars-cov-2-using-the-artic-protocol-with-joshua-quick</guid>
+<pubDate>Fri, 22 Jan 2021 00:00:00 GMT</pubDate>
+<description>Joshua Quick from the University of Birmingham presented on the topic &quot;How to Sequence SARS-CoV-2 Using the ARTIC Protocol&quot; during a workshop. This event was a collaborative effort between the ARTIC Network and CLIMB-BIG-DATA focused on COVID-19 data analysis. The session was chaired by Nick Loman.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 43 Why use genomics in an epidemic? with Sam Sheppard</title>
+<link>https://happykhan.com/microbinfie/mb-43-why-use-genomics-in-an-epidemic-with-sam-sheppard</link>
+<guid>https://happykhan.com/microbinfie/mb-43-why-use-genomics-in-an-epidemic-with-sam-sheppard</guid>
+<pubDate>Thu, 21 Jan 2021 00:00:00 GMT</pubDate>
+<description>Presenter: Sam Sheppard, University of Bath  
+Event: ARTICnetwork &amp; CLIMB-BIG-DATA Workshop on COVID-19 Data Analysis</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 42 Overcoming barriers to SARS-CoV-2 data analysis</title>
+<link>https://happykhan.com/microbinfie/mb-42-overcoming-barriers-to-sars-cov-2-data-analysis</link>
+<guid>https://happykhan.com/microbinfie/mb-42-overcoming-barriers-to-sars-cov-2-data-analysis</guid>
+<pubDate>Wed, 20 Jan 2021 00:00:00 GMT</pubDate>
+<description>Presented by: ARTIC Network &amp; CLIMB-BIG-DATA</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 41 SARS-CoV-2 Phylogenomics questions answered</title>
+<link>https://happykhan.com/microbinfie/mb-41-sars-cov-2-phylogenomics-questions-answered</link>
+<guid>https://happykhan.com/microbinfie/mb-41-sars-cov-2-phylogenomics-questions-answered</guid>
+<pubDate>Tue, 19 Jan 2021 00:00:00 GMT</pubDate>
+<description>Presented by: ARTICnetwork &amp; CLIMB-BIG-DATA</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 40 A crash course in SARS-CoV-2 bioinformatics</title>
+<link>https://happykhan.com/microbinfie/mb-40-a-crash-course-in-sars-cov-2-bioinformatics</link>
+<guid>https://happykhan.com/microbinfie/mb-40-a-crash-course-in-sars-cov-2-bioinformatics</guid>
+<pubDate>Mon, 18 Jan 2021 00:00:00 GMT</pubDate>
+<description>Over the last year, we&apos;ve learned a lot about the genomics of SARS-CoV-2. Lee extracts all the insider knowledge from our brains, and we give him the honest truth to his probing questions. Here’s what we cover:</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 39 Explaining the naming of SARS-CoV-2 new variants</title>
+<link>https://happykhan.com/microbinfie/mb-39-explaining-the-naming-of-sars-cov-2-new-variants</link>
+<guid>https://happykhan.com/microbinfie/mb-39-explaining-the-naming-of-sars-cov-2-new-variants</guid>
+<pubDate>Sat, 16 Jan 2021 00:00:00 GMT</pubDate>
+<description>Andrew&apos;s discussion with Niamh Tumelty from the University of Cambridge revolves around the various names and classifications emerging for the new variants of SARS-CoV-2. As this is a rapidly evolving field, the information you hear might be outdated by the time you listen. Andrew humorously apologizes in advance for any errors that might exist in the podcast.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 38 Ontologies - effective data sharing</title>
+<link>https://happykhan.com/microbinfie/mb-38-ontologies---effective-data-sharing</link>
+<guid>https://happykhan.com/microbinfie/mb-38-ontologies---effective-data-sharing</guid>
+<pubDate>Thu, 07 Jan 2021 00:00:00 GMT</pubDate>
+<description>Join us for the second part of our crash course on ontologies, featuring insights from Dr. Emma Griffiths and Dr. João Carriço. In this session, the focus will be on effective data sharing techniques and strategies.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 37 Ontologies - the secret sauce of bioinformatics</title>
+<link>https://happykhan.com/microbinfie/mb-37-ontologies---the-secret-sauce-of-bioinformatics</link>
+<guid>https://happykhan.com/microbinfie/mb-37-ontologies---the-secret-sauce-of-bioinformatics</guid>
+<pubDate>Thu, 24 Dec 2020 00:00:00 GMT</pubDate>
+<description>Join Dr. Emma Griffiths and Dr. João Carriço for an insightful discussion about the vital role of ontologies in bioinformatics. This &quot;secret sauce&quot; ensures effective communication and collaboration across diverse disciplines such as public health, food regulation, agriculture, veterinary sciences, and healthcare.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 36 Roary the pangenome pipeline</title>
+<link>https://happykhan.com/microbinfie/mb-36-roary-the-pangenome-pipeline</link>
+<guid>https://happykhan.com/microbinfie/mb-36-roary-the-pangenome-pipeline</guid>
+<pubDate>Thu, 10 Dec 2020 00:00:00 GMT</pubDate>
+<description>We chat with Andrew about Roary, software for generating a pangenome, and learn about the background to the project, where the name comes from, hidden features and the light hearted FAQ.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 35 The Wandering Bioinformatician</title>
+<link>https://happykhan.com/microbinfie/mb-35-the-wandering-bioinformatician</link>
+<guid>https://happykhan.com/microbinfie/mb-35-the-wandering-bioinformatician</guid>
+<pubDate>Thu, 26 Nov 2020 00:00:00 GMT</pubDate>
+<description>We recently had the opportunity to chat with Phil Ashton about his fascinating career transition from the wet lab to the dry lab, taking on the role of a bioinformatician. Below, Phil shares his experiences working in public health and in low and middle-income countries.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 34 Moving from wet to dry with Phil Ashton</title>
+<link>https://happykhan.com/microbinfie/mb-34-moving-from-wet-to-dry-with-phil-ashton</link>
+<guid>https://happykhan.com/microbinfie/mb-34-moving-from-wet-to-dry-with-phil-ashton</guid>
+<pubDate>Thu, 12 Nov 2020 00:00:00 GMT</pubDate>
+<description>We recently had the opportunity to chat with Phil Ashton about his fascinating career transition from the wet lab to the dry lab, taking on the role of a bioinformatician. Below, Phil shares his experiences working in public health and in low and middle-income countries.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 33 The untrained monkey</title>
+<link>https://happykhan.com/microbinfie/mb-33-the-untrained-monkey</link>
+<guid>https://happykhan.com/microbinfie/mb-33-the-untrained-monkey</guid>
+<pubDate>Thu, 29 Oct 2020 00:00:00 GMT</pubDate>
+<description>Someone shows up at your door wanting to get a nature paper in bioinformatics and they only have a week, where do you start? We talk bioinformatics training with Finlay Maguire.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 32 Looking behind Majora&apos;s Mask and nation wide tracking of SARS-CoV-2 genomics</title>
+<link>https://happykhan.com/microbinfie/mb-32-looking-behind-majoras-mask-and-nation-wide-tracking-of-sars-cov-2-genomics</link>
+<guid>https://happykhan.com/microbinfie/mb-32-looking-behind-majoras-mask-and-nation-wide-tracking-of-sars-cov-2-genomics</guid>
+<pubDate>Thu, 15 Oct 2020 00:00:00 GMT</pubDate>
+<description>Join Nick Loman, Sam Nicholls, and Radosław Popławski as they discuss the development of systems to support the analysis of hundreds of thousands of SARS-CoV-2 genomes during the pandemic, notably without the use of Excel.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 31 Large scale sequencing of SARS-CoV-2 genomes from one region</title>
+<link>https://happykhan.com/microbinfie/mb-31-large-scale-sequencing-of-sars-cov-2-genomes-from-one-region</link>
+<guid>https://happykhan.com/microbinfie/mb-31-large-scale-sequencing-of-sars-cov-2-genomes-from-one-region</guid>
+<pubDate>Thu, 01 Oct 2020 00:00:00 GMT</pubDate>
+<description>In a recent discussion, we spoke with Justin O&apos;Grady, Andrew Page, and Alison Mather about their work on sequencing 1,500 SARS-CoV-2 genomes from Norfolk, a small region in the UK. Their efforts contributed significantly to genomic epidemiology, providing a near real-time view of the COVID-19 pandemic as it unfolded. Here are some key insights from their findings:</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 30 How we made the podcast on our 1st birthday</title>
+<link>https://happykhan.com/microbinfie/mb-30-how-we-made-the-podcast-on-our-1st-birthday</link>
+<guid>https://happykhan.com/microbinfie/mb-30-how-we-made-the-podcast-on-our-1st-birthday</guid>
+<pubDate>Thu, 17 Sep 2020 00:00:00 GMT</pubDate>
+<description>To celebrate a full year of our podcast, after our first episode on September 19, 2019, we dive into how it all began. In this episode, we cover various aspects, including:</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 29 Mashtree software deep dive</title>
+<link>https://happykhan.com/microbinfie/mb-29-mashtree-software-deep-dive</link>
+<guid>https://happykhan.com/microbinfie/mb-29-mashtree-software-deep-dive</guid>
+<pubDate>Thu, 10 Sep 2020 00:00:00 GMT</pubDate>
+<description>The podcast discusses the development and implementation of MASHtree, a tool leveraging the MASH and MinHash algorithms to rapidly compare microbial genomes and build phylogenetic trees.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 28 BRIG the BLAST Ring Image Generator</title>
+<link>https://happykhan.com/microbinfie/mb-28-brig-the-blast-ring-image-generator</link>
+<guid>https://happykhan.com/microbinfie/mb-28-brig-the-blast-ring-image-generator</guid>
+<pubDate>Thu, 27 Aug 2020 00:00:00 GMT</pubDate>
+<description>We had the opportunity to speak with Nabil-Fareed Alikhan about his bioinformatics software, BRIG, which stands for BLAST Ring Image Generator. This tool is an innovative development in the field of bioinformatics, and provides a comprehensive way to visualize BLAST comparisons.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 27 SNP-sites  rapid efficient extraction of SNPs from multi-FASTA alignments</title>
+<link>https://happykhan.com/microbinfie/mb-27-snp-sites--rapid-efficient-extraction-of-snps-from-multi-fasta-alignments</link>
+<guid>https://happykhan.com/microbinfie/mb-27-snp-sites--rapid-efficient-extraction-of-snps-from-multi-fasta-alignments</guid>
+<pubDate>Thu, 13 Aug 2020 00:00:00 GMT</pubDate>
+<description>We recently had a conversation with the author of SNP-sites, (it&apos;s Andrew!) a bioinformatics software designed for extracting Single Nucleotide Polymorphisms (SNPs) from a multi-FASTA alignment. While the software may seem straightforward, it involves intricate details that are often absent from the final published work.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 26 SARS-CoV-2 contextual data specification for open genomic epidemiology</title>
+<link>https://happykhan.com/microbinfie/mb-26-sars-cov-2-contextual-data-specification-for-open-genomic-epidemiology</link>
+<guid>https://happykhan.com/microbinfie/mb-26-sars-cov-2-contextual-data-specification-for-open-genomic-epidemiology</guid>
+<pubDate>Thu, 13 Aug 2020 00:00:00 GMT</pubDate>
+<description>In this conversation, we engage with Dr. Emma Griffiths (UBC), Dr. Ruth Timme (FDA), and Dr. Duncan MacCannell (CDC) concerning the PHA4GE SARS-CoV-2 contextual data specification, designed for open genomic epidemiology.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 25 Sustainable bioinformatics software</title>
+<link>https://happykhan.com/microbinfie/mb-25-sustainable-bioinformatics-software</link>
+<guid>https://happykhan.com/microbinfie/mb-25-sustainable-bioinformatics-software</guid>
+<pubDate>Thu, 30 Jul 2020 00:00:00 GMT</pubDate>
+<description>To transition bioinformatics software from the realm of academic research into practical applications in hospitals and doctors&apos; offices, it is crucial to focus on sustainability. Here, we discuss essential practices to enhance the sustainability of bioinformatics software:</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 24 Experimental projects lead to experimental software</title>
+<link>https://happykhan.com/microbinfie/mb-24-experimental-projects-lead-to-experimental-software</link>
+<guid>https://happykhan.com/microbinfie/mb-24-experimental-projects-lead-to-experimental-software</guid>
+<pubDate>Thu, 16 Jul 2020 00:00:00 GMT</pubDate>
+<description>Experimental projects often result in the creation of experimental software. In the realm of academic research, especially within bioinformatics, this software plays a crucial role. However, there are several challenges concerning its sustainability. Here, we delve into the current functioning of bioinformatics software, the reasons behind software obsolescence, associated quality issues, and potential strategies to ensure its longevity.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 23 CoronaHiT  large scale multiplexing of SARS-CoV-2 genomes on Nanopore</title>
+<link>https://happykhan.com/microbinfie/mb-23-coronahit--large-scale-multiplexing-of-sars-cov-2-genomes-on-nanopore</link>
+<guid>https://happykhan.com/microbinfie/mb-23-coronahit--large-scale-multiplexing-of-sars-cov-2-genomes-on-nanopore</guid>
+<pubDate>Thu, 02 Jul 2020 00:00:00 GMT</pubDate>
+<description>In this engaging discussion, we chat with the authors behind CoronaHiT, an innovative method that allows for sequencing up to 94 SARS-CoV-2 samples on a single MinION flowcell. This approach significantly reduces sequencing costs by three-fold and employs a simpler, faster protocol.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 22 Assembly after party</title>
+<link>https://happykhan.com/microbinfie/mb-22-assembly-after-party</link>
+<guid>https://happykhan.com/microbinfie/mb-22-assembly-after-party</guid>
+<pubDate>Thu, 25 Jun 2020 00:00:00 GMT</pubDate>
+<description>When you get an assembly, the fun doesn’t stop there. You then have to fix it up and see how good it is. In this episode, we discuss scaffolding, gap filling, polishing, assembly metrics, quality control, genome structure, and visualization tools.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 21 Setting up coronavirus sequencing for real-time public health surveillance</title>
+<link>https://happykhan.com/microbinfie/mb-21-setting-up-coronavirus-sequencing-for-real-time-public-health-surveillance</link>
+<guid>https://happykhan.com/microbinfie/mb-21-setting-up-coronavirus-sequencing-for-real-time-public-health-surveillance</guid>
+<pubDate>Tue, 16 Jun 2020 00:00:00 GMT</pubDate>
+<description>In this interview, we speak with Justin O&apos;Grady and Andrew Page about how to initiate a SARS-CoV-2 sequencing effort during a pandemic. Their team went on to sequence 1,500 genomes in just two months. The Quadram Institute is one of 16 sequencing centers in the UK that are part of the COVID-19 genome sequencing consortium.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 20 Assembly read healing</title>
+<link>https://happykhan.com/microbinfie/mb-20-assembly-read-healing</link>
+<guid>https://happykhan.com/microbinfie/mb-20-assembly-read-healing</guid>
+<pubDate>Thu, 11 Jun 2020 00:00:00 GMT</pubDate>
+<description>Preprocessing sequence data before de novo assembly is a crucial step in enhancing the final quality of your assembly. This involves various techniques such as read trimming, correction, and filtering, which are collectively known as Read Healing.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 19 Microbinfies assemble</title>
+<link>https://happykhan.com/microbinfie/mb-19-microbinfies-assemble</link>
+<guid>https://happykhan.com/microbinfie/mb-19-microbinfies-assemble</guid>
+<pubDate>Thu, 28 May 2020 00:00:00 GMT</pubDate>
+<description>In this episode, we dive into the fascinating topic of short read de novo assembly. We explore the history of assembly techniques and the evolution of short read assemblers, culminating in the advanced tools we utilize today. Our discussion mainly revolves around bacterial assembly and its implications in the field of genomics.
+You can expect to learn about:</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 18 Panel - Has Nanopore rendered onsite Illumina obsolete?</title>
+<link>https://happykhan.com/microbinfie/mb-18-panel---has-nanopore-rendered-onsite-illumina-obsolete</link>
+<guid>https://happykhan.com/microbinfie/mb-18-panel---has-nanopore-rendered-onsite-illumina-obsolete</guid>
+<pubDate>Thu, 14 May 2020 00:00:00 GMT</pubDate>
+<description>The panel discussion was held at the MRC Gambia about  SARS-CoV-2, part of The London School of Hygiene and Tropical Medicine, in January 2020. This event was recorded in front of a live audience of scientists, just as SARS-CoV-2 was beginning to be reported as an emerging infectious disease.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 17 Bayesian magic in practice</title>
+<link>https://happykhan.com/microbinfie/mb-17-bayesian-magic-in-practice</link>
+<guid>https://happykhan.com/microbinfie/mb-17-bayesian-magic-in-practice</guid>
+<pubDate>Thu, 30 Apr 2020 00:00:00 GMT</pubDate>
+<description>Join Dr. Conor Meehan, Dr. Leo Martins, and Dr. Nabil-Fareed Alikhan as they delve deeper into the fascinating realm of Bayesian methodologies. This part of the series continues the exploration of the Bayesian approach in various fields, shedding light on its applications and intricacies.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 16 The theory behind Bayesian Magic</title>
+<link>https://happykhan.com/microbinfie/mb-16-the-theory-behind-bayesian-magic</link>
+<guid>https://happykhan.com/microbinfie/mb-16-the-theory-behind-bayesian-magic</guid>
+<pubDate>Thu, 16 Apr 2020 00:00:00 GMT</pubDate>
+<description>Dive into the intriguing realm of Bayesian statistics with these distinguished experts. Uncover the secrets of this powerful statistical method and explore its applications in various fields. Imbued with an aura of mystery and logic, Bayesian magic is not just for mathematicians but for anyone who seeks to understand and predict the uncertainties of the world. Join the discussion and immerse yourself in the profound concepts that shape our understanding of data and probability.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 15 Bioinformatics war stories</title>
+<link>https://happykhan.com/microbinfie/mb-15-bioinformatics-war-stories</link>
+<guid>https://happykhan.com/microbinfie/mb-15-bioinformatics-war-stories</guid>
+<pubDate>Thu, 02 Apr 2020 00:00:00 GMT</pubDate>
+<description>We share short war stories about bioinformatics from the trenches of research. We share tales about a mystery massive Listeria outbreak, bubbles on flowcells, GAII woes, contaminated databases, the mass murderer, water pouring into a sequencing centre, changing protocols without validation, Excel issues and the ultimate complexity in science - Humans.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 14 La resistance lives on  The AMR deep dive</title>
+<link>https://happykhan.com/microbinfie/mb-14-la-resistance-lives-on--the-amr-deep-dive</link>
+<guid>https://happykhan.com/microbinfie/mb-14-la-resistance-lives-on--the-amr-deep-dive</guid>
+<pubDate>Thu, 19 Mar 2020 00:00:00 GMT</pubDate>
+<description>In this episode, Prof. Kate Baker, a renowned expert in antimicrobial resistance (AMR), delves into the complexities and challenges posed by the rise of drug-resistant microorganisms. Some of what was covered included:</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 13 Questions not to ask</title>
+<link>https://happykhan.com/microbinfie/mb-13-questions-not-to-ask</link>
+<guid>https://happykhan.com/microbinfie/mb-13-questions-not-to-ask</guid>
+<pubDate>Thu, 05 Mar 2020 00:00:00 GMT</pubDate>
+<description>When someone asks, &quot;What programming language should I learn?&quot;, especially in the context of bioinformatics, it&apos;s important to understand that the answer depends on several factors, including the specific areas of bioinformatics you’re interested in, the scope of your projects, and your existing skill set. Below is a discussion of different programming languages commonly used in bioinformatics, each with its strengths and applications:</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 12 Phylogenetics with the arborists part 2</title>
+<link>https://happykhan.com/microbinfie/mb-12-phylogenetics-with-the-arborists-part-2</link>
+<guid>https://happykhan.com/microbinfie/mb-12-phylogenetics-with-the-arborists-part-2</guid>
+<pubDate>Thu, 20 Feb 2020 00:00:00 GMT</pubDate>
+<description>In this episode we talk about models of evolution help estimate transitions between states (e.g., nucleotide mutations) and fit the evolutionary patterns to build phylogenetic trees.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 11 Phylogenetics with the arborists part 1</title>
+<link>https://happykhan.com/microbinfie/mb-11-phylogenetics-with-the-arborists-part-1</link>
+<guid>https://happykhan.com/microbinfie/mb-11-phylogenetics-with-the-arborists-part-1</guid>
+<pubDate>Thu, 06 Feb 2020 00:00:00 GMT</pubDate>
+<description>Phylogenetics is crucial for understanding the evolutionary relationships among species and microorganisms. This episode delves into the methodologies used in microbial bioinformatics to construct phylogenetic trees, which visually illustrate these relationships. By analyzing genetic data, researchers can gain insights into species evolution and their connections over time.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 10 History of file formats</title>
+<link>https://happykhan.com/microbinfie/mb-10-history-of-file-formats</link>
+<guid>https://happykhan.com/microbinfie/mb-10-history-of-file-formats</guid>
+<pubDate>Thu, 23 Jan 2020 00:00:00 GMT</pubDate>
+<description>Understanding the history and development of file formats in microbial bioinformatics is essential for researchers in the field. File formats are pivotal in storing, sharing, and analyzing vast amounts of biological data efficiently. Below is an overview of some critical milestones and formats that have shaped microbial bioinformatics.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 09 Nobel prize or contamination</title>
+<link>https://happykhan.com/microbinfie/mb-09-nobel-prize-or-contamination</link>
+<guid>https://happykhan.com/microbinfie/mb-09-nobel-prize-or-contamination</guid>
+<pubDate>Thu, 09 Jan 2020 00:00:00 GMT</pubDate>
+<description>In the world of genome sequencing, identifying a groundbreaking discovery that could win a Nobel Prize can sometimes be derailed by something as mundane as contamination. Whether you are using short reads or long reads, understanding and mitigating contamination is crucial to ensure the accuracy and reliability of your data.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 08 Looking back at 2019</title>
+<link>https://happykhan.com/microbinfie/mb-08-looking-back-at-2019</link>
+<guid>https://happykhan.com/microbinfie/mb-08-looking-back-at-2019</guid>
+<pubDate>Thu, 26 Dec 2019 00:00:00 GMT</pubDate>
+<description>As we close out 2019, it&apos;s a perfect time to pause and reflect on the projects we&apos;ve been immersed in, evaluate what has resonated with us throughout the year, and consider the future trajectory of microbial bioinformatics.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 07 Wham, BAM, thank you SAM.</title>
+<link>https://happykhan.com/microbinfie/mb-07-wham-bam-thank-you-sam</link>
+<guid>https://happykhan.com/microbinfie/mb-07-wham-bam-thank-you-sam</guid>
+<pubDate>Thu, 12 Dec 2019 00:00:00 GMT</pubDate>
+<description>In this episode, we delve into the widely used Sequence Alignment Map (SAM) format. This format is essential for storing biological sequence alignment data.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 06 Writing good bioinformatics software with Torsten Seemann</title>
+<link>https://happykhan.com/microbinfie/mb-06-writing-good-bioinformatics-software-with-torsten-seemann</link>
+<guid>https://happykhan.com/microbinfie/mb-06-writing-good-bioinformatics-software-with-torsten-seemann</guid>
+<pubDate>Thu, 28 Nov 2019 00:00:00 GMT</pubDate>
+<description>Join us for an insightful discussion with Torsten Seemann, a renowned bioinformatician and software developer. Torsten is the author of several widely-used bioinformatics tools that have contributed significantly to the field. His notable tools include:</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 05 History of Genotyping - Decentralised Future</title>
+<link>https://happykhan.com/microbinfie/mb-05-history-of-genotyping---decentralised-future</link>
+<guid>https://happykhan.com/microbinfie/mb-05-history-of-genotyping---decentralised-future</guid>
+<pubDate>Thu, 14 Nov 2019 00:00:00 GMT</pubDate>
+<description>In this episode, we explore the advancements and methodologies involved in modern genotyping. This involves the use of cutting-edge technologies and techniques to investigate the genetic makeup of organisms.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 04 History of Genotyping - The early years</title>
+<link>https://happykhan.com/microbinfie/mb-04-history-of-genotyping---the-early-years</link>
+<guid>https://happykhan.com/microbinfie/mb-04-history-of-genotyping---the-early-years</guid>
+<pubDate>Thu, 31 Oct 2019 00:00:00 GMT</pubDate>
+<description>Genotyping forms the foundation of modern microbiology, providing insights into the genetic composition of organisms. Before the advent of next-generation sequencing (NGS), several techniques were employed to analyze genetic material. This guide explores the primary methods used in the pre-NGS era.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 03 FASTQ - all your bases are belong to us</title>
+<link>https://happykhan.com/microbinfie/mb-03-fastq---all-your-bases-are-belong-to-us</link>
+<guid>https://happykhan.com/microbinfie/mb-03-fastq---all-your-bases-are-belong-to-us</guid>
+<pubDate>Thu, 17 Oct 2019 00:00:00 GMT</pubDate>
+<description>In this informal chat, Lee, Nabil, and Andrew discuss the fascinating history and evolution of FASTQ files, the cornerstone of modern bioinformatics. Let&apos;s dive into the conversation:</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 02 What bioinformatics software not to write part 2</title>
+<link>https://happykhan.com/microbinfie/mb-02-what-bioinformatics-software-not-to-write-part-2</link>
+<guid>https://happykhan.com/microbinfie/mb-02-what-bioinformatics-software-not-to-write-part-2</guid>
+<pubDate>Thu, 03 Oct 2019 00:00:00 GMT</pubDate>
+<description>In this episode, we identify areas of &quot;Peak-Bioinformatics.&quot; There is an abundance of existing bioinformatics software, and often the new tool you wish to create already exists, or a new tool cannot effectively bring significant improvement. We discuss these aspects specifically in relation to metagenomics and antimicrobial resistance (AMR).</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 01 What bioinformatics software not to write part 1</title>
+<link>https://happykhan.com/microbinfie/mb-01-what-bioinformatics-software-not-to-write-part-1</link>
+<guid>https://happykhan.com/microbinfie/mb-01-what-bioinformatics-software-not-to-write-part-1</guid>
+<pubDate>Thu, 19 Sep 2019 00:00:00 GMT</pubDate>
+<description>In this episode, we identify areas of &quot;Peak Bioinformatics.&quot; There&apos;s a vast array of existing bioinformatics software—often, the tool you want to create already exists, or a new tool cannot offer significant improvements. We explore this topic in the contexts of genome assembly, read mapping, and phylogenetics.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 00 Trailer</title>
+<link>https://happykhan.com/microbinfie/mb-00-trailer</link>
+<guid>https://happykhan.com/microbinfie/mb-00-trailer</guid>
+<pubDate>Tue, 17 Sep 2019 00:00:00 GMT</pubDate>
+<description>The Micro Binfie podcast is available on several platforms:</description>
+</item>
+</channel>
+</rss>

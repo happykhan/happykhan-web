@@ -1,0 +1,184 @@
+Hello, and thank you for listening to the MicroBinFeed podcast. Here, we will be
+discussing topics in microbial bioinformatics. We hope that we can give you some
+insights, tips, and tricks along the way. There is so much information we all
+know from working in the field, but nobody writes it down. There is no manual,
+and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
+co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both
+Andrew and Nabil work in the Quadram Institute in Norwich, UK, where they work
+on microbes in food and the impact on human health. I work at Centers for
+Disease Control and Prevention and am an adjunct member at the University of
+Georgia in the U.S. I'm your host, Andrew Page, and I'm joined today by three
+postdocs and a room full of PhD students. So, we have... Heather Felgate. Dr.
+Yasir. Emma Waters. Okay. And so, it's a great dream team of postdocs, and we
+can take any questions the PhD students may want. But my first question is,
+Emma, why on earth would you do a postdoc? It's underpaid. You work long hours,
+and, you know, you could be out in the industry earning twice or three times
+your salary. So, why do you want to work here? Very true, on all counts, but I
+love it. I love research. I love the sort of... You've got a problem, and then
+you've got all these range of tools to tackle that problem, and that can be
+anything. I love anything from the wet lab side to the computational side. If
+there's a problem, there is something to solve it, and the reason that it's so
+cool to solve it is because no one else has solved it yet. So, it's a get and
+run. So, you enjoy the discovery and exploration and freedom to do that? Yeah,
+definitely. What about the money? The money... The money... Oh, the money. So,
+there is a lot of hardships with postdocs, definitely. Personally, I am from a
+disadvantaged background, so the money side for me, I came from a family where
+no one else had gone to university before. So the money side for me, I look at
+it, I'm like, wow, I earn more than my parents. But, of course, there is a lot
+of expertise, and you've got so many years behind you in that you should be paid
+for. So, yes, money could be more. How long did you spend in university? Four.
+So, undergrad was four years, then PhD five years. Same as me. Yeah, so you
+nearly took ten years of expertise. And is that worth the pay salary? Maybe,
+maybe not. No. Heather, what about you? What about your journey here? I'm
+similar to Emma, as in I just really like science. I've been a nerd from the
+beginning, a bit of an outcast in all parts of my life. But I just enjoy working
+as a scientist. I would love to be paid more. I would love to have a permanent
+job. But, for now, I'm happy where I am, and I think happiness is more than wage
+at the end of the day. I go home and I'm happy most of the time. I come into
+work and I'm happy. I've got freedom. I've got a job where, okay, if I turn up
+half an hour late, no one's going to have a go at me. I can stay. I can
+manipulate my hours to benefit me. It works very well with having a family. As
+in, tomorrow I'm going to be at home with my sick kid, but I can work from home.
+And I can make up those times another time. I just find it very flexible. I love
+the atmosphere. I love using my brain. And I've had a lot of other jobs in my
+life as well. And I just always keep coming back to science because I just enjoy
+it. So you mentioned contracts and no permanent job. What's the deal with that?
+Surely you are a highly paid, highly educated scientist, and you should have a
+permanent job. It would be lovely, but I'm grant-based, so there is an end. And
+it is stressful. I have the ability, I have a background where I'm financially
+supported. If I don't have a job, I will be okay for a couple of months. So it
+is quite stressful having to think, oh crap, in six months I'm not going to have
+a job. I've got to start looking. But that's also given me a lot of advantages
+over the years. I lived in Uganda for six months and taught at a school. I
+taught chemistry and biology to a girls' school where they weren't taught
+science. That was like, I couldn't get that if I had a job in industry. I
+wouldn't be able to just bounce around the world, here, there and everywhere. I
+ran a Mexican restaurant in Melbourne for a year. So I'm a qualified chef pretty
+much as well, and I ran a coffee shop. So I've had all these experiences, and
+none of them have been bad. Was this before or after your PhD? After my PhD.
+After my PhD I struggled with writing my thesis. I had a bit of a mental
+breakdown. So I found out I was really dyslexic. I moved to Melbourne for a year
+and did a bit of teaching there, but also worked as a restaurant. So it gives
+you the flexibility with life. I could just move straight into industry at the
+age of whatever I was when I finished my PhD, 24, 25 or something, and I could
+be in that same job now. I wouldn't have the life experiences I've had. So you
+recommend going and taking a few years out and getting a life experience before
+you then go and do a postdoc? Yeah, there's a big world to look at and play
+with. You've got entrepreneurial resilience, actually. I'm impressed. Wow. My
+journey's boring, if you say. I did my PhD and then came here, and then the last
+five years I'm here. But you've moved country. Yes, before PhD, yes, I moved
+country. I started my undergrad in biomedical sciences in 2002, and it was two
+and a half years. And then I worked in hospital for one year. And then I
+thought, okay, I want to do postgrad, and then a master's in biomedical
+sciences. And then I did one year research there, and I liked it. I thought,
+okay, it's interesting. I want to do a master's in research now, and then I did
+a master's in research there. And then I worked as a teaching research fellow,
+and then I came to do a PhD in Birmingham. So that's how I sucked up in
+research, and I started liking it. It's a dangerous job if you are coming into
+research. You might start liking it. So be careful. Does anyone have any
+questions for the panel? You know, you've got postdocs at different career
+stages, and they may be able to provide insights for what's ahead of you for the
+next few years. How to keep sane, advice? You don't start off sane. You wouldn't
+apply for a PhD if you were sane. How do you handle, say, people you've grown up
+with or went to school with who are now maybe took a slightly different path to
+you and maybe are earning a lot more? Like, does that ever make you regret
+staying in research? No. It is funny. So recently, well, I'm around early 30s.
+So, yeah, there's a lot of people that I know at the same age, and now they're
+getting to, like, managing director's stage, and, like, you start to hear the
+money they're on. You're like, ooh, I could have done that. But then you look at
+them as well, and you're like, you're so stressful. Like, you and your life is
+so stressful. You are so stressed. You're ageing as I look at you. You're
+melting like a candle. You may be better off in the money sort of way, but are
+you happy as a whole? So you hit that perfectly, Heather, by saying, actually,
+I've got the flexibility to do what I want. There may be an end date to my
+contract, but I know in this place I'm happy right now. I don't have to do the
+nine to five or anything like that. I can arrange my day how I want it to be. It
+depends what you want out of life. Do you want a Lamborghini? I don't know. You
+definitely. I'd quite like a Mustang if anyone was to buy me one. What do you
+want out of life? You've got to ask your main question. What's going to make you
+happy? Is a load of money going to make you happy? And if that is, then you
+follow that. So you just follow the routes that make you happy. So, Heather, if
+you were in a corporate environment, do you think they'd let you have your blue
+hair? Oh, hell no. I'm not even allowed to work at Primark, mate. You're not
+allowed to have non-natural hair colour at Primark. Oh, my God. I know. That's
+crazy. No. I guess they're doing a rules are like, you know, you need shoes in
+the lab kind of thing. And yeah, that's about it. Yeah. I'm allowed to be who I
+am. Wear a lab coat. Yeah. Yeah. Be who you are. You can explore your sort of
+what you enjoy as well nicely with research. So there's other bits of it where
+you can find joy. So things like outreach. You've got all the opportunities to
+interact with the public in the way you want to interact with them, which is
+something I really like. So there's all these different events where you can
+inspire kids to come and like to be a scientist or whatever they want to be. So
+they can go down the money route or the other route, but that's like you're at
+least inspiring them to do science. Yeah. And I think the thing I like about
+science is solving the puzzle or doing some experiment when it works. That gives
+you so much. Me and you. We're a dream team at the moment. So, yeah. So that's
+the amazing thing that can happen. So it makes you a day or weekend or week or
+month basically. Or it can make it miserable if it's not working.  So when we
+were trying to develop this method, and it wasn't working, that was not a good
+period at all. So that was quite depressing. But I had a very good team member,
+and we were working together. And I think it was the resilience and
+encouragement that was coming from my team member, Keith. And that's how we
+survived through those six months of optimising this method. That was quite
+brutal. But yeah, now we're happy. It started working, and then since then, it
+hasn't broken. So one of the good things about academia is being able to pivot
+to different things. Like during the pandemic, you set up a collaboration with
+Pakistan to do a SARS-CoV-2 sequencing. Yeah. And it was just, you know, use
+your personal connections, and you were given the space and freedom to go and to
+do that. Do you want to talk about that? Yeah, that's a very cool thing. It
+depends on like which group you're working in, like here. As Andrew has
+mentioned, I was just a postdoc, but I was given the freedom to collaborate
+independently back home in Pakistan, where I collaborated with the university I
+was studying before coming here. And we did sequence about 600 SARS-CoV-2
+samples. And that was almost half of the samples that were sequenced by the
+whole country at that point. That was a huge contribution. And that not only
+contributed to our science, but also towards the community, not only locally in
+Pakistan, but internationally, because it kind of modulated their travel policy
+and how they're going to shape it, and they're going to let the people go
+outside the country and like accept the visitors or not. So that was a very huge
+international contribution that we had made by just staying here. And it
+depends. It happened only because I was in this kind of academic setup. If it
+would have been kind of any other industrial or profit-driven one, then it would
+have been possible. But you're underselling yourself there. Like the deal was
+that, or the situation was that, Pakistan was on a red list for the UK. And, you
+know, the UK is one of the biggest sources of tourism for Pakistan. I presume
+there's a lot of expats going back. And so they wanted to get off the red list,
+but they needed proof through genome sequencing that there wasn't an issue
+there. And, of course, there was a proof we could provide. And, in fact, I think
+at that time, it was that the fear was that the Delta variant was in Pakistan
+and would come in. But actually, our sequencing showed that that was not the
+case. It was actually a totally different variant. It was the Alpha variant,
+which was imported from the UK. So it was actually the opposite problem. You
+helped people, Yasir. I mean, we helped people as a team. You made people happy.
+You can make people meet up with their families again. Yeah, no, we all helped
+them together here. So it was a very good teamwork from QIB and North Korea. So
+it was nice. I think there is a good distinction between academia and industry,
+actually, because academia is normally focused on helping people in one way or
+another, where industry is probably more or less helping these industries get
+more money. So it's actually giving you more joy to help the people with your
+research, isn't it? You do get a lot more freedom. I just decided to start
+tracking Haemolyticus a couple of weeks ago. And now I've got a new best friend
+who works in the Arctic University. And I'm like, oh, I could have a little trip
+over there one day. Got a new friend in Utrecht and stuff. And you can be free
+with who you want to chat to. You're not compounded by IP protection and stuff
+like that, where you can't just keep your project to yourself. I can just call
+up someone who I don't even know tomorrow and talk about what I do. And do they
+want to collaborate? Do we want to be on a paper together? Let's do something
+fun. New friend, I want to visit the Arctic. Exactly, and then you are free to
+write grants if you feel like you have the capabilities and you want to expand.
+You can write grants and you can acquire more money. And if you want to move up
+in the ladder or something, yeah, there's a freedom to go that route as well. It
+depends how enthusiastic you are in that kind of path. But if you do like money,
+I'd recommend, to keep your options open, I'd recommend going down to
+bioinformatics, data science route, not the lab route. You'll have more earning
+potential generally in industry, just to keep them aside. Whereas if you're down
+the lab route, it's more narrow focused and there's not as many opportunities.
+Okay, we'll leave it there. So thank you very much, Emma, Heather, and Yasir for
+this lovely chat and careers. Thank you to our audience of PhD students who have
+stayed extra late just for this talk. Thank you so much for listening to us at
+home. If you like this podcast, please subscribe and rate us on iTunes, Spotify,
+SoundCloud, or the platform of your choice. Follow us on Twitter at MicroBinfy.
+And if you don't like this podcast, please don't do anything. This podcast was
+recorded by the Microbial Bioinformatics Group. The opinions expressed here are
+our own and do not necessarily reflect the views of CDC or the Quadram
+Institute.
