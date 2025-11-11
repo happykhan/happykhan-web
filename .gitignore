@@ -1,5 +1,7 @@
 podcast_episode_audio
 .credentials
+# Source material not used in build
+content/posts/bioinformatics-handbook-main/
 # Logs
 logs
 *.log
