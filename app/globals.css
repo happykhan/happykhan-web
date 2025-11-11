@@ -24,7 +24,8 @@ html.dark {
   --color-border: #333;
   --color-bg: #0d1117;
   --color-bg-secondary: #161b22;
-  --color-code-bg: #0d1117;
+  /* Dark mode code block background: use a deep navy instead of near-black for improved distinction */
+  --color-code-bg: #16212b;
   --color-bg-frame: #1a1a1a;
 }
 
@@ -264,3 +265,91 @@ th {
   border-color: var(--color-primary);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
+
+/* Admonitions (callouts from remark-directive) */
+.admonition {
+  margin: var(--spacing-lg) 0;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-left: 4px solid;
+  border-radius: 4px;
+  background: var(--color-bg-secondary);
+}
+
+.admonition-title {
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+  font-size: 1rem;
+}
+
+.admonition-note {
+  border-color: #4a9eff;
+  background: rgba(74, 158, 255, 0.1);
+}
+
+html.dark .admonition-note {
+  background: rgba(74, 158, 255, 0.15);
+}
+
+.admonition-tip {
+  border-color: #22c55e;
+  background: rgba(34, 197, 94, 0.1);
+}
+
+html.dark .admonition-tip {
+  background: rgba(34, 197, 94, 0.15);
+}
+
+.admonition-warning {
+  border-color: #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+}
+
+html.dark .admonition-warning {
+  background: rgba(245, 158, 11, 0.15);
+}
+
+.admonition-danger {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+html.dark .admonition-danger {
+  background: rgba(239, 68, 68, 0.15);
+}
+
+.admonition-info {
+  border-color: #06b6d4;
+  background: rgba(6, 182, 212, 0.1);
+}
+
+html.dark .admonition-info {
+  background: rgba(6, 182, 212, 0.15);
+}
+
+.admonition-thanks {
+  border-color: #ec4899;
+  background: rgba(236, 72, 153, 0.1);
+}
+
+html.dark .admonition-thanks {
+  background: rgba(236, 72, 153, 0.15);
+}
+
+.admonition-exercise {
+  border-color: #8b5cf6;
+  background: rgba(139, 92, 246, 0.1);
+}
+
+html.dark .admonition-exercise {
+  background: rgba(139, 92, 246, 0.15);
+}
+
+/* Ensure content inside admonitions flows properly */
+.admonition p:first-of-type {
+  margin-top: 0;
+}
+
+.admonition p:last-child {
+  margin-bottom: 0;
+}
+

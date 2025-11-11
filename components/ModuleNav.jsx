@@ -7,9 +7,16 @@ export default function ModuleNav({ module, currentSlug, modulePosts }) {
     return null
   }
 
-  const currentIndex = modulePosts.findIndex(p => p.slug === currentSlug)
-  const prevPost = currentIndex > 0 ? modulePosts[currentIndex - 1] : null
-  const nextPost = currentIndex < modulePosts.length - 1 ? modulePosts[currentIndex + 1] : null
+  // Ensure posts are sorted by declared module order if present
+  const orderedPosts = [...modulePosts].sort((a, b) => {
+    const ao = (a.order ?? a.module?.order ?? 0)
+    const bo = (b.order ?? b.module?.order ?? 0)
+    return ao - bo || a.slug.localeCompare(b.slug)
+  })
+
+  const currentIndex = orderedPosts.findIndex(p => p.slug === currentSlug)
+  const prevPost = currentIndex > 0 ? orderedPosts[currentIndex - 1] : null
+  const nextPost = currentIndex < orderedPosts.length - 1 ? orderedPosts[currentIndex + 1] : null
 
   return (
     <div style={{
@@ -63,7 +70,7 @@ export default function ModuleNav({ module, currentSlug, modulePosts }) {
         gap: '0.5rem',
         marginBottom: '1rem',
       }}>
-        {modulePosts.map((post, idx) => {
+  {orderedPosts.map((post, idx) => {
           const isActive = post.slug === currentSlug
           return (
             <Link

@@ -125,7 +125,7 @@ export default async function HomePage() {
         <ul style={{ lineHeight: '1.8', color: 'var(--color-text-secondary)' }}>
           <li><strong><a href='posts/'>Research notes</a></strong> – My technical guides and essays on bioinformatics and microbial genomics, including popular posts on <a href="/posts/binfie-guide-serovar"><i>Salmonella</i> serotyping</a> and <a href="/posts/ggtree-start">phylogenetic visualization with R (ggtree)</a></li>
           <li><strong><a href='microbinfie/'>MicroBinfie podcast</a></strong> – A searchable catalogue of past episodes. The podcast explores the fast-evolving field of microbial bioinformatics — where computer science meets microbiology — sharing insights, tips, and trends for both newcomers and experts.</li>
-          <li><strong><a href='publications/'>Publications</a></strong> – my peer-reviewed research papers. Serachable, with full PDfs</li>
+          <li><strong><a href='publications/'>Publications</a></strong> – My peer-reviewed research papers. Searchable, with full PDfs</li>
           <li><strong><a href='software/'>Software</a></strong> – Free and open-source tools for genomic analysis I have co-developed</li>
         </ul>
       </div>
@@ -147,7 +147,7 @@ export default async function HomePage() {
               }}
               className="feature-card">
                 <div style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--color-primary)', fontWeight: 600, marginBottom: '0.5rem' }}>
-                  Blog Post
+                  Research Note
                 </div>
                 <h3 style={{ margin: '0 0 0.5rem 0', fontSize: '1.1rem', fontWeight: 600 }}>
                   {featuredPost.title}

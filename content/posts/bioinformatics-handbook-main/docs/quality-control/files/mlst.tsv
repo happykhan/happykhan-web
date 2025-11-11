@@ -1,0 +1,8 @@
+sample_2.fasta	ecoli_achtman_4	11	adk(12)	fumC(12)	gyrB(8)	icd(12)	mdh(15)	purA(2)	recA(2)
+sample_8.fasta	senterica_achtman_2	1543	aroC(417)	dnaN(4)	hemD(15)	hisD(262)	purE(95)	sucA(9)	thrA(141)
+sample_1.fasta	-	-
+sample_7.fasta	-	-
+sample_6.fasta	ecoli_achtman_4	32	adk(19)	fumC(23)	gyrB(18)	icd(24)	mdh(21)	purA(2)	recA(16)
+sample_5.fasta	ecoli_achtman_4	17	adk(6)	fumC(4)	gyrB(3)	icd(17)	mdh(7)	purA(7)	recA(6)
+sample_4.fasta	ecoli_achtman_4	-	adk(6)	fumC(6)	gyrB(-)	icd(136)	mdh(-)	purA(-)	recA(7)
+sample_3.fasta	ecoli_achtman_4	-	adk(53)	fumC(4)	gyrB(12)	icd(1)	mdh(20)	purA(18)	recA(1016?)
