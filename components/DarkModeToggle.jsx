@@ -13,6 +13,7 @@ export default function DarkModeToggle() {
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
       setIsDark(true)
       document.documentElement.classList.add('dark')
+      document.documentElement.style.colorScheme = 'dark'
     }
   }, [])
 
@@ -21,10 +22,12 @@ export default function DarkModeToggle() {
       document.documentElement.classList.remove('dark')
       localStorage.setItem('theme', 'light')
       setIsDark(false)
+      document.documentElement.style.colorScheme = 'light'
     } else {
       document.documentElement.classList.add('dark')
       localStorage.setItem('theme', 'dark')
       setIsDark(true)
+      document.documentElement.style.colorScheme = 'dark'
     }
   }
 

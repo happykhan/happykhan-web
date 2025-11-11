@@ -34,6 +34,19 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${libreFranklin.className} ${ibmPlexSans.variable} ${ibmPlexMono.variable}`}>
       <head>
+        {/* Prevent dark-mode flash of unstyled content: set initial theme before CSS paints */}
+        <meta name="color-scheme" content="light dark" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(() => { try {
+  const ls = localStorage.getItem('theme');
+  const mql = window.matchMedia('(prefers-color-scheme: dark)');
+  const theme = ls ? ls : (mql.matches ? 'dark' : 'light');
+  if (theme === 'dark') document.documentElement.classList.add('dark');
+  document.documentElement.style.colorScheme = theme;
+} catch {} })();`,
+          }}
+        />
         <ImageLoader />
       </head>
       <body>
