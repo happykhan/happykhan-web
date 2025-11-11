@@ -26,7 +26,7 @@ const softwareList = [
 
 export default function SoftwarePage() {
   return (
-    <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1rem' }}>
+    <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1rem' }}>
       <h1>Software</h1>
       
       <div style={{ display: 'grid', gap: '1.5rem', marginTop: '2rem' }}>

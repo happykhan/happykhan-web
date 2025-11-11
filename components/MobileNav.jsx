@@ -107,7 +107,7 @@ export default function MobileNav() {
               style={{ fontWeight: 500, fontSize: '1.1rem' }}
               onClick={() => setIsOpen(false)}
             >
-              Posts
+              Research Notes
             </a>
           </nav>
         </>

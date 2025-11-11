@@ -97,7 +97,7 @@ export default function RootLayout({ children }) {
                     <a href="/software" style={{ fontWeight: 500 }}>Software</a>
                     <a href="/publications" style={{ fontWeight: 500 }}>Publications</a>
                     <a href="/microbinfie" style={{ fontWeight: 500 }}>MicroBinfie Podcast</a>
-                    <a href="/posts" style={{ fontWeight: 500 }}>Posts</a>
+                    <a href="/posts" style={{ fontWeight: 500 }}>Research Notes</a>
                   </nav>
                 </div>
         </header>
@@ -116,7 +116,7 @@ export default function RootLayout({ children }) {
             <a href="/rss.xml">RSS (Posts)</a>
             <a href="/rss-microbinfie.xml">RSS (MicroBinfie)</a>
             <a href="https://github.com/happykhan" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://mstdn.science/@happykhan" target="_blank" rel="noopener noreferrer">Mastodon</a>
+            <a href="https://mstdn.science/@happykhan" target="_blank" rel="me noopener noreferrer">Mastodon</a>
           </div>
           <p style={{ margin: 0 }}>
             © {new Date().getFullYear()} Nabil-Fareed Alikhan

@@ -30,8 +30,28 @@ export default function PublicationsClient({ publications }) {
   })
   
   return (
-    <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 1rem' }}>
+    <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1rem' }}>
       <h1>Publications</h1>
+      
+      <p style={{ 
+        fontSize: '1rem', 
+        color: 'var(--color-text-secondary)', 
+        marginBottom: '1.5rem' 
+      }}>
+        View my complete publication list on{' '}
+        <a 
+          href="https://scholar.google.com/citations?user=BpzrleYAAAAJ&hl=en" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          style={{ 
+            color: 'var(--color-primary)',
+            textDecoration: 'none',
+            fontWeight: 500,
+          }}
+        >
+          Google Scholar →
+        </a>
+      </p>
       
       <div style={{ marginBottom: '2rem' }}>
         <input

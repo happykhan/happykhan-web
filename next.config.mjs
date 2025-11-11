@@ -21,6 +21,17 @@ export default {
         permanent: true,
       },
       {
+        source: '/posts',
+        has: [
+          {
+            type: 'query',
+            key: 'page',
+          },
+        ],
+        destination: '/posts/',
+        permanent: true,
+      },
+      {
         source: '/microbinfie/:id(\\d+)',
         destination: '/microbinfie/',
         permanent: true,
