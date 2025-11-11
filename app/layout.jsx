@@ -118,7 +118,7 @@ export default function RootLayout({ children }) {
                     color: 'var(--color-text-secondary)',
                     fontSize: '0.95rem'
                   }}>
-                    Bioinformatics · Genomics · Software Development
+                    Bioinformatics · Microbial Genomics · Software Development
                   </p>
                   <nav 
                     className="desktop-nav"

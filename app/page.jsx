@@ -1,6 +1,7 @@
 import { listPosts } from '@/lib/content.mjs'
 import { listMicrobinfie } from '@/lib/content.mjs'
 import { getPublications } from '@/lib/publications.mjs'
+import Image from 'next/image'
 
 const baseBtn = {
   display: 'inline-block',
@@ -69,13 +70,32 @@ export default async function HomePage() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '2rem', alignItems: 'start' }} className="home-layout">
         <div>
           <header style={{ marginBottom: '2.5rem' }}>
-            <p style={{ color: 'var(--color-text-secondary)', marginTop: 0, marginBottom: '1.5rem', fontSize: '1.15rem', lineHeight: '1.7' }}>
-              Bioinformatics researcher and software developer working in microbial genomics. 
-              I build open-source tools, publish research, and host the MicroBinfie podcast.
-            </p>
+            <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start', marginBottom: '1.5rem' }}>
+              {/* Circular cartoon avatar */}
+              <div style={{ 
+                width: '120px', 
+                height: '120px', 
+                borderRadius: '50%', 
+                overflow: 'hidden',
+                flexShrink: 0
+              }}>
+                <Image 
+                  src="/images/avatar-cartoon.png"
+                  alt="Nabil-Fareed Alikhan cartoon avatar"
+                  width={120}
+                  height={120}
+                  style={{ objectFit: 'cover' }}
+                  priority
+                />
+              </div>
+
+              <p style={{ color: 'var(--color-text-secondary)', margin: 0, fontSize: '1.15rem', lineHeight: '1.7' }}>
+                Bioinformatics researcher and software developer specialising in microbial genomics. I build widely used open-source tools, publish peer-reviewed research, and co-host the MicroBinfie podcast. My work is recognised across the bacterial genomics community for its focus on practical, open science.
+              </p>
+            </div>
             
             <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
-              <a href="/software" style={primaryBtn}>Software</a>
+              <a href="/software" style={secondaryBtn}>Software</a>
               <a href="/cv" style={secondaryBtn}>CV</a>
               <a href="/science" style={secondaryBtn}>Science</a>
             </div>
@@ -103,10 +123,10 @@ export default async function HomePage() {
           <div style={{ marginBottom: '2.5rem' }}>
             <h2 style={{ fontSize: '1.25rem', marginBottom: '1rem', marginTop: 0 }}>What's on this site</h2>
         <ul style={{ lineHeight: '1.8', color: 'var(--color-text-secondary)' }}>
-          <li><strong>Blog posts</strong> – thoughts on bioinformatics, science, and software</li>
-          <li><strong>MicroBinfie podcast</strong> – conversations with experts in microbial bioinformatics</li>
-          <li><strong>Publications</strong> – peer-reviewed research papers</li>
-          <li><strong>Software</strong> – open-source tools for genomic analysis</li>
+          <li><strong><a href='posts/'>Research notes</a></strong> – My technical guides and essays on bioinformatics and microbial genomics, including popular posts on <a href="/posts/binfie-guide-serovar"><i>Salmonella</i> serotyping</a> and <a href="/posts/ggtree-start">phylogenetic visualization with R (ggtree)</a></li>
+          <li><strong><a href='microbinfie/'>MicroBinfie podcast</a></strong> – A searchable catalogue of past episodes. The podcast explores the fast-evolving field of microbial bioinformatics — where computer science meets microbiology — sharing insights, tips, and trends for both newcomers and experts.</li>
+          <li><strong><a href='publications/'>Publications</a></strong> – my peer-reviewed research papers. Serachable, with full PDfs</li>
+          <li><strong><a href='software/'>Software</a></strong> – Free and open-source tools for genomic analysis I have co-developed</li>
         </ul>
       </div>
 
