@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "node scripts/copy-assets.mjs && next dev",
-  "build": "node scripts/move-static-to-public.mjs && node scripts/copy-assets.mjs && node scripts/gen-rss.mjs && node scripts/gen-rss-microbinfie.mjs && node scripts/gen-sitemap.mjs && next build",
+    "build": "node scripts/move-static-to-public.mjs && node scripts/copy-assets.mjs && node scripts/gen-rss.mjs && node scripts/gen-rss-microbinfie.mjs && node scripts/gen-sitemap.mjs && next build",
     "start": "next start",
     "lint": "next lint"
   },

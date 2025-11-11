@@ -25,9 +25,42 @@ const ibmPlexMono = IBM_Plex_Mono({
 })
 
 export const metadata = {
-  title: siteMetadata.title,
-  description: siteMetadata.description,
   metadataBase: new URL(siteMetadata.url),
+  title: {
+    default: siteMetadata.title,
+    template: '%s | Happykhan',
+  },
+  description: siteMetadata.description,
+  openGraph: {
+    type: 'website',
+    locale: 'en_GB',
+    url: siteMetadata.url,
+    siteName: 'Happykhan',
+    title: siteMetadata.title,
+    description: siteMetadata.description,
+    images: [
+      {
+        url: new URL(siteMetadata.image, siteMetadata.url).toString(),
+        width: 800,
+        height: 800,
+        alt: 'Nabil-Fareed Alikhan portrait',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: siteMetadata.twitterUsername,
+    creator: siteMetadata.twitterUsername,
+    title: siteMetadata.title,
+    description: siteMetadata.description,
+    images: [new URL(siteMetadata.image, siteMetadata.url).toString()],
+  },
+  alternates: {
+    types: {
+      'application/atom+xml': '/feed.atom',
+      'application/rss+xml': '/rss.xml',
+    },
+  },
 }
 
 export default function RootLayout({ children }) {
@@ -36,6 +69,10 @@ export default function RootLayout({ children }) {
       <head>
         {/* Prevent dark-mode flash of unstyled content: set initial theme before CSS paints */}
         <meta name="color-scheme" content="light dark" />
+        {/* Feed discovery - Atom (preferred) */}
+        <link rel="alternate" type="application/atom+xml" title="Research Notes — Happykhan" href="/feed.atom" />
+        {/* Feed discovery - RSS 2.0 (legacy compatibility) */}
+        <link rel="alternate" type="application/rss+xml" title="Research Notes — Happykhan (RSS)" href="/rss.xml" />
         <script
           dangerouslySetInnerHTML={{
             __html: `(() => { try {
@@ -113,7 +150,7 @@ export default function RootLayout({ children }) {
           flexShrink: 0
         }}>
           <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
-            <a href="/rss.xml">RSS (Posts)</a>
+            <a href="/rss.xml">RSS (Research Notes)</a>
             <a href="/rss-microbinfie.xml">RSS (MicroBinfie)</a>
             <a href="https://github.com/happykhan" target="_blank" rel="noopener noreferrer">GitHub</a>
             <a href="https://mstdn.science/@happykhan" target="_blank" rel="me noopener noreferrer">Mastodon</a>

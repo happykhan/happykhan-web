@@ -36,8 +36,36 @@ export default async function PostPage({ params }) {
       .sort((a, b) => a.order - b.order)
   }
   
+  const siteUrl = 'https://happykhan.com'
+  const postUrl = `${siteUrl}/posts/${slug}`
+  const datePublished = data.frontmatter.date ? new Date(data.frontmatter.date).toISOString() : new Date().toISOString()
+  const dateModified = data.frontmatter.updated ? new Date(data.frontmatter.updated).toISOString() : datePublished
+  const images = bannerSrc ? [siteUrl + bannerSrc] : []
+  const authors = ['Nabil-Fareed Alikhan']
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: data.frontmatter.title || slug,
+    url: postUrl,
+    image: images,
+    datePublished,
+    dateModified,
+    author: authors.map(name => ({ '@type': 'Person', name })),
+    isAccessibleForFree: true,
+    publisher: {
+      '@type': 'Organization',
+      name: 'Happykhan',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://happykhan.com/images/Nabil-FareedAlikhan-portSQ.jpg',
+      },
+    },
+    description: data.frontmatter.description || data.frontmatter.excerpt || (data.frontmatter.title || slug),
+  }
+
   return (
     <article>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <h1>{data.frontmatter.title || slug}</h1>
       {data.frontmatter.date && (
         <p style={{ color: '#666', fontSize: '0.95rem', marginTop: '-0.5rem', marginBottom: '1.5rem' }}>

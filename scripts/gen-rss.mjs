@@ -4,6 +4,22 @@ import matter from 'gray-matter'
 import { listPosts } from '../lib/content.mjs'
 import { siteMetadata } from '../siteMetadata.mjs'
 
+// Escape XML special characters
+function escapeXml(str) {
+  if (!str) return ''
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;')
+}
+
+// Convert date to RFC3339 format (required by Atom)
+function toRFC3339(date) {
+  return new Date(date).toISOString()
+}
+
 // Helper to extract first paragraph from markdown
 function extractFirstParagraph(markdown) {
   // Remove frontmatter
@@ -38,6 +54,8 @@ async function main() {
   const items = []
   const postsDir = path.join(process.cwd(), 'content', 'posts')
   
+  let mostRecentDate = new Date(0) // Track most recent update
+  
   for (const p of posts) {
     // Read the raw MDX file
     let fullPath = path.join(postsDir, p.slug, 'index.mdx')
@@ -54,7 +72,13 @@ async function main() {
     const tags = frontmatter.tags || []
     if (!tags.includes('Posts')) continue
     
-    const date = frontmatter.date ? new Date(frontmatter.date).toUTCString() : new Date().toUTCString()
+    const pubDate = frontmatter.date ? new Date(frontmatter.date) : new Date()
+    const updatedDate = frontmatter.updated ? new Date(frontmatter.updated) : pubDate
+    
+    // Track most recent date for feed updated timestamp
+    if (updatedDate > mostRecentDate) {
+      mostRecentDate = updatedDate
+    }
     
     // Get description from frontmatter or extract from content
     let description = frontmatter.excerpt || frontmatter.description || ''
@@ -62,37 +86,70 @@ async function main() {
       description = extractFirstParagraph(content)
     }
     
+    // Use absolute URLs throughout
+    const postUrl = `${siteMetadata.url}/posts/${p.slug}`
+    
     items.push({
       title: frontmatter.title || p.slug,
-      link: siteMetadata.url + '/posts/' + p.slug,
-      guid: siteMetadata.url + '/posts/' + p.slug,
-      pubDate: date,
-      description: description,
+      link: postUrl,
+      id: postUrl, // Use permalink as ID (globally unique, never changes)
+      published: toRFC3339(pubDate),
+      updated: toRFC3339(updatedDate),
+      summary: description,
+      content: content, // Include full content
     })
   }
 
-  const rss = `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0">\n<channel>\n<title>${siteMetadata.title}</title>\n<link>${siteMetadata.url}</link>\n<description>${siteMetadata.description}</description>\n${items.map(i => {
-    // Escape XML special characters
-    const escapeXml = (str) => str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&apos;')
-    
-    return `<item>
-<title>${escapeXml(i.title)}</title>
-<link>${i.link}</link>
-<guid>${i.guid}</guid>
-<pubDate>${i.pubDate}</pubDate>
-<description>${escapeXml(i.description)}</description>
-</item>`
-  }).join('\n')}\n</channel>\n</rss>`
+  // Build Atom feed (preferred format per best practices)
+  const feedUrl = `${siteMetadata.url}/feed.atom`
+  
+  const atom = `<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>${escapeXml(siteMetadata.title)}</title>
+  <id>${escapeXml(siteMetadata.url)}</id>
+  <link rel="alternate" href="${escapeXml(siteMetadata.url)}"/>
+  <link rel="self" href="${escapeXml(feedUrl)}"/>
+  <updated>${toRFC3339(mostRecentDate)}</updated>
+  <author>
+    <name>${escapeXml(siteMetadata.author)}</name>
+  </author>
+${items.map(item => `  <entry>
+    <title>${escapeXml(item.title)}</title>
+    <link rel="alternate" type="text/html" href="${escapeXml(item.link)}"/>
+    <id>${escapeXml(item.id)}</id>
+    <published>${item.published}</published>
+    <updated>${item.updated}</updated>
+    <summary type="text">${escapeXml(item.summary)}</summary>
+    <content type="html">${escapeXml(item.content)}</content>
+  </entry>`).join('\n')}
+</feed>`
 
   const outDir = path.join(process.cwd(), 'public')
   await fs.mkdir(outDir, { recursive: true })
+  await fs.writeFile(path.join(outDir, 'feed.atom'), atom, 'utf8')
+  
+  // Also generate legacy RSS 2.0 for compatibility (as rss.xml)
+  const rss = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+  <title>${escapeXml(siteMetadata.title)}</title>
+  <link>${escapeXml(siteMetadata.url)}</link>
+  <description>${escapeXml(siteMetadata.description)}</description>
+  <atom:link href="${escapeXml(feedUrl.replace('feed.atom', 'rss.xml'))}" rel="self" type="application/rss+xml"/>
+${items.map(item => `  <item>
+    <title>${escapeXml(item.title)}</title>
+    <link>${escapeXml(item.link)}</link>
+    <guid isPermaLink="true">${escapeXml(item.id)}</guid>
+    <pubDate>${new Date(item.published).toUTCString()}</pubDate>
+    <description>${escapeXml(item.summary)}</description>
+  </item>`).join('\n')}
+</channel>
+</rss>`
+
   await fs.writeFile(path.join(outDir, 'rss.xml'), rss, 'utf8')
-  console.log(`RSS feed written with ${items.length} items.`)
+  
+  console.log(`Atom feed written with ${items.length} items (feed.atom)`)
+  console.log(`RSS 2.0 feed written with ${items.length} items (rss.xml)`)
 }
 
 main().catch(e => {

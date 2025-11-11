@@ -1,39 +1,12 @@
-<div align="center">
-
 # Happykhan.com
 
 Personal site & knowledge garden: publications, software, bioinformatics notes, podcast (MicroBinfie), long-form posts, and assorted experiments.
 
-[![Netlify Deploy Status](https://img.shields.io/netlify/"?style=flat-square)](https://app.netlify.com/) <!-- Replace with real site ID later -->
+[![Netlify Status](https://api.netlify.com/api/v1/badges/59af396a-a9a8-4c64-b39b-e380233fbb78/deploy-status)](https://app.netlify.com/projects/upbeat-lovelace-083de3/deploys)
 ![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square)
 ![React](https://img.shields.io/badge/React-19-61dafb?style=flat-square&logo=react&logoColor=white)
-![License](https://img.shields.io/badge/Content-Mixed-lightgrey?style=flat-square)
-![RSS](https://img.shields.io/badge/RSS-Feeds-orange?style=flat-square)
 
-</div>
-
----
-
-## Table of Contents
-
-1. Overview
-2. Stack & Architecture
-3. Local Development
-4. Content Sources
-5. Updating Citations (Zotero → BibTeX)
-6. Updating MicroBinfie Episodes
-7. Other Content Workflows
-8. Build & Deployment Pipeline
-9. Project Structure Cheatsheet
-10. Planned Improvements / TODO
-
----
-
-## 1. Overview
-
-This repository powers https://happykhan.com using Next.js 16 (App Router) with a primarily static export strategy for posts/pages/podcast episodes plus selective dynamic server components. Assets (images, transcripts, PDFs) live in `public/` and are versioned. Pre‑build scripts generate RSS feeds and a sitemap.
-
-## 2. Stack & Architecture
+Source for https://happykhan.com using Next.js 16 (App Router) with a primarily static export strategy for posts/pages/podcast episodes plus selective dynamic server components. Assets (images, transcripts, PDFs) live in `public/` and are versioned. Pre‑build scripts generate RSS feeds and a sitemap.
 
 | Concern | Implementation |
 |---------|----------------|
@@ -60,7 +33,7 @@ npm run build
 	next build
 ```
 
-## 3. Local Development
+## Local Development
 
 ```bash
 git clone https://github.com/happykhan/happykhan-web.git
@@ -70,7 +43,7 @@ npm run dev
 ```
 Scripts will copy content assets and start the dev server at `http://localhost:3000`.
 
-## 4. Content Sources
+## Content Sources
 
 | Type | Location | Notes |
 |------|----------|-------|
@@ -79,10 +52,6 @@ Scripts will copy content assets and start the dev server at `http://localhost:3
 | MicroBinfie Episodes | `content/microbinfie/` (MDX) + transcripts in `public/microbinfie-transcripts/` |
 | Publications | BibTeX file in external repo (journal) consumed at build |
 | Papers PDFs | `public/papers/` served directly |
-
-## 5. Updating Citations
-
-KEEP THIS TEXT
 
 ## How to update citations
 
@@ -97,10 +66,6 @@ KEEP THIS TEXT
 3. Trigger site rebuild (Netlify or `npm run build`).  
 4. Publications page will reflect new entries (parsed via `bibtex-parse-js`).
 
-## 6. Updating MicroBinfie Episodes
-
-KEEP THIS TEXT
-
 ## How to update microbinfie posts
 
 - Run `scripts/import_microbinfie.py`
@@ -113,7 +78,7 @@ Checklist before running advanced script:
 - Ensure `public/microbinfie-transcripts/` exists (build creates it if missing).
 - Monitor output; large episodes chunk sequentially.
 
-## 7. Other Content Workflows
+## Other Content Workflows
 
 | Task | Script / Action |
 |------|-----------------|
@@ -122,7 +87,7 @@ Checklist before running advanced script:
 | Move legacy static assets | `scripts/move-static-to-public.mjs` |
 | Copy misc content assets | `scripts/copy-assets.mjs` |
 
-## 8. Build & Deployment Pipeline
+## Build & Deployment Pipeline
 
 Deployment (Netlify):
 - `netlify.toml` sets build command to `npm run build` and publish directory `.next`.
@@ -133,7 +98,7 @@ Environment considerations:
 - Node 20 (Netlify runtime).  
 - No serverless API routes currently; all content pre-rendered.
 
-## 9. Project Structure Cheatsheet
+## Project Structure Cheatsheet
 
 ```
 app/              # Next.js App Router pages
@@ -146,19 +111,3 @@ netlify.toml      # Deployment config
 siteMetadata.mjs  # Central site metadata (base URL, title)
 ```
 
-## 10. Planned Improvements / TODO
-
-- Add accessibility audit & ARIA refinements.
-- Add unit tests around publication parsing & MDX rendering.
-- Include a health endpoint listing counts of posts/episodes.
-- Progressive enhancement: image blur placeholders for all legacy images.
-- Optional: integrate `next-seo` for structured metadata.
-- Replace placeholder badge URL with actual Netlify deploy status.
-
-## License & Attribution
-
-Code is available under an MIT-style approach (final decision pending). Written content & images may have mixed licenses—assume © by default unless stated. Please open an issue for reuse questions.
-
----
-
-Questions or suggestions? Open an issue or reach out via Mastodon.

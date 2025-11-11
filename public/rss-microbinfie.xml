@@ -5,6 +5,187 @@
 <link>https://happykhan.com/microbinfie</link>
 <description>MicroBinFie podcast episodes and articles about microbial bioinformatics</description>
 <item>
+<title>MicroBinfie Podcast, 147 - NextFlow debate 2</title>
+<link>https://happykhan.com/microbinfie/mb-147-nextflow-debate-2</link>
+<guid>https://happykhan.com/microbinfie/mb-147-nextflow-debate-2</guid>
+<pubDate>Thu, 30 Oct 2025 00:00:00 GMT</pubDate>
+<description>Part two of debating NextFlow</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 146 - NextFlow debate 1</title>
+<link>https://happykhan.com/microbinfie/mb-146-nextflow-debate-1</link>
+<guid>https://happykhan.com/microbinfie/mb-146-nextflow-debate-1</guid>
+<pubDate>Thu, 16 Oct 2025 00:00:00 GMT</pubDate>
+<description>Andrew, Nabil, and Lee debate about NextFlow!</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 145 - micro binfie Pathoplexus part 2</title>
+<link>https://happykhan.com/microbinfie/mb-144-micro-binfie-pathoplexus-part-2</link>
+<guid>https://happykhan.com/microbinfie/mb-144-micro-binfie-pathoplexus-part-2</guid>
+<pubDate>Thu, 25 Sep 2025 00:00:00 GMT</pubDate>
+<description>Nabil and Lee bring a guest host Clint to talk with some of the people
+behind Pathoplexus http://pathoplexus.org/    Dr. Emma Hodcroft -
+https://pathoplexus.org/about/eb  Dr. Theo Sanderson -
+https://pathoplexus.org/about/development-team  Mr. Arthur Shem
+Kasambula - https://pathoplexus.org/about/development-team</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 143 - where we catch up on our professional lives</title>
+<link>https://happykhan.com/microbinfie/mb-143-where-we-catch-up-on-our-professional-lives</link>
+<guid>https://happykhan.com/microbinfie/mb-143-where-we-catch-up-on-our-professional-lives</guid>
+<pubDate>Thu, 28 Aug 2025 00:00:00 GMT</pubDate>
+<description>143 - where we catch up on our professional lives by Microbial
+Bioinformatics</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 140 Exploring Clinical Metagenomics</title>
+<link>https://happykhan.com/microbinfie/mb-137-exploring-clinical-metagenomics</link>
+<guid>https://happykhan.com/microbinfie/mb-137-exploring-clinical-metagenomics</guid>
+<pubDate>Thu, 03 Jul 2025 00:00:00 GMT</pubDate>
+<description>In this episode of the Podcast, hosts Lee Katz and Andrew Page delve
+into the intricacies of clinical metagenomics. Joined by experts
+Torsten Seemann and Finlay Maguire, they explore the challenges and
+methodologies involved in identifying pathogens in clinical samples
+when traditional diagnostic methods fail. They discuss the types of
+samples analyzed, the impact of low DNA concentrations, and the
+complexities of sequencing data interpretation. The conversation
+highlights the importance of inte</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 139 Lassa virus genomics</title>
+<link>https://happykhan.com/microbinfie/mb-137-lassa-virus-genomics</link>
+<guid>https://happykhan.com/microbinfie/mb-137-lassa-virus-genomics</guid>
+<pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
+<description>On this episode we are joined by Sara Zufan to discuss her PhD journey
+and recent projects. The episode covers various research experiences
+and challenges in the field, including the rapid detection of AMR
+using nanopore sequencing, COVID-19 projects, hepatitis A outbreak
+investigations, and Lassa virus surveillance in Liberia. The guests
+share insights into their professional journeys, their experiences
+working across different continents, and the future of microbial
+bioinformatics research.</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 137 Contagion part 2</title>
+<link>https://happykhan.com/microbinfie/mb-136-contagion-part-2</link>
+<guid>https://happykhan.com/microbinfie/mb-136-contagion-part-2</guid>
+<pubDate>Thu, 02 Jan 2025 00:00:00 GMT</pubDate>
+<description>In a two-part discussion, the hosts analyze the movie Contagion from
+their expert perspectives, focusing on the film&apos;s portrayal of
+epidemiology and genomics. They note that the movie compresses
+timelines for dramatic effect, speeding up the virus&apos;s spread and the
+response to it, and that decisions about managing a crisis are based
+on societal values, not just science.  In part one, the hosts discuss
+the movie&apos;s depiction of the R0 value. They note that while this
+explanation is useful for the a</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 135 Assembling ATCC bacterial strains</title>
+<link>https://happykhan.com/microbinfie/mb-134-assembling-atcc-bacterial-strains</link>
+<guid>https://happykhan.com/microbinfie/mb-134-assembling-atcc-bacterial-strains</guid>
+<pubDate>Thu, 19 Dec 2024 00:00:00 GMT</pubDate>
+<description>In this episode of the Micro Binfie podcast, host Andrew Page is
+joined by Nikhita Puthuveetil, Senior Bioinformatician at the American
+Type Culture Collection (ATCC). They delve into ATCC&apos;s ambitious
+project of sequencing a vast array of organisms from their renowned
+collection, tackling the challenges of assembling complex genomes from
+bacteria, viruses, fungi, and more. Discover how Nikhita and her team
+navigate through genomic roadblocks, leverage cutting-edge sequencing
+technologies, and wo</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 141 hackathon panel</title>
+<link>https://happykhan.com/microbinfie/mb-141-hackathon-panel</link>
+<guid>https://happykhan.com/microbinfie/mb-141-hackathon-panel</guid>
+<pubDate>Wed, 18 Dec 2024 00:00:00 GMT</pubDate>
+<description>Andrew, Lee, Torsten, and Fin muse over the future of MLST, Illumina,
+and Nanopore at the ASM NGS Hackathon</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 136 Contagion part 1</title>
+<link>https://happykhan.com/microbinfie/mb-135-contagion-part-1</link>
+<guid>https://happykhan.com/microbinfie/mb-135-contagion-part-1</guid>
+<pubDate>Mon, 16 Dec 2024 00:00:00 GMT</pubDate>
+<description>In a two-part discussion, the hosts analyze the movie Contagion from
+their expert perspectives, focusing on the film&apos;s portrayal of
+epidemiology and genomics. They note that the movie compresses
+timelines for dramatic effect, speeding up the virus&apos;s spread and the
+response to it, and that decisions about managing a crisis are based
+on societal values, not just science.  In part one, the hosts discuss
+the movie&apos;s depiction of the R0 value. They note that while this
+explanation is useful for the a</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 133 The Role of Bioinformatics in Public Health and Disease Outbreaks</title>
+<link>https://happykhan.com/microbinfie/mb-133-public-health-insights-on-bioinformatics-from-utah</link>
+<guid>https://happykhan.com/microbinfie/mb-133-public-health-insights-on-bioinformatics-from-utah</guid>
+<pubDate>Thu, 05 Dec 2024 00:00:00 GMT</pubDate>
+<description>In this episode of the Micro Binfie podcast, host Andrew Page talks
+with Dr. Erin Young, a bioinformatician at the Utah Public Health
+Laboratory, recorded during the 10th Microbial Bioinformatics
+Hackathon in Bethesda, Maryland. Erin shares her journey from
+researching hereditary cancer predisposition to her current role in
+public health bioinformatics, which she entered through a prestigious
+CDC and APHL fellowship. The conversation delves into her work with
+bacterial pathogens, particularly in</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 132 Unlocking the Secrets of Antimicrobial Resistance in Metagenomes</title>
+<link>https://happykhan.com/microbinfie/mb-132-unlocking-the-secrets-of-antimicrobial-resistance-in-metagenomes</link>
+<guid>https://happykhan.com/microbinfie/mb-132-unlocking-the-secrets-of-antimicrobial-resistance-in-metagenomes</guid>
+<pubDate>Thu, 21 Nov 2024 00:00:00 GMT</pubDate>
+<description>In this episode of the Micro Binfie podcast, host Andrew Page is live
+from the 10th Microbial Bioinformatics Hackathon in Bethesda,
+Maryland. He sits down with David Mahoney, a PhD student from
+Dalhousie University in Halifax, Nova Scotia. David shares his
+research on characterizing antimicrobial resistance (AMR) genes and
+their transfer within metagenomes, focusing on metagenomic assembly
+graphs.  They delve into David’s background in food safety
+microbiology and his interest in the public heal</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 131 Bioinformatics Evolution  Torsten Seemann on Snippy, Open-Source Support, and Global Genomics</title>
+<link>https://happykhan.com/microbinfie/mb-131-bioinformatics-evolution-torsten-seemann-on-snippy-open-source-support-and-global-genomics</link>
+<guid>https://happykhan.com/microbinfie/mb-131-bioinformatics-evolution-torsten-seemann-on-snippy-open-source-support-and-global-genomics</guid>
+<pubDate>Thu, 07 Nov 2024 00:00:00 GMT</pubDate>
+<description>In this episode of the Micro Binfie Podcast, host Andrew Page catches
+up with Torsten Seemann at the 10th Microbial Bioinformatics Hackathon
+in Bethesda, Maryland. They discuss the rapid evolution of
+bioinformatics, the challenges faced by labs worldwide, and the
+explosion of tools post-COVID. Torsten shares insights into his work
+at Melbourne’s Microbiological Diagnostic Unit (MDU), the development
+of platforms like OzTracker for bacterial genomics, and how his lab
+plays a national and internat</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 130 Exploring Genomic Innovation and Machine Learning in Public Health</title>
+<link>https://happykhan.com/microbinfie/mb-130-exploring-genomic-innovation-and-machine-learning-in-public-health</link>
+<guid>https://happykhan.com/microbinfie/mb-130-exploring-genomic-innovation-and-machine-learning-in-public-health</guid>
+<pubDate>Fri, 25 Oct 2024 00:00:00 GMT</pubDate>
+<description>In this episode of the Micro binfie Podcast, host Andrew Page sits
+down with Tim Dallman at the 10th Bioinformatics Hackathon in
+Bethesda, Maryland. Tim shares insights from his work at Utrecht
+University in the Netherlands, where he focuses on genomic
+surveillance and machine learning models to predict disease risk and
+severity. They discuss the challenges of integrating genomic variation
+into predictive models, the importance of high-quality metadata, and
+the complexities of working with patho</description>
+</item>
+<item>
+<title>MicroBinfie Podcast, 129 Genomics on the Frontier  Bactopia, Bioinformatics, and Pathogen Surveillance with Robert Petit</title>
+<link>https://happykhan.com/microbinfie/mb-129-genomics-on-the-frontier-bactopia-bioinformatics-and-pathogen-surveillance-with-robert-petit</link>
+<guid>https://happykhan.com/microbinfie/mb-129-genomics-on-the-frontier-bactopia-bioinformatics-and-pathogen-surveillance-with-robert-petit</guid>
+<pubDate>Fri, 11 Oct 2024 00:00:00 GMT</pubDate>
+<description>Host Andrew Page is joined by Robert Petit from the Wyoming Public
+Health Laboratory. Robert, a key developer of the Bactopia pipeline,
+shares insights into how this end-to-end tool is transforming
+bacterial genomic surveillance. They dive into the origins of
+Bactopia, its applications in public health, and Robert&apos;s experience
+leading genomic projects in a rural setting. Discover how Bactopia
+streamlines pathogen detection, improves documentation, and integrates
+with other tools to deliver fast</description>
+</item>
+<item>
 <title>MicroBinfie Podcast, 128 Haiti cholera outbreak with Christine Lee and Cynney Walters</title>
 <link>https://happykhan.com/microbinfie/mb-128-haiti-cholera-outbreak-with-christine-lee-and-cynney-walters</link>
 <guid>https://happykhan.com/microbinfie/mb-128-haiti-cholera-outbreak-with-christine-lee-and-cynney-walters</guid>

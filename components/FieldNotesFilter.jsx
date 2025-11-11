@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
 
-const POSTS_PER_PAGE = 20
+const POSTS_PER_PAGE = 5
 
 export default function FieldNotesFilter({ posts }) {
   const [searchTerm, setSearchTerm] = useState('')
@@ -74,7 +74,7 @@ export default function FieldNotesFilter({ posts }) {
     setCurrentPage(1)
   }, [searchTerm, selectedTag])
 
-  // Calculate pagination
+  // Pagination logic
   const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE)
   const startIndex = (currentPage - 1) * POSTS_PER_PAGE
   const endIndex = startIndex + POSTS_PER_PAGE
