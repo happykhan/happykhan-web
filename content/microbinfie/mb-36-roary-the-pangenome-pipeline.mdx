@@ -7,6 +7,11 @@ tags:
   - podcast
 ---
 
+We chat with Andrew about Roary, software for generating a pangenome, and learn about the background to the project, where the name comes from, hidden features and the light hearted FAQ.
+
+* Paper: academic.oup.com/bioinformatics/a…1/22/3691/240757
+* Software: github.com/sanger-pathogens/Roary
+* Documentation: sanger-pathogens.github.io/Roary/
 
 ### Extra notes
 
@@ -14,21 +19,21 @@ tags:
 
 - A *pan genome* involves collecting all genomic content within a species, which includes both core and accessory genes. This is crucial for understanding genetic variations that affect survivability in different environments.
 
-- The software Rory was developed to generate pan genomes efficiently, designed originally to serve the needs within the Sanger Institute where existing tools were inadequate for handling large bacterial datasets.
+- The software Roary was developed to generate pan genomes efficiently, designed originally to serve the needs within the Sanger Institute where existing tools were inadequate for handling large bacterial datasets.
 
 - There is a distinction between core genomes (genes present in all or nearly all strains) and accessory genomes (genes that vary between strains). The ability to analyze these differences is essential for understanding bacterial functionality and evolution.
 
-- Tools such as *PanoCT*, *LSBSR*, and modifications of *OrthoMCL* were initially used but faced scalability and usability issues, particularly when managing large datasets.
+- Other tools were initially used but faced scalability and usability issues, particularly when managing large datasets.
 
-- The Rory pipeline addressed these challenges by massively scaling through High-Performance Computing (HPC) and using methods like *CD-hit* to pre-cluster data, thereby reducing the complexity and volume of necessary comparisons.
+- The Roary pipeline addressed these challenges by massively scaling through High-Performance Computing (HPC) and using methods like *CD-hit* to pre-cluster data, thereby reducing the complexity and volume of necessary comparisons.
 
 - The tool was designed to be fast, memory-efficient, and scalable to thousands of genomes, offering a unique capability in the field.
 
-- Rory's implementation included thoughtful considerations such as integration with *Prokka* for consistent genome annotation, avoiding variability issues inherent with mixing different annotation tools.
+- Roary's implementation included thoughtful considerations such as integration with *Prokka* for consistent genome annotation, avoiding variability issues inherent with mixing different annotation tools.
 
 - Consistency in processing different data sets was emphasized as crucial, illustrating how differing annotations can lead to incorrect analyses.
 
-- Rory is widely distributed and maintained in software ecosystems like Debian, Homebrew, and Conda, making it accessible for various users.
+- Roary is widely distributed and maintained in software ecosystems like Debian, Homebrew, and Conda, making it accessible for various users.
 
 - Despite its effectiveness and widespread use (evidenced by substantial citations), the software has not been updated recently due to shifts in focus within the field, although it remains open for community-driven updates via GitHub.
 

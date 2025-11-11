@@ -6,7 +6,6 @@ tags:
   - microbinfie
   - podcast
 ---
-# EnteroBase: A Conversation with Nabil
 
 We had a chat with Nabil about EnteroBase, delving into the background of the project, the general benefits of the platform, and some of the peculiar quirks users might encounter. EnteroBase is an integrated software environment designed to support the identification of global population structures within several bacterial genera, including *pathogens*.
 
@@ -29,14 +28,9 @@ We had a chat with Nabil about EnteroBase, delving into the background of the pr
 
 ## Resources
 
-- **EnteroBase:**  
-  [EnteroBase Website](http://enterobase.warwick.ac.uk/)
-
-- **PubMLST:**  
-  [PubMLST Website](https://pubmlst.org/)
-
-- **About EnteroBase Schemes:**  
-  [EnteroBase Tutorials](https://enterobase.readthedocs.io/en/latest/enterobase-tutorials/deeper-lineages.html)
+- [EnteroBase Website](http://enterobase.warwick.ac.uk/)
+- [PubMLST Website](https://pubmlst.org/)
+- [EnteroBase Tutorials](https://enterobase.readthedocs.io/en/latest/enterobase-tutorials/deeper-lineages.html)
 
 ## Software
 
@@ -46,6 +40,30 @@ We had a chat with Nabil about EnteroBase, delving into the background of the pr
 ## Errata
 
 A note from Nabil: Jay Hinton’s *Salmonella* is a ST313 (D23580), not ST131. I always mix the numbers up!
+
+## Extra notes
+
+- **Enterobase** was created to integrate ideas from existing tools:
+  - **XBase**: A comparative genomic website for analyzing complete bacterial genomes.
+  - **MLST Database**: Curated for various genera like *Escherichia* and *Salmonella*, originally run at University College Cork and then at University of Warwick.
+- The goal was to provide a user-friendly web interface for analyzing enteric pathogens and *Moraxella catarrhalis* (a respiratory pathogen) using web-based tools.
+
+### Key Features of Enterobase
+- **Data Integration**: Combines genome comparison and population structure analysis, moving beyond the limitations of previous databases.
+- **Legacy Data**: Incorporates and maintains older data from previous MLST efforts.
+- **Redesign and Scalability**: Developed from scratch using Python and Flask, with a PostgreSQL database to allow for scalable, efficient processing and searching of genomic data.
+
+### Workflow and Data Processing
+- Regularly fetches new sequencing data from the **Sequence Read Archive (SRA)** for quality control, assembly, annotation, and genotyping.
+- Utilizes automated and manual data curation to improve metadata quality, making datasets more systematic and consistent for users.
+
+### User Experience and Applications
+- Enterobase provides valuable tools for researchers to find related genomic data (e.g., CGMLST) and explore similarities among various samples, enhancing data analysis opportunities.
+- Emphasis on the importance of understanding sample biases when analyzing data from public repositories, especially given the prevalence of clinical isolates.
+
+### MLST and Salmonella Genomics
+- Discussed the development of the Salmonella MLST scheme based on curated genomic data, highlighting the importance of thorough annotation to ensure accuracy.
+- The team aimed for a comprehensive pan-genome panel, revisiting and refining gene selections as more data became available.
 
 [Episode 45 transcript](/microbinfie-transcripts/episode-45.txt)
 

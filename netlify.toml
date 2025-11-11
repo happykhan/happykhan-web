@@ -1,0 +1,21 @@
+# Netlify configuration for Next.js (App Router)
+# Uses Netlify Next.js Runtime for SSR/ISR and image optimization
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+  base = "/"
+
+# Ensure a modern Node version compatible with Next 16/React 19
+[build.environment]
+  NODE_VERSION = "20"
+
+# Let Netlify bundle serverless functions efficiently
+[functions]
+  node_bundler = "esbuild"
+  # sharp is used by Next/image; mark external to avoid bundling issues
+  external_node_modules = ["sharp"]
+
+# Enable the official Next.js runtime
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
