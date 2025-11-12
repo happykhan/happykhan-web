@@ -13,7 +13,19 @@ export async function generateMetadata({ params }) {
   const { frontmatter } = await readPost(slug)
   return {
     title: frontmatter.title || slug,
-    description: frontmatter.description || frontmatter.excerpt || 'Post.'
+    description: frontmatter.description || frontmatter.excerpt || 'Post.',
+    openGraph: {
+      title: frontmatter.title || slug,
+      description: frontmatter.description || frontmatter.excerpt || 'Post.',
+      url: postUrl,
+      images: bannerSrc ? [siteUrl + bannerSrc] : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: frontmatter.title || slug,
+      description: frontmatter.description || frontmatter.excerpt || 'Post.',
+      images: bannerSrc ? [siteUrl + bannerSrc] : [],
+    }
   }
 }
 
