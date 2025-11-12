@@ -353,3 +353,109 @@ html.dark .admonition-exercise {
   margin-bottom: 0;
 }
 
+/* Collapsible details admonition */
+.admonition-details {
+  margin: var(--spacing-lg) 0;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-left: 4px solid #10b981;
+  border-radius: 6px;
+  background: #ecfdf5;
+  transition: all 0.2s ease;
+}
+
+html.dark .admonition-details {
+  background: rgba(16, 185, 129, 0.1);
+  border-left-color: #34d399;
+}
+
+.admonition-details:hover {
+  background: #d1fae5;
+}
+
+html.dark .admonition-details:hover {
+  background: rgba(16, 185, 129, 0.15);
+}
+
+.admonition-summary {
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #059669;
+  display: flex;
+  align-items: center;
+}
+
+html.dark .admonition-summary {
+  color: #34d399;
+}
+
+.admonition-summary::-webkit-details-marker {
+  display: none;
+}
+
+.admonition-summary::before {
+  content: '▶';
+  display: inline-block;
+  transition: transform 0.2s;
+  margin-right: 0.5rem;
+  font-size: 0.875rem;
+}
+
+details[open] .admonition-summary::before {
+  transform: rotate(90deg);
+}
+
+.admonition-details[open] {
+  padding-bottom: var(--spacing-lg);
+}
+
+.admonition-details > *:not(summary) {
+  margin-top: var(--spacing-md);
+  color: var(--color-text);
+}
+
+/* Exercise question styling */
+.exercise-question {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+  border-left: 4px solid #667eea;
+  color: var(--color-text);
+  padding: var(--spacing-lg);
+  border-radius: 8px;
+  margin: var(--spacing-xl) 0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+html.dark .exercise-question {
+  background: linear-gradient(135deg, rgba(90, 103, 216, 0.2) 0%, rgba(107, 70, 193, 0.2) 100%);
+  border-left-color: #818cf8;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.exercise-question p:first-child {
+  margin-top: 0;
+}
+
+.exercise-question p:last-child {
+  margin-bottom: 0;
+}
+
+.exercise-question strong {
+  font-size: 1.1em;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.exercise-question ul, 
+.exercise-question ol {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+  padding-left: 1.5rem;
+}
+
+.exercise-question li {
+  margin: 0.25rem 0;
+}
+

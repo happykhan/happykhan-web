@@ -2,7 +2,7 @@
 title: Background to sequencing
 ---
 
-If you are not familiar with sequencing techniologies you might want to take a look at these links. 
+If you are not familiar with sequencing technologies you might want to take a look at these links. 
 
 ### Background on DNA Sequencing
 - [Wikipedia's DNA sequencing](https://en.wikipedia.org/wiki/DNA_sequencing)
