@@ -1,0 +1,233 @@
+---
+date: 2024-11-12
+title: Exploring Bioinformatics File Formats
+tags:
+  - Bioinformatics
+  - File Formats
+  - FASTA
+  - FASTQ
+  - SAM
+  - BAM
+  - VCF
+  - Training
+module:
+  name: "Bioinformatics File Formats"
+  slug: "bioinfo-file-formats"
+  order: 1
+  description: "A practical guide to common bioinformatics file formats"
+---
+
+In this series, we will look at the different file formats used to store sequencing data. We will also discuss the different ways of representing errors or uncertainty in sequencing data.
+
+While we talk about file "formats" for sequencing data these are not the same as file formats for proprietary programs such as MS Word or binary file formats. These are simply text files with a particular structure. This means that you can open these files and read them as plain text even if the file extension is `.fastq`, `.fasta` and so on. 
+
+## Common file formats
+
+Here are some common genomics sequence file formats, some of which we have mentioned already:
+
+| Format               | Description                                            |
+|----------------------|--------------------------------------------------------|
+| _FASTA_                | A text-based format for representing nucleotide or protein sequences. Each sequence is represented by a header line starting with '>', followed by the sequence data.       |
+| _FASTQ_                | A format for representing both nucleotide sequences and their corresponding quality scores. Each record contains a sequence and quality scores in a readable text format.        |
+| _SAM (Sequence Alignment/Map)_ | A tab-delimited text format for storing sequence alignment data, often used for mapping short reads to a reference genome.      |
+| _BAM (Binary Alignment/Map)_ | A binary version of the SAM format, which is more compact and efficient for large datasets. Used for storing sequence alignment data.        |
+| _VCF (Variant Call Format)_ | A text-based format for representing genetic variations, including single nucleotide polymorphisms (SNPs), insertions, deletions, and structural variants.        |
+| _BCF (Binary Call Format)_ |  A binary version of the VCF format, which is more compact and efficient for large datasets.        |
+| _BED (Browser Extensible Data)_ | A text-based format for representing genomic intervals, such as regions of interest, gene annotations, and functional elements.        |
+| _GFF/GTF (General Feature Format/General Transfer Format)_ | Text-based formats for representing genomic features, including genes, exons, and other structural elements. GFF is often used in older annotations, while GTF is commonly used in more recent annotations.   |
+| _FAST5_               | A format used by Oxford Nanopore Technologies (ONT) for storing raw sequencing data produced by their nanopore sequencing platforms. |
+
+## Exercise: File Format Detective
+
+The post-doc is on holiday, and you have been given a directory of mysterious sequence data files. You need to figure out what file format each file is in.
+
+```bash
+user:~/file-formats$ ls -lag 
+total 68837
+drwxr-xr-x 2 users       10 Oct 18 13:47 .
+drwxr-xr-x 3 users        1 Oct 18 13:29 ..
+-rw-r--r-- 1 users   141566 Oct 18 13:32 pKP1-NDM-1.aries
+-rw-r--r-- 1 users 24137926 Oct 18 13:32 pKP1-NDM-1.cancer
+-rw-r--r-- 1 users  4170743 Oct 18 13:32 pKP1-NDM-1.gemini
+-rw-r--r-- 1 users  2598233 Oct 18 13:32 pKP1-NDM-1.leo
+-rw-r--r-- 1 users  4239662 Oct 18 13:32 pKP1-NDM-1.libra
+-rw-r--r-- 1 users 24539958 Oct 18 13:32 pKP1-NDM-1.pisces
+-rw-r--r-- 1 users  1316209 Oct 18 13:32 pKP1-NDM-1_R1.capricorn
+-rw-r--r-- 1 users  2728498 Oct 18 13:32 pKP1-NDM-1.scorpio
+-rw-r--r-- 1 users  3966215 Oct 18 13:42 pKP1-NDM-1.taurus
+-rw-r--r-- 1 users  2647629 Oct 18 13:32 pKP1-NDM-1.virgo
+```
+
+You can download a tarball of all the files from [Zenodo](https://zenodo.org/records/10018484/files/file-format-mystery.tar.gz?download=1). In general, example files should be in [https://zenodo.org/records/10018484](https://zenodo.org/records/10018484).
+
+:::tip
+Use common Linux commands, such as `head`, `tail`, `less`, `cat`, `zcat` and so on. In case something gets stuck use CTRL-C or CTRL-Z. Ctrl+C is used to forcefully terminate a process, while Ctrl+Z is used to suspend a process and move it to the background, where it can be resumed or managed later. Remember that you can use pipes into `less` or `more` to make it easier to read the output of commands.
+:::
+
+:::info
+**What is this data?** This is simulated reads of a plasmid that carries _blaNDM_ genes, described here [https://doi.org/10.1128/aac.00368-16](https://doi.org/10.1128/aac.00368-16). _blaNDM_ genes confer carbapenem resistance and have been identified on transferable plasmids belonging to different incompatibility (Inc) groups. I chose a plasmid because it would create small files and would be easy to work with.
+:::
+
+:::question
+**Copy these files to your home directory and identify the file format for each mysterious file.**
+
+What format is each of these files?
+- pKP1-NDM-1.aries
+- pKP1-NDM-1.cancer
+- pKP1-NDM-1.gemini
+- pKP1-NDM-1.leo
+- pKP1-NDM-1.libra
+- pKP1-NDM-1.pisces
+- pKP1-NDM-1_R1.capricorn
+- pKP1-NDM-1.scorpio
+- pKP1-NDM-1.taurus
+- pKP1-NDM-1.virgo
+:::
+
+:::details{title="Show Answer"}
+| Hidden filename         | True filename          | Format |
+|-------------------------|------------------------|--------|
+| pKP1-NDM-1.aries       | pKP1-NDM-1.fasta       | FASTA  |
+| pKP1-NDM-1.cancer       | pKP1-NDM-1.sam         | SAM    |
+| pKP1-NDM-1.gemini       | pKP1-NDM-1.sorted.bam  | BAM    |
+| pKP1-NDM-1.leo          | pKP1-NDM-1.bed         | BED    |
+| pKP1-NDM-1.libra        | pKP1-NDM-1.gff         | GFF    |
+| pKP1-NDM-1.pisces       | pKP1-NDM-1.vcf         | VCF    |
+| pKP1-NDM-1_R1.capricorn | pKP1-NDM-1_R1.fasta.gz | FASTA (compressed) |
+| pKP1-NDM-1.scorpio      | pKP1-NDM-1_R2.fastq.gz | FASTQ (compressed) |
+| pKP1-NDM-1.taurus       | pKP1-NDM-1.bcf         | BCF    |
+| pKP1-NDM-1.virgo        | pKP1-NDM-1_R1.fastq.gz | FASTQ (compressed) |
+:::
+
+:::question
+**List the common file extensions people use for the file formats you found.**
+:::
+
+:::details{title="Show Answer"}
+| Format               | File extensions                                            |
+|----------------------|--------------------------------------------------------|
+| _FASTA_                |  .fasta, .fna, .fas, .fa     |
+| _FASTQ_                |  .fastq  |
+| _SAM (Sequence Alignment/Map)_ |   .sam  |
+| _BAM (Binary Alignment/Map)_ |     .bam    |
+| _VCF (Variant Call Format)_ |  .vcf  |
+| _BCF (Binary Call Format)_ |  .bcf  |
+| _BED (Browser Extensible Data)_ | .bed, .bedfile  |
+| _GFF/GTF (General Feature Format/General Transfer Format)_ | .gff, .gtf, .gff3   |
+| _FAST5_               | .fast5 |
+:::
+
+:::question
+**Can you define some general rules to differentiate the file formats?**
+
+How can you tell which format a file is just by looking at its contents?
+:::
+
+:::details{title="Show Answer"}
+
+### pKP1-NDM-1.aries (FASTA)
+FASTA files start with a header line starting with '>', followed by the sequence data.
+
+```
+>KF992018.2 Klebsiella pneumoniae strain KP1 plasmid pKP1-NDM-1, complete sequence
+GATAGGCTCAGATAAACAGACCTTACCCTCGCATCGAGAACCGCTTGCCCTCCAGCATCGAGAGACGGTG
+```
+
+### pKP1-NDM-1.cancer (SAM)
+SAM files start with a header line starting with '@', followed by the sequence data. SAM format is fairly complicated, but there is detailed specification online, https://en.wikipedia.org/wiki/SAM_(file_format). 
+
+```
+@HD     VN:1.6  SO:unsorted     GO:query
+@SQ     SN:KJ802404.1   LN:166750
+@PG     ID:minimap2     PN:minimap2     VN:2.26-r1175   CL:minimap2 -ax sr ref.fasta
+KF992018.2-55020        83      KJ802404.1      125388  60      150M    =       125339  -199
+```
+
+### pKP1-NDM-1.gemini (BAM)
+BAM files start with a header line starting with '@', followed by the mapping data. This one is tricky, because it is a binary file in its own format. To figure this out:
+
+```bash 
+head pKP1-NDM-1.gemini 
+zcat pKP1-NDM-1.gemini | more 
+samtools view pKP1-NDM-1.gemini | more 
+```
+
+The `zcat` output looked like a slightly garbled `bam` file. To work with `bam` files it is best to use `samtools view`. You may need to install `samtools` via `conda`.
+
+### pKP1-NDM-1.leo (BED)
+This is a BED file. BED files, like quite a few formats, are a tabular (tab-delimited) table. 
+
+A typical BED file contains the following columns:
+
+* Chromosome: The name of the chromosome or sequence where the feature is located.
+* Start Position: The starting position of the feature on the chromosome, typically a 0-based coordinate.
+* End Position: The ending position of the feature on the chromosome, also in 0-based coordinate.
+* Name/ID: A user-defined name or identifier for the feature (optional).
+* Score: A numeric value associated with the feature (optional).
+* Strand: Indicates the strand of the DNA (either "+" for forward or "-" for reverse) where the feature is located (optional).
+
+```
+KJ802404.1      0       115     KF992018.2-51862/1      60      +
+KJ802404.1      0       100     KF992018.2-50856/1      60      +
+KJ802404.1      0       60      KF992018.2-41754/2      60      +
+```
+
+### pKP1-NDM-1.libra (GFF)
+This is a GFF file. This is another tabular file format, but with a different structure to BED files. Much of the information is the same and it can be hard to tell the difference. 
+
+A typical GFF file contains tab-delimited fields:
+
+* Sequence or Reference Identifier
+* Source: The source of the feature's annotation data
+* Feature Type: Describes the type of genomic feature (e.g., gene, exon, mRNA, CDS)
+* Start Position (1-based)
+* End Position (inclusive, 1-based)
+* Score (optional)
+* Strand: + for forward, - for reverse, or . for unknown
+* Frame: Reading frame (optional)
+
+```
+KJ802404.1      bed2gff KF992018.2-51862/1      1       115     60      +       .
+KJ802404.1      bed2gff KF992018.2-50856/1      1       100     60      +       .
+```
+
+### pKP1-NDM-1.pisces (VCF)
+This is a VCF file. The `#` denote header lines, the `#CHROM` line is the header line for the data. The actual data, which are variant calls, follows after and is tab-delimited. See https://en.wikipedia.org/wiki/Variant_Call_Format for details. 
+
+```
+##fileformat=VCFv4.2
+##FILTER=<ID=PASS,Description="All filters passed">
+##samtoolsVersion=1.9+htslib-1.9
+#CHROM  POS     ID      REF     ALT     QUAL    FILTER  INFO    FORMAT
+KJ802404.1      1       .       N       A,<*>   0       .       DP=25
+```
+
+### pKP1-NDM-1_R1.capricorn (FASTA.gz)
+This is a binary file, a gzip file specifically. `zcat` will show us that it is a FASTA file as we saw before. The headers and the sequence length suggests it was a FASTQ file, but the quality scores are now removed. 
+
+```
+>KF992018.2-55020/1
+CCGGAGCTGGCATGTCTGAAAACTCCTGACGCCCAGCCGCCACCTATAGCCCCAATCGCTCCGGCGATTCCAACTTTTGA
+CCAACTAACACATTTCCAACTCCCATTATTTTCGATTAGTTGGCTAAGTAGCTCCAACCCAGCTCCAATA
+```
+
+### pKP1-NDM-1.scorpio (FASTQ.gz)
+This is a compressed (gzipped) FASTQ file. We need `zcat` or similar to handle the file compression. You may have noticed the `/2` at the end of each header. This is a convention that tells us this is the mate pair (R2) of a paired-end read. This convention is not always enforced, so I would ask the person who gave me the file to confirm.
+
+```
+@KF992018.2-55020/2
+CTATGTCCAATACCGACCCGACGGGTGAATTTGCGTTTGTTGGTGCAGGTATTGGCGCTGGGTTGGAGCTACTTAGCCAA
+CTAATCGAAAATAATGGGAGTTGGAAATGTGTTAGTTGGTCAAAAGTTGGAATCGCCGGAGCGATTGGGG
++
+1CCGGGGGGCGGGJCJJJJ1JJJGJJGJJJGJ1CGJGJGCJC=GJC1CJGCGGCJ(=JGJGJJG1=GGJGGGGGGGGGGG
+```
+
+### pKP1-NDM-1.taurus (BCF)
+This is a compressed VCF file, i.e. a BCF file. We can view the contents with `zcat` or similar. We can also use `bcftools view` or `bcftools query` (the same way we do with SAM/BAM).
+
+### pKP1-NDM-1.virgo (FASTQ.gz)
+This is a compressed FASTQ file. We can view the contents with `zcat` or similar. You may have noticed the `/1` at the end of each header. This is a convention that tells us this is the first read pair (R1) of a paired-end read.
+
+As you get more familiar with data from a specific organism or datatype, you may be able to identify the type of data simply by the file size. For example, for what I do, a 300MB file is likely to be a FASTQ file, while a 1MB file is likely to be a VCF file.
+
+:::

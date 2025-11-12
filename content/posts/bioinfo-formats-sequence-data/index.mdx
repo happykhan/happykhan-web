@@ -1,0 +1,119 @@
+---
+date: 2024-11-12
+title: Representing Nucleotides
+tags:
+  - Bioinformatics
+  - File Formats
+  - Sequence Data
+  - Training
+  - IUPAC
+module:
+  name: "Bioinformatics File Formats"
+  slug: "bioinfo-file-formats"
+  order: 3
+  description: "Understanding how sequence data is represented and stored in bioinformatics"
+---
+
+During sequencing, the nucleotide bases in a DNA or RNA sample (library) are determined by the sequencer. For each fragment in the library, a sequence is generated, also called a read, which is simply a succession of nucleotides. The sequence of a read is represented by a string of letters, where each letter represents a nucleotide base. The most common nucleotide bases are adenine (A), cytosine (C), guanine (G), and thymine (T). In RNA, thymine is replaced by uracil (U). 
+
+Sequencing instruments may also give ambiguous signals, which are represented by the letters R, Y, S, W, K, M, B, D, H, V, and N. This convention was set by the International Union of Pure and Applied Chemistry (IUPAC) in 1985. These letters represent the following combinations of nucleotides:
+
+| IUPAC nucleotide code | Base                |
+|-----------------------|---------------------|
+| A                     | Adenine             |
+| C                     | Cytosine            |
+| G                     | Guanine             |
+| T (or U)              | Thymine (or Uracil) |
+| R                     | A or G              |
+| Y                     | C or T              |
+| S                     | G or C              |
+| W                     | A or T              |
+| K                     | G or T              |
+| M                     | A or C              |
+| B                     | C or G or T         |
+| D                     | A or G or T         |
+| H                     | A or C or T         |
+| V                     | A or C or G         |
+| N                     | any base            |
+| . or -                | gap                 |
+
+:::note
+N means the base could not be determined. This is different from a gap, which means the base is not present in the sequence.
+:::
+
+Read [Johnson 2010](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2865858/) for more details. 
+
+## Exercise: Working with IUPAC codes
+ 
+:::question
+**Convert the following sequences to all possible combinations**
+
+```
+ATGRCTAYCGTG
+```
+:::
+
+:::details{title="Show Answer"}
+* ATGACTACCGTG
+* ATGGCTACCGTG
+* ATGACTATCGTG
+* ATGGCTATCGTG
+:::
+
+:::question
+**Convert this sequence to all possible combinations**
+
+```
+ATGNATC-GTG
+```
+:::
+
+:::details{title="Show Answer"}
+* ATGAATC-GTG
+* ATGTATC-GTG
+* ATGGATC-GTG
+* ATGCATC-GTG
+:::
+
+:::question
+**Write pseudocode or a program to check if a sequence is valid according to the IUPAC nucleotide code.**
+
+This is difficult. 
+:::
+
+:::details{title="Show Answer"}
+A pseudocode solution:
+
+```
+sequence = "ATGRCXTAYCGTG"
+true_count = 0
+For each character in the sequence:
+    For each base in ATGCNACGTURYSWKMBDHVN
+        If character == base:
+            true_count add 1
+
+If true_count == length of sequence:
+    return True
+Else:
+    return False
+```
+
+Pseudocode is a way to describe the logical steps a computer program should take without getting into the specifics of a particular programming language. It's a high-level description of the algorithm or logic you want to implement. Pseudocode uses plain language and simple structures to outline the sequence of operations and decisions in a program.
+
+A Python solution using regular expressions:
+
+```python
+import re
+
+def is_valid_nucleotide_sequence(sequence):
+    pattern = r'^[ATGCNACGTURYSWKMBDHVN]*$'
+    return bool(re.match(pattern, sequence))
+
+# Example usage:
+sequence = "ATGRCXTAYCGTG"
+if is_valid_nucleotide_sequence(sequence):
+    print("The sequence is valid.")
+else:
+    print("The sequence contains invalid characters.")
+```
+:::
