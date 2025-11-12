@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Transcribe MicroBinfie podcast episodes using Whisper.
+Transcribe MicroBinfie podcast episodes using OpenAI Whisper API.
 
 This script:
 1. Reads the SoundCloud RSS feed
 2. Downloads missing MP3s to podcast_episode_audio/
 3. Checks for existing transcripts in public/microbinfie-transcripts/
-4. Uses Whisper to transcribe missing episodes
+4. Uses OpenAI Whisper API to transcribe missing episodes
 5. Updates MDX frontmatter with transcript links
 """
 
@@ -16,14 +16,27 @@ import sys
 import requests
 import xml.etree.ElementTree as ET
 from pathlib import Path
-import subprocess
 import frontmatter
+from openai import OpenAI
 
 # Configuration
 RSS_FEED_URL = "https://feeds.soundcloud.com/users/soundcloud:users:698218776/sounds.rss"
 AUDIO_DIR = Path("podcast_episode_audio")
 TRANSCRIPT_DIR = Path("public/microbinfie-transcripts")
 CONTENT_DIR = Path("content/microbinfie")
+
+# Load OpenAI API key from .credentials file
+def load_api_key():
+    """Load OpenAI API key from .credentials file."""
+    credentials_file = Path(".credentials")
+    if not credentials_file.exists():
+        return None
+    
+    with open(credentials_file, 'r') as f:
+        for line in f:
+            if line.startswith('OPENAI_API_KEY='):
+                return line.split('=', 1)[1].strip()
+    return None
 
 def extract_episode_number(title):
     """Extract episode number from title."""
@@ -87,41 +100,77 @@ def download_mp3(url, filename):
         print(f"  ❌ Error downloading {filename}: {e}")
         return None
 
-def transcribe_audio(audio_path, output_path):
-    """Transcribe audio using Whisper."""
+def transcribe_audio(audio_path, output_path, client):
+    """Transcribe audio using OpenAI GPT-4o with speaker diarization."""
     if output_path.exists():
         print(f"  ✓ Transcript already exists: {output_path.name}")
         return True
     
-    print(f"  🎤 Transcribing with Whisper...")
+    print(f"  🎤 Transcribing with GPT-4o (speaker diarization)...")
     try:
-        # Run whisper command
-        # Using 'medium' model for good balance of speed/accuracy
-        # Output as txt format
-        cmd = [
-            'whisper',
-            str(audio_path),
-            '--model', 'medium',
-            '--output_format', 'txt',
-            '--output_dir', str(TRANSCRIPT_DIR),
-            '--language', 'en'
-        ]
+        # Check file size (OpenAI has 25MB limit)
+        file_size = audio_path.stat().st_size / (1024 * 1024)  # Convert to MB
+        if file_size > 25:
+            print(f"  ⚠️  File too large ({file_size:.1f}MB), max is 25MB")
+            return False
         
-        result = subprocess.run(cmd, capture_output=True, text=True, check=True)
+        # Open audio file and send to GPT-4o transcription with diarization
+        with open(audio_path, 'rb') as audio_file:
+            response = client.audio.transcriptions.create(
+                model="gpt-4o-transcribe-diarize",
+                file=audio_file,
+                response_format="diarized_json",
+                chunking_strategy="auto"
+            )
         
-        # Whisper saves as {basename}.txt, we need to rename to episode-XXX.txt
-        whisper_output = TRANSCRIPT_DIR / f"{audio_path.stem}.txt"
-        if whisper_output.exists() and whisper_output != output_path:
-            whisper_output.rename(output_path)
+        # Format the diarized transcript as readable text
+        transcript_text = format_diarized_transcript(response)
         
-        print(f"  ✓ Transcribed: {output_path.name}")
+        # Save transcript
+        with open(output_path, 'w', encoding='utf-8') as f:
+            f.write(transcript_text)
+        
+        print(f"  ✓ Transcribed with speaker diarization: {output_path.name}")
         return True
-    except subprocess.CalledProcessError as e:
-        print(f"  ❌ Whisper error: {e.stderr}")
-        return False
+        
     except Exception as e:
-        print(f"  ❌ Error transcribing: {e}")
+        print(f"  ❌ Transcription error: {e}")
         return False
+
+def format_diarized_transcript(response):
+    """Format diarized JSON response into readable transcript."""
+    if not hasattr(response, 'segments'):
+        return str(response)
+    
+    transcript_lines = []
+    current_speaker = None
+    current_text = []
+    
+    # Parse the diarized segments
+    for segment in response.segments:
+        speaker = segment.speaker
+        text = segment.text.strip()
+        
+        if not text:
+            continue
+            
+        if speaker != current_speaker:
+            # New speaker, write previous speaker's text
+            if current_speaker and current_text:
+                combined_text = ' '.join(current_text)
+                transcript_lines.append(f"[Speaker {current_speaker}]: {combined_text}\n")
+            current_speaker = speaker
+            current_text = [text]
+        else:
+            # Same speaker, accumulate text
+            current_text.append(text)
+    
+    # Write final speaker's text
+    if current_speaker and current_text:
+        combined_text = ' '.join(current_text)
+        transcript_lines.append(f"[Speaker {current_speaker}]: {combined_text}\n")
+    
+    return '\n'.join(transcript_lines)
 
 def update_mdx_frontmatter(mdx_file, episode_num):
     """Add transcript link to MDX frontmatter."""
@@ -151,12 +200,16 @@ def main():
     AUDIO_DIR.mkdir(exist_ok=True)
     TRANSCRIPT_DIR.mkdir(exist_ok=True)
     
-    # Check if whisper is installed
-    try:
-        subprocess.run(['whisper', '--help'], capture_output=True, check=True)
-    except (subprocess.CalledProcessError, FileNotFoundError):
-        print("❌ Whisper not found. Install with: pip install openai-whisper")
+    # Load OpenAI API key
+    api_key = load_api_key()
+    if not api_key:
+        print("❌ OpenAI API key not found in .credentials file")
+        print("   Add to .credentials: OPENAI_API_KEY=sk-...")
         sys.exit(1)
+    
+    # Initialize OpenAI client
+    client = OpenAI(api_key=api_key)
+    print("✅ OpenAI API key loaded\n")
     
     print("📻 Fetching RSS feed...")
     try:
@@ -218,7 +271,7 @@ def main():
         
         # Transcribe if needed
         if not transcript_path.exists():
-            if transcribe_audio(mp3_path, transcript_path):
+            if transcribe_audio(mp3_path, transcript_path, client):
                 processed += 1
             else:
                 skipped += 1

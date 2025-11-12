@@ -1,0 +1,212 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here we will be 
+discussing topics in microbial bioinformatics. We hope that we can give you 
+some insights, tips, and tricks along the way. There is so much information we 
+all know from working in the field, but nobody really writes it down. There's 
+no manual, and it's assumed you'll pick it up. We hope to fill in a few of 
+these gaps. I am Dr. Lee Katz. My co-hosts are Dr. Nabeel Ali Khan and 
+Professor Andrew Page. Nabeel is a senior bioinformatician at the Center for 
+Genomic Pathogen Surveillance at the University of Oxford. Andrew is the CTO at 
+Origin Sciences and Visiting Professor at the University of East Anglia. Hello 
+and welcome to the Microbial Bioinformatics podcast. I'm Dr. K, and joining me 
+are your co-hosts, Nabeel and Andrew. And today we're diving into one of the 
+most talked about topics in the bioinformatics community. Next flow. In the 
+past, we've all been in support of next flow and workflow languages in general 
+as a means of organizing your work. Now in 2025, next flow is popular and 
+promises portability, reproducibility, and scalability across systems. But for 
+every bioinformatician who swears by it, there's another who's pulling their 
+hair out over submission quirks, debugging nightmares, or endless DSL syntax 
+confusion. In this episode, we're taking an honest look at the pros and cons of 
+next flow in 2025. We'll explore where it truly shines, parallel processing, 
+robust error handling, and seamless container integration, and where it 
+continues to frustrate users from steep learning curves to painful updates and 
+costly ecosystem tools. So today, would you guys like to maybe take a side and, 
+you know, whether or not it's really our opinion, we'll just, we'll do, we'll 
+be opinionated. So here's what I'll propose. I'll take the cons, I'll say all 
+the cons for next flow, and I'll take that position. Whether or not that's 
+really my opinion, it's not necessarily my opinion. And do you guys want to, do 
+you guys want to stand up for the other side? Well, I'm definitely, I'm 
+definitely pro because we use it extensively at the moment. I'm happy to sit in 
+the middle just to keep things balanced. Fair, fair. So everyone listening 
+knows that this isn't necessarily our opinions. We're just, we're just having 
+it out. Yeah. Good, good job, Lee. We'll edit all of this out, don't worry. 
+Yeah, no, like I'm very pro next flow. We use it extensively in our work, which 
+is cancer bioinformatics at the moment and microbiome analysis using Sequeira 
+Tower, which is we call next flow tower, which is just a kind of an easier way 
+to run next flow. Everything that I do in next flow is on AWS. So it's, it's on 
+the cloud, you know, shiny. And to be honest, for a lot of stuff I do, I will 
+usually just pick up an NF core pipeline and run it because, you know, it does 
+cover all the major things you might want to do. And it's, it's only for more 
+bespoke mathematics that you want to actually drill down and make your own 
+stuff. And then AI has just made it so trivial to, you know, take your 
+repository and make it into an expert pipeline. Like quite literally the other 
+day, it was, I told AI to make a little tool, which was just a manipulates like 
+some indexes in a fast Q file that said, okay, make it into an expo pipeline. 
+Bang. There you go. And make it a Docker container. You know, it's, it's all 
+very, very easy to do. And next flow is so simple and robust that you can just 
+knock it out. So yeah, next one is away. So let's talk a little bit more about 
+the performance and efficiency. So does the, so next, what does promise 
+performance, does that hold up in, in real time in the cloud or on an HPC in 
+large scale architectures? So maybe Andrew, you want to start with the pros of, 
+of what Nexo things does well in this space? I guess it depends on how you're 
+running it and all it is, is an engine. You know, the performance really, it 
+comes down to how well you've written the software and how well you've 
+paralyzed it all. And if you've done a poor job there, then of course, next, 
+it's not next to his problem that it doesn't run well, you know, so don't blame 
+next flow for your sins. But what it really does well is just orchestrating 
+everything. You don't have to worry about where is my data has a linked, you 
+can just kind of join it together in Lego blocks and it makes life a million 
+times easier. You can also then have stuff, you can have data in buckets and 
+things like that. And so you can interact with it in a very different way by 
+using object storage, say in the cloud, rather than having to worry about, 
+okay, I'm using this VM where to put the data as a local, I've uploaded, 
+downloaded, interact with it. It just kind of magically happens. So the 
+performance is really how you use it. And if you code a poorly, then you're 
+going to get poor performance. If you tell it, you need a huge number of 
+processors and you need a huge amount of memory and it doesn't use it, well 
+then, you know, that's, that's your problem, not next, next flows. Yeah. When I 
+think that you are programming for it, it's like you can multi multi, like 
+break it up as much as possible. Like you can, you can have a workflow, for 
+example, that does genome assembly followed by annotation, for example. And you 
+can, you can make it so that one genome is on one process at a time, or you can 
+decide to break it up. Like one job is one genome for assembly, and then one is 
+a genome on annotation, and you can break it up even more, or maybe you can 
+break it up even more into like another job for gene prediction, followed by 
+gene assembly, gene annotation. So it's like you can modularize it as much as 
+you want and break it up as much as you want. But this also means to me that 
+you have more jobs sometimes than the HPC can handle. So some HPCs might have a 
+scheduler that might be able to keep track of something insane, like 10,000 
+jobs, but you know, you can be even more insane and you can submit a million 
+jobs just by accident, by submitting so many jobs at once, and it can overwhelm 
+your HPC. So I do appreciate it, but you know, I think it goes to what Andrew's 
+saying, like you have to program it, it's going to be as smart or as insane as 
+you are. And so you can overwhelm the HPC. I would also say that, you know, 
+that the learning curve for it, like to make a job, to make a module, sorry, to 
+make a module, you have to understand the syntax and okay, they do a good job 
+of putting the manual, but it still makes it a steep learning curve to 
+understand like what your input block is, what your output block is. If you 
+have to process something using Java or God forbid, you have to learn Groovy, 
+like that's hard. You know, I'm in a glass house, I program in Perl. So 
+programming in Groovy though, I think is a big deal. And so just with all those 
+different jobs, I think that you can really overwhelm it. And with each of 
+those jobs, Nextflow creates an intermediate work folder, and each of those 
+work folders I think has standard at least I think eight files, I'm sorry if 
+I'm wrong on that, but it's somewhere between five and ten files, like 
+.command.sh and .command.something. If you actually are insane and you have a 
+million jobs, then you've created maybe eight times a million files and that 
+many directories, and you might overwhelm your NSF file system. Sorry, I'll 
+stop talking at this point on this, I've been ranting too long, back to you. I 
+guess maybe HPC is not the right setup then for that, because say I'm running 
+stuff in Amazon and in the cloud, and you have different problems, you don't 
+have the NFS problem or the inode strain because it's safe for using object 
+storage, and you can scale it up, like the other day I had 3,800 CPUs running 
+simultaneously, and if you did that on a real HPC, you would get a call very 
+quickly from someone telling you to stop using all the resources or you 
+wouldn't be able to get them. And then if you have something like Tower, I 
+think what it does is it actually will spin up one node and put a few jobs on 
+it after small jobs. So I think some of it can be down to just the underlying 
+infrastructure you have, and HPC I think is, you know, the old Slurm queues and 
+all that are kind of the old boy in the corner, whereas if you want to get the 
+most efficient use out of it, you know, you need to be moving to the cloud, and 
+that is where it really shines, I think. However, you can make very expensive 
+mistakes and you can spend thousands of dollars in a few minutes if you mess 
+up. Okay, plenty to think about just with that. I've run into the same issue 
+with, I think, yeah, I mean, what's nice in terms of the pros is you get the 
+trace and reporting built into the next flow, which is really nice. So if 
+you're running a pipeline over and over again, you can actually monitor the 
+resources, and just by changing the process tag, you can tweak, like step 
+modules down in terms of resources, or really easily tune that such that you're 
+not spending more than you have to, and that would be something that would be 
+quite difficult to do from scratch. So it's nice to have that out of the box 
+for Nexo, and I think that's really the nice thing for the performance and 
+efficiency tuning. On the other hand, I've run into the same issue with the 
+philosophy that each job for each sample is a, for each job, there's a job for 
+each sample in each genome, means that, yeah, you've got this massive array of 
+tasks being run at the same time. That tends to be difficult, because in some 
+cases you actually want to run things in batches, so like, you know, job arrays 
+on HPC, but even just running something small, you want to run a thousand of 
+them at a time. I'm sure on the Cloud Andrew as well, like for HPC, like it 
+takes, you're in a queue and you're waiting for the node to come available, it 
+takes a little while to spin up the job. So if it's like a job that only runs 
+for 10 seconds, it sort of doesn't make sense to do that, and NexFlow tends not 
+to like people putting things into batches, the NF Core specification, really 
+they don't want you to do that, because what happens is if you start batching 
+things up, it's very difficult to track what failed and where and so on. So 
+you're playing with this thing of efficiency and clarity of your workflow, 
+which I don't have a solution for. I'm the guy on the fence, so I get to say 
+whatever. Yeah, it can be slow. Yeah, I didn't touch on that, but that's a good 
+point. Like if you're submitting, for example, to an SGE cluster and you have 
+like all these small 10 second jobs, you actually also add on that wait time, 
+because it takes like, I think, one to 15 seconds for a job to be picked up. So 
+it's like your job could have been 10 seconds, but now it's up to 25 seconds 
+long, you know, with times a million jobs or times 10,000 jobs or whatever it 
+is. I guess if you're in the cloud, often people will try and use spot 
+instances as well. And that can add a certain degree of wait time, and it can 
+add a certain degree of risk, because things might be cancelled and reclaimed. 
+What is a spotter? I'm not familiar. A spot instance, it's where there just 
+happens to be free capacity. And you say, I will accept that if you need the 
+resources back, I will give them back and you'll kill my job. And you get 90 
+second warning. And the benefit is you get like 60% or 70% discount. That's a 
+good deal. So yeah, for small jobs, it's fine. But for large jobs, like where 
+you need a lot of memory, it is absolutely not fine. Because if you're retrying 
+something over and over again, then obviously it's going to cost more than you 
+would have saved originally. Let's move on to the next topic then and keep it 
+moving. So the next sort of area we want to talk about was workflow management. 
+And Nexo comes with some degree of complexity, and is it worth for the 
+reproducibility promise that it makes? Let's start with Andrew with the pros. 
+Yes, because it turns it into Lego, and you can have modules, it's very 
+modular. And it's very easy to link things together and then see what that kind 
+of graph is like. Quite trivial, actually. And you can link together and put in 
+output files and the like. Whereas in the olden days, if you've ever done 
+workflow management with a dodgy bash script that you've written yourself, 
+you'll know it is actually quite a complex task when you're linking things and 
+making sure stuff is in the right place. And underlying all of that, of course, 
+you may have different tools and different Docker containers and you're moving 
+data around to different places. And just kind of bringing all that together 
+into one very simple language and putting all the pieces together and saying 
+what can be parallel, what can't, it's just phenomenal. And I think they've 
+done a really, really well. Over to you, Lee. Yeah, I think, so again, I'm 
+going to stress again, I am artificially taking the place of the cons category 
+here. In reality, I do like the way that this is. But okay, the cons. So I 
+would say that workflow management can be very difficult because you can't 
+debug. So as you are, you can't debug easily. As you are programming this, in 
+my experience, you can make even a simple thing, but maybe a 20-line process, 
+and you run the process and NextFlow says that the process doesn't work in so 
+many words. And it's not clear that debugging is painful. And the community 
+guidelines kind of tell you to go to AI tools. Let the AI tell you what you did 
+wrong. It won't. I actually think that that is kind of overkill. The actual 
+error log output should tell you where to go to in your problem. So you might 
+have a process that is five different modules. And you can narrow, like the 
+debug output will narrow it down to one module. But where that error is, we 
+don't know. You'll have to go to the AI. And that's a real issue, I think. So 
+in that regard, you can make a Lego piece. Good metaphor. You can make a Lego 
+piece in 10 minutes, maybe even five minutes. But then debugging where your 
+issue is, that can take hours. Yeah. And that's always the way, isn't it? 
+Regardless of whether it's NextFlow or any other way of running code, when you 
+are dealing with this level of complexity, then it is going to take time. And I 
+do admit that when you are going down many layers, when you're running 
+everything in containers on remote machines, it is just more difficult to tease 
+things out. And yet, they do need to make it a bit clearer. Maybe those AI 
+tools can automatically be built in and then just pop up a message in the 
+command line or whatever saying, hey, this is where your error is. This is the 
+action you probably need to take. I think part of it comes from the pro and con 
+of how it works. What it's doing for you is it's abstracting and a lot of 
+boilerplate nonsense of package management, making sure things are glued 
+together, handling outputs, handling resuming, handling resources on different 
+architectures. That's great. But on the same time, because it's abstracting, 
+it's obscuring it away from you. So then it's difficult to understand it when 
+it doesn't work. The logging could be better. I haven't tried the AI tool, so I 
+don't know how that would work. But then on the other hand, we're talking about 
+a process that wouldn't even be possible for some people, that they'd be even 
+able to run the pipeline to begin with, because they would just be trying to 
+hand crank it and bash it, making all sorts of mess. So I don't know. Again, 
+I'm on the fence. It's neither here nor there. Thanks for joining us on this 
+episode of Microbial Bioinformatics Podcast. We're going to split up this 
+discussion to a few different rounds here. So we hope you enjoyed this 
+discussion on the good, the bad, and everything in between. We'll see you next 
+time for the next part of this. Thank you so much for listening to our podcast. 
+If you like this podcast, please subscribe and rate us on iTunes, Spotify, 
+SoundCloud, or the platform of your choice. This podcast was recorded by the 
+Microbial Bioinformatics Group. For more information, go to 
+microbinfee.github.io. The opinions expressed here are our own and do not 
+necessarily reflect the views of Origin Sciences, the Center for Genomic 
+Pathogen Surveillance, or CDC.

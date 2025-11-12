@@ -1,0 +1,177 @@
+Hello, and thank you for listening to the MicroBinfeed podcast. Here we will be 
+discussing topics in microbial bioinformatics. We hope that we can give you 
+some insights, tips, and tricks along the way. There is so much information we 
+all know from working in the field, but nobody really writes it down. There's 
+no manual, and it's assumed you'll pick it up. We hope to fill in a few of 
+these gaps. I am Dr. Lee Katz. My co-hosts are Dr. Nabeel Ali Khan and 
+Professor Andrew Page. Nabeel is a senior bioinformatician at the Center for 
+Genomic Pathogen Surveillance at the University of Oxford. Andrew is the CTO at 
+Origin Sciences and Visiting Professor at the University of East Anglia. Hello 
+and welcome to the Microbial Bioinformatics podcast. I'm Dr. K, and joining me 
+are your co-hosts, Nabeel and Andrew. Today we are continuing to dive into one 
+of the most talked about topics in the bioinformatics community, NextFlow. In 
+the past, we've all been in support of NextFlow and workflow languages in 
+general as a means for organizing your work. We're going to go into a little 
+bit of a debate on the pros and cons. We'll ask the big question, if you're 
+starting to write a new bioinformatics pipeline, is NextFlow still the best 
+choice for modern bioinformatics pipelines, or have AI tools or lighter 
+workflow systems finally caught up? Again, I'm going to choose the cons 
+category, if you guys are okay with it, and I'll say the cons, even if that's 
+not necessarily my opinion. Well, thanks for playing devil's advocate, Lee. 
+Let's kick off with one of the other things we wanted to discuss. One of the 
+key selling points of NextFlow is the portability, the fact that you develop it 
+on your laptop and then you can change a toggle and it's working on an HPC, 
+then change a toggle, it's working in the cloud and so on. What do we feel 
+about the portability of NextFlow as one of the strong suits, but are there any 
+chinks in the armor? Andrew, let's have some pros. Yes. From my personal 
+experience, I've gone and built an Xcode pipeline, I think it was for mapping 
+human or something silly, easy like that, and so I built it on a VM in Google, 
+and then I just flicked a switch and then it was then paralyzed on the Google 
+batch, so it's their scheduler. And then a few months later, I went over to AWS 
+and I ran the same pipeline there through Secure Tower without changing the 
+code. So I've tried it in three different formats on two different clouds, and 
+it just worked. So it proves that the portability aspect is actual, it's real, 
+it's not theoretical, because a lot of things are theoretical, and I've used it 
+in Angular. So they've done a good job. I think a lot of it is down to the fact 
+that it is containers, and where all of the hard work is actually done. So 
+obviously people have gone and done a lot of work to containerize every 
+bioinformatics tool out there, and once you have that done, running it and 
+linking it all together is the next piece of the puzzle, and I think NextFlow 
+have got that down. So well done, Lotz. Yeah, I do like how you can make it 
+portable. And when we are doing our NextFlow pipelines, one of the main selling 
+points that I give to my leadership and everybody is, you know, we can use a 
+pipeline the same here as the same there. But I'm going to tell you the issues 
+that I have also. What's hard for me is that sometimes I do have to 
+troubleshoot something and there's an executable, for example, and it's layers 
+deep. So I might have an issue with script.py, and it's some, you know, part of 
+the open source package that I'm using, and I can look into the NextFlow code, 
+see what's going on, it's calling script.py, where is that? It's not in the 
+GitHub repo for this pipeline. It's in the container, or it's in the conda 
+package. So I have to, like, and usually when you're running something 
+professional, it's in the Docker container, not just in conda, right? So it's 
+I'll have to download the Docker container on my own and run, I think it's 
+Docker shell, go into there, see what the path is inside of Docker, find the 
+executable in that file system and then look at it. And then even then I can't 
+edit because it's a static container. So the troubleshooting is pretty hard. 
+And if you actually do need to make a fix, then you actually need to put out a 
+new container. The better situation is you find out how the script works and 
+you just fix the NextFlow code. But then you're back to what we talked about 
+last time, you are debugging NextFlow code and you're going to get really tough 
+error logging. So I think the portability is fine, but it's obfuscated code. I 
+mean, on the other hand, you're not having to deal with installing different 
+tools which have different, that behave differently on different architectures, 
+right? Because that's all being abstracted away by the fact you're running 
+things on containers. I think with NextFlow, they leverage containers really 
+well. And that is most, so the most of the benefits we're talking about are the 
+pros and cons as the fact that you're using containers, containerization in the 
+first place, NextFlow leverages it really, really well, which is great. And you 
+have all of those issues that we're just saying that, yeah, it's a bit 
+difficult to understand the environment of the container versus the host, but 
+you don't have to think about the host, which is good. I'm curious, Andrew, 
+with the, what, when you're running it on the cloud, in the example you gave, 
+how are those, what was the containers being run on? Was it a Kubernetes or 
+you're saying AWS batch, sorry, Google batch, how are they actually being run, 
+executed? So one of them was on AWS batch, and actually I just remembered now I 
+messed up and it had millions of lines of logging outputs, which then went into 
+the cloud logger, which I didn't realize until we got this, you know, thousand 
+pound bill kind of deal. So yes, maybe there's too much debugging information 
+there, but yeah, you do have to be careful about those kinds of quirks that you 
+may not be logging to like a disposable file system on a VM. You may be logging 
+to the cloud where you're charged per operation. There's one more part of 
+portability I forgot to bring up too, which is the config file. So maybe you'll 
+have thoughts on this too, Andrew. I have found it difficult to know exactly 
+like how to write down your config file, put the correct thing into like your 
+GitHub repo, you know, so the code itself is portable, but you have to explain 
+your architecture and that can't necessarily go into your repo or sometimes it 
+does, and that's confusing. And then even if it doesn't go into your repo, that 
+can, it can be sensitive information, like a, you know, it might be risky to 
+put into a GitHub repo that you have this many nodes on your HPC or this many 
+CPUs or other details about it. So over to you. That is very interesting. Yes. 
+You have to be careful. Okay. With great power comes great responsibility, and 
+I guess we can just leave it at that. Let's talk a little bit more about 
+robustness and everyone's favorite topic, documentation. Nextflow has, as we're 
+saying, it's sort of got a robustness built in, at least it promises to. Is it 
+worth the effort? Because you do have to work in the way Nextflow wants you to. 
+So let's have some pros from Andrew. So when it works, it's fantastic. And I 
+feel a bit worried for the next generation of programmers and IT people coming 
+along and biopartitioners coming along, because they're all using ChattyPT and 
+Copilot, and they don't actually understand how things work and understand the 
+code. They would struggle to put together everything from scratch, because 
+they're just saying, dear Copilot, ChattyPT, make this work, and oh, there's an 
+error. Tell me where the error is and how to fix it, or fix it for me. So yeah, 
+that's a problem. But Nextflow, luckily, is mostly fault-tolerant. When an 
+error does occur, you can restart it, so you don't necessarily have to go back. 
+There's checkpoints along the way, and it works to a degree. But there are 
+many, many times when that doesn't work, particularly if you're using spot 
+instances, and it gets interrupted, and it gets interrupted a few times, it 
+might fall over, or maybe you run out of memory, or you run out of disk space, 
+or whatever. And these kinds of things, you can fix these things incrementally. 
+But sometimes I've found that maybe because of a bug, it's going and asking for 
+more memory than there is available in AWS, like 100 terabytes of RAM, or 
+something crazy like that. So their robustness comes with responsibility to 
+actually tell it the right information up front. In terms of documentation, 
+documentation is okay. It's better than most, to be honest, particularly the NF 
+Core stuff. And again, AI can document a lot of stuff for you, but only to a 
+degree. You have to give it the right information first, to start off, and 
+there's a huge amount of it out there. So it can take time. And there's 
+podcasts, and there's YouTube videos and everything, which help you navigate 
+that if you don't like reading pointless documentation, because it all should 
+work initially. But I find it to be good. Yeah, the documentation is excellent. 
+And when they put out those short YouTube videos, those have been helpful for 
+me too. Okay, so I'm going to take that stance again. I'm going to do the cons 
+list again. So not necessarily my opinion. But the documentation can be 
+overwhelming. So I would say, even though it's there for you, it takes a while 
+to go through it and internalize those lessons for yourself and understand it 
+and really learn it. So that makes it a, you know, it's overwhelming 
+documentation. It's a steep learning curve to even get to the modules and 
+configuration part. And so even after you learn it all, and you become a 
+beginner at it, or an intermediate, like it's still time consuming to find 
+relevant information, like, if you need to look up, I don't know, like, what 
+this shell block does, like, it might, it might take you a while to just search 
+around, if you need to find out like, how to, you know, put a variable into the 
+shell block, it might take you a while to find that information. Or, you know, 
+there's a lot more advanced information that you'll have to find either in 
+that, or the special videos that they put out. But I guess for a lot of people, 
+you're not, they're not developing pipelines, they're just using them. And so 
+they won't care about documentation, they won't care, you know, because in most 
+cases, say it'll work. And they are just the end users, they go into some fancy 
+GUI, like secure tower, you know, click a button, there you go, magic happens, 
+and they get the results at the other end, you know, it's what we all would 
+love to have happen all the time with mathematics. And we're getting steps 
+closer to that. And whereas, you know, all of us in the call are mathematics 
+developers. And we're, you know, we enjoy getting deep into the weeds and the 
+nitty gritty. And we're constantly tweaking things and extending things and 
+reinventing things and whatnot. And we're at the bleeding edge of science. So 
+we're maybe a slightly different use case to the normal bioinformatician, if 
+you know what I mean. Fair points. But I think if you're, if you're, because 
+you expose all the modularity of the pipeline, so the implicit thing is that 
+you're going to take the next pipeline from whatever, you know, you pick up the 
+NF core one, and you're going to tweak it. So you need to know enough to be 
+able to make like a change. Maybe you want to add a new output file. Maybe you 
+want to run a thing with a different flag. Maybe you want to collect the things 
+into a CSV in a particular way. That takes a fair bit of time to get your head 
+around what it's doing. I appreciate that the AI tools can seem to know a 
+little bit and can generate stuff for you now. And there's a lot of 
+documentation. It does explain this, but it's sort of difficult to find. I wish 
+there was a bit more help with the syntax that made it a bit easier. Some more 
+helper functions or something that would help out. Because yeah, people hit a 
+wall pretty quick. I think part of it is, is like when you have all of these 
+different commands, it's like conceptually, what, how are you operating with 
+this? What's the paradigm of how these things are meant to interact with each 
+other? I don't think it's very well explained. So like the documentation is 
+like a reference book, right? And then there's like tutorial worked examples. 
+But yeah, it seems almost like as if it's a separate course where you have to 
+teach philosophically, like what are these things you're working with and how 
+do they interact with each other? The fact that it's groovy, which is a 
+language most of us are not familiar, which makes it difficult is also not 
+great, but whatever. It is what it is. Absolutely. So leave it there. Yeah, 
+let's leave it there. We'll cross into the next topic, which is scalability and 
+maintenance. Thank you for joining us on this episode of the Microbe of 
+Alphabetics podcast. We hope you enjoyed our second discussion on NextFlow, the 
+good, the bad and everything in between. Thank you so much for listening to our 
+podcast. If you like this podcast, please subscribe and rate us on iTunes, 
+Spotify, SoundCloud or the platform of your choice. This podcast was recorded 
+by the Microbial Bioinformatics Group. For more information, go to 
+microbinfee.github.io. The opinions expressed here are our own and do not 
+necessarily reflect the views of Origin Sciences, the Center for Genomic 
+Pathogen Surveillance or CDC.
