@@ -1,0 +1,76 @@
+---
+audioLength: '27479333'
+audioType: audio/mpeg
+audioUrl: https://feeds.soundcloud.com/stream/1657196451-microbinfie-titus-3.mp3
+author: Microbial Bioinformatics
+date: '2024-01-04T05:00:09.000Z'
+duration: 00:22:53
+explicit: 'no'
+guests: []
+guid: tag:soundcloud,2010:tracks/1657196451
+image: https://i1.sndcdn.com/artworks-I2y1XvutpfnPKpsD-wuz3NA-t3000x3000.png
+link: https://soundcloud.com/microbinfie/titus-3
+subtitle: In this episode, Andrew Page and Lee Katz continu…
+tags:
+- microbinfie
+- podcast
+title: 'Episode 119: The Challenges of Microbial Taxonomy - Conversations with Titus
+  Brown'
+transcript: /microbinfie-transcripts/episode-119.txt
+---
+
+In this episode, Andrew Page and Lee Katz continue their discussion with Titus Brown, focusing on taxonomy assignment in metagenomics. The episode touches on several key topics:
+
+- **Dealing with Contamination and Low-Quality Genomes**: In reference databases, managing contamination and genome quality is crucial for accurate taxonomy assignment.
+
+- **Sourmash as a Versatile Search Tool**: Sourmash is highlighted as a flexible tool for searching, though it is not a curated database.
+
+- **High Confidence in Taxonomic Assignment for Public Health**: The necessity of reliable taxonomic assignment is especially pressing in public health contexts.
+
+- **Challenges with Microbial Assignment Tools**: Many microbial assignment tools exhibit low specificity or sensitivity, complicating accurate identification.
+
+- **Perfect Species Classification Theories**: Potential strategies for achieving perfect species classification are explored, albeit mostly theoretical.
+
+- **Defining Species with Genomic Differences**: The difficulties of defining species when only small genomic differences exist are discussed.
+
+- **Unicity Distance in Cryptography for Classification**: An intriguing cryptographic concept, 'unicity distance,' is considered for its potential application in classification processes.
+
+- **Conveying Uncertainties in Taxonomic Assignment**: The importance of communicating the nuances and uncertainties inherent in taxonomy assignment is emphasized.
+
+The conversation underscores the challenges of taxonomic classification, particularly at the species level, while exploring avenues for enhancing accuracy. The episode also highlights the inherent complexities of biology and the necessity for transparent communication regarding uncertainties.
+
+## Recommended Papers
+
+- **Spacegraphcats**: [Spacegraphcats Paper](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-020-02066-4)
+
+- **Sourmash**: [Sourmash Paper](https://www.biorxiv.org/content/10.1101/2022.01.11.475838v2)
+
+- **IBD Exploration**: [IBD Exploration](https://dib-lab.github.io/2021-paper-ibd/)
+
+### Extra notes
+
+* The podcast discussed the use of **SourMash** in microbial bioinformatics, highlighting its capability to search extensive databases like GenBank, which includes over 1.3 million bacterial genomes. This feature facilitates the use of all available reference sequences, a critical aspect for bioinformaticians.
+
+* A significant topic was the challenge of handling low-quality references, often present in large microbial databases. The discussion emphasized reliance on robust resources such as the **GTDB**, which provides databases with transparent quality metrics, helping mitigate this issue.
+
+* A primary critique of existing microbiome bioinformatics software is their tendency to perform a "curated subselection" of genomes based on what their software can handle, rather than making selections based on informative content. 
+
+* The use of tools like **Charcoal** was discussed for identifying inconsistencies in genome data by detecting contigs with high similarity across distant taxa, aiding in cleaning databases from contamination.
+
+* The philosophy of using SourMash involves casting a wide net by allowing for the probing of comprehensive and noisy databases, then providing users the flexibility to apply their own filters post-search. This approach emphasizes empowering users to make specific decisions regarding the data they analyze.
+
+* There was a discussion on the limitations and challenges of current bioinformatics tools for bacterial assignment and metagenomics, with few tools achieving a balance between sensitivity and specificity at the species level.
+
+* A debated issue was the difficulty in establishing reliable public bioinformatics tools given their transient funding and development cycles, often leading to reinvention rather than iterative improvement.
+
+* Despite these limitations, the speaker expressed pride in contributions like SourMash, aiming to set a high benchmark for future tools and ensuring insights gained are not lost.
+
+* The podcast also touched upon **fracMinHash** and **MinSetCov** as tool advancements, the former capable of handling vast data redundancy in microbial genome matches, and enriching the bioinformatics toolkit with proven computational principles.
+
+* There was acknowledgment of the complexity in creating accurate taxonomic classifiers, especially for distinguishing species based on genomic data, and the alignment of these computational outputs with biological realities.
+
+* The podcast discussed the concept of **unicity** distance, drawing parallels to cryptographic strategies to uniquely identify genomes, a method implicitly utilized by SourMash to improve taxonomic assignments.
+
+* The discussion noted the enduring challenge of effectively communicating the distinction between computational results and biological insights, a fundamental aspect of advancing microbial bioinformatics.
+
+[Episode 119 transcript](/microbinfie-transcripts/episode-119.txt)

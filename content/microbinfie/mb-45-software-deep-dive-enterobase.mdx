@@ -1,0 +1,79 @@
+---
+audioLength: '49949256'
+audioType: audio/mpeg
+audioUrl: https://feeds.soundcloud.com/stream/911118157-microbinfie-software-deep-dive-enterobase.mp3
+author: Microbial Bioinformatics
+date: '2021-02-04T04:00:08.000Z'
+duration: 00:20:48
+explicit: 'no'
+guests: []
+guid: tag:soundcloud,2010:tracks/911118157
+image: https://i1.sndcdn.com/artworks-hDzuZa9pRT5j9Lu2-hW4fUw-t3000x3000.png
+link: https://soundcloud.com/microbinfie/software-deep-dive-enterobase
+subtitle: We chat with Nabil about EnteroBase, and learn ab…
+tags:
+- microbinfie
+- podcast
+title: 'Episode 45: Software deep dive: Enterobase'
+transcript: /microbinfie-transcripts/episode-45.txt
+---
+
+We had a chat with Nabil about EnteroBase, delving into the background of the project, the general benefits of the platform, and some of the peculiar quirks users might encounter. EnteroBase is an integrated software environment designed to support the identification of global population structures within several bacterial genera, including *pathogens*.
+
+## Key Papers
+
+- **PLOS Genetics Paper:**  
+  Alikhan et al. (2018) "A Genomic Overview of the Population Structure of *Salmonella*."  
+  *PLoS Genet* 14 (4): e1007261.  
+  [Read the paper](https://doi.org/10.1371/journal.pgen.1007261)
+
+- **Paper Describing EnteroBase:**  
+  Zhou et al. (2020) "The EnteroBase User's Guide, with Case Studies on *Salmonella* Transmissions, *Yersinia pestis* Phylogeny, and *Escherichia* Core Genomic Diversity."  
+  *Genome Res.* 30:138-152.  
+  [Read the paper](https://doi.org/10.1101/gr.251678.119)
+
+- **rMLST Description:**  
+  Jolley et al. (2012)  
+  *Microbiology* 158:1005-15.  
+  [Read the paper](https://doi.org/10.1099/mic.0.055459-0)
+
+## Resources
+
+- [EnteroBase Website](http://enterobase.warwick.ac.uk/)
+- [PubMLST Website](https://pubmlst.org/)
+- [EnteroBase Tutorials](https://enterobase.readthedocs.io/en/latest/enterobase-tutorials/deeper-lineages.html)
+
+## Software
+
+- **EnteroBase Toolkit and Background Software:**  
+  Explore the toolkit on [GitHub](https://github.com/zheminzhou/EToKi)
+
+## Errata
+
+A note from Nabil: Jay Hinton’s *Salmonella* is a ST313 (D23580), not ST131. I always mix the numbers up!
+
+## Extra notes
+
+- **Enterobase** was created to integrate ideas from existing tools:
+  - **XBase**: A comparative genomic website for analyzing complete bacterial genomes.
+  - **MLST Database**: Curated for various genera like *Escherichia* and *Salmonella*, originally run at University College Cork and then at University of Warwick.
+- The goal was to provide a user-friendly web interface for analyzing enteric pathogens and *Moraxella catarrhalis* (a respiratory pathogen) using web-based tools.
+
+### Key Features of Enterobase
+- **Data Integration**: Combines genome comparison and population structure analysis, moving beyond the limitations of previous databases.
+- **Legacy Data**: Incorporates and maintains older data from previous MLST efforts.
+- **Redesign and Scalability**: Developed from scratch using Python and Flask, with a PostgreSQL database to allow for scalable, efficient processing and searching of genomic data.
+
+### Workflow and Data Processing
+- Regularly fetches new sequencing data from the **Sequence Read Archive (SRA)** for quality control, assembly, annotation, and genotyping.
+- Utilizes automated and manual data curation to improve metadata quality, making datasets more systematic and consistent for users.
+
+### User Experience and Applications
+- Enterobase provides valuable tools for researchers to find related genomic data (e.g., CGMLST) and explore similarities among various samples, enhancing data analysis opportunities.
+- Emphasis on the importance of understanding sample biases when analyzing data from public repositories, especially given the prevalence of clinical isolates.
+
+### MLST and Salmonella Genomics
+- Discussed the development of the Salmonella MLST scheme based on curated genomic data, highlighting the importance of thorough annotation to ensure accuracy.
+- The team aimed for a comprehensive pan-genome panel, revisiting and refining gene selections as more data became available.
+
+[Episode 45 transcript](/microbinfie-transcripts/episode-45.txt)

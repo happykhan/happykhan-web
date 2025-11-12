@@ -4,7 +4,8 @@
   "version": "0.1.0",
   "scripts": {
     "dev": "node scripts/copy-assets.mjs && next dev",
-    "build": "node scripts/move-static-to-public.mjs && node scripts/copy-assets.mjs && node scripts/gen-rss.mjs && node scripts/gen-rss-microbinfie.mjs && node scripts/gen-sitemap.mjs && next build",
+    "build": "node scripts/move-static-to-public.mjs && node scripts/copy-assets.mjs && node scripts/sync-microbinfie.mjs && node scripts/gen-rss.mjs && node scripts/gen-rss-microbinfie.mjs && node scripts/gen-sitemap.mjs && next build",
+    "sync-podcast": "node scripts/sync-microbinfie.mjs",
     "start": "next start",
     "lint": "next lint"
   },
@@ -25,7 +26,8 @@
     "remark-gfm": "^4.0.0",
     "remark-rehype": "^11.1.0",
     "sharp": "^0.34.5",
-    "unist-util-visit": "^5.0.0"
+    "unist-util-visit": "^5.0.0",
+    "xml2js": "^0.6.2"
   },
   "devDependencies": {
     "eslint": "^8.57.0",

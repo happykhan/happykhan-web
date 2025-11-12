@@ -6,6 +6,13 @@
   <description>Personal website of Nabil-Fareed Alikhan. Bioinformatician. Microbial genomics.</description>
   <atom:link href="https://happykhan.com/rss.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Practical: Read Classification with Kraken2</title>
+    <link>https://happykhan.com/posts/qc-read-classification</link>
+    <guid isPermaLink="true">https://happykhan.com/posts/qc-read-classification</guid>
+    <pubDate>Mon, 11 Nov 2024 00:00:00 GMT</pubDate>
+    <description>One of the things to help us understand what&apos;s in our data is to classify the reads using Kraken2. We can use Kraken2 to classify reads against a database of known sequences. This is a quick way to get an idea of what is in our data. We can then visualise the results in another tools like Krona or Pavian.</description>
+  </item>
+  <item>
     <title>Five lazy tips for grant writing</title>
     <link>https://happykhan.com/posts/five-lazy-grant-tips</link>
     <guid isPermaLink="true">https://happykhan.com/posts/five-lazy-grant-tips</guid>
