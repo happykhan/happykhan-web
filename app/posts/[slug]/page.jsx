@@ -11,6 +11,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { slug } = await params
   const { frontmatter } = await readPost(slug)
+  const siteUrl = 'https://happykhan.com'
+  const postUrl = `${siteUrl}/posts/${slug}`
+  const bannerSrc = frontmatter.bannerImage?.replace(/^\.\//, `/posts/${slug}/`)
   return {
     title: frontmatter.title || slug,
     description: frontmatter.description || frontmatter.excerpt || 'Post.',
