@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { SoundCloudIcon, DownloadIcon } from './PodcastPlatformIcons'
 
@@ -32,10 +33,34 @@ function renderMarkdown(text) {
   const EPISODES_PER_PAGE = 10
 
 export default function MicrobinfieFilter({ episodes }) {
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedTag, setSelectedTag] = useState(null)
   const [currentPage, setCurrentPage] = useState(1)
   const [showTags, setShowTags] = useState(false)
+
+  // Initialize from URL params on mount
+  useEffect(() => {
+    const urlSearch = searchParams.get('search')
+    const urlTag = searchParams.get('tag')
+    
+    if (urlSearch) setSearchTerm(urlSearch)
+    if (urlTag) setSelectedTag(urlTag)
+  }, [searchParams])
+
+  // Update URL when search or tag changes
+  useEffect(() => {
+    const params = new URLSearchParams()
+    if (searchTerm) params.set('search', searchTerm)
+    if (selectedTag) params.set('tag', selectedTag)
+    
+    const queryString = params.toString()
+    const newUrl = queryString ? `?${queryString}` : '/microbinfie'
+    
+    router.replace(newUrl, { scroll: false })
+  }, [searchTerm, selectedTag, router])
 
   // Extract all unique tags
   const allTags = useMemo(() => {
@@ -55,9 +80,12 @@ export default function MicrobinfieFilter({ episodes }) {
   // Filter episodes by search term and selected tag
   const filteredEpisodes = useMemo(() => {
     return episodes.filter(episode => {
+      const searchLower = searchTerm.toLowerCase()
       const matchesSearch = !searchTerm || 
-        episode.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        episode.subtitle?.toLowerCase().includes(searchTerm.toLowerCase())
+        episode.title?.toLowerCase().includes(searchLower) ||
+        episode.subtitle?.toLowerCase().includes(searchLower) ||
+        episode.excerpt?.toLowerCase().includes(searchLower) ||
+        (episode.tags && episode.tags.some(tag => tag.toLowerCase().includes(searchLower)))
       
       const matchesTag = !selectedTag || 
         (episode.tags && episode.tags.some(tag => tag.toLowerCase() === selectedTag.toLowerCase()))
