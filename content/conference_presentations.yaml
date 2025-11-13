@@ -106,13 +106,3 @@ organised_meetings:
   - title: 8th Microbial Bioinformatics Hackathon
     location: Bath, UK
     date: 2022-09-11
-attendance:
-  - title: European Nucleotide Archive Hackathon
-    location: Hinxton, UK
-    date: 2019-06-10
-  - title: Microbial Genomics Workshop
-    location: Cambridge, UK
-    date: 2018-05-15
-  - title: Nextflow Summit
-    location: Barcelona, Spain
-    date: 2023-10-05
