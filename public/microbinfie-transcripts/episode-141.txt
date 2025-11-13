@@ -1,0 +1,141 @@
+----- chunk 1 start @ 00:00:00 -----
+
+[00:00:00] [Speaker A]: Welcome to the Microbean Food Podcast. I'm your host Andrew Page and I'm joined by Lee Katz, my other co-host on the Microbean Food Podcast, and Finley Maguire and Torsten Siemann. We are here at the 10th microbial bioinformatics hackathon in Bethesda, Maryland, and we just thought we'd get together and have a little panel discussion on... what tools and resources and things that we're missing within the fields over the next few years and what should we be working on what where should we be directing things to so I'm going to bounce this over to Lee and ask Lee you know what kind of allele colours do we need over the next few years
+
+[00:00:34] [Speaker B]: Oof, yeah. So I was just introduced to this topic 30 seconds ago. Let's see. We did talk about the MLST hashing idea a few episodes back. And that's really on my mind right now. I think we're going to get a new MLST caller very soon with PulseNet, PulseNet International.
+
+[00:00:54] [Speaker A]: Do you mean CGMLST?
+
+[00:00:56] [Speaker B]: Yes.
+
+[00:00:56] [Speaker A]: Not 7GMLST?
+
+[00:00:58] [Speaker B]: 7GMLST, no, that problem has been solved already.
+
+[00:01:02] [Speaker A]: Is it backward compatible? Can you still do regular MLST with this new allele caller?
+
+[00:01:07] [Speaker B]: Yeah, it actually does report that. And... The actual caller does report the seven genes if you give it, and I think it does it very well. What's really funny is I looked under the hood for the whole pipeline and they decided to go with your MOS T caller for seven gene for the complete caller.
+
+[00:01:26] [Speaker A]: Why?
+
+[00:01:28] [Speaker B]: Because at one point in the whole pipeline, we're talking about two different things. There's a PulseNet 2.0 multi-module like everything serotyping. blah blah blah everything for public health and then there's also a core module for for our cgm ost at one point there's a module also for 7g mst and they went with your color
+
+[00:01:51] [Speaker A]: Interesting. So when you say there's a generic caller, is that like a generic sort of applicant finder or gene finder or so you can use it for all sorts of things like in silico serotyping? Is that what I'm understanding?
+
+[00:02:05] [Speaker B]: There is another module for things like zero typing. Yeah. FalseNet 2.0 can do everything. It's amazing. And it's built on X plus. It can bring in a new module as needed. But the certain modules are not generalizable as far as I know right now. Anyway.
+
+[00:02:22] [Speaker A]: Okay, Torsten. Yeah, I guess what I'm seeing the gaps are in nanopore is more and more people are taking up nanopore, you know, the lumen has kind of been the basis of most public health and clinical micro, but nanopore is now finally getting inroads and in a lot of developing or LMICs who are now taking on genomics, they're starting with nanopore and the tooling I feel for nanopore is not as mature as it is for Illumina, you know, it's not clear which is the.
+
+[00:02:51] [Speaker C]: which is the best variant call it's not clear what's the best you know protocol for assembly and what the caveats are of it you know results out of fly are good flies are commonly used metaphor assembly but it you know has quirks it often duplicates you know single copy regions for no for not clear reason so we haven't ironed all the wrinkles out of metaphor assembly and metaphor variant calling yet and the evolving chemistry of nanopore I think makes that even trickier because once you kind of have a model of something it's hard to and it changes like you don't always have the same error profiles so aluminium has been pretty consistent in its sort of error profile and behaviour over all these years but men of course not.
+
+[00:03:31] [Speaker A]: I guess people don't even have guidance on how they should place code because On so many occasions I've gotten data out of our house and I just basically thought oh we just used the Rapid because you know it was the quickest way to get data and I'm like well that might be why you have 50 contracts instead of one.
+
+[00:03:47] [Speaker C]: So does the router as I understand the rapid caller is done kind of in real time on the instrument but if you do it offline with a GPU you'll get better results
+
+[00:03:56] [Speaker A]: Yeah, there's much more higher, there are super high accurate methods but they require vastly more computation power and so you need the GPUs without a RAM, so more specialist GPUs that you wouldn't necessarily get on a small device like the M1K. yes so they have terrible names and that's why you need like you know your computer gaming laptop or your you know probably tower with your 4090 or whatever the best graphic card is these days and yeah so that gives you much better results than the rapid which
+
+[00:04:32] [Speaker C]: So
+
+[00:04:32] [Speaker A]: is cheap
+
+[00:04:32] [Speaker C]: it's your belief that the results are that much better and you do often basically
+
+[00:04:36] [Speaker A]: absolutely
+
+[00:04:36] [Speaker C]: because I think that's a critical thing that the community needs to realize
+
+[00:04:40] [Speaker A]: yeah it's like the difference between say 92 accuracy and see a 99% accuracy you know like it is vast when you look at the actual data
+
+[00:04:48] [Speaker B]: Yeah.
+
+[00:04:49] [Speaker C]: And one thing I would say talking about the workflows is while I think the, you know, work epitome, epi to me, and the kind of inbuilt workflows that they kind of provide are great and they're a lot better than the Illumina options. They're often designed around computational efficiency and getting quick results. And like even just like benchmarking different flu like analysis workflows, they're one versus like other ones like it's quick, it gets you. you know quick rough results but it's not actually always the most accurate potential pipeline so depending on what you're trying to do those inbuilt pipelines are often not a great choice but with the with you know talking about linking these two conversations you know as we've got these long read technologies and we're starting to do that and we're seeing you know we're able to actually result more and more structural variation in genomes hopefully get more complete genomes are we going to be starting using structural variants in our mlst schemes schemes and some of those column schemes. Hell yeah. I so I wrote a toolkit with SockCrew, which d uh which provides a lovely beautiful type scheme for fully complete genomes that have been circularized. So you know which major blocks are in which order within a chromosome and between the representable operons and then a nice naming scheme and then a nice kind of format for kind of structuring this so you can compare things. So
+
+[00:06:08] [Speaker A]: There is so much more we can get out of genomes, even the existing genomes we have. It's just about wading through the tools to make sure we can extract that and then you know doing some clever analysis.
+
+[00:06:17] [Speaker C]: Well, that goes back to this idea of why don't we have closed genomes now as a standard? unit of currency in our field you know i went to the first nanofield conference all those years ago and was i thought you know in a few years we'll just be having closed genomes that we won't be dealing with fast q files anymore we'll be you know we'll be aligning genomes to each other instead of aligning reads to references but that has not happened yet i think we're close ryan wick as many of you know who wrote unicycler and these tools has been a lot in the nanopore assembly community Hey, he says we're really there nearly there like the current nanopore chemistry getting us near perfect genes but still not quite there like people call it perfect but if there's still 10 errors in there to me and they're not substitution errors they're indel errors and to me that's still a fail for a lot of tasks sure it works fine for something but for something other things we don't want 10 frame shifted genes it's going to cause problems with hand genomes and these sorts of things so does anyone else here have an opinion on when we're going to get to that point where we just deal with closed genomes I mean, there are, you know, there are tools that are increasingly being developed for complete subgenomic elements, such as like, you know, Xamenic-Biles new cling tool, right? That even looking at the structural variation, double cut, join, indel, double cut joint distances between plasmids is a better way of typing plasmids. We're starting to design tools that are assuming completeness. I think one of the challenges, though, is it still requires like quite a lot of manual sort of investigation and validation of your genomic result. And I don't know how easily that's going to be automatable.
+
+[00:07:59] [Speaker D]: with you know anything other than you know here's another staff genome is the same as the last 50 staff genomes we sequenced in in our single hospital right when you have that level of comparison you can build good internal references and compare to that i think that's one way you can try and improve that one thing we're trying to do in the hospital lab is yeah build our own local reference complete genomes that we've manually validated and using that as a comparator to try and evaluate whether you know anything's gone wrong in our sequencing but that requires like it requires like a lot of nuance and a lot of manual analysis like tricycler talking about ryan witt you know it's a really nice tool but you know as is highlighted like it is a manual tool that requires judgment judgment to be made That is a barrier to like high throughput use of these microbial bioinformatics in clinical and public health workflows.
+
+[00:08:50] [Speaker B]: I think the bottom line right now is like for us to have high throughput right now, I think we still are on Illumina and we have we have the instruments across the public health labs and a few of them are getting more and more expert at running Nanopore. That's great but I think that the real automation right now is with Illumina and that's why we haven't really gotten there yet.
+
+[00:09:09] [Speaker D]: So the American government is pro the American company. Good to know.
+
+[00:09:13] [Speaker B]: Well, sure, yeah.
+
+[00:09:14] [Speaker A]: I just forget that aluminum came from Selecta from Cambridge, which is in the United Kingdom, 10 minutes from me.
+
+[00:09:20] [Speaker D]: And is where base we're now.
+
+[00:09:22] [Speaker A]: yeah whatever
+
+[00:09:24] [Speaker B]: Yeah, and Oxford Nano, they're still working even now on the base color to get more and more and more perfect. I think it is an achievable goal, but it's taking a while they work still.
+
+[00:09:38] [Speaker C]: Yeah, so there's an interesting paper Michael Hall, a colleague of ours in Melbourne, he has just on bioarchive and just published his eLife yesterday I think is a nanopore benchmarking for variant calling where he's taken all a wide variety of nanopore data and different bacteria and benchmark variant callings like the machine learning methods of nanopore provide clear three along with free bays and all sorts of different systems so that paper actually says that the nanopore machine learning models do the best for variant calling which was a bit frustrating to me because I wanted to try and keep machine learning those sorts of things out of the process because they need to adapt all the time but with the new chemistry but yeah that's something people might be interested in reading.
+
+[00:10:22] [Speaker B]: That is surprising. I didn't know that part of the paper. Wow.
+
+[00:10:26] [Speaker D]: So I mean, it does become a little bit of matter semantics like the Bayesian model and free base like some people would pack if that was written today, it would well be packaged as a machine learning approach.
+
+[00:10:36] [Speaker A]: Yes, absolutely.
+
+[00:10:38] [Speaker D]: So...
+
+[00:10:39] [Speaker C]: But that's a whole nother episode.
+
+[00:10:43] [Speaker A]: Okay, so we need lots more nanopore tools. Is there any other nanopore tools people think that we need? Oh, grant.
+
+[00:10:48] [Speaker B]: That's it, I guess. Well, at some point, I mean, I guess we start looking at epigenomics, but I don't know when that is yet. I don't think that we know what benefit that will give us yet totally.
+
+[00:11:03] [Speaker C]: um you mean like methylation and
+
+[00:11:05] [Speaker B]: Yes, but
+
+[00:11:05] [Speaker C]: these sort of things
+
+[00:11:06] [Speaker B]: I think it will give us a benefit when we start looking at it more.
+
+[00:11:10] [Speaker D]: a big concern is you know talking about things like part three it even is like benchmarking things is like you know we're going to have things that work really well on the really well characterized bacteria right we're talking escape and enterics we're going to be great But we sequence a lot of weird bacteria. In fact, a lot of the things we sequence, we sequence because it is a weird infection, because it is a weird case. And then you're getting increasingly in a very unpredictable performance space with some of these approaches.
+
+[00:11:37] [Speaker C]: The reason we're interested in that effort is profound AI. So Candida aureus is many known as become a worldwide problem but you know there's many other fungi Candida candida candida cloratus and other things of clinical importance and nanopore doesn't cut it sorry Illumina doesn't cut it for assembly you need long reads not only because they could be deployed or whatever but also because some of the AMR is not a single not related to a single gene it's related to multiple copies of a single gene or tandem copies of a single gene. because it's a linear type dose effect so unless we can measure those repeats properly and the length of those tandems then we can't actually further phenotype okay
+
+[00:12:21] [Speaker B]: I'll frustrate you with one more idea, frustrate you by extending the episode more. Like what about putting in the context of wastewater too because public health labs are getting more and more into that and we have sort of a phasing problem like find an AMR gene in the wastewater. Is
+
+[00:12:35] [Speaker D]: like
+
+[00:12:35] [Speaker B]: it actually part of something important?
+
+[00:12:37] [Speaker A]: But isn't waste water, you know, it's all broken up to teeny tiny little chunks and you
+
+[00:12:41] [Speaker D]: i mean it varies how broken up it is but yeah that's the fundamental limitation is like it doesn't you can't phase something that is a tiny fragment of a plasma so
+
+[00:12:50] [Speaker B]: Yeah.
+
+[00:12:50] [Speaker D]: it becomes challenging to do meaningful response to some especially like for like you know a single a bar gene you know if you're going oh there's polio yeah we can track that back we can try and break that out great but like single mRNA gene level information that's that's more just like general surveillance level I think useful
+
+[00:13:08] [Speaker A]: But then wasn't there a paper a few years ago about vancomycin? They looked at in wastewater at vancomycin and distance from hospital and there's a very clear correlation between you know closer you are to the hospital there's more vancomycin you have in the sewage which is disturbing.
+
+[00:13:24] [Speaker D]: but you're talking about the fun guy again you know Canada borderline well characterized with good tools and workflows that exist for people at the CDC whereas like you know we're trying to sequence oh there were some weird there's some weird sort of demetaceous mold infections and he's like there's like one genome that may be related very distantly in the database so you're kind of flying blind and like you don't like I like there's very hard to tell whether you know I'm getting completely off off off target results and misassemblies isn't my guarantee i am i
+
+[00:13:57] [Speaker A]: Is that a pathogen though or is it a commensal which just happens to infect us and is immune compromised somehow?
+
+[00:14:02] [Speaker D]: mean it becomes a blurry line yeah these are largely an immunocompromised patients but again in hospital labs these are often the weird infection we're trying to characterize
+
+[00:14:15] [Speaker A]: You could put your name on something new, you know?
+
+[00:14:18] [Speaker D]: I thought they, I thought they discouraged that now.
+
+[00:14:20] [Speaker A]: Someone else can put your name on. I think there is a new bacteria called Nick Loman eye. Thanks Mark.
+
+[00:14:27] [Speaker D]: Was it sequenced on a minion?
+
+[00:14:29] [Speaker C]: Bitcoin that?
+
+[00:14:30] [Speaker A]: Mark Allen.
+
+[00:14:32] [Speaker B]: Oh my.
+
+[00:14:32] [Speaker D]: Oh, well we know we'll follow the lab rules then.
+
+[00:14:35] [Speaker A]: Okay, I think we've gotten way off topic here and now we're at the end of the episode so thank you so much to Thorsten and Finn for coming along and having a chat today.
+
+[00:14:49] [Speaker B]: Thank you so much for listening to our podcast. If you like this podcast, please subscribe and rate us on iTunes, Spotify, SoundCloud, or the platform of your choice. Follow us on Twitter at Microbinfi. This podcast was recorded by the Microbial Bioinformatics Group. The opinions expressed here are our own and do not necessarily reflect the views of CDC, Theagen, or the Center for Genomic Pathogen Surveillance.

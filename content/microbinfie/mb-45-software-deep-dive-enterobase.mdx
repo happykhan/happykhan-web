@@ -12,11 +12,13 @@ image: https://i1.sndcdn.com/artworks-hDzuZa9pRT5j9Lu2-hW4fUw-t3000x3000.png
 link: https://soundcloud.com/microbinfie/software-deep-dive-enterobase
 subtitle: We chat with Nabil about EnteroBase, and learn ab…
 tags:
-- microbinfie
-- podcast
+- software-tools
+- mlst
 title: 'Episode 45: Software deep dive: Enterobase'
 transcript: /microbinfie-transcripts/episode-45.txt
 ---
+
+The microbinfie podcast explores the development of EnteroBase, an innovative bioinformatics platform for integrating bacterial genomic data and population structure analysis across multiple genera.
 
 We had a chat with Nabil about EnteroBase, delving into the background of the project, the general benefits of the platform, and some of the peculiar quirks users might encounter. EnteroBase is an integrated software environment designed to support the identification of global population structures within several bacterial genera, including *pathogens*.
 
@@ -76,4 +78,24 @@ A note from Nabil: Jay Hinton’s *Salmonella* is a ST313 (D23580), not ST131. I
 - Discussed the development of the Salmonella MLST scheme based on curated genomic data, highlighting the importance of thorough annotation to ensure accuracy.
 - The team aimed for a comprehensive pan-genome panel, revisiting and refining gene selections as more data became available.
 
-[Episode 45 transcript](/microbinfie-transcripts/episode-45.txt)
+### Key Points
+
+#### 1. Origins and Design of EnteroBase
+- Integrated project combining XBase comparative genomics and MLST databases
+- Developed from scratch using Python, Flask, and PostgreSQL
+- Goal was to create a user-friendly web interface for analyzing enteric pathogens
+
+#### 2. Data Processing and Curation
+- Automated retrieval of sequencing data from Sequence Read Archive (SRA)
+- Comprehensive data processing including quality control, assembly, and annotation
+- Extensive metadata curation to improve dataset consistency and usability
+
+#### 3. Genomic Analysis Capabilities
+- Developed comprehensive pan-genome panels for bacterial species like Salmonella
+- Provides advanced search and comparison tools for genomic data
+- Addresses limitations of previous manual sequencing and typing methods
+
+### Take-Home Messages
+- EnteroBase represents a significant advancement in bacterial genomics data integration
+- Careful curation is crucial for meaningful genomic data analysis
+- Public databases have inherent sampling biases that researchers must consider

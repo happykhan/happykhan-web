@@ -1,0 +1,253 @@
+----- chunk 1 start @ 00:00:00 -----
+
+[00:00:00] [Speaker A]: Welcome to the Microbia podcast. I'm your host Andrew Page and I'm here at the 10th Microbiome Informatics Hackathon in Bethesda, Maryland and I have Brooke here with me. Do you want to introduce yourself?
+
+[00:00:11] [Speaker B]: Yeah, I am Brooke Talbott and I am from Emory University in Atlanta, Georgia.
+
+[00:00:19] [Speaker A]: Right. So Brooke, you've just completed your PhD. Congratulations.
+
+[00:00:22] [Speaker B]: Thank you.
+
+[00:00:22] [Speaker A]: Was it a good experience?
+
+[00:00:24] [Speaker B]: Yes, yes, it was a good experience.
+
+[00:00:26] [Speaker A]: And who did you do your PhD with?
+
+[00:00:27] [Speaker B]: So I worked with Dr. Tim Reed down in Atlanta.
+
+[00:00:31] [Speaker A]: Okay. So what you work on?
+
+[00:00:33] [Speaker B]: So I work primarily on the molecular epidemiology of bacterial infections. And so in our lab, our main focus is on Staphylococcus aureus, which is a a bacterium that also can be drug resistant. So I focused on the different strains that can confer methicillin resistance. So they're commonly known as MRSA, MRSA.
+
+[00:00:59] [Speaker A]: Yeah, okay and in the US is a US 300 is
+
+[00:01:04] [Speaker B]: Yeah,
+
+[00:01:05] [Speaker A]: that what you
+
+[00:01:05] [Speaker B]: USA
+
+[00:01:05] [Speaker A]: said
+
+[00:01:05] [Speaker B]: 300 is a very common lineage here in the US that started expanding, I believe in the 90s. I got that right. I got through my PhD
+
+[00:01:15] [Speaker A]: Oh
+
+[00:01:16] [Speaker B]: knowing
+
+[00:01:16] [Speaker A]: yeah,
+
+[00:01:16] [Speaker B]: that
+
+[00:01:16] [Speaker A]: God.
+
+[00:01:16] [Speaker B]: much. So yeah, that is one that expanded with introduction and common usage of antibiotics in the U.S.
+
+[00:01:31] [Speaker A]: Which antibiotics?
+
+[00:01:32] [Speaker B]: Oh, yeah,
+
+[00:01:33] [Speaker A]: Sorry, I know.
+
+[00:01:34] [Speaker B]: I'll
+
+[00:01:34] [Speaker A]: Yeah,
+
+[00:01:34] [Speaker B]: admit that's
+
+[00:01:34] [Speaker A]: you're
+
+[00:01:34] [Speaker B]: a little
+
+[00:01:34] [Speaker A]: vibing.
+
+[00:01:34] [Speaker B]: beyond the... Well, methazone for one
+
+[00:01:40] [Speaker A]: Yeah,
+
+[00:01:40] [Speaker B]: was cheaper,
+
+[00:01:40] [Speaker A]: yeah, very
+
+[00:01:41] [Speaker B]: yeah.
+
+[00:01:41] [Speaker A]: good. And so in the UK actually we have a different strain that is dominant and it's EMRSA 15.
+
+[00:01:47] [Speaker B]: Oh yeah,
+
+[00:01:47] [Speaker A]: Obviously
+
+[00:01:48] [Speaker B]: that's right.
+
+[00:01:48] [Speaker A]: we call it slightly different names, but they are actually different lineages. And but then there is an emergence of the USA 300 obviously because it competes. But anyway, that's an aside,
+
+[00:01:58] [Speaker B]: Yeah,
+
+[00:01:58] [Speaker A]: right? So
+
+[00:01:59] [Speaker B]: yeah.
+
+[00:01:59] [Speaker A]: do you have any problems with VSR rank and myosin resistance, is that for you?
+
+[00:02:05] [Speaker B]: Yeah, it definitely is here in the U.S. for sure. It comes up, it kind of comes up in a couple different ways. We definitely track it through, it can either be conferred horizontally or it can emerge as a de novo mutation as well.
+
+[00:02:23] [Speaker A]: So I've done a little bit of work on sephorius recently and it's horrifying when you start looking at the antibiograms, you know, and it's just resistant, resistant, resistant. And so how far away are we from just all keeling over from staff?
+
+[00:02:37] [Speaker B]: Oh my gosh.
+
+[00:02:38] [Speaker A]: That's untreatable.
+
+[00:02:40] [Speaker B]: I mean... In my limited professional opinion, I don't know that we're all necessarily ready to keel over. So there is some, but I think that it's like, I think that it's a very It's right antibiotic resistance is being described as sort of this like silent epidemic and when we're not paying attention to it we end up with stewardship programs that either aren't working very well in a hospital setting or we maybe don't or we have things like that are intermediately resistant or that we're not capturing all of that and so when we're not paying attention to what is potentially not just spreading in the initial culture but what might be evolving on a host that's when a patient might be ultimately developing like a completely new resistant bacterium because even though they might be MRSA and then they're treated with something else and they can be treated with something else like vancomycin so just like you mentioned with VRSA or well vancomycin there's vancomycin resistant staph aureus as well But you can also have this bacteria, right, that lives on your body and it might be persistent and so a patient might get treated with some other drug and then it can come back recurrently and you can detect that it's now resistant to the drug that was originally treated with. And that just happened on the host and not that it didn't necessarily spread, but it just happened because he didn't get rid of it the first time around.
+
+[00:04:19] [Speaker A]: That is actually super interesting.
+
+[00:04:21] [Speaker B]: It is,
+
+[00:04:22] [Speaker A]: Yeah,
+
+[00:04:22] [Speaker B]: yeah.
+
+[00:04:22] [Speaker A]: that you can detect that. So when you do cities, you have to do like multiple body sites then?
+
+[00:04:27] [Speaker B]: Yeah, so you can do that. That's one way to do it. One study that I did and that I've been working on has been looking at the recurrence of bloodstream infections that are caused by MRSA. and that is just coming from one type of tissue source that's just coming from blood but
+
+[00:04:45] [Speaker A]: Yeah.
+
+[00:04:46] [Speaker B]: when we use a genomic approach so we start to actually compare the isolates over time for patients that come in we can actually pinpoint which ones seem to be the most clonally related and that they aren't just coming from a bunch of different sources but all from all over the hospital or that they're completely new infections we actually can look and see that two isolates from two different time points that all came from the same patient are very very closely related so only a few genetic distances apart I
+
+[00:05:17] [Speaker A]: Yeah.
+
+[00:05:17] [Speaker B]: do it by I do it with single nucleotide polymorphism counting or SNPs but you can actually see like oh these are very close like whatever happened to you this these are this is there's got to be a reason why this person you know why these two occurred they're probably probably from the same source population of bacteria yeah
+
+[00:05:36] [Speaker A]: So do you think it lived on the person or do you think they were infected by someone close to them maybe?
+
+[00:05:42] [Speaker B]: I think that's an important question to test some ways that I have seen it change in my or some reasons why I think and I have a stronger hypothesis that it might be more closely host associated are looking at where those changes in the in the genome are so what is the specific SNP And a lot of ones that I have seen in my research occur in, will occur in a sequential isolate down the road. It'll be in a particular antibiotic resistance associated gene and that same version of that mutation keeps coming up clonally and it's related to antibiotic resistance. So it's possible that they are getting infected by a close host, but if Your housemate isn't getting treated with antibiotics Maybe you can start to ask the question. Is it biologically plausible that that strain is coming from a completely other person or is it just staying on a person?
+
+[00:06:44] [Speaker A]: Or could it be that when he's 12 and then he grows on a place, you just happen to pick a different colony with, you know, from the population?
+
+[00:06:53] [Speaker B]: Yeah, that's a really interesting question, too. I don't want to speak too much about this,
+
+[00:06:58] [Speaker A]: Yeah,
+
+[00:06:58] [Speaker B]: but
+
+[00:06:58] [Speaker A]: please do. you
+
+[00:06:59] [Speaker B]: But I'll try. Yeah, I know. Is this Tim if you're listening? So yeah, I think that there can be there can be diversity within your colony picking. And there is some cool work out there that can show just how much you know, if you can pick enough colonies on a plate doesn't actually take too too many but You know, there's some good, I think, clinical practice where you can, it probably makes sense to do more than just look at one colony at a time, like try to look at maybe a bunch, see what the diversity set is there, get your sense of how, especially for staff too, it can definitely one isolate. from a patient can actually be really different from another isolate on the same patient that's just sampled a million types
+
+[00:07:48] [Speaker A]: yeah i guess theoretically but then people go oh well for financial reasons we're only going to do one isolate per patient you know yeah
+
+[00:07:55] [Speaker B]: yeah yeah that's a good point too people can be restricted I think that comes you know if I had a perfect world I'd say try to do as much sampling as you can but you know
+
+[00:08:07] [Speaker A]: okay so um with sephorius how do you define multi-drug resistance like like how many drugs does it have to be resistant to go
+
+[00:08:14] [Speaker B]: Hmm. I more than one.
+
+[00:08:19] [Speaker A]: okay um
+
+[00:08:20] [Speaker B]: I don't know that I have a particular clinical definition of it, but oh,
+
+[00:08:25] [Speaker A]: okay i guess sorry i've been looking just for for reasons and um
+
+[00:08:29] [Speaker B]: yeah.
+
+[00:08:29] [Speaker A]: So I'm just trying to pump you for information,
+
+[00:08:31] [Speaker B]: Sure.
+
+[00:08:31] [Speaker A]: you know, to make my job easier. So in the UK, we have a national health system. And so there's one organization called NICE, which set guidelines for how you treat each disease. And so say for step four, you might say, okay, this is the frontline drug, the first line, second line, third line. But in the US you have quite a different hospital system where it's more private and it seems to be that there's different types of coordination in that respect, as in there's no coordination.
+
+[00:09:02] [Speaker B]: Sadly.
+
+[00:09:03] [Speaker A]: Yeah. So I'm just wondering, yeah, I was just wondering, did that cause more problems? Clearly it doesn't. But have you seen XDR, Extensively Drug Resistant stuff?
+
+[00:09:18] [Speaker B]: I can't say that I have experienced it in sample sets that I've worked with. I wonder if we have seen it emerge. I can't say that I have, but I mean, I'm not going to say that it's not out there because Steph is a bad bug.
+
+[00:09:37] [Speaker A]: stuff is a bad book lots of people unfortunately get it okay uh so what else have you worked on bar stuff or has your entire life just been Yeah, that's tough.
+
+[00:09:47] [Speaker B]: No, I did. So as far as my PhD work, I've actually done a little bit with metagenomics and looking for antibiotic resistance genes. I came from public health. sphere before this as well looking at foodborne outbreaks yeah
+
+[00:10:03] [Speaker A]: Oh, awesome.
+
+[00:10:04] [Speaker B]: so
+
+[00:10:05] [Speaker A]: Yeah. And so what's your original background?
+
+[00:10:08] [Speaker B]: I studied biology when I was an undergraduate and I actually started in I started in the world of population biology by studying honeybees
+
+[00:10:20] [Speaker A]: Wow,
+
+[00:10:20] [Speaker B]: Yeah.
+
+[00:10:20] [Speaker A]: so botulism and there's a lot.
+
+[00:10:22] [Speaker B]: You know, that's actually a really interesting thought. So not specifically with the microbes that are even related to human health, but with microbes that are related to honeybee health was where I started. And I was thinking about a virus at the time. So in some ways I started in a viral world, but there are viruses out there that will be spread by mites. infect the honeybees and cause their wings to be deformed but how you detect that in a hive and how you sort of see its prevalence spread between hives and within hives was something that was really interesting to me when I was an undergraduate. And then I took it to public health at some point, but yeah,
+
+[00:11:04] [Speaker A]: Awesome.
+
+[00:11:05] [Speaker B]: but
+
+[00:11:06] [Speaker A]: I guess
+
+[00:11:07] [Speaker B]: then
+
+[00:11:07] [Speaker A]: more money
+
+[00:11:07] [Speaker B]: the bees,
+
+[00:11:07] [Speaker A]: in public health than
+
+[00:11:08] [Speaker B]: hmm?
+
+[00:11:08] [Speaker A]: in bees.
+
+[00:11:11] [Speaker B]: Well, yeah, maybe.
+
+[00:11:13] [Speaker A]: Very
+
+[00:11:13] [Speaker B]: These
+
+[00:11:13] [Speaker A]: good.
+
+[00:11:13] [Speaker B]: days, though, I
+
+[00:11:15] [Speaker A]: Yeah.
+
+[00:11:15] [Speaker B]: love
+
+[00:11:15] [Speaker A]: I
+
+[00:11:15] [Speaker B]: bees.
+
+[00:11:15] [Speaker A]: remember, sorry, I used to work in food safety as well.
+
+[00:11:18] [Speaker B]: Oh,
+
+[00:11:18] [Speaker A]: And
+
+[00:11:18] [Speaker B]: yeah.
+
+[00:11:19] [Speaker A]: so
+
+[00:11:19] [Speaker B]: Okay.
+
+[00:11:19] [Speaker A]: obviously botulism with honey and whatnot was always one of those things that people were interested in. Anyway, I digress. So you did. I did some virus work and then you did some public health work. What type of public health work did you do?
+
+[00:11:35] [Speaker B]: So I worked as a fellow with the Council of State and Territorial Epidemiologists, so I was working in this two-year fellowship. It's a great training opportunity for those that are interested in this kind of work and I went to New York City's Department of Health. And I was doing foodborne illness surveillance. And so that was a bunch of different bugs, but specifically I think my target was in Shigatoxin E. coli, and as well as salmonellas, where I actually really got first introduced to the idea of how you can use genomic epidemiology and put it into public health practice.
+
+[00:12:21] [Speaker A]: And then you get into bioinformatics and you're never going
+
+[00:12:23] [Speaker B]: to leave. Yeah,
+
+[00:12:23] [Speaker A]: So you'll
+
+[00:12:24] [Speaker B]: I guess.
+
+[00:12:24] [Speaker A]: never go back to the lab.
+
+[00:12:25] [Speaker B]: Yeah, yeah. Or I'll pick up a pipette. I mean, sometimes you just need a little bit of pipette action, but I definitely think that I've had a very thrilling and rewarding time just learning how to put together information and the data that we're getting and put it into action in a way that is serving. multiple different communities either at that individual local level or putting together larger studies for either the bioinformatics community to better understand how we can approach our questions or again to put it into place for the world of public health and epidemiology to make important decisions about what we can do with genomes in public health.
+
+[00:13:12] [Speaker A]: Well, congratulations on finishing your PhD and I wish you all the best in your future endeavors and I'm sure we'll see you, you know, with lots of papers in the future after many successful postdocs. Anyway, thank you very much for coming on the microbeam podcast.
+
+[00:13:26] [Speaker B]: Thanks for having me.

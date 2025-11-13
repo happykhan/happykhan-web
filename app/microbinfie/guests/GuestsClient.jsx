@@ -17,7 +17,7 @@ export default function GuestsClient({ guests }) {
           fontSize: '1.1rem',
           color: 'var(--color-text-secondary)',
         }}>
-          All guests who have appeared on the MicroBinFie podcast
+          All {guests.length} guests who have appeared on the MicroBinfie podcast
         </p>
       </div>
 

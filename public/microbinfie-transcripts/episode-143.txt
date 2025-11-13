@@ -1,0 +1,159 @@
+[Speaker A]: Hello, and thank you for listening to the Micro Binti Podcast. Here, we will be discussing topics in microbial bioinformatics. We hope that we can give you some insights, tips, and tricks along the way. There is so much information we all know from working on the field, but nobody really writes it down. There's no manual, and it's assumed you'll pick it up. We hope to fill in a few of these gaps. I am Dr. Lee Katz. My co-hosts are Dr. Nabil Ali Khan and Professor Andrew Page. Nabil is a Senior Bioinformatician at the Centre for Genomic Pathogen Surveillance at the University of Oxford. Andrew is the CTO at Origin Sciences and Visiting Professor at the University of East Anglia. So we decided to start a kind of different episode to just catch the world up on where we are today. You might have noticed in our intro that our affiliation or where we are has changed a couple of times and I don't know, we thought we'd clue you in a little bit. I don't know, does either of you want to volunteer to... To start off, say where, so like you guys were both at Quadrant, but you aren't there anymore, huh?
+
+[Speaker B]: I went to Thagen in America and now I'm at Origin Sciences doing cancer diagnostics, so not even microbes, but I do a bit of metagenomics in the gut and vagina, so I'm keeping my hand in there.
+
+[Speaker C]: Great choice of words, Andrew.
+
+[Speaker B]: Over to you, Nabil.
+
+[Speaker C]: Yeah, so I'll post quadrum. I've been at CGPS at University of Oxford, so that's David Oninson's group, the pathogen watch microreact lads, gang. So I've been with them now for like a year and a half now. It's been a while. So still there, still going.
+
+[Speaker A]: So we don't just say acronyms without defining it, Nabeel. What does it stand for?
+
+[Speaker C]: that's the center of genomic pathogen surveillance about
+
+[Speaker A]: Very cool. How long have you been there?
+
+[Speaker C]: 18 months i
+
+[Speaker A]: You're killing it over there.
+
+[Speaker C]: hope so i'm killing something uh
+
+[Speaker A]: So what's your favorite thing about that over there right now?
+
+[Speaker C]: it's i mean it's it's a great group of people to work with and it's always different always fun and now i'm obviously moved a bit so i'm in a different part of the uk it's nice
+
+[Speaker A]: Okay. So you went from Norwich, right, to, do you want to say where you are? Or is that too classified? All right. So you did to England.
+
+[Speaker C]: I've been to south of England yeah where
+
+[Speaker A]: All right.
+
+[Speaker C]: is the south where does the south and north end in this country I don't know no
+
+[Speaker A]: And do you get to work with Andrew anymore?
+
+[Speaker C]: we don't get to I mean we do sort of I mean I don't think I can say can I
+
+[Speaker B]: Well, we have crossed paths a few times recently, like in the genome campus where, you know, we've had collaborations and meetings, whatever, which is quite nice, you know, because it's just around the corner.
+
+[Speaker A]: What is the Genome Campus?
+
+[Speaker B]: Sanger.
+
+[Speaker A]: Oh, okay, okay.
+
+[Speaker C]: The Wellcome Trust Sanger Institute. You know, that
+
+[Speaker A]: Yeah.
+
+[Speaker C]: place Lee human
+
+[Speaker A]: I love that place.
+
+[Speaker C]: genome, you know
+
+[Speaker B]: It is literally on the road signs called the genome campus.
+
+[Speaker A]: I miss that. That's funny. Okay. All right. So what do you enjoy most about your job right now, Andrea?
+
+[Speaker B]: So the company I work in is doing diagnostic devices and they have this really simple device for collecting rectal mucus. Right. So sorry if I'm going to describe something very, very filthy. So collecting rectal mucus for colorectal cancer detection. So at the moment, if you go to your doctor with blood in your poo, they will send you for colonoscopy. So that's where you stick a camera up the bum. But you have to have like a bowel prep. So like really powerful. laxatives which just you know are pretty nasty and some people can't take them because they're a bit dangerous and then you have a camera shoved up your bum and you know sometimes you can perforate the bowel so and it's expensive to undertake because you need specialists to do it so that's what we want to avoid and so we've got this really neat device where you just put like a tampon applicator up the bum or something the size of a marker I've got a marker here on screen and a little balloon inflates at the end and it touches the wall of the rectum collects the mucus so that your body produces which is mostly human dna about you know maybe 20 30 microbial versus still which is mostly microbial and so because you got the human dna you can actually go and then check it for variants that maybe have caused cancer and so you can detect cancer without seeing it and this is like a screening tool so very cheap and quick test for kind of identifying if someone you know needs to go on to the next stage age because they spend in the UK more money looking for cancer in the gut than actually treating it you know so for every hundred people who are sent for colonoscopy only four will have cancer um which is quite a substantial figure and so if you can just get rid of you know like half those with a simple quick testing to be done in a doctor's surgery it saves everyone time and money and stress and of course then that goes on to be sequenced and you know we do all the standard kind of sequencey things as you do and it's a novel type of material as well a rectal mucus is not something that's on the top of everyone's radar but it's quite useful and I do a bit of microbiome stuff and that you know so you know is there an impact on what happened in the gut you know if someone is cancering yeah So in the answers, you can see it in the data, like it's fairly clear. And yeah, the idea is basically, and you can also see signals. So like the closer the cancer is to the actual collection device, the stronger the signal. Because, you know, if you think about it, you know, obviously your poo flows down through your body and at the other end and kind of brings some of that rectal mucus with it. So it's kind of a local circulatory system, a one way one. one and yeah you get signals great it all works and we have a similar device with alele health and that's for vaginal testing gynecological cancers and again it's kind of an internally inflated balloon and so you can do cervical endometrial and ovarian cancer detection without seeing them and again those are uncomfortable tests that hopefully people won't be subjected to and sequencing can help a little bit
+
+[Speaker A]: That's incredible. You're doing great. That's a great topic.
+
+[Speaker B]: Yeah, and it's all in a startup and a small SME and the idea is obviously to try and bring sequencing in. So like it means that I'm stuck in the world of clinical trial or clinical studies and, you know, regulatory quality frameworks and paperwork and, you know, lots of documentation for stuff we take for granted in academia. Yeah, you know, you have to write vast amounts of documentation, you know, when you're doing these kind of proper clinical studies. So it's a slightly different world in that regard, but it seems to be done in a nice manner, you know.
+
+[Speaker C]: Yeah, I mean the expectation is it's actually going to be used for something rather than us academics who are usually just pissing about.
+
+[Speaker A]: No, you're not. You're not pissing about, to use your phrase. But no. Everything is useful for something. I think that's incredible. And so is one of your things in the market or do you have a target date to see something?
+
+[Speaker B]: So we're currently doing our fourth clinical trial, so our clinical study. So, you know, you start small and you get bigger and bigger. And so that's a six and a half thousand person trial. And so within one area, because we have a National Health Service in the UK, within one area of England, if you get referred to buy your doctor to hospital for an urgent cancer screen, they are diverted to our clinic or a clinic we run and people get. people get the standard treatment but also offer it would you like to take part in our study and you know people obviously do and so that's how we collect samples and so it's this is you know an exact replica this is an exact exactly capturing what is happening in the community you know people obviously have some symptoms and we're checking for those there there is other like tests and I know that are available like ColorGuard fit tests and there's a whole range of things but basically those are just testing is there blood in your poo uh some of them are a little more fancier but more or less that's what they're testing and they have a horrific um sensitivity and they basically say we have to look at some data and it's like basically everyone has cancer yeah you got blood in your period yeah you got cancer and uh so they it leads to over diagnosis and actually what they've found is what deploying a lot of these screening tools or these kind of these tools you take at home um is actually a lot more people being referred but actually this is a number number of cancers being detected is stayed the same so it's placed a lot more pressure on clinics in hospitals and scarce resources when they don't need to so hopefully we can just kind of knock that down a notch and have a better way of actually screening population
+
+[Speaker A]: Incredible. So I'll let you edit that if you need to for any kind of.
+
+[Speaker B]: We've a paper coming out. So
+
+[Speaker A]: Oh,
+
+[Speaker B]: it's fine.
+
+[Speaker A]: okay. It's going to be backed up by science.
+
+[Speaker B]: Real science. We do science here.
+
+[Speaker A]: Very nice. So for me, on January 26, I moved jobs of 2025. And I think I'll put it like this. I have another favorite podcast I listen to called Five to Four. There are three co-hosts on that podcast. Two of them go by their first and last names. The other one goes by Peter. And Peter, and this is a lawyer-based podcast. They talk about the law. um they talk about the supreme court of the united states peter uh was a lawyer apparently working at an insurance agency and they finally found out where he worked and they fired him they figured out like where his podcast was from his job they fired him from that job and he would he wasn't talking about insurance companies he wasn't talking about anything like that but they just didn't want him working on a podcast and um he's sort of like my podcasting hero right now so i'm just gonna I'm sure he's doing really well because he's still podcasting. I still listen to it like every week whenever it comes out. But I'll just go by Lee on this podcast now. I'm still, I can say I'm still in the bioinformatics world. I'm still doing stuff in the United States. I still care about public health. And that's where I am. And if you do about five seconds of internet searching on me, you know exactly where I'm working anyway. So I don't really care to advertise it here. So that's just, that's where I am. I do this podcast after hours, not at work. Not using my resources at work. Bada bing, bada boom.
+
+[Speaker B]: Just good old Dr.
+
+[Speaker A]: Yes.
+
+[Speaker B]: Lee.
+
+[Speaker A]: I'll go by Dr. Lee too, yeah.
+
+[Speaker C]: Should we just make a Dr. L?
+
+[Speaker A]: Hmm.
+
+[Speaker C]: Dr. L,
+
+[Speaker A]: Do
+
+[Speaker C]: if
+
+[Speaker A]: you have you ever
+
+[Speaker C]: have any suggestions for a nickname for Lee, please let us know and add us on whatever. I mean, I can't even say Twitter anymore.
+
+[Speaker A]: No.
+
+[Speaker C]: Mastodon, please.
+
+[Speaker A]: Please
+
+[Speaker C]: I mean, I don't
+
+[Speaker A]: call
+
+[Speaker C]: know.
+
+[Speaker A]: it Mastodon. Please call it Mastodon. All right,
+
+[Speaker C]: It's
+
+[Speaker A]: there you have it.
+
+[Speaker C]: such a different world to when we started this podcast. It's crazy how much things have changed. And hopefully us talking about our different moves as we enforce that.
+
+[Speaker A]: All right. Well, the podcast episode where literally no one asked for this topic. we just are catching up with each other anyway thanks
+
+[Speaker C]: Well,
+
+[Speaker A]: for hanging
+
+[Speaker C]: I
+
+[Speaker A]: in
+
+[Speaker C]: mean,
+
+[Speaker A]: there with
+
+[Speaker C]: we're
+
+[Speaker A]: with us audience
+
+[Speaker C]: back. We're here. We're still here. We're still here.
+
+[Speaker B]: Thank
+
+[Speaker A]: and so
+
+[Speaker B]: you and goodbye.
+
+[Speaker A]: Thank you so much for listening to our podcast. If you like this podcast, please subscribe and rate us on iTunes, Spotify, SoundCloud, or the platform of your choice. This podcast was recorded by the Microbial Bioinformatics Group. For more information, go to microbinfie.github.io. The opinions expressed here are our own and do not necessarily reflect the
+
+[Speaker @]: views of the Microbial Bioinformatics Group.
+
+[Speaker A]: To reflect the views of origin sciences, the Center for Genomic Pathogen Surveillance, or CDC.

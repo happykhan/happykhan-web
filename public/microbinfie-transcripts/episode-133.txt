@@ -1,0 +1,277 @@
+----- chunk 1 start @ 00:00:00 -----
+
+[00:00:00] [Speaker A]: Hello, and thank you for listening to the MicrobitBeat podcast. Here, we will be discussing topics in microbial bioinformatics. We hope that we can give you some insights, tips and tricks along the way. There is so much information we all know from working in the field, but nobody really writes it down. There is no manual, and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My co-hosts are Dr. Nabil Ali Khan and Professor Andrew Page. Nabil is a Senior Bioinformatician at the Centre for Genomic Pathogen Surveillance, University of Oxford, and Andrew is the Director of Technical Innovation for Theogen in Cambridge. For each day I am dr. Lee Katz and I'm a senior bio practitioner at centers for disease control and prevention in Atlanta in the United States
+
+[00:00:46] [Speaker B]: Welcome to the Microbiome Podcast. I'm your host Andrew Page and I'm here at the 10th Microbiome Informatics Hackathon in Bethesda, Maryland and I'm joined by Erin Young. Do you want to introduce yourself?
+
+[00:00:57] [Speaker C]: Yes, I'm Dr. Erin Young. I am a bioinformatician at the Utah Public Health Laboratory and I've been working there for... Well, since 2018.
+
+[00:01:07] [Speaker B]: That's quite a long time. So how did you get into bioinformatics?
+
+[00:01:10] [Speaker C]: I got into bioinformatics originally I was researching predisposition to cancer and we were sharing a bioinformatician with another lab. I didn't want to wait for this bioinformatician to be able to work on my analyses.
+
+[00:01:30] [Speaker B]: Very good. So you just went and learned bioinformatics just to because you're impatient.
+
+[00:01:34] [Speaker C]: Yes.
+
+[00:01:35] [Speaker B]: That sounds perfect, actually. Yeah. Okay. And what is your original background?
+
+[00:01:41] [Speaker C]: My original background, I got my PhD studying hereditary breast and ovarian cancer. And then I did a short postdoc where I was looking at the same thing except different diseases and different cohort with pediatric cancers.
+
+[00:02:02] [Speaker B]: Oh, wait, that's like super interesting for
+
+[00:02:04] [Speaker C]: me too. Yes.
+
+[00:02:05] [Speaker B]: Yeah, we can know more about that later. there but uh okay
+
+[00:02:09] [Speaker C]: I
+
+[00:02:09] [Speaker B]: so
+
+[00:02:09] [Speaker C]: do think I've made good choices with my career.
+
+[00:02:11] [Speaker B]: yeah no absolutely yeah so uh how'd you end up in utah are you from utah originally
+
+[00:02:16] [Speaker C]: So I was doing my postdoc at the University of Utah and I was just getting the sense that academia wasn't for me and so I was asking questions and seeing where I could apply my skills that would still be in a really interesting self-fulfilling. kind of place and that's when I found the Utah Public Health Laboratory. The CDC had a and APHL, that's the Applied Public
+
+[00:02:48] [Speaker B]: Association
+
+[00:02:48] [Speaker C]: Health Laboratory.
+
+[00:02:48] [Speaker B]: of Public Health Labs,
+
+[00:02:50] [Speaker C]: Yeah,
+
+[00:02:50] [Speaker B]: yeah.
+
+[00:02:50] [Speaker C]: they were doing a bioinformatics fellowship to get people into public health. And so that's how I transitioned from kind of this cancer predisposition to public health.
+
+[00:03:03] [Speaker B]: Right, because okay, so now it's all falling into place. A lot of different people have done that program that are within our field. And it's very prestigious as well to get into it. It's quite a long process, I hear. Yeah,
+
+[00:03:17] [Speaker C]: Well,
+
+[00:03:17] [Speaker B]: is
+
+[00:03:18] [Speaker C]: I'm not
+
+[00:03:18] [Speaker B]: the
+
+[00:03:18] [Speaker C]: going
+
+[00:03:18] [Speaker B]: answer.
+
+[00:03:18] [Speaker C]: to like disagree with that.
+
+[00:03:20] [Speaker B]: Yeah,
+
+[00:03:20] [Speaker C]: Like,
+
+[00:03:20] [Speaker B]: yeah.
+
+[00:03:20] [Speaker C]: I don't know. No, I am an average person, but I want you guys to all know think that I'm like above average.
+
+[00:03:28] [Speaker B]: Yeah, we know this right. Right. So there's quite a lot of biomatics going on actually in Utah, isn't there? You know, you like for, I guess, a small state in the middle of the U.S., actually I hear about it quite a bit. So isn't there Kelly is over there as well?
+
+[00:03:45] [Speaker C]: Yes, so I work under Kelly Oka-san. So we do a lot and I wish there were more of me because I would like to be able to do more because there's a lot of different things that make people sick.
+
+[00:04:05] [Speaker B]: And so what kind of software do you work on?
+
+[00:04:07] [Speaker C]: So my main focus at the moment is a lot of focus on antimicrobial resistant organisms and
+
+[00:04:18] [Speaker B]: Mm-hmm.
+
+[00:04:19] [Speaker C]: trying to complete those genomes as much as possible so that we can have some really robust studies for outbreak analysis. Other things that we work on is we recently started into the realm of eukaryotes with kind of the parasitic viruses and things that they carry.
+
+[00:04:42] [Speaker B]: Oh wow, that's hard.
+
+[00:04:45] [Speaker C]: You know, it's public health. So, you know, as long as people are getting sick, there's things to look into.
+
+[00:04:52] [Speaker B]: And so does Utah have any weird and wonderful things that maybe other places don't? Do you have problems with C. aureus or anything to that?
+
+[00:04:59] [Speaker C]: We do have C. aureus, although I'm not the bioinformatician over C. aureus. And COVID is alive and well in Utah, but I'm
+
+[00:05:09] [Speaker B]: also Yeah.
+
+[00:05:09] [Speaker C]: not the bioinformatician
+
+[00:05:10] [Speaker B]: So
+
+[00:05:10] [Speaker C]: over COVID.
+
+[00:05:11] [Speaker B]: what are you the bioinformatician of? of yeah
+
+[00:05:12] [Speaker C]: Mainly the bacterial sequences.
+
+[00:05:15] [Speaker B]: the most important ones i'm not biased in any way very good and uh okay so i guess for me i work in public health it's usually your kind of gastro like your salmonella as you call it you get a you know what what else is a focus for you
+
+[00:05:36] [Speaker C]: Uh, Klebsiella subtyping probably takes more of my time than anybody is intending me to.
+
+[00:05:42] [Speaker B]: Oh, really?
+
+[00:05:44] [Speaker C]: Yes,
+
+[00:05:44] [Speaker B]: And
+
+[00:05:44] [Speaker C]: so.
+
+[00:05:45] [Speaker B]: which ST is prevalent there?
+
+[00:05:48] [Speaker C]: It's
+
+[00:05:48] [Speaker B]: Yeah.
+
+[00:05:48] [Speaker C]: more of, so there's Klebsiella oxytoca, which is very similar to another species,
+
+[00:05:55] [Speaker B]: Okay.
+
+[00:05:55] [Speaker C]: and so differentiating that Klebsiella with all these other Klebsiellas and other related species is really important because once you put a organism In an epidemiological report, the
+
+[00:06:16] [Speaker B]: Yeah.
+
+[00:06:17] [Speaker C]: epis don't seem to be able to change that. So once it's a Klebsiella oxytocca, every kind of analysis that's showing like some sort of outbreak has to also designate all of those organisms as Klebsiella oxytocca.
+
+[00:06:35] [Speaker B]: Oh, that's inflexible. Right. So it's
+
+[00:06:41] [Speaker C]: I'm just
+
+[00:06:41] [Speaker B]: a, I
+
+[00:06:41] [Speaker C]: a bioinformatician. I
+
+[00:06:42] [Speaker B]: know,
+
+[00:06:43] [Speaker C]: can't
+
+[00:06:43] [Speaker B]: I
+
+[00:06:43] [Speaker C]: change
+
+[00:06:43] [Speaker B]: know. Yeah,
+
+[00:06:43] [Speaker C]: the
+
+[00:06:43] [Speaker B]: yeah.
+
+[00:06:43] [Speaker C]: microbiologist.
+
+[00:06:44] [Speaker B]: It's kind of crazy. I wonder about the pneumonia. Is that a problem as well?
+
+[00:06:49] [Speaker C]: It is, but it doesn't have the same database issues. Like, we started seeing the quasi-pneumonia.
+
+[00:06:57] [Speaker B]: Yeah.
+
+[00:07:02] [Speaker C]: I don't think that it's messing up any sort of outbreak analysis that our APIs are working on.
+
+[00:07:07] [Speaker B]: And so how do you do your genome typing? So you're a species tapping.
+
+[00:07:11] [Speaker C]: How do we do species typing? So there's MAS, which is a great tool. It's a little bit older. I create a new MAS reference of all of the representative genome or prokaryotic representative genomes like every time there's a new. a RevSeq update and
+
+[00:07:37] [Speaker B]: Yeah.
+
+[00:07:37] [Speaker C]: that helps or you know makes things more complicated depending on whether you're trying to be the most comprehensive or the most consistent kind of person. And you
+
+[00:07:52] [Speaker B]: And so what kind of sketch size do you use? I never know what to use for my show, I just randomly choose a thousand or ten thousand.
+
+[00:07:59] [Speaker C]: know what the the default size seems
+
+[00:08:01] [Speaker B]: Okay,
+
+[00:08:01] [Speaker C]: to work for me
+
+[00:08:02] [Speaker B]: cool.
+
+[00:08:02] [Speaker C]: and we also use FASTANI with the representative genomes and Scanny, Scanny, SKANI
+
+[00:08:18] [Speaker B]: Okay, I have not come across that.
+
+[00:08:20] [Speaker C]: It's a lot faster and
+
+[00:08:21] [Speaker B]: Yeah,
+
+[00:08:21] [Speaker C]: it is a the inputs are a little bit more cumbersome than the others but I think it's still a pretty useful tool.
+
+[00:08:32] [Speaker B]: that's really awesome. So what is the most interesting kind of stuff you work on that you want to tell me about?
+
+[00:08:38] [Speaker C]: The most interesting
+
+[00:08:39] [Speaker B]: Yeah.
+
+[00:08:39] [Speaker C]: kind of thing. Well, so I
+
+[00:08:40] [Speaker B]: It's
+
+[00:08:40] [Speaker C]: have a poster
+
+[00:08:40] [Speaker B]: all interesting.
+
+[00:08:41] [Speaker C]: for ASMNGS.
+
+[00:08:43] [Speaker B]: Cool.
+
+[00:08:43] [Speaker C]: So I can advertise my poster. I don't know when your podcast is probably like two years later,
+
+[00:08:49] [Speaker B]: It
+
+[00:08:49] [Speaker C]: but
+
+[00:08:49] [Speaker B]: doesn't matter. Go on.
+
+[00:08:51] [Speaker C]: So With nanopore sequencing, especially of antimicrobial resistance genes, there's a huge amount of concern about the error rates of nanopore reads and
+
+[00:09:03] [Speaker B]: Yeah.
+
+[00:09:03] [Speaker C]: if that's going to mess up any sort of antimicrobial resistance reporting. And so my poster is about... Instead of looking at like the assemblies and all of these different bioinformatic methods that are very useful, and
+
+[00:09:20] [Speaker B]: Yeah.
+
+[00:09:21] [Speaker C]: I don't have anything against, but if we just look at the raw reads, which are long enough to actually encase an entire AMR gene on them,
+
+[00:09:29] [Speaker B]: Yeah.
+
+[00:09:29] [Speaker C]: how accurate are using just those reads for AMR gene detection?
+
+[00:09:35] [Speaker B]: Oh, that's really cool.
+
+[00:09:37] [Speaker C]: But we're not quite, nanopore sequencing isn't quite there yet, but there doesn't seem to be any sort of art sequencing artifact suggesting that like as long as you have enough reads you can be confident that your AMR genes that have been detected from nanopore sequencing are probably an accurate genotype.
+
+[00:09:59] [Speaker B]: I guess it's... harder for point mutations but genes are chunky enough so that yeah i can understand why that is that's really good so it works for raw reads in fact that's insane because when you start going into uh directly sequence samples like metagenomic samples of long reads then you can pull out uh quite interesting information then
+
+[00:10:24] [Speaker C]: Yes. So yeah, so I just converted the FASTQ reads to FAST-A, ran them through NCBI's AMR Finder Plus,
+
+[00:10:33] [Speaker B]: Yeah,
+
+[00:10:33] [Speaker C]: and compared the nanopore reads with corresponding Illumina assemblies.
+
+[00:10:42] [Speaker B]: that's pretty awesome.
+
+[00:10:42] [Speaker C]: I thought so too.
+
+[00:10:43] [Speaker B]: I did something a years ago with I called it skeg air which is like an Irish word for filter and it was you could take the raw nanopore reads and then filter them down well sorry I was taking assemblies so long read nanopore assemblies of metagenomic samples like say respiratory and filter them down and then you could pull out the AMR genes But I didn't run on raw reads because I thought exactly like you're saying that you know the error rate is going to be too high it's not going to work but it's great that actually it's gotten to that point where you know the base calling has improved so much that you can actually start to to actually do something proper with that.
+
+[00:11:23] [Speaker C]: Most of them still have snips, like I'm not saying that they're, but
+
+[00:11:26] [Speaker B]: Oh yeah, totally understand, yeah.
+
+[00:11:27] [Speaker C]: the snips are at different places, so if you have enough reads then it just, the noise cancels out.
+
+[00:11:34] [Speaker B]: And did you look at coverage or what that threshold would be?
+
+[00:11:38] [Speaker C]: Alas, that will have to be a later poster.
+
+[00:11:41] [Speaker B]: Because I need to know the answer because you know people randomly make up numbers It's like oh you need 10x or 20x and during COVID we said I say 20x is the minimum you need for say for Arctic but that's obviously different protocols Right, well I look forward to seeing your poster and I'll ask you many more questions when I have seen it But thank you so much for bringing the podcast today
+
+[00:12:00] [Speaker C]: Thank you for letting me. Talk I guess and
+
+[00:12:04] [Speaker B]: Yeah, from
+
+[00:12:05] [Speaker C]: showcase
+
+[00:12:05] [Speaker B]: our age.
+
+[00:12:05] [Speaker C]: my work. Thank you
+
+[00:12:06] [Speaker B]: Good luck.
+
+[00:12:07] [Speaker A]: Thank you so much for listening to us at home. If you like this podcast, please subscribe and rate us on iTunes, Spotify, SoundCloud, or the platform of your choice. Follow us on Twitter at Microbinfi. And if you don't like this podcast, please don't do anything. This podcast was recorded by the Microbial Bioinformatics Group. The opinions expressed here are our own and do not necessarily reflect the views of the Reviews of CBC or the Quadrum Institute.
+
+[00:12:32] [Speaker @]: Microbial Bioinformatics Group.

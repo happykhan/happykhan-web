@@ -1,0 +1,233 @@
+----- chunk 1 start @ 00:00:00 -----
+
+[00:00:02] [Speaker A]: Hello and thank you for listening to the Micro Binfo Podcast. Here we will be discussing topics in microbial bioinformatics. We hope that we can give you some insights, tips, and tricks along the way. There is so much information we all know from working on the field, but nobody really writes it down. There's no manual, and it's assumed you'll pick it up. We hope to fill in a few of these gaps. I am Dr. Lee Katz. My co-hosts are Dr. Nabil Ali Khan and Professor Andrew Page. Nabil is a senior bioinformatician at the Center for Genomic Pathogen Surveillance at the University of Oxford. Andrew is the CTO at Origin Sciences and Visiting Professor at the University of East Anglia.
+
+[00:00:45] [Speaker B]: Welcome to the Microbial Podcast. I'm your host, Andrew Page, and I'm joined by Lee Katz, Philip McGuire. Torsten Siemens and Sarah Zufeld. Did I pronounce that correct?
+
+[00:00:54] [Speaker C]: Very well.
+
+[00:00:55] [Speaker B]: Yes, great. And we're here to attend Microbial Biophonics Hackathon in Bethesda, Maryland. So Sarah, tell us about what you do and I understand that you have been all over the world, you've been in Australia and America.
+
+[00:01:10] [Speaker C]: Yeah, I just finished my PhD with Torsten earlier this year, and it's the move of other... stars in the microbial world but now it extends to near chasing
+
+[00:01:21] [Speaker B]: So that's a noble.
+
+[00:01:22] [Speaker C]: the plum at the University of Norman and I was working on projects with the intersection of public health and genomics because I started in 2019 I worked on microbes for a little while on rapid detection of AMR using nanopore sequencing, but you know as COVID happened I wound up doing a lot of COVID projects. So a couple chapters on COVID and my pet project from the beginning was hepatitis A virus, the whole genome sequencing.
+
+[00:01:53] [Speaker B]: Oh, that's really interesting. So where were you getting the hepatitis A from? Like strawberries or what?
+
+[00:01:59] [Speaker C]: So we... It had no outbreaks of hepatitis during COVID because of our lockdown,
+
+[00:02:06] [Speaker B]: What?
+
+[00:02:07] [Speaker C]: so
+
+[00:02:08] [Speaker B]: Okay, cool.
+
+[00:02:09] [Speaker C]: we had to make our own. And then after lockdown there were a couple of clinical cases that came in and we were able to work with clinical cases but the beginning of the project was spiked into berries and cereal.
+
+[00:02:22] [Speaker B]: That's pretty cool. So I had a conversation with some people before about what temperature should, you know, does it have any die out and what temperature does it? You don't know? Because people are like, how do you get rid of it from strawberries? Well, you know, you can, I don't know, heat them up to 70 degrees Celsius and then it's great, but then obviously you don't have fresh strawberries anymore. It's a big issue in the UK. We import a lot of stuff from Africa, you know, it's out of season so you get cafe coming in that cause all sorts of problems. And so, you know, then this question is about should we vaccinate general population for cafe because usually in the UK it's only for travellers. It's not standard vaccines for adults. So that's a problem. So what is it like in Australia?
+
+[00:03:05] [Speaker C]: Oh, it's fantastic.
+
+[00:03:06] [Speaker B]: Awesome.
+
+[00:03:06] [Speaker C]: I don't want to, I don't want to miss it too much by talking highly of it, but as a nature lover, that's what's pretty exciting for me. Every plant and animal is new, every bird is different. Never get sick of seeing kangaroos. But koalas are much more rare, as I found. A lot of pie, a lot of whistles. I did see them though. I had to go to a very remote lake to find them, but oh
+
+[00:03:35] [Speaker D]: Yeah, I've seen a platypus in the wild once swimming down a river I was camping on and that's the only time I've ever seen one. It was pretty cool. But yeah, what did you think of Melbourne as a city for living and working?
+
+[00:03:47] [Speaker C]: man, I'm I'm gonna say something really controversial. It's way better than Sydney.
+
+[00:03:54] [Speaker D]: Sydney and Melbourne are the two best known cities obviously in Australia, but we have a long-term rivalry. Yeah, so that's good to hear.
+
+[00:04:01] [Speaker C]: Yes, because I did consider doing a PhD in Sydney and I visited Sydney and it actually felt a lot like America. It was obviously beautiful, but there was just something about the culture and...
+
+[00:04:15] [Speaker B]: And you looked the same once you came back to America.
+
+[00:04:17] [Speaker C]: Oh yes, actually, yeah, America is great.
+
+[00:04:24] [Speaker B]: So what are you doing now in the U.S.?
+
+[00:04:26] [Speaker C]: So now I'm an ORISE postdoctoral fellow with the United States Department of Agriculture and the National Institutes of Health and an interesting sort of one health collaboration where I'm working on developing wastewater surveillance in Liberia.
+
+[00:04:43] [Speaker B]: Wow, that's pretty awesome. Like West Africa is a very difficult environment to work in. Have you been to Liberia?
+
+[00:04:50] [Speaker C]: I have been one time so far and I hope to go back before the end of the year. I went during rainy season so I don't know much outside of my hotel and the taxis in between all the indoor places probably
+
+[00:05:02] [Speaker B]: Is there much malaria during rainy season?
+
+[00:05:05] [Speaker C]: I
+
+[00:05:05] [Speaker B]: Did you take antimalarials?
+
+[00:05:07] [Speaker C]: did I assume yes so that's why yeah
+
+[00:05:12] [Speaker A]: Which, so are you USDA and, I mean, these are like different.
+
+[00:05:21] [Speaker E]: departments like
+
+[00:05:21] [Speaker C]: Yes.
+
+[00:05:22] [Speaker E]: which one are you under okay
+
+[00:05:23] [Speaker C]: Okay, so the funding comes from USDA. I physically sit in NIH. So I have two mentors. The USDA mentor pays me.
+
+[00:05:31] [Speaker E]: okay And then, and then through USDA or NIH, then they contract to USAID?
+
+[00:05:39] [Speaker C]: No no no no that's that's there's
+
+[00:05:41] [Speaker E]: Difference.
+
+[00:05:41] [Speaker C]: nothing to do with USAID
+
+[00:05:42] [Speaker E]: Okay.
+
+[00:05:42] [Speaker C]: no there's nothing yeah USAID is in Liberia and we are now working together on a project or and actually it's not even USAID it's a USAID funded project
+
+[00:05:53] [Speaker E]: Okay.
+
+[00:05:54] [Speaker C]: There,
+
+[00:05:54] [Speaker E]: Got
+
+[00:05:54] [Speaker C]: we go.
+
+[00:05:54] [Speaker E]: it.
+
+[00:05:55] [Speaker C]: Yes.
+
+[00:05:55] [Speaker E]: Just so rumors get started. Sorry.
+
+[00:05:56] [Speaker C]: Yes.
+
+[00:05:58] [Speaker B]: Sorry, what waste water specimens are you doing in that library? Is it polio or is it...
+
+[00:06:02] [Speaker C]: We're going to do loss of virus, is one of their priority pathogens.
+
+[00:06:06] [Speaker B]: That's pretty dangerous.
+
+[00:06:07] [Speaker C]: Yes.
+
+[00:06:09] [Speaker D]: Awesome.
+
+[00:06:09] [Speaker C]: Yes.
+
+[00:06:10] [Speaker D]: Can you tell the audience a bit about the virus and the etymology? Amyloid etiology?
+
+[00:06:17] [Speaker C]: Sure. Let's see. Plasmaris is an RNA virus.
+
+[00:06:20] [Speaker B]: Is it VSL 3?
+
+[00:06:21] [Speaker C]: It's a BSL-4. It's a hemorrhagic fever virus. You do not want to get it. It is transmitted from... primarily from rodents to humans but there is some evidence for human human transmission particularly in clinical settings and it actually turns out it's much more widespread than we think it is based on serological evidence so it's not as when we when you hear about a hemorrhagic fever virus you think of Ebola you think
+
+[00:06:55] [Speaker D]: Hmm
+
+[00:06:57] [Speaker C]: all that do but it's far less it's
+
+[00:07:01] [Speaker B]: So what type of virus is it?
+
+[00:07:03] [Speaker C]: a bunga virus look
+
+[00:07:04] [Speaker B]: Oh wow, that's amazing. Well done.
+
+[00:07:08] [Speaker C]: I'm not a tech scientist but I guess for other students that are listening I think maybe we would know, I don't know if you have to be a U.S. citizen for O-Rise?
+
+[00:07:23] [Speaker E]: I forget right now. You have to graduate. There's a very strict requirement to have graduated with your last degree within the last five years to be hired as an overhouse. We've run into that problem once or twice, which I respect that. That protects people who are into their careers and they should be hired as not a fellow. but a citizen i can't remember right now i believe you actually i do remember you can be a non-citizen but then there is like a logistical challenge to make sure that you get the right visa and everything right I can imagine depending on where you are citizen all of that may or may not be a non-starter with secure with potential security clearance and government employment yeah we've run into yeah i mean we've run into a problem where it's like we had a one-year contract with o-rise before i won't name names or anything but then it Then it's like the logistics to get the visa for the person to stay in country and work would have taken a whole year also. Technically, yes, could have been hired, but would have worked for us for about a day, maybe?
+
+[00:08:24] [Speaker B]: so on the topic of you know working on massive virus like one of the things that it's kind of infamous for is the genetic diversity of it that's one of the reasons why i think it's quite hard to do like vaccine control is because no matter what vaccine you use there's just this cloud of variants that always kind of have enough immune escape around it big like i think big unstructured kind of
+
+[00:08:43] [Speaker F]: just of diversity rather than like big like formal like just formal ages is that is there anything to do with that do you have to build that into specific wastewater surveillance platform like specific considerations for that or does some of the general approaches still work well enough
+
+[00:08:59] [Speaker C]: Yeah, so that's something that we're withdrawn us to the project in the first place was wondering about Whether or not we know about enough of diversity of loss of virus in West Africa and whether or not some of the PCR assays are picking up all the cases. And so the typical approach at least to capture the genome. So far has been through these hybrid capture workflows, which they work. They are pretty intensive. So if you wanted to do that in country, there's going to be a lot of equipment and expertise that a laboratory needs.
+
+[00:09:32] [Speaker B]: So you do have a capture and not Amplify?
+
+[00:09:34] [Speaker C]: Yes. So a lot of people don't actually even have been doing a lot of loss of virus sequencing because it captures been the way to go because you haven't been able to design primers effectively around loss virus.
+
+[00:09:48] [Speaker B]: Have I got a base? Okay nice. Wow and do they have to have exact matches or is there...
+
+[00:09:54] [Speaker C]: No, and you can tweak the protocol for the hybrid temperature to make it more or less specific and I've seen ranges anywhere between 99% specificity down to 70% specificity.
+
+[00:10:06] [Speaker B]: That's pretty awesome actually.
+
+[00:10:07] [Speaker C]: Yeah, yeah, yeah. But I think I can talk about this because he's a very open sharing scientist but I have been working with Josh Quick and Christopher Kent on their new primal scheme algorithm. So we have developed a West African loss of virus scheme that we haven't been able to test yet because I need to bring the primers into country to test them. But they're a thousand base pairs long, so that's probably not going to work for a wastewater.
+
+[00:10:35] [Speaker B]: Oh,
+
+[00:10:35] [Speaker C]: No,
+
+[00:10:36] [Speaker B]: so
+
+[00:10:36] [Speaker C]: no, but
+
+[00:10:37] [Speaker B]: Jeffrey,
+
+[00:10:37] [Speaker C]: we do, sorry, yeah.
+
+[00:10:38] [Speaker B]: Jeffrey Quick was actually at the very first hackathon we had. He'd just come back from West Africa from the Ebola lab and... beginning and Chris Kemp is at one last year in Cambridge so it's very small world
+
+[00:10:49] [Speaker C]: It is a small world. There's great people. It's a good time to be in this field.
+
+[00:10:53] [Speaker F]: So you mentioned bringing primers yourself. Are you one of those rare bio practitioners that does wet lab work and computational work?
+
+[00:11:00] [Speaker C]: Yes! Yeah. I'm... What is the human scientist? I do the wet lab and the dry lab.
+
+[00:11:07] [Speaker D]: And which came first?
+
+[00:11:09] [Speaker C]: We actually were talking about this last night and it was both. I started doing 16S sequencing on ants and their bacteria in the lab and then I had to analyze the data too. Yeah, so it's been the whole time the whole time and even when I was doing a bioinformatics fellowship for HHL
+
+[00:11:27] [Speaker E]: Okay.
+
+[00:11:27] [Speaker C]: they it was a small team and we did both we did bioinformatics we did the lab work and then for my PhD I did the lab work in the bioinformatics and now I'm in the new role where I'm doing both bioinformatics and lab work
+
+[00:11:37] [Speaker E]: Pick a side. That's very cool.
+
+[00:11:40] [Speaker B]: How'd you get the reagents into Liberia?
+
+[00:11:42] [Speaker C]: Well,
+
+[00:11:43] [Speaker B]: Wasn't
+
+[00:11:43] [Speaker C]: we haven't
+
+[00:11:43] [Speaker B]: it COVID?
+
+[00:11:43] [Speaker C]: yet but we do have so our team specifically has a long-standing relationship relationship with doing clinical research in West Africa so we have a whole procurement team that is able to get radiance.
+
+[00:11:55] [Speaker B]: Because I work a lot with people in the Gambia in the landscape of hygiene and medicine at Mercy Gambia there and getting reagents is phenomenally expensive and often visiting researchers are like reagent mules, I've been one, and vice versa or it can be quicker to get things you know sent to fly a person from the UK over with stuff than actually go through the 10 levels of procurement you know in Westland. Okay, so yeah, I'm just curious to know how libraries even less well, set up less well connected.
+
+[00:12:28] [Speaker A]: Yeah.
+
+[00:12:29] [Speaker C]: Yes, so it is a challenge but we do have support in place and yeah I assume at some point I'll have to put some some lyophilized primers in my backpack.
+
+[00:12:40] [Speaker B]: That would be peptides, perhaps.
+
+[00:12:42] [Speaker C]: Yes, yeah yeah yeah we do that sometimes we'll calibrate them.
+
+[00:12:47] [Speaker B]: Okay. Very good. That sounds like a really interesting project. What else are you working on that you'd like to talk about?
+
+[00:12:52] [Speaker C]: Um, that's, that's probably it.
+
+[00:12:55] [Speaker B]: Awesome. Well, thank you very much. And of course, any final questions?
+
+[00:12:59] [Speaker D]: Yeah, I just wanted to say would you recommend, you know, students do a PhD overseas? I
+
+[00:13:05] [Speaker C]: Yeah.
+
+[00:13:05] [Speaker D]: mean, obviously you got stuck in a pandemic, which was not great, but generally you would say yes, do it. And why?
+
+[00:13:13] [Speaker C]: Yeah. Well, I mean, I can only speak from my experience and why I liked it, but. classwork is optional coursework is optional so I already had a master's degree and I already had two years of like related experience before I had started the PhD so I didn't feel like coursework was gonna benefit me too much yeah
+
+[00:13:35] [Speaker D]: Yeah, so a PhD in Australia is a three-year program normally, that's the goal, three and a half years often, and yeah there is no coursework, it's pure research, so yeah. You get quite a lot of independence actually
+
+[00:13:49] [Speaker C]: Yes, and I really appreciated that. So that's obviously helpful for the next stage of your career if you can go in with confidence that you can do something independently. So yeah, I like that. I could just show it up on day one and started doing research. And specifically in your lab, I think maybe, I don't know what experiences were like in other universities, but, you know, Ben typically brought in. professionals so it was still very much like a continuation of being professional and I didn't something I was worried about was you know reverting back to being a student I thought that's a bad thing but Um,
+
+[00:14:29] [Speaker D]: Well you're a great student and you're a great example of someone that can do the wet lab and the bioinformatics sure you're not a hardcore you're not developing bioinformatics tools or anything but you could use bioinformatics you understood the caveats and that is a super powerful combination for a modern molecular microbiologist and I wish you all the best in your future US role in this year.
+
+[00:14:50] [Speaker C]: oh, you'll see me as too.
+
+[00:14:52] [Speaker B]: Well thank you for joining the podcast and yeah I hope you have a great time in your future career. and good luck.
+
+[00:14:58] [Speaker C]: Thank you very much. Thanks for having me.
+
+[00:15:00] [Speaker G]: Thank you so much for listening to us at home. If you like this podcast, please subscribe and rate us on iTunes, Spotify, SoundCloud, or the platform of your choice. Follow us on Twitter at MicroBinFee. And if you don't like this podcast, please don't do anything. This podcast was recorded by the Microbial Bioinformatics Group. The opinions expressed here are our own and do not necessarily reflect the views of CDC. See or the Quadrum Institute.

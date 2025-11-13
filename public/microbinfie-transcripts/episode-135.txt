@@ -1,0 +1,199 @@
+----- chunk 1 start @ 00:00:00 -----
+
+[00:00:00] [Speaker A]: Cheers. Welcome to Microbeam Free Podcast. I'm your host Andrew Page and I'm here at the 10th Microbeam Free Robotics Hackathon in Potesta and I'm with awesome.
+
+[00:00:14] [Speaker B]: Hi, my name is Nihita Fulavido. It's great to be here. I am a senior bioinformatician at American Type Culture Collection, otherwise known as ATCC. Yeah.
+
+[00:00:24] [Speaker A]: I think everyone has heard of you guys. So what do you do here?
+
+[00:00:28] [Speaker B]: Yeah, so I've been working there for about four, a little bit over four years now. And the one of my main role is I'm the lead bioinformatician for the ATCC genome portal.
+
+[00:00:39] [Speaker A]: Yeah,
+
+[00:00:40] [Speaker B]: And
+
+[00:00:40] [Speaker A]: it's
+
+[00:00:40] [Speaker B]: so for the past couple years, we've been trying to sequence everything in our collection. As you can imagine, we have a bunch of stuff.
+
+[00:00:47] [Speaker A]: a big collection.
+
+[00:00:48] [Speaker B]: Yes, a very, very big collection. So our incredible lab team has been sequencing everything, starting with Starting with bacteria, and we've now entered into doing viruses and fungi and protists and we've been sequencing them on short read and long read sequencing platforms and
+
+[00:01:07] [Speaker A]: So how do you do your assemblies,
+
+[00:01:09] [Speaker B]: Yes
+
+[00:01:09] [Speaker A]: or is everyone still learning?
+
+[00:01:13] [Speaker B]: Actually, we have a poster at ASMJ talking about how we do our assemblies.
+
+[00:01:17] [Speaker A]: Yeah, yeah,
+
+[00:01:18] [Speaker B]: But I think the hard part is because we're doing so many different organisms, it's trying to figure out like a one-size-fits-all for everything in our collection, right? Because it's kind of difficult to try to custom assemble every single thing that we have.
+
+[00:01:33] [Speaker A]: and then you have all the range of GC's, you have all the range of sizes and you have all the extremes as well.
+
+[00:01:38] [Speaker B]: Yeah, and I think right now we've... we've gotten most of the easy stuff done so we've done like all the easy bacteria we we have starting last month we have 5 000 genomes yeah so a big celebration so um but i think this year we really dealt with a lot of the harder stuff and so that's uh some of these um what extremophiles and uh personally a lot of the work that i've been trying to figure out is we've been doing uh uh larger viruses so like a lot of herpes viruses and they're very
+
+[00:02:10] [Speaker A]: Right,
+
+[00:02:10] [Speaker B]: GC rich
+
+[00:02:10] [Speaker A]: yeah.
+
+[00:02:10] [Speaker B]: a lot of repetitive regions yes
+
+[00:02:12] [Speaker A]: Huge repetitive regions as well.
+
+[00:02:14] [Speaker B]: yeah huge especially at the flagging flanking regions too right and so you can imagine for the aluminum sequencers they're pretty hard to sequence right so
+
+[00:02:23] [Speaker A]: That all collapses, yeah.
+
+[00:02:24] [Speaker B]: that's where we I think we're trying to use the long reads to kind of leverage I guess the shortfalls of alumina right there and so try to assemble those genomes but always fall short and I think it's because of those repetitive regions and so
+
+[00:02:40] [Speaker A]: Yeah, yeah
+
+[00:02:40] [Speaker B]: there's some some genomes that we have that we kind of have to manually assemble we have to look into it and be like okay what's actually going on right yeah the hard ones
+
+[00:02:51] [Speaker A]: Yeah
+
+[00:02:51] [Speaker B]: and it's hard because you know it's hard to get SME for every single organism out there right yeah and so we kind of have to dig through literature and try to figure out okay what okay what are common problems that people have and you often see that a lot of the stuff that's publicly available people manually curate these assemblies right you know and so most of the times these are researchers who this is their whole life right it's like researching this one organism so of course it's going to be an amazing genome right and so yeah I mean hopefully hopefully And so I think that's the main thing that I work on is the curating the pilot genomes that our pipelines produce, right? And so every month our team will look at each of the genomes. Like we have a certain couple of stats that we look at, so like N50s, how close the lengths are to the expected and see how does that line up? Do these
+
+[00:03:51] [Speaker A]: So
+
+[00:03:51] [Speaker B]: look
+
+[00:03:51] [Speaker A]: how good? do you do your circulation then of genomes? Yeah,
+
+[00:03:54] [Speaker B]: Yeah, so some of our assemblers automatically will try to circularize them. So unicycler does, so it will circularize our assemblies. So generally when we publish, especially for bacterial assemblies, our gold standard is that all of the contigs are circular.
+
+[00:04:10] [Speaker A]: And where do you, so where does it start? Do you use our general application or anything like that?
+
+[00:04:16] [Speaker B]: Yes, I think we've actually been looking into that a little bit because the way certain assemblers assemble they don't as the start sites aren't exactly at that position right so now we've realized okay now we need to reshuffle it so that it starts exactly where it's supposed to yeah it's
+
+[00:04:32] [Speaker A]: Yeah, it's hard.
+
+[00:04:33] [Speaker B]: hard right and so I think one of the things that's great about the genome portal is like we get customers who come back to us and be like you know I'm not seeing this specific gene that's present in the example is right and it's great information because we don't know these things right because we're trying to apply a one-size-fits-all pipeline to all this stuff in our collection so it's good to hear feedback from our customers and so that's where that's the time for we can go back and like do a double check and be like okay well how should this actually look like right
+
+[00:05:06] [Speaker A]: So like your genomes aren't normally, you're not someone whose genome sense to be ironed. I reckon that so that they could be used like a separate I suppose controlled collection.
+
+[00:05:15] [Speaker B]: Mm-hmm.
+
+[00:05:15] [Speaker A]: However your customers can buy the strains and they go and sequence them themselves and then deposit them and how do you avoid bias coming in you know if you're say using reference guide assemblies or anything like that or using information about genomes. which are technically your strains, you know, which have been done badly,
+
+[00:05:32] [Speaker B]: Yes.
+
+[00:05:32] [Speaker A]: can that influence you guys and have you seen any problems with that?
+
+[00:05:36] [Speaker B]: Yeah, so I think it was two years ago we actually did a paper on this where we took Sequences in publicly available databases that claim to be ours and so they usually say they're typed strain or they're from ATCC and we compared it to what we've assembled right and we found that for some of these sequences are wildly different right and you've probably noticed that on these public databases there's not a lot of metadata that's available right and so it's not on the fault of the people submitting it but it's usually that people who aren't the submitters who try to get these sequences they think these are valid ATCC sequences but
+
+[00:06:15] [Speaker A]: Yeah.
+
+[00:06:15] [Speaker B]: we found cases where like there was like a mutated strain that someone had published but they didn't note that
+
+[00:06:21] [Speaker A]: Because of the hang around lab for a few years.
+
+[00:06:24] [Speaker B]: you know and so that's a problem right I think that's where we kind of differ here is because we provide that data provenance you know that we know that what we're publishing like like what that went through right and we can get come back and tell you okay this went through this through this many iterations but it's hard to do that on a public database right because how do you begin to contact the submitter right
+
+[00:06:45] [Speaker A]: Yep.
+
+[00:06:45] [Speaker B]: you know and it could be like a sample from like 50 years ago and then you know a new intern or a new graduate student decided to sequence it right and so there's there's probably there might be gaps you know of knowledge and so that's one of the issues that we've seen with public databases right like not that the sequences are bad I'd per se it's just that you don't have the supporting metadata to decide as you as a researcher if this is a good sequence or not yeah yes
+
+[00:07:13] [Speaker A]: yeah that's so hard like i mean i have had to look follow two strains and then look back and back and back to all the evidence and i know just how hard it is to recreate provenance years later and often you come across a paper from 50 years ago where it says this strain came from john it's like well what country did it come from yeah
+
+[00:07:32] [Speaker B]: who is John Right.
+
+[00:07:35] [Speaker A]: Yeah
+
+[00:07:35] [Speaker B]: And, you know, collecting metadata, tracking metadata, like it is annoying, right? Especially for researchers, their main goal is to do their research, right? So like, why would you want to care about recording every single detail about these samples, right? I mean, it's usually in the towards the end when you're trying to do your final data analysis that this stuff matters, right? And so I think we have the benefit of being a company that this is something that's built into the way we the way we do things right we have a database that readily stores this information so we can leverage that when we're providing genomes for the genome portal yeah so yeah yes
+
+[00:08:10] [Speaker A]: And so other national tissue collections have done similar things. So the NCTC in the UK is a sequencing project along with sequencing. Have you guys been able to leverage any of that? Or I guess sometimes they probably have sequencing of your strains in the UK that you share?
+
+[00:08:25] [Speaker B]: yeah so there's some strains uh type strains that we do share with NCT NCTC right and so occasionally we'll do we will have communications with them especially when it concerns anything any changes that we've noticed of their type strains I think During a publication process, one of the big things we kind of realized is that taxonomy is a big problem, right? Like,
+
+[00:08:49] [Speaker A]: Yes.
+
+[00:08:49] [Speaker B]: what do you
+
+[00:08:51] [Speaker A]: If
+
+[00:08:51] [Speaker B]: call things?
+
+[00:08:51] [Speaker A]: you remember yourself.
+
+[00:08:52] [Speaker B]: Yeah, it'll never be solved, right? And we have a great bio-curator on our team, Scott Wynn, and he helps us look at all these genomes and be able to tell like, you know, is it microbacterium, is it mycolaceae bacterium, right? Like.
+
+[00:09:09] [Speaker A]: Okay.
+
+[00:09:09] [Speaker B]: Okay, you know, and you're right, like it's never going to be one thing, right? It's always changing. And so when it comes to these type strains, it's really important that these are called like what it's supposed to be called, right? And so we use a variety of resources to check that. So LPSN, they're a good database for taxonomy for bacterial genomes or we'll use that to confirm that if this specific strain is what it's supposed to be called.
+
+[00:09:36] [Speaker A]: Just is it a smith or says this is the strain or the species and then you check it later with genomics or is that
+
+[00:09:43] [Speaker B]: Yeah, so usually when someone deposits with us, they deposit under a specific name, right? And we'll do classification to verify that that matches. And so occasionally we'll see that since they might have deposited this in the 1990s, right? And since then the name has changed. And so then we'll notice, we'll usually see. basically see a difference right like usually flags is contaminated first because you know
+
+[00:10:07] [Speaker A]: Yeah.
+
+[00:10:07] [Speaker B]: the names don't match and so then we'll go in and we'll try to do a deeper dive like if does this name like match right or did it used to be called this you know and so I guess that's one of the bigger problems that we have is like how do you know it's actually contaminated versus like a taxonomy issue right yeah
+
+[00:10:24] [Speaker A]: I've seen this a few times. I would use some of your data to verify while building classification databases from NCBI. it's BIRF SIC and you know so we've gone and say use a taxonomy from GTDB which is kind of nice because it's based on ANI and then you have taxonomy from NCBI which is whatever this mirror says it
+
+[00:10:45] [Speaker B]: Yes,
+
+[00:10:45] [Speaker A]: is and
+
+[00:10:46] [Speaker B]: yes.
+
+[00:10:46] [Speaker A]: then you have your what you said the strain is and obviously that can be quite difficult in certain circumstances like say as I can say enterobacter cloacae where it's a complex
+
+[00:10:59] [Speaker B]: Right.
+
+[00:10:59] [Speaker A]: and so you know over time they've gone and said oh well actually this is probably five different species or you know they've kind of mixed and matched they've divided different ways and then you're like is it you know what is the grain straight there it can be quite difficult because
+
+[00:11:12] [Speaker B]: Right.
+
+[00:11:12] [Speaker A]: a nice is one thing but
+
+[00:11:13] [Speaker B]: Yes.
+
+[00:11:13] [Speaker A]: type strain saying another thing but it can be so so subjective and that's where you really need a subject matter experts to come in and say actually this is what it is in the lab phenotypically and so that's probably what it is but genomic support is not that's gonna
+
+[00:11:28] [Speaker B]: yeah
+
+[00:11:28] [Speaker A]: draw the line
+
+[00:11:29] [Speaker B]: right because it's hard because like you said especially for complexes a lot of classification software will just stop at the complex right it won't really go into the specifics right and especially for closely related genomes it's hard to tell right and like you said the phenotypic data is where where it helps right to know if there are differences yeah so
+
+[00:11:48] [Speaker A]: and obviously you get a say microbacterium and
+
+[00:11:51] [Speaker B]: yes
+
+[00:11:51] [Speaker A]: it's crazy it's like they make something around somewhere it's like yeah
+
+[00:11:55] [Speaker B]: Yeah.
+
+[00:11:55] [Speaker A]: all different species yeah anyway what else are you working on yeah
+
+[00:11:59] [Speaker B]: So that's one of the main things that ADCC does is the genome portal. I think other than that, we've been trying to see how else we can leverage our data. So right now we've been specifically focusing on whole genome sequences, right? But you can imagine, you know, we can start to build look into like RNA-seq with our cell line data, right? And then, you know, the whole world of proteomics, that's a whole another. another can of worms right yes and that's something we would like to get into right so um so I think at this point we're trying to see what uh how we can use uh the collection data in a different way right what more would our customers want to see you yeah so that's yeah it's a little bit explorative I one of the reasons I really like my job is you know there's never a day where I do the same thing right because you're always working with working with different bugs every day yes
+
+[00:12:52] [Speaker A]: Yeah,
+
+[00:12:52] [Speaker B]: that's it's been a great
+
+[00:12:53] [Speaker A]: really cool.
+
+[00:12:54] [Speaker B]: learning experience for me too yes yes
+
+[00:12:55] [Speaker A]: And I'm really envious of all the data you have, like you know, you know, it's really,
+
+[00:12:58] [Speaker B]: yes yeah
+
+[00:12:59] [Speaker A]: really cool. Now, thank you so much for chatting to us today.
+
+[00:13:02] [Speaker B]: yeah
+
+[00:13:02] [Speaker A]: And yeah, we will talk to you again.
+
+[00:13:04] [Speaker B]: thank you for having me
+
+[00:13:06] [Speaker C]: Thank you so much for listening to us at home. If you like this podcast, please subscribe and rate us on iTunes, Spotify, SoundCloud, or the platform of your choice. Follow us on Twitter at Microbinfi. And if you don't like this podcast, please don't do anything. This podcast was recorded by the Microbial Bioinformatics Group. The opinions expressed here are our own and do not necessarily reflect the views of CDC or the Quadram Institute.

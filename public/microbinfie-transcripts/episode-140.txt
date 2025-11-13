@@ -1,0 +1,205 @@
+----- chunk 1 start @ 00:00:00 -----
+
+[00:00:02] [Speaker A]: Hello, and thank you for listening to the MicroBinFeed podcast. Here, we will be discussing topics in microbial bioinformatics. We hope that we can give you some insights, tips, and tricks along the way. There is so much information we all know from working in the field, but nobody really writes it down. There's no manual, and it's assumed you'll pick it up. We hope to fill in a few of these gaps. I am Dr. Lee Katz. My co-hosts are Dr. Nabil Ali Khan and Professor Andrew Page. Nabil is a Senior Bioinformatician at the Center for Genomic Pathogen Surveillance at the University of Oxford. Andrew is the CTO at Origin Sciences and Visiting Professor at the University of East Anglia.
+
+[00:00:45] [Speaker B]: Welcome to my Grip Podcast. I'm your host, Andrew Page. And we're here at the 10th White Herbal Mathematics Tacticon in Bethesda, Maryland, and we have Torsaseman and Finley where we're going to talk about clinical metagenomics. Finally, you gave a very nice description earlier of clinical metagenomics. Do you want to tell the audience with no curse words what that is?
+
+[00:01:06] [Speaker C]: So clinical metagenomics is normally when we've gone through traditional clinical microbiology workflows, you try to culture. usual biochemical tests assays the multi-toff is not telling us anything particularly useful and then so we have no idea what's going on with the particular patient so we just sequence heavily that sample but
+
+[00:01:25] [Speaker D]: being what type of sample are you actually getting into work are they blood or yeah cerebral spinal fluid or what is that
+
+[00:01:34] [Speaker C]: i mean it's totally dependent on the infection the presentation the infection and that's i must confess that part slightly upstream for me so yeah so based on the presentation infection often it is blood blood samples blood culture tends to blood culture and then csf if there's a yeah
+
+[00:01:49] [Speaker D]: I'm guessing there's not actually a thing in
+
+[00:01:51] [Speaker C]: not
+
+[00:01:52] [Speaker D]: any samples are we looking and
+
+[00:01:53] [Speaker C]: a ton like sometimes we do skin swabs especially there's sores or anything we'll do skin swabs and they tend to be much higher diversity
+
+[00:02:00] [Speaker D]: do you know how it compares to wastewater like in terms of how what's the needle in the haystack level
+
+[00:02:08] [Speaker C]: you generally have unless you're looking sort of fecal sampling or swabbing like in that region where you have potentially a lot of dead bacteria that are fragmented generally most of the stuff you're sampling is alive skin you have a bunch of dead stuff so that kind of helps it tends to be somewhat less fragmented genomes
+
+[00:02:24] [Speaker D]: So when you're at the influence of Sam, presumably there's only one causative agent that caused one. How often do you find the actual cause of it? exposure of every drug now to my side that they've got a sexist whatever so just on how we go that route
+
+[00:02:41] [Speaker C]: oh yeah that's incredibly difficult because uh and often even you know again you're dealing with the hospital patients that tend to have weird and unusual infections that we're not able to characterize tend to be immunocompromised or a long-term frailty so you quite often even end up with polymicrobial infections where they're having multiple concurrent infections happening um so and
+
+[00:03:04] [Speaker D]: Crazy.
+
+[00:03:04] [Speaker C]: depending on how deep your sequence like you know there's a bunch of viral pathogens in there as well that you you also have to characterize which aren't generally great from a purely your standard lumina reads into kraken 2 kind of taxonomic analysis like because like the coverage and the tiny fragmentation and i think there's gonna be a keynote tomorrow at the smgs conference all how you can look at large sets of reads and try and identify viral pathogens at low abundance, but it's a big challenge.
+
+[00:03:34] [Speaker D]: So what are the main analytical approaches? Is it literally just looking at each read and seeing what it might be from?
+
+[00:03:41] [Speaker C]: I mean, so generally, generally it's the taxonomic profiling approach, right? Because you, unless there's one thing at particularly high abundance, your ability to get a good microbial sampled genome out of the data is pretty. challenging especially with short read which are usually doing for dab
+
+[00:03:59] [Speaker D]: perfect so can i ask right if you take blood that's going to be 99 uh do you don't really want to bleed just in case that bleeds your tiny fraction of what you actually do you know do you just sequence absolute hair or do you do any anything to try and you know make your life a little bit easier
+
+[00:04:18] [Speaker C]: mostly sequence the hell out of it often we do try and sequence kind of cultures and swabs hopefully with a little bit less the human dna but there's still a ton of the human i found the intel kit like trying to have a host removal step you know biochromatic host removal step before i'm too deep in the analysis can help but i usually do it i usually do an analysis on the full data set and the host group data set to make sure we've not removed anything important just because it happens to share a couple of cameras with the human genome you know like
+
+[00:04:47] [Speaker E]: You have like a workflow that's that's out there that's like thing that you use
+
+[00:04:54] [Speaker C]: I mean, I tend to throw the, again, I tend to throw the kitchen sink at these things because you're just trying to look for any hypothesis generation you can do. So like, and of course, tax profiler workflow is great because
+
+[00:05:07] [Speaker E]: Yeah,
+
+[00:05:07] [Speaker C]: it wraps a whole bunch of different taxonomical profiling tools. sure there's been a previous episode all on technological profiling there's some that are more sensitive some that were specific some that work better for certain taxes than other taxes so
+
+[00:05:21] [Speaker E]: Well, we've had Jen Luana. She's biased a little bit, but I can probably say that she has her software, but maybe you do have an opinion of maybe on your end unbiased having not developed that.
+
+[00:05:36] [Speaker C]: I mean, Kraken, you know, Kraken to brackets are great and they're always kind of part of the workflow. I don't really bother that much with Kraken step because I'm not actually, I don't necessarily care about the quantification and abundance. The usual can be usual correction, but you know, I'm just trying to see what's in there. to start a conversation with the microbiologist it tends to be a very back and forward conversation because i don't have the clinical microbiology to understand what you know oh that's actually a relative of this pathogen that's sometimes been seen in these three case reports in this this particular you know compromised population that level of kind of digging out but you know generally combining with some marker gene approaches because they do tend to be a bit more specific the sensitivity is much worse because you need those marker genes to be present But you can get more specific taxonomic spans from that. Well, you know, the new tools, there's always new tools coming out there. It's still recently developed and, you know, highly computationally efficient and supposedly with better performance according to their paper. So we're definitely wrapping that into the analysis going forward.
+
+[00:06:40] [Speaker D]: Which brings up this idea of there's all these tools, as you know, come down to the databases ultimately. What's the state of the databases?
+
+[00:06:53] [Speaker C]: Well, as we know, you can fully trust all taxonomic labels in databases and
+
+[00:06:57] [Speaker D]: Oh,
+
+[00:06:57] [Speaker C]: there's no errors or mistakes in there. But usually, again, Kitchen Sink of, there are again, some of the slightly more curated marker gene databases are kind of useful as a backstop. But usually you are just throwing sort of NR at it and just going with the, oh my gosh.
+
+[00:07:12] [Speaker D]: yeah.
+
+[00:07:12] [Speaker C]: We download it, like we have all the databases download regularly in the largest databases possible to maximize the sampling, but there is so much noise in them. That's why I do quite like having a few different databases and kind of looking a little bit more at what are consensus common signals I'm getting from different tools and approaches.
+
+[00:07:29] [Speaker D]: So when you look at an RNA profile there's a typical CZI date and they basically blast reciprocal reads against NR and that's going to give you a profile but of course a healthy person will have like 30 pathogens apparently you're like you're getting some really nasty stuff so
+
+[00:07:48] [Speaker B]: It's a labor noise. So how do you kind of filter that out, you know, from all of that noise and what?
+
+[00:07:57] [Speaker C]: So again, it's driven very much by discussion with the clinicians who have a lot more relevant expertise on the actual disease and disease presentation than we usually have some form of suspicion based on things they previously see a patient
+
+[00:08:11] [Speaker B]: The
+
+[00:08:11] [Speaker C]: go
+
+[00:08:11] [Speaker B]: patient over.
+
+[00:08:11] [Speaker C]: yeah exactly you know what they've been exposed to. They've been in the wilderness and handling animals and that range of risk.
+
+[00:08:21] [Speaker D]: I remember a case report as, sorry, a guy that I work with and he's like, oh yeah, you know, it's really weird. Oh, and it was someone was shot, but the bullet went through something else and it got something else bacteria that caused infection of some weird microbe that I haven't seen.
+
+[00:08:40] [Speaker C]: Huh.
+
+[00:08:40] [Speaker D]: Was it a line gunman? was in their function so yeah i was american you know i had to do good
+
+[00:08:49] [Speaker E]: No, no, no, no. that's a good answer thank you for taking the question seriously
+
+[00:08:56] [Speaker D]: i think there has been a case of where someone got infected by three separate viruses by one from one mosquito wow yes
+
+[00:09:02] [Speaker E]: that's some bad luck
+
+[00:09:05] [Speaker D]: just with the dynamoses again like you talked about this what's the where's the missing with often the cases we're getting the weird okay this is hard to identify that's why we haven't been able to but yet the weirdo bugs and ongoing parasites are not in the data this microbial dark matter will how will we ever fill that space
+
+[00:09:29] [Speaker C]: I mean, if you've given us enough money, we might. Probably not, right? There's always going to be huge money. yeah my phd lab they you know went in sequence the pond on campus and discovered a new phylum of fungi right like there
+
+[00:09:45] [Speaker E]: Yeah, kudos on that. I was just about to post it rather than something.
+
+[00:09:50] [Speaker C]: yeah there's always going to be a huge amount of uncharacterized stuff hopefully you can use the phylogeny tree to get some indication of which higher level taxa may be involved in this infection
+
+[00:10:02] [Speaker E]: So would you do 6S?
+
+[00:10:05] [Speaker C]: usually not that's usually too refined a marker and require you know too usually restricted to database to be able to actually identify some of these weirder stuff like you are relying on you know fragments of fragments that happen to share some sequence similarity with you know and that's the related phylum to the fungi that you're looking for
+
+[00:10:27] [Speaker D]: in some early clinic from medigena with a low amount of very everybody seemed to have up to plasma gambia and malaria pseudo and I guess we put it down to it could be old late but is that or is this an artifact of the databases because I believe toxo was a Have it even completely erased it? Malaria is actually rich, so maybe it's a low complexity problem. Like, do you have any ideas on why this has happened?
+
+[00:11:01] [Speaker C]: I mean, there's a ton of, there are a ton of assemblies, especially when isolated from human beings that are contaminated human reads. So you don't even need, you know, bacterial off-target hits, just there's a malaria, you know, malaria, phosphobrom assembly that as a basic human set of dna that's been integrated into the genome into the context which then when you're running something like kraken you're getting cameras the map to that and you're getting cross hits yeah
+
+[00:11:27] [Speaker D]: Ah, okay. So it was the human DNA in the medicine example, just hitting the falcifurum, one of the falcifurum genomes. Ah, that makes sense. So, yeah, just, please.
+
+[00:11:36] [Speaker A]: Interesting.
+
+[00:11:37] [Speaker C]: and some of like some of it's getting better you know there are there have been efforts to try and clean up some of these assemblies and flag ones are they're problematic were being helped by getting more human reference diversity as well so the other big problem is relying on a single human reference that maybe contains all the wheels to capture all human diversity um
+
+[00:11:57] [Speaker E]: Right.
+
+[00:11:57] [Speaker C]: yeah
+
+[00:11:57] [Speaker D]: That just got a bunch of white guys, you know, is bad for diversity.
+
+[00:12:01] [Speaker C]: turns out when especially when you're dealing with assemblies that being sampled from maybe a broader set of the world you know add there is inclusion of dna from you know the population that pathogen is affecting then that leads to huge issues when you're doing your taxonomic classification yeah
+
+[00:12:17] [Speaker D]: Yeah, I'd hate notice more in real people. The human PAM genome has been data-based structured to address that.
+
+[00:12:25] [Speaker C]: there's been moved to graph references particularly still not i don't know if any of the pre-built databases actually use the pound reference i think often they run it as a separate stage first as part of the de-hosting but it can be a bit of aggressive de-hosting as we talked about earlier and you can lose potential reads another thing in the pandemic we had a lot we had a lot we all had a lot of discussion about de-hosting
+
+[00:12:47] [Speaker D]: Oh my god, particularly with whatever he was into virology and others have just used the exact same methods in human as you did in virology.
+
+[00:12:58] [Speaker C]: And so like, you know, there are approaches to taking a more of a competitive approach to the de-hosting that are a little bit more sensitive, but then you kind of need to know what you're doing competitive mapping again. Fine, if you have a target.
+
+[00:13:10] [Speaker D]: So when saving from the genomics, capital is out and she's still working out. Where to next? What's the medical plan? Do you go in essence?
+
+[00:13:20] [Speaker C]: So yeah, I mean, we work, you know, we do a lot of work with animal viruses, human viruses, like zoonosis. We have a whole health research training platform built around developing skills in this area and this confluence. And we do find quite often, you know, our colleagues in the food production agencies slash Center for Forenamed Disease are very good at dealing with weird pathogens that are maybe not as common in that kind of classic clinical workload, obviously, but there's colleagues at the NML and get to defend. you can go to the fabric government in your various countries and sometimes they have some relevant expertise or they may even be able to culture some things we're not able to culture
+
+[00:13:55] [Speaker D]: Right.
+
+[00:13:55] [Speaker C]: for biosafety reasons or a range of available methods in a class of clinical lab
+
+[00:14:02] [Speaker D]: I think it'd be important to realize that except clinical meted dynamics is a last resort, the doctors aren't, the clinicians aren't waiting for these results. They're already treating the patient. If they don't know what it is, they're just going to pump them with. What they think antibiotics
+
+[00:14:16] [Speaker C]: Yeah.
+
+[00:14:17] [Speaker D]: that would work. And even in the OG clinical metagenomics case, Charles Chu, the leptospira infection, which was one of the first patients in the field, they weren't just letting the patient see their sick or sick. They were pumping full of penicillin and other things that leptospira was actually susceptible to penicillin. So that actually worked. So yeah, I still think it's important to realize that we're not dependent on it.
+
+[00:14:43] [Speaker E]: helpless yeah
+
+[00:14:43] [Speaker C]: And what you really need is you need clinicians, clinical microbiologists that have enough understanding of genomics and you need bioinformaticians that actually care about the microbiology enough to be able to communicate and have a real discussion about this because it's not, I don't think it's ever really going to be a one size fits all type of analysis.
+
+[00:15:06] [Speaker D]: Exactly right. It's a team. It's the same in public health and outbreaks, right? It's never just about. But we have the immunologist as well. team we're using out of domain expertise and our species just kind of.
+
+[00:15:21] [Speaker C]: I don't know about other countries, but one of the challenges we have in Canada, while the microbiologists I work with are fantastic and do a lot of, you know, this discussion about using genomic data, how to use it more effectively, genomics is still not part of the core competencies in the residency training for microbiologists in Canada.
+
+[00:15:40] [Speaker D]: What?
+
+[00:15:41] [Speaker C]: yeah it's still not so they don't there's no exam questions on genomics right and they don't have to use genomics in any kind of capacity like they're all exposed to it usually in some degree because it's so widespread and still not technically part of the training program we're really trying to push a little bit in canada now and maybe trying to drag through that of like getting it into one of their like official world college competencies so there's more kind of formal exposure for everyone
+
+[00:16:07] [Speaker D]: Good. Does AP know what a situation is in the US or in the UK?
+
+[00:16:14] [Speaker E]: we at least in public health we are doing more work well i don't i'm not aware what the actual like competencies actually say i feel like something probably going it's also like maybe it's a more sensitive thing like hey are you giving promotions on if you know biofilms I probably wouldn't ask that to somebody, but they are getting trained in this stuff.
+
+[00:16:35] [Speaker C]: like five years ago you know you can look at the role of some of the role college exam papers and there were questions of things like interpret this pulse field are these two related right so they were doing that level of granularity but not including genomic data yet
+
+[00:16:51] [Speaker E]: Okay. That did fair eventually, I'm sure.
+
+[00:16:54] [Speaker C]: Yeah, but you've got to remember it's, you know, it's a five-year training program potentially after medical school. So even if we introduce it today, you're not getting a guaranteed set of staff physicians who have gone through that training for five years.
+
+[00:17:08] [Speaker E]: So I will say at least I can definitely say for Wisconsin, but it's so that at least after. people get into their careers and stuff after they get placed in the public health labs if they do want to be part of PulseNet and they do get certified they do have to do this stuff and interpret things correctly so that does happen
+
+[00:17:24] [Speaker D]: I think in the clinic, it's still a bit behind public health because genomics, microbiology is not common in the clinical space. It's usually on an ad hoc basis. But I think once it makes reports, especially the AMR and some hospitals get literally chemical competency out of it. I think that will happen. Yeah, clinics always are a bit behind.
+
+[00:17:46] [Speaker A]: It's
+
+[00:17:46] [Speaker C]: and don't get me wrong right you know a lot of medical microbiologists have done research papers involving genomics or exposed to genomics and a lot of the clinical microbiologists are coming from phd backgrounds where they've done phds using genomics so there is expertise there the problem is there's no formal requirement of that expertise so you can have folks coming from centers that can expose them to genomics or they kind of slip through the gaps Or then being faced with how do I deal with this genomic data or there's a biofratrician speaking to me and I have no idea what they're talking about and we're trying to drive this down to clinical decision making.
+
+[00:18:22] [Speaker E]: So let me take it to one more point. After you have done this amazing. feet of comparing against nr and like figuring out any little thing that might be there is
+
+[00:18:34] [Speaker C]: Not just NR.
+
+[00:18:35] [Speaker E]: is or anything else yeah you do you do an amazing whole kitchen sink as you call it i hope that's the name of the you give a report i think how is that received and what does a report look like how do you cool that
+
+[00:18:49] [Speaker C]: So we don't actually generally tend to use a formal report in this process because it's way more of a discussion. right so usually there's multiple rounds of back and forth discussion where i you know summarize you know you generate you can generate the various figures or whatever and we discuss it and then they're like oh you know weird that there's a lot of like the spindle tags are turning up But there is a case support of someone that has looked like this. Can we dive into that further? And then it'll do a deeper dive exclusively on that, maybe using customized database focused on one flyer, pulling your reference genomes from your bath DB or whatever. They stay working and funded, which seems to be the case.
+
+[00:19:29] [Speaker E]: That's right. How do you get this funded? How do you pay for all this?
+
+[00:19:32] [Speaker C]: Hospitals. It's part of the microbiology consultation service, right? Shared hospital lab is a joint initiative of these hospitals. They'll jointly fund it. So that pays for kind of everything we're doing.
+
+[00:19:44] [Speaker D]: Oh, Canadiens Football Council is there. I'm not sure how it's just like, oh, That's where I was saying the U.S. were like, oh, you've got infectious grace.
+
+[00:19:54] [Speaker C]: There was a really excellent, there was a really excellent talk actually a couple of years ago at the Canadian Medical Microbiology.
+
+----- chunk 2 start @ 00:20:00 -----
+
+[00:20:00] [Speaker A]: the infectious disease like medical conference from i can't remember his name but he was at one of the big us centers doing like they had like a full you know private anyone can go send in get their clinical metagenome sequenced and what i loved is somebody that was developed getting that much data you know had a essentially business doing this was very measured and caveated on how useful this data actually is And they're like, there's been a couple of times where doing that as a diagnostic approach as a first-line diagnostic approach has found something that wasn't expected and has led to improved outcomes. But most of the time, it's led to kind of the pathogen equivalent of incidental opus. Right. So if everyone wants to turn to that below us, one of the reasons why we don't do whole body scannings to everyone every year is because you're going to find things, many of which are benign or cause no long term health conditions. But because you found it, you then have to address it and act on it. which can then lead to more harm than actually just having left it. You must be unaware of this. And so if you give everyone that's in the hospital, here is a deep metagenome sequence, you're going to find a whole bunch of potential pathogens. And like some of them are commensal or some of them are just related to malaria. yeah so like just going back to the thing what about the reporting to the clinic i think a report is sort of an official thing and usually has to be done under an accredited environment Putting all that against, there are people who are clear accrediting in Australia, but the reason you can't give an official report and it has to sort of be informal discussion is because of the legal situation.
+
+[00:21:43] [Speaker B]: Oh, yeah.
+
+[00:21:44] [Speaker A]: Like you have to act on the report and the legal document. So yeah, it all has to be done sort of alternative.
+
+[00:21:50] [Speaker B]: Social media makes things so hard. Yeah. But I mean, I'm glad that we have standards and regulations, but also things aren't exactly the best way to find them.
+
+[00:21:59] [Speaker A]: yeah i mean a lot of this happening under the you know auspice of for research use that's exactly right so we're not we're not this is not a credit part of the clinical treatment plan but it is potentially helping inform
+
+[00:22:13] [Speaker B]: So clinical medicine now exists for exactly use, it's just research.
+
+[00:22:19] [Speaker A]: And we'll leave it there. Thank you so much for your address today and tell you that it's not my job.
+
+[00:22:25] [Speaker B]: Thank you so much for listening to us at home. If you like this podcast, please subscribe and rate us on iTunes, Spotify, SoundCloud, or the platform of your choice. Follow us on Twitter at Microbinfi. And if you don't like this podcast, please don't do anything. This podcast was recorded by the Microbial Bioinformatics Group. group. The opinions expressed here are our own and do not necessarily reflect the views of CDC or the Quadrum Institute.

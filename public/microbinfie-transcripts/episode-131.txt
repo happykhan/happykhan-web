@@ -1,0 +1,125 @@
+----- chunk 1 start @ 00:00:00 -----
+
+[00:00:00] [Speaker A]: Hello, and thank you for listening to the MicroBit Deep Podcast. Here, we will be discussing topics in microbial bioinformatics. We hope that we can give you some insights, tips, and tricks along the way. There is so much information we all know from working in the field, but nobody really writes it down. There is no manual, and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My co-hosts are Dr. Nabil Ali Khan and Professor Andrew Page. Nabil is a senior bioinformatician at the Center for Genomic Pathogen Surveillance, University of Oxford, and Andrew is the Director of Technical Innovation for Theagen. Cambridge, UK. I am Dr. Lee Katz, and I am a senior bio-physician at Centers for Disease Control and Prevention in Atlanta in the United States.
+
+[00:00:46] [Speaker B]: Welcome to the Microbepty podcast. I'm your host Andrew Page and I'm here with Torsten Seaman at the 10th Microbe Bioinformatics Hackathon in Bethesda, Maryland. So Torsten, I've talked to you at a hackathon before. I think you're the very first person we ever interviewed for this podcast and it was in Norwich and we're sat outside a hackathon just like this having a chat about all the different things, all the different projects you're doing. um so it's great to have you back you know what five years later maybe i think it's 2019 yeah
+
+[00:01:19] [Speaker C]: It's been a while. I remember that. I remember sitting on those nice couch chairs around a little coffee table.
+
+[00:01:24] [Speaker B]: oh my god and so much has changed we've had a pandemic in between and uh you know That's obviously been the big thing for our fields and we've come out the other side and all bioinformatics is now solved following many billions of dollars being invested. Is that correct?
+
+[00:01:44] [Speaker C]: Of course. Everybody has a sequence in our, so we're back where we started, but 10 times worse, I would say.
+
+[00:01:51] [Speaker B]: Yes, and we have 10 times the solutions as well. Everyone has a solution for the same thing.
+
+[00:01:56] [Speaker C]: They say diversity is a good thing. I think we probably have a bit too much diversity in the bioinformatics space. It's quite overwhelming. We have, we work with a lot of partners in the Asia Pacific region who are just, you know, they, COVID has kind of pushed them into the genomics era and they don't have dedicated bioinformatics training in their countries or dedicated bioinformatics personnel and they're really looking for solutions to help them with this. nanopor and Illumina data and
+
+[00:02:24] [Speaker B]: Yeah,
+
+[00:02:24] [Speaker C]: yeah it's really quite hard to sort of explain what's out there and what the options are and what is best suited to their situation.
+
+[00:02:32] [Speaker B]: so you work in MDU in Melbourne and
+
+[00:02:35] [Speaker C]: Yep.
+
+[00:02:37] [Speaker B]: I hear a lot about your lab. It seems to punch above its weight internationally. So it operates more like a national lab rather than just a state lab within a country. And it's a fair play to you guys. But what tools and resources are you guys working on at the moment?
+
+[00:03:00] [Speaker C]: Well, yeah, you're right. We work at a public health lab, a state lab. We don't have a sort of a national reference lab in Australia. So we just have a bunch of state labs. And I guess a lot of my work in the past 10 years has been involved around getting those labs working together and sharing data. And that kind of resulted in the OzTracker surveillance platform, which we've been developing. And that's a sort of an online sort of semi-private sort of sharing platform to get each of the state labs to share. to shed data and a sort of a premature version of it was used. due to urgency during
+
+[00:03:35] [Speaker B]: Yeah.
+
+[00:03:35] [Speaker C]: the COVID pandemic but now a lot of our effort people are back going back to normal now and yeah trying we're going back to you know the bread and butter which is bacterial genetics but also there's monkeypox and Japanese encephalitis viruses which is issues in Australia as well so still got the virus stuff but getting all getting back on the bacterial path and getting everybody sharing nationally and also interoperating with our our international platforms like classic ones like NCBI but also working closer with the WHO, Curling Hub and our regional partners. Okay,
+
+[00:04:13] [Speaker B]: We're busy.
+
+[00:04:13] [Speaker C]: we're busy. So yeah, like you said, we do have a national role, or we are state labour, we are trying to coordinate national efforts. And that's in conjunction with all our state partners. So we have a couple of large grants which are trying to encourage, these are research grants. And you say we sort of punch above our weight, but really we're multiple things. We're a state public health lab, but we're situated within a microbiology department at the University of Melbourne, which is a large university. diversity and so that allows us to sort of work with directly with research as well we're not encumbered like a lot of like a government lab might be
+
+[00:04:46] [Speaker B]: Yeah.
+
+[00:04:46] [Speaker C]: to work with research and we're also part of a larger institute the Doherty Institute which kind of had a covers immunology clinical services stuff like that and so it really gives us a lot of opportunities to kind of expand beyond the traditionally doing in a state lab and I guess one of the challenges has been funding like a lot of places around the world there was a large injection of cash during COVID and now our health system is broke in Australia so we've had you know there's been budget cuts and our biopharmatics teams are not as big as they used to be so yeah we have slowed down quite a lot of it we've lost some people to other who have left you know public health gone into industry and other places so our capability to generate software tools has not been as great as it has been in the past and I've slowed down a bit on the software side as I've moved into more kind of
+
+[00:05:40] [Speaker A]: Manuscript.
+
+[00:05:40] [Speaker C]: My material role,
+
+[00:05:41] [Speaker B]: Yeah,
+
+[00:05:42] [Speaker C]: it's
+
+[00:05:42] [Speaker B]: I know the feeling.
+
+[00:05:43] [Speaker C]: a common for our peer group that, you know, where we were big in coding back in the day and now we're sort of moved up the ladder a bit and more about management, which is not always a natural fit for our kind of skills and personalities.
+
+[00:05:56] [Speaker B]: But who's going to do all the pro coding? I mean, you know, there's a deficit there.
+
+[00:06:01] [Speaker C]: Yeah, Pearl, it's a big problem. It's a few people still hanging on. Of course, I'm jesting. I have no desire for Phil to remain and I'm glad it's going to be replaced with more solid languages. Yeah, in fact, one of my postdocs who's helping me write the next version of Sniffy, he just started a blog and he made some fun of Pearl in that blog.
+
+[00:06:27] [Speaker B]: Oh, no, I think you got to fire him now.
+
+[00:06:29] [Speaker C]: No, he's very talented and he's made the right decision to go with Python.
+
+[00:06:35] [Speaker B]: Yeah. So you mentioned you are doing an exploration of Snippy. I heard you got a CZ, it's on Zuckerberg. Grant recently.
+
+[00:06:43] [Speaker C]: I did. At my advanced age, I'm proud to say I finally actually got a grant, my first grant ever.
+
+[00:06:50] [Speaker B]: Well
+
+[00:06:50] [Speaker C]: I
+
+[00:06:50] [Speaker B]: done.
+
+[00:06:50] [Speaker C]: know that sounds surprising, but it is my first. Yeah, the Chan Zuckerberg Initiative has an open source software scheme where they will fund the maintenance of existing software. It's not really to design new software, it's designed to maintain existing software. So it was quite an enlightening experience writing this grant because um you know normally i have to write i've been trying to write academic style grants and you know my type of the software work and the methods development doesn't really fit into that mold like they don't sort of care about the tools they're more about the questions you're answering so i always struggled a bit but writing this challenge i feel their grant it's like wow this is easy is this how it feels for academics when they're writing normal Never. grants no but so it was all the things you had to write about you know what what are the competing software tools what are their statuses is
+
+[00:07:40] [Speaker B]: Yeah.
+
+[00:07:40] [Speaker C]: what why you need to maintain your software what's going wrong like what why do you need funding or what are you going to do it all just flowed quite naturally and I was actually quite surprised to win and so yeah we have two years of funding and I have a postdoc wait time of work who is going to write Snippy NG Snippy the next generation is
+
+[00:08:01] [Speaker B]: Brilliant.
+
+[00:08:01] [Speaker C]: what it's going to be called so it won't really be backward compatible but It's going to be all the things we wanted the original SNIFI to become, but thanks to bit rot and lack of attention over COVID, never became. So I guess I'm happy to outline some of the features here, if that's okay.
+
+[00:08:17] [Speaker B]: I was just going to say Waitama, we had him on the podcast before and he's talked about write the docs where he did some really, really cool stuff with AI and kind of interleaving it, you know, to make automatic commenting of code in a standardized fashion. So, very talented guy.
+
+[00:08:33] [Speaker C]: He is very talented and he's done a lot of work using AI stuff and machine learning, but he's also sort of a gun at phylogenetics and beast and all those sorts of things, just a general all around talented software engineer. I don't know, he's, he used to be sort of in ecology, but yeah, he's going to be writing Snippy. We've started writing a community user survey, which we'll be sending out before the end of 2024.
+
+[00:08:59] [Speaker B]: Yep.
+
+[00:08:59] [Speaker C]: That's to get all your feedback on what you think will be most important for Snippy next
+
+[00:09:03] [Speaker B]: Long reads.
+
+[00:09:04] [Speaker C]: year. Sorry?
+
+[00:09:05] [Speaker B]: Long reads.
+
+[00:09:06] [Speaker C]: Yeah, that's, so the biggest thing I've always been asked, does Snippy support nanopore reads? And... And I always say no, like it kind of can work, but it's not really optimized for that at all. So the next NIPI will be have it'll still work with your Illumina reads just as it used to.
+
+[00:09:25] [Speaker B]: Yep.
+
+[00:09:25] [Speaker C]: But the two things in Nanopore is obviously the big one. That's going to be tricky. But luckily, we've just sort of. I've been working with Michael Hall on a big nanopore benchmarking paper. And so we have some insight now into how to call nanopore variants most efficiently. That's on bioarchive, soon to be published. And hopefully we'll take some learnings from that. And then the other big thing that we want is. being able to incorporate pre-assembled genomes into Snippy.
+
+[00:09:54] [Speaker B]: That would be very useful.
+
+[00:09:55] [Speaker C]: Yeah, so this mixture of nanopore, aluminum and genomes is what is the holy grail. And some of you know you can give contigs to Snippy, but it kind of shreds them into fake illumina reads and then just pushes them through the pipeline. So it's not the optimal way to do it. So I've already got a proof of concept using Minimac to align contigs against contigs and calling the Snips from that. from that directly and that's very fast so the idea is that you we have a uniform way to call variants from assemblies nanopore and alumina into a common vcf that is comparable with to each other so you don't have vcf
+
+[00:10:31] [Speaker B]: Brilliant.
+
+[00:10:31] [Speaker C]: from different tools which never quite works and then yeah doing all your favorite core genome alignment and the next big thing will be having supporting fuzzy alignment so allowing some proportion of ends in your alignment as many of you know ryan wick famous for unicycler and tools like that he's been doing a lot of research into fuzzy alignments how far you can go before you corrupt your signal and yeah it looks like I think the fuzzy core approach is the right way to go and we probably should have been doing it for the last decade but hopefully we can correct that going forward.
+
+[00:11:06] [Speaker B]: Well, it's constantly changing and it's good that you're maintaining the software and that is the biggest issue, I think, with bioinformatics software because you can have a great tool, but then if people step away or people finish their PhDs or postdocs or grants end. and then that tool just kind of disappears you know if it's no longer being maintained or dependencies aren't updated and whatnot and it can just vanish off the face of the earth and that's why we have so many tools in the graveyard of bioinformatics so it's great that Chan Zuckerberg are giving some money to maintain this tool so fair play to you and get on that grant
+
+[00:11:39] [Speaker C]: Sorry?
+
+[00:11:40] [Speaker B]: So fair play to you for getting the grant.
+
+[00:11:42] [Speaker C]: Yeah, no, I really, it turns out we're very, look, I'm amazed that they support all these open source projects. We got to go to a launch meeting with all the winners and. It's amazing all these projects that you know, like Bioconductor and X-Ray and a lot of these sort of more generic outside bioinformatics tools, they are being supported by something like this is the first grant in programming we are in the world that's explicitly supported software and
+
+[00:12:07] [Speaker B]: Yeah.
+
+[00:12:07] [Speaker C]: very grateful.
+
+[00:12:08] [Speaker B]: Awesome. Thank you so much for joining me on the Microbial Future podcast, and I'm sure we'll catch up again, maybe another hackathon in the future.
+
+[00:12:16] [Speaker C]: Thanks, Andrew. Great to talk with you again.
+
+[00:12:18] [Speaker A]: Thank you so much for listening to us at home. If you like this podcast, please subscribe and rate us on iTunes, Spotify, SoundCloud, or the platform of your choice. Follow us on Twitter at Microbinfy. And if you don't like this podcast, please don't do anything. This podcast was recorded by the microbial bioinformatics group. The opinions expressed here are our own and do not necessarily reflect the views of CDC or the Quadrum Institute.

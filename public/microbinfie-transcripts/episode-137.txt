@@ -1,0 +1,193 @@
+----- chunk 1 start @ 00:00:00 -----
+
+[00:00:27] [Speaker A]: The podcast, we're starting part two of how we are watching Contagion, starring many, many famous actors and actresses. Again, Contagion was released in 2011. We're going to dive in together with some of the scenes that we'd like to talk about. Real bioinformaticians reacting to an outbreak movie, Contagion.
+
+[00:00:48] [Speaker B]: So where are we going to pick up from this time?
+
+[00:00:51] [Speaker A]: Genome Dashboard.
+
+[00:00:53] [Speaker B]: Genome Dashboard. So the Genome Dashboard is in the notes happening at the 28th minute or the 29th minute of the film. And they're just looking at the initial... sequence and protein model of the virus.
+
+[00:01:09] [Speaker C]: Cells assessment. We've sequenced the virus and determined its origin and we've modeled the way it enters the cells of the lung and the brain. And the virus contains both bat and pig sequences in the bottom right. You can see the dark green is pig and the light green is bat. And here you can see the crossover event pig, bat, bat, and pig, bat. And here is a model of the virus and how it attaches to its host. host. The blue is virus and the gold is human and the red is the viral attachment protein and the green is its
+
+[00:01:38] [Speaker B]: It's
+
+[00:01:38] [Speaker C]: receptor.
+
+[00:01:38] [Speaker B]: like a single protein that they look at. It's not the actual virion itself, which is an, they refer to it as the virus. This is something that happens throughout the films, like they refer to the virus as this nebulous thing and there's something very, very specific they actually mean. So I think they're actually looking at the protein that attaches to the host. in that little graphic it's a nice graphic like a standard looking protein structure program and from what i've read the sequence and the protein that's shown is from nipah virus which was the inspiration for the fictional virus shown here in the movie that's what i've read i don't know for sure but that's what i've read That's what's being depicted here. It would make sense to do that. But it's a nice little program they have, but I don't recognize it. I don't think it exists. i don't know like it looks like a real program it's got like all the it's got an alignment at the very top there's only a very brief uh flash of the actual thing it's got an alignment at the top and then it has some kind of um you know where the gaps are and whatnot and maybe it's a coverage plot but it looks it kind of looks real but i don't recognize it either
+
+[00:03:00] [Speaker A]: Yeah,
+
+[00:03:00] [Speaker B]: Is
+
+[00:03:00] [Speaker A]: it looks like they glued together a bunch of things.
+
+[00:03:03] [Speaker B]: Yeah, it's running on Windows. It looks like Vista or something or Windows 7 or something like that.
+
+[00:03:10] [Speaker A]: Yeah, it
+
+[00:03:11] [Speaker B]: which
+
+[00:03:11] [Speaker A]: does.
+
+[00:03:11] [Speaker B]: is not realistic by a thematic.
+
+[00:03:14] [Speaker A]: BMXP?
+
+[00:03:15] [Speaker B]: I know, well, to me the software looks quite reminiscent of JiveU and JiveU being a Java program it would run on Windows so maybe that makes sense. I really like the interface though because you've got this classical W looking alignment panel on one side, you've got the protein structure on the on one panel they have this crossover like the recombination map like this graph of that in the bottom panel which is interesting I've never seen that before that might be a fun thing that we should write this tool but the fourth panel looks fantastic because it has all the related sequences and so they point out oh this bit's from bat this bit's from pig they don't mean from the hosts they mean from viruses from bats and pigs again they do this flub where they mean other similar viruses from different hosts uh and they just but they showed like the similarity it's this graph of the similarity to other relative related sequences i haven't seen that before that looks really good it's like a good ui design
+
+[00:04:23] [Speaker D]: It does have a very Java feel to it. You can see the buttons and everything in a very Java development toolkit. What was that? Is it AWK?
+
+[00:04:34] [Speaker B]: or jwk
+
+[00:04:35] [Speaker D]: J-W-K
+
+[00:04:36] [Speaker B]: or jdk swing
+
+[00:04:38] [Speaker D]: No, no, there's a framework for building Java interfaces. Got nothing so long since I've seen it. Like, there's
+
+[00:04:45] [Speaker A]: or um
+
+[00:04:46] [Speaker B]: swing swing is the one i used i think swing
+
+[00:04:49] [Speaker D]: one before
+
+[00:04:49] [Speaker B]: is the
+
+[00:04:49] [Speaker D]: that.
+
+[00:04:49] [Speaker B]: one i
+
+[00:04:50] [Speaker D]: So it began with an A.
+
+[00:04:51] [Speaker B]: And oh uh is
+
+[00:04:51] [Speaker D]: rather than guessing.
+
+[00:04:52] [Speaker B]: it qt no qt is c we look it up and find out we
+
+[00:04:58] [Speaker D]: Yeah.
+
+[00:04:59] [Speaker B]: don't want to get that wrong
+
+[00:05:01] [Speaker D]: And you can see the little Internet Explorer icon on the bottom as well, you know, really shows its age.
+
+[00:05:06] [Speaker B]: I mean, the software looks very, very 2000. It's great.
+
+[00:05:12] [Speaker D]: Yeah,
+
+[00:05:12] [Speaker A]: But
+
+[00:05:12] [Speaker D]: I love it.
+
+[00:05:13] [Speaker A]: I mean, just reiterating, like it looks pretty informative. It's a nice dashboard, actually. They thought about it.
+
+[00:05:20] [Speaker B]: I don't know, like, because, yeah, someone, there was a bio-information involved somewhere because it looks... pretty much what you'd want now i don't know we don't know if um because it's not like a real tool i don't know if how they prototyped it or if or how they come up with it i maybe some poor bugger actually implemented like a facade thing in java to show this
+
+[00:05:48] [Speaker A]: Wow, yeah. So the science advisor was Ian Lipkin, who is not a bioinformatician. I'm wondering if he talked with somebody about it and that poor bugger, I like that word, that poor bugger went and programmed something. You're right.
+
+[00:06:04] [Speaker D]: I have
+
+[00:06:04] [Speaker A]: And
+
+[00:06:05] [Speaker D]: no idea.
+
+[00:06:05] [Speaker A]: it can be
+
+[00:06:05] [Speaker D]: I tried.
+
+[00:06:05] [Speaker A]: hard.
+
+[00:06:06] [Speaker D]: I.
+
+[00:06:08] [Speaker B]: yeah maybe we need to dig that person up because they've done a good job with it i could not find i tried to research it and find the software there's no mention like no trivia like oh this you know the software depicted is actually this one no mention of this it seems to be a custom thing for the film
+
+[00:06:29] [Speaker D]: I'm quite sure if you contacted the academic involved advising, they'd probably be like, oh, well, actually, yeah,
+
+[00:06:37] [Speaker B]: actually it's a prototype but
+
+[00:06:39] [Speaker D]: write my paper.
+
+[00:06:41] [Speaker B]: it's nice um it has great animation um very evocative they do we want to talk about the other software they show they have a tree later i don't think that's the software though that's just a picture
+
+[00:06:54] [Speaker A]: oh oh yeah yeah yeah when he um found that the tree gave him a different r0 oh my god where was that that killed me at um one hour and seven minutes yeah dimitri mart is just like sitting in the lab and he gets an email and he's like where did you come from
+
+[00:07:12] [Speaker B]: So I think it's a graphic. I don't think it's like a tree viewer and it's got colored branches on a black background. and i was looking at it thinking my first reaction was like this is the type of tree that this is the type of phylogeny you see in like a textbook or like in a magazine it's not something someone would have made to show so it looks and it looks very eukaryote you know it's the kind of thing that oh we're going to show you know primates on a tree and with all these colored branches and just like sort of as a as a teaching thing it doesn't look sort of like although the normal tree you would have gotten which is white black text on white background and ugly ugly tip labels we probably wouldn't have tracked well on the film
+
+[00:08:02] [Speaker A]: Yeah, this is already colored and in smart. I guess it's sort of marked up um like we would never send like a marked up it would require us to like make like a nexus file or something instead of a new wick and we always send our new wick files if
+
+[00:08:17] [Speaker B]: I think it's just a picture. I don't think he's looking at a raw file in a browser because,
+
+[00:08:23] [Speaker A]: we zoom
+
+[00:08:23] [Speaker B]: yeah,
+
+[00:08:23] [Speaker A]: in is that like microsoft paint he's viewing it in or preview
+
+[00:08:26] [Speaker B]: I okay think it's, yeah, when you look at it, it's actually paint that he's looking at. yeah it's just paint because it's got paste at the left it's got like a toolbar like um just
+
+[00:08:37] [Speaker D]: It's not like
+
+[00:08:37] [Speaker B]: for
+
+[00:08:37] [Speaker D]: Outlook.
+
+[00:08:38] [Speaker B]: formatting yeah it's this email attachment it's just he's just opened a picture it's his email attachment at the top so it's just like a viewer out you know the male client's viewer so he's just looking at a picture of the tree and but it's a very pretty graphic i'm like that's not realistic we're not gonna bother you know we're
+
+[00:08:56] [Speaker A]: Well, if you notice,
+
+[00:08:56] [Speaker B]: gonna rush it out
+
+[00:08:57] [Speaker A]: they are missing some stuff from this tree, though. No scale bar, no bootstraps.
+
+[00:09:03] [Speaker B]: I think scale bar might be hidden, you know, it might be in the bottom corner, we don't see it. We don't get a good shot of it.
+
+[00:09:10] [Speaker A]: Maybe we
+
+[00:09:11] [Speaker B]: What is
+
+[00:09:11] [Speaker A]: can do the next one.
+
+[00:09:11] [Speaker B]: actually...
+
+[00:09:12] [Speaker A]: So it's zoomed in later. Or it's zoomed out later
+
+[00:09:14] [Speaker B]: Exactly.
+
+[00:09:15] [Speaker A]: maybe over here.
+
+[00:09:16] [Speaker B]: Lee, did you ever have that haircut? I thought a bowl cut.
+
+[00:09:20] [Speaker A]: I know. I wish I did now. But I've let my hair grow out. But I've never like done an actual bolt a bowl cut see there's no scale bar here.
+
+[00:09:31] [Speaker B]: Okay there's no scale bar. It is like this kind of illustrative graphic. It's not like a real thing. They probably, I don't know. They might have traced it from another magazine. But the thing, the realization from it doesn't make any sense. If
+
+[00:09:50] [Speaker A]: Yeah the
+
+[00:09:50] [Speaker B]: you want
+
+[00:09:51] [Speaker A]: realization
+
+[00:09:51] [Speaker B]: to talk about that.
+
+[00:09:52] [Speaker A]: Yeah, there's a different R0 at this point because he looked at a tree.
+
+[00:09:57] [Speaker B]: Yeah, does he say that or does he just says where did you come from doesn't he and
+
+[00:10:02] [Speaker A]: Let's see
+
+[00:10:05] [Speaker E]: Where did you come from?
+
+[00:10:07] [Speaker A]: He says where did you come from? Yeah
+
+[00:10:10] [Speaker B]: then he just rushes off and
+
+[00:10:12] [Speaker C]: It's mutated.
+
+[00:10:14] [Speaker E]: Which way better or worse?
+
+[00:10:15] [Speaker C]: It's moved into an African HIV AIDS population. The Durban cluster is highly divergent. We have a new Arnotilus. It's not two anymore.
+
+[00:10:28] [Speaker B]: It's moved into the Africa HIV population. Like, what? and we have a new r naught it's not two anymore that's what she tells lawrence fishman's character now that doesn't make any sense especially since she so eloquently explains what r naught was and then clarifies in that you know the shoe leather scene that oh r naught is complicated it depends on infectious period and contact rate and mode of transmission and then the genome sequence has nothing to do with that so why why what does this have to do with arnott i get the point that for the movie arnott represents it's like a number of how screwed we are right and so as the number keeps going up we're more and more screwed so it goes from two to four to whatever by the end of the film that's fine but yeah I found that at the beginning they were very good with the science and then they got a bit sloppy. Maybe this was like a rewrite or something. I don't know.
+
+[00:11:30] [Speaker D]: something about the tray is that some of the branches are very long i think there's one branch where there's two tips which are identical so you know obviously breakless transmission but the other ones

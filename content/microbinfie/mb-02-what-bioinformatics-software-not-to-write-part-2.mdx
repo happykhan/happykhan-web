@@ -12,13 +12,36 @@ image: https://i1.sndcdn.com/artworks-hDzuZa9pRT5j9Lu2-hW4fUw-t3000x3000.png
 link: https://soundcloud.com/microbinfie/what-software-not-to-write
 subtitle: In this episode we identify areas of “Peak-bioinf…
 tags:
-- microbinfie
-- podcast
+- software-development
+- software-tools
 title: 'Episode 02: What bioinformatics software not to write part 2'
 transcript: /microbinfie-transcripts/episode-02.txt
 ---
 
-In this episode, we identify areas of "Peak-Bioinformatics." There is an abundance of existing bioinformatics software, and often the new tool you wish to create already exists, or a new tool cannot effectively bring significant improvement. We discuss these aspects specifically in relation to *metagenomics* and *antimicrobial resistance* (AMR).
+The microbinfie podcast delves into the complexities of bioinformatics software development, emphasizing the importance of avoiding redundant tool creation in metagenomics and antimicrobial resistance (AMR) research. The discussion critically examines the current landscape of bioinformatics tools, highlighting the need for optimization and strategic innovation.
+
+### Key Points
+
+#### 1. Metagenomics Tool Landscape
+- 16S sequencing is considered outdated compared to shotgun metagenomics
+- Existing taxonomic classification tools (Kraken, Megan, MetaPhlAn) offer diverse approaches
+- Long-read sequencing provides more comprehensive genomic insights
+
+#### 2. Antimicrobial Resistance (AMR) Challenges
+- Multiple competing AMR databases lack standardization
+- Inconsistent naming conventions and data curation are significant issues
+- International consortia are attempting to create consensus
+
+#### 3. Tool Development Recommendations
+- Focus on optimizing existing tools rather than creating new ones
+- Explore innovative approaches like GPU/FPGA computing
+- Prioritize long-read sequencing and mobile genetic element analysis
+
+### Take-Home Messages
+- Avoid creating redundant bioinformatics tools
+- Contribute to existing repositories and databases
+- Embrace new sequencing technologies and computational approaches
+
 
 ### When Novel Software Is Not Needed
 
@@ -44,21 +67,11 @@ There are many detection tools available, as organized in [this extensive Google
 ### Extra notes
 
 - **16S Sequencing Limitations**: Criticisms were directed at the use of 16S sequencing (e.g., V1, V2, V4 regions), describing it as outdated and less informative compared to metagenomic sequencing. There's an emphasis on long-read sequencing for more significant insights.
-
 - **Shotgun Metagenomics**: Despite the abundance of tools available for taxonomic classification in shotgun metagenomics, such as *Kraken*, *Megan*, *Sigma*, *Midas*, and *MetaPhlAn*, they often yield varying results. The field's saturation means developing new tools is less viable; instead, improving existing databases or creating tools that consolidate and refine outputs is suggested.
-
 - **Metagenomic Assemblies and Assemblers**: To improve metagenomic assemblies, increased depth of sequencing data is crucial. The development of new assemblers is less encouraged; focus should be on optimizing existing processes and databases.
-
 - **Database Management Challenges**: Emphasis was placed on resolving sample bias issues within metagenomic databases and improving synchronization among antimicrobial resistance (AMR) databases. There are many competing AMR databases with variation in curation and data storage standards, leading to discrepancies in resistance data interpretations.
-
 - **Tool Optimization Suggestions**: Rather than creating new tools, it's recommended to optimize current tools, particularly for long-read sequencing which is becoming more crucial for metagenomic analyses, offering better resolution of genomic features like plasmids and mobile genetic elements.
-
 - **Computing and Data Visualization Innovations**: Discussion on the necessity for new computing paradigms using GPUs or FPGAs and enhancing data visualization methods for handling increasingly large genomic datasets. Proper visualizations are crucial for effectively understanding and communicating complex microbial data analyses.
-
 - **Artificial Intelligence and Machine Learning**: Machine learning is acknowledged as a valuable approach in microbial bioinformatics for analyzing complex datasets, provided the input data's quality is high to ensure reliable outputs.
-
 - **Recommendations for Tool Development**: The need for easy-to-install, well-documented, and maintainable bioinformatics tools is highlighted, suggesting that even in a saturated field, superior usability can differentiate a tool for broader adoption.
-
 - **Long Read Sequencing Potential**: There's optimism about long read sequencing enabling access to more comprehensive genomic insights, particularly regarding mobile genetic elements, which are pivotal in understanding microbial virulence.
-
-[Episode 02 transcript](/microbinfie-transcripts/episode-02.txt)

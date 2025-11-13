@@ -1,477 +1,299 @@
-Hello, and thank you for listening to the Microbinfeed podcast. Here we will be
-discussing topics in microbial bioinformatics. We hope that we can give you some
-insights, tips, and tricks along the way. There's so much information we all
-know from working in the field, but nobody writes it down. There is no manual,
-and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My
-co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Andrew
-and Nabil work in the Quadram Institute in Norwich, UK, where they work on
-microbes in food and the impact on human health. I work at Centers for Disease
-Control and Prevention and am an adjunct member at the University of Georgia in
-the U.S. Hi, and welcome to the Microbinfeed podcast. Today we are talking about
-contamination. It's vital in science to have a definitive result, which can
-often be sidetracked by problems with contamination. Is what you are doing worth
-the Nobel Prize, or is it contaminated? People get excited when they see
-interesting results, but they should be asking if it's too good to be true.
-Taking the cynical approach, we'll talk about best practices and what you should
-be doing to save yourself months of time. You want to take it away, Andrew?
-Yeah, sure. Well, the first thing is, when you get some data, you know, what is
-actually in my sample? Well, Nabil, what do you do to check to see what the hell
-is in your sample? Depends on the sample. If I'm dealing with single isolate
-data, the first thing I'm going to do is run it through Kraken or use MASH to
-find the closest reference genome, and both of those should tell me that this is
-the species of the isolate that I'm expecting. What, so you don't believe the
-microbiologists when they say this is really E. coli and it's salmonella? Uh,
-no. Never, never assume anything. It makes an ass of you and me. But yeah,
-there's a bunch of different tools that basically will give you the
-classification, things like MIDUS or a bunch of different databases available
-that you can use that will help you do the assignment all the way down to, with
-subspecies level or even you can call the SDs, sequence types directly. So what
-databases do you use? So there's the GTDB, which is the new kid on the block, I
-think, for taxon classification. Calamari, which I haven't used too much.
-There's the Kraken, Mini-Kraken, all different flavors of Kraken. There's simple
-MLST, Torsten's MLST tool is quite good. That does the species assignment as
-well. So you can just give it a set of contigs and it'll tell you what the
-species is. But there's also RefMasher. And there's also RefSecMasher, which is
-a tool that just takes your reads and then uses mash to find the closest
-relative in RefSec. So, and yeah, you really want, if you're working with
-salmonella, you expect salmonella. And often with, for some reason or another,
-you often get some other bug that creeps into your data just through nobody's
-fault. It just seems to be a sort of standard error. Like one in 100 samples
-will be some other thing, Proteus mirabilis or Citrobacter, some random thing in
-the lab. So what if you're working on samples which aren't isolates or, you
-know, major pathogens, which database is best? It would really depend on the
-type of sample that you're doing. I think at the moment, the best databases for
-taxon classification in a recent paper suggested Kraken as one of the best ones.
-Or it also suggested another one called Ganon, which I haven't used, but Kraken
-was the mainstream one that it recommended. So I would go for that. But Lee, do
-you have any comments for complex samples, what you would use? So was the
-question like if you had a metagenomic sample, what would you use? Yes. Yes. Or
-let's say someone had done a sweep across a plate that wasn't necessarily a
-single colony. Well, I really like these because it kind of takes the idea that
-you have a single isolate and your null hypothesis is that you have a single
-isolate and it can be disproven that if it shows that you have a metagenomic
-sample instead, like if you have conflicting taxa. So I really like this
-approach. And when I kind of formalize that hypothesis, I like to go with these
-different database driven databases like you mentioned. GTTB has been like
-amazing. And I've been working a lot with my custom Calamari database with a K.
-And I've been building it very slowly, asking the subject matter experts at CDC
-one by one which genomes they expect to see in a sample or what is a common
-contaminant. I've been building it slowly. And the genomes are not entirely
-online yet, but I do have a compiled database for people to try out. So that's
-manually curated and you're not just taking everything that happens to be
-publicly available? Right. It's been a very slow, long process. And I have even
-some restrictions that they have to be completed genomes or as completed as
-possible so that there are no questionable contigs in the database itself. Like
-Steven Salzberg's lab has found all fragmented genomes are commonly contaminated
-with certain taxa and they've shown that at least in a talk I've been to or
-maybe they've published it by now. So I try to avoid that problem. And to answer
-your question earlier, I have been trying to test Calamari with metagenomics
-samples, but it's been a slow process also, a slow but steady process. So it's
-been good for both contamination detection and for metagenomics. Yeah, there's a
-couple of sort of de novo approaches I'd use inherent from the sample itself.
-You don't necessarily need to use a database to figure out something is wrong.
-One of the ones I do is I simply assemble it. You should get back something that
-looks like an assembly, a draft genome assembly for the species that you're
-working with. So a Salmonella with current Illumina would give you roughly
-200-ish, maybe less contigs and you should hopefully get around four and a half
-megs of sequence. If you see things that are vastly different from that, then
-something is horribly gone wrong. I mean, if you have a 20 meg Salmonella
-genome. Yeah, 20 meg Salmonella genome or it's like in 2000 contigs or anything
-like that. And then there's other really simple methods like looking at the GC,
-just a GC plot of your sequences. If you've got species with different GC
-content, they will obviously, you'll see that difference there if you just plot
-it. And the same thing applies with things like K-mers or even like
-tetranucleotides or whatever, codon bias or whatever. These are sort of really
-simple inherent metrics of the sequences. And you'll just see that they should
-be consistent amongst themselves, that you shouldn't see like two separate
-clouds of data points. So can you see host contamination through that kind of
-thing? Yeah, you can, I think. But yeah, definitely with the K-mer histogram,
-you can detect host contamination. You could see if there was a human versus
-microbe in there. And what does that look like? So one of the programs I've used
-is called CAT, developed by people in the Earlham Institute. And that gives you
-a nice sort of heat map plot. And you can see very, you'll see basically two, it
-sort of looks like a PCA kind of plot where you've got like a heat map of two
-clouds or two clusters of different densities of data. And what that's basically
-doing is it's using the K-mer information and it's weighting it with the GC,
-because you have inherent GC bias anyway in your sequencing. So you do have to
-account for that. But that's a good way of, if you see two separate blobs, then
-that means there's probably two separate organisms in your data. Or I suppose if
-you do an assembly and you have lots of teeny tiny little contigs, that can also
-be a sign of host contamination. Yep, a lot of, or not necessarily host. It can
-even be a bunch of adapters that have snuck in, just a bunch of junk that you
-might need to be worried about. I've heard that called like the kit-ome. Yeah,
-the kit-ome. We'll talk about that later, I think. Yeah, that's definitely a
-big, big subject, the kit-ome. Yeah, so Lee, any other, or Andrew, any other
-maybe de novo approaches or just reference free approaches you'd apply for
-looking for contamination? I do like the K-mer histogram method that you
-mentioned earlier. It's not a great direct method, but basically you get counts
-of counts of K-mers and you see perhaps different peaks of distributions of
-counts. And it represents, if you see different peaks, then it represents at
-least two different things that have been sequenced at different coverages. And
-it's a very unique way of looking at it. And it's just an indicator, meaning
-that you can't really identify which K-mers belong to which thing, but it's a
-good way to just say, this might be containment.  I will investigate further,
-and an advantage of that is that it only takes about a minute to just run that
-quickly and just look at it by eye. Yeah, in terms of running that in a minute
-and just looking at it, there are plenty of tools just for looking at read
-quality, so things like FastQC and FastP as well, which will just give you a
-printout of most of the kind of plots we're actually talking about, so that you
-can have a look at if there's anything anomalous. I mean, the FastQC output is
-really nice, because it even has this traffic light system of red, green, and
-yellow. If your samples are good, of course you should worry, or it fails the
-particular metric. So that definitely encapsulates a lot of the methods that
-we're talking about here. So if you haven't used it, you should be using it.
-Everyone should be using it. Agreed. One more method that we use a lot with our
-state partners and internally is a method where you get kind of a canonical gene
-or set of genes. Like if you're using Salmonella, you might look at the
-serotyping genes like FLEEC, and see if you get like a mixture of a gene that
-you'd expect to have only one copy of. Oh, yeah, yeah. There's a bunch of
-methods that pull out single copy genes. One of my favorites is Busco, which has
-a panel of genes that it looks for in any type all across the tree of life. But
-there's also CheckM, and you can also do it. I mean, if it's a particular
-species I know about, like Salmonella or E. coli, I can just run MLST with
-something like Ariba, at least for single isolate data. And that'll tell me if
-there's any mixed results there, because it'll call like, you'll get like mixed
-allele calls and you'll be able to tell. But yeah, definitely single copy genes
-and making single copy genes should be single copy. Yeah, so along those lines,
-I regularly do 7-genome MLST on all of our samples to make sure we get seven
-alleles for seven loci. And now I'm just starting to get onto Cryptosporidium,
-and they have a canonical gene, GP60, and we're starting to look and see if we
-can find one allele for that one gene. I suppose people say MLST is dead, but
-actually it is quite useful as a quality control metric. Someone once told me
-that it is actually quite amazing how long MLST has persisted as a method,
-because it's just, it's sort of so simple, it's so simple why does this work,
-but it does. It's incredibly effective. I suppose it helps you with things like
-sample swaps and plate rotations, which are quite common in labs. If you can,
-you know, you have an idea that these samples should be one particular ST or
-serotype and then these other ones aren't, and it can tell you, you know, which
-way to orientate your plate and fix your results later. Yeah, I've actually
-deliberately had the plates prepared such with a mix of STs or serovars or
-species such that I can check, you know, check that if there's been a mix up or
-something like that. Because if everything on your plate is Typhimurium and
-you're expecting it to be Typhimurium, and it's swapped if it's if it's just
-flipped around in the lab for some reason you're not going to be able to tell.
-But you will be able to tell if it's like, oh, this is a completely different
-species and that's not meant to be in A1, that's meant to be on the other end of
-it. But, I mean, we're starting to talk about controls so maybe we want to
-elaborate on more of the different controls you'd have. Just one more point. One
-more point. What I find eyeballing your data is a really, really good thing to
-do. And I'd recommend it to everyone. It's simply just looking at your raw FASTQ
-files, your raw reads, or mapping them to a reference and open them up in IGV or
-Artemis or some kind of program like that. Because just by eye you can see
-things that a computer can never tell you. Like, just is the quality bad when
-you think it's good? Or, you know, is this really just something horrific has
-gone on, you know? Yeah, horrible coverage dropouts is one that comes to mind.
-And that you are not necessarily, there's very few QC methods that deliberately
-check for this. Because you'll get the Q score of the reads, which are fine.
-You'll get the outright sort of coverage, the number of reads sequenced for that
-sample is fine. But you don't have any idea what the pileup is across a
-reference genome. Because often you can have something happens in the library
-and you have a dropoff where one, something like even very large chunks of the
-genome is missing for some reason or another. And, yeah, you might, if you don't
-have some sort of eyeballing sanity check early on, you might find yourself
-saying all sorts of things about your data. That this, oh, this is this normal
-strain that doesn't have this and it does this. And it's just nonsense. But if
-you look at your set of coverage and if you notice the coverage matches the GC,
-it's like this is a fundamental bias and that shouldn't really happen. Oh, one
-thing that, one pro tip that I learned very, very early on is if you're
-sequencing, the coverage across the genome should never be constant. It should
-always slope away from the origin of replication. So it always should be really
-high there and then drop off as it gets to the other side. Oh, that's a cool
-point. I applied to that, that when I have brought in people into our lab, I
-have told them to look at IGV specifically. And here, this is kind of an art to
-look at contamination detection to see if you do get drop offs and things like
-that. And, and you get tips like that, that I've never even used. For example,
-making sure that your coverage kind of slopes away from the origin of
-replication. That's a great tip. Or I've never heard that before, that you
-should be looking for GC bias. That's great. I mean, there are just so many
-things you can eyeball and, and, and all these different little tidbits are just
-impossible to completely automate. That's, that's just great. No, it's that,
-it's, it sort of turns into that scene from The Matrix where he's got all the
-code going down the screen and he can just pick out what's going on just by
-looking at it. It's, it's definitely something that you need a trained eye.
-You've got the force. You've got the force. You've got to be contamination
-sensitive or something. So given that we have all these tools at our disposal, I
-mean, what are we checking for? What makes the sequencing go bad? So, for
-example, our first bullet point here is that there might be carryover from a
-previous run. Have you guys had experience with that? Yeah, I've had, I think
-both of us have run into this a couple of times. This seems to be, especially
-with projects, metagenomic projects where you're not necessarily where this can
-really sort of show up. But basically the problem is, is that you do a, you get
-your sequencing data back and you see the signal for some horrible pathogen or
-something or other. And it just turns out that it was what was run on the
-machine, you know, two days before. Or it's what was growing next to whatever
-you were working on. And you have to be really careful. Some people do their
-best to try and keep things clean, but you just have to be aware that sometimes
-things happen and you can get crossover from someone else's experiments. And one
-of the best ways that can happen where it's built into your system are things
-like fixed tip robots. More and more for sequencing purposes, the fluidics is
-done by little automation robots. And often these come with fixed tips. So
-they're just sort of metal prongs that take the liquid up and drop it off. And
-obviously that's dunking into your sample. And that can propagate, that can just
-inoculate across a whole range of samples. Even though they would do a wash step
-in between, it's still not good enough. Yeah, they do have wash steps each time.
-But yeah, it's not, I mean, normally it's just water. It's not with bleach or
-anything. You'll actually damage the tips if you use heavy chemicals on it.
-Yeah, it's just something to keep in mind. I guess the trade-off there is cost.
-And a lab might say, well, you know, why are we buying tens of thousands of tips
-when we could just have this one fixed tip robot, you know, and it saves us a
-fortune. But then, of course, you get contamination. I think anything where I
-was, if I had the option, anything that was that sensitive, you'd want it done
-by hand in a strictly controlled environment. It's different for things, like
-fixed tips robots are great if you've already post PCR and you're just shunting
-DNA around and you're not too bothered. Maybe you've got, you're sort of quite
-confident of what you're going to get out from the other side. But yeah, for a
-lot of primary science, it might not be appropriate. We always use another
-source of contamination that we just always talk about, like as an example, but
-I don't think it's ever actually happened is like the scientists sneezing into
-the thing. And I don't think that anyone, like everyone's so scared of doing
-that. I don't think it's ever actually happened, at least in our labs.
-Generally, that's not an issue for microbial people. But that is so back when I
-was doing some ancient DNA work, when you talk to the human guys who are trying
-to get Neanderthal genomes and things like that, that was a massive problem that
-are you actually sequencing the 4000 year old fossil? Or have you accidentally
-just sequenced the lab tech? And for the 30 year old fossil? Yeah. And I mean,
-for us with the.  microbes stuff, as any human, we can, I mean, we waste, we
-waste sequencing capacity, sequencing that, but obviously we just throw the
-human reads away. But where it's human on human, that that's a real, real, real
-problem. Well, I suppose a lot of times you get, say, staph aureus in your
-samples, and that's come from probably the skin of the person who prepared the
-sample or collected the sample. Oh, good point. So what about, um, just like
-systematic things with short reads? Well, overclustering is a huge problem.
-These days, clustering is performed on the instruments, and on aluminum
-instruments. And that can be problematic. Sometimes if it overclusters, then the
-quality can be pretty poor. And it may be reported as being very good quality.
-But you know, what can you do? And by overclustering, I mean, two pieces of DNA
-have stuck to the plate. And then when they've been amplified up, or with
-cluster generation, then the signal gets impaired. And in your Illumina
-sequencing instruments these days, the camera is it's not as specialized for
-cost reasons. So you know, it's probably just a little bit better than your
-iPhone camera. And to compensate for that, they've reduced the number of
-clusters overall. So it is less of a problem, but it still does happen. And it
-can catch you out. I never thought to compare it like the camera to my iPhone
-camera. So whenever I read these papers, it's like we have the most awesome
-camera. You've never seen it before. It's incredible. But I've never actually
-made that comparison before. Yeah, you have to remember Lee, all of the work we
-do is basically we're just taking pictures. That's awesome. What about like with
-reagents? Like maybe you might run out of C's or another nucleotide? Yeah, I've
-seen that happen a few times where maybe at the end of one of the cycles,
-suddenly you only have say A's and T's and G's, but no C's, which is really
-random, you know, and that shouldn't happen. But it does unfortunately sometimes
-you run out of reagents as the machine goes on something catastrophic has
-happened. And you have to look out for that pattern as well. And it won't be
-immediately obvious either. Is it necessarily using expired cartridges? Or is it
-just bad batches or something like that? I think we're at the bleeding edge of
-science. And sometimes things don't work. Have you seen issues with, for
-example, fragment size distribution? Oh, that's a big one. So fragment size
-distribution doesn't really matter. That's the physical end of your DNA. It
-doesn't matter if you're doing mapping, per se. It's when you're doing a de novo
-assembly, it's nice to have a nice tight peak because then it makes it easier to
-link where the paired end reads are, and then you can do better de novo
-assembly. But unfortunately, quite often, for whatever reason, people have quite
-broad fragment size distributions, or they haven't done any fragment size
-selection or size selection. And that can just cause unnecessary problems. Yeah,
-I remember a long maybe, maybe Leo remember some of the first data that I worked
-with. Remember mate paired libraries? Oh, yes. Back when you had, you had like a
-set of the insert size was like three to four, three to five KB. Right. And that
-was fantastic, because you could get over your repeats. And that was really
-useful with with the short read next gen tech technology. But you always had a
-shadow library, which was a set that sort of failed. And those were just 100 200
-base pairs. So when you plotted your frequencies, you just had these two peaks.
-And you had to sort of deal with that because a standard assembler would just
-freak out with the with this variation in fragment size. I used to look at that
-with 454. I never got into it with Illumina. But like, it would always be
-something strange. I never understood what was happening. I think I was still a
-little bit green. But like, if you multiplex like four of them on the 454, then
-two of them would have really great results. And then the other two would just
-be like, those samples would be dead. Yeah, but that sort of problem still kind
-of occurs. Because yeah, you I think even if you take any, any, any protocol
-where you're doing your size selection, or you're sharing or fragmentation step,
-you will always get this you will always get some that just sort of very short
-or very, very long, or somewhere in the middle, you'd hope that they're normally
-distributed, but not always. That's what the SM as Andrew says, that's what the
-assembler is expecting. But that's not always the case. It definitely has, it's
-definitely a lot better on the Illumina platform in the last few years than it
-was a few years ago, some some of the library preps were, I used to see them,
-like, two to 200 to 500 kind of fragment size, which was too much for things
-like velvet to handle. But I don't think these days we should be using a velvet.
-It's a long time since it was no, no, I'm talking a long time ago. But yeah,
-it's still an issue. This sort of thing. So yeah, you do want to the simple
-tools for this as well. Obviously, like when you do your read mapping, you can
-again, going back to just the simple eyeballing, you can see the insert size,
-and you can get an idea of what whether it's something that you expect. And then
-the tools like Picard, which will just spit out the plot for you really quickly.
-And you can have a look at that distribution. And some tools stats as well. Sam,
-yes, Sam tool stats as well. That does mean you have to have a reference, but
-that'll give you a rough idea of what's going on. One thing that really kills
-Genova assembly is where you have ends in the very middle of a read. Because
-then the k-mers are just totally screwed up. Yeah, I've never I've never figured
-out why that happens. It's got something to do I think that the when it's taking
-the pictures, the sequence is taking the pictures, it sort of spazzes out and
-doesn't it's not able to call that one base. I've seen that happen a few times
-where people have paused machine or there's been a little bit of a power blip or
-something like that. And you just get a load of ends and it recovers
-immediately. But yeah, don't mess with the machine. Yeah. I did the systematic
-review one time with another person in my lab where we just took about like 500
-random genomes. I could see there was a tendency to have an uptick of ends at
-like base pair number 37 and then 100 and something and then something else and
-I don't know what that causes that Yeah, that's very old Illumina data. Because
-they used to put it in a hairpin. They used to put it in a loop used to double
-back on itself. So that was like the that was the the apex of the corner as it
-sort of bent around a loop. So that would cause a problem. So you'd always see
-this drop off in quality. But that was Wow, that was a long time ago. I think
-that if you're thinking if you're systematic review, if you're seeing that that
-I don't see that problem anymore. Great. Okay. Then you just answered like a
-years old question. Yeah, we had the same issue back when I was doing my PhD.
-And it was just like what on earth is going on. And it's just the way that the
-sequencing is done. introduce these regions, length points of the read that
-would just be lower quality because of that. There's just a physical limitation
-of what they were doing. So one thing I found is you can get some problems with
-barcodes if you do multiplexing and particular bacteria, we're trying to shove
-so many different bacteria onto one lane, one run, that can cause a lot of
-issues. So you got to be very careful to just have a look at your actual set of
-barcodes with humming distances between them. That is how many errors can you
-sustain without falsely calling another barcode. And occasionally you do
-actually get some leakage. You know, there's some classic stories where just the
-barcodes you buy in have been slightly contaminated. And then, you know, if your
-barcode live, or your indexes are contaminated on the way in, then there's not,
-you know, no hope for you then down the line, really, all you can do is identify
-it and try and deal with it. So this is the basic, this is the basis. And when
-people talk about bleed through on runs, that's commonly the way it's sort of
-called, but it's really, it's really a hash collision in your barcode. And I
-suppose part of the problem is because the indexes are so short, often they're
-what, six, seven, nine base pairs. I think for the nine, and when they say it's
-a nine base pair thing for the index, they don't actually use the first base
-either. They use that to spin up the, to do the quality call for the for the
-next base. So it's actually eight. It's like n minus one. And yeah, if you had
-longer, if you had longer indexes, you wouldn't have this problem. I mean, I
-remember like, obviously, for things like primers, we, we insist on 20 base
-pairs, right? As to be specific enough, and then with the sequencing, with
-demultiplexing, with like, you know, eight by eight bases. But I think a lot of
-these issues are resolved with the dual, dual barcoding or dual indexes now,
-because if you had just the one, you're worried you'd need maybe one or two
-errors, and then you'll have a collision. But if you have two barcodes, you've
-got a tolerance of up to four, which is less likely. But then you're wasting
-sequence, valuable sequencing data, you know? Yeah, but you can actually, but
-you can reliably demultiplex it. I mean, I don't know. It's it is a trade off
-one way or another of how you deal with that. Having more  data like having
-longer reads is really helpful so it's a really tough trade-off to um to justify
-sometimes yeah it is uh and i think the standard um the multiplexer on alumina
-will tolerate one one error sort of thing to to do the assignment so it'll say
-and it can actually do it's actually quite good at detecting if there is this
-sort of problem shows up so if people are worried about this kind of issue do
-the demultiplexing yourself run bcl to fastq and you can get a full report of
-all of this sort of problems and it'll flag it up for you if something goes
-wrong with your barcodes but of course not everything can be sequenced on an
-alumina sequencer just chemistry doesn't support where say you have a phage or
-something like that that's very heavily methylated a lot of epigenetic
-modifications yeah it doesn't really work so there is some stuff out there that
-we're missing but luckily other technologies can help us to recover that data
-yeah that's probably one of the best tips for contamination is have multiple
-channels of where you're generating your data from just in case something does
-go wrong you can recover from somewhere else and you can deal with any biases as
-you go along yeah so following on from that andrew i mean maybe you can take us
-through some of the issues you'd expect to see with long reads and other
-platforms well the most fundamental thing is that you can't make long reads if
-you only have very short dna fragments and that's something that people forget
-all the time they think oh yeah you know i've made this long read library but
-you know it's full of 50 base length fragments well you know you can't actually
-get long reads out of that so you have to have good quality stuff going in if
-you want good quality stuff coming out so the instruments for long read
-sequencing aren't magic there is quite an over-reliance in in long read
-sequencing on informatics methods to fix the inherent errors because obviously
-say with nanopore it's about 92 accurate and so you know you have to do a lot of
-informatics magic to fix that but of course you know computers can only get you
-so far and some of those will make mistakes and you just have to deal with that
-you know what about contamination with chemistry bias well we noticed recently
-with the the pack bio we ran some data through a sql2 but unfortunately we used
-like their first version of chemistry which probably we shouldn't have done and
-then we noticed 90 of our reads you know were truncated and that was literally
-just the chemistry collapsed and that was it we lost you know huge volumes of
-data and basically we just felt oh well we need version two of our chemistry so
-repeat your experiment please which isn't much help but it took us a fair bit of
-time to actually go through all that data and to figure out exactly where the
-problems were you know and and working out what's gone wrong is it's an art form
-in itself you know you have to use a bit of common sense and some other matrix
-type skills to work out where the problem probably is because we could have just
-said oh well that's a problem in our end we messed up in the wet lab but no this
-was systematic bias and another thing with uh certainly with pack bio is where
-you overload and maybe you have two fragments of dna in one well and so you get
-this kind of mixed signal and of course then the opposite extreme is
-underloading where you're just wasting your sequencing capacity and you haven't
-put enough stuff in the smart cell so that's something to look out for and then
-for the promethean i know um that has a refueling step and something you have to
-get right is when to refuel right so if you put a run on you have to make sure
-someone is there to actually top it up and so you have to be careful with
-timings to make sure someone is on site so just a little pro tip otherwise it'll
-just run out of gas well but yeah basically you can just see the decline going
-down and down and you refuel it then it continues and all is good how often do
-you have to refuel i actually didn't know oh god i don't know it's uh after
-nearly a day so okay not too often yeah yeah so when you're feeding your cells
-you just feed your promethean yeah why not feed your fish all right well let's
-uh let's talk more switch back and talk more generally about some of the
-controls we would build into our experiments to make sure that we can avoid a
-lot of the different problems we've been talking about what do you guys do for
-controls you always want to have positive and negative controls all throughout
-your your protocol and this is as simple as sequencing a blank or doing an
-extraction on your media to make sure there's on blank sterile media to make
-sure there's nothing there or just growing it making sure that it's clean uh
-thing you also want to have positive controls one trick is to have your favorite
-bug in a particular well on the plate when it's when it's sent off for
-sequencing and you know that that's there and that should come back as what you
-expected you know you map the reads back onto your known genome for it and that
-should that should be brain dead exactly the way that you you expect it to be
-and particularly if you use an external provider you should always put on a
-control randomly on the plate and don't tell them oh never tell them whether
-where that secret control is yeah and if you're sequencing say water and things
-like that would you recommend spiking in or just sequencing i wouldn't know with
-the if it's just water i might just do an extraction and see how much dna is
-floating about though they shouldn't really be they shouldn't be much um with it
-might be worth spiking in something for spiking in something as well so you're
-trying to you're kind of measuring two different you're trying to look at
-different problems so i suppose it depends on type of experiment you're doing so
-if you're working on a low biomass sample you'd probably have to do something
-different to if you're just working with a very high biomass sample like from
-poo or something yep and definitely differences between culture and doing it
-from a complex sample and and so on and the different levels of rigor i mean for
-low biomass you have to be very very careful that something else hasn't snuck in
-that you haven't got some something from the kit that you've used i mean in some
-in some cases with low biomass samples the noise the contamination can outstrip
-anything you're seeing in your actual sample so i've heard cases where people
-have put a blank in and the blank had more taxa was more had more dna had more
-taxa that came back in the blank than they did in their actual sample where they
-were but for what they were looking for and then you end up with a placenta
-microbiome yeah you end up with a placenta microbiome which microbes are
-everywhere i suppose that uh the batch effect is a big thing as well yeah with
-especially with the with the low biomass or when you're trying to be really
-sensitive a batch effect can be a massive problem it's just one small thing that
-just permeates your entire data set and then that can lead you down the garden
-path thinking that this is something real and it and these are things like if
-you have two if you're comparing two different hosts or two different time
-points maybe don't run one host on one run and one host on the other run you
-might want to kind of think of some sort of stratification process where you mix
-them around just to avoid these kind of batch effect issues and even you might
-just have different uh technicians running different batches as well with
-different batches of reagents and all of this kind of jazz yeah exactly i mean
-this issue this sort of issue with batch effect permeates through everything i
-mean you've got the same thing with mouse models if you keep one condition in
-one cage one condition in another cage is what you're seeing just from based off
-the batch that you're using and also you shouldn't run controls separately to
-your actual cases you should run them together you know not just run controls on
-a monday or two months or three months after you've done your main experiment
-because you need controls you forgot about them no they should definitely be
-integrated from the get-go like they should be treated like as a first-class
-citizen as part of your study and not some definitely not something tacked on at
-the end i mean what is what's really the point especially with things like
-biology where it's seen where results can sort of change from day to day or from
-reagent to reagent i think that these were really great stories we went over
-basically how to do quality control with contamination talking about things like
-kraken or what actually makes your your sequences get contaminated we had lots
-of really good reasons there then you guys had a lot of good examples of how to
-run controls thank you all so much for listening to us at home if you like this
-podcast please subscribe please subscribe and like us on itunes spotify
-soundcloud or the platform of your choice and if you don't like this podcast
-please don't do anything this podcast was recorded by the microbial
-bioinformatics group and edited by nick waters the opinions expressed here are
-our own and do not necessarily reflect the views of cdc or the quadrant
-institute
+----- chunk 1 start @ 00:00:00 -----
+
+[00:00:00] [Speaker A]: Hello and thank you for listening to the Microbinfi Podcast. Here we will be discussing topics in microbial bioinformatics. We hope that we can give you some insights, tips, and tricks along the way. There is so much information we all know from working in the field, but nobody writes it down. There is no manual, and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My co-hosts are Dr. Nabil Ali Khan and Dr. Andrew Page. I am Dr. Lee Katz. Both Andrew and Nabil work in the Quadrum Institute in Norwich, UK, where they work on microbes in food and the impact on human health. I work at Centers for Disease Control and Prevention and am an adjunct member at the University of Georgia in the U.S. Hi, and welcome to the Microbinfi podcast. Today we are talking about contamination. It's vital in science to have a definitive result which can often be sidetracked by problems with contamination. Is what you are doing worth the Nobel Prize, or is it contaminated? People get excited when they see interesting results, but they should be asking if it's too good to be true. Taking the cynical approach, we'll talk about best practices and what you should be doing to save yourself months of time. Do you want to take it away, Andrew?
+
+[00:01:18] [Speaker B]: Yeah sure, um well the first thing is when you get some data, you know, what is actually in my sample? And well Nabil, what do you do to check to see what the hell is in your sample?
+
+[00:01:29] [Speaker C]: Depends on the sample. If I'm dealing with single isolate data, the first thing I'm going to do is run it through Kraken or use MASH to find the closest reference genome and both of those should tell me that this is the species of the isolate that I'm expecting for
+
+[00:01:46] [Speaker B]: What,
+
+[00:01:46] [Speaker C]: one.
+
+[00:01:46] [Speaker B]: so you don't believe the microbiologists when they say this is really E. coli and it's Salmonella?
+
+[00:01:53] [Speaker C]: No. Never, never assume anything it makes an ass of you and me. And uh yeah, but yeah, there's a bunch of different tools that basically will give you the classification things like Midas or uh that a bunch of different databases available that you can use that will help you do the assignment all the way down to um with sub species level or even you can call the S_D_s direct sequence types directly.
+
+[00:02:21] [Speaker B]: So what databases you use?
+
+[00:02:23] [Speaker C]: Uh so there's the G_T_ G_T_D_B_ which is the new kid on the block, I think, for uh Taxon classification. Kalahari, which I haven't used too much, uh there's the Kraken, mini Kraken, all different flavours of Kraken. Uh the simple MLST Torsen's M_L_S_T_ tool is quite good, that will also that does the species assignment as well. Uh so you can just give it a set of contigs and it'll tell you what the species is.
+
+[00:02:54] [Speaker B]: The results are rough masher.
+
+[00:02:56] [Speaker C]: And there's also RavSecMasher, which is a tool that just takes your reads and then uses MASH to find the closest relative in RavSec. So, and yeah, you really want if you're working with salmonella, you expect salmonella. And often with, for some reason or another, you often get some other bug that creeps into your data, just through nobody's fault. It just seems to be a sort of... Standard error, like one in one hundred samples will be some other thing Proteus mirabilis or citrobacter or some random thing f in the lab.
+
+[00:03:33] [Speaker B]: So what if you're working in samples which aren't isolates or, you know, major pathogens, which database is best?
+
+[00:03:40] [Speaker C]: It would really depend on the type of sample that you're doing. Uh I think at the moment the best databases for taxon classification in a recent paper suggested uh Kraken as as one of the best ones, or or it also suggested another one called Ganon, which I haven't used, but Kraken was the was the mainstream one that it recommended. So I would go for that. But Lee, do you have any comments for complex samples, what you would use?
+
+[00:04:06] [Speaker A]: So was the question, like, if you had a metagenomic sample, what would you use?
+
+[00:04:12] [Speaker D]: Yes.
+
+[00:04:13] [Speaker C]: Yes. Or let's
+
+[00:04:14] [Speaker A]: Okay.
+
+[00:04:15] [Speaker C]: say someone had done a sweep across a plate and it wasn't necessarily a single colony.
+
+[00:04:20] [Speaker A]: Well, I really like these because it kind of takes the idea that you have a single isolate and your null hypothesis is that you have a single isolate and it can be disproven that If it shows that you have a metagenomic sample instead, like if you have conflicting taxa. So I really like this approach, and when I kind of formalize that hypothesis, I like to go with these different database-driven databases like you mentioned. GTDB has been amazing, and I've been working a lot with my custom calamari database with a K. Um, and it's, I've been building a very slowly asking the subject matter experts at CDC one by one which genomes they expect to see in a, in a sample or what is a common contaminant. I've been building it slowly and the genomes are not entirely online yet, but I do have a compiled database for people to try out.
+
+[00:05:26] [Speaker B]: So that's money curated and you're not just taking everything that happens to be publicly available?
+
+[00:05:31] [Speaker A]: Right, it's been a very slow, long process. And I have even some restrictions that they have to be completed genomes or as completed as possible so that there are no questionable contigs in the database itself, like Stephen Salzberg's lab has found. All genomes are commonly contaminated, all fragmented genomes are commonly contaminated with certain taxa, and they've shown that in at least in a talk I've been to, or maybe they've published it by now. So I try to avoid that problem. And to answer your question earlier, I Have been trying to test calamari with metagenomic samples, but it's been a slow process also. A slow but steady process. So it's been good for both contamination detection and for metagenomics.
+
+[00:06:18] [Speaker C]: Yeah, there's a couple of sort of de novo approaches I'd use inherent from the sample itself. You don't necessarily need to use a database to figure out something is wrong. One of the ones I do is I simply assemble it. Uh you should get back something that looks like an assembly a d a draft genome assembly for the species that you're d working with. So a salmonella with current illumina would give you roughly two hundred ish, maybe less
+
+[00:06:47] [Speaker B]: Mm-hmm.
+
+[00:06:48] [Speaker C]: contigs and you'd should hopefully get about four and a half megs of sequence. If you see things that are vastly different from that then something is horribly gone wrong.
+
+[00:06:57] [Speaker B]: You mean if you have a twenty meg uh salmonella genome?
+
+[00:07:00] [Speaker C]: Yeah, twenty make salmonella genome or moats like in two thousand contigs or or anything like that. Uh and then there's other really simple methods like uh looking at the G_C_ um just the G_C_ plot of your sequences if you've got diff species with different G_C_ um content they will obviously you'll you'll see that difference there if you just plot it and the same thing applies with things like k-mers or even um like tetranucleotides or whatever,
+
+[00:07:30] [Speaker B]: So
+
+[00:07:31] [Speaker C]: codon bias or whatever, these are sort of really simple inherent metrics of the sequences and you'll just see that they they should be consistent amongst themselves, that you shouldn't see like two separate uh c clouds of of data points uh
+
+[00:07:46] [Speaker B]: So can you see host contamination through that kind of thing?
+
+[00:07:49] [Speaker C]: yeah you can i think with the yeah definitely with the k-mer histogram you can uh you can detect host contamination you can see if there was a human versus microbe in there
+
+[00:07:59] [Speaker B]: And what does that look like?
+
+[00:08:01] [Speaker C]: Uh so one of the programs I've used is called CAT, developed by people in the OLM Institute and that sh that gives you a nice sort of heat map plot. And you can see very you'll see basically two it's sort of looks like a P_C_A_ kind of plot where you've got like a heat map of two clouds or two clusters of of different densities of of data. And that then what that's basically doing is it's using the came information and it's weighting with the with the G_C_ Because you you have inherent GC bias anyway in your sequencing so you do have to account for that, but that's a good way of s if you see two separate blobs then that means there's probably two separate organisms in your data.
+
+[00:08:42] [Speaker B]: Or I suppose if you do an assembly and you have lots of teeny tiny little contigs, that can also be a sign of host contamination.
+
+[00:08:49] [Speaker C]: Yep, a lot of lot or uh not necessarily host, it can even be a bunch of adapters that are snuck in, just a bunch of junk that you might need to be worried about.
+
+[00:09:00] [Speaker A]: I've heard that called like the kit-oam.
+
+[00:09:02] [Speaker C]: Yeah, the kit-oam. You've got
+
+[00:09:05] [Speaker B]: We'll talk about that later, I think.
+
+[00:09:06] [Speaker C]: Uh yeah, that's that's definitely a big big subject, the kit-oam. Yeah, so Lea any other or and Andrew any other maybe de novo approaches or just reference-free approaches you'd apply for looking for contamination.
+
+[00:09:19] [Speaker A]: I do like the k-mer histogram method that you mentioned earlier. Like, it's not a great direct method, but basically you get counts of counts of k-mers and you see perhaps different peaks of distributions of counts. And it represents, if you see different peaks, then it represents at least two different things that have been sequenced at different coverages. And it's a very unique way of looking at it. And it's just an indicator, meaning that you can't really identify which k-mers belong to which thing, but it's a good way to just say, this might be contaminated, I will investigate further. And... An advantage of that is that it only takes about a minute to just run that quickly and just l look at it by eye.
+
+[00:10:10] [Speaker C]: Yeah, in terms of running that in a minute and just looking at it, there are plenty of tools just for looking at read quality, so things like FastQC and uh FastP as well. which will just give you a print out of most of the kind of plots we're actually talking about um so that you can have a look at if there's anything anomalous. It le I mean the FASK you see output is really nice, because it even has this traffic light system of red, green and yellow if your samples are good, not of course you should worry or or they're just ta or it fails the um particular metric. So that definitely encaptures a lot of the methods that we're talking about here. So if you haven't used it, you should be using it. Everyone should be using it.
+
+[00:10:53] [Speaker A]: Agreed. One more method that we use a lot with our state partners and internally is a method where you get kind of a canonical gene or set of genes, like if you're using Salmonella, you might look at the serotyping genes like FlisC. and see if you get like a mixture of a gene that you'd expect to have only one copy
+
+[00:11:16] [Speaker C]: Oh
+
+[00:11:16] [Speaker A]: of.
+
+[00:11:16] [Speaker C]: yeah, yeah, there's there there's a bunch of methods that pull out single copy genes. Uh one of my favourites is BUSCO but which has a panel of genes that it looks for in in any type all all across the tree of life. But uh there's also check M_ and you can also do it I I mean if it's a if it's a particular species I know about like salmonella or E. coli I can just run M_ ST with something like Ariba for at least for single isolate data. And that'll tell me if there's any mixed results there, 'cause it'll call um it'll call like m i you'll get like mixed allele calls and you'll be able to tell But yeah, definitely single-copy genes and making single-copy genes should be single-copy.
+
+[00:12:01] [Speaker A]: Yeah, so along those lines I regularly do seven genome L_S_T_ on all of our samples to make sure we get seven L_ alleles for seven loci. And now I'm just starting to get onto cryptosporidium, and they have a canonical gene, GP60, and we're starting to look and see if we can find one allele for that one gene.
+
+[00:12:22] [Speaker B]: And so there's people say, yeah, mLST is dead, but actually it is quite useful as a quality control metric.
+
+[00:12:29] [Speaker C]: Someone once told me that it is it is actually quite amazing how long mLST has persisted as a method. Because it's just it's sort of so simple as I w it's so simple why why this this work, but it does. It's it's incredibly effective.
+
+[00:12:45] [Speaker B]: I suppose it helps you with things like um samples of some plate rotations which are quite common in labs if you can you know you have an idea that these samples should be one particular s.t_ or a serotype and then these other ones aren't and they can tell you, you know, which way to rotate your plate and fix your results later.
+
+[00:13:03] [Speaker C]: Yeah, I've actually uh deliberately had The plates prepared such with a mix of STs or serovars or species such that I can check, you know, check that if there's been a a mix up or something like that, because if everything on your plate is typhimurium and you're expecting it to be typhimurium uh and it's swapped, if it's if it's just revert f flipped around in the lab for some reason, you're not gonna be able to tell. But you would be able to tell if it's like, ah, this is a completely different species and that's not meant to be in A1, that's meant to be on the other end of it. But, I mean, we're starting to talk about controls so maybe we want to elaborate on more of the different controls you'd have.
+
+[00:13:44] [Speaker B]: Just one more point.
+
+[00:13:45] [Speaker C]: One more point.
+
+[00:13:46] [Speaker B]: What I find eye balling your data is a really really good thing to do and I would recommend it to everyone. It's simply just looking at your raw Thaskia files, your raw reads or mapping them to a reference and opening them up in IGV or Artemis or some kind of uh programme like that because just by eye you can see things that a computer can never tell you. Like just is the quality bad when you think it's good or you know is this really just something horrific has gone on, you know?
+
+[00:14:15] [Speaker C]: Yeah, horrible co-coverage dropout is one that comes to mind and that you are not necessarily that there's very few QC methods that deliberately check for this because you'll get the thread you'll get the the Q score of the reads which are fine you'll get the outright sort of cover the number of read sequence sequence for that for that sample is fine, but you don't have any idea what the pile-up is across a reference genome. And often you can have something happens in the library and you have a drop of where one something like a hundred even very large chunks of the j of a d the genome is missing for some reason or another. And yeah, you might if you don't have some sort of yeah eyeball insanity check early on, you might find yourself saying all sorts of things about your data that this oh this is this normal strain that doesn't have this and it does this and it's just nonsense.
+
+[00:15:06] [Speaker B]: Or even when you look at your se data coverage, and if you notice the coverage matches the g_C_ it's like This is a, you know, fundamental bias, and that shouldn't really happen. But Oh, it does.
+
+[00:15:16] [Speaker C]: one one thing that uh one pro tip that I learned very very early on is if you're sequencing the coverage across the genome should all should never be constant. It should always slope away from the origin of replication. So it always should be really high there and then drop off as it gets to the other side.
+
+[00:15:33] [Speaker A]: Oh, wow, that's a cool point. I just want to reply to that that when I have brought in people into our lab I have told them to look at IGV specifically and here this is kind of an art to look at contamination detection to see if you do get drop-offs and things like that. And you get tips like that that I've never even used. For example, making sure that your coverage kind of slopes away from the origin replication. That's a great tip. Or I've never heard that before that you should be looking for GC bias. That's great. I mean. There are just so many things you can eyeball and all these different little tidbits are just impossible to completely automate. That's just great.
+
+[00:16:18] [Speaker C]: No, it's that it's it sort of turns into that scene from the Matrix where he's got all the code going down the screen and he can just pick out what's going on just by looking at it. It's definitely something that you need a trained eye.
+
+[00:16:30] [Speaker B]: You've got the force.
+
+[00:16:31] [Speaker C]: You've got the force. You've got to be contamination sensitive or something.
+
+[00:16:36] [Speaker A]: So, given that we have all these tools at our disposal, I mean what are we checking for? What makes the sequencing go bad? So, for example, our first um, bullet point here is that there might be carry-over from a previous run. Have you guys had uh experience with that?
+
+[00:16:53] [Speaker C]: Uh yeah, I've had I think both of us have run into this a couple of times. Uh this seems to be especially with projects metagenomic proble projects where you're not necessarily uh w where this this can really sort of show up. But basically the problem is is that you do a seque you you get your sequencing data back and you see the signal for some horrible pathogen or something or other and it just turns out that it was what was run on the machine you know, two days before, or it's what was growing next to whatever you were working on. And you have to be really careful. Uh some people do their best to try and keep things uh c clean, but you just have to be aware that sometimes things happen, and you can get cross-over from someone else's experiments. And one of the c and one of the best ways that can happen where it's built into your system are things like fixed tip robots, more and more for uh sequencing purposes the fluidics is done by little ro automation robots. Watts. And often these come with fixed tips. So they're just sort of metal prongs that take the liquid up and drop it off and obviously that's dunking into your sample. And that can propagate, that can just inoculate across a whole range of of samples.
+
+[00:18:10] [Speaker B]: Even though they would do a wash step in between, it's still not good enough.
+
+[00:18:13] [Speaker C]: Yeah, they do do yeah, they do have wash steps each time, but yeah, it's it's not, I mean normally it's just water, it's not with bleach or anything. You'll actually damage the tips if you use ha heavy chemicals on it. So So, yeah, it's it's just something to keep in mind. Uh
+
+[00:18:28] [Speaker B]: I guess the trade-off there is cost and a lab might say well you know why are we buying tens of thousands of tips when we could just have this one fixed tip robot you know and it saves us a fortune. But then of course you get contamination.
+
+[00:18:41] [Speaker C]: I think anything where I was if if I had the option anything that was that sensitive, you'd want it done by hand uh for for basic in a in in a strictly controlled environment. It's different for thing like speech synthesis robots are great if you've already post-P_C_R_ and you're just shunting s DNA around and you're not too bothered, maybe you've got s you're sort of quite confident of what you're going to get out get out from the other side, but but yeah, for a lot of primary science it it might not be appropriate.
+
+[00:19:13] [Speaker A]: We always use another source of contamination that we just always talk about, like as an example, but I don't think it's ever actually happened is like the scientists sneezing into the. the thing. And I don't think that anyone, like everyone's so scared of doing that I don't think it's ever actually happened, at least in our labs.
+
+[00:19:31] [Speaker C]: Gen generally that doesn't generally that's not an issue for micro microbial people but that is so back when I was doing some ancient DNA work when you talk to the human guys who are trying to get Neanderthal genomes and things like that that was a massive problem that are you actually sequencing the 4,000 year old fossil Or have you accidentally just sequenced the lab tech?
+
+[00:19:56] [Speaker A]: For the 30-year-old fossil.
+
+[00:19:58] [Speaker C]: Yeah, and I mean for us with the
+
+----- chunk 2 start @ 00:20:00 -----
+
+[00:20:00] [Speaker A]: Microbes stuff is any human we can we c I mean we waste we we rate sequencing capacity sequencing that but obviously we just throw the human reads away. But where with human on human, that that's a real real uh real problem.
+
+[00:20:14] [Speaker B]: Well I suppose um a lot of times you get say Staph aureus in your samples and that's come from probably the skin of the person who prepared the sample or collected the sample.
+
+[00:20:23] [Speaker C]: Oh, good point. So what about um just like systematic things with short reads?
+
+[00:20:29] [Speaker B]: Well over clustering is a huge problem. Um these days clustering is performed on the instruments and on Illumina instruments and that can be problematic sometimes. If it over clusters then the quality can be pretty poor and it may be reported as being very good quality. But, you know, what can you do? And by over clustering I mean a two piece of DNA have uh stuck to the plate and then when they've been amplified up or th with cluster generation then the signal gets uh impaired. And in your Illumina sequencing instruments these days, the camera is it's not as specialised for cost reasons, so you know it's it's probably just a little bit better than your iPhone camera, and to compensate for that they've reduced the number of clusters overall. So it is less of a problem, but it still does happen, and it can catch you out.
+
+[00:21:18] [Speaker C]: I never thought to compare it like the camera to my iPhone camera. So Whenever I read these papers, it's like, we have the most awesome camera, you've never seen it before, it's incredible. But I've never actually made that comparison before.
+
+[00:21:31] [Speaker A]: Yeah, you have to remember, Lee, all of the work we do is basically we're just taking pictures.
+
+[00:21:37] [Speaker C]: That's awesome. What about like with reagents, like maybe you might run out of Cs or another nucleotide.
+
+[00:21:46] [Speaker B]: Yeah, I've seen that happen a few times where maybe at the end of uh one of the cycles, suddenly you only have say A_s and T_s and G_s, but no C_s, which is really random, you know? And that shouldn't happen. But it does unfortunately sometimes. You run out of reagents as as the machine goes on. If something catastrophic has happened, and you have to look out for that pattern as well. And it won't be m immediately obvious either.
+
+[00:22:13] [Speaker A]: Is it necessarily using expired cartridges or is
+
+[00:22:19] [Speaker B]: I
+
+[00:22:19] [Speaker A]: it just bad batches or something like that?
+
+[00:22:21] [Speaker B]: think we're at the bleeding edge of science and sometimes things don't work.
+
+[00:22:25] [Speaker C]: Have you seen issues with, for example, fragment size distribution?
+
+[00:22:31] [Speaker B]: Oh, that's a big one. So Fragment size distribution doesn't really matter, that's the physical length of your DNA. It doesn't matter if you're doing mapping per se. It's when you're doing de novo assembly it's nice to have a nice tight peak because then it makes it easier to to link where the paired end reads are and then you can do better de novo assembly. But unfortunately quite often for whatever reason people have quite broad uh fragment size distributions or they haven't done any fragment size selection or size selection and that can just cause unnecessary problems.
+
+[00:23:09] [Speaker A]: Yeah, I remember uh a long, maybe maybe Leel remember some of the first data that I worked with. Remember mate paired libraries?
+
+[00:23:17] [Speaker C]: Oh yes.
+
+[00:23:18] [Speaker A]: Back when you had uh you had like a set of The inside size was like three double three to five K_B_ right? And that was fantastic 'cause you could get over your repeats and that was really useful with the with the short read next gen tech technology. But you always had a shadow library which was a set that sort of failed and those were just a hundred two hundred base pairs. So when you plotted your frequencies, you just had these two peaks and you had to sort of deal with that because uh a standard assembler would just Just freak out with the with this variation in fragment size
+
+[00:23:52] [Speaker C]: I used to look at that with 454. I never got into it with Illumina, but like it would always be something strange. I never understood what was happening. I think I was still a little bit green, but like if you multiplex like four of them on the 454, then two of them would have really great results and then the other two would just be like those samples would be dead.
+
+[00:24:17] [Speaker A]: Yeah, but that sort of problem still kind of occurs 'cause yeah, you I think even if you take any um any any uh protocol way you're doing your size selection or your shearing or or fragmentation step, you will always get this you you will always get some that just sort of very short or very very long or somewhere in the middle. You'd hope that they're normally distributed, but not always. Uh that's what the assemb uh as as Andrew says, that's what the assembler is ex expecting. Uh but that's not always the case. Uh it definitely has it's definitely a lot better on the Illumina platform in the last few years than it was a few years ago. Some some of the library preps were I used to see them like two to f two hun two hundred to five hundred kind of fragment size, which was too much for things like velvet to handle.
+
+[00:25:11] [Speaker B]: Well, I don't think these days we should be using the velvet. It's a long time since it was uh
+
+[00:25:17] [Speaker A]: No no, I'm talking a long time ago, but yeah, it's still an issue, this sort of thing. So yeah, you do want to uh there's simple tools for this as well obviously, like when you do your read mapping you can s again, going back to just the simple eye-balling, you can see the insert size and you can get an idea of what uh whether it's something that you expect. Uh and then there are tools like a Picard which will just spit out the plot for you uh really quickly and you can have a look at that distribution.
+
+[00:25:44] [Speaker B]: And some tool stats as well.
+
+[00:25:46] [Speaker A]: Samp yeah sample stats as well. Uh that does mean you have to have a reference, but that will give you a rough idea of what's going on.
+
+[00:25:54] [Speaker B]: One thing that really kills de novo assembly is where you have ends in the very middle of a read, because then the kmers are just totally screwed up.
+
+[00:26:01] [Speaker A]: Yeah, I've never I've never figured out why that happens. It's got something to do I think that the when it's taking the pictures the sequence is taking the pictures It sort of spazzes out and doesn't it's not able to call that one base
+
+[00:26:12] [Speaker B]: I've seen it happen a few times where people have paused the machine or there's been a bit a little bit of a power blip or something like that, and you just get a lot of ends and it recovers immediately. But yeah, don't mess with the machine.
+
+[00:26:23] [Speaker A]: Yeah.
+
+[00:26:24] [Speaker C]: I did this systematic review one time with another person in my lab where we just took about like 500 random genomes. I could see there was a tendency to have an uptick of ends at like base pair number 37 and then 100 and something and then something else. And I don't know what that causes that.
+
+[00:26:46] [Speaker A]: Yeah, that's very old Illumina data. Because they used to put it in a hap they used to put it in a loop, used to double back on itself. So that was like the that was the uh the apex of the corner as it as it sort of bent around a loop. So that would cause a problem. So you'd always see this drop off in in quality. But that was
+
+[00:27:07] [Speaker C]: Oh, wow.
+
+[00:27:07] [Speaker A]: that was a long time ago I think that if you t if you're systematic review, if you're seeing that that I don't see that problem anymore.
+
+[00:27:17] [Speaker C]: Great. Okay. Then you just answered like a years old question for me.
+
+[00:27:24] [Speaker A]: Yeah we had the same issue back when I was doing my PhD and it was just like what on earth is going on and it's just the way that the sequencing is done introduced these regions length points of the read that would just be lower quality because of that there's just a physical limitation of what they were doing.
+
+[00:27:42] [Speaker B]: So one thing I found is uh you can get some problems with barcodes if you do multiplexing, and particularly with bacteria where we're trying to shove so many uh different bacteria onto one lane, one run, that can cause a lot of issues. So you gotta be very careful to just have a look at your actual set of barcodes, what the hamming distance is between them, that is how many errors can you sustain without falsely calling another barcode. And occasionally you do actually get some leakage, you know there's some classic stories where Just the barcodes you buy in have been slightly contaminated, and then, you know, if your barcodes li or your indexes are contaminated on the way in, then there's not you know no hope for you then down the line really. All you can do is identify it and try and deal with it.
+
+[00:28:29] [Speaker A]: So this is the basic this is the basis of when people talk about bleed through on on runs. That's commonly the way it's it's sort of called. But it's really a it's really a hash collision in your barcode. code. And I suppose part of the problem is because the indexes are so short, often they're what six, seven you
+
+[00:28:49] [Speaker B]: Nine, yeah.
+
+[00:28:49] [Speaker A]: know nine base pairs. Oh I think for the ni and and when they say it's an a nine base pair thing for the index, they don't actually use the first base either. They use that to spin up the to do the quality call for the for the next base. So it's
+
+[00:29:03] [Speaker C]: Okay.
+
+[00:29:03] [Speaker A]: actually eight. It's like n minus one uh and Yeah, if you had longer if you had longer indexes, you wouldn't have this problem. I mean I remember like obviously for things like primers we ex we insist on twenty base pairs, right, as to be specific enough. And then with the sequencing, with demultiplexing. We'd like, you know, eight eight by uh eight bases. But I think a lot of these issues are resolved with the dual dual bar coding or dual indexes now because if you had just the one, your wor you'd need uh maybe one or two errors and then you'll have a collision. But if you have two bar-codes you've got a tolerance of up to four, which is less likely.
+
+[00:29:45] [Speaker B]: But then you're wasting sequence valuable sequencing data, you know.
+
+[00:29:49] [Speaker A]: Yeah, but you can actually but you can reliably de-multiplex it. I mean I don't know. It's it is a trade-off one way or another uh of of how you deal with that.
+
+[00:29:58] [Speaker C]: Having more data like having longer reads is really helpful. So it's a really tough trade-off to um to justify sometimes.
+
+[00:30:07] [Speaker A]: Yeah, it is. And I think the standard the multiplex on aluminum will tolerate one one error. sort of thing to to do the assignment. So it'll say, oh and it can actually d it's actually quite good at detecting if there is this sort of problem shows up. So if people are worried about this kind of issue, d uh do the demultiplexing yourself, run B_C_L_ to fast Q_ and you can get a full report of all of this sort of problems and it'll flag it up for you if something goes wrong with your bar codes.
+
+[00:30:39] [Speaker B]: But of course not n not everything can be uh sequenced on an Illumina sequencer. Just chemistry doesn't support where, say, you have a phage or something like that that's very heavily methylated or a lot of epigenetic modifications. Yeah, it doesn't really work. So there is some stuff out there that we're missing, but luckily other technologies can help us to recover that data.
+
+[00:31:03] [Speaker A]: Yeah, that's probably one of the best tips for contamination is have multiple channels of where you're generating your data from just in case something does go wrong, you can recover from somewhere else, and you can deal with any biases as you go along. Yes, so following on from that, Andrew, I mean maybe you can take us to some of the issues you'd expect to see with long reads and
+
+[00:31:26] [Speaker B]: Well
+
+[00:31:26] [Speaker A]: other platforms.
+
+[00:31:27] [Speaker B]: well, the most fundamental thing is that you can't make long reads if you only have very short DNA fragments and that's something that people forget all the time. They think oh yeah, you know, we've made this long read library well you know it's full of fifty base uh length fragments. Well you know you can't actually get long reads out of that. So you have to have good quality stuff going in if you want good quality stuff coming out. So the instruments for long read sequencing aren't magic. There is quite an over-reliance in in long read sequencing on informatics methods to fix the inherent errors, because obviously say with nanopore it's about ninety two percent accurate. And see, you know, you have to do a lot of infomatics magic to fix that. But of course, you know, computers can only get you so far and some of those will make mistakes. And You just have to deal with that, you know?
+
+[00:32:18] [Speaker C]: Uh, what about contamination uh with chemistry bias?
+
+[00:32:22] [Speaker B]: Well we noticed recently with the the PacBio we ran some data through a sequel to but unfortunately we used like their first version of chemistry which probably we shouldn't have done and then we noticed ninety percent of our reads you know were truncated and that was literally just the chemistry collapsed and that was it. We lost you know he huge volumes of data. And basically we just told our well, we need version two of our chemistry, so repeat your experiment please, which isn't much help, but it took us c a fair bit of time to actually go through all that data and to figure out exactly where the problems were, you know, and and the working out what's gone wrong is uh it's an art form in itself. You know, you have to use a bit of common sense and some other matrix type skills to work out where the problem probably is. Because we could have just said oh well, that's a problem on our end, we messed up in the wet lab. But no, this was systematic bias. And another thing with uh certainly with PacBio is where you overload and maybe have two fragments of DNA in one well, and so you get this kind of mixed signal. And of course in the opposite extreme is underloading, where you're just wasting your sequencing capacity and you haven't put enough stuff in the SMART cell. So that's something to look out for. And then for the Promethean, I know that has a refuelling step. And something you have to get right is when to refuel, right? So if you put a run on, you have to make sure someone is there to actually top it up. And so you have to be careful with timings to make sure someone is on site. So just a little pro
+
+[00:34:07] [Speaker A]: Otherwise
+
+[00:34:07] [Speaker B]: tip there.
+
+[00:34:07] [Speaker A]: it'll just run out of gas.
+
+[00:34:10] [Speaker B]: Well ba yeah, basically you can just see the decline going down and down and down. You refill it then it continues and all is good.
+
+[00:34:18] [Speaker C]: How often do you have to refuel? I actually didn't know.
+
+[00:34:20] [Speaker B]: Oh god, I don't know, it's uh after nearly a day, so
+
+[00:34:24] [Speaker C]: Okay, not too often.
+
+[00:34:25] [Speaker B]: Yeah.
+
+[00:34:26] [Speaker A]: Yeah, so when you're feeding your cells you just feed your Promethean
+
+[00:34:29] [Speaker B]: Yeah, why not.
+
+[00:34:31] [Speaker C]: Feed your fish.
+
+[00:34:33] [Speaker A]: Alright, well let's uh let's talk more, switch back and talk more generally about some of the controls we would build into our experiments to make sure that we can avoid a lot of the different problems we've been talking about.
+
+[00:34:47] [Speaker C]: What do you guys do for controls?
+
+[00:34:50] [Speaker A]: You always want to have positive and negative controls all throughout your your protocol. And this is as simple as sequencing a blank or doing an extraction on your media to make sure there's on blank sterile media to make sure there's nothing there or just growing it, making sure that it's clean. You also want to have positive controls. One trick is to have your favourite bug in a particular well on the plate when it's when it's sent off for sequencing and you know that that's there and that should come back as what you expected. You know you map the reads back onto your known genome for it and that should that should be brain dead exactly the way that you you expect it to be.
+
+[00:35:35] [Speaker B]: And particularly if you're using an external provider, you should always put on a control. on a control randomly under plates, and don't tell them.
+
+[00:35:40] [Speaker A]: Oh, never tell them whether uh whether that secret control is yeah.
+
+[00:35:44] [Speaker B]: And if you're sequencing say water and things like that, would you recommend spiking in or just sequencing?
+
+[00:35:53] [Speaker A]: I wouldn't no, I would the w if it's just water I might just do an extraction and see how much DNA is floating about. Though there shouldn't really be m there shouldn't be much um with it might be worth spiking in something for spiking in something as well. So you're trying to you're kind of measuring two different you're trying to look at different problems.
+
+[00:36:16] [Speaker B]: So I suppose it depends on the type of experiment you're doing. Uh so if you're working at a low biomass sample, you'd probably have to do something different to if you're just working with a very high biomass sample like from poo or something.
+
+[00:36:28] [Speaker A]: Yep, and definitely differences between culture and doing it from a complex sample and and so on. And that different levels of rigor, I mean for low biomass you have to be very very careful that something else hasn't snuck in, that you haven't got some Something from the kit that you've used. I mean in some in some cases with low biomass samples, the noise, the contamination can outstrip anything you're seeing in your actual sample. So I've heard cases where people have put a blank in and the blank had more taxa was more had more DNA, had more taxa that came back in the blank than they did in their actual sample where they were loo but what they were looking for.
+
+[00:37:15] [Speaker B]: And then you end up with a placenta microbiome.
+
+[00:37:18] [Speaker A]: Yeah, we end up with a placenta microbio, which microbes are everywhere.
+
+[00:37:25] [Speaker B]: I suppose that, uh, the batch effect is a big thing as well.
+
+[00:37:29] [Speaker A]: Yeah, with especially with the with the low biomass or uh when you're trying to be really sensitive, a batch effect can be a massive problem. It's just one small thing that just permeates your entire data set and then that can lead you down the garden path thinking that this is something real. And these are things like if you have two if you're comparing two different hosts or two different time points, maybe don't run one host on one run and one host on the other run. You might want to kind of think of some sort of stratification process where you mix them around just to avoid these kind of batch effect issues.
+
+[00:38:06] [Speaker B]: And even you might just have different uh technicians running different batches as well would with different batches of reagents and all this kind of jazz.
+
+[00:38:14] [Speaker A]: Yeah, exactly. I mean this issue this sort of issue with batch effect permeates through everything. I mean you've got the same thing with mouse models, if you keep one condition in one cage and one condition in another cage, is what you're seeing just from based off the batch that you're using.
+
+[00:38:28] [Speaker B]: And obviously you shouldn't run controls separately to your actual cases, you should run them together, you know, not just run controls on a Monday or Two months or three months after you've done your main experiment because you need controls and you forgot about them.
+
+[00:38:39] [Speaker A]: No, they should definitely be integrated from the get-go. Like, they should be treated like as a first class citizen as part of your study and not some definitely not something tacked on at the end. I mean what is what's really the point? Especially with things like biology where it seemed where results can sort of change from day to day or from reagent to reagent.
+
+[00:39:00] [Speaker C]: I think that these were really great stories. We went over basically how to do quality control with contamination, talking about things like Kraken, or what actually makes your sequences get contaminated, and we had lots of really good reasons there. Then you guys had a lot of good examples of how to run controls. Thank you all so much for listening to us at home. If you like this podcast, please subscribe and like us on iTunes, Spotify, SoundCloud, or the platform of your choice. And if you don't like this podcast, please don't do anything. This podcast was recorded by the microbial bioinformatics group and edited by Nick Waters. The opinions expressed here are our own and do not necessarily reflect the views of CDC or the Quadrum Institute. Institute.

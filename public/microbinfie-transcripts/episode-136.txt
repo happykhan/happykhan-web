@@ -1,0 +1,273 @@
+----- chunk 1 start @ 00:00:00 -----
+
+[00:00:27] [Speaker A]: cast we're reflecting back on how we watched Jurassic Park together last year and well we wanted to do an encore but this time we're going to do the movie Contagion starring many many actors that you know Kate Winslet Lawrence Fishburne Gwyneth Paltrow Matt Damon Jude Law Jennifer Earle Dmitri Martin and many many more Contagion was released in 2011 so let's dive in together on the science behind the movie And guys, I'm sorry this is distracting, but we have to switch from Zoom. I'm losing my professional Zoom account in favor of Microsoft Teams. Are you guys doing okay with that?
+
+[00:00:59] [Speaker B]: Oh my god, I struggle with, you know, switching between Zoom and Teams and Google Meets and whatever, you know, WhatsApp, whatever someone has invented. So yeah, I'm coping very badly.
+
+[00:01:13] [Speaker C]: I've resigned myself to this. It's fine. This is fine.
+
+[00:01:21] [Speaker A]: Ah, yeah, I'm about right there too with the dog sitting amongst the fire drinking coffee.
+
+[00:01:27] [Speaker C]: This is fine.
+
+[00:01:31] [Speaker A]: Yeah, so sorry that we're losing that. So we have here today myself, Lee Katz, Dr. Andrew Page, Dr. Nabil Ali Khan. Let's get into it. Does someone want to start off with just help us frame it, the summary of the movie?
+
+[00:01:45] [Speaker C]: Okay, so really simply, contagion is a movie about a fictional viral pandemic called, the virus is called MEV1, and the film follows the spread of the virus, the efforts to contain it, and the development of a vaccine. It highlights the challenges of a global pandemic, includes the rapid spread of the virus, the social and economic impacts, and sort of the ethical dilemmas surrounding the distribution of a vaccine. So remember, this came out back in 2011 and so it's very much pre-COVID. So a lot of people when they were watching it found it to be quite prophetic. I don't think so. We'll discuss that through the episode. But just to start us off here from the others, what do you rate this movie?
+
+[00:02:33] [Speaker B]: I actually rate it very highly, but I'm not going to give it a star rating or a rock. not too bad i was writing anything about but the reason is um it shows a lot of things that actually from the from the pandemic we know either were true or not and i thought it actually treated it very very well it didn't overhype certain things you know like going down to gory super gory route um i thought it was actually quite good um i did you know have a problem with how competent government was it was portrayed you know obviously we now know that in pandemics government can be completely and utterly incompetent and take forever to do things but uh you know it's nice that they they gave him a shout out there you know and said they were good anyway over to you lee
+
+[00:03:18] [Speaker A]: Sorry, I missed, completely missed that conversation you were having about government. I stepped out of the room for a second, but I think you asked what the movie, how we rate the movie. So I would give it a lot of stars. I like, I do like the portrayal of how government steps in, helps out and a completely realistic depiction of a bioinformatician who starts up a CDC in 2011 who looks just like me, Demetri Martin. Amazing. So, Demetri Martin, if you want to come on and talk science, please do.
+
+[00:03:49] [Speaker C]: I'm going to be the contrarian and say zero out of 10, totally unrealistic, didn't see anyone buying toilet paper, total nonsense.
+
+[00:04:00] [Speaker A]: We did miss the toilet paper.
+
+[00:04:04] [Speaker C]: Okay, so let's jump into what do we want to talk about? Some of the specific science, do we want to go scene by scene and talk about it?
+
+[00:04:13] [Speaker B]: I guess maybe just an overall thing, there's a combination of your shoe leather epidemiology, there's a bit of genomics, there's a little bit of behavioral stuff with social distancing and things like that. It's quite nice, you know, it has all the, it's kind of ticked all the right boxes for what we now know about pandemics and even then in terms of like... like the vaccine that was developed in it you know first of all you have to grow it and you know i remember back in the early days pandemic these were the same kinds of challenges and it's quite good the way that they have gone through all of those and actually i think it's more true to life than hollywood overhyped
+
+[00:05:00] [Speaker A]: Yeah, so I want to thread the needle on this a lot. There are a lot of people describing how realistic it is and how prophetic it is in terms of COVID, in terms of Epi, but we are, we're a bioinformatics podcast. So I think I want to touch on, on the Epi and everything, but let's try to highlight like when we get into genomics and stuff. But completely disregarding what I just said, the first scene that we kind of outlined here is the actual shoe leather epi. We have a scene where Kate Winslet is, she's kind of assigned to go to Minnesota and she starts describing the R0. And I mean, I feel like some people might have learned what R0 was from this very scene.
+
+[00:05:47] [Speaker B]: I did.
+
+[00:05:48] [Speaker D]: What we need to determine is this. For every person who gets sick, how many other people are they likely to infect? So for seasonal flu, that's usually about one. Smallpox, on the other hand, it's over three. Now before we had a vaccine, polio spread at a rate between four and six. Now we call that number the R-naught. R
+
+[00:06:20] [Speaker A]: Yeah, there are a few oddities here. I just feel like an epidemiologist would probably never go into a conference room and tell other epidemiologists this very basic to epidemiologists facts. But it was great for the storytelling.
+
+[00:06:35] [Speaker C]: So that scene, it's never clarified. So she's having, so the bulk of the scene is she's explaining the situation as she sees it as the scientist, as the epidemiologist. And there's this other woman who is contradicting her and sort of arguing with her and demanding more answers. It's never clarified who this woman actually is. is and in my head canon it makes sense that if she's just if she's a government official who's come in as a visitor and is listening to this briefing someone who's a effectively a lay person it would make sense that she gives this this explanation to this person and the others don't the other characters who probably part of the health department don't interject or don't really contribute to the scene at all so that makes sense to me that they would have this but it is as a film it's a point of exposition where they're explaining what uh the the are not is and all of the and some of those concepts it is a lot of it is probably just for the audience oh
+
+[00:07:41] [Speaker A]: Do you guys want to move to the next scene?
+
+[00:07:43] [Speaker C]: i think no sorry i think i wanted to make a few points on the scene as well because it's pretty important
+
+[00:07:49] [Speaker A]: Okay.
+
+[00:07:50] [Speaker C]: for some of the mechanics so so with this scene i think one thing that makes the film unrealistic is every aspect of it is squashed into shorter time frames for the sake of pacing so the progression of the virus how uh how people react to it sort of discussions are much much much faster than than what would happen in real life so for instance this single scene where we're just talking about getting to grips with the situation where now that that whole thing would have been a number of meetings deliberating on the extent of the outbreak the risks of societal implications what to do and it's sort of like just condensed into the scene really really quickly and the reaction knee-jerk reaction to it is like oh this is going to affect the sales from the biggest shopping weekend of the year like as if you as if you know it's a very callous callous response which i think is unfair because there are genuine decisions that need to be made in how to manage a crisis any type of crisis and they don't have an objective answer provided by science so the science says that there's something circulating okay that's it it doesn't tell you whether you should what what how you should react to that uh that decision is down to your societal values use your priorities so kate wins this character as the scientist in the film doesn't actually participate in the discussion she just says this is what this from the science perspective this is what's happening um which i feel is good but it's because it's so squashed it feels yeah it's rushed but it is like a gendered reaction i think they depict it as a negative that these people are stupid for reacting this way But it is something to take into account.
+
+[00:09:39] [Speaker B]: I guess there are so many false alarms or emerging diseases that we see by working in the area. you know you had Zika you have monkeypox you have like there's something new in in DRC like there's always in our world always something emerging every now and again you know it's probably every year there's something pops up but mostly it doesn't go anywhere or it's very small and it's contained within a small region like say Ebola obviously horrifically bad but it was very much contained within a few countries in West Africa And I guess for, you know, when they're making these decisions, you know, they have to weigh up, is this just a statistical anomaly or is it actually something to be really concerned about? And those are hard decisions to make, you know, like you don't shut down the whole country just because there is the possibility, you know, or there's one case of Ebola in the UK or in the US, you know, it's very... very different responses and it is actually quite nuanced um but i thought they handled it quite well because they were kind of hedging their bets here you know a small number small number of cases small number of deaths and they're like yes we need to go and get the baseline information before we do too much
+
+[00:11:00] [Speaker C]: and they actually call this out in the film they keep i think it's to bird flu so there was a sort of false alarm of that that had happened a few years prior to the film coming out so and in this timeline they refer to it so that existed that happened in this um film's universe and they say like you know what's the chance of this being a false alarm they called that out in one of the press conferences with laurence fishman's character they don't do it in that that in this epi scene so there is so they try to work that that element in of there is this uncertainty and should we or shouldn't we react to it or how should we react to it
+
+[00:11:38] [Speaker B]: And actually now we have H5N1, which is obviously avian influenza, turning up in raw milk and everything in the US and people wondering, is this going to be a problem or is it not? And so it's the same cycle. cycle of things repeating.
+
+[00:11:54] [Speaker C]: It sort of doesn't make sense with the severity of the disease. But realistically, diseases are not a little bit, are not that sort of obvious.
+
+[00:12:07] [Speaker B]: I guess people are more concerned about crossovers from animals into humans and they obviously do occasionally happen. I think this movie it happened from bats into pigs, which is a reasonable one, you know, because obviously pigs and humans are so close in that regard. But obviously we know from COVID it came via pangolins. Not from a lab leak, by the way, but from, you know, via wild animals being sold at a market.
+
+[00:12:34] [Speaker C]: Should we talk about the virus?
+
+[00:12:37] [Speaker A]: Why not?
+
+[00:12:38] [Speaker C]: So the MEV1, the fictional virus that they present here, is modeled on a real virus. So I think the... film scientific consultant Ian Lipkin who's a professor at Columbia is a expert virologist and worked on viruses like West Nile virus SARS-1 MERS and later SARS-CoV-2 but not SARS-CoV-2 by that point when he was working on the film and he states in interviews and it's very clear from the details in the film that he that the MEV-1 virus is very much inspired by Nipah virus which was discovered just a few. some years prior and the origin of the MEV1 virus mimics is a little nod to how Nipper was first found so Nipper first jumped from fruit bats into pigs on pig farms and it's just like the virus shown here although Nipper does not have the same transmissibility and rapidity shown in this film but like most things in the film that this is all has been spread up for dramatic purposes but uh nipper is like basically the virus of the of this film um it's they they make a little hints which we might talk to later in one of the other scenes we can we can make those connections a bit further on yeah
+
+[00:14:04] [Speaker A]: Yeah, I think when we first start learning about the actual virus, it's that professor from California. Is he in California? He's
+
+[00:14:13] [Speaker C]: he's
+
+[00:14:14] [Speaker A]: on the
+
+[00:14:14] [Speaker C]: in california
+
+[00:14:14] [Speaker A]: phone.
+
+[00:14:14] [Speaker C]: he's on the phone
+
+[00:14:17] [Speaker E]: It appears to be chimeric in origin. Virus is 15 to 19 kilobases in length and containing six to ten genes typical of a paramyxovirus,
+
+[00:14:28] [Speaker B]: Godzilla?
+
+[00:14:28] [Speaker E]: a potentially
+
+[00:14:29] [Speaker C]: The virus, he means the genome, and he just says the virus is 15 to 19 kilobases in length with 6 to 10 genes typical of a paramyxovirus and potentially a mutant of, and then he's interrupted by Jude Law. jude law's character so we don't hear what the it's potentially a mutant of so that description of the genome that's that's nipivirus nipivirus is also 15 to 19 kilobases in length um so it's it's just that it's just pulled from from that description of what nipivirus is um
+
+[00:15:05] [Speaker A]: I had a question for you guys on this. Because I don't, you guys did a little bit more SARS-CoV-2 than me, or maybe a lot more. And I just don't understand viruses enough, but that was that was questionable to me when he's like it has six to 10 genes. I don't feel like that's typical with a virus to have a range. I feel like viruses are very conserved and usually are very strict on their own genomes and probably stick to the same number of genes. Am I wrong about that?
+
+[00:15:35] [Speaker B]: I thought they're just estimating like if they don't know how long the virus is they're probably not a you know they haven't sequenced it at that point they're probably eyeballing it and how long it is and going oh yeah that looks about you know 15 to 19 kilobases uh so it's probably got this many genes you know so
+
+[00:15:55] [Speaker A]: Yeah,
+
+[00:15:55] [Speaker B]: I
+
+[00:15:55] [Speaker A]: that's...
+
+[00:15:56] [Speaker B]: think it's more of a back of an envelope uh calculation than you know real science but it's probably right
+
+[00:16:02] [Speaker A]: I was sort of outraged when I heard this conversation. As outraged as I can be as a professional here because he's just randomly on the phone and who has sequenced this virus yet? Who has actually isolated it and put it
+
+[00:16:15] [Speaker C]: He
+
+[00:16:16] [Speaker A]: on a gel did. or anything? Like what is the experiment here?
+
+[00:16:19] [Speaker B]: Well, he is the one who isolated, well, grew it. So, you
+
+[00:16:23] [Speaker C]: But he grows
+
+[00:16:23] [Speaker B]: know,
+
+[00:16:24] [Speaker C]: it
+
+[00:16:24] [Speaker B]: I'm
+
+[00:16:24] [Speaker C]: later.
+
+[00:16:24] [Speaker B]: sure he could have.
+
+[00:16:25] [Speaker C]: he
+
+[00:16:25] [Speaker B]: Yeah,
+
+[00:16:26] [Speaker C]: hasn't
+
+[00:16:26] [Speaker B]: does he?
+
+[00:16:26] [Speaker C]: grown it by this point right so
+
+[00:16:27] [Speaker B]: Ah.
+
+[00:16:28] [Speaker A]: Right.
+
+[00:16:28] [Speaker C]: he's he's just giving the initial assessment of it from the sample and then he later grows it i think he hasn't done it he hasn't done that by this point in the film so yeah he's he's very much in the context of the film he's basically had this sample for a couple of days so i don't know how much remember this is 2011 yes you had uh next gen sequencing available but you're but you're probably doing this with you're just stuck with Sanger at this point so I don't know I'm not that old I don't know how long that would have taken you to do it that way probably wouldn't have resolved the full genome sequence by this point that's very very quick
+
+[00:17:08] [Speaker B]: I guess remembering back to the early days of pandemic, it was a while before they did actually work out how to properly grow it. Like, I mean, they obviously they. went and did metagenomic sequencing to actually see what was there but then going backwards to figure out exactly what was going on it you know it took a few weeks
+
+[00:17:29] [Speaker C]: Yeah, so metagenomics wouldn't have been available at 2011, so they wouldn't have had. that so yeah you're rightly it is kind of weird that he's able to give this information but then he's got this variation in it so yeah it makes sense he's probably just done something very i have no idea very quick to figure this out also
+
+[00:17:52] [Speaker A]: I mean, that's the closest
+
+[00:17:53] [Speaker C]: there's
+
+[00:17:53] [Speaker A]: I can no think of is just put it on a gel, I guess that's the closest I can think of or maybe like a PFGE gel maybe, but like. To find the whole length, it just blew my mind for a second.
+
+[00:18:05] [Speaker B]: There's also no confusion over naming, you know, like we had novel coronavirus and NCov and about 20 different names before we all got around a table and actually called SARS-CoV-2, which I found hilarious, you know.
+
+[00:18:20] [Speaker C]: So they call it MEV1, which is meant to be Meningoencephalitis virus 1, which is the symptoms of what this does, which I guess. don't need to change it yeah
+
+[00:18:33] [Speaker B]: True.
+
+[00:18:34] [Speaker A]: Yeah, but good point, though. I mean, even even just say settled like on H curve or something, right?
+
+[00:18:42] [Speaker C]: it was human coronavirus for a bit and then he had a case i think there was um wuhan virus was also given some sort of name of the origin point um as well so yeah but But
+
+[00:18:58] [Speaker B]: That's
+
+[00:18:58] [Speaker C]: then,
+
+[00:18:58] [Speaker B]: where the WHO came in, you know, and actually did their job and get everyone around the table and, you know, said, yes, we actually need a name for this thing, lads.
+
+[00:19:07] [Speaker C]: I guess, well, I think that's a part of that would have been very, very confusing, changing the name of the virus throughout the film. I don't think people would have been able to follow that at all. Most people don't call it MEV1 throughout anyway. You know, it's sort of hinted at with sample tubes and things like that later. But yeah, it's not really, the name is not used.
+
+[00:19:34] [Speaker B]: So what I'm wondering is. The BSL-4. So obviously, being a computer scientist, I've never been in a lab like that. And I'm just wondering how close to reality is it?
+
+[00:19:47] [Speaker A]: I also have never been in the BSL-4, so we might be out of our depths on that. When you guys visited us at CDC and went to the CDC Museum, they also got rid of the BSL-4.
+
+----- chunk 2 start @ 00:20:00 -----
+
+[00:20:00] [Speaker A]: suit so that's a fun thing to do at the cdc museum to just try it on yeah
+
+[00:20:06] [Speaker B]: A rite of passage that we missed.
+
+[00:20:09] [Speaker A]: but it's it's like taking the heaviest material and trying to put it on as clothing and that's the closest i've ever gotten it's just hard to do
+
+[00:20:18] [Speaker C]: I have no idea. The only thing I can mention is in theory is looking up what type of pathogens are kept at BSL4. So, and I checked Lawrence Fishburne's character actually mentions the definition of what should be in BSL4 when he says we're going to upgrade this to BSL4. the mEV1 virus. So BSL-4 labs are meant to house the lethal and contagious pathogens for which there are few or no effective treatments. So this includes viruses that cause hemorrhagic fever like Ebola, Lassa, Nipah and Hendra which are the cousins of this fictitious virus and smallpox. So that's all I know about BSL-4.
+
+[00:21:06] [Speaker A]: That's the gist of it. I mean if you If you were going to be a software, you need to throw all these things to suit up and to wash off. And I think it's mostly reflective in the movie. They did a good job at least depicting it, but I'm sure that there are some people who have worked in the BSL for who will be able to comment on things.
+
+[00:21:24] [Speaker B]: There is this problem with if you put it in too high a classification with lab, then it limits research, which is shown in this movie. And that was obviously similar concerned in a pandemic because there's only a tiny number of BSL4s like it's a pyramid. and plenty of bsl1 two and even three before you know there's very few like i know in the united kingdom there's only two there's one run by the government and one run by um by university and that's it you know in a huge country of whatever 70 80 million people and it's similar you know in other countries where you know you might have one lab i know in the u.s is a bit more but uh They're not common and they're usually teeny tiny small.
+
+[00:22:08] [Speaker A]: There's another complication too. If you have a BSL-4 or maybe even a 3 genome sequencing, like you can't bring the sample back and forth. So like the sequencer itself has to be a dedicated one for the laboratory and it stays in there. And so like things are very difficult transporting back and forth between there, you might be able to imagine.
+
+[00:22:30] [Speaker B]: Yeah, and this is the dilemma during COVID where should everything be done in a three or a two and they said, well, we'll allow two plus, wink wink. But technically it should have been three. I think for research, like cultured isolates it was three, but for everything else, like diagnostics it was two plus.
+
+[00:22:53] [Speaker C]: Probably because probably because you haven't if you've cultured you've you've got more virions it's a bigger probably a bigger risk um it i want to come back to that with the professor thing where they where they upgrade the containment level and then they you know um they call him up and tell the professor to destroy his samples and he ignores it and then he goes and creates a finds a viable cell line for it um that's i nothing happens to him there's no in fact the professor disappears after that point but there's no um like no repercussions for the professor at all i think you'd be in a lot of trouble if you did that i
+
+[00:23:39] [Speaker A]: Yeah, at the very least you wouldn't be getting grants again or something.
+
+[00:23:43] [Speaker C]: think they would probably like for the whole like because the whole organization so the whole university they would probably pull they'd cancel everything and there'd probably be some criminal offense against the professor himself and it bothers me because this is a theme in the film that uh that the scientists and officials involved even the good ones all of them do some unethical activity which i feel is unfair i know that you know these characters are kind of like avatars they're archetypes where they've condensed lots and lots of people into this so they're just using the same person to show different facets of what could happen but this makes you feel like oh these guys are just corrupt it's like no that's not true
+
+[00:24:35] [Speaker A]: That's true. It kind of takes away from our credibility after this movie too. I think there's only one person who gets an actual repercussion in this film or a mention of one and that's the CDC director later. They
+
+[00:24:46] [Speaker C]: Yeah,
+
+[00:24:46] [Speaker A]: said they're and going to have a hearing about it.
+
+[00:24:47] [Speaker C]: I think that's just because of how he handles the media interview or something.
+
+[00:24:54] [Speaker A]: Yeah.
+
+[00:24:55] [Speaker C]: he gets into trouble about that nothing else though like none of the actual you know kate wins a testing the vaccine on herself like yeah whatever um it worked out in the end so who cares this professor muck um using samples at the wrong containment level all of that so yeah doesn't
+
+[00:25:13] [Speaker A]: Correction.
+
+[00:25:13] [Speaker C]: matter
+
+[00:25:13] [Speaker A]: I think it was the other character, not Kate Winslet.
+
+[00:25:17] [Speaker C]: who oh
+
+[00:25:17] [Speaker A]: Jennifer Eel Yeah,
+
+[00:25:19] [Speaker C]: sorry sorry Jennifer eel who inoculates herself yeah
+
+[00:25:24] [Speaker A]: she should have gotten a repercussion for sure
+
+[00:25:27] [Speaker B]: now it's
+
+[00:25:27] [Speaker C]: it
+
+[00:25:27] [Speaker B]: been it's
+
+[00:25:27] [Speaker C]: wins it
+
+[00:25:28] [Speaker B]: been so many times in history that it doesn't matter
+
+[00:25:31] [Speaker C]: I think Kate Winslet's character is the one who doesn't get a repercussion but then it's the one who dies
+
+[00:25:39] [Speaker B]: But I love in the scene where they're going into that big sports arena and the big, you know, problem there is who's going to pay for it all? And it's like, yeah, that's so government.
+
+[00:25:55] [Speaker A]: I feel like that would definitely happen, but I don't know for sure. But I mean, that is definitely something to highlight, like somebody will pay for it. And there's a slow monolith or not monolith, a slow grinding bureaucracy that has to be flexible for these expenditures and they just aren't.
+
+[00:26:14] [Speaker B]: Actually, in the UK, we did set up something like that in the biggest conference centre in London, and they put in 500 beds. and interestingly they took ventilators which are on movie sets which are actual real ventilators and put them in there because obviously it's such a shortage and then they staffed it with like retired doctors and junior doctors and vets and physiotherapists and people like that because they couldn't take the primary care physicians away from the front lines they had to get kind of the second line And I don't think they really ever used it. Thank goodness.
+
+[00:26:54] [Speaker C]: Well, luckily we didn't have something as pronounced as what's shown in the film.
+
+[00:27:00] [Speaker A]: So do you want to talk about. You know, you made me you made me really laugh on your notes appeal So you had like in your notes themselves. It says first appearance by Lee Katz, but it's first appearance by
+
+[00:27:12] [Speaker C]: yeah
+
+[00:27:12] [Speaker A]: Demetri Martin I don't know if there's anything to that scene or if we wanted to skip ahead to when they are looking at genome dashboard
+
+[00:27:20] [Speaker C]: let's
+
+[00:27:20] [Speaker D]: Well,
+
+[00:27:20] [Speaker C]: look at the genome
+
+[00:27:21] [Speaker D]: actually,
+
+[00:27:21] [Speaker C]: dashboard
+
+[00:27:21] [Speaker D]: sorry, before that, I think it's important to note that Matt Damon's character, he... obviously was exposed to the virus but didn't get it and that's a really important thing and a really important piece of information that it can be spread asymptomatically and that you know you can be exposed to it and not actually be symptomatic which is phenomenally phenomenal information and I know it's obviously always very important to understand the characteristics because obviously if someone can have the virus and natural symptoms that that's obviously a really really bad thing
+
+[00:28:00] [Speaker C]: That was a weird, some parts of the film just struck me as odd on watching it in preparation for this. And that was one of the things that stuck in my mind because he's exposed to the virus, he doesn't fall ill. And so it's not explained if he is sort of completely immune to this for some reason or if he was infected. and was asymptomatic and then now has protective antibodies and it doesn't cover the the idea of him shedding the virus at all uh we and we see him walking around for most of the film being like just unmasked just like just just yeah yeah this doesn't bother me um that doesn't make any sense but um
+
+[00:28:49] [Speaker A]: I feel
+
+[00:28:49] [Speaker C]: even
+
+[00:28:49] [Speaker A]: like that was damaging.
+
+[00:28:50] [Speaker C]: and
+
+[00:28:51] [Speaker A]: Yeah.
+
+[00:28:51] [Speaker C]: and he's like very very protective of his daughter he locks the daughter in the house but he's wandering around without taking any um precautions so that's really odd that doesn't doesn't make sense although his reaction to the to the pandemic is really realistic he locks he just locks himself in the house everyone else is wandering around shaking hands uh no one's practicing social distancing um no one's wearing masks in the film okay it's a film you want to see people's faces um it's it's sort of odd given like because the symptoms are horrifying um that people that matt dame is the only one who actually seems to just be um self like sort of isolating or isolating his daughter not even himself he seems to be wandering about and
+
+[00:29:36] [Speaker A]: Yeah, he himself seems to be like an archetype too. Like we're discussing like all these professionals being archetypes, but he's an archetype. type of somebody
+
+[00:29:43] [Speaker C]: Yeah,
+
+[00:29:43] [Speaker A]: who's not immune and he's just walking around unmasked now.
+
+[00:29:45] [Speaker C]: he's the everyman archetype. He's out of the eyes going and seeing things and showing us what's happening. Okay, so that's the end of part one for this discussion on the science behind contagion, the film that came out in 2011. And join us again next time on the Micro Binfi podcast for part two.
+
+[00:30:13] [Speaker A]: Thank you so much for listening to our podcast. If you like this podcast, please subscribe and rate us on iTunes, Spotify, SoundCloud, or the platform of your choice. Follow us on Twitter at Microbinfi. This podcast was recorded by the Microbial Bioinformatics Group. The opinions expressed here are our own and do not necessarily reflect the views of CDC, Theogen, or the Center for Genomic Pathogen Surveillance.

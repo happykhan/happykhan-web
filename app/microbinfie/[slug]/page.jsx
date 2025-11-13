@@ -1,5 +1,7 @@
 import { listMicrobinfie, readMicrobinfie } from "@/lib/content.mjs"
 import CodeBlockWrapper from '@/components/CodeBlockWrapper'
+import GuestCard from '@/components/GuestCard'
+import { SoundCloudIcon, ApplePodcastsIcon, SpotifyIcon, RSSIcon, DownloadIcon } from '@/components/PodcastPlatformIcons'
 
 export async function generateStaticParams() {
   const items = await listMicrobinfie()
@@ -111,38 +113,7 @@ export default async function MicrobinfiePostPage({ params }) {
               gap: '0.75rem' 
             }}>
               {frontmatter.guests.map((guest, index) => (
-                <div key={index} style={{
-                  padding: '0.75rem',
-                  backgroundColor: 'var(--color-bg)',
-                  borderRadius: '6px',
-                  border: '1px solid var(--color-border)',
-                }}>
-                  <div style={{ fontWeight: '600', marginBottom: '0.25rem' }}>
-                    {guest.url ? (
-                      <a 
-                        href={guest.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{
-                          color: 'var(--color-link)',
-                          textDecoration: 'none',
-                        }}
-                      >
-                        {guest.name}
-                      </a>
-                    ) : (
-                      guest.name
-                    )}
-                  </div>
-                  {guest.affiliation && (
-                    <div style={{ 
-                      fontSize: '0.9rem',
-                      color: 'var(--color-text-secondary)',
-                    }}>
-                      {guest.affiliation}
-                    </div>
-                  )}
-                </div>
+                <GuestCard key={index} guest={guest} />
               ))}
             </div>
           </div>
@@ -175,7 +146,7 @@ export default async function MicrobinfiePostPage({ params }) {
                 fontSize: '0.9rem',
               }}
             >
-              <span>🎵</span>
+              <SoundCloudIcon size={20} />
               <span>Listen on SoundCloud</span>
             </a>
           )}
@@ -196,7 +167,7 @@ export default async function MicrobinfiePostPage({ params }) {
                 fontSize: '0.9rem',
               }}
             >
-              <span>⬇️</span>
+              <DownloadIcon size={20} />
               <span>Download MP3</span>
             </a>
           )}
@@ -218,7 +189,7 @@ export default async function MicrobinfiePostPage({ params }) {
                 fontSize: '0.9rem',
               }}
             >
-              <span>📝</span>
+              <span role="img" aria-label="Transcript">📝</span>
               <span>View Transcript</span>
             </a>
           )}

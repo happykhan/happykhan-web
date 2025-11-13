@@ -1,0 +1,171 @@
+----- chunk 1 start @ 00:00:00 -----
+
+[00:00:00] [Speaker A]: Hello, and thank you for listening to the MicroBitGeek podcast. Here, we will be discussing topics in microbial bioinformatics. We hope that we can give you some insights, tips, and tricks along the way. There is so much information we all know from working in the field, but nobody really writes it down. There is no manual and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My co-hosts are Dr. Nabil Ali Khan and Professor Andrew Page. Nabil is a senior bioinformatician at the Center for Genomic Pathogens Surveillance, University of Oxford, and Andrew is the Director of Technical Innovation for Theogen. Cambridge UK. I am Dr. Lee Katz, and I am a senior bio-friction at Centers for Disease Control and Prevention in Atlanta, in the United States.
+
+[00:00:46] [Speaker B]: Welcome to the MicroBinfie podcast. I'm your host, Andrew Page, and I'm here with Tip Dalman at the 10th Microbial Bioinformatics Hackathon. Here in Bethesda, Maryland. So Tim, you used to work in the UK, in the UK HSA or PHE as it used to be called. So where are you now?
+
+[00:01:07] [Speaker C]: Um, thanks Andrew. Nice to be here. Um, yeah, so now I'm, I split my time working for Utrecht University in the Netherlands, which
+
+[00:01:19] [Speaker B]: Which is in Europe.
+
+[00:01:20] [Speaker C]: is in Europe. Yeah, escaped. certain amounts of Brexit, Brexit refugee.
+
+[00:01:30] [Speaker B]: I think we won't talk about Brexit because that's obviously a very sore subject.
+
+[00:01:37] [Speaker C]: And I would say, yeah, I'm mostly doing some work for WHO in their pandemic, pandemic and epidemic intelligence hub in Berlin.
+
+[00:01:48] [Speaker B]: Is that the new one they just set up about two, three years
+
+[00:01:50] [Speaker C]: ago? Yeah, yeah. So Yeah, they set out this kind of extension of WHO's capabilities to be this kind of more of an innovation centre, collaborative surveillance centre. So bringing in people who might not commonly work together so often in a kind of physical space and a digital space as well. support working which
+
+[00:02:19] [Speaker B]: So where
+
+[00:02:20] [Speaker C]: is where it so
+
+[00:02:20] [Speaker B]: would that fit like saying the European context you have the ECDC and then you know the US obviously CDC of the national federal level so where does the this IPSN is that it?
+
+[00:02:33] [Speaker C]: yeah so IPSN is a network that's uh hosted by the hub in Berlin the WHO hub so it's a network that contains All different actors who are interested in pathogens genomics, so countries in terms of their national public health, academic centres, private sector, philanthropic sector. And the idea is to provide bodies and forum and opportunities to get the right people talking, to try and innovate some of these kind of... horizontal things that are needed to kind of drive sustainable capacity yeah
+
+[00:03:17] [Speaker B]: So for next pandemic, we won't just be scrambling around, you know, who knows who on Twitter and Slack.
+
+[00:03:22] [Speaker C]: and i think there's probably like that who knows who on twitter and slack and then they realize actually it might be a good idea to formalize that as well as that works um for sharing expertise and stuff
+
+[00:03:33] [Speaker B]: That's really awesome. And you're at Utrecht as well. And which apartment are you in?
+
+[00:03:38] [Speaker C]: I mean, so I'm in the veterinary faculty at UChurch University.
+
+[00:03:42] [Speaker B]: How on earth did you end up in a veterinary faculty when you were doing gastro?
+
+[00:03:45] [Speaker C]: So foodborne diseases always tend to end up in vet schools at universities.
+
+[00:03:52] [Speaker B]: Really?
+
+[00:03:52] [Speaker C]: Yeah,
+
+[00:03:52] [Speaker B]: Why
+
+[00:03:53] [Speaker C]: quite often,
+
+[00:03:53] [Speaker B]: is that?
+
+[00:03:53] [Speaker C]: quite often, because ultimately, you know, it's probably come out of a cows or a chicken's backside at some point in the transmission. submissions so yeah often um and the vets have to learn about kind of veterinary public food safety as well yeah so i've been there for three years um yes great university great city um and there i'm doing kind of yeah what i wanted to do but never had the time while running a genomic service at uk hsa i guess so uh a lot of stuff of like how can you translate large collections of genomes with good metadata into, you know, actionable predictions that might tell you, you know, something about disease risk or disease severity.
+
+[00:04:48] [Speaker B]: That's very, very hard. And like I presume the quality of the metadata is the issue there.
+
+[00:04:56] [Speaker C]: Yeah, I think he's getting the right metadata, so he's getting the right partnerships. The metadata, you know, for things like clinical severity, you know, for some pathogens, you know, it does exist somewhere, but half the battle is joining the networks of people and also, you know. navigating the governance and you know really pulling all of the people who are custodians of the data into the solving the questions well
+
+[00:05:31] [Speaker B]: You mean trying to wrestle the data from their cold dead hands?
+
+[00:05:34] [Speaker C]: exactly through collaborative I
+
+[00:05:36] [Speaker B]: Yeah, I mean, you put them on a paper and give the middle author, you're
+
+[00:05:42] [Speaker C]: think you know but I think there's a I'm
+
+[00:05:44] [Speaker B]: very diplomatic.
+
+[00:05:45] [Speaker C]: very diplomatic that's why I work at the WHO
+
+[00:05:49] [Speaker B]: That's awesome. So I remember I visited you over there in the Ajax University and it was pretty awesome and you got a beautiful equine hospital. Do you get samples from there?
+
+[00:06:00] [Speaker C]: Not personally, but yeah, so it's the largest. In an animal hospital I think in the Netherlands so they get it's not just Ecuador I think they have like you'll get the animals from the zoo so you know get you
+
+[00:06:16] [Speaker B]: serious
+
+[00:06:16] [Speaker C]: can get like an elephant turning up for a sprained
+
+[00:06:19] [Speaker B]: that's insane yeah
+
+[00:06:20] [Speaker C]: ankle maybe something more serious I and don't know but they have CT scans for large animal CT scans then
+
+[00:06:27] [Speaker B]: like the corridor isn't everything are just absolutely vast everything is just vast you know multiplied by 10
+
+[00:06:32] [Speaker C]: yeah well you've got to fit a when you got a large mammal into it and the Dutch bit are very tall as well right
+
+[00:06:38] [Speaker B]: True,
+
+[00:06:38] [Speaker C]: so true, so
+
+[00:06:39] [Speaker B]: true.
+
+[00:06:39] [Speaker C]: it's a double double-edged yeah so
+
+[00:06:42] [Speaker B]: Yeah. So, okay, what grants are you working on? I know we're collaborating on Predict and Prevent. Do you want to say anything about that?
+
+[00:06:50] [Speaker C]: that's so a lot I've been trying for several years to think about how genomic variation can go into machine learning models and I think one of the challenges is preserving some of the synergy and connectivity of the genome into
+
+[00:07:10] [Speaker B]: Yeah.
+
+[00:07:11] [Speaker C]: those models because obviously evolution works on function not on you know random variation in the genome so how do you kind of tie tie that into what kind of question so yeah so we've got some work looking at making pan genomes part of code that input into machine learning models say some graph theory yeah
+
+[00:07:37] [Speaker B]: That is very hard because the graphs for even a small set of genomes is phenomenally complex.
+
+[00:07:44] [Speaker C]: there's definitely lots of challenges to be solved in that in that project thinking of ways of like sub selecting the graph and you know really pruning down to know what's interesting so there's a yeah i think the feature selection on the graph and what properties are important in the graph that predictive is going to be yeah
+
+[00:08:08] [Speaker B]: So you're putting in like the function of genes and things like that. So you're dependent, you're dependent on a machine learning method which predicts the function of a gene, which then another machine learning method on top of this like a house of cards.
+
+[00:08:19] [Speaker C]: absolutely so um so we're trying to use as much real data you know as we can in terms of data captured from structured surveillance yeah
+
+[00:08:32] [Speaker B]: Yeah, not just a random stuff you find in the ref seek.
+
+[00:08:37] [Speaker C]: yeah exactly so hopefully this is really we want to look at you know use the prevalence of variation as you know features themselves
+
+[00:08:48] [Speaker B]: Yeah
+
+[00:08:49] [Speaker C]: what might be being selected for for different phenotypes.
+
+[00:08:52] [Speaker B]: And so which species are you focused on?
+
+[00:08:54] [Speaker C]: So we're focused on sugar toxin producing E. coli.
+
+[00:08:59] [Speaker B]: Oh, that'd be nice.
+
+[00:09:00] [Speaker C]: So that's hard. It's hard because it's got quite a complicated genome in terms of prophage. So its pan genome is pretty algorithmic. So we did lots of long read sequencing to try and iron that out. sort of the prokaryotic region to improve that or we say it's got an important because it's got a real um a clear virulence factors hence the name shiga toxin you have you know you have some good kind of tree sets and some known variation that's associated with clinical outcome so you know we have some good um things that we should find
+
+[00:09:39] [Speaker B]: So how does that relate to Shigella itself? Is it the same toxins in both?
+
+[00:09:44] [Speaker C]: No, it's not the Shay talk, isn't
+
+[00:09:46] [Speaker B]: It's
+
+[00:09:46] [Speaker C]: it? It's not
+
+[00:09:46] [Speaker B]: got the same name.
+
+[00:09:47] [Speaker C]: Yeah,
+
+[00:09:47] [Speaker B]: I'm just a lowly computer scientist. It's got the same name. She, she get a same guy from Japan, I presume.
+
+[00:09:54] [Speaker C]: yeah, yeah. But I think, yeah, I'm not sure. I'm going to edit this bit. Okay,
+
+[00:09:59] [Speaker B]: No,
+
+[00:09:59] [Speaker C]: I'm looking forward
+
+[00:09:59] [Speaker B]: no, we're going to keep it in. Show our naivety. um okay so you build these massive pan genome graphs and you add in function and then you have a structured set of metadata which you then uh try and mine so what what are you going to do with it after that
+
+[00:10:18] [Speaker C]: So I mean hopefully I think it's been an example of sugar toxin So will we definitely find if sugar toxins associated with poor clinical outcome?
+
+[00:10:27] [Speaker B]: And do you hope so?
+
+[00:10:29] [Speaker C]: And we have some preliminary data about, you know, that, you know, what else will come out, you know, in terms of also supporting these kind of phenotypes. So there's other pro phases that work. in kind of pile a ship across the E. coli genome that have been implicated in some ways or another so we're trying to tease out some of those things and then you know taking them into the models that people use so you know not testing these things in in the lab and ultimately
+
+[00:11:02] [Speaker B]: Yeah.
+
+[00:11:02] [Speaker C]: you know you want to be able to use it to assess risk and then with that assessment of risk prioritize resources whether that's in public health or in you know food safety
+
+[00:11:17] [Speaker B]: that is really really complicated fair play to you anyway what other things you're working on any any magic grants up your sleeve yeah
+
+[00:11:26] [Speaker C]: I think just put machine learning in every grunt I think seems to be yeah
+
+[00:11:30] [Speaker B]: everyone loves a bit of AI machine learning yeah
+
+[00:11:32] [Speaker C]: yeah I think yeah I think I've told you enough about that one and that keeps them Mix them otherwise up the sleeve.
+
+[00:11:38] [Speaker B]: Absolutely grand. Well, good luck with your position with WHO, and I'm sure that'll obviously have a lot of benefit with the next big public health emergency, of which they are regularly out there, but obviously people don't notice outside of our domain. And yeah, good luck with your machine learning panginoma grant. It looks like a really interesting project and I hope lots of good things come out of it.
+
+[00:12:02] [Speaker C]: Thanks, Andrew. Thanks for having me.
+
+[00:12:03] [Speaker B]: Thanks for being on the podcast.
+
+[00:12:06] [Speaker A]: Thank you so much for listening to us at home. If you like this podcast, please subscribe and rate us on iTunes, Spotify, SoundCloud, or the platform of your choice. Follow us on Twitter at Microbinfi. And if you don't like this podcast, please don't do anything. This podcast was recorded by the Microbial Bioinformatics Group. The opinions expressed here are our own and do not necessarily reflect the views of CDC or the Quadrant Institute.

@@ -1,0 +1,361 @@
+----- chunk 1 start @ 00:00:00 -----
+
+[00:00:00] [Speaker A]: Hello, and thank you for listening to the MicroBid Beat Podcast. Here, we will be discussing topics in microbial bioinformatics. We hope that we can give you some insights, tips, and tricks along the way. There is so much information we all know from working in the field, but nobody really writes it down. There is no manual, and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My co-hosts are Dr. Nabil Ali Khan and Professor Andrew Page. Nabil is a senior bioinformatician at the Center for Genomic Pathogen Surveillance, University of Oxford, and Andrew is the Director of Technical Innovation for Theogen. Cambridge UK. I am Dr. Lee Katz and I'm a senior bio practitioner at Centers for Disease Control and Prevention in Atlanta in the United States.
+
+[00:00:44] [Speaker B]: Welcome to the Microbe Pit Food Podcast. I'm your host, Andrew Page, and I'm joined here by Robert Petit. Do you want to introduce yourself, Robert?
+
+[00:00:50] [Speaker C]: Sure. Thank you, Andrew, for having me. My name is Robert Petit. I am at the Wyoming Public Health Laboratory in the U.S. state, Wyoming, where we do a lot of ongoing genomics surveillance. pathogens of interest public health specifically but I'm also the developer of Bactopia end
+
+[00:01:11] [Speaker B]: Okay.
+
+[00:01:11] [Speaker C]: -to-end pipeline for bacterial genomics yeah
+
+[00:01:14] [Speaker B]: Awesome. I've actually used it and I've trained a group in Columbia to use it. It's really, really awesome software and so fast as well, you know, it's, you're just buying NFT genomes and suddenly everything comes out.
+
+[00:01:23] [Speaker C]: well it it stemmed from a a project Staphopia where the idea was to basically do that analyze all the available step forest genomes and at the time there were only 700
+
+[00:01:38] [Speaker B]: sometimes that happens yeah
+
+[00:01:39] [Speaker C]: much more achievable than
+
+[00:01:42] [Speaker B]: so i put in some salmonella like about 20 salmonella and i thought oh this is going to take a while and then it was like half a minute later everything is done i was like okay maybe something's gone wrong because this is too quick yeah
+
+[00:01:55] [Speaker C]: no if you see that big wall of red text then something went wrong but yeah no usually it but it's I think it's It's many years of issues being solved over time so all those like low-hanging fruit have got kind of fixed by now so usually it just works yeah
+
+[00:02:19] [Speaker B]: That's kind of cool and what I really like about it is that the documentation is fantastic No, no really is you know they're very well laid out. It's very clear. You can copy and paste stuff quite easily
+
+[00:02:31] [Speaker C]: so the There's a little secret to that. Basically, I only write the documentation once. So within all like the kind of like config files of Bactopia, the documentation is actually there.
+
+[00:02:46] [Speaker B]: Oh, really?
+
+[00:02:47] [Speaker C]: Yeah. And then I use basically convert that to Markdown using just some script and then it spits it out into a make docs thing. So it's kind of like those like. API, where you write the API documentation within the
+
+[00:03:04] [Speaker B]: yeah that's
+
+[00:03:05] [Speaker C]: function, that sort of situation.
+
+[00:03:07] [Speaker B]: really cool um and then what i like as well is the way that it detects what the pathogen is and then it runs pathogen specific pipelines on top of it you know like yeah that's
+
+[00:03:22] [Speaker C]: Yeah,
+
+[00:03:23] [Speaker B]: so cool
+
+[00:03:24] [Speaker C]: this is, so we have something a bit different. Kind of like pre-Bactopia that we would, we're calling it Teton, which is for the French folks listening, it's okay to chuckle by the name of that, but it's based on some mountains, a mountain range in Wyoming called the Grand Tetons, but I think it's a human scrub and taxonomic classification. But the idea is exactly that, where we're just going to run it on all our samples, no matter whether they're bacteria viruses, not metagenomic, but scrub the human reads, do a taxonomy classification, but then also spit out for the bacteria sample sheet for Bactopia, because Bactopia can process. any combination of bacteria, but you kind of have to give a genome size.
+
+[00:04:23] [Speaker B]: Okay.
+
+[00:04:23] [Speaker C]: And so
+
+[00:04:24] [Speaker B]: What
+
+[00:04:24] [Speaker C]: now,
+
+[00:04:24] [Speaker B]: would you have to give a genome size?
+
+[00:04:25] [Speaker C]: mostly because we do some coverage reduction to save time.
+
+[00:04:30] [Speaker B]: Okay.
+
+[00:04:30] [Speaker C]: So by default, we'll reduce it to 100x coverage.
+
+[00:04:34] [Speaker B]: That makes sense,
+
+[00:04:35] [Speaker C]: Yeah,
+
+[00:04:35] [Speaker B]: yeah.
+
+[00:04:35] [Speaker C]: but if you don't give a genome size, we don't do that and it just makes things take longer. So it was pretty easy if you process it in all the same organism because then you just provide one genome size and it fills it out for you.
+
+[00:04:51] [Speaker B]: Yeah.
+
+[00:04:51] [Speaker C]: But when you got 20 different organisms coming off of this sequencing run,
+
+[00:04:56] [Speaker B]: surely if you just say everything is five mags
+
+[00:04:58] [Speaker C]: it's probably fine.
+
+[00:05:00] [Speaker B]: yeah and
+
+[00:05:01] [Speaker C]: Yeah, but this is just a simple way to remove the human reads, do a quick taxon classification, and then assign a genome size based on that.
+
+[00:05:13] [Speaker B]: you've recently given a grant to
+
+[00:05:15] [Speaker C]: Yeah,
+
+[00:05:15] [Speaker B]: cover this
+
+[00:05:16] [Speaker C]: the Chan Zuckerberg Initiative. We're part of the Essential Open Source Software grant, the latest cycle of it, and part of this is bringing in a much needed visualizations and reporting to Backtopia because it produces a lot of data but it doesn't do a good job of like making it presentable to somebody who's not a bioinformatician, so if I need to give it to our EPIs. I can't hand them a bunch of TSV files.
+
+[00:05:47] [Speaker B]: No,
+
+[00:05:47] [Speaker C]: They
+
+[00:05:48] [Speaker B]: they want
+
+[00:05:48] [Speaker C]: want a nice report
+
+[00:05:49] [Speaker B]: proper data.
+
+[00:05:49] [Speaker C]: that tells them what they need to know.
+
+[00:05:51] [Speaker B]: Yeah.
+
+[00:05:51] [Speaker C]: And so that's kind of what's coming next and integrating with a bunch of third party type tools. So those kind of like micro trades, micro react,
+
+[00:06:01] [Speaker B]: Awesome.
+
+[00:06:01] [Speaker C]: those kind of tools.
+
+[00:06:02] [Speaker B]: Yeah.
+
+[00:06:03] [Speaker C]: Yeah.
+
+[00:06:03] [Speaker B]: That'll be phenomenally useful because that is what is missing from a lot of tools,
+
+[00:06:07] [Speaker C]: Yeah.
+
+[00:06:07] [Speaker B]: you know, that visualization piece. So what are your plans then so you got visualization you get human scripting. Oh, how are we doing your human script running by the way?
+
+[00:06:15] [Speaker C]: I am a person who likes many options, so it's called Scrubber, but you can use either SRA's Humans grubber
+
+[00:06:28] [Speaker B]: That's
+
+[00:06:28] [Speaker C]: tool that
+
+[00:06:29] [Speaker B]: fascinating.
+
+[00:06:29] [Speaker C]: they have. Yeah, NCBI's human grubber that they have. Michael Hall came out using cracking against the human pan genome. So you can do that way. And then hostile is another option that's coming. And then I think there's another one scrubby. But this kind of idea that they're all probably fine.
+
+[00:06:53] [Speaker B]: Yeah.
+
+[00:06:55] [Speaker C]: leave you the choice to pick which one that works for you yes
+
+[00:06:59] [Speaker B]: So I guess most of the data you probably currently process is WGS from isolates, so there won't be any human in there anyway, you'd hope.
+
+[00:07:11] [Speaker C]: and so this is a We tried many times to kind of make our office of privacy and security happy and we've explained to them like these are isolates there should be no human DNA but and they're busy people so the easiest solution for us is we just scrub it no matter what and
+
+[00:07:38] [Speaker B]: Totally.
+
+[00:07:38] [Speaker C]: then yeah and so even though we're quite confident there's no human DNA now we can say We've done everything possible to remove the human DNA.
+
+[00:07:48] [Speaker B]: I guess I know in the science they do the same thing no matter what experiment it is they will do a human filter and then lock those reads away no matter what
+
+[00:07:56] [Speaker C]: Yeah, same. And it's just much easier than the kind of like paperwork route of that sort of situation, the bureaucracy.
+
+[00:08:06] [Speaker B]: I love how BAFM is being used to get around bureaucracy
+
+[00:08:09] [Speaker C]: Yeah.
+
+[00:08:12] [Speaker B]: Fair play to you. And do you have any other projects in the pipeline?
+
+[00:08:14] [Speaker C]: Yeah, a new one. I've been working on is it's called camel hump.
+
+[00:08:22] [Speaker B]: Where'd you get these names?
+
+[00:08:24] [Speaker C]: One, my wife's favorite animal is a camel and we at Wyoming we've done a lot of work with Oman central public health laboratory. We were part of a twinning experience through APHO,
+
+[00:08:39] [Speaker B]: Yeah.
+
+[00:08:39] [Speaker C]: Association of Public Health Labs. So they came out to some members of Oman CPHL came out to Wyoming and we got to do a reciprocal visit. So it's a one again wife's favorite animal, but also a reminder of the camels in Oman. But it
+
+[00:08:58] [Speaker B]: Yeah.
+
+[00:08:58] [Speaker C]: stands for classification through camel and then camel was taken.
+
+[00:09:07] [Speaker B]: That
+
+[00:09:07] [Speaker C]: That was
+
+[00:09:07] [Speaker B]: yeah,
+
+[00:09:08] [Speaker C]: the language,
+
+[00:09:08] [Speaker B]: yeah.
+
+[00:09:08] [Speaker C]: So the HMP is heuristic map and protocol. Really,
+
+[00:09:14] [Speaker B]: So I guess
+
+[00:09:15] [Speaker C]: really,
+
+[00:09:15] [Speaker B]: it's an acronym isn't it
+
+[00:09:16] [Speaker C]: yes, yes, exactly.
+
+[00:09:17] [Speaker B]: No one in the work for this.
+
+[00:09:20] [Speaker C]: But the idea is to basically separate the kind of programming logic of sequence-based type and tools. and the actual logic of the sequence-based typing. So basically the programming part is you kind of need to know how to code,
+
+[00:09:39] [Speaker B]: Yeah.
+
+[00:09:39] [Speaker C]: but creating a schema for a sequence-based typing. You just need to know YAML and that's pretty readable and
+
+[00:09:48] [Speaker B]: It is.
+
+[00:09:49] [Speaker C]: it's a pretty standard structure that we put together so the idea is people who aren't bioportitions can now if they have a schema that they want to make they can just create it in YAML and then you have a framework of all the analyses that can be done with that YAML and a kind of a byproduct It was also to make it easier for me to maintain some sequence-based type and tools that I
+
+[00:10:17] [Speaker B]: Yeah,
+
+[00:10:17] [Speaker C]: had. So
+
+[00:10:17] [Speaker B]: yeah,
+
+[00:10:18] [Speaker C]: now I just have a central framework. And on these tools, it's just two files, a YAML file defining the schema and then a FASTA file with the reference sequences for
+
+[00:10:29] [Speaker B]: that's really the handy.
+
+[00:10:30] [Speaker C]: best schema. Yeah, and now it's much easier. I maintain one tool instead of three separate
+
+[00:10:35] [Speaker B]: Yeah.
+
+[00:10:36] [Speaker C]: ones.
+
+[00:10:36] [Speaker B]: Well, I look forward to looking at that too then, you
+
+[00:10:39] [Speaker C]: know? Yeah.
+
+[00:10:39] [Speaker B]: Sounds really good. and i can see from bacteria you know it's very high quality stuff you produce so that's
+
+[00:10:44] [Speaker C]: It's like I said, a lot of revisions. I think there are true revisions in Bechtopia. It's like a million plus line. If you look at the changes over time,
+
+[00:10:56] [Speaker B]: yeah
+
+[00:10:56] [Speaker C]: it's like a million additions, a million deletions. So there's like a small like 10,000 lines of code that. have
+
+[00:11:09] [Speaker B]: Yeah,
+
+[00:11:09] [Speaker C]: Are
+
+[00:11:09] [Speaker B]: they
+
+[00:11:09] [Speaker C]: there yeah,
+
+[00:11:10] [Speaker B]: got in there once and that's it.
+
+[00:11:11] [Speaker C]: yeah
+
+[00:11:11] [Speaker B]: Fair play, fair play. yeah and so wyoming what is it like living up there i mean clearly you don't wear shirts like that out every day so you're wearing a very uh
+
+[00:11:20] [Speaker C]: oh funny
+
+[00:11:21] [Speaker B]: really
+
+[00:11:21] [Speaker C]: funny enough i do and i stick out like a sore thumb
+
+[00:11:25] [Speaker B]: i
+
+[00:11:26] [Speaker C]: yeah no i wear these shirts all the time
+
+[00:11:27] [Speaker B]: thought
+
+[00:11:28] [Speaker C]: in
+
+[00:11:28] [Speaker B]: you'd be wearing like cowboy hats or something like that
+
+[00:11:30] [Speaker C]: no i i uh it's true i need to do i need to get me some cowboy boots and a cowboy hat so yeah wyoming is it's it's a rural and frontier state in the u.s it's about 250,000 square kilometers and
+
+[00:11:44] [Speaker B]: Yeah, that's
+
+[00:11:45] [Speaker C]: only 600,000 people.
+
+[00:11:48] [Speaker B]: not many people.
+
+[00:11:49] [Speaker C]: I know. Yeah,
+
+[00:11:50] [Speaker B]: Yeah, it's
+
+[00:11:50] [Speaker C]: not
+
+[00:11:50] [Speaker B]: crazy.
+
+[00:11:51] [Speaker C]: a lot at all.
+
+[00:11:51] [Speaker B]: And so sorry, just to describe your shirt to you, it's what an inflatable flamingo, pink flamingo with a tiger holding a cocktail glass and it's got kind of a blue and green background. So very, very, very nice actually, like a perfect Hawaiian shirt. shirts yeah
+
+[00:12:07] [Speaker C]: Yeah,
+
+[00:12:07] [Speaker B]: i'm
+
+[00:12:07] [Speaker C]: it's
+
+[00:12:07] [Speaker B]: actually a you're
+
+[00:12:08] [Speaker C]: nice.
+
+[00:12:08] [Speaker B]: known for your your kind of vibrant shirts yeah
+
+[00:12:10] [Speaker C]: Yeah.
+
+[00:12:10] [Speaker B]: no one will miss you yeah
+
+[00:12:12] [Speaker C]: Yeah, they got to remember something about me and it's usually the not shirts.
+
+[00:12:15] [Speaker B]: the bland corporate you know yeah
+
+[00:12:18] [Speaker C]: Yeah. Yeah.
+
+[00:12:20] [Speaker B]: so do you like living in wyoming
+
+[00:12:22] [Speaker C]: Yeah, it's not too bad. I grew up in small town, so the small town living. It's quite nice. The people are really nice. There's a lot of scenery, a
+
+[00:12:32] [Speaker B]: Yeah
+
+[00:12:33] [Speaker C]: lot of camping, a lot of hiking that you can do out there. We do have a bunch of national parks out there. We're on top of a super volcano, which is
+
+[00:12:46] [Speaker B]: Oh,
+
+[00:12:46] [Speaker C]: kind of fun.
+
+[00:12:46] [Speaker B]: you matter,
+
+[00:12:47] [Speaker C]: So yeah,
+
+[00:12:47] [Speaker B]: yeah. Is that the one that Yellowstone?
+
+[00:12:49] [Speaker C]: Yellowstone. Yeah.
+
+[00:12:50] [Speaker B]: It's kind of my geography.
+
+[00:12:51] [Speaker C]: Yeah. So if that guy ever decides to explode, it's not your problem.
+
+[00:12:57] [Speaker B]: Yeah.
+
+[00:12:57] [Speaker C]: Yeah. No, long gone. Yeah.
+
+[00:13:00] [Speaker B]: Yeah, very good. So you must be one of the only bar petitions in the whole state.
+
+[00:13:04] [Speaker C]: I am. Yeah. I am the only bar petition and quite unfortunate. We're also part of a Northern Plains Consortium, which includes four other states and U.S. states, and neither of those states have a biorepetition either.
+
+[00:13:23] [Speaker B]: That's insane.
+
+[00:13:24] [Speaker C]: Yeah.
+
+[00:13:25] [Speaker B]: I mean, considering how advanced the USA is and how many repetitions they have generally around, like to have such big black spots in the middle of the country.
+
+[00:13:33] [Speaker C]: Yeah. Yeah,
+
+[00:13:34] [Speaker B]: Yeah.
+
+[00:13:35] [Speaker C]: that's crazy. Yeah, so it's definitely a, but the lab there is pretty awesome. So they've taken to sequencing and genomic analysis quite well. So they're all playing in the command line.
+
+[00:13:49] [Speaker B]: That's fantastic.
+
+[00:13:50] [Speaker C]: Yeah.
+
+[00:13:50] [Speaker B]: Yeah. And it's good to have sequencers so far and wide and so widely used.
+
+[00:13:54] [Speaker C]: Yeah.
+
+[00:13:55] [Speaker B]: And I thank you so much for having a chat with me and I hope we'll catch up again soon, you know, because we seem to bump into each other conferences and hackathons or whatever. And I should say that we're recording this at the 10th Microbial Mathematics Hackathon here
+
+[00:14:08] [Speaker C]: Yeah, yeah.
+
+[00:14:09] [Speaker B]: in Bethesda in Maryland. I was going to say Washington, D.C., but that's wrong. That's Maryland. Um, and yeah, we gotta, gotta go back and do some coding now, you know, to solve all the world's problems.
+
+[00:14:22] [Speaker C]: Yep.
+
+[00:14:22] [Speaker B]: So thank you very much for joining the MicroPenview podcast and we'll see you all soon.
+
+[00:14:27] [Speaker C]: Awesome. Thank you for having me.
+
+[00:14:29] [Speaker A]: Thank you so much for listening to us at home. If you like this podcast, please subscribe and rate us on iTunes, Spotify, SoundCloud, or the platform of your choice. Follow us on Twitter at Microbidphy. And if you don't like this podcast, please don't do anything. This podcast was recorded by the Microbial Bioinformatics Group. The opinions expressed here are our own and do not necessarily reflect the views of CDC. See or the Quadram Institute.

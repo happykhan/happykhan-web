@@ -1,0 +1,123 @@
+----- chunk 1 start @ 00:00:00 -----
+
+[00:00:01] [Speaker A]: Hello, and thank you for listening to the Micro Binfie podcast. Here, we will be discussing topics in microbial bioinformatics. We hope that we can give you some insights, tips, and tricks along the way. There is so much information we all know from working in the field, but nobody really writes it down. There's no manual, and it's assumed you'll pick it up. We hope to fill in a few of these gaps. I am Dr. Lee Katz. My co-hosts are Dr. Nabil Ali Khan and Professor Andrew Page. Nabil is a Senior Bioinformatician at the Center for Genomic Pathogen Surveillance at the University of Oxford. Andrew is the CTO at Origin Sciences and Visiting Professor at the University of East Anglia. Hello. Welcome to another software deep dive where we dive deep into some bioinformatics software. Today, Nabil is in the hot seat with Genome QC.
+
+[00:00:55] [Speaker B]: So Nabil, where did he come up with the name?
+
+[00:00:58] [Speaker C]: About the quality control of bacterial genomes, kind of not very imaginative, sorry to say.
+
+[00:01:05] [Speaker B]: Hey, like Ron Seale, it does exactly what it says on the tin.
+
+[00:01:09] [Speaker C]: Yeah, just consider it a working title, I don't know.
+
+[00:01:13] [Speaker A]: So what does it do? Tell us in your words why.
+
+[00:01:16] [Speaker C]: Yeah, so it's not, it's not, so even though it's a software deep dive, it's not a software per se, it's just a process where I've gone through a whole bunch of genomic data thanks to the older bacteria data set and come up with some really simple metrics, thresholds, numbers. for assessing genome quality like your genome assembly quality for but on a species specific basis so you know the problem would be with say people in the past phd students or just people getting into the space you tell them run cost they go oh i ran cost is my genome any good though the n50 is 50 000 is that good I have 1000 contigs, is that good? Is that bad? How do I pass this? And you know, you could tell them to kind of look within their own data and plot it and look at the distribution and you could find out lies that way. But if all of your data is garbage, I mean, that doesn't really help. And that's not really an answer. The answer that they want is like, what is the real expected value for these simple numbers? I never was able, I would, you know, we all know for our organisms of choice. like with salmonella i know you know it's like 5.5 max 6.1 you know and it goes down to like maybe the 4.5 point 4.6 right like you have that numbers in your head of how big the genome is how many conductors you expect but it's not really written down anywhere and there's no manual and you're supposed to pick this up
+
+[00:02:57] [Speaker B]: And also the extra information like saying salmonella, you have... typhimur typhi which is host adapted whereas other salmonellas and like dublin are adapted in different ways instead of bigger genomes and that's something that you just have to know it's not really written down either
+
+[00:03:15] [Speaker C]: Yeah, that too. Same thing with most organisms is amazing, the variety. I mean, you can have an entire megabase difference in genome size. in the same species of things coming and going i mean like an entire megabase is something that's five megabases so 20 variation in genome size and you can get caught out pretty easily if you're not if you're not aware and some cases like between species in the same genus and you can find that on the genome qc site that's that's probably in the description somewhere that even within the same genus the thresholds you would use for one species is different to what you would use for another species in the same genus so You know, it's very different material, weird and wacky things. They have a lot of variation in genome composition.
+
+[00:04:11] [Speaker A]: Are you staying on the species sides of things? Because, okay, going back to salmonella, there are two species, but famously there are many subspecies of salmonella enterica or for subspecies one, enterica enterica. Like there are many zero types, like how deep are you going here?
+
+[00:04:31] [Speaker C]: Yeah, so I'm relying on whatever all the bacteria did, which they use sylph, which just does classification down to the species level. It's meant to be a fast approximation of GTDB. So it's as good as that is going to be. That's for the sake of this. to have some numbers to help people out in the first instance. The algorithm or method that I'm using is not dependent on these classifications. You just give it a bucket of any number of genomes and it'll figure out the appropriate threshold. So we could... revisit this in future and come up with you know ST specific or subspecies specific or or even step back and say actually I want to do I want to do an entire family instead you might want to go the other way make it more lenient So the approach is totally flexible with what we're defining. But in the first attempt, I was like, no, let's just go for the species because that's the thing people are going to ask for first. That's really the kind of taxonomic unit we're worried about with bacteria most of the time.
+
+[00:05:50] [Speaker B]: So can I ask how long did it take to do the analysis to generate the underlying data?
+
+[00:05:56] [Speaker C]: So it's like the data itself, I mean, I had to rerun, I mean, a lot of it is relying on the genome assemblies done by all the bacteria. So that's like a huge benefit for me that I didn't have to assemble 1.2 million genomes myself. And they've done the taxonomic classification and all of that. So that's fine. The real, the computation part here was just recalculating some of the assembly metrics like standard stuff like GC. which is pretty fast you know that sort of thing takes like half a day or a day to run on a compute cluster here
+
+[00:06:33] [Speaker B]: That's awesome. And then how do people actually access the data? Is it on an online web portal or is it, you know, through the command line or what?
+
+[00:06:42] [Speaker C]: Yes, it is. Right now it's on a website that's just, you know, my GitHub, maybe I'll put it somewhere else. It's happycon.github.io slash genomeqc. And the idea, you can just go to that. website and look at the thresholds and download all the metrics and justification for those metrics there. There is a sister software that I'm working on which sort of takes these thresholds and then you feed it all of your output files from different tools like Quast or... whatever check-in or whatever else kind of like and that's going to mimic something more like multi-qc so that's the other way that you would you would interact with this these results or these thresholds i mean what i'm hoping for is people will like the thresholds i've come up with they will just download them from the website and just implement them in their own pipelines because i know everyone's got their own way of doing things
+
+[00:07:44] [Speaker B]: I guess if somebody thresholds were available like on a command line and I just put in Here's my fasta file and bang, there you go, you know, tell me is a genome size within the expected range more just traffic light, you know, like red amber green kind of deal. That'd be kind of cool.
+
+[00:08:02] [Speaker C]: Okay, there's one page called Summary which just has a massive CSV of everything for all the species covered.
+
+[00:08:13] [Speaker B]: Yeah, but I want you to write the software for me.
+
+[00:08:15] [Speaker C]: Yeah, yeah, I'm writing the software to do the traffic light stuff as well that'll come. So you can slap that on the end of your pipeline and it'll produce like a CSV or HTML report. So I suppose that's what I'm supposed to be doing right now is finishing that off.
+
+[00:08:34] [Speaker A]: That sounds amazing. Yes, please. We want that software. We have a bunch of standard questions on here and I'm going to pick and choose at least the first one for me. Who who asked for it? I like this question. I
+
+[00:08:48] [Speaker C]: yeah
+
+[00:08:48] [Speaker A]: know that
+
+[00:08:49] [Speaker C]: but so
+
+[00:08:49] [Speaker A]: I want this kind of thing, but like who actually initiated this?
+
+[00:08:52] [Speaker C]: so who pushed me because because so yeah i mean we've had this problem i've had a run into this problem from enterprise days where you have a database and you're trying to assess the quality to kind of show it on the on the in the database on the website and we had a crack at it and yeah it was okay those those thresholds are there on the in the documentation and some people do use them but it was very hand wavy and there was only like four or five organisms to worry about so it was okay and then I was like it's fine whatever people will pick this up no one picked this up and then basically the person who really pushed me to do this was my my better half who was like you know she asked me like oh what why like what is what would be the what would be the expected value the same as anyone else would ask like what would be the expected end 50 for this is this good or bad and i was like well it depends and she's like that's in a nice way but she basically said like yeah i mean i'm not stupid everything is complicated but you have to have some idea um so she actually called me out on all my bullshit i was like yeah you're right there are like yeah it depends but yeah there are there are like there are little lower and upper bounds which would be absurd like a 10 mega base e coli genome is absurd that does not happen that hasn't happened before that's not going to happen that you know that is not observed in nature at least Um, so, you know, and that applies for everything that there is a sort of bounding you can give. And I'm curious to see what people think for their pet species, whether my estimates are in line with what they expect. Uh, Lee, what do you think on the Nyseria numbers? Cause you're a Nyseria man.
+
+[00:10:48] [Speaker A]: I am, I am. That's my roots. That's my origin story.
+
+[00:10:52] [Speaker B]: Nyseria meningitidis. This is looking right.
+
+[00:10:56] [Speaker C]: I'll tell
+
+[00:10:57] [Speaker B]: Okay.
+
+[00:10:57] [Speaker C]: people what was safe. So my... I take a punt and say that an n-min engine of this genome is usually somewhere between two megabases and 2.4 megabases in size. You'd expect 1,900 to 2,500 coding sequences. And if you're using shovel as your assembler of choice, you'd expect the number of contigs to be not more than around 300, you know, so something like 500 or 600 would be a bit odd. What would you say to that? Oh, and GC content is 51 to 53%.
+
+[00:11:31] [Speaker A]: Is it looking right? So, um... The only thing suspicious to me right now is that these are very nicely round numbers. So how does machine learning and everything give
+
+[00:11:40] [Speaker C]: you No,
+
+[00:11:40] [Speaker A]: that?
+
+[00:11:40] [Speaker C]: no, I rounded them down for the sake of the table. If you want the dirty numbers, there's a summary table below that. There's a link to a thing called the summary table of the metrics which gives you the real dirty distributions, all the Q1, Q3s, mean median modes, all that stuff. And so that has the raw numbers and you'll see that they're not tidy. but i was just thinking that you know no one's going to remember that like you know 18 650 like that's just such a you know at least this when people keep using it they'll remember two two megabits of 2.4 easy
+
+[00:12:17] [Speaker D]: And that's funny.
+
+[00:12:19] [Speaker B]: What's the impact of long-read sequencing on this? Because obviously you have an overwhelming number of short-read sequence assemblies and then you've some long-read packed in. And so if in this you just happen to have someone does a big project and does a lot of long-read sequencing, could that skew things? Because obviously there's going to be things that can't be assembled with short-reads, but will be present with long-reads, so that'll consistently. Kind of throw it off and under like.
+
+[00:12:48] [Speaker C]: Yeah, so this is based on Illumina only. So your thresholds are married to that. Now, obviously what I would expect is your genome sizes with nanopore off the bat are going to be larger. then your alumina reads because you will have you won't have collapse repeats and you won't have small plasma like plasmids missing or whatever so that number will skew and you can see that skew actually if you sum through the comparisons of the all the bacteria which are alumina-based assemblies versus what you see in refsec you see like there's actually a there's a discrepancy so i suspect that As we get more and more nanopore data, that will push metrics in certain directions. There isn't, to my knowledge, a high fidelity, easy access data set of all these sequence genomes with ONT or PacBio that one could do the same thing with here. If someone has a data set like that, I would love to, even for a single species that would be great because then I could add. add additional numbers around that but um yeah this is based on illumina and yeah there will be a bit of difference with ont stuff or pack bio or whatever and obviously things like i've said number of contigs and n50 which are very much rooted to the fact that you're using shovel in this case uh velvet the expected and expected number of contigs will be much much higher and obviously if you're using long reads and then assembling it you're going to have much hopefully much fewer condigs yeah
+
+[00:14:33] [Speaker A]: Yeah, I imagine you'd want to in the future like have some space for separating this out like the N50 for Illumina or the N50 for PacBio.
+
+[00:14:43] [Speaker C]: one would hope if you're forking out for pack bio n50 is going to be the size of the chromosome
+
+[00:14:49] [Speaker A]: One would hope. And so. When you brought this up, like this blew my mind and, you know, off the recording, I ood and odd over this for for quite a while, as you know, but I also pointed out like NCBI has some ideas behind this and I don't know if you want to go into like who. Like what the what the lay of the land was before you started this, like if if there are, quote unquote, competitors to this or similar projects.
+
+[00:15:20] [Speaker C]: I've been asking around on our various communication channels. I mean, most people, if you're in a public health lab doing bioinformatic sequencing, usually they say, yeah, we have our own set of in-house numbers, which is fine. Most people rely on, say, something like genome size and CPI publishes like expected genome size ranges. So people say, oh, we use that plus or minus 10 percent. people so we did a sort of in an interbase we produced these numbers before so that's when I first ran into it so obviously there's a competitor of of that for at least a few species that overlap other consortium like Klebnet which is something we're involved with in in the group here in Oxford is also have their own own numbers for Klebsiella like so stuff like that so people have been coming up with numbers I think the advantage with this is this is all. programmatically procedurally generated I've gone to a lot of trouble to make sure that this is something that can just be rerun with more data or less data whenever it needs to and it can be expanded to any other species with significant or any other group of genomes with significant numbers to to come up with these bench these thresholds and I think the approach is pretty robust and I've yet to really find it you know i'm hoping someone is going to tell me or catch me out on a few things but i think i'm pretty confident with it now so that's where this sort of separates from other stuff i've seen in the space like most people kind of approach this and sort of hand tailor it but someone looks at those numbers and looks at you know like all of us doing a lot of sequencing of a single organism get a sense of what the metric should be we all sort of know in our bones you You know, trying to think now of campy is like, you know, two megabytes to, you know, whatever it is. Let's see what campy is.
+
+[00:17:25] [Speaker A]: 6.1.6
+
+[00:17:27] [Speaker C]: 1.6. Let's see. Campy coli, 1.6 to 2.2. Jejuni is 1.5 to 2 megabases. And that's one of the things that I found really interesting with this is. so what that suggests is that you can know because jejuni being slightly smaller than than coli on on average or on the whole it's like if you you know that so if you see like a 2.3 coli you should be thinking oh that's not great that's worse that's a problem a jejuni being 2.3 maybe maybe i don't know you know uh and you see that in some cases that even gc can can vary quite dramatically for some um species in the same genus i was quite surprised because i don't know all of these organisms that well why
+
+[00:18:20] [Speaker A]: I don't know if I can let that one go where you say jejuni, and I didn't realize that would be another dialect. We say jejuni.
+
+[00:18:27] [Speaker C]: is it an e i guess it should be coli it should be jejuni i'm sure some of the listeners will be with me on that maybe we can have a fight about that the other day so
+
+[00:18:38] [Speaker B]: That's pretty awesome. Fair play to you for doing that. And so on the technical side, you know, how did you actually write it? What language is it in? Is it packaged for Condor? You know, like all of those kind of things.
+
+[00:18:49] [Speaker C]: the sister tool that's kind of the thing you want which is the traffic light thing I'm writing in Python basic stuff I haven't I haven't finished it yet so it's not on condo but it will be on condo it will be on pi pi that's just stock python with all of the plotting libraries attached to it this analysis of actually generating the numbers um there's a github repo with the code it's all python using scikit-learn and all this regular stats libraries in python there's nothing exotic in it so anyone can actually pull this down and have a look at how i've calculated this the the secret sauce in this that i think uh is is not so one thing that i found with my past attempts and attempts other people have made is they've looked at these numbers of say n50 and they've tried to treat it like a normal well they try to assume it's like a regular normal distribution that you can just work with and they use standard statistic methods and I've tried that myself it didn't work.
+
+----- chunk 2 start @ 00:20:00 -----
+
+[00:20:00] [Speaker A]: work I've tried a lot of different ways of flavoring it a lot of different stats you can use to try and suss out where these boundaries are in a distribution but none of them worked and I found that I really had to come up I had to go the other way and use a machine learning approach that was very good at removing the outliers and then it became easy because what I suppose we underestimate is the amount of trash that's in the sequence read archive. I mean, if you look at any of the genomes, you can find, I mean, on any of the species pages, you'll find one of the plots that's purple and yellow, and it'll show all of the anomalies in purple and all of the good stuff in yellow. and you'll these are values that are coming from SRA data Ali's pulling that up and you'll find stuff where it's like you know there'll be a cloud of where the number should be and then the outliers are like genome size is point it's it's it's ecliptic and the genome size is point three like the total assembled length is 0.3 um the n50 is like an order of magnitude higher than anything else there are these massive outliers in the data that just if you were to approach this as a sort of normal stats distribution thing it's not going to happen and you're just always fighting outliers all the time with this so that was my secret of going the other way and just like can we get rid of the trash first and then once the trash is removed removed it's actually pretty tidy I don't all I do after removing the outliers is a very simple 99.5 and 0.5 percentile like sort of clip on the sides to just get rid of any aberrant bits and pieces and then you get like a fairly tidy distribution in most cases in in obviously when species are a little weird I refer you to so in this I've merged E. coli and Shigella together you can see Shigella in the in you can see the sub distribution of Shigella in the filtered output and you can see that for other organisms where the taxonomic classification isn't like perfect but
+
+[00:22:18] [Speaker B]: So I'm looking at the plot. It's fascinating to me. I didn't realize you could do something like this. It looks like you're getting a machine learning algorithm on a plot of n50 on the y-axis versus a genome length on the x-axis. And I guess I guess you get like this circular oval plot and you're just cutting off the fat on the outsides, which is the anomalies.
+
+[00:22:43] [Speaker A]: Yeah, that's basically what it does. The other trick is that I found it was better to feed it all of the metrics as dimensions for the ML. So while the plots are usually obviously two-dimensional to make it like sort of human readable, so usually I pick n50 or total length as the illustrative thing, it's actually removing the outliers based on n50, n total length, n number of contigs, nGC, all at the same, whatever else, all at the same time. And I found... that computation was not more complicated for it it would run fairly fast the approach and then it also was uh i think it made more sense to me like okay this is going to give me a better result and so far it has i mean i can't fault it yet there's some organisms that people have pointed out to me that aren't great um and i think that and you can actually see that in the plots where it sort of falls over and that i think is down to the fact that you have a taxonomic classification that's not you know where the genomes are very very different so you have like sub populations within it um that are a bit problematic or and things like that A
+
+[00:24:07] [Speaker B]: Yep.
+
+[00:24:07] [Speaker A]: border telepathasis is one you can look at, and I think the Burkholderia, Burkholderia is a problem because I lump pseudomallei and mallei and pseudomallei together. And so what all that really means, though, is that my thresholds that I suggest are more lenient than what an expert would recommend. But
+
+[00:24:30] [Speaker B]: That's
+
+[00:24:30] [Speaker A]: it's a place
+
+[00:24:31] [Speaker B]: pretty awesome.
+
+[00:24:31] [Speaker A]: to start. And I mean, like, this is like a first pass. It's I'm hoping to invoke a kind of Cunningham's law thing, like if you want the correct answer on the internet, say the wrong thing and wait for someone to correct you. I'm hoping that by putting this out there, people will think about it and critique it and then we can actually come up with a version two where experts come in and suggest. better numbers and we can slowly refine this to a set of numbers that actually are useful and we can all sort of adopt so
+
+[00:25:00] [Speaker B]: All right. So just to wrap it up, I had like 10 different questions and I'm sure Andrew does too. And where do people find you and where do people find this project?
+
+[00:25:11] [Speaker A]: right now it's I mean if you want to find me you can just add me on Mastodon I guess is the easiest to get hold of me linkedin if you're really desperate i rarely check my twitter anymore but you can try on twitter i might get back to you in a week or drop me an email my email is around if you look me up um otherwise how do you access this so the url should be in the description it's happycon.github.io slash genome qc that's the web page that has all of the content all of the numbers all the documents everything is also on my github as well so you know you'll find it somehow or if you you know you'll find me i'm around just ask come up and ask me I'll be at email presenting this if you want to come and have a chat about it.
+
+[00:26:01] [Speaker C]: Enjoy!
+
+[00:26:05] [Speaker D]: Thank you so much for listening to our podcast. If you liked this podcast, please subscribe and rate us on iTunes, Spotify, SoundCloud, or the platform of your choice. This podcast was recorded by the Microbial Biowinformatics Group. For more information, go to microbinfi.github.io. The opinions expressed here are our own and do not necessarily reflect the views of our of origin sciences the Center for genomic pathogen surveillance or CDC

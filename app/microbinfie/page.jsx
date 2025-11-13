@@ -1,23 +1,15 @@
 import Link from 'next/link'
 import { listMicrobinfie } from "@/lib/content.mjs"
+import MicrobinfieFilter from '@/components/MicrobinfieFilter'
+import { SoundCloudIcon, ApplePodcastsIcon, SpotifyIcon, RSSIcon } from '@/components/PodcastPlatformIcons'
 
 export const metadata = {
   title: 'MicroBinfie Podcast — Happykhan',
 }
 
-const EPISODES_PER_PAGE = 20
-
-export default async function MicrobinfieIndexPage({ searchParams }) {
-  const params = await searchParams
-  const page = parseInt(params?.page || '1', 10)
+export default async function MicrobinfieIndexPage() {
   const allEpisodes = await listMicrobinfie()
-  
-  const totalPages = Math.ceil(allEpisodes.length / EPISODES_PER_PAGE)
-  const currentPage = Math.max(1, Math.min(page, totalPages))
-  
-  const startIndex = (currentPage - 1) * EPISODES_PER_PAGE
-  const endIndex = startIndex + EPISODES_PER_PAGE
-  const items = allEpisodes.slice(startIndex, endIndex)
+
   
   return (
     <section>
@@ -57,7 +49,7 @@ export default async function MicrobinfieIndexPage({ searchParams }) {
             Microbial Bioinformatics is a rapidly changing field marrying computer science and microbiology. 
             Join us as we share some tips and tricks we've learnt over the years. If you're a student just 
             getting to grips with the field, or someone who just wants to keep tabs on the latest and 
-            greatest — this podcast is for you. 🎙️
+            greatest — this podcast is for you. 
           </p>
         </div>
         
@@ -89,7 +81,7 @@ export default async function MicrobinfieIndexPage({ searchParams }) {
                 transition: 'all 0.2s ease',
               }}
             >
-              <span style={{ fontSize: '1.2rem' }}>🎵</span>
+              <SoundCloudIcon size={18} />
               SoundCloud
             </a>
             <a 
@@ -110,7 +102,7 @@ export default async function MicrobinfieIndexPage({ searchParams }) {
                 transition: 'all 0.2s ease',
               }}
             >
-              <span style={{ fontSize: '1.2rem' }}>🎧</span>
+              <ApplePodcastsIcon size={18} />
               Apple Podcasts
             </a>
             <a 
@@ -131,7 +123,7 @@ export default async function MicrobinfieIndexPage({ searchParams }) {
                 transition: 'all 0.2s ease',
               }}
             >
-              <span style={{ fontSize: '1.2rem' }}>🎶</span>
+              <SpotifyIcon size={18} />
               Spotify
             </a>
             <a 
@@ -152,7 +144,7 @@ export default async function MicrobinfieIndexPage({ searchParams }) {
                 transition: 'all 0.2s ease',
               }}
             >
-              <span style={{ fontSize: '1.2rem' }}>📡</span>
+              <RSSIcon size={18} />
               RSS Feed
             </a>
           </div>
@@ -189,61 +181,8 @@ export default async function MicrobinfieIndexPage({ searchParams }) {
         </div>
       </div>
 
-      <div style={{ marginBottom: '1.5rem' }}>
-        <p style={{ color: 'var(--color-text-secondary)', marginBottom: '0.5rem' }}>
-          Showing {startIndex + 1}–{Math.min(endIndex, allEpisodes.length)} of {allEpisodes.length} episodes
-        </p>
-      </div>
-      <ul>
-        {items.map(item => (
-          <li key={item.slug}>
-            <Link href={`/microbinfie/${item.slug}`}>{item.title}</Link>
-            {item.date && <span style={{ color: 'var(--color-text-secondary)', marginLeft: 8 }}>({new Date(item.date).toLocaleDateString('en-GB')})</span>}
-          </li>
-        ))}
-      </ul>
-      
-      {totalPages > 1 && (
-        <nav style={{ 
-          display: 'flex', 
-          gap: '0.5rem', 
-          alignItems: 'center', 
-          marginTop: '2rem',
-          flexWrap: 'wrap'
-        }}>
-          {currentPage > 1 && (
-            <Link 
-              href={currentPage === 2 ? '/microbinfie' : `/microbinfie?page=${currentPage - 1}`}
-              style={{
-                padding: '0.5rem 1rem',
-                border: '1px solid var(--color-border)',
-                borderRadius: '4px',
-                textDecoration: 'none'
-              }}
-            >
-              ← Previous
-            </Link>
-          )}
-          
-          <span style={{ color: 'var(--color-text-secondary)', padding: '0 0.5rem' }}>
-            Page {currentPage} of {totalPages}
-          </span>
-          
-          {currentPage < totalPages && (
-            <Link 
-              href={`/microbinfie?page=${currentPage + 1}`}
-              style={{
-                padding: '0.5rem 1rem',
-                border: '1px solid var(--color-border)',
-                borderRadius: '4px',
-                textDecoration: 'none'
-              }}
-            >
-              Next →
-            </Link>
-          )}
-        </nav>
-      )}
+      {/* Episodes with filtering */}
+      <MicrobinfieFilter episodes={allEpisodes} />
     </section>
   )
 }

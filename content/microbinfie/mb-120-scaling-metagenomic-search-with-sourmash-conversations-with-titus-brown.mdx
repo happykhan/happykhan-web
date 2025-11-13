@@ -6,16 +6,21 @@ author: Microbial Bioinformatics
 date: '2024-01-18T05:00:05.000Z'
 duration: 00:25:25
 explicit: 'no'
-guests: []
+guests:
+- affiliation: Professor of Population Health & Reproduction, UC Davis
+  name: C. Titus Brown
+  url: https://github.com/ctb
 guid: tag:soundcloud,2010:tracks/1657196586
 image: https://i1.sndcdn.com/artworks-I2y1XvutpfnPKpsD-wuz3NA-t3000x3000.png
 link: https://soundcloud.com/microbinfie/titus-4
 subtitle: In this final episode with Titus Brown, the conve…
 tags:
-- microbinfie
-- podcast
-title: 'Episode 120: Scaling Metagenomic Search with Sourmash - Conversations with
-  Titus Brown'
+- metagenomics
+- genomic-search
+- rust-programming
+- software-tools
+- machine-learning
+title: 'Episode 120: Scaling Metagenomic Search with Sourmash - Conversations with Titus Brown'
 transcript: /microbinfie-transcripts/episode-120.txt
 ---
 
@@ -53,4 +58,24 @@ This episode underscores the significant scalability *Sourmash* brings to metage
 
 These papers provide further insights into the techniques and technologies discussed in this episode.
 
-[Episode 120 transcript](/microbinfie-transcripts/episode-120.txt)
+### Key Points
+
+#### 1. SourMash Technical Overview
+- Python package with Rust library backend for fast k-mer dataset compression
+- Enables sketching and comparing large genomic datasets with approximately 1000x compression
+- Unique sampling approach allows containment analysis across metagenomes
+
+#### 2. Branchwater Tool
+- Multi-threaded Rust-based front-end for rapid metagenome searching
+- Can search 500,000 sequence read archive metagenomes in approximately 18 hours
+- Demonstrated applications in outbreak tracking and biogeographic research
+
+#### 3. Research Applications
+- Successfully used for hospital outbreak source tracking
+- Applied in biogeography studies of Antarctic cyanobacterial metagenomes
+- Enables rapid identification of genome presence across diverse environmental samples
+
+### Take-Home Messages
+- Advanced computational techniques can dramatically accelerate large-scale genomic research
+- Interdisciplinary collaboration drives innovative bioinformatics tools
+- Flexible, scalable search platforms open new possibilities for environmental and clinical genomics

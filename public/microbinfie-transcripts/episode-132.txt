@@ -1,0 +1,133 @@
+----- chunk 1 start @ 00:00:00 -----
+
+[00:00:00] [Speaker A]: Hello, and thank you for listening to the Microbit Geek Podcast. Here, we will be discussing topics in microbial bioinformatics. We hope that we can give you some insights, tips and tricks along the way. There is so much information we all know from working in the field, but nobody really writes it down. There is no manual, and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My co-hosts are Dr. Nabil Ali Khan and Professor Andrew Page. Nabil is a Senior Bioinformatician at the Center for Genomic Pathogen Surveillance, University of Oxford, and Andrew is the Director of Technical Innovation for Theogen in Cambridge. Appreciate it. I am Dr. Lee Katz, and I am a senior bio-infection at Centers for Disease Control and Prevention in Atlanta, in the United States. Welcome to the Microbeam for Podcast. I'm your host, Andrew Page, and I'm at the 10th Microbeam Informatics Hackathon here in Batesta in Maryland, and I have a special guest, so do you want to introduce yourself?
+
+[00:00:56] [Speaker B]: Sure, yeah. Hi, I'm David Mahoney. I'm a PhD student at Dalhousie University in Halifax, Nova Scotia.
+
+[00:01:05] [Speaker C]: So do you work at FIN?
+
+[00:01:06] [Speaker B]: I work with, yeah, Finn McGuire, who, yeah, he's not here right now, but he's, he's, I think he's been interviewed in the podcast before. Yeah.
+
+[00:01:16] [Speaker C]: Yeah, he's, he's one of the regulars.
+
+[00:01:18] [Speaker B]: Oh, yeah. Yeah.
+
+[00:01:20] [Speaker C]: So what do you think for your PhD?
+
+[00:01:21] [Speaker B]: So I'm working on characterizing antimicrobial resistance genes in their transfer in metagenomes specifically focusing on the metagenomic assembly graph and yeah and then I come from a you know food safety microbiology background more public health focused and kind of in that context and on the scale of the food production plant you know I was really excited about genomics and seeing what what happens with that and so yeah I think just public health wise in general there's lots of you know opportunities there for
+
+[00:01:58] [Speaker C]: So
+
+[00:01:58] [Speaker B]: sure
+
+[00:01:58] [Speaker C]: would the idea be you'd go, let's say around the factory and then go swab a lot of different surfaces and then look at the MRI genes in there, build a graph and then see where the flow is or?
+
+[00:02:07] [Speaker B]: yeah the idea is that I mean we're taking the you know it's a bit buzzwordy but it makes sense for I mean we're taking the one health kind of approach and looking in Yeah, so we're working with collaborators in Canada with the genomics research and development initiative to get a, and so that's a group of government departments in Canada that have been sampling, you know, more clinically focused samples, agriculture, food production plants, all these things.
+
+[00:02:36] [Speaker C]: Yeah.
+
+[00:02:37] [Speaker B]: And so the idea is that we'll have metagenomes from all sorts of environments and see if we can characterize. The you know in which environments antimicrobial resistance genes are being transferred more more more in one environment than the other
+
+[00:02:53] [Speaker C]: That's a very rare problem.
+
+[00:02:55] [Speaker B]: Yes
+
+[00:02:55] [Speaker C]: And so are you guys generating new data or is it existing data sets you're looking at?
+
+[00:03:01] [Speaker B]: Some existing data sets, some of them are, yeah, well, some of them I generated because I used to work for Agriculture Canada and I took some of these samples that we'll end up actually getting. So, That's yeah,
+
+[00:03:15] [Speaker C]: crazy and what year
+
+[00:03:16] [Speaker B]: in my last job. So, you know, I'm debating whether or not that's going to make it into the thesis, but that wasn't a different job. So just
+
+[00:03:25] [Speaker C]: are you in?
+
+[00:03:26] [Speaker B]: into the second, just kind of started second year now. So
+
+[00:03:29] [Speaker C]: Yeah, so a lot of hard work ahead
+
+[00:03:30] [Speaker B]: of you. A lot of work ahead of me, but so far on track. I've got something to present at ASM and GS here and, you know, knock on wood where I thought I'd be at the stage. So yeah,
+
+[00:03:44] [Speaker C]: Fair play. And so what methods are you going to be using?
+
+[00:03:47] [Speaker B]: so we're looking at So yeah, the first kind of phase has been figuring out how to query assembly graphs, which is what I'll be talking about at the conference here today. But then what we're interested in looking at, you know, assembly graph, subgraph topology or structure surrounding a potentially transferred gene. Yeah, the idea is that they're going to, that structure will have, will be, you know, will be able to see that there's a potential transfer from that. And so we're going to look at, and essentially, you know, the idea is, well, then we'll look at that as a piece of evidence in combination with other existing methods to infer lateral gene transfers.
+
+[00:04:38] [Speaker C]: So you're looking at the mobile genetic element context. It's like the phage or the plasma that got invaded or...
+
+[00:04:44] [Speaker B]: Right. So we'll, you know, query for the gene of interest in this case AMR, you know, look at the flanking regions of that gene in the graph, see if you can identify mobile elements, things like that, look for GC content differences, you know, look at the You can, I think with MMCs, you can look at the taxonomy, like a potential taxonomy call of
+
+[00:05:08] [Speaker C]: Yeah,
+
+[00:05:09] [Speaker B]: different
+
+[00:05:09] [Speaker C]: so
+
+[00:05:09] [Speaker B]: segments, depending on how long they are. So with the topology and then some information, you can glean from the surrounding segments, you know, and then also, I mean, the other thing we're looking into doing as well is, you know, taking that subgraph, converting that into an adjacency matrix. matrix and then feeding those matrices into random forest models, potentially graph convolutional neural networks and seeing if they'll be able to help us at all but not I think in my department at Dalhousie, I'm kind of torn. I have one foot in the computer science department and I have one foot in the microbiology department. One wants to shove all data known to man through
+
+[00:05:56] [Speaker C]: Yep.
+
+[00:05:57] [Speaker B]: machine learning and the other wants nothing to do with machine learning and, you know, thinks all of it is, you know, is tosh essentially.
+
+[00:06:05] [Speaker C]: Yeah.
+
+[00:06:05] [Speaker B]: So I try to keep it, you know, down the middle. use it if it's going to help us and and try to do it right in a biological context which uh unfortunately there's a lot of a lot of it that exists that hasn't been done right in a biological context but
+
+[00:06:21] [Speaker C]: So my question is, you have AMR genes which may be in multiple different species or genomes in a metagenomic sample and then a context around them obviously we give more information however the you'll have repeats then In a much simple,
+
+[00:06:37] [Speaker B]: Yes.
+
+[00:06:38] [Speaker C]: how do you resolve those if you're using short reads?
+
+[00:06:41] [Speaker B]: That's the question for sure, and that creates a lot of complexity in your graph. And so there will certainly be, you know, the risk, and I'm sure there'll be emerging in the sample that won't be resolved in the graph for that reason. But there's a... There's some, you know, well, what I'm here talking about at ASMNGS today, or this week, is that By querying the graph, you're in a metagenomic context, you're actually recalling more AMR genes that are there than you would be if you were just looking in context, or in lesson reads, of course. But with the graph, you have some contextual information and you're recalling more of those genes. So you're not going to achieve the same recall levels as you would with read-based methods, but you're going to get some more. You know, like you're going to recall more of those with some context so
+
+[00:07:41] [Speaker C]: So instead
+
+[00:07:42] [Speaker B]: that yeah
+
+[00:07:42] [Speaker C]: of those being collapsed down, then they are expanded out in many cases. That's pretty awesome actually. So I built some Pandian software in the past at Goliari. one of the best outputs of that was actually the graphs but no one ever used them because they're too complex out whatever and so I always thought this is the the kind of key piece of information that we should be looking at in pan genomes and so it's great to see people actually coming along and doing exactly that you know using the graphs because there's so much information there
+
+[00:08:15] [Speaker B]: There is, I think, in the metagenomic context where you have, you know, like in a You know, if you're looking at a metagenomic contigs and, you know, you, you know, you in your and you have good. if your gene makes if your AMR gene makes it into the context which like a lot of times it won't and then and then with mags binning you have two separate species and if you know if your gene makes it through all that and then you find that okay your gene is shared then yeah you can you can do some things potentially with that but like in the graph that's all going to be there in that data structure as well yeah so
+
+[00:08:54] [Speaker C]: And I remember looking at some pangina, I'm sorry to go down
+
+[00:08:56] [Speaker B]: No,
+
+[00:08:56] [Speaker C]: a tangent,
+
+[00:08:57] [Speaker B]: no, go ahead.
+
+[00:08:57] [Speaker C]: you know, and you can see bubbles in the graph,
+
+[00:08:59] [Speaker B]: Yes.
+
+[00:09:00] [Speaker C]: you know, which to me, I was sort of, that looks like it's a recombination or mobile genetic elements coming in. And so what graph search methods are you using to kind of identify interesting stuff?
+
+[00:09:15] [Speaker B]: Yeah, absolutely. So there's lots of graph alignment tools out there. A lot of them are designed. for like pan genomic context a
+
+[00:09:25] [Speaker C]: Yeah.
+
+[00:09:25] [Speaker B]: lot of like scaffolding for assembly like aligning a long read to a short read graph that kind of thing to scaffold and a very few are actually designed for oh I've got a gene of interest I want to find it in the graph especially in an assembly graph where segments segments overlap with one another and there's some you know additional challenges there that don't happen with pan genome graphs But so I mean what we've looked at there's a tool called GraphAligner that that works out really well does a great job Bandaged as well as well for the assembly graph context, but like in the mini graph is uh is very fast, it's lightweight, it does a really good job too. But um yeah, so those are some of the alignment yeah, those would be my top three I guess.
+
+[00:10:14] [Speaker C]: That's pretty awesome.
+
+[00:10:14] [Speaker B]: If I had to uh yeah.
+
+[00:10:16] [Speaker C]: Well you seem to have done quite a lot uh just in just over a year in doing your P_H_D_ so fair play to you. And uh I hope your uh talk at A_S_M_ in Jessica's early well. In uh
+
+[00:10:25] [Speaker B]: I appreciate
+
+[00:10:25] [Speaker C]: that's in
+
+[00:10:25] [Speaker B]: it.
+
+[00:10:26] [Speaker C]: Washington D_C_ And yeah, good luck with the rest of your PhD.
+
+[00:10:30] [Speaker B]: Well, thanks for talking to me. Yeah. Appreciate
+
+[00:10:31] [Speaker C]: Thank you
+
+[00:10:32] [Speaker B]: it.
+
+[00:10:32] [Speaker C]: for coming on to the podcast.
+
+[00:10:34] [Speaker A]: Thank you so much for listening to us at home. If you like this podcast, please subscribe and rate us on iTunes, Spotify, SoundCloud, or the platform of your choice. Follow us on Twitter at Microbinfee. And if you don't like this podcast, please don't do anything. This podcast was recorded by the Microbial Bioinformatics Group. The opinions expressed here are our own and do not necessarily reflect the views of CDC or the Quadrum Institute.

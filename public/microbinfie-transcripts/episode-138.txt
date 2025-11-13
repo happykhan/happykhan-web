@@ -1,0 +1,157 @@
+----- chunk 1 start @ 00:00:00 -----
+
+[00:00:00] [Speaker A]: Hello, and thank you for listening to the MicrobitBeat podcast. Here, we will be discussing topics in microbial bioinformatics. We hope that we can give you some insights, tips, and tricks along the way. There is so much information we all know from working in the field, but nobody really writes it down. There's no manual, and it's assumed you'll pick it up. We hope to fill in a few of these gaps. My co-hosts are Dr. Nabil Ali Khan and Professor Andrew Page. Nabil is a senior bioinformatician at the Center for Genomic Pathogen Surveillance, University of Oxford, and Andrew is the Director of Technical Innovation for Theogen in Cambridge. appreciate. I am Dr. Lee Katz, and I'm a senior biofrictionist at Centers for Disease Control and Prevention in Atlanta in the United States.
+
+[00:00:44] [Speaker B]: Welcome to the Microbin Free Podcast. I'm your host, Andrew Page, and I'm here at the 10th Microbial Informatics Hackathon in Bethesda, Maryland. And today I have a special guest, Megan. Do you want to introduce yourself?
+
+[00:00:54] [Speaker C]: Hi, I'm Megan Phillips. I'm a PhD student at Emory, and I'm super excited to be here today.
+
+[00:01:00] [Speaker B]: Okay, so you work on MRSA. So tell me about that, like why you work on MRSA and what is drug resistance like in it and are you studying anything in particular that's quite interesting about MRSA?
+
+[00:01:11] [Speaker C]: Sure. I think Staph aureus is such an interesting pathogen to study for a number of reasons that we have so much data on it, which makes it a lot easier to work with. It has a lot of different hosts, both humans and animals, and there's lots of different potential disease states it can cause. It can be totally harmless to its host or it can cause really serious illness. And so I think it makes it really fascinating to study.
+
+[00:01:37] [Speaker B]: And so what toxins are most applicable to your work?
+
+[00:01:41] [Speaker C]: I am primarily studying tetracycline resistance right now in Staph, specifically plasmid-mediated tetracycline resistance. And so the plasmid of interest to me, anyone, makes the bacteria resistant via an efflux pump, TetK, that just pumps the drug right back out of the cell.
+
+[00:01:58] [Speaker B]: That's interesting. So how does that change the MICs then? Is it just totally resistant or is it resistant to a point or intermediate?
+
+[00:02:06] [Speaker C]: It totally depends. So the MICs for tetracycline for the staff that have this plasmid can vary a lot. And so we see some isolates that have the plasmid, which are still totally susceptible to the drug and some which are totally very highly resistant, have a much higher MIC. And so we think this may be due in part to differences in copy number of the plasmid where if copy number is higher, the bacteria can make more. were copies of this eFlux pump, making them more resistant so they can pump out more of the drug.
+
+[00:02:38] [Speaker B]: That's super interesting. So what is the base strain you're working on? Is it like USA 300 or is it something else?
+
+[00:02:45] [Speaker C]: I am working with mostly publicly available sequences across all genetic backgrounds. And then some of the wet lab work that is being done in the lab is using a variety of strains. So we have primarily CCA USA 300, but we also have some other lineages. The plasmid has spread quite broadly across staff aureus. So we're picking it up over 30 clonal complexes.
+
+[00:03:09] [Speaker B]: Wow.
+
+[00:03:09] [Speaker C]: So it's pretty ubiquitous.
+
+[00:03:11] [Speaker B]: Have you seen it outside the US?
+
+[00:03:13] [Speaker C]: Yes, I've seen it globally. Looking at the metadata for the samples that we do have, it seems like we're picking it up across all continents, not Antarctica, but yes.
+
+[00:03:22] [Speaker B]: That is crazy. And is it being horizontally transmitted?
+
+[00:03:26] [Speaker C]: So there's definitely been, let's say, at least 30 horizontal transfer events, because if it's showing up in more than 30 little complexes, it has to have given somewhat and it's much younger than the little complexes themselves. So we definitely see some horizontal transfer, but it can also be vertically. vertically inherited and that's happening a lot too i
+
+[00:03:45] [Speaker B]: That's pretty awesome. Okay, so in the US, water treatment guidelines for sephorius and where does tetracycline fit in? Is it first line, second line, third line?
+
+[00:03:53] [Speaker C]: believe that tetracycline is one of the earlier treatments so i think if you know more so expected you don't want to give methicillin but tetracycline is quite soon after that
+
+[00:04:05] [Speaker B]: Right, very good. Okay, and so you've been doing a lot of work on that, and what bioinformatics have been doing? How are you doing your analysis? Is it short read data you're working from or long read data? Because plasmids obviously can have transposons, which breaks up the plasmid quite a bit in short reads.
+
+[00:04:19] [Speaker C]: Yeah, so I've been working with short read data. The plasmid is quite small, which it is 4.4 kb.
+
+[00:04:25] [Speaker B]: Oh, right.
+
+[00:04:26] [Speaker C]: So I have when I'm determining whether or not the plasmid is present, I'm just using BLAST to look for presence and I've set a pretty strict threshold where nearly all the plasmid has to be present for me to say that the plasmid is there. And
+
+[00:04:40] [Speaker B]: And when you assemble it, do you get it out in one piece?
+
+[00:04:43] [Speaker C]: yes.
+
+[00:04:44] [Speaker B]: Ah, cool.
+
+[00:04:44] [Speaker C]: The symbols is one contig, and I kind of set my threshold by lasting you know a no plasmoid sequence against all my genomes and the distribution of coverage was extremely narrow it was like right around the length of the plasmid so i felt pretty comfortable saying that was my right below the house like so
+
+[00:05:04] [Speaker B]: And so how many genes are on it? Because, you know, you have all the mechanisms hidden for the plasmids, which probably takes up at least 3 kb. So how big is it overall?
+
+[00:05:13] [Speaker C]: total plasmid length is
+
+[00:05:16] [Speaker B]: Sorry,
+
+[00:05:16] [Speaker C]: oh
+
+[00:05:17] [Speaker B]: in terms of genes.
+
+[00:05:17] [Speaker C]: in terms of genes there's well there's three genes and so one is tech k the flux pump one is pre in which is helps with mobilization and then rep c mediates replication and that's it it's mobilizable so it doesn't have to have its own replication mechanism or yeah it can borrow genes for replicating itself and it doesn't have to have genes for transfer because it is cut, take it along for the ride.
+
+[00:05:44] [Speaker B]: And so does it integration in any particular place in the genome? Everything else?
+
+[00:05:49] [Speaker C]: Well, we're working on that a little bit, but we already know that it integrates into SCC mech, the methicillin resistance cassette. So type 3 SCC mech actually has this entire class of it integrated into the middle of it.
+
+[00:06:02] [Speaker B]: That's scary.
+
+[00:06:03] [Speaker C]: Yeah, yeah. Just with one event, you can have methicillin and tetracycline recombination recombined into your genome.
+
+[00:06:10] [Speaker B]: Oh joy of joys.
+
+[00:06:11] [Speaker C]: Yeah,
+
+[00:06:11] [Speaker B]: Yeah.
+
+[00:06:11] [Speaker C]: you learn new things every day.
+
+[00:06:14] [Speaker B]: absolutely yes
+
+[00:06:15] [Speaker C]: We're talking about treatment for these bugs,
+
+[00:06:17] [Speaker B]: okay
+
+[00:06:18] [Speaker C]: and I think it would be very dependent on body site and severity of the infection as far as which drug they would use.
+
+[00:06:24] [Speaker B]: so if it's topical or if it's a bloodstream infection that kind of thing okay very good it's a bit scary though with all the drug resistance around yeah are you worried
+
+[00:06:34] [Speaker C]: I don't know if I'd say I'm more worried about this than a lot of other issues, but...
+
+[00:06:40] [Speaker B]: So then the next thing is, I hear you like looking at older papers and kind of digging around and finding really interesting things. So have you found any interesting things in older papers?
+
+[00:06:52] [Speaker C]: Well, as I've been learning more about tetracycline resistance in staff, I have been reading more about how tetracycline was discovered and how, you know, early and early antimicrobial resistant strains. And I think I have just developed a new appreciation for the older style of writing. So, for example, my current favorite paper was published in 1948 and it's about the discovery of Aureomycin, which is... the first modernly used tetracycline and they just had so much fun with writing their papers they were just very poetic so you know if you want to describe a bacteria as an ultra mold I guess you could do that in 1948 if you want to describe a species that you think is underappreciated as the hound dog you can do that too um
+
+[00:07:40] [Speaker B]: Yeah, you wouldn't do that these days
+
+[00:07:41] [Speaker C]: you wouldn't do that these days
+
+[00:07:43] [Speaker B]: So you've been going through old papers and however you found actually getting access Getting access to those papers has been difficult or are they all online or what?
+
+[00:07:50] [Speaker C]: A lot of them are online. I have access to a lot of these older journals or older articles through my university library. So I think it's been relatively easy and not that challenging to get access, fortunately.
+
+[00:08:06] [Speaker B]: yeah i love all the papers where it's like you're trying to track and trace you know where a sample came from like the type strain then you go back and you're back to another paper another paper and then it's like this kind of house of cards you know someone gave a sample to someone else to someone else and these samples you never really know where they originally come from and so you can kind of guess based on the background where a source might have come from but the original source might just it might just be oh john gave it to me you know by post okay great
+
+[00:08:32] [Speaker C]: Yeah, yeah. Sometimes you can track the sample and sometimes they'll just tell you, oh, you know, my friend Mr. Brown gave this to me and then the trillions.
+
+[00:08:41] [Speaker B]: Yeah, it's crazy. And of course, there's no privacy laws back in the day,
+
+[00:08:45] [Speaker C]: Of course.
+
+[00:08:45] [Speaker B]: you know, I think I told you the other day about the NCN. ctc1 sample the very first sample is a shigella dysentery and they named the sample after the person who died from it and it's like you wouldn't do that these days um
+
+[00:09:01] [Speaker C]: Yeah, you
+
+[00:09:02] [Speaker B]: yeah
+
+[00:09:02] [Speaker C]: wouldn't.
+
+[00:09:02] [Speaker B]: but it made very easy you know to trace back the person in the national archives because they're a soldier and what about their world war one but yeah we can't be doing that these days so what else do you know from these papers
+
+[00:09:12] [Speaker C]: I think I didn't really realize how early the dismissal of... evolution in the role of antimicrobial resistance began. So even very early on, I think there was limited focus on how antimicrobial resistance is an evolutionary problem. And it was seemingly has been framed even from the beginning as frequently just, you know, a simple interaction, a simple biochemical problem when it
+
+[00:09:41] [Speaker B]: fact Yeah
+
+[00:09:42] [Speaker C]: it's much, it's part of a much larger system of interactions.
+
+[00:09:45] [Speaker B]: That's kind of great, actually, because you think it's very obvious and it's what, 100 years after Darwin?
+
+[00:09:51] [Speaker C]: Yeah, I know. And in some of the papers, again, because they can be a little more frank, I've seen people just say like, I won't be discussing this and move on.
+
+[00:10:00] [Speaker B]: And you cannot do that these days.
+
+[00:10:02] [Speaker C]: You can't just tell your reviewers you'd rather not in your intro.
+
+[00:10:06] [Speaker B]: Yeah, you have to do it much more polite.
+
+[00:10:08] [Speaker C]: Yes.
+
+[00:10:09] [Speaker B]: And so you're in your fourth year of your PhD and so... What kind of papers can we expect to come out in the next year or two?
+
+[00:10:17] [Speaker C]: Well, I'm hoping to very soon publish a paper on PT181 evolution and stuff looking at multiple dimensions of lushness spread. copy number evolution and sequence change as well. And then going forward, I'm very interested in looking more at networks of gene exchange and stuff. So we know that they have horizontal gene transfer with species and I'm interested in looking more at those patterns that we see species wide.
+
+[00:10:43] [Speaker B]: That's awesome. And do you have any presentation or poster at ASM and Jess?
+
+[00:10:46] [Speaker C]: Yes, I will be at the Monday poster session.
+
+[00:10:50] [Speaker B]: Awesome. Okay. I look forward to hearing more about this and thank you very much for coming on the podcast today.
+
+[00:10:54] [Speaker C]: Thank you so much.
+
+[00:10:56] [Speaker A]: Thank you so much for listening to us at home. If you like this podcast, please subscribe and rate us on iTunes, Spotify, SoundCloud, or the platform of your choice. Follow us on Twitter at Microbinfi. And if you don't like this podcast, please don't do anything. This podcast was recorded by the Microbial Bioinformatics Group. The opinions expressed here are our own and do not necessarily reflect the views of CDC. See or the Quadrum Institute.
