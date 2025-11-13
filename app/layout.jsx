@@ -84,81 +84,87 @@ export default function RootLayout({ children }) {
 } catch {} })();`,
           }}
         />
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-DM7GCD9CRW"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-DM7GCD9CRW');`,
+          }}
+        />
         <ImageLoader />
       </head>
       <body>
-        <header style={{ 
-          marginBottom: '3rem',
-          paddingBottom: '1rem',
-          borderBottom: '2px solid var(--color-border)'
-        }}>
-                <div style={{ position: 'relative' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
-                    <a href="/" style={{ 
-                      textDecoration: 'none', 
-                      color: 'inherit',
-                      display: 'inline-block'
-                    }}>
-                      <h1 style={{ 
-                        margin: 0,
-                        fontSize: '2rem',
-                        fontWeight: 700
-                      }}>
-                        Nabil-Fareed Alikhan
-                      </h1>
-                    </a>
-                    <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-                      <DarkModeToggle />
-                      <MobileNav />
-                    </div>
-                  </div>
-                  <p style={{ 
-                    marginTop: '0.25rem',
-                    marginBottom: '1rem',
-                    color: 'var(--color-text-secondary)',
-                    fontSize: '0.95rem'
-                  }}>
-                    Bioinformatics · Microbial Genomics · Software Development
-                  </p>
-                  <nav 
-                    className="desktop-nav"
-                    style={{ 
-                      display: 'flex',
-                      gap: '1.5rem',
-                      flexWrap: 'wrap',
-                      fontSize: '0.95rem'
-                    }}
-                  >
-                    <a href="/" style={{ fontWeight: 500 }}>Home</a>
-                    <a href="/about" style={{ fontWeight: 500 }}>About</a>
-                    <a href="/software" style={{ fontWeight: 500 }}>Software</a>
-                    <a href="/publications" style={{ fontWeight: 500 }}>Publications</a>
-                    <a href="/microbinfie" style={{ fontWeight: 500 }}>MicroBinfie Podcast</a>
-                    <a href="/posts" style={{ fontWeight: 500 }}>Research Notes</a>
-                  </nav>
-                </div>
+        <header>
+          <div style={{ position: 'relative' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
+              <a href="/" style={{ 
+                textDecoration: 'none', 
+                color: 'inherit',
+                display: 'inline-block'
+              }}>
+                <h1 style={{ 
+                  margin: 0,
+                  fontSize: '2rem',
+                  fontWeight: 700
+                }}>
+                  Nabil-Fareed Alikhan
+                </h1>
+              </a>
+              <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+                <DarkModeToggle />
+                <MobileNav />
+              </div>
+            </div>
+            <p style={{ 
+              marginTop: '0.25rem',
+              marginBottom: '1rem',
+              color: 'var(--color-text-secondary)',
+              fontSize: '0.95rem'
+            }}>
+              Bioinformatics · Microbial Genomics · Software Development
+            </p>
+            <nav 
+              className="desktop-nav"
+              style={{ 
+                display: 'flex',
+                gap: '1.5rem',
+                flexWrap: 'wrap',
+                fontSize: '0.95rem'
+              }}
+            >
+              <a href="/" style={{ fontWeight: 500 }}>Home</a>
+              <a href="/about" style={{ fontWeight: 500 }}>About</a>
+              <a href="/software" style={{ fontWeight: 500 }}>Software</a>
+              <a href="/publications" style={{ fontWeight: 500 }}>Publications</a>
+              <a href="/microbinfie" style={{ fontWeight: 500 }}>MicroBinfie Podcast</a>
+              <a href="/posts" style={{ fontWeight: 500 }}>Research Notes</a>
+            </nav>
+          </div>
         </header>
         <main style={{ flex: '1 0 auto' }}>
           {children}
         </main>
         <footer style={{ 
-          marginTop: '5rem',
-          paddingTop: '2rem',
-          borderTop: '1px solid var(--color-border)',
-          color: 'var(--color-text-secondary)',
-          fontSize: '0.9rem',
-          flexShrink: 0
-        }}>
-          <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
-            <a href="/rss.xml">RSS (Research Notes)</a>
-            <a href="/rss-microbinfie.xml">RSS (MicroBinfie)</a>
-            <a href="https://github.com/happykhan" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://mstdn.science/@happykhan" target="_blank" rel="me noopener noreferrer">Mastodon</a>
-          </div>
-          <p style={{ margin: 0 }}>
-            © {new Date().getFullYear()} Nabil-Fareed Alikhan
-          </p>
-        </footer>
+            marginTop: '5rem',
+            paddingTop: '2rem',
+            borderTop: '1px solid var(--color-border)',
+            color: 'var(--color-text-secondary)',
+            fontSize: '0.9rem',
+            flexShrink: 0
+          }}>
+            <div style={{ display: 'flex', gap: '1.5rem', flexWrap: 'wrap', marginBottom: '1rem' }}>
+              <a href="/rss.xml">RSS (Research Notes)</a>
+              <a href="/rss-microbinfie.xml">RSS (MicroBinfie)</a>
+              <a href="https://github.com/happykhan" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://mstdn.science/@happykhan" target="_blank" rel="me noopener noreferrer">Mastodon</a>
+            </div>
+            <p style={{ margin: 0 }}>
+              © {new Date().getFullYear()} Nabil-Fareed Alikhan
+            </p>
+          </footer>
       </body>
     </html>
   )

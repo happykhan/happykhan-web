@@ -12,6 +12,7 @@
   "dependencies": {
     "bibtex-parse-js": "^0.0.24",
     "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.1",
     "latex.js": "^0.12.6",
     "next": "^16.0.1",
     "next-mdx-remote": "^5.0.0",

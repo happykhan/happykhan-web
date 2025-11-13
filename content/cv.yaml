@@ -1,0 +1,194 @@
+
+description: "Bioinformatician, developer, and academic leader with 15+ years' experience in microbial genomics, open-source software, and collaborative science."
+stats:
+  hIndex: 28
+  citations: 9423
+  yearsExperience: 15
+  softwareDownloads: 94150
+grants:
+  - title: QIB Cloud Renewal
+    amount: "£1.49M"
+    funder: BBSRC
+    role: PI
+    year: 2022
+  - title: RonaQC SARS-CoV-2 QC Tool
+    amount: "£40k"
+    funder: UKRI/COG-UK
+    role: Co-PI
+    year: 2021
+  - title: Microbial Bioinformatics Hackathon 2022
+    amount: "£10k"
+    funder: BBSRC
+    role: Co-PI
+    year: 2022
+invited_speakers:
+  - title: Irish Computational Biology and Genomics Symposium 2022
+    event: National University of Ireland, Galway
+    location: Galway, Ireland
+    date: 2022-12-01
+  - title: "ESCMID: Moving beyond single species outbreaks"
+    event: ESCMID
+    location: Virtual
+    date: 2022-07-07
+  - title: 13th International Meeting on Microbial Epidemiological Markers (IMMEM XIII)
+    event: IMMEM XIII
+    location: Bath, UK
+    date: 2022-09-14
+  - title: Understanding Drivers of Antimicrobial Resistance in the Food Chain
+    event: Guangzhou, China
+    location: Guangzhou, China
+    date: 2019-11-19
+education:
+  - degree: PhD in Microbiology
+    institution: University of Queensland, Australia
+    period: 2010–2015
+    thesis: "Escherichia coli virulence: a genomic approach"
+    supervisor: Scott Beatson
+  - degree: BSc (Hons, 1st Class) in Microbiology
+    institution: University of Queensland
+    period: 2009
+    thesis: "Comparative genome analysis of Escherichia coli VR50"
+  - degree: BSc in Biochemistry & Bachelor of Information Technology
+    institution: University of Queensland
+    period: 2004–2008
+skills:
+  - name: Bioinformatics & Analysis
+    items:
+      - label: De novo Assembly
+        rating: 5
+      - label: Read Mapping
+        rating: 5
+      - label: Population Genomics
+        rating: 4
+      - label: Comparative Genome Analysis
+        rating: 4
+      - label: Phylogenetics
+        rating: 4
+      - label: IQTree
+        rating: 3
+      - label: RAxML
+        rating: 3
+      - label: Statistics (Python/R)
+        rating: 4
+      - label: Linux & CLI
+        rating: 5
+  - name: Programming & Development
+    items:
+      - label: Python
+        rating: 5
+      - label: JavaScript
+        rating: 4
+      - label: Java
+        rating: 3
+      - label: Bash
+        rating: 4
+      - label: Perl
+        rating: 3
+      - label: Flask
+        rating: 4
+      - label: SQL
+        rating: 4
+      - label: HTML/CSS
+        rating: 3
+      - label: PHP
+        rating: 2
+      - label: Full-Stack Development
+        rating: 4
+  - name: Infrastructure & Workflows
+    items:
+      - label: HPC
+        rating: 4
+      - label: Nextflow
+        rating: 3
+      - label: Docker
+        rating: 4
+      - label: Cloud Computing
+        rating: 3
+      - label: Database Design
+        rating: 3
+      - label: Linux Server Administration
+        rating: 4
+      - label: Workflow Parallelization
+        rating: 4
+positions:
+  - title: Senior Bioinformatician
+    organization: The Centre for Genomic Pathogen Surveillance (CGPS), University of Oxford, UK
+    startYear: 2024
+    endYear: null
+    current: true
+    description: Developing and integrating pathogen genomics solutions for public health.
+    highlights:
+      - Collaborate with experts to develop pathogen genomics solutions for public health
+      - Stay current with advancements and integrate new bioinformatics approaches into CGPS analytical reports
+      - Represent CGPS at national/international forums and manage the bioinformatics team
+      - Deliver bioinformatics services drawing on extensive post-PhD experience
+  - title: Bioinformatics Scientific Programmer – Interim Head of Informatics
+    organization: Quadram Institute Bioscience, Norwich, UK
+    startYear: 2018
+    endYear: 2023
+    highlights:
+      - Appointed interim Head of Informatics (May 2023), leading core bioinformatics team of five
+      - Secured £1.4M BBSRC capital grant for computational resources through strategic planning
+      - Led national SARS-CoV-2 surge sequencing (Sept 2021-Apr 2022) - £4.5M project value
+      - "COG-UK Consortium: contributed analysis and curation of 80,000 SARS-CoV-2 genomes"
+      - Developed institute sample inventory management system
+      - PHA4GE infrastructure working group member - building consensus for public health bioinformatics
+  - title: Senior Research Fellow in Pathogen Bioinformatics
+    organization: University of Warwick, UK
+    startYear: 2016
+    endYear: 2018
+    description: Integrated ancient metagenomes into EnteroBase and sequenced/analyzed 10,000 modern S. enterica genomes.
+  - title: Research Fellow in Genomics of Bacterial Pathogens
+    organization: University of Warwick, UK
+    startYear: 2014
+    endYear: 2016
+    description: Co-developed EnteroBase (enterobase.warwick.ac.uk) for big-data genomic analysis of enteric pathogens and adapted robotic genotyping for high-throughput sequencing library preparation.
+  - title: Research Associate
+    organization: School of Chemistry and Molecular Biosciences, University of Queensland, Australia
+    startYear: Mar 2009
+    endYear: Nov 2009
+    description: System administration and technical support for Linux/MacOSX workstations. Developed automated bioinformatics pipelines for the Beatson Microbial Genomics group.
+  - title: Research Associate
+    organization: School of Chemistry and Molecular Biosciences, University of Queensland, Australia
+    startYear: Nov 2008
+    endYear: Jan 2009
+    description: Programmed software pipelines for bioinformatics, especially parallelization on high-performance computer clusters. Server administration for sharing bacterial genomics data.
+service:
+  - role: Board Member
+    org: Microbes Microbiomes & Bioinformatics DTP
+    years: 2021–
+  - role: PHA4GE Infrastructure Working Group
+    org: PHA4GE
+    years: 2019–
+  - role: Treasurer
+    org: QIB Postdoc Society
+    years: 2020–2023
+  - role: Internal grant reviewer
+    org: Quadram Institute
+    years: 2019–
+  - role: Supervisor for PhD and MRes projects
+    org: Various
+    years: 2015–present
+publications_link: "/publications"
+
+teaching:
+  - year: "2021–present"
+    description: Bioinformatics lead and board member of the Microbes, Microbiomes and Bioinformatics Doctoral Training Partnership (MMBDTP)
+  - year: "2021"
+    description: PhD student placement (Madeline Iseminger), Quadram Institute Bioscience
+  - year: "2021"
+    description: PhD student placement (Winnie Lai), Quadram Institute Bioscience
+  - year: "2019–2021"
+    description: PhD advisory team (Ebenezer Foster-Nyarko), Quadram Institute Bioscience
+  - year: "2018"
+    description: Supervising a MRC DTP Mini-project student (Stephen Li), University of Warwick
+  - year: "2017"
+    description: Lecturing a Student Selected component ‘Infection – from bench to bedside’, University of Warwick
+  - year: "2015"
+    description: Tutoring a Student Selected component ‘Infection – from bench to bedside’, University of Warwick
+  - year: "2013"
+    description: Tutor BIOL3004 – Genomics & Bioinformatics, University of Queensland
+contact:
+  email: nabil@happykhan.com
+  website: https://happykhan.com
+  github: https://github.com/happykhan

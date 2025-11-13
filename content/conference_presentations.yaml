@@ -1,0 +1,118 @@
+oral_presentations:
+  - title: Platforms for genomic surveillance of FBD pathogens
+    event: Africa CDC Food borne pathogen group
+    location: Virtual
+    date: 2022-06-16
+  - title: Bioinformatics Gotchas
+    event: 3rd ARTICNetwork and CLIMB-BIG-DATA joint workshop on COVID-19 data analysis
+    location: Virtual
+    date: 2022-01-13
+  - title: SARS-CoV-2 sequencing in East Anglia
+    event: COG-Together event
+    location: Cambridge, UK
+    date: 2021-10-14
+  - title: Bioinformatics Gotchas
+    event: ARTICnetwork and CLIMB-BIG-DATA joint workshop on COVID-19 data analysis
+    location: Virtual
+    date: 2021-01-14
+  - title: Building better infrastructure for a brave new world
+    event: Balti and Bioinformatics
+    location: Birmingham, UK
+    date: 2019-11-14
+  - title: "Deciphering ancient microbes with modern population genomic databases"
+    event: "8th International Symposium on Biomolecular Archaeology 2018. Max Planck Institute (Jena)"
+    location: Germany
+    date: 2018-09-18
+  - title: Understanding genomic landscapes in EnteroBase with cgMLST & GrapeTree
+    event: QI Keynote Lecture
+    location: Quadram Institute, Norwich, United Kingdom
+    date: 2018-08-09
+  - title: "Tackling ‘Big Data’ challenges in microbial genomics with EnteroBase."
+    event: "1st Warwick Postdoctoral Science Symposium"
+    location: "University of Warwick, United Kingdom"
+    date: 2018-04-03
+  - title: "EnteroBase: Bacterial population genomics in the era of big-data"
+    event: "ENA facilities Day 2017"
+    location: "EBI, Hinxton, United Kingdom"
+    date: 2017-10-25
+  - title: "Scalable and user-friendly workflows for Molecular Epidemiology using EnteroBase"
+    event: "11th International Meeting on Microbial Epidemiological Markers"
+    location: "Estoril, Portugal"
+    date: 2016-03-09
+  - title: "EnteroBase: A Powerful, User-Friendly Online Resource for Analysing Genomic Variation"
+    event: "1st ASM Conference on Rapid NGS Bioinformatic Pipelines for Enhanced Molecular Epidemiologic Investigation of Pathogens"
+    location: "Washington DC, USA"
+    date: 2015-09-24
+  - title: Genomic analysis of E. coli O157:H7 associated with increased excretion, or 'super-shedding', in cattle
+    event: Genetics and Genomics Seminar series
+    location: University of Queensland, Brisbane, Australia
+    date: 2014-09-26
+  - title: Comparative genomics of non-O157 Shiga toxigenic E. coli
+    event: Division of Microbiology and Infection Seminar Series
+    location: University of Warwick, Coventry, United Kingdom
+    date: 2013-10-16
+  - title: Comparative genomics of non-O157 Shiga toxigenic E. coli
+    event: Genetics and Genomics Seminar series
+    location: University of Queensland, Australia
+    date: 2013-07-26
+  - title: Comparative genomics of non-O157 Shiga-toxigenic Escherichia coli reveals distinct lineages with multiple approaches to achieve pathogenesis
+    event: 8th Annual SCMB Research Students Symposium
+    location: University of Queensland, Brisbane, Australia
+    date: 2012-11-22
+  - title: Visualising bacterial genome comparisons of next-generation sequencing datasets using BRIG
+    event: Microbial Informatics Workshop at the Australian Society for Microbiology 2012 Annual Scientific Meeting
+    location: Brisbane, Australia
+    date: 2012-07-01
+  - title: "The BLAST Ring Image Generator: simple prokaryote genome comparisons"
+    event: ASM QLD Becton Dickinson Student Award
+    location: University of Queensland, Australia
+    date: 2012-03-26
+conference_posters:
+  - title: Online quality control of SARS-CoV-2 data with RonaQC
+    event: ASM Conference on Rapid Applied Microbial NGS and Bioinformatics Pipelines
+    location: Baltimore, USA
+    date: 2022-10-16
+  - title: Large scale SARS-CoV-2 genome sequencing to aid COVID-19 pandemic management
+    event: QIB Trustees Event
+    location: Norwich, UK
+    date: 2022-03-17
+  - title: Understanding genomic landscapes in EnteroBase with cgMLST & GrapeTree
+    event: ASM Conference on Rapid Applied Microbial NGS and Bioinformatics Pipelines
+    location: Washington DC
+    date: 2018-09-23
+  - title: "Comparative genomics of non-O157 Enterohaemorrhagic Escherichia coli."
+    event: "10th International Meeting on Microbial Epidemiological Markers"
+    location: "Paris, France"
+    date: 2013-10-02
+  - title: "Analysis and visualisation of genome comparisons within a large scale genomic study of Shiga-Toxin Producing E. coli."
+    event: "The Australian Society for Microbiology 2012 Annual Scientific Meeting"
+    location: "Brisbane, Australia"
+    date: 2012-07-01
+  - title: "BLAST Ring Image Generator (BRIG): Simple prokaryote genome comparisons."
+    event: "6th Annual SCMB Research Students Symposium"
+    location: "University of Queensland, St Lucia, QLD"
+    date: 2010-11-25
+  - title: "Interactive Genome Orthology Resource (IGOR): A novel approach to comparing genomes"
+    event: "5th Annual SCMB Research Students Symposium"
+    location: "University of Queensland, St Lucia, QLD"
+    date: 2009-11-24
+organised_meetings:
+attendance:
+  - title: European Nucleotide Archive Hackathon
+    location: Hinxton, UK
+    date: 2019-06-10
+  - title: Microbial Genomics Workshop
+    location: Cambridge, UK
+    date: 2018-05-15
+  - title: Nextflow Summit
+    location: Barcelona, Spain
+    date: 2023-10-05
+  - title: CampyUK goes global 2021
+    location: Virtual
+    date: 2021-09-08
+  - title: Micro Binfie Virtual Conference 2020
+    location: Virtual
+    date: 2020-04-15
+  - title: 8th Microbial Bioinformatics Hackathon
+    location: Bath, UK
+    date: 2022-09-11
