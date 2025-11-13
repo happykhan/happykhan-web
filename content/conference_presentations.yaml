@@ -97,6 +97,15 @@ conference_posters:
     location: "University of Queensland, St Lucia, QLD"
     date: 2009-11-24
 organised_meetings:
+  - title: CampyUK goes global 2021
+    location: Virtual
+    date: 2021-09-08
+  - title: Micro Binfie Virtual Conference 2020
+    location: Virtual
+    date: 2020-04-15
+  - title: 8th Microbial Bioinformatics Hackathon
+    location: Bath, UK
+    date: 2022-09-11
 attendance:
   - title: European Nucleotide Archive Hackathon
     location: Hinxton, UK
@@ -107,12 +116,3 @@ attendance:
   - title: Nextflow Summit
     location: Barcelona, Spain
     date: 2023-10-05
-  - title: CampyUK goes global 2021
-    location: Virtual
-    date: 2021-09-08
-  - title: Micro Binfie Virtual Conference 2020
-    location: Virtual
-    date: 2020-04-15
-  - title: 8th Microbial Bioinformatics Hackathon
-    location: Bath, UK
-    date: 2022-09-11
