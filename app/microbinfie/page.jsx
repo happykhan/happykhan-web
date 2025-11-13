@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Suspense } from 'react'
 import { listMicrobinfie } from "@/lib/content.mjs"
 import MicrobinfieFilter from '@/components/MicrobinfieFilter'
 import { SoundCloudIcon, ApplePodcastsIcon, SpotifyIcon, RSSIcon } from '@/components/PodcastPlatformIcons'
@@ -182,7 +183,9 @@ export default async function MicrobinfieIndexPage() {
       </div>
 
       {/* Episodes with filtering */}
-      <MicrobinfieFilter episodes={allEpisodes} />
+      <Suspense fallback={<div>Loading episodes...</div>}>
+        <MicrobinfieFilter episodes={allEpisodes} />
+      </Suspense>
     </section>
   )
 }
