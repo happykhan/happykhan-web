@@ -1,4 +1,35 @@
 :root {
+  --card-bg: #f8fafc;
+  --card-border: #e2e8f0;
+  --card-title: #1a4b8a;
+  --card-sub: #444;
+  --card-meta: #888;
+  --card-date: #aaa;
+  --icon-filter: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --card-bg: #181c22;
+    --card-border: #2a2e36;
+    --card-title: #7bb6ff;
+    --card-sub: #bbb;
+    --card-meta: #b0b8c9;
+    --card-date: #7a8699;
+    --icon-filter: grayscale(0.2) brightness(1.3);
+  }
+}
+
+html.dark, body.dark, :root.dark {
+  --card-bg: #181c22;
+  --card-border: #2a2e36;
+  --card-title: #7bb6ff;
+  --card-sub: #bbb;
+  --card-meta: #b0b8c9;
+  --card-date: #7a8699;
+  --icon-filter: grayscale(0.2) brightness(1.3);
+}
+:root {
   --color-primary: #0066cc;
   --color-primary-hover: #0052a3;
   --color-text: #1a1a1a;

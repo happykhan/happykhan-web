@@ -11,7 +11,7 @@ export default function SectionToggle({ title, children }) {
         style={{
           fontSize: '1.1rem',
           fontWeight: 600,
-          color: '#1a4b8a',
+          color: 'var(--card-title)',
           background: 'none',
           border: 'none',
           cursor: 'pointer',

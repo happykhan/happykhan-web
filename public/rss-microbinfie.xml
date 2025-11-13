@@ -18,6 +18,24 @@
     <itunes:image href="https://i1.sndcdn.com/avatars-zaAfxNNfdHXxZYQz-LNe7Zw-original.jpg"/>
     <itunes:category text="Science"/>
     <item>
+      <guid isPermaLink="false">tag:soundcloud,2010:tracks/2194492795</guid>
+      <title>Episode 148: NextFlow debate 3</title>
+      <link>https://soundcloud.com/microbinfie/nextflow-debate-3</link>
+      <pubDate>Thu, 13 Nov 2025 06:00:18 GMT</pubDate>
+      <itunes:duration>00:24:20</itunes:duration>
+      <itunes:author>Microbial Bioinformatics</itunes:author>
+      <itunes:explicit>no</itunes:explicit>
+      <itunes:subtitle>Final part of our discussion/debate on NextFlow</itunes:subtitle>
+      <itunes:summary>Final part of our discussion/debate on NextFlow
+
+(/microbinfie-transcripts/episode-148.txt)</itunes:summary>
+      <description>Final part of our discussion/debate on NextFlow
+
+(/microbinfie-transcripts/episode-148.txt)</description>
+      <enclosure type="audio/mpeg" url="https://feeds.soundcloud.com/stream/2194492795-microbinfie-nextflow-debate-3.mp3" length="23375319"/>
+      <itunes:image href="https://i1.sndcdn.com/avatars-zaAfxNNfdHXxZYQz-LNe7Zw-original.jpg"/>
+    </item>
+    <item>
       <guid isPermaLink="false">tag:soundcloud,2010:tracks/2189256127</guid>
       <title>Episode 147: NextFlow debate 2</title>
       <link>https://soundcloud.com/microbinfie/147-nextflow-debate-2</link>

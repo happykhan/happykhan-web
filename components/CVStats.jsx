@@ -5,9 +5,9 @@ import { useState, useEffect } from 'react'
 import { HIndexIcon, CitationsIcon, ExperienceIcon, CoffeeIcon } from './CVStatIcons'
 
 // Minimalist download icon for software downloads
-function DownloadIcon({ size = 16 }) {
+function DownloadIcon({ size = 16, color = 'var(--card-title)' }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 20 20" fill="none" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg width={size} height={size} viewBox="0 0 20 20" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
       <path d="M10 4v8" />
       <path d="M6 10l4 4 4-4" />
       <rect x="4" y="16" width="12" height="2" rx="1" />
@@ -29,27 +29,27 @@ export default function CVStats({ stats }) {
     {
       label: 'H-Index',
       value: hIndex,
-      icon: <HIndexIcon size={16} />, 
+      icon: <HIndexIcon size={16} color={'var(--card-title)'} />, 
     },
     {
       label: 'Citations',
       value: citations.toLocaleString(),
-      icon: <CitationsIcon size={16} />, 
+      icon: <CitationsIcon size={16} color={'var(--card-title)'} />, 
     },
     {
       label: 'Years Experience',
       value: yearsExperience,
-      icon: <ExperienceIcon size={16} />, 
+      icon: <ExperienceIcon size={16} color={'var(--card-title)'} />, 
     },
     {
       label: 'Software Downloads',
       value: softwareDownloads ? softwareDownloads.toLocaleString() : '—',
-      icon: <DownloadIcon size={16} />, 
+      icon: <DownloadIcon size={16} color={'var(--card-title)'} />, 
     },
     {
       label: 'Coffees Drunk',
       value: coffeesDrunk.toLocaleString(),
-      icon: <CoffeeIcon size={16} />, 
+      icon: <CoffeeIcon size={16} color={'var(--card-title)'} />, 
     },
   ]
 
@@ -65,8 +65,8 @@ export default function CVStats({ stats }) {
         <div
           key={item.label}
           style={{
-            background: 'white',
-            border: '1px solid #e5e5e5',
+            background: 'var(--card-bg)',
+            border: '1px solid var(--card-border)',
             borderRadius: '6px',
             padding: '0.5rem 0.25rem',
             textAlign: 'center',
@@ -85,7 +85,7 @@ export default function CVStats({ stats }) {
           <div style={{
             fontSize: '1rem',
             fontWeight: 600,
-            color: '#222',
+            color: 'var(--card-title)',
             marginBottom: '0.05rem',
             lineHeight: 1.1,
           }}>
@@ -93,7 +93,7 @@ export default function CVStats({ stats }) {
           </div>
           <div style={{
             fontSize: '0.65rem',
-            color: '#888',
+            color: 'var(--card-meta)',
             fontWeight: 500,
             lineHeight: 1.1,
           }}>

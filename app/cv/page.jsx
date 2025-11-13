@@ -32,18 +32,18 @@ export const metadata = {
       {/* Contact info at the top */}
       {contact && (
         <div style={{ display: 'flex', gap: '2.5rem', alignItems: 'center', marginBottom: '0.5rem' }}>
-          <div style={{ fontSize: '0.95rem', color: '#444' }}>
-            <span style={{ marginRight: '1.2rem' }}><b>Email:</b> <a href={`mailto:${contact.email}`}>{contact.email}</a></span>
-            <span style={{ marginRight: '1.2rem' }}><b>Website:</b> <a href={contact.website} target="_blank" rel="noopener noreferrer">{contact.website.replace('https://', '')}</a></span>
-            <span><b>GitHub:</b> <a href={contact.github} target="_blank" rel="noopener noreferrer">{contact.github.replace('https://github.com/', '')}</a></span>
+          <div style={{ fontSize: '0.95rem', color: 'var(--card-meta)' }}>
+            <span style={{ marginRight: '1.2rem' }}><b>Email:</b> <a href={`mailto:${contact.email}`} style={{ color: 'var(--card-title)' }}>{contact.email}</a></span>
+            <span style={{ marginRight: '1.2rem' }}><b>Website:</b> <a href={contact.website} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--card-title)' }}>{contact.website.replace('https://', '')}</a></span>
+            <span><b>GitHub:</b> <a href={contact.github} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--card-title)' }}>{contact.github.replace('https://github.com/', '')}</a></span>
           </div>
         </div>
       )}
 
       {/* Publication link stat/line */}
       {publications_link && (
-        <div style={{ marginBottom: '1.2rem', fontSize: '1rem', color: '#1a4b8a', fontWeight: 500 }}>
-          📄 See my <a href={publications_link} style={{ color: '#1a4b8a', textDecoration: 'underline' }}>publications</a>
+        <div style={{ marginBottom: '1.2rem', fontSize: '1rem', color: 'var(--card-title)', fontWeight: 500 }}>
+          <span role="img" aria-label="publications" style={{ filter: 'var(--icon-filter)' }}>📄</span> See my <a href={publications_link} style={{ color: 'var(--card-title)', textDecoration: 'underline' }}>publications</a>
         </div>
       )}
 
@@ -90,7 +90,7 @@ export const metadata = {
             key={i}
             title={talk.title}
             subtitle={talk.event}
-            meta={`${talk.location}${talk.date ? ` | ${new Date(talk.date).toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' })}` : ''}`}
+            meta={`${talk.location}${talk.date ? ` | ${typeof talk.date === 'string' ? talk.date : ''}` : ''}`}
           />
         ))}
       </div>

@@ -9,16 +9,16 @@ export default function EducationCards({ education }) {
     }}>
       {education.map((item, i) => (
         <div key={i} style={{
-          background: 'white',
-          border: '1px solid #e5e5e5',
+          background: 'var(--card-bg)',
+          border: '1px solid var(--card-border)',
           borderRadius: '6px',
           padding: '0.85rem',
         }}>
-          <div style={{ fontSize: '0.95rem', fontWeight: 600, marginBottom: '0.2rem' }}>{item.degree}</div>
-          <div style={{ fontSize: '0.85rem', color: '#444', marginBottom: '0.15rem' }}>{item.institution}</div>
-          <div style={{ fontSize: '0.8rem', color: '#888', marginBottom: '0.15rem' }}>{item.period}</div>
-          {item.thesis && <div style={{ fontSize: '0.8rem', color: '#888', marginBottom: '0.1rem' }}><em>Thesis:</em> {item.thesis}</div>}
-          {item.supervisor && <div style={{ fontSize: '0.8rem', color: '#888' }}><em>Supervisor:</em> {item.supervisor}</div>}
+          <div style={{ fontSize: '0.95rem', fontWeight: 600, marginBottom: '0.2rem', color: 'var(--card-title)' }}>{item.degree}</div>
+          <div style={{ fontSize: '0.85rem', color: 'var(--card-sub)', marginBottom: '0.15rem' }}>{item.institution}</div>
+          <div style={{ fontSize: '0.8rem', color: 'var(--card-meta)', marginBottom: '0.15rem' }}>{item.period}</div>
+          {item.thesis && <div style={{ fontSize: '0.8rem', color: 'var(--card-meta)', marginBottom: '0.1rem' }}><em>Thesis:</em> {item.thesis}</div>}
+          {item.supervisor && <div style={{ fontSize: '0.8rem', color: 'var(--card-meta)' }}><em>Supervisor:</em> {item.supervisor}</div>}
         </div>
       ))}
     </div>

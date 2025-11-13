@@ -1,8 +1,17 @@
+function formatDate(date) {
+  if (!date) return '';
+  // Accepts string or Date
+  const d = typeof date === 'string' ? new Date(date) : date;
+  if (isNaN(d)) return '';
+  // Format as YYYY-MM-DD
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+
 export default function ConferenceCard({ title, event, location, date }) {
   return (
     <div style={{
-      background: '#f8fafc',
-      border: '1px solid #e2e8f0',
+      background: 'var(--card-bg)',
+      border: '1px solid var(--card-border)',
       borderRadius: '0.7rem',
       padding: '0.55rem 0.8rem',
       marginBottom: '0.7rem',
@@ -11,12 +20,12 @@ export default function ConferenceCard({ title, event, location, date }) {
       flexDirection: 'column',
       gap: '0.13rem',
     }}>
-      <div style={{ fontWeight: 500, fontSize: '0.93rem', color: '#1a4b8a', lineHeight: 1.25 }}>
-        {title}{event ? <span style={{ color: '#444', fontWeight: 400 }}> &nbsp;|&nbsp; {event}</span> : ''}
+      <div style={{ fontWeight: 500, fontSize: '0.93rem', color: 'var(--card-title)', lineHeight: 1.25 }}>
+        {title}{event ? <span style={{ color: 'var(--card-sub)', fontWeight: 400 }}> &nbsp;|&nbsp; {event}</span> : ''}
       </div>
-      <div style={{ fontSize: '0.87rem', color: '#666', lineHeight: 1.18 }}>
+      <div style={{ fontSize: '0.87rem', color: 'var(--card-meta)', lineHeight: 1.18 }}>
         {location}
-        {date && <span style={{ color: '#aaa' }}>&nbsp;|&nbsp;{new Date(date).toLocaleDateString('en-GB', { year: 'numeric', month: 'short', day: 'numeric' })}</span>}
+        {date && <span style={{ color: 'var(--card-date)' }}>&nbsp;|&nbsp;{formatDate(date)}</span>}
       </div>
     </div>
   )
