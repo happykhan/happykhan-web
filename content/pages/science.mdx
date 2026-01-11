@@ -1,48 +1,111 @@
 ---
-title: Science
-slug: "/science"
-tags:
-  - page
+title: My Research & Impact
+vignettes:
+  - title: BRIG
+    what: Comparative genomics visualisation tool
+    why: Making complex genomic comparisons understandable at a glance for biologists and multidisciplinary teams.
+    evidence: "3,000+ citations; widely used in publications and teaching."
+    details:
+      - Turns BLAST comparisons into an intuitive circular “genome map” anchored on a reference.
+      - Designed to bridge the gap between dense tabular output and interpretable biological narratives.
+      - Still used for plasmid, phage, and accessory-genome comparisons where clarity matters.
+
+  - title: EnteroBase
+    what: Global population genomics platform
+    why: Turning enteric pathogen genomics into a shared, comparable resource for research and surveillance.
+    evidence: "Co-developed platform for big-data analysis of enteric pathogens; enables global, contextual comparisons across large collections."
+    details:
+      - Scalable backend for high-throughput assembly, genotyping, and consistent analysis pathways.
+      - Supports population-structure exploration and dataset-wide comparison rather than “single-study silos”.
+      - Built to make large-scale pathogen genomics usable for non-specialists via a web interface.
+
+  - title: cgMLST + GrapeTree
+    what: Scalable population structure analysis
+    why: Making relationships across large pathogen collections explorable without losing interpretability.
+    evidence: "Used to explore cgMLST-based population structure at scale and communicate it clearly (research, surveillance, and training contexts)."
+    details:
+      - Practical, human-readable frameworks for navigating large collections and identifying clusters.
+      - Interactive exploration with metadata overlays to connect genomics to context (time/place/source).
+      - Emphasis on comparability: reproducible views of population structure across datasets and teams.
+
+  - title: RonaQC
+    what: SARS-CoV-2 sequencing QC
+    why: Improving trust in high-throughput sequencing by turning “raw runs” into clear, actionable QC outcomes.
+    evidence: "Co-PI (UKRI/COG-UK, 2021); developed for rapid, operational feedback during pandemic-scale sequencing."
+    details:
+      - Lightweight, deployable QC pipeline designed for both nanopore and Illumina workflows.
+      - Clear pass/fail metrics aimed at fast iteration between wet-lab and analysis teams.
+      - Built for operational use: reproducible outputs, rapid updates, and straightforward deployment.
+
+  - title: Scaling Infrastructure
+    what: HPC & Cloud Operations
+    why: Enabling large-scale genomics to run reliably under real-world constraints (volume, time pressure, messy data).
+    evidence: "Interim Head of Informatics (2018–2023); PI on £1.49M cloud renewal (BBSRC, 2022)."
+    details:
+      - Built and maintained robust compute foundations for high-throughput microbial genomics.
+      - Focus on reproducibility standards (workflows, environments, auditability) across teams and projects.
+      - Prioritised operational resilience; systems that keep working when the workload spikes.
+
+  - title: Ancient + Modern Genomes
+    what: Integrating diverse timescales
+    why: Using population-genomic frameworks to connect microbial evolution across centuries to millennia.
+    evidence: "Integrated ancient metagenomes into EnteroBase; analysed 10,000 modern S. enterica genomes as comparative context."
+    details:
+      - Methods to place ancient, damaged sequences into modern population structure without overclaiming certainty.
+      - Combines deep-time signals with contemporary diversity to test evolutionary and epidemiological hypotheses.
+      - Interdisciplinary work that links genomic evidence to historical and archaeological context.
+
+  - title: Teaching & Supervision
+    what: Capacity building
+    why: Raising the baseline; helping researchers and public health teams become confident, reproducible genomic analysts.
+    evidence: "Bioinformatics lead & board member (MMBDTP, 2021–present); ongoing supervision across projects and placements."
+    details:
+      - Training designed to move people from “first command line” to real-world, reproducible genomics.
+      - Emphasis on practical habits, version control, workflow thinking, documentation, and defensible interpretation.
+      - Mentoring focused on independence; helping trainees develop their own questions and analytical judgement.
+
+  - title: Community & Standards
+    what: Field-building leadership
+    why: Making pathogen genomics easier to share, compare, and reuse across labs, countries, and time.
+    evidence: "PHA4GE Infrastructure Working Group (since 2019); co-organised community events including a funded hackathon (2022)."
+    details:
+      - Promotes open standards for data sharing and metadata that actually work in practice.
+      - Builds collaborative infrastructure; shared tools, shared definitions, and shared expectations for quality.
+      - Invests in community because long-term impact depends on adoption, not just publication.
 ---
 
-# Current projects
+# My Research & Impact
 
-- [COG UK Consortium](https://www.cogconsortium.uk/about/) National effort for tracking COVID19 (SARSCoV2) through genome sequencing - I contribute analysis and data curation for our data in the Quadram Institute.
-- [Building better bioinformatics infrastructure within Quadram Institute](https://www.climb.ac.uk/press-release-from-qib/), moving towards open web platforms and cloud computing - I co-develop and maintain our in-house platforms.
-- [The Public Health Alliance for Genomic Epidemiology (PHA4GE)](https://pha4ge.org/) - I contribute to the infrastructure working group, aiming to find consensus in how we deploy Bioinformatics for public health across the world.
-- Population genetics and pathogenesis of enteric pathogens, including _Salmonella_ and _E. coli_, see [my list of publications](/publications) for details
+Microbes are everywhere, and most of the time they live alongside us without causing problems. So why do some bacteria cause disease—and why can the same species behave differently in different people, places, or years? The short answer is evolution: microbial genomes change fast, and small genetic differences can shift traits like virulence, transmission, persistence, and antimicrobial resistance. My work is about understanding what that variation means in practice, and building the tools needed to turn genomic change into reliable, usable insight.
 
-# Press and media
+I work at the overlap between **microbial population genomics**, **comparative genomics**, and **data science**. My core question is: *microbes evolve quickly—so what does that variation mean, and how do we turn it into usable knowledge?* I’m interested in variation that matters operationally: changes that affect virulence, transmission, persistence, and antimicrobial resistance, across clinical, food, and environmental contexts.
 
-**COVID19/SARSCoV2**
+A major strand of my work is about *how* we do genomics at scale. Microbial genomics is now firmly in the “oodles of data” era: millions of genomes, messy and inconsistent metadata, uneven sampling, and constant pressure to interpret results quickly and correctly. A lot of the bottleneck isn’t sequencing anymore—it’s making the data **explorable, comparable, and defensible**. That’s where I put a lot of energy: building **methods, visualisations, and software platforms** that help people move from raw sequences to clear conclusions they can stand behind—and that continue to work under operational pressure.
 
-- [I spoke on BBC news about SARSCoV2 Omnicron wave in 2022](https://youtu.be/1nQJa8RyNP0), BBC News Look East; Time: 18:43 01 Feb 2022.
-- [Large scale COVID-19 genome sequencing in Norfolk helps manage outbreaks](https://quadram.ac.uk/covid-19-genome-sequencing-in-norfolk-helps-manage-coronavirus-outbreaks/)
-- [Quadram goes global on COVID-19](https://quadram.ac.uk/blogs/quadram-goes-global-on-covid-19/)
+## Research vision
 
-**Media for reconstructing a _Salmonella_ genome from 800 years ago**
+My research vision is to connect **genomic variation** to real-world dynamics: what changes, why it changes, how it spreads, and what it means in context. I pursue this as a single programme that links evolutionary understanding to practical interpretation—so methods, platforms, and biological insight reinforce each other.
 
-The article describing [the reconstruction of a _Salmonella_ genome from 800 years ago](https://dx.doi.org/10.1016%2Fj.cub.2018.05.058) picked up a lot of press. I'm quite proud it got into Newsweek.
+To do this, I work across three connected themes:
 
-- Press release for [reconstructing a Salmonella genome from 800 years ago](https://warwick.ac.uk/newsandevents/pressreleases/evidence_of_salmonella/), "Evidence of Salmonella Paratyphi C found for the first time in medieval northern Europe". [PDF](/pr/PR-uowparac.pdf)
-- [Newsweek.com](https://www.newsweek.com/salmonella-medieval-skeleton-unlocks-ancient-history-potentially-deadly-1042007), "_Salmonella_: medieval skeleton unlocks ancient history of potentially deadly bacteria". 7-25-18. [PDF](/pr/PR-paracnewsweek.pdf)
-- [Nature.com](https://www.nature.com/articles/d41586-018-05784-9), "Medieval skeleton offers clues to bacterial killer's origins". 19-7-18.
-- [Nature News](https://www.nature.com/news/collapse-of-aztec-society-linked-to-catastrophic-salmonella-outbreak-1.21485), "Collapse of Aztec society linked to catastrophic _salmonella_ outbreak". 16-2-2017
-- [ScienceDaily.com](https://www.sciencedaily.com/releases/2018/07/180719112214.htm), "Evidence of _Salmonella_ Paratyphi C found for the first time in medieval northern Europe". 19-7-2018
-- [Futurity.com](https://www.futurity.org/enteric-fever-salmonella-medieval-europe-1816602-2/), "DNA from skeleton puts enteric fever in medieval Europe"
-- [Kompas.com](https://sains.kompas.com/read/2018/07/26/170300523/kerangka-dari-abad-pertengahan-ungkap-jejak-perkembangan-salmonella), "Kerangka dari Abad Pertengahan Ungkap Jejak Perkembangan _Salmonella_". 26-7-18
-- [Medicalnewstoday.com](https://www.medicalnewstoday.com/articles/322566.php), "Medieval skeleton sheds light on deadly _Salmonella_". 24-7-2018
+1. **Population structure and evolution:** understanding how lineages emerge, diversify, persist, and move through hosts and environments.
+2. **Comparative genomics at scale:** developing approaches that make differences and relationships visible and interpretable across very large datasets—because interpretation is often limited by what we can reliably compare.
+3. **Infrastructure and interfaces:** building resources that make large genomic datasets usable for the people who need them most: researchers, public health teams, and students learning how to reason with genomics.
 
-**Other press and media**
+Overall, my goal is science that is both conceptually strong and operationally useful: work that explains biology, supports decisions, and leaves behind tools that others can build on.
 
-- Press release for the [Microbial Bioinformatics (Micro Binfie) Podcast](https://quadram.ac.uk/micro-bioinformatics-podcast/). [PDF](/pr/PR-microbinfie.pdf)
-- Press release for the [Microbial Bioinformatics (Micro Binfie) Conference 2020](https://quadram.ac.uk/how-to-share-knowledge-in-a-pandemic/). [PDF](/pr/PR-micro-conference.pdf)
-- The [Salmonella overview](https://f1000.com/prime/732990913), was recommended by [Prof. Jay Hinton](https://www.liverpool.ac.uk/integrative-biology/staff/jay-hinton/) on F1000 [PDF](/pr/PR-hinton.pdf)
-- [BRIG was on the national news, skip to 1:20](https://www.youtube.com/watch?v=w5y_siLhPn8), Seven News (Seven Network); Time: 18:00; Broadcast Date: Saturday, 5th April 2014; Duration: 2 min., 16 sec.
+## Why this matters in the real world
 
+Genomics matters most when it improves how we respond to real problems. In public health, that can mean detecting and tracking outbreaks, identifying transmission links, or separating meaningful signals from sequencing noise. In food and environmental microbiology, it can mean tracing contamination routes, understanding persistence and adaptation, and linking the same organism across farms, processing chains, and clinical settings. For antimicrobial resistance, genomics can connect resistance mechanisms to lineage spread and selective pressures—turning surveillance into actionable understanding rather than just monitoring.
 
-### Current projects
+More broadly, microbial evolution is a record of our changing world. When we link microbial genome change to human history and environmental change, we can start to see how the pressures we create—medical, cultural, and ecological—shape microbial populations over time. Ultimately, I want microbial genomics to be something we can rely on operationally: faster interpretation, clearer uncertainty, and results that remain comparable across labs, countries, and years.
 
-- [Health Protection Research Unit in Genomics and Enabling Data](https://warwick.ac.uk/fac/cross_fac/hpruged/) develops scalable, robust statistical methods and open-source tools using genomic, metagenomic, and epidemiological data to enhance public health and respond to emerging threats.
-- [The Public Health Alliance for Genomic Epidemiology (PHA4GE)](https://pha4ge.org/) - I contribute to the infrastructure working group, aiming to find consensus in how we deploy Bioinformatics for public health across the world.
-- Population genetics and pathogenesis of enteric pathogens, including _Salmonella_ and _E. coli_ - I dabble in research projects, see [my list of publications](/publications) for details
+## What's next?
+
+Over the next few years I’m focusing on a clear goal: **make microbial genomics more trustworthy, comparable, and usable at the point it meets real-world decisions**—from public health surveillance to research at population scale. That means strengthening the foundations (quality and standards), pushing methods that scale to truly massive collections, and investing in training so capability grows alongside data.
+
+* **Quality and standards for public health bioinformatics.** I’m developing practical best-practice guidance and quality-control standards for bacterial genomics workflows, with an emphasis on approaches that are auditable and deployable across organisations. A key strand of this work is **QualiBact** (https://happykhan.github.io/qualibact/), aimed at making QC expectations explicit so results are more reliable and comparable across labs, time, and platforms.
+
+* **Next-generation population genomics at 100,000sof genomes.** Building on large-scale comparative frameworks (including EnteroBase, cgMLST, and GrapeTree), I’m working towards hierarchical approaches and new visual strategies that keep analyses interpretable as collections grow. The aim is to move beyond “one giant tree” towards methods that support fast navigation, stable clustering, and clear communication of uncertainty—so scale doesn’t come at the cost of biological meaning.
+
+* **Capacity building that makes genomics sustainable.** I’m expanding training materials and curricula that take people from fundamentals to real-world analysis: reproducible workflows, version control, defensible interpretation, and good metadata practice. The goal is practical competence for the next generation of microbial genomicists and public health practitioners—so expertise scales, not just sequencing.

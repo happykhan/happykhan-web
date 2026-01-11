@@ -1,0 +1,467 @@
+.science-page {
+  font-family: var(--font-heading), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--color-text);
+  line-height: 1.6;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.science-hero {
+  padding: 6rem 0 4rem;
+  max-width: 900px;
+}
+
+.science-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: var(--color-primary);
+  letter-spacing: -0.02em;
+}
+
+.science-hero .lead {
+  font-size: 1.35rem;
+  color: var(--color-text-secondary);
+  max-width: 700px;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+}
+
+.stats-strip {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-number {
+  font-family: var(--font-mono), monospace;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary);
+  margin-top: 0.25rem;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+  border: 2px solid var(--color-primary);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-text);
+  border: 2px solid var(--card-border);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--card-title);
+  position: relative;
+  display: inline-block;
+}
+
+.vision-section {
+  padding: 5rem 0;
+  border-top: 1px solid var(--card-border);
+}
+
+.vision-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.vision-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 2rem;
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+}
+
+.vision-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-primary);
+}
+
+.vision-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--card-title);
+}
+
+.vision-card p {
+  margin-bottom: 1.5rem;
+  color: var(--card-sub);
+}
+
+.vision-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.vision-card li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--card-meta);
+}
+
+.vision-card li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+}
+
+.relevance-section {
+  padding: 5rem 0;
+  background: var(--color-bg-secondary);
+  border-radius: 16px;
+  margin: 2rem 0;
+  /* extend full width trick if needed, but keeping contained for now */
+}
+
+.relevance-container {
+  padding: 0 2rem;
+}
+
+.relevance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.relevance-item h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--card-title);
+}
+
+.relevance-item p {
+  font-size: 1rem;
+  color: var(--card-sub);
+}
+
+.impact-section {
+  padding: 0 0 5rem;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.control-btn {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.25rem;
+  color: var(--color-text);
+  transition: all 0.2s;
+}
+
+.control-btn:hover:not(:disabled) {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.control-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.impact-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 2rem; /* space for scrollbar or shadow */
+  gap: 1.5rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+}
+
+.impact-track::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.impact-card {
+  flex: 0 0 85%; /* Mobile */
+  scroll-snap-align: start;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .impact-card {
+    flex: 0 0 45%; /* Tablet */
+  }
+}
+
+@media (min-width: 1024px) {
+  .impact-card {
+    flex: 0 0 32%; /* Desktop */
+  }
+}
+
+.impact-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+}
+
+.impact-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--card-title);
+}
+
+.impact-what {
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.impact-why {
+  color: var(--card-sub);
+  margin-bottom: 1rem;
+  flex-grow: 1;
+  font-size: 0.95rem;
+}
+
+.impact-evidence {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.8rem;
+  color: var(--card-meta);
+  padding-top: 1rem;
+  border-top: 1px solid var(--card-border);
+  margin-bottom: 1rem;
+}
+
+.impact-evidence a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+.impact-more {
+  display: inline-block;
+  margin-top: auto; /* Push to bottom if flex column */
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+.impact-more:hover {
+  text-decoration: underline;
+}
+
+.impact-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.impact-tag {
+  background: var(--color-bg-secondary);
+  padding: 0.25rem 0.6rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  border: 1px solid var(--card-border);
+}
+
+/* Modal for Impact Card */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.modal-content {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  animation: slideUp 0.3s ease-out;
+  border: 1px solid var(--card-border);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+.other-impact {
+  padding: 4rem 0;
+  border-top: 1px solid var(--card-border);
+}
+
+.other-impact ul {
+  column-count: 2;
+  column-gap: 4rem;
+  list-style: none;
+  padding: 0;
+}
+
+@media(max-width: 600px) {
+  .other-impact ul { column-count: 1; }
+}
+
+.other-impact li {
+  margin-bottom: 1rem;
+  break-inside: avoid;
+  color: var(--card-sub);
+}
+
+.other-impact strong {
+  color: var(--card-title);
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.cred-footer {
+  background: var(--card-bg);
+  padding: 3rem 1rem;
+  margin: 0 -2rem; /* Full width background */
+  text-align: center;
+  border-top: 1px solid var(--card-border);
+}
+
+.cred-footer h3 {
+  font-size: 1.35rem;
+  margin-bottom: 1rem;
+  color: var(--card-title);
+}
+
+.cred-collab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.cred-collab li {
+  list-style: none;
+  color: var(--card-sub);
+  font-size: 0.95rem;
+}
+
+.cred-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.cred-links a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.cred-links a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .science-hero h1 { font-size: 2.5rem; }
+  .science-hero .lead { font-size: 1.15rem; }
+}

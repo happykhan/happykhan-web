@@ -90,7 +90,7 @@ export const metadata = {
             key={i}
             title={talk.title}
             subtitle={talk.event}
-            meta={`${talk.location}${talk.date ? ` | ${typeof talk.date === 'string' ? talk.date : ''}` : ''}`}
+            meta={`${talk.location}${talk.date ? ` | ${talk.date instanceof Date ? talk.date.toISOString().split('T')[0] : talk.date}` : ''}`}
           />
         ))}
       </div>

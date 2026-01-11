@@ -97,6 +97,12 @@ conference_posters:
     location: "University of Queensland, St Lucia, QLD"
     date: 2009-11-24
 organised_meetings:
+  - title: 12th Microbial Bioinformatics Hackathon
+    location: 14th edition of the International Meeting on Microbial Epidemiological Markers, Porto, Portugal
+    date: 2025-09-15
+  - title: Applied Bioinformatics & Public Health Microbiology
+    location: Wellcome Genome Campus, UK and Virtual
+    date: 2025-05-21
   - title: CampyUK goes global 2021
     location: Virtual
     date: 2021-09-08

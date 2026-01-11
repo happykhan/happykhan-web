@@ -2,7 +2,7 @@
 description: "Bioinformatician, developer, and academic leader with 15+ years' experience in microbial genomics, open-source software, and collaborative science."
 stats:
   hIndex: 30
-  citations: 11117
+  citations: 11369
   yearsExperience: 15
   softwareDownloads: 94150
 grants:
@@ -21,21 +21,43 @@ grants:
     funder: BBSRC
     role: Co-PI
     year: 2022
+  - title: CLIMB-BIG-DATA; A Cloud Infrastructure for Big-Data Microbial Bioinformatics
+    amount: "£1.9M"
+    funder: MRC
+    role: Inherited on appointment as Interim Head of Informatics
+    year: 2020
+  - title: UK Food Safety Research Network
+    amount: "£1.6M"
+    funder: BBSRC
+    role: Inherited on appointment as Interim Head of Informatics
+    year: 2022
 invited_speakers:
-  - title: Irish Computational Biology and Genomics Symposium 2022
-    event: National University of Ireland, Galway
-    location: Galway, Ireland
+  - title: Pathogenesis of enteric pathogens; a genomic approach
+    event: The Festival of Genomics & Biodata 2026
+    location: ExCel, London, UK
+    date: 2026-01-28
+  - title: PathogenWatch / AMRwatch for Food Safety 
+    event: Global Microbial Identifier 15 (GMI15) Conference 2025
+    location: University of Melbourne, Australia.
+    date: 2025-09-08
+  - title: Open Data, Open Minds; Bioinformatics & Big Data lessons from COVID-19 and beyond
+    event: Centre for Systems Health and integrated Metabolic Research (SHIMR) Research Symposium 2025
+    location: Nottingham Trent University, UK
+    date: 2025-07-02
+  - title: Our complicated relationship with microbes and how genomics can help
+    event: Irish Computational Biology and Genomics Symposium 2022
+    location: National University of Ireland, Ireland
     date: 2022-12-01
   - title: "ESCMID: Moving beyond single species outbreaks"
-    event: ESCMID
+    event: ESCMID-ESGEM 
     location: Virtual
     date: 2022-07-07
-  - title: 13th International Meeting on Microbial Epidemiological Markers (IMMEM XIII)
-    event: IMMEM XIII
+  - title: EnteroBase - Platforms for molecular epidemiology
+    event: 13th International Meeting on Microbial Epidemiological Markers (IMMEM XIII)
     location: Bath, UK
     date: 2022-09-14
   - title: Understanding Drivers of Antimicrobial Resistance in the Food Chain
-    event: Guangzhou, China
+    event: AMR Workshop 2019
     location: Guangzhou, China
     date: 2019-11-19
 education:
@@ -156,23 +178,28 @@ positions:
 service:
   - role: Board Member
     org: Microbes Microbiomes & Bioinformatics DTP
-    years: 2021–
+    years: 2021–2024
   - role: PHA4GE Infrastructure Working Group
     org: PHA4GE
-    years: 2019–
+    years: 2019–present
   - role: Treasurer
     org: QIB Postdoc Society
     years: 2020–2023
   - role: Internal grant reviewer
-    org: Quadram Institute
-    years: 2019–
+    org: Quadram Institute Bioscience
+    years: 2019–2024
+  - role: Equality & Diversity Committee Member
+    org: University of Warwick
+    years: 2015-2018
   - role: Supervisor for PhD and MRes projects
     org: Various
     years: 2015–present
 publications_link: "/publications"
 
 teaching:
-  - year: "2021–present"
+  - year: "2025-present"
+    description: PhD co-supervisor (Wa Ode Dwi Daningrat), University of Oxford
+  - year: "2021–2024"
     description: Bioinformatics lead and board member of the Microbes, Microbiomes and Bioinformatics Doctoral Training Partnership (MMBDTP)
   - year: "2021"
     description: PhD student placement (Madeline Iseminger), Quadram Institute Bioscience
