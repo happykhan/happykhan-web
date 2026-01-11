@@ -237,10 +237,6 @@ export default async function PrintCVPage() {
                     <span style={{ fontWeight: 500 }}>{contact?.email}</span>
                 </span>
                 <span style={{ display: 'inline-flex', gap: '0.4rem' }}>
-                    <span style={{ opacity: 0.7 }}>Mobile:</span>
-                    <span style={{ fontWeight: 500 }}>+44 7478404048</span>
-                </span>
-                <span style={{ display: 'inline-flex', gap: '0.4rem' }}>
                     <span style={{ opacity: 0.7 }}>Website:</span>
                     <span style={{ fontWeight: 500 }}>{contact?.website?.replace('https://', '')}</span>
                 </span>
