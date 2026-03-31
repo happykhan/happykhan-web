@@ -176,6 +176,9 @@ positions:
     endYear: Jan 2009
     description: Programmed software pipelines for bioinformatics, especially parallelization on high-performance computer clusters. Server administration for sharing bacterial genomics data.
 service:
+  - role: Editorial Board Member
+    org: Microbial Genomics (MGen)
+    years: 2026–present
   - role: Board Member
     org: Microbes Microbiomes & Bioinformatics DTP
     years: 2021–2024
