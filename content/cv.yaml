@@ -165,6 +165,7 @@ positions:
       - Lead author and core developer of Pathogenwatch (medRxiv 2026) — adopted by 14,389 users across 165 countries; 875,000+ curated public genomes; MLST for 37+ species
       - Contributor to AMRwatch (620,700 pathogen genomes, PLOS Global Public Health 2025) and vaccines.watch — open surveillance platforms serving researchers and public health agencies globally
       - Lead bioinformatics strategy and analytical pipeline development at CGPS; represent the group at national and international forums
+      - Named member of the UKHSA TARZET Invasive Meningococcal Disease Technical Group, contributing to the 2026 MenB outbreak response (Canterbury cluster, 23 cases)
       - Translate pathogen genomic data into actionable public health outputs in collaboration with WHO, NIHR, and Gates Foundation-funded programmes
   - title: Bioinformatics Scientific Programmer – Interim Head of Informatics
     organization: Quadram Institute Bioscience, Norwich, UK
@@ -198,6 +199,9 @@ positions:
     endYear: Jan 2009
     description: Programmed software pipelines for bioinformatics, especially parallelization on high-performance computer clusters. Server administration for sharing bacterial genomics data.
 service:
+  - role: Technical Group Member
+    org: UKHSA TARZET Invasive Meningococcal Disease Technical Group
+    years: 2026
   - role: Editorial Board Member
     org: Microbial Genomics (MGen)
     years: 2026–present
