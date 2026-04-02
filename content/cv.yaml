@@ -162,7 +162,7 @@ positions:
     current: true
     description: Developing and integrating pathogen genomics solutions for public health surveillance and policy.
     highlights:
-      - Contributor to PathogenWatch, AMRwatch, and vaccines.watch — open platforms for genomic surveillance of bacterial pathogens used by public health agencies globally
+      - Lead author on the Pathogenwatch platform paper (medRxiv 2026); contributor to AMRwatch and vaccines.watch — open platforms for genomic surveillance used by 14,389 users across 165 countries
       - Integrate new bioinformatics approaches and maintain CGPS analytical pipelines and reports
       - Represent CGPS at national and international forums; contribute to bioinformatics team leadership
       - Collaborate with public health stakeholders to translate genomic data into actionable surveillance insights
