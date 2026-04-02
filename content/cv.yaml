@@ -160,12 +160,12 @@ positions:
     startYear: 2024
     endYear: null
     current: true
-    description: Developing and integrating pathogen genomics solutions for public health surveillance and policy.
+    description: Leading development and integration of pathogen genomics platforms for global public health surveillance.
     highlights:
-      - Lead author on the Pathogenwatch platform paper (medRxiv 2026); contributor to AMRwatch and vaccines.watch — open platforms for genomic surveillance used by 14,389 users across 165 countries
-      - Integrate new bioinformatics approaches and maintain CGPS analytical pipelines and reports
-      - Represent CGPS at national and international forums; contribute to bioinformatics team leadership
-      - Collaborate with public health stakeholders to translate genomic data into actionable surveillance insights
+      - Lead author and core developer of Pathogenwatch (medRxiv 2026) — adopted by 14,389 users across 165 countries; 875,000+ curated public genomes; MLST for 37+ species
+      - Contributor to AMRwatch (620,700 pathogen genomes, PLOS Global Public Health 2025) and vaccines.watch — open surveillance platforms serving researchers and public health agencies globally
+      - Lead bioinformatics strategy and analytical pipeline development at CGPS; represent the group at national and international forums
+      - Translate pathogen genomic data into actionable public health outputs in collaboration with WHO, NIHR, and Gates Foundation-funded programmes
   - title: Bioinformatics Scientific Programmer – Interim Head of Informatics
     organization: Quadram Institute Bioscience, Norwich, UK
     startYear: 2018
