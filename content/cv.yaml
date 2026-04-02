@@ -2,7 +2,7 @@
 description: "Bioinformatician, developer, and academic leader with 15+ years' experience in microbial genomics, open-source software, and collaborative science."
 stats:
   hIndex: 30
-  citations: 11369
+  citations: 11687
   yearsExperience: 15
   softwareDownloads: 94150
 grants:
@@ -132,18 +132,40 @@ skills:
         rating: 4
       - label: Workflow Parallelization
         rating: 4
+  - name: Leadership & Management
+    items:
+      - label: Scientific Team Leadership
+        rating: 4
+      - label: Grant Writing & Costing
+        rating: 4
+      - label: Project Management
+        rating: 4
+      - label: Mentoring & Supervision
+        rating: 5
+      - label: Strategic Planning
+        rating: 3
+  - name: Policy & Engagement
+    items:
+      - label: Public Health Stakeholder Engagement
+        rating: 4
+      - label: Science Communication
+        rating: 4
+      - label: Policy Translation
+        rating: 3
+      - label: International Collaboration
+        rating: 5
 positions:
   - title: Senior Bioinformatician
     organization: The Centre for Genomic Pathogen Surveillance (CGPS), University of Oxford, UK
     startYear: 2024
     endYear: null
     current: true
-    description: Developing and integrating pathogen genomics solutions for public health.
+    description: Developing and integrating pathogen genomics solutions for public health surveillance and policy.
     highlights:
-      - Collaborate with experts to develop pathogen genomics solutions for public health
-      - Stay current with advancements and integrate new bioinformatics approaches into CGPS analytical reports
-      - Represent CGPS at national/international forums and manage the bioinformatics team
-      - Deliver bioinformatics services drawing on extensive post-PhD experience
+      - Contributor to PathogenWatch, AMRwatch, and vaccines.watch — open platforms for genomic surveillance of bacterial pathogens used by public health agencies globally
+      - Integrate new bioinformatics approaches and maintain CGPS analytical pipelines and reports
+      - Represent CGPS at national and international forums; contribute to bioinformatics team leadership
+      - Collaborate with public health stakeholders to translate genomic data into actionable surveillance insights
   - title: Bioinformatics Scientific Programmer – Interim Head of Informatics
     organization: Quadram Institute Bioscience, Norwich, UK
     startYear: 2018
