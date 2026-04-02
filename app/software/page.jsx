@@ -22,6 +22,12 @@ const softwareList = [
       "BRIG is a free cross-platform (Windows/Mac/Unix) application that can display circular comparisons between a large number of genomes, with a focus on handling genome assembly data.",
     url: "http://brig.sourceforge.net/",
   },
+  {
+    title: "GenomicX",
+    description:
+      "An experiment in running established bioinformatics tools entirely in the browser via WebAssembly. Tools including minimap2, Mash, and samtools are cross-compiled to run client-side with no installation, no server uploads, and near-native performance.",
+    url: "https://genomicx.org/",
+  },
 ]
 
 export default function SoftwarePage() {
