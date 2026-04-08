@@ -1,4 +1,5 @@
 
+import { getCVYamlData } from '@/lib/content.mjs'
 import CVStats from '@/components/CVStats'
 import CVTimeline from '@/components/CVTimeline'
 import SkillRatings from '@/components/SkillRatings'
@@ -20,19 +21,6 @@ const STATS = {
   yearsExperience: 15,
   softwareDownloads: 94150,
 }
-
-const EDUCATION = [
-  {
-    degree: 'PhD in Microbiology',
-    institution: 'University of Queensland',
-    period: '2010–2015',
-  },
-  {
-    degree: 'BSc (1st Class Hons) in Microbiology',
-    institution: 'University of Queensland',
-    period: '2009',
-  },
-]
 
 const POSITIONS = [
   {
@@ -125,9 +113,12 @@ const PROJECTS = [
   { name: 'PathogenWatch', scale: 'Multi-pathogen, cloud', stack: 'JS, Python, cloud', outcome: 'Production platform, CGPS flagship' },
 ]
 
-const PROFILE = 'Senior bioinformatician and software engineer with 15 years of experience building production-grade pipelines and analytical platforms for large-scale genomic data. I have developed and deployed tools used by thousands of researchers worldwide, led computational infrastructure for national genomic surveillance programmes, and worked directly with biologists, epidemiologists, and public health agencies to translate sequence data into usable outputs. My background spans Python, JavaScript, NF-core/Nextflow, HPC, cloud infrastructure, and full-stack web development.'
+const PROFILE = 'Senior bioinformatician and software engineer with 15 years building production pipelines and genomic data platforms used by researchers and public health agencies worldwide. Proven track record delivering at national scale: 80,000+ pathogen genomes processed for COVID-19 surveillance, 620,000+ for global AMR monitoring. Fluent in Python, JavaScript, Nextflow/NF-core, cloud (AWS/GCP), and HPC.'
 
-export default function IndustryCVPage() {
+export default async function IndustryCVPage() {
+  const cv = await getCVYamlData()
+  const education = cv.education
+
   return (
     <article>
       <h1>Industry CV</h1>
@@ -153,7 +144,7 @@ export default function IndustryCVPage() {
       <CVStats stats={STATS} />
 
       <h2 style={{ marginTop: '2rem', marginBottom: '1rem' }}>Education</h2>
-      <EducationCards education={EDUCATION} />
+      <EducationCards education={education} />
 
       <h2 style={{ marginTop: '2rem', marginBottom: '1.5rem' }}>Experience</h2>
       <CVTimeline positions={POSITIONS} />

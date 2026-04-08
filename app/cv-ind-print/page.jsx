@@ -38,7 +38,7 @@ const Entry = ({ left, right, title, subtitle, details, titleStyle = {} }) => (
 
 // --- Hardcoded Industry Content ---
 
-const PROFILE = 'Senior bioinformatician and software engineer with 15 years of experience building production-grade pipelines and analytical platforms for large-scale genomic data. Developed and deployed tools used by thousands of researchers worldwide, led computational infrastructure for national genomic surveillance programmes, and worked directly with biologists, epidemiologists, and public health agencies to translate sequence data into usable outputs. Background spans Python, JavaScript, NF-core/Nextflow, HPC, cloud infrastructure, and full-stack web development.'
+const PROFILE = 'Senior bioinformatician and software engineer with 15 years building production pipelines and genomic data platforms used by researchers and public health agencies worldwide. Proven track record delivering at national scale: 80,000+ pathogen genomes processed for COVID-19 surveillance, 620,000+ for global AMR monitoring. Fluent in Python, JavaScript, Nextflow/NF-core, cloud (AWS/GCP), and HPC.'
 
 const CONTACT = { email: 'nabil@happykhan.com', website: 'https://happykhan.com', github: 'https://github.com/happykhan', location: 'Oxford, UK' }
 
