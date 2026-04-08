@@ -29,6 +29,12 @@ export const metadata = {
       <article>
         <h1>Curriculum Vitae</h1>
 
+      <div style={{ marginBottom: '0.75rem', fontSize: '0.9rem' }}>
+        <a href="/cv-print" style={{ color: 'var(--card-title)', textDecoration: 'underline' }}>Print / PDF version</a>
+        {' · '}
+        <a href="/cv-ind" style={{ color: 'var(--card-title)', textDecoration: 'underline' }}>Industry CV</a>
+      </div>
+
       {/* Contact info at the top */}
       {contact && (
         <div style={{ display: 'flex', gap: '2.5rem', alignItems: 'center', marginBottom: '0.5rem' }}>

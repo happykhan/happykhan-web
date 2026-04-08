@@ -132,6 +132,12 @@ export default function IndustryCVPage() {
     <article>
       <h1>Industry CV</h1>
 
+      <div style={{ marginBottom: '0.75rem', fontSize: '0.9rem' }}>
+        <a href="/cv-ind-print" style={{ color: 'var(--card-title)', textDecoration: 'underline' }}>Print / PDF version</a>
+        {' · '}
+        <a href="/cv" style={{ color: 'var(--card-title)', textDecoration: 'underline' }}>Full academic CV</a>
+      </div>
+
       <div style={{ display: 'flex', gap: '2.5rem', alignItems: 'center', marginBottom: '0.5rem' }}>
         <div style={{ fontSize: '0.95rem', color: 'var(--card-meta)' }}>
           <span style={{ marginRight: '1.2rem' }}><b>Email:</b> <a href={`mailto:${CONTACT.email}`} style={{ color: 'var(--card-title)' }}>{CONTACT.email}</a></span>
@@ -190,7 +196,7 @@ export default function IndustryCVPage() {
         {' · '}
         <a href="/cv" style={{ color: 'var(--card-title)' }}>Full academic CV</a>
         {' · '}
-        <a href="/cv-print-ind" style={{ color: 'var(--card-title)' }}>Print version</a>
+        <a href="/cv-ind-print" style={{ color: 'var(--card-title)' }}>Print version</a>
       </p>
     </article>
   )
