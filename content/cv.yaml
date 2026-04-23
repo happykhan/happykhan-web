@@ -32,10 +32,6 @@ grants:
     role: Inherited on appointment as Interim Head of Informatics
     year: 2022
 invited_speakers:
-  - title: "Practical public health surveillance strategies and bridging the gap to use of mobile genetic elements"
-    event: China-Bath Symposium of Genomic Epidemiology and Mobile Genetic Elements
-    location: Milner Centre for Evolution, University of Bath, UK
-    date: 2026-04-23
   - title: Pathogenesis of enteric pathogens; a genomic approach
     event: The Festival of Genomics & Biodata 2026
     location: ExCel, London, UK
