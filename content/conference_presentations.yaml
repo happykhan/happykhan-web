@@ -11,6 +11,30 @@ oral_presentations:
     event: China-Bath Symposium of Genomic Epidemiology and Mobile Genetic Elements
     location: Milner Centre for Evolution, University of Bath, UK
     date: 2026-04-23
+  - title: "Mastering Microreact and Data-Flo for Advanced Data Visualization"
+    event: UKHSA Science Group Scientific Seminars
+    location: Virtual
+    date: 2024-11-21
+  - title: "12th Microbial Bioinformatics Hackathon"
+    event: 14th International Meeting on Microbial Epidemiological Markers (IMMEM XIV)
+    location: Porto, Portugal
+    date: 2025-09-15
+  - title: "QualiBact - Quality control advice for all"
+    event: PHA4GE Data Standards Working Group Seminar Series
+    location: Virtual
+    date: 2026-02-05
+  - title: "QualiBact"
+    event: ESGEM AMR Seminar
+    location: Virtual
+    date: 2025-10-13
+  - title: "A novel format for capturing cell organisation"
+    event: ASM Conference on Rapid Applied Microbial NGS and Bioinformatic Pipelines (ASMNGS 2024)
+    location: Washington D.C., USA
+    date: 2024-10-13
+  - title: "Dynamics of Salmonella enterica and antimicrobial resistance in the Brazilian poultry industry and global impacts on public health"
+    event: US CDC Foodborne Division Seminar
+    location: Virtual
+    date: 2023-01-18
   - title: Platforms for genomic surveillance of FBD pathogens
     event: Africa CDC Food borne pathogen group
     location: Virtual
