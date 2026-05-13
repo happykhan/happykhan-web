@@ -344,7 +344,7 @@ export default function PublicationCard({
 }) {
   const [isExpanded, setIsExpanded] = useState(false)
   
-  const firstAuthor = author?.split(',')[0].replace(/[{}]/g, '') || 'Unknown'
+  const firstAuthor = cleanText(author?.split(',')[0]) || 'Unknown'
   const formattedAuthorList = formatAuthorList(author)
   const safeDoi = doi?.replace(/\//g, '_') || ''
   const safeTitle = cleanText(title) || 'Untitled'
