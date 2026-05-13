@@ -426,8 +426,8 @@ export default function PublicationCard({
         {pages && pages.replace('--', '-')}
       </p>
       
-      {abstract && (
-        <details 
+      {(author || abstract) && (
+        <details
           style={{ marginTop: '0.75rem' }}
           onToggle={(e) => setIsExpanded(e.target.open)}
         >
@@ -441,13 +441,15 @@ export default function PublicationCard({
             <p style={{ color: 'var(--color-text-secondary)', marginBottom: '1rem', lineHeight: '1.5' }}>
               {renderLatexRich(formattedAuthorList)}
             </p>
-            
+
+            {abstract && <>
             <p style={{ fontWeight: 600, color: 'var(--color-text)', marginBottom: '0.5rem' }}>
               Abstract:
             </p>
             <div style={{ color: 'var(--color-text-secondary)', lineHeight: '1.6', marginBottom: '1rem' }}>
               {renderLatexRich(abstract)}
             </div>
+            </>}
             
             {doi && (
               <p style={{ fontSize: '0.85rem', color: 'var(--color-text-secondary)', fontFamily: 'monospace' }}>
