@@ -344,7 +344,11 @@ export default function PublicationCard({
 }) {
   const [isExpanded, setIsExpanded] = useState(false)
   
-  const firstAuthor = cleanText(author?.split(',')[0]) || 'Unknown'
+  const firstAuthor = (author?.split(',')[0] || '')
+    .replace(/\{\\["'`^~=.uvHcdb]([A-Za-z])\}/g, '$1')
+    .replace(/\\["'`^~=.uvHcdb]\{([A-Za-z])\}/g, '$1')
+    .replace(/\\["'`^~=.uvHcdb]([A-Za-z])/g, '$1')
+    .replace(/[{}\\]/g, '').trim() || 'Unknown'
   const formattedAuthorList = formatAuthorList(author)
   const safeDoi = doi?.replace(/\//g, '_') || ''
   const safeTitle = cleanText(title) || 'Untitled'
