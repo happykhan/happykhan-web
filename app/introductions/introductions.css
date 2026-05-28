@@ -15,19 +15,23 @@
   margin-bottom: 2rem;
 }
 
-.intro-block {
-  margin-bottom: 1.5rem;
+/* Group sections */
+.intro-group {
+  margin-bottom: 2.5rem;
 }
 
-.intro-label {
-  font-size: 0.85rem;
+.intro-group-heading {
+  font-size: 1.1rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   color: var(--color-text-secondary);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--card-border);
 }
 
+/* Intro cards */
 .intro-card {
   position: relative;
   background: var(--card-bg);
@@ -41,19 +45,11 @@
   cursor: text;
   user-select: text;
   transition: border-color 0.15s ease;
+  margin-bottom: 0.75rem;
 }
 
 .intro-card:hover {
   border-color: var(--color-primary);
-}
-
-.intro-card ul {
-  margin: 0.5rem 0 0 0;
-  padding-left: 1.25rem;
-}
-
-.intro-card li {
-  margin-bottom: 0.25rem;
 }
 
 .copy-btn {
@@ -86,6 +82,42 @@
   background: #22c55e;
   color: white;
   border-color: #22c55e;
+}
+
+/* Follow-up section */
+.followup-section {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--card-border);
+}
+
+.followup-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.followup-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.followup-item {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+}
+
+.followup-label {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.followup-text {
+  color: var(--color-text-secondary);
 }
 
 @media (max-width: 768px) {

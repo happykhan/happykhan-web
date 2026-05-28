@@ -3,34 +3,65 @@
 import { useState, useCallback } from 'react'
 import './introductions.css'
 
-const introductions = [
+const groups = [
   {
-    label: 'Networking / coffee / "what do you do?"',
-    text: "I build tools for pathogen genomics. What I actually want to figure out: why does the same E. coli strain cause disease in some people and not others.",
-  },
-  {
-    label: 'Fellowship panels / grant applications',
-    text: "I work on why E. coli causes disease. The categories we use to classify it were built before genome sequencing existed, and they're showing.",
-  },
-  {
-    label: 'AP job interviews / "what are you known for?"',
-    text: "I'm known for genomic tools the field actually relies on — BRIG, EnteroBase, AMRwatch — and I use those platforms to rewrite how we classify pathogens.",
-  },
-  {
-    label: 'Big pitch / mission statement',
-    text: "I build tools that give the field access to hundreds of thousands of pathogen genomes. The question I'm actually trying to answer: why does E. coli cause disease in some people and not others.",
-  },
-  {
-    label: 'Follow-up evidence (if they say "tell me more")',
-    list: [
-      'BRIG: 3,000+ citations',
-      'AMRwatch: 620,000 genomes',
-      'EnteroBase: 400,000 genomes',
+    heading: 'Tool builder',
+    intros: [
+      "I build software that gives biologists access to genomic data at a scale they couldn't handle before — then I use those platforms to do the biology.",
+      "I build open platforms for pathogen genomics. The tools end up in university courses, public health labs, and WHO reports. What I want to do with them is answer questions we couldn't ask before.",
+      "I've built tools people still rely on a decade later. The tools are the point of entry — the science is what I'm actually after.",
     ],
   },
   {
-    label: 'Core identity',
-    text: 'I build tools that become research platforms, then use those platforms to answer pathogenesis questions nobody could ask before.',
+    heading: 'Pathogen science',
+    intros: [
+      "I work on why E. coli causes disease. The categories we use to classify it were built before genome sequencing existed, and they're showing.",
+      "I want to understand why the same bacterial strain kills one person and doesn't touch another. We now have a million E. coli genomes — and still can't reliably predict which ones will cause disease.",
+      "I study bacterial pathogenesis at population scale. The field has the data. What's missing is a classification system that reflects what the genomes actually show.",
+    ],
+  },
+  {
+    heading: 'Public health',
+    intros: [
+      "I help public health labs use pathogen genomes to make decisions — not just to do research, but to answer questions that come up this week.",
+      "During COVID I helped process 80,000 SARS-CoV-2 genomes for the national surveillance programme. What I took from that: genomics is most useful when it's fast, reliable, and built for the people making decisions.",
+      "I build genomic infrastructure for public health — making complex sequencing data interpretable by the people who need it, not just the people who generated it.",
+    ],
+  },
+  {
+    heading: 'AMR & One Health',
+    intros: [
+      "I study how antimicrobial resistance spreads through food systems and healthcare — tracing the same resistant strain from farms to hospitals.",
+      "I work on AMR from a genomics angle — trying to understand where resistance comes from and where it's going, at a scale that makes patterns visible.",
+      "I helped show how vaccine pressure in Brazilian poultry drove serovar replacement toward more drug-resistant Salmonella. The food system creates selection pressure; the genomes record it.",
+    ],
+  },
+  {
+    heading: 'Infrastructure & standards',
+    intros: [
+      "I work on making genomic results defensible — quality frameworks, metadata standards, and tools that ensure the same analysis means the same thing in different labs.",
+      "I contribute to international standards for pathogen genomics data. If you want genomic surveillance to be comparable across countries and years, someone has to agree on what good data looks like. That's the work.",
+      "I build QC frameworks for bacterial genomics. The goal is making genome-based results reliable enough to act on, not just publish.",
+    ],
+  },
+]
+
+const followUps = [
+  {
+    label: 'BRIG',
+    text: 'the standard tool for comparing bacterial genomes — cited in over 3,000 papers, still used in teaching worldwide, 15 years after I built it',
+  },
+  {
+    label: 'AMRwatch',
+    text: 'the largest AMR monitoring dataset anywhere — 620,000 genomes, used by public health agencies and WHO to track resistance trends',
+  },
+  {
+    label: 'EnteroBase',
+    text: 'redefined how the field does molecular epidemiology for Salmonella and E. coli — 400,000 genomes, the reference resource for outbreak investigations globally',
+  },
+  {
+    label: 'COG-UK',
+    text: 'I processed 80,000 SARS-CoV-2 genomes through the national pandemic surveillance pipeline — analyses that fed into government briefings',
   },
 ]
 
@@ -51,39 +82,39 @@ function TickIcon() {
   )
 }
 
-function IntroBlock({ label, text, list }) {
+function IntroCard({ text }) {
   const [copied, setCopied] = useState(false)
 
   const handleCopy = useCallback(() => {
-    const content = text || list.map(item => `- ${item}`).join('\n')
-    navigator.clipboard.writeText(content).then(() => {
+    navigator.clipboard.writeText(text).then(() => {
       setCopied(true)
       setTimeout(() => setCopied(false), 1500)
     })
-  }, [text, list])
+  }, [text])
 
   return (
-    <div className="intro-block">
-      <div className="intro-label">{label}</div>
-      <div className="intro-card">
-        {text && <span>{text}</span>}
-        {list && (
-          <ul>
-            {list.map((item, i) => (
-              <li key={i}>{item}</li>
-            ))}
-          </ul>
-        )}
-        <button
-          className={`copy-btn${copied ? ' copied' : ''}`}
-          onClick={handleCopy}
-          title="Copy to clipboard"
-          aria-label="Copy to clipboard"
-        >
-          {copied ? <TickIcon /> : <CopyIcon />}
-        </button>
-      </div>
+    <div className="intro-card">
+      <span>{text}</span>
+      <button
+        className={`copy-btn${copied ? ' copied' : ''}`}
+        onClick={handleCopy}
+        title="Copy to clipboard"
+        aria-label="Copy to clipboard"
+      >
+        {copied ? <TickIcon /> : <CopyIcon />}
+      </button>
     </div>
+  )
+}
+
+function IntroGroup({ heading, intros }) {
+  return (
+    <section className="intro-group">
+      <h2 className="intro-group-heading">{heading}</h2>
+      {intros.map((text, i) => (
+        <IntroCard key={i} text={text} />
+      ))}
+    </section>
   )
 }
 
@@ -91,10 +122,23 @@ export default function IntroductionsPage() {
   return (
     <div className="intros-page">
       <h1>Introductions</h1>
-      <p>Copy-paste professional introductions for different contexts.</p>
-      {introductions.map((intro, i) => (
-        <IntroBlock key={i} {...intro} />
+      <p>Copy-paste professional introductions grouped by angle.</p>
+
+      {groups.map((group, i) => (
+        <IntroGroup key={i} heading={group.heading} intros={group.intros} />
       ))}
+
+      <section className="followup-section">
+        <h2 className="followup-heading">If they say &ldquo;tell me more&rdquo;</h2>
+        <div className="followup-list">
+          {followUps.map((item, i) => (
+            <div key={i} className="followup-item">
+              <span className="followup-label">{item.label}:</span>{' '}
+              <span className="followup-text">{item.text}</span>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   )
 }
