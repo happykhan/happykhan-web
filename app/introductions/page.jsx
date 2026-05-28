@@ -82,6 +82,13 @@ function TickIcon() {
   )
 }
 
+function italicise(text) {
+  return text
+    .replace(/E\. coli/g, '<em>E. coli</em>')
+    .replace(/Salmonella/g, '<em>Salmonella</em>')
+    .replace(/SARS-CoV-2/g, '<em>SARS-CoV-2</em>')
+}
+
 function IntroCard({ text }) {
   const [copied, setCopied] = useState(false)
 
@@ -94,7 +101,7 @@ function IntroCard({ text }) {
 
   return (
     <div className="intro-card">
-      <span>{text}</span>
+      <span dangerouslySetInnerHTML={{ __html: italicise(text) }} />
       <button
         className={`copy-btn${copied ? ' copied' : ''}`}
         onClick={handleCopy}
@@ -134,7 +141,7 @@ export default function IntroductionsPage() {
           {followUps.map((item, i) => (
             <div key={i} className="followup-item">
               <span className="followup-label">{item.label}:</span>{' '}
-              <span className="followup-text">{item.text}</span>
+              <span className="followup-text" dangerouslySetInnerHTML={{ __html: italicise(item.text) }} />
             </div>
           ))}
         </div>
