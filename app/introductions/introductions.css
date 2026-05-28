@@ -1,0 +1,99 @@
+.intros-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.intros-page h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.intros-page > p {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.intro-block {
+  margin-bottom: 1.5rem;
+}
+
+.intro-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.intro-card {
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  padding-right: 3.5rem;
+  line-height: 1.65;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  cursor: text;
+  user-select: text;
+  transition: border-color 0.15s ease;
+}
+
+.intro-card:hover {
+  border-color: var(--color-primary);
+}
+
+.intro-card ul {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.25rem;
+}
+
+.intro-card li {
+  margin-bottom: 0.25rem;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  transition: all 0.15s ease;
+  padding: 0;
+  line-height: 1;
+}
+
+.copy-btn:hover {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+.copy-btn.copied {
+  background: #22c55e;
+  color: white;
+  border-color: #22c55e;
+}
+
+@media (max-width: 768px) {
+  .intros-page h1 {
+    font-size: 1.5rem;
+  }
+
+  .intro-card {
+    padding-right: 3rem;
+  }
+}
