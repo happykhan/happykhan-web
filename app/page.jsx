@@ -90,7 +90,7 @@ export default async function HomePage() {
               </div>
 
               <p style={{ color: 'var(--color-text-secondary)', margin: 0, fontSize: '1.15rem', lineHeight: '1.7' }}>
-                Bioinformatics researcher and software developer specialising in microbial genomics. I build widely used open-source tools, publish peer-reviewed research, and co-host the MicroBinfie podcast. My work is recognised across the bacterial genomics community for its focus on practical, open science.
+                Senior Bioinformatician at the Centre for Genomic Pathogen Surveillance (CGPS), University of Oxford. I build genomic infrastructure for public health — making complex sequencing data interpretable by the people who need it, not just the people who generated it. I develop widely used open-source tools, publish peer-reviewed research, and co-host the MicroBinfie podcast.
               </p>
             </div>
             
