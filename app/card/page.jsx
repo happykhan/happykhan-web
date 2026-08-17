@@ -32,7 +32,7 @@ export default function CardPage() {
           <img
             className="contact-qr"
             src="/images/happykhan-hi-qr.svg"
-            alt="QR code linking to happykhan.com/hi"
+            alt="QR code with Nabil-Fareed Alikhan's portrait, linking to happykhan.com/hi"
             width="800"
             height="800"
             data-loaded="true"
