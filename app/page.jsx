@@ -1,7 +1,11 @@
 import { listPosts } from '@/lib/content.mjs'
 import { listMicrobinfie } from '@/lib/content.mjs'
 import { getPublications } from '@/lib/publications.mjs'
+import { getDailyItem } from '@/lib/daily-pick.mjs'
 import Image from 'next/image'
+
+// Re-render regularly so the London-date selections change without a new deploy.
+export const revalidate = 900
 
 const baseBtn = {
   display: 'inline-block',
@@ -39,21 +43,6 @@ const iconLink = {
   transition: 'all 0.2s',
 };
 
-// Seeded random number generator using date
-function seededRandom(seed) {
-  const x = Math.sin(seed) * 10000;
-  return x - Math.floor(x);
-}
-
-// Get a random item from array based on date seed
-function getRandomItemByDate(items, offset = 0) {
-  if (!items || items.length === 0) return null;
-  const today = new Date();
-  const seed = today.getFullYear() * 10000 + (today.getMonth() + 1) * 100 + today.getDate() + offset;
-  const randomIndex = Math.floor(seededRandom(seed) * items.length);
-  return items[randomIndex];
-}
-
 export default async function HomePage() {
   // Fetch all content
   const posts = await listPosts()
@@ -61,9 +50,9 @@ export default async function HomePage() {
   const publications = await getPublications()
   
   // Get random featured items (using different offsets for variety)
-  const featuredPost = getRandomItemByDate(posts, 0)
-  const featuredPodcast = getRandomItemByDate(podcasts, 1)
-  const featuredPaper = getRandomItemByDate(publications, 2)
+  const featuredPost = getDailyItem(posts, 0)
+  const featuredPodcast = getDailyItem(podcasts, 1)
+  const featuredPaper = getDailyItem(publications, 2)
 
   return (
     <section>
@@ -252,4 +241,3 @@ export default async function HomePage() {
     </section>
   );
 }
-
