@@ -294,15 +294,17 @@ body:has(.contact-page) > main {
 }
 
 .contact-page-card {
-  --color-primary: #0066cc;
-  --color-primary-hover: #0052a3;
-  --color-text: #1a1a1a;
-  --color-text-secondary: #666;
-  --color-border: #e0e0e0;
-  --color-bg: #fff;
-  --color-bg-secondary: #f7f7f7;
-  color-scheme: light;
-  background: #fff;
+  --color-primary: #4a9eff;
+  --color-primary-hover: #6db3ff;
+  --color-text: #e4e4e4;
+  --color-text-secondary: #a0a0a0;
+  --color-border: #333;
+  --color-bg: #0d1117;
+  --color-bg-secondary: #161b22;
+  color-scheme: dark;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(74, 158, 255, 0.12), transparent 32rem),
+    var(--color-bg);
 }
 
 .contact-card-shell {
@@ -327,7 +329,7 @@ body:has(.contact-page) > main {
   border: 1px solid #e5e7eb;
   border-radius: 1rem;
   background: #fff;
-  box-shadow: 0 0.8rem 2.5rem rgba(0, 0, 0, 0.09);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.38);
 }
 
 .contact-qr,

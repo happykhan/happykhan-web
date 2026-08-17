@@ -4,6 +4,7 @@
   "version": "0.1.0",
   "scripts": {
     "test": "node --test",
+    "generate:card-qr": "node scripts/generate-card-qr.mjs",
     "dev": "node scripts/copy-assets.mjs && next dev",
     "build": "node scripts/move-static-to-public.mjs && node scripts/copy-assets.mjs && node scripts/sync-microbinfie.mjs && node scripts/gen-rss.mjs && node scripts/gen-rss-microbinfie.mjs && node scripts/gen-sitemap.mjs && next build",
     "sync-podcast": "node scripts/sync-microbinfie.mjs",
@@ -33,6 +34,8 @@
   },
   "devDependencies": {
     "eslint": "^8.57.0",
-    "eslint-config-next": "^14.2.5"
+    "eslint-config-next": "^14.2.5",
+    "jsqr": "^1.4.0",
+    "qrcode": "^1.5.4"
   }
 }
