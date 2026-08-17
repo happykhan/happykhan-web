@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
+    "test": "node --test",
     "dev": "node scripts/copy-assets.mjs && next dev",
     "build": "node scripts/move-static-to-public.mjs && node scripts/copy-assets.mjs && node scripts/sync-microbinfie.mjs && node scripts/gen-rss.mjs && node scripts/gen-rss-microbinfie.mjs && node scripts/gen-sitemap.mjs && next build",
     "sync-podcast": "node scripts/sync-microbinfie.mjs",
