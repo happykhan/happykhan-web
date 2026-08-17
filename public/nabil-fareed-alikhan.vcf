@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Alikhan;Nabil-Fareed;;;
+FN:Nabil-Fareed Alikhan
+TITLE:Senior Bioinformatician
+ORG:Centre for Genomic Pathogen Surveillance;University of Oxford
+EMAIL;TYPE=INTERNET:nabil@happykhan.com
+URL:https://happykhan.com/hi
+X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/nabil-fareed-alikhan/
+X-SOCIALPROFILE;TYPE=github:https://github.com/happykhan
+NOTE:Bioinformatics, microbial genomics and software development.
+END:VCARD
