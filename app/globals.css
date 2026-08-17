@@ -183,6 +183,8 @@ body:has(.contact-page) > main {
   padding: 0.75rem 1rem;
   border: 1px solid var(--color-primary);
   border-radius: 0.85rem;
+  cursor: pointer;
+  font-family: inherit;
   font-size: 0.94rem;
   font-weight: 700;
   text-decoration: none;
@@ -195,6 +197,7 @@ body:has(.contact-page) > main {
 }
 
 .contact-button-primary {
+  grid-column: 1 / -1;
   background: var(--color-primary);
   color: #fff;
 }
@@ -291,7 +294,15 @@ body:has(.contact-page) > main {
 }
 
 .contact-page-card {
-  background: var(--color-bg);
+  --color-primary: #0066cc;
+  --color-primary-hover: #0052a3;
+  --color-text: #1a1a1a;
+  --color-text-secondary: #666;
+  --color-border: #e0e0e0;
+  --color-bg: #fff;
+  --color-bg-secondary: #f7f7f7;
+  color-scheme: light;
+  background: #fff;
 }
 
 .contact-card-shell {
@@ -310,7 +321,7 @@ body:has(.contact-page) > main {
 
 .contact-qr-link {
   display: block;
-  width: min(72vw, 19rem);
+  width: min(82vw, 21rem);
   margin: 2rem auto 0;
   padding: 0.7rem;
   border: 1px solid #e5e7eb;
@@ -347,7 +358,9 @@ body:has(.contact-page) > main {
   .contact-page {
     padding: 1.5rem 1rem;
   }
+}
 
+@media (max-width: 340px) {
   .contact-actions {
     grid-template-columns: 1fr;
   }

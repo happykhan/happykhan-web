@@ -1,8 +1,10 @@
 import Image from 'next/image'
 import { listMicrobinfie, listPosts } from '@/lib/content.mjs'
 import { getDailyItem } from '@/lib/daily-pick.mjs'
+import ShareContactButton from '@/components/ShareContactButton'
+import { siteMetadata } from '@/siteMetadata'
 
-const profileImage = '/images/Nabil-FareedAlikhan-neutral-headshot-square.jpg'
+const profileImage = siteMetadata.image
 
 // Keep the recommendation fresh without requiring a new Netlify deploy.
 export const revalidate = 900
@@ -21,6 +23,14 @@ const links = [
     external: true,
   },
   {
+    title: 'Explore my website',
+    description: 'Science, software, writing and podcast',
+    href: '/',
+  },
+]
+
+const siteDiscoveries = [
+  {
     title: 'Science and impact',
     description: 'Pathogen genomics, tools and research',
     href: '/science',
@@ -30,9 +40,6 @@ const links = [
     description: 'The microbial bioinformatics podcast',
     href: '/microbinfie',
   },
-]
-
-const siteDiscoveries = [
   {
     title: 'Software I have helped build',
     description: 'Open-source tools for genomic analysis',
@@ -67,25 +74,20 @@ export const metadata = {
 
 export default async function HiPage() {
   const [posts, podcasts] = await Promise.all([listPosts(), listMicrobinfie()])
-  const dailyPost = getDailyItem(posts, 20)
-  const dailyPodcast = getDailyItem(podcasts, 21)
-  const dailySiteDiscovery = getDailyItem(siteDiscoveries, 22)
-  const dailyDiscovery = getDailyItem(
-    [
-      dailyPost && {
-        title: dailyPost.title,
-        description: 'Research note',
-        href: `/posts/${dailyPost.slug}`,
-      },
-      dailyPodcast && {
-        title: dailyPodcast.title,
-        description: 'MicroBinfie episode',
-        href: `/microbinfie/${dailyPodcast.slug}`,
-      },
-      dailySiteDiscovery,
-    ].filter(Boolean),
-    23
-  )
+  const discoveryPool = [
+    ...posts.map((post) => ({
+      title: post.title,
+      description: 'Research note',
+      href: `/posts/${post.slug}`,
+    })),
+    ...podcasts.map((podcast) => ({
+      title: podcast.title,
+      description: 'MicroBinfie episode',
+      href: `/microbinfie/${podcast.slug}`,
+    })),
+    ...siteDiscoveries,
+  ]
+  const dailyDiscovery = getDailyItem(discoveryPool, 23)
 
   return (
     <div className="contact-page contact-page-hi">
@@ -101,9 +103,9 @@ export default async function HiPage() {
 
         <p className="contact-eyebrow">Hello, I&apos;m</p>
         <h1 id="contact-name" className="contact-name">Nabil-Fareed Alikhan</h1>
-        <p className="contact-role">Bioinformatics · Microbial genomics · Software</p>
+        <p className="contact-role">Pathogen genomics · Open science · Software</p>
         <p className="contact-intro">
-          I build tools and platforms that help people make sense of pathogen genome data.
+          I study how pathogens respond to the environments we create, and build open tools that make genome data useful.
         </p>
 
         <div className="contact-actions">
@@ -113,6 +115,7 @@ export default async function HiPage() {
           <a className="contact-button contact-button-secondary" href="mailto:nabil@happykhan.com">
             Email me
           </a>
+          <ShareContactButton />
         </div>
 
         <nav className="contact-links" aria-label="Nabil's links">
@@ -135,7 +138,7 @@ export default async function HiPage() {
         {dailyDiscovery && (
           <aside className="contact-discovery" aria-labelledby="contact-discovery-title">
             <p id="contact-discovery-title" className="contact-discovery-label">
-              Something interesting today
+              Today&apos;s rabbit hole
             </p>
             <a className="contact-link contact-link-discovery" href={dailyDiscovery.href}>
               <span>
@@ -146,8 +149,6 @@ export default async function HiPage() {
             </a>
           </aside>
         )}
-
-        <a className="contact-home-link" href="/">Explore happykhan.com</a>
       </section>
     </div>
   )

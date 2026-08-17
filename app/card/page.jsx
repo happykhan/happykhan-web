@@ -1,6 +1,7 @@
 import Image from 'next/image'
+import { siteMetadata } from '@/siteMetadata'
 
-const profileImage = '/images/Nabil-FareedAlikhan-neutral-headshot-square.jpg'
+const profileImage = siteMetadata.image
 
 export const metadata = {
   title: 'Contact card — Nabil-Fareed Alikhan',
@@ -25,7 +26,7 @@ export default function CardPage() {
         />
 
         <h1 id="card-name" className="contact-card-name">Nabil-Fareed Alikhan</h1>
-        <p className="contact-card-role">Bioinformatics · Microbial genomics · Software</p>
+        <p className="contact-card-role">Bioinformatics · Pathogen genomics</p>
 
         <a className="contact-qr-link" href="/hi" aria-label="Open Nabil-Fareed Alikhan's contact page">
           <img
@@ -38,7 +39,7 @@ export default function CardPage() {
           />
         </a>
 
-        <p className="contact-scan-label">Scan to connect</p>
+        <p className="contact-scan-label">Scan to save my contact</p>
         <a className="contact-card-url" href="/hi">happykhan.com/hi</a>
       </section>
     </div>

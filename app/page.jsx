@@ -3,6 +3,7 @@ import { listMicrobinfie } from '@/lib/content.mjs'
 import { getPublications } from '@/lib/publications.mjs'
 import { getDailyItem } from '@/lib/daily-pick.mjs'
 import Image from 'next/image'
+import { siteMetadata } from '@/siteMetadata'
 
 // Re-render regularly so the London-date selections change without a new deploy.
 export const revalidate = 900
@@ -49,7 +50,7 @@ export default async function HomePage() {
   const podcasts = await listMicrobinfie()
   const publications = await getPublications()
   
-  // Get random featured items (using different offsets for variety)
+  // Rotate through each collection without repeating an item within a cycle.
   const featuredPost = getDailyItem(posts, 0)
   const featuredPodcast = getDailyItem(podcasts, 1)
   const featuredPaper = getDailyItem(publications, 2)
@@ -60,7 +61,7 @@ export default async function HomePage() {
         <div>
           <header style={{ marginBottom: '2.5rem' }}>
             <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start', marginBottom: '1.5rem' }}>
-              {/* Circular cartoon avatar */}
+              {/* Use the same recognisable portrait across the site and contact card. */}
               <div style={{ 
                 width: '120px', 
                 height: '120px', 
@@ -69,8 +70,8 @@ export default async function HomePage() {
                 flexShrink: 0
               }}>
                 <Image 
-                  src="/images/avatar-cartoon.png"
-                  alt="Nabil-Fareed Alikhan cartoon avatar"
+                  src={siteMetadata.image}
+                  alt="Nabil-Fareed Alikhan"
                   width={120}
                   height={120}
                   style={{ objectFit: 'cover' }}
