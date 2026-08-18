@@ -42,6 +42,24 @@ const siteDiscoveries = [
   },
 ]
 
+const softwareLinks = [
+  {
+    title: 'BRIGX',
+    description: 'Compare bacterial genomes in your browser',
+    href: 'https://brigx.genomicx.org/',
+  },
+  {
+    title: 'GrapeTree',
+    description: 'Explore genomic relationships interactively',
+    href: 'https://achtman-lab.github.io/GrapeTree/MSTree_holder.html',
+  },
+  {
+    title: 'EnteroBase',
+    description: 'Population-scale bacterial genomics',
+    href: 'https://enterobase.warwick.ac.uk/',
+  },
+]
+
 export const metadata = {
   title: 'Hello — Nabil-Fareed Alikhan',
   description: 'Contact details and selected links for Nabil-Fareed Alikhan.',
@@ -156,6 +174,27 @@ export default async function HiPage() {
             </div>
           </aside>
         )}
+
+        <nav className="contact-discovery" aria-labelledby="contact-software-title">
+          <p id="contact-software-title" className="contact-discovery-label">Software</p>
+          <div className="contact-discovery-links">
+            {softwareLinks.map((software) => (
+              <a
+                className="contact-link"
+                href={software.href}
+                key={software.title}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>
+                  <strong>{software.title}</strong>
+                  <small>{software.description}</small>
+                </span>
+                <span className="contact-link-arrow" aria-hidden="true">↗</span>
+              </a>
+            ))}
+          </div>
+        </nav>
       </section>
     </div>
   )
