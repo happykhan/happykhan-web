@@ -15,7 +15,7 @@ const portraitPath = path.join(
 const outputPath = path.join(projectRoot, 'public/images/happykhan-hi-qr.svg')
 
 const portrait = await sharp(portraitPath)
-  .resize(180, 180, { fit: 'cover', position: 'centre' })
+  .resize(220, 220, { fit: 'cover', position: 'centre' })
   .jpeg({ quality: 84, chromaSubsampling: '4:4:4' })
   .toBuffer()
 
@@ -34,20 +34,20 @@ const qrSvg = await QRCode.toString(cardUrl, {
 const portraitOverlay = `
   <defs>
     <clipPath id="portrait-clip">
-      <circle cx="18.5" cy="18.5" r="3.8"/>
+      <circle cx="18.5" cy="18.5" r="4.6"/>
     </clipPath>
   </defs>
-  <circle cx="18.5" cy="18.5" r="4.45" fill="#ffffff"/>
+  <circle cx="18.5" cy="18.5" r="5.2" fill="#ffffff"/>
   <image
     href="${portraitDataUri}"
-    x="14.7"
-    y="14.7"
-    width="7.6"
-    height="7.6"
+    x="13.9"
+    y="13.9"
+    width="9.2"
+    height="9.2"
     preserveAspectRatio="xMidYMid slice"
     clip-path="url(#portrait-clip)"
   />
-  <circle cx="18.5" cy="18.5" r="3.8" fill="none" stroke="#ffffff" stroke-width="0.35"/>
+  <circle cx="18.5" cy="18.5" r="4.6" fill="none" stroke="#ffffff" stroke-width="0.35"/>
 `
 
 const brandedQrSvg = qrSvg.replace('</svg>', `${portraitOverlay}</svg>`)
