@@ -25,7 +25,7 @@ export default function CardPage() {
           />
         </a>
 
-        <p className="contact-scan-label">Scan to save my contact</p>
+        <p className="contact-scan-label">Scan to open my contact page</p>
         <a className="contact-card-url" href="/hi">happykhan.com/hi</a>
       </section>
     </div>
