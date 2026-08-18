@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import PublicationCard from '@/components/PublicationCard'
+import { publicationMatchesSearch } from '@/lib/bibtex-text.mjs'
 
 export default function PublicationsClient({ publications }) {
   const searchParams = useSearchParams()
@@ -16,18 +17,7 @@ export default function PublicationsClient({ publications }) {
     }
   }, [searchParams])
   
-  const filteredPubs = publications.filter(record => {
-    const tags = record.entryTags
-    const searchText = filterText.toLowerCase()
-    
-    return (
-      tags.title?.toLowerCase().includes(searchText) ||
-      tags.journal?.toLowerCase().includes(searchText) ||
-      tags.year?.toLowerCase().includes(searchText) ||
-      tags.abstract?.toLowerCase().includes(searchText) ||
-      tags.author?.toLowerCase().includes(searchText)
-    )
-  })
+  const filteredPubs = publications.filter(record => publicationMatchesSearch(record, filterText))
   
   return (
     <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 1rem' }}>

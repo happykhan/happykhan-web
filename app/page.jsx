@@ -2,6 +2,7 @@ import { listPosts } from '@/lib/content.mjs'
 import { listMicrobinfie } from '@/lib/content.mjs'
 import { getPublications } from '@/lib/publications.mjs'
 import { getDailyItem } from '@/lib/daily-pick.mjs'
+import { cleanBibtexText, getPublicationSearchTerm } from '@/lib/bibtex-text.mjs'
 import Image from 'next/image'
 
 // Re-render regularly so the London-date selections change without a new deploy.
@@ -53,6 +54,8 @@ export default async function HomePage() {
   const featuredPost = getDailyItem(posts, 0)
   const featuredPodcast = getDailyItem(podcasts, 1)
   const featuredPaper = getDailyItem(publications, 2)
+  const featuredPaperTitle = cleanBibtexText(featuredPaper?.entryTags?.title)
+  const featuredPaperSearchTerm = getPublicationSearchTerm(featuredPaper?.entryTags?.title)
 
   return (
     <section>
@@ -175,13 +178,7 @@ export default async function HomePage() {
 
           {/* Featured Paper */}
           {featuredPaper && featuredPaper.entryTags && (
-            <a href={`/publications?search=${encodeURIComponent(
-              featuredPaper.entryTags.title
-                ?.replace(/[{}]/g, '')
-                .split(' ')
-                .slice(0, 3)
-                .join(' ')
-            )}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+            <a href={`/publications?search=${encodeURIComponent(featuredPaperSearchTerm)}`} style={{ textDecoration: 'none', color: 'inherit' }}>
               <div style={{
                 border: '1px solid var(--color-border)',
                 borderRadius: '8px',
@@ -195,7 +192,7 @@ export default async function HomePage() {
                   Publication
                 </div>
                 <h3 style={{ margin: '0 0 0.5rem 0', fontSize: '1.1rem', fontWeight: 600 }}>
-                  {featuredPaper.entryTags.title?.replace(/[{}]/g, '')}
+                  {featuredPaperTitle}
                 </h3>
                 <p style={{ color: 'var(--color-text-secondary)', fontSize: '0.9rem', margin: 0 }}>
                   {featuredPaper.entryTags.journal} ({featuredPaper.entryTags.year})
