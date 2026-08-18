@@ -3,6 +3,7 @@ import test from 'node:test'
 
 import {
   getDailyItem,
+  getDailyItems,
   getLondonDateSeed,
   getLondonDayNumber,
 } from '../lib/daily-pick.mjs'
@@ -37,7 +38,22 @@ test('returns a stable item throughout one London day', () => {
   assert.equal(morning, evening)
 })
 
+test('returns distinct daily items and advances without repeating', () => {
+  const items = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+  const firstDay = getDailyItems(items, 3, 23, new Date('2026-08-01T12:00:00Z'))
+  const secondDay = getDailyItems(items, 3, 23, new Date('2026-08-02T12:00:00Z'))
+
+  assert.equal(new Set(firstDay).size, 3)
+  assert.equal(new Set(secondDay).size, 3)
+  assert.equal(new Set([...firstDay, ...secondDay]).size, 6)
+})
+
+test('does not return more daily items than exist', () => {
+  assert.equal(getDailyItems(['a', 'b'], 3).length, 2)
+})
+
 test('returns null for an empty collection', () => {
   assert.equal(getDailyItem([]), null)
   assert.equal(getDailyItem(null), null)
+  assert.deepEqual(getDailyItems([], 3), [])
 })

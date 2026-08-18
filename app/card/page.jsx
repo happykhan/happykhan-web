@@ -1,8 +1,3 @@
-import Image from 'next/image'
-import { siteMetadata } from '@/siteMetadata'
-
-const profileImage = siteMetadata.image
-
 export const metadata = {
   title: 'Contact card — Nabil-Fareed Alikhan',
   description: 'Scan to connect with Nabil-Fareed Alikhan.',
@@ -16,15 +11,6 @@ export default function CardPage() {
   return (
     <div className="contact-page contact-page-card">
       <section className="contact-card-shell" aria-labelledby="card-name">
-        <Image
-          className="contact-avatar contact-card-avatar"
-          src={profileImage}
-          alt="Nabil-Fareed Alikhan"
-          width={120}
-          height={120}
-          priority
-        />
-
         <h1 id="card-name" className="contact-card-name">Nabil-Fareed Alikhan</h1>
         <p className="contact-card-role">Bioinformatics · Pathogen genomics</p>
 
