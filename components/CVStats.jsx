@@ -1,8 +1,7 @@
 'use client'
 
 
-import { useState, useEffect } from 'react'
-import { HIndexIcon, CitationsIcon, ExperienceIcon, CoffeeIcon } from './CVStatIcons'
+import { HIndexIcon, CitationsIcon, ExperienceIcon } from './CVStatIcons'
 
 // Minimalist download icon for software downloads
 function DownloadIcon({ size = 16, color = 'var(--card-title)' }) {
@@ -17,13 +16,6 @@ function DownloadIcon({ size = 16, color = 'var(--card-title)' }) {
 
 export default function CVStats({ stats }) {
   const { hIndex, citations, yearsExperience, softwareDownloads } = stats
-  const [coffeesDrunk, setCoffeesDrunk] = useState(0)
-
-  useEffect(() => {
-    // Generate random number between 1000 and 10000 on client side
-    const randomCoffees = Math.floor(Math.random() * (10000 - 1000 + 1)) + 1000
-    setCoffeesDrunk(randomCoffees)
-  }, [])
 
   const statItems = [
     {
@@ -45,11 +37,6 @@ export default function CVStats({ stats }) {
       label: 'Software Downloads',
       value: softwareDownloads ? softwareDownloads.toLocaleString() : '—',
       icon: <DownloadIcon size={16} color={'var(--card-title)'} />, 
-    },
-    {
-      label: 'Coffees Drunk',
-      value: coffeesDrunk.toLocaleString(),
-      icon: <CoffeeIcon size={16} color={'var(--card-title)'} />, 
     },
   ]
 

@@ -1,8 +1,8 @@
 
-description: "Bioinformatician, developer, and academic leader with 15+ years' experience in microbial genomics, open-source software, and collaborative science."
+description: "Senior bioinformatician and microbial genomicist with more than 15 years' experience developing scientific software, analysing pathogen populations and delivering genomic-surveillance programmes."
 stats:
   hIndex: 30
-  citations: 11687
+  citations: 12364
   yearsExperience: 15
   softwareDownloads: 94150
 grants:
@@ -76,118 +76,79 @@ education:
 skills:
   - name: Bioinformatics & Analysis
     items:
-      - label: De novo Assembly
-        rating: 5
-      - label: Read Mapping
-        rating: 5
-      - label: Population Genomics
-        rating: 4
-      - label: Comparative Genome Analysis
-        rating: 4
-      - label: Phylogenetics
-        rating: 4
-      - label: IQTree
-        rating: 3
-      - label: RAxML
-        rating: 3
-      - label: Statistics (Python/R)
-        rating: 4
-      - label: Linux & CLI
-        rating: 5
-  - name: Programming & Development
+      - label: Microbial population and comparative genomics
+      - label: Genomic surveillance and antimicrobial resistance
+      - label: Genome assembly, read mapping and phylogenetics
+      - label: Assembly quality control, validation and benchmarking
+      - label: Biological interpretation and scientific communication
+  - name: Scientific Software & Data
     items:
-      - label: Python
-        rating: 5
-      - label: JavaScript
-        rating: 4
-      - label: Java
-        rating: 3
-      - label: Bash
-        rating: 4
-      - label: Perl
-        rating: 3
-      - label: Flask
-        rating: 4
-      - label: SQL
-        rating: 4
-      - label: HTML/CSS
-        rating: 3
-      - label: PHP
-        rating: 2
-      - label: Full-Stack Development
-        rating: 4
+      - label: Python since 2009
+      - label: Flask, REST APIs and SQL
+      - label: JavaScript, TypeScript and React
+      - label: Java and WebAssembly
+      - label: Scientific web applications and biological databases
   - name: Infrastructure & Workflows
     items:
-      - label: HPC
-        rating: 4
-      - label: Nextflow
-        rating: 3
-      - label: Docker
-        rating: 4
-      - label: Cloud Computing
-        rating: 3
-      - label: Database Design
-        rating: 3
-      - label: Linux Server Administration
-        rating: 4
-      - label: Workflow Parallelization
-        rating: 4
-  - name: Leadership & Management
+      - label: Linux and HPC since 2008–2009
+      - label: Nextflow DSL2 and SLURM
+      - label: Docker and Apptainer
+      - label: AWS Batch and ECR
+      - label: Reproducible workflows and parallel execution
+  - name: Leadership, Teaching & Engagement
     items:
-      - label: Scientific Team Leadership
-        rating: 4
-      - label: Grant Writing & Costing
-        rating: 4
-      - label: Project Management
-        rating: 4
-      - label: Mentoring & Supervision
-        rating: 5
-      - label: Strategic Planning
-        rating: 3
-  - name: Policy & Engagement
-    items:
-      - label: Public Health Stakeholder Engagement
-        rating: 4
-      - label: Science Communication
-        rating: 4
-      - label: Policy Translation
-        rating: 3
-      - label: International Collaboration
-        rating: 5
+      - label: Bioinformatics team and service management
+      - label: Cross-partner programme delivery
+      - label: Mentoring, supervision and curriculum development
+      - label: Practical training and invited speaking
+      - label: Public-health and international stakeholder engagement
 positions:
   - title: Senior Bioinformatician
     organization: The Centre for Genomic Pathogen Surveillance (CGPS), University of Oxford, UK
     startYear: 2024
     endYear: null
     current: true
-    description: Leading development and integration of pathogen genomics platforms for global public health surveillance.
+    description: Develop pathogen-genomics software, analytical methods and training for international genomic-surveillance programmes.
     highlights:
-      - First author of the Pathogenwatch paper (medRxiv 2026); contributor to the CGPS genomic surveillance suite including Pathogenwatch (14,389 users across 165 countries; 875,000+ curated public genomes; MLST for 37+ species)
-      - Contributor to AMRwatch (620,700 pathogen genomes, PLOS Global Public Health 2025) and vaccines.watch — open surveillance platforms serving researchers and public health agencies globally
-      - Lead bioinformatics strategy and analytical pipeline development at CGPS; represent the group at national and international forums
-      - Named member of the UKHSA TARZET Invasive Meningococcal Disease Technical Group, contributing to the 2026 MenB outbreak response (Canterbury cluster, 23 cases)
-      - Translate pathogen genomic data into actionable public health outputs in collaboration with WHO, NIHR, and Gates Foundation-funded programmes
-  - title: Bioinformatics Scientific Programmer – Interim Head of Informatics
+      - Work within the PathogenWatch and AMRwatch development teams; built and benchmarked E. coli and Salmonella analysis containers and integrated BactScout and QualiBact quality controls into PathogenWatch
+      - Designed QualiBact, deriving versioned assembly-quality thresholds from 2,440,377 assemblies across 307 bacterial species and testing how failed quality control changes AMR detection
+      - Coordinate bioinformatics delivery across GHRU2 partner sites, including proficiency testing across five international organisations
+      - Contribute genomic-surveillance expertise to draft WHO AMR guidance, PATH-SAFE national recommendations and training in PathogenWatch, Microreact and genomic epidemiology
+      - Contributed to vaccines.watch through design discussion and review, and provided input on the manuscript
+  - title: Interim Head of Informatics
     organization: Quadram Institute Bioscience, Norwich, UK
-    startYear: 2018
-    endYear: 2023
+    startYear: May 2023
+    endYear: Dec 2023
     highlights:
-      - Appointed interim Head of Informatics (May 2023), leading core bioinformatics team of five
-      - Secured £1.4M BBSRC capital grant for computational resources through strategic planning
-      - Led national SARS-CoV-2 surge sequencing (Sept 2021-Apr 2022) - £4.5M project value
-      - "COG-UK Consortium: contributed analysis and curation of 80,000 SARS-CoV-2 genomes"
-      - Developed institute sample inventory management system
-      - PHA4GE infrastructure working group member - building consensus for public health bioinformatics
+      - Led a five-person bioinformatics service and held responsibility for computational infrastructure, budgets, training and delivery
+      - Led technical planning as PI for the £1.49 million BBSRC QIB Cloud Renewal capital award
+      - Managed service delivery through ticketing, time allocation, reproducible analysis expectations and staff development
+  - title: Bioinformatics Scientific Programmer
+    organization: Quadram Institute Bioscience, Norwich, UK
+    startYear: Dec 2018
+    endYear: Apr 2023
+    highlights:
+      - Built and ran QIB COG-UK bioinformatics infrastructure supporting the release of more than 80,000 SARS-CoV-2 genomes; managed staff covering processing, analysis and weekly reporting to government stakeholders
+      - Developed RonaQC quality-assurance infrastructure and a browser application for operational SARS-CoV-2 genomic surveillance
+      - First author on a multi-centre evaluation of the ARTIC sequencing method using data from more than 3,600 clinical samples
+      - First-authored a 2022 population-genomics study tracing AMR-carrying Salmonella across Brazilian poultry and UK food and clinical contexts
+      - Contributed to the PHA4GE metadata standard adopted by NCBI BioSample and helped develop requirements and provisioning for an institute sample-inventory system
   - title: Senior Research Fellow in Pathogen Bioinformatics
     organization: University of Warwick, UK
     startYear: 2016
     endYear: 2018
-    description: Integrated ancient metagenomes into EnteroBase and sequenced/analyzed 10,000 modern S. enterica genomes.
+    description: Analysed bacterial population genomics and integrated metagenomic data into large-scale surveillance infrastructure.
+    highlights:
+      - Integrated ancient metagenomes into EnteroBase and co-authored SPARSE, a method for reconstructing microbial strains from metagenomic sequence data
+      - Co-developed cgMLST schemes and first-authored the 2018 EnteroBase paper analysing population structure across more than 100,000 Salmonella genomes
   - title: Research Fellow in Genomics of Bacterial Pathogens
     organization: University of Warwick, UK
     startYear: 2014
     endYear: 2016
-    description: Co-developed EnteroBase (enterobase.warwick.ac.uk) for big-data genomic analysis of enteric pathogens and adapted robotic genotyping for high-throughput sequencing library preparation.
+    description: Developed scientific software and data infrastructure for large-scale bacterial population analysis.
+    highlights:
+      - Developed EnteroBase middleware and APIs in Python and Flask, designed its database and contributed JavaScript and Jinja views
+      - Co-developed GrapeTree for interactive exploration of large genomic datasets and continue to maintain the software
   - title: Research Associate
     organization: School of Chemistry and Molecular Biosciences, University of Queensland, Australia
     startYear: Mar 2009
@@ -198,6 +159,27 @@ positions:
     startYear: Nov 2008
     endYear: Jan 2009
     description: Programmed software pipelines for bioinformatics, especially parallelization on high-performance computer clusters. Server administration for sharing bacterial genomics data.
+software:
+  - name: PathogenWatch and AMRwatch
+    role: Development-team member
+    contribution: Built species-specific analysis containers, integrated genomic quality controls and developed automated interpretation of AMRFinderPlus outputs.
+    url: https://pathogen.watch/
+  - name: QualiBact
+    role: Designer and developer
+    contribution: Created a species-aware bacterial assembly-quality framework benchmarked on 2,440,377 assemblies across 307 species.
+    url: https://github.com/quadram-institute-bioscience/qualibact
+  - name: EnteroBase and GrapeTree
+    role: Developer and co-developer
+    contribution: Developed EnteroBase middleware, APIs and database design; co-developed and continue to maintain GrapeTree.
+    url: https://enterobase.warwick.ac.uk/
+  - name: BRIG
+    role: Creator and maintainer
+    contribution: Created and continue to maintain the Java desktop application for comparative-genome visualisation.
+    url: https://github.com/happykhan/BRIG
+  - name: RonaQC and GenomicX
+    role: Developer and maintainer
+    contribution: Develop browser-based scientific software using TypeScript, React and WebAssembly.
+    url: https://genomicx.org/
 service:
   - role: Technical Group Member
     org: UKHSA TARZET Invasive Meningococcal Disease Technical Group
@@ -251,3 +233,6 @@ contact:
   email: nabil@happykhan.com
   website: https://happykhan.com
   github: https://github.com/happykhan
+  linkedin: https://www.linkedin.com/in/nabil-fareed-alikhan/
+  scholar: https://scholar.google.com/citations?user=BpzrleYAAAAJ&hl=en
+  orcid: https://orcid.org/0000-0002-1243-0767

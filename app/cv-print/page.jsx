@@ -40,9 +40,9 @@ function formatAuthors(authorsStr) {
     const authors = clean.split(',').map(a => a.trim())
     
     if (authors.length > 3) {
-        return `${authors[0]}, et al.`
+        return `${authors[0]}, et al`
     }
-    return clean
+    return clean.replace(/[.]$/, '')
 }
 
 // --- Components for Print Layout ---
@@ -69,8 +69,8 @@ const Section = ({ title, children }) => {
 
 const Entry = ({ left, right, title, subtitle, details, titleStyle = {} }) => {
     return (
-        <div style={{ display: 'grid', gridTemplateColumns: '120px 1fr', marginBottom: '0.8rem', pageBreakInside: 'avoid' }}>
-            <div style={{ fontSize: '9pt', color: '#666', fontWeight: 500 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '120px minmax(0, 1fr)', columnGap: '16px', marginBottom: '0.8rem', pageBreakInside: 'avoid' }}>
+            <div style={{ fontSize: '8.5pt', color: '#666', fontWeight: 500, whiteSpace: 'nowrap' }}>
                 {left}
             </div>
             <div>
@@ -107,7 +107,9 @@ const PublicationItem = ({ entry }) => {
 
 export default async function PrintCVPage() {
   const cv = await getCVYamlData()
-  const { description, stats, education, positions, skills, grants, invited_speakers, service, contact, teaching } = cv
+  const { description, stats, education, positions, software, skills, grants, invited_speakers, service, contact, teaching } = cv
+  const awardedGrants = grants.filter((grant) => !grant.role?.startsWith('Inherited'))
+  const inheritedGrants = grants.filter((grant) => grant.role?.startsWith('Inherited'))
 
   const confYaml = await getConferencePresentationsData()
   const oralPresentations = confYaml.oral_presentations || []
@@ -226,9 +228,9 @@ export default async function PrintCVPage() {
 
             <div style={{ 
                 display: 'flex', 
-                flexWrap: 'wrap',
-                gap: '0.5rem 1.5rem',
-                fontSize: '8.5pt',
+                flexWrap: 'nowrap',
+                gap: '0.35rem 0.65rem',
+                fontSize: '7pt',
                 borderTop: '1px solid rgba(255,255,255,0.2)',
                 paddingTop: '0.6rem'
             }}>
@@ -244,6 +246,17 @@ export default async function PrintCVPage() {
                     <span style={{ opacity: 0.7 }}>GitHub:</span>
                     <span style={{ fontWeight: 500 }}>{contact?.github?.replace('https://github.com/', '')}</span>
                 </span>
+                <span style={{ display: 'inline-flex', gap: '0.4rem' }}>
+                    <span style={{ opacity: 0.7 }}>LinkedIn:</span>
+                    <span style={{ fontWeight: 500 }}>nabil-fareed-alikhan</span>
+                </span>
+                <span style={{ display: 'inline-flex', gap: '0.4rem' }}>
+                    <span style={{ opacity: 0.7 }}>ORCID:</span>
+                    <span style={{ fontWeight: 500 }}>0000-0002-1243-0767</span>
+                </span>
+            </div>
+            <div style={{ fontSize: '7.5pt', opacity: 0.78 }}>
+                Google Scholar: h-index {stats.hIndex}, {stats.citations.toLocaleString()} citations (verified 2 September 2026)
             </div>
         </header>
 
@@ -270,20 +283,54 @@ export default async function PrintCVPage() {
                     left={`${pos.startYear}–${pos.endYear || 'Present'}`}
                     title={pos.title}
                     subtitle={pos.organization}
-                    details={pos.description}
+                    details={
+                        <>
+                            {pos.description && <div>{pos.description}</div>}
+                            {pos.highlights?.length > 0 && (
+                                <ul style={{ margin: '0.35rem 0 0', paddingLeft: '1rem' }}>
+                                    {pos.highlights.map((highlight, j) => (
+                                        <li key={j} style={{ marginBottom: '0.2rem' }}>{highlight}</li>
+                                    ))}
+                                </ul>
+                            )}
+                        </>
+                    }
                 />
             ))}
         </Section>
 
-        <Section title="Funding & Grants">
-            {grants.map((grant, i) => (
+        <Section title="Research Software & Infrastructure">
+            {software.map((item, i) => (
+                <Entry
+                    key={i}
+                    left={item.role}
+                    title={item.name}
+                    details={item.contribution}
+                />
+            ))}
+        </Section>
+
+        <Section title="Research Funding">
+            <h3 style={{ fontSize: '10pt', marginBottom: '0.6rem' }}>Awards as PI or Co-PI</h3>
+            {awardedGrants.map((grant, i) => (
                 <Entry
                     key={i}
                     left={grant.year}
                     title={grant.title}
                     subtitle={grant.funder}
                     right={grant.amount}
-                    details={grant.role !== 'PI' ? `Role: ${grant.role}` : null}
+                    details={`Role: ${grant.role}`}
+                />
+            ))}
+            <h3 style={{ fontSize: '10pt', margin: '1rem 0 0.6rem' }}>Programme responsibility inherited on appointment</h3>
+            {inheritedGrants.map((grant, i) => (
+                <Entry
+                    key={i}
+                    left={grant.year}
+                    title={grant.title}
+                    subtitle={grant.funder}
+                    right={grant.amount}
+                    details={grant.role}
                 />
             ))}
         </Section>
@@ -322,7 +369,7 @@ export default async function PrintCVPage() {
             ))}
         </Section>
 
-        <Section title="Skills">
+        <Section title="Technical & Professional Expertise">
             <ul style={{ fontSize: '9.5pt', lineHeight: '1.6', paddingLeft: '1.2rem', margin: 0 }}>
                 {skills.map((s, i) => (
                     <li key={s.name || i} style={{ marginBottom: '0.4rem' }}>

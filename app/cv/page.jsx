@@ -16,7 +16,7 @@ export const metadata = {
 
   export default async function Page() {
     const cv = await getCVYamlData()
-    const { description, stats, education, positions, skills, grants, invited_speakers, service, publications_link, contact, teaching } = cv
+    const { description, stats, education, positions, software, skills, grants, invited_speakers, service, publications_link, contact, teaching } = cv
   
     // Load conference presentations YAML via server utility
   const confYaml = await getConferencePresentationsData()
@@ -41,7 +41,10 @@ export const metadata = {
           <div style={{ fontSize: '0.95rem', color: 'var(--card-meta)' }}>
             <span style={{ marginRight: '1.2rem' }}><b>Email:</b> <a href={`mailto:${contact.email}`} style={{ color: 'var(--card-title)' }}>{contact.email}</a></span>
             <span style={{ marginRight: '1.2rem' }}><b>Website:</b> <a href={contact.website} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--card-title)' }}>{contact.website.replace('https://', '')}</a></span>
-            <span><b>GitHub:</b> <a href={contact.github} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--card-title)' }}>{contact.github.replace('https://github.com/', '')}</a></span>
+            <span style={{ marginRight: '1.2rem' }}><b>GitHub:</b> <a href={contact.github} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--card-title)' }}>{contact.github.replace('https://github.com/', '')}</a></span>
+            <span style={{ marginRight: '1.2rem' }}><b>LinkedIn:</b> <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--card-title)' }}>nabil-fareed-alikhan</a></span>
+            <span style={{ marginRight: '1.2rem' }}><b>Scholar:</b> <a href={contact.scholar} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--card-title)' }}>profile</a></span>
+            <span><b>ORCID:</b> <a href={contact.orcid} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--card-title)' }}>0000-0002-1243-0767</a></span>
           </div>
         </div>
       )}
@@ -63,6 +66,9 @@ export const metadata = {
       )}
 
       <CVStats stats={stats} />
+      <p style={{ margin: '-0.35rem 0 1.4rem', fontSize: '0.75rem', color: 'var(--card-meta)', textAlign: 'right' }}>
+        Citation metrics verified on Google Scholar, 2 September 2026
+      </p>
 
       <h2 style={{ marginTop: '2rem', marginBottom: '1rem' }}>Education</h2>
       <EducationCards education={education} />
@@ -70,10 +76,22 @@ export const metadata = {
       <h2 style={{ marginTop: '2rem', marginBottom: '1.5rem' }}>Employment</h2>
       <CVTimeline positions={positions} />
 
+      <h2 style={{ marginTop: '2.5rem', marginBottom: '1.5rem' }}>Research Software & Infrastructure</h2>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '0.5rem', marginBottom: '1.1rem' }}>
+        {software.map((item) => (
+          <InfoCard
+            key={item.name}
+            title={item.name}
+            subtitle={item.role}
+            meta={<><span>{item.contribution}</span>{' · '}<a href={item.url} target="_blank" rel="noopener noreferrer">Project</a></>}
+          />
+        ))}
+      </div>
+
       <h2 style={{ marginTop: '2.5rem', marginBottom: '1.5rem' }}>Skills</h2>
       <SkillRatings skills={skills} />
 
-  <CVSectionToggle title="Grants">
+  <CVSectionToggle title="Research Funding">
     {grants && grants.length > 0 && (
       <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '0.5rem', marginBottom: '1.1rem' }}>
         {grants.map((grant, i) => (
